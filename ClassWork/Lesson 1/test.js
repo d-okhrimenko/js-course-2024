@@ -1,1 +1,2 @@
-123
+let test = 'hello';
+consol.log(test);
