@@ -5,6 +5,13 @@
 Приклади які розглядалися на уроці можна знайти в папці ClassWork<br>
 Презентації та додаткові матеріали будуть знаходитися в папці Presentations<br>
 
+### Посилання
+[Телеграм канал з інформацією щодо курсу](https://t.me/js_course_cbs)<br>
+[Чат для спілкування](https://t.me/+tVRybZbaI_k1ZThi)<br>
+[Навчальний центр CyberBionic Systematics](https://edu.cbsystematics.com/)<br>
+[Карти спеціальностей](https://edu.cbsystematics.com/ua/roadmap)<br>
+[Мої відео курси на ITVDN](https://itvdn.com/ua/catalog/author/dmitriy-okhrimenko)<br>
+
 ### Як здавати домашнє завдання на перевірку
 
 Зробіть fork цього репозиторію. Можете натиснути на кнопку з текстом Fork у правій верхній частині сторінки репозиторію або перейдіть [по посиланню](https://github.com/d-okhrimenko/js-course-2024/fork) 
