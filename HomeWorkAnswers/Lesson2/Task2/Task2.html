@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 2 task2</title>
+    <link href="styles2.css" rel="stylesheet" />
+  </head>
+  <body>
+    <p>Current Date is</p>
+    <button id="btn">Click me to get the current date</button>
+   <!--
+   <script src="task2.js" ></script>
+  -->
+   <script>
+    document.querySelector("#btn").onclick = function() {
+        let output = document.queryselector("#output");
+     output.innerHTML = new Date ();
+    }
+   </script>
+  </body>
+</html>
