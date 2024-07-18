@@ -1,0 +1,12 @@
+
+.block-one{
+margin-bottom: 40px;
+}
+
+.block-one, .block-two {
+	max-width: 700px;
+	padding: 20px;
+	font-size: 18px;
+	background: silver;
+}
+
