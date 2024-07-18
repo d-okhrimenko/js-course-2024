@@ -26,4 +26,5 @@ Fork – це копія репозиторію, яка дозволяє вам 
 
 ### Записи уроків
 [1. Основи GIT](https://www.youtube.com/watch?v=8Udwdb2Mbd4&ab_channel=ITVDN)
+
 [2. Як почати писати на JavaScript](https://www.youtube.com/watch?v=Rp3aT2bEE24&ab_channel=ITVDN)
