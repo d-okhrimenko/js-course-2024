@@ -1,9 +1,6 @@
-
-    // document.querySelector("#btn").onclick = function() {
-    //     let output = document.queryselector("#output");
-    // output.Task2.html = new Date ();
-// }
-// document.querySelector("#btn").onclick = function() {
-//     let output = document.queryselector("#output");
-//     output. innerHIML = "HELLo, my name 15 Onytro";
-// }
+document.querySelector("#btn").onclick = function () {
+    let date = new Date();
+    let outputDate = `Current date is: ${date}`
+    document.querySelector("#output").innerHTML = outputDate;
+    //console.log(date);
+}
