@@ -1,6 +1,11 @@
 
+
 .block-one{
 margin-bottom: 40px;
+}
+
+.block-one__date {
+	margin-bottom: 30px;
 }
 
 .block-one, .block-two {
@@ -10,3 +15,6 @@ margin-bottom: 40px;
 	background: silver;
 }
 
+button{
+padding: 10px 15px ;
+}
