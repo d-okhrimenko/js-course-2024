@@ -1,0 +1,30 @@
+<!-- 
+[3.	Створіть кнопку на сторінці з текстом "Скажи привіт", зробіть щоб при кліку по кнопці виводилося 
+повідомлення "Привіт {name}" де замість {name} буде виводитися ваше ім'я.]  
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="output">Привіт, [name]!</p>
+    <button id="btn">[Скажи Привіт]</button>
+
+    <script>
+        document.querySelector("#btn").onclick = function () {
+            let output = document.querySelector("#output");
+            output.innerHTML = "Привіт, Данило!";
+            output.style.color = "red";
+            console.log("Привіт, Данило!");
+            alert("Привіт, Данило!");
+        }
+    </script>
+</body>
+
+</html>
