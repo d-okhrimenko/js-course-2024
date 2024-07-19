@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Say Hello</title>
+</head>
+<body>
+    <button id="hello-button">Say "Hello!"</button>
+    <script>
+        let name = prompt("What is yout name?");
+        document.querySelector("#hello-button").onclick = function() {
+            alert("Hello, " + name + "!")
+        }
+    </script>
+</body>
+</html>
