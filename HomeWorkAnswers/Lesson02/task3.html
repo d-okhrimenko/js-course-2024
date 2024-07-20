@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>lesson.2 task.3</h2>
+    <p>3. Створіть кнопку на сторінці з текстом "Скажи привіт",
+        зробіть щоб при кліку по кнопці виводилося повідомлення
+        "Привіт {name}" де замість {name} буде виводитися ваше ім'я.
+    </p>
+    <p id="greet"></p>
+    <button id="greetButton">Скажи привіт</button>
+    <script>
+        const userName = 'javaScriptUser';
+        const p = document.querySelector('#greet');
+        const b = document.querySelector('#greetButton');
+        b.addEventListener("click", function () {
+            p.innerHTML = `Привіт ${userName}`;
+            console.log(`Привіт ${userName}`);
+            alert(`Привіт ${userName}`);
+        });
+    </script>
+</body>
+
+</html>
