@@ -3,22 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lesson 2 (CBS: java script 2024)</title>
+    <title>Lesson 2, task#2 (CBS: java script 2024)</title>
   </head>
   <body>
     <!-- output to page -->
-    Current date: <span id="current-date"></span>
+    <p id="current-date"></p>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
         const control = document.getElementById("current-date");
-        control.innerHTML = new Date();
+        control.innerHTML = "<b>Current date:</b> " + new Date();
         control.style.color = "green";
-      });
     </script>
 
-    <!-- and to console -->
+    <!-- and output to console  and using alert-->
     <script>
       console.log(new Date());
+      alert(new Date());
     </script>
   </body>
 </html>

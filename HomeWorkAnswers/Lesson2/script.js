@@ -1,5 +1,5 @@
 function getGreating(userName) {
-    return `Hello ${userName}`;
+    return `Hello ${userName}! Have a nice day!`;
 }
 
 document.querySelector("#btn-say").onclick = function() {
