@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="output" style="color:green" >Hello! What`s your name?</p>
+   
+    <input type="text" id="name" value="...">
+    <p>Input your name and press buttom</p>
+    <button id="btn">Press me</button>
+
+    <p id="ans" style="color:fuchsia"></p>
+ 
+    <script>
+
+        document.querySelector("#btn").onclick = function() {
+            let x = document.getElementById("name").value;
+            document.getElementById("ans").innerHTML = "Hello " + x + "!";
+        }
+
+    </script>
+
+</body>
+
+</html>
