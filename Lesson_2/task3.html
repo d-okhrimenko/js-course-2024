@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+
+<style>
+    div {        
+        margin: 20px auto;
+        text-align: center;
+    }
+    .btn {       
+        padding: 10px 20px;
+        background-color: rgb(7, 110, 40);
+        color:#fff;
+        border: none;
+        cursor: pointer;
+    }
+    
+
+</style>
+
+<body>
+    <div>
+        <button class="btn"> Скажи привіт </button>
+        <p class="name">👋</p>
+    </div>
+    
+</body>
+
+<script>
+    document.querySelector(".btn").onclick = function() {
+       let getName = document.querySelector(".name");
+       getName.innerHTML = "Привіт, Марина!"
+    }
+    
+</script>
+</html>
