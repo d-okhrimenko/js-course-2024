@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            text-align: center;
+            font-size: 100px;
+            color: black;
+        }
+        button{
+            text-align: center;
+            font-size: 20px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p id="output"></p>
+    <button id="btn">Скажи привіт</button>
+    <script>
+        document.querySelector("#btn").onclick=function(){
+            document.querySelector("#output").innerHTML="Привіт Макс"
+        }
+    </script>
+    
+</body>
+</html>
