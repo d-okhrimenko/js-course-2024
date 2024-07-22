@@ -1,4 +1,5 @@
 document.getElementById("say-hello").onclick = function(){
-    let greeting = "Привіт, Дмитро!"
+    const name = "Дмитро"
+    let greeting = `Привіт, ${name}!`
     document.getElementById("greeting").innerHTML = greeting
 }
