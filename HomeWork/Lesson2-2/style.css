@@ -1,0 +1,9 @@
+.date {
+    max-width: 900px;
+    max-height: 600px;
+    border: 1px solid black;
+    padding: 24px;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 100px auto;
+}
