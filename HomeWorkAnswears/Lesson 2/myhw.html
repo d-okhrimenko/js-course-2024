@@ -24,10 +24,10 @@
         <p>Домашне завдання уроку №2</p>
         <button id="btn">Тисни, щоб передати привіт!</button>
     </div>
-    
+
     <script>
         console.log(new Date());
-        let name = "Олександр";
+        let name = prompt("Як тебе звати?");
         document.querySelector("#btn").onclick = function(){
             alert("Привіт, "+name+". Сьогодні чудовий день.");
         }
