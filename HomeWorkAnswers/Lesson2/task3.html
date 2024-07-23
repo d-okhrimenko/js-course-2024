@@ -7,9 +7,12 @@
   <title>Task 3. My Name variable.</title>
 </head>
 <body>
-  <button>Скажи привіт</button>
+  <button id="my_name_output">Скажи привіт</button>
   <script>
-    
+    const name = "Liza";
+    document.querySelector("#my_name_output").onclick = function(){      
+      alert(`Привіт ${name}`);
+    }   
   </script>
 </body>
 </html>
