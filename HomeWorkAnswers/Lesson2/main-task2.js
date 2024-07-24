@@ -1,6 +1,6 @@
-// alert("Current day - 21.07.2024");
-// console.log("Current day - 21.07.2024");
-document.querySelector("#btn").onclick = function () {
-  let output = document.querySelector("#output");
-  output.innerHTML = "Current date - 21.07.2024";
+// / alert(new Date());
+// console.log(new Date());
+
+document.querySelector("button").onclick = function () {
+  document.querySelector("p").innerHTML = new Date();
 };
