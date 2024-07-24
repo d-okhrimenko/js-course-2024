@@ -1,0 +1,20 @@
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+.button {
+  font-size: 20px;
+  padding: 5px 20px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  background-color: inherit;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+}
