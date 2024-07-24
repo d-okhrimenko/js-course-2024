@@ -1,6 +1,6 @@
 document.querySelector("#btn").onclick = function(){
     let output = document.querySelector("#output");
-    output.innerHTML = new Date();
+    output.innerHTML = new Date().toLocaleDateString();
     output.style.color = "green";
 }
 
