@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITVDN HomeWork (Lesson2. Task3)</title>
+  </head>
+  <body>
+    <form class="js-welcomeForm">
+      <label for="guestName">
+        <span>Введіть ваше Ім'я:</span>
+        <input type="text" name="guestName" id="guestName" />
+      </label>
+      <button type="submit">Скажи привіт</button>
+    </form>
+
+    <script>
+      const welcomeForm = document.querySelector('.js-welcomeForm');
+
+      const handleSubmit = (evt) => {
+        evt.preventDefault();
+        const form = evt.target;
+        const guestName = form.elements.guestName.value;
+
+        alert(`Привіт ${guestName || 'незнайомцю'}`);
+        form.reset();
+      };
+
+      welcomeForm.addEventListener('submit', handleSubmit);
+    </script>
+  </body>
+</html>
