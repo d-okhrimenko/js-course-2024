@@ -11,7 +11,8 @@
     <button id="btn">Скажи привіт</button>
   </body>
   <script>
-    document.querySelector("#outBox").innerHTML = new Date();
+    document.querySelector("#outBox").innerHTML =
+      new Date().toLocaleDateString();
     document.querySelector("#btn").onclick = function () {
       document.querySelector("#greet").innerHTML = "Привіт, Valentyna";
     };
