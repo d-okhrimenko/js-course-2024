@@ -1,9 +1,10 @@
 let getNum;
 
 do {
-    getNum = prompt("Enter a number.");
-    getNum = parseInt(getNum);
+    getNum = prompt("Enter a number."); // asking the user to enter a number
+    getNum = parseInt(getNum); // parsing the entered value to the number
 
+    // checking if the number is correct
     if (isNaN(getNum)) {
         alert('You entered incorrect symbols!');
     } else if (getNum < 0) {
@@ -13,7 +14,7 @@ do {
     }
 } while (getNum <= 0);
 
-
+// checks whether the number is even or not
 let getNum2 = getNum;
 
 if (getNum2 % 2 === 0) {
