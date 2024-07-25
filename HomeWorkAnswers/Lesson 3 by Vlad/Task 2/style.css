@@ -1,4 +1,8 @@
-h1 {color:rgb(26, 5, 162);}
+h1 {color:rgb(26, 5, 162);
+text-align: center;}
+h2 {
+    text-align: center;
+}
 button {
     background-color: blue; /* Set the background color */
     color: white; /* Set the text color */
@@ -6,8 +10,11 @@ button {
     padding: 10px 20px; /*  Add padding */
     font-size: 16px; /*  Set font size */
     cursor: pointer; /*  Change cursor on hover */
-}
+    }
 
 button:hover {
     background-color: darkblue; /*  Change background color on hover */
+}
+div {
+    text-align: center;
 }
