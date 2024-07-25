@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson3 task3</title>
+  </head>
+  <body>
+    <script>
+      let value = +prompt("Введіть рік");
+      if (isNaN(value)) alert("Введене значення некоректне");
+      else if (String(value).length !== 4) alert("Рік повинен мати 4 цифри");
+      else {
+        if (value % 100 === 0) {
+          if (value % 400 === 0) alert("Рік є високосним");
+          else alert("Рік не є високосним");
+        } else if (value % 4 === 0) alert("Рік є високосним");
+        else alert("Рік не є високосним");
+      }
+    </script>
+  </body>
+</html>
