@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+<body>
+    <script>
+        const NUM = prompt("Введіть число:");
+        const CONVERTED = Number(NUM);
+
+        if (isNaN(NUM) || NUM === null) {
+            alert("Введіть коректне число!");
+        } else if (CONVERTED % 2 === 0) {
+            alert("Число є парним.");
+        } else if (CONVERTED % 2 !== 0) {
+            alert("Число є непарним.");
+        }
+    </script>
+</body>
+</html>
