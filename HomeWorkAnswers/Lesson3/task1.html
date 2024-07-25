@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевірка на парність</title>
+    <script>
+        function checkEvenOdd() {
+            // Введення числа користувачем
+            let input = prompt("Введіть число:");
+
+            // Перетворення введеного значення на число
+            let number = parseInt(input);
+
+            // Перевірка введених даних
+            if (isNaN(number)) {
+                alert("Будь ласка, введіть коректне число.");
+            } else {
+                // Перевірка на парність
+                if (number % 2 === 0) {
+                    alert("Число " + number + " є парним.");
+                } else {
+                    alert("Число " + number + " є непарним.");
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="checkEvenOdd()">
+    <h1>Перевірка на парність числа</h1>
+</body>
+</html>
