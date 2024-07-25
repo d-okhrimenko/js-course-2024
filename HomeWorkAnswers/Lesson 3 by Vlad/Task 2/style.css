@@ -1,0 +1,16 @@
+h1 {color:rgb(26, 5, 162);}
+button {
+    background-color: blue; /* Set the background color */
+    color: white; /* Set the text color */
+    border: none; /* Optional: Remove border */
+    padding: 10px 20px; /* Optional: Add padding */
+    font-size: 16px; /* Optional: Set font size */
+    cursor: pointer; /* Optional: Change cursor on hover */
+}
+
+button:hover {
+    background-color: darkblue; /* Optional: Change background color on hover */
+}
+/* output {
+    border: 10cm;
+} */
