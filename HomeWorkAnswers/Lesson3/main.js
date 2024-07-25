@@ -3,16 +3,15 @@ document.querySelector("#bTn").onclick = function() {
 }
 
 function inputSomeValue(){
-
     let checkNumber = document.querySelector("#numInput").value; 
     if (isNaN(checkNumber)){
         alert("Це не число :( Спробуйте знову")
     }
-    else if (Number(checkNumber)===0){
+    else if (Number(checkNumber)==0){
         alert("Спробуйте знову");  
     }
     else{
-        if(Number(checkNumber)%2===0){
+        if(Number(checkNumber)%2==0){
             alert("Число парне");  
         }
         else{
