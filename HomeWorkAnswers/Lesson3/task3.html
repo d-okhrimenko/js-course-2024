@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+<body>
+    <script>
+        const YEAR = Number(prompt("Введіть рік:"));
+        const DATE = new Date();
+
+        if (isNaN(YEAR) || YEAR < 1 || YEAR > DATE.getFullYear()) {
+            alert("Введіть коректне число!");
+        } else if (YEAR % 4 === 0) {
+            alert("Рік є високосним.");
+        } else {
+            alert("Рік не є високосним.");
+        }
+    </script>
+</body>
+</html>
