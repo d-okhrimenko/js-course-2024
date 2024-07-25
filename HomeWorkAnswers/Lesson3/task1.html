@@ -7,13 +7,14 @@
 </head>
 <body>
     <script>
-        const NUM = Number(prompt("Введіть число:"));
+        const NUM = prompt("Введіть число:");
+        const CONVERTED = Number(NUM);
 
-        if (isNaN(NUM)) {
+        if (isNaN(NUM) || NUM === null) {
             alert("Введіть коректне число!");
-        } else if (NUM % 2 === 0) {
+        } else if (CONVERTED % 2 === 0) {
             alert("Число є парним.");
-        } else if (NUM % 2 !== 0) {
+        } else if (CONVERTED % 2 !== 0) {
             alert("Число є непарним.");
         }
     </script>
