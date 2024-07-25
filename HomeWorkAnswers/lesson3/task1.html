@@ -10,14 +10,14 @@
 
     <script>
       document.querySelector("#btn").onclick = function () {
-        let numb = prompt("Введіть число");
+        let numb = parseInt(prompt("Введіть число"));
         // console.log(typeof numb);
         if (isNaN(numb)) {
           alert("Спробуйте знов.");
         } else {
           if (numb % 2) {
             alert("Введене число не є парним.");
-            // console.log(typeof numb);
+            console.log(typeof numb);
           } else {
             alert("Введене число є парним.");
             // console.log(typeof numb);
