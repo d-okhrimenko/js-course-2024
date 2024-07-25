@@ -1,0 +1,34 @@
+
+.btn{
+    background-color: rgb(228, 214, 28);
+    border-color: black;
+    padding: 10px 20px;
+    border: 2px solid #105213;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.btn:hover {
+    background-color: #194d88; /* темніший зелений при наведенні */
+}
+
+.data-text{
+    color: #031831;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5)    
+}
+
+.text{
+    color: #031831;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5)
+}
+
