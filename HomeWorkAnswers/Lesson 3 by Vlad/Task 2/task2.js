@@ -1,7 +1,8 @@
 document.querySelector("#btn").onclick = function () {
-    let date = new Date();
-    let dayNum = Number(date.getDay());
+    let date = new Date(); //we are getting current date, time and day
+    let dayNum = Number(date.getDay()); //we are extracting the day number
 
+    // we are asignung day number to the day name starting from 0= Sunday
     if (dayNum == 0) {
         let outputDay = `Current day is: Sunday`;
         document.querySelector("#output").innerHTML = outputDay;
