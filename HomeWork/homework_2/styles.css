@@ -1,0 +1,26 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.greeting-wrapper {
+  margin: 0 auto;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-greeting {
+  padding: 10px 10px;
+}
+
+.name-input {
+  padding: 10px 10px;
+  font-size: 18px;
+}
+
+.greeting-text {
+  font-size: 22px;
+}
