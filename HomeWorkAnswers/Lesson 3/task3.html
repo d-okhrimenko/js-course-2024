@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3 task 3</title>
+</head>
+<body>
+    <h1>Lesson3 task 3</h1>
+
+    <script>
+        const year = +prompt('Enter a year');
+        let date = new Date(`${year}`, 2, 0);
+        let daysInFebruary = date.getDate();
+
+        if(year && daysInFebruary === 29) {
+            alert('It is a leap year')
+        } else if (year && daysInFebruary === 28) {
+            alert('It is not a leap year')
+        } else {
+            alert('Please enter a year')
+        }
+
+        console.log(daysInFebruary)
+    </script>
+</body>
+</html>

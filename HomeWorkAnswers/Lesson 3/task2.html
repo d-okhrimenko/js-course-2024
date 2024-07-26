@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3 task 2</title>
+</head>
+<body>
+    <h1>Lesson 3 Task 2</h1>
+    <div class="out"></div>
+
+    <script>
+        const day = new Date().getDay();
+        const out = document.querySelector('.out');
+
+        switch(day) {
+            case 1:
+                out.textContent = "Today is Monday";
+                breake;
+            case 2:
+                out.textContent = "Today is Tuesday";
+                breake;
+            case 3:
+                out.textContent = "Today is Wednesday";
+                breake;
+            case 4:
+                out.textContent = "Today is Thursday";
+                breake;
+            case 5:
+                out.textContent = "Today is Friday";
+                breake;
+            case 6:
+                out.textContent = "Today is Saturday";
+                breake;
+            case 0:
+                out.textContent = "Today is Sunday";
+                breake;
+        }
+
+        console.log(day)
+    </script>
+</body>
+</html>
