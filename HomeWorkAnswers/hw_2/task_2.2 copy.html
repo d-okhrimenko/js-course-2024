@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task_2.2</title>
+    <style>
+        body{
+            padding: 50px;
+        }
+        .container {
+            width: 600px;
+            margin: 0 auto;
+            background-color: #93e17b;
+            padding: 20px;
+            border-radius: 20px;
+            border: 3px solid rgb(4, 96, 64);
+        }
+        .title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 900;
+            text-decoration: underline;
+        }
+        .resultDate {
+            border: 3px solid gray;
+            border-radius: 16px;
+            height: 30px;
+            text-align: center;
+            padding: 0;
+            padding-top: 8px;
+        }
+        .btn {
+            padding: 8px;
+           display: block;
+           margin: 0 auto;
+           background-color: #d54242;
+           color: rgb(223, 209, 209);
+           border-radius: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="title">Info about current date</h3>
+        <p class="resultDate"></p>
+        <button class="btn">Show date</button>
+    </div>
+    <script>
+       const btnShowDate = document.querySelector(".btn");
+       btnShowDate.addEventListener('click', showDate);
+       function showDate () {
+        const resShowDate = document.querySelector('.resultDate');
+        resShowDate.innerHTML = new Date;
+        console.log(new Date);
+       }
+       
+    </script>
+</body>
+</html>
