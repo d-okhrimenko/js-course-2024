@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const value = prompt('Enter a year, please', '');
+
+    if (isFinite(value) && value !== '' && value !== null) {
+      const result = value % 4 === 0 ? 'This is a leap year' : 'This is\'t a leap year';
+
+      alert(result);
+    } else {
+      alert('The value isn\'t a year');
+    }
+  </script>
+</body>
+
+</html>
