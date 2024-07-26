@@ -1,0 +1,25 @@
+h1 {
+  color: blue;
+}
+
+p {
+  font-size: 20px;
+  color: blue;
+}
+
+input {
+  font-size: 20px;
+  color: blue;
+  border-color: blue;
+}
+
+button {
+  font-size: 20px;
+  background-color: yellow;
+  border-color: blue;
+}
+
+b {
+  font-size: 24px;
+  color: blue;
+}
