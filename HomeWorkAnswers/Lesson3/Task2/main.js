@@ -9,12 +9,10 @@ function showDayOfTheWick(value) {
   let result = "";
   let daysOfTheWick = ["Нуділя", "Понедмлок", "Вівторок", "Середа", "Четверг", "П'ятниця", "Субота"];
 
-  if (value < 0 && value > daysOfTheWick.length) {
+  if (value < 0 || value > daysOfTheWick.length) {
     return;
   }
-  if(value > 0 && value < daysOfTheWick.length -1){
 
-  }
   result = daysOfTheWick[value];
   return result;
 }
