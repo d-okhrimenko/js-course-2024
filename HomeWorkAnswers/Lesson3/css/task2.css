@@ -1,0 +1,15 @@
+div {
+  text-align: center;
+}
+
+button {
+  width: 100px;
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+b {
+  font-size: 24px;
+  color: red;
+}
