@@ -3,7 +3,7 @@ let myDay = currentDate.getDay();
 
 let para = document.querySelector("#result");
 
-let daysOfWeek = [
+const daysOfWeek = [
   "Неділя",
   "Понеділок",
   "Вівторок",
