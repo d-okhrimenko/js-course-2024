@@ -1,0 +1,66 @@
+# System files
+.DS_Store
+.localized
+
+# Specific directories
+Automation learning/
+Everbeat/
+JSlearn/
+Manual QA/
+everbeat2.0-main/
+
+# Specific files
+01-task.html
+file.js
+
+# Node.js specific
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Compiled source
+*.out
+*.class
+
+# Temporary files
+*.tmp
+*.temp
+
+# Editor directories and files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Application specific
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*.orig
+
+# JetBrains specific
+.idea/
+*.iml
+
+# Visual Studio Code specific
+.vscode/
+
