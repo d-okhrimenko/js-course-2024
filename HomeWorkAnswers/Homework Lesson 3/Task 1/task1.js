@@ -1,17 +1,21 @@
-function checkInput() {
-    let inputValue;
+function checkNumber() {
+    let inputNumber;
     while (true) {
-        inputValue = Number(prompt("Input number"));
-        if (isNaN(inputValue)) {
+        inputNumber = prompt("Input Number to START\nInput 'Q' to QUIT");
+        if (inputNumber === 'q' || inputNumber === 'Q') {
+            break;
+        }
+        inputNumber = Number(inputNumber);
+        if (isNaN(inputNumber)) {
             alert("It is not a NUMBER. Please, input NUMBER!");
             continue;
         }
-        if (inputValue % 2 === 0) {
-            alert("Number " + inputValue + " is even.");
-            continue;
+        if (inputNumber % 2 === 0) {
+            alert("Number " + inputNumber + " is even.");
+        } else {
+            alert("Number " + inputNumber + " is odd.");
         }
-        alert("Number " + inputValue + " is odd.");
     }
 }
 
-checkInput();
+checkNumber();
