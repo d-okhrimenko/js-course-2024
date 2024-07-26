@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task2</title>
+</head>
+
+<body>
+    <h1 id="output"></h1>
+    <script>
+        let weekday;
+        console.log(new Date().getDay())
+        switch (new Date().getDay()){
+            case 0:{
+                weekday="Неділя";
+                break;
+            }
+            case 1:{
+                weekday="Понеділок";
+                break;
+            }
+            case 2:{
+                weekday="Вівторок";
+                break;
+            }
+            case 3:{
+                weekday="Середа";
+                break;
+            }
+            case 4:{
+                weekday="Четвер";
+                break;
+            }
+            case 5:{
+                weekday="П'ятниця";
+                break;
+            }
+            case 6:{
+                weekday="Субота";
+                break;
+            }
+        }
+        document.querySelector("#output").innerHTML=weekday;
+    </script>
+</body>
+</html>
