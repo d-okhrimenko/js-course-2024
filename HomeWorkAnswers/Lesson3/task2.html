@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 2 (HOMEWORK)</title>
+</head>
+<body>
+    <p>Current date: <span id="current-date"></span></p>
+    <p>Day name is: <span id="current-day"></span></p>
+
+    <script src="functions.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const controlDate = document.getElementById("current-date");
+        const date = new Date();
+
+        controlDate.innerHTML = date;
+        controlDate.style.color = "green";
+
+        const controlDayName = document.getElementById("current-day");
+        controlDayName.innerHTML = getTodayDayName(date);
+        controlDayName.style.color = "blue";
+      });
+
+    </script>
+</body>
+</html>
