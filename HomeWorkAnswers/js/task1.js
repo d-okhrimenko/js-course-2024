@@ -4,7 +4,7 @@ const userNumber = Number(input);
 if (isNaN(userNumber)) {
   alert(`Введіть будь-ласка корректне число`);
 } else {
-  if (userNumber % 2) {
+  if (userNumber % 2 !== 0) {
     alert(`Число ${userNumber} є непарним`);
   } else {
     alert(`Число ${userNumber} є парним`);
