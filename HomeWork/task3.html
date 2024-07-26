@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let enteredYear;
+      let isValid = false;
+
+      while (!isValid) {
+        enteredData = prompt("Enter any year");
+
+        enteredYear = parseInt(enteredData);
+
+        if (!isNaN(enteredYear)) {
+          isValid = true;
+        } else {
+          alert("Please, enter a valid year!");
+        }
+      }
+
+      if (enteredYear % 4 === 0) {
+        alert("It's a leap year :)");
+      } else {
+        alert("It's NOT a leap yea!");
+      }
+    </script>
+  </body>
+</html>
