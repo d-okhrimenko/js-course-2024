@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Привітання</title>
+</head>
+<body>
+	<p id="output" style="color:rgb(128, 100, 0)"></p>
+    <button id="greetButton">Скажи привіт</button>
+
+    <script>
+        // Ваше ім'я
+        const name = "Ваше Ім'я";
+
+        // Отримання кнопки по ID
+        const button = document.getElementById("greetButton");
+
+        // Додавання обробника подій для натискання кнопки
+        button.addEventListener("click", function() {
+            // Вивід привітання з ім'ям у консоль
+            let output = document.querySelector("#output");
+            let name = "Микола"
+            output.innerHTML = `Привіт,  ${name}`;
+            output.style.color = "green"; 
+        });
+    </script>
+</body>
+</html>
