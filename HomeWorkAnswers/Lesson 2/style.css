@@ -1,0 +1,32 @@
+.container {
+    max-width: 600px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.greeting-container {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.message {
+    height: 50px;
+    width: 400px;
+    background: darkblue;
+    color: white; 
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+button {
+    padding: 10px;
+    border: 1px solid darkblue;
+    border-radius: 10px;
+}
