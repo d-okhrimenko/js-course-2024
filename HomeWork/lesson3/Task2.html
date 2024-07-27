@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let currentDay = new Date();
+        let dayOfWeek = currentDay.getDay();
+        const dayNames = [
+            "неділя",
+            "понеділок",
+            "вівторок",
+            "середа",
+            "четвер",
+            "п'ятниця",
+            "субота"
+        ];
+        switch (dayOfWeek) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                alert("Сьогодні " + dayNames[dayOfWeek]);
+                break;
+            default:
+                alert("Невідома дата");
+                break;
+        }
+    </script>
+</body>
+
+</html>
