@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Написати програму, яка перевіряє, чи є введений рік високосним
+    while (true) {
+      // Введення року
+      let userInput = prompt("Enter a year:");
+      if (!userInput) break;
+      // Перетворення введених даних на число
+      let year = Number(userInput);
+
+      // Перевірка введених даних
+      if (isNaN(year)) {
+        alert("Please, enter correct year");
+      }
+      else {
+        // Виведення результату
+        alert(checkLeapYear(year));
+      }
+    }
+
+    // Перевірка на високосний рік
+    function checkLeapYear(year) {
+      if ((0 == year % 4) && (0 != year % 100) || (0 == year % 400)) {
+        return 'It is a leap year';
+      }
+      else {
+        return 'It is not a leap year';
+      }
+    }
+  </script>
+</body>
+
+</html>
