@@ -9,7 +9,7 @@ if (isNaN(ask)) {
     } else {
         alert("Число непарне") 
     }
-}
+}git
 
 //task2
 let curDate = new Date();
