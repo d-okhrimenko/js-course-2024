@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task3-Lesson3</title>
+</head>
+
+<body>
+  <script>
+    const userYear = parseInt(prompt("Введіть рік для перевірки"));
+    const isLeapYear = (userYear % 4 == 0 && userYear % 100 != 0) || userYear % 400 == 0;
+    if (Number.isInteger(userYear)) {
+      alert(isLeapYear
+          ? `Рік ${userYear} є високосним`
+          : `Рік ${userYear} НЕ є високосним`
+      );
+    } else {
+      alert("Введить коректний рік");
+    }
+  </script>
+</body>
+
+</html>

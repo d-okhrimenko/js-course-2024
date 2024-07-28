@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task2-Lesson3</title>
+  <style>
+    p {
+      font-size: 32px;
+      font-weight: bold;
+      color: rgba(7, 7, 165, 0.628);
+      text-align: center;
+      margin-top: 45vh;
+    }
+
+    #weekDay {
+      color: blueviolet;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+
+<body>
+  <p>День тижня сьогодні - <span id="weekDay"></span></p>
+  <script>
+    const weekDayMsg = document.querySelector("#weekDay")
+    let today = new Date().getDay();
+    if (today === 0) {
+      weekDayMsg.innerText = "неділя"
+    }
+    if (today === 1) {
+      weekDayMsg.innerText = "понеділок"
+    }
+    if (today === 2) {
+      weekDayMsg.innerText = "вівторок"
+    }
+    if (today === 3) {
+      weekDayMsg.innerText = "середа"
+    }
+    if (today === 4) {
+      weekDayMsg.innerText = "четвер"
+    }
+    if (today === 5) {
+      weekDayMsg.innerText = "п'ятниця"
+    }
+    if (today === 6) {
+      weekDayMsg.innerText = "субота"
+    }
+  </script>
+</body>
+
+</html>
