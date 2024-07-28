@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let tempYear = parseInt(prompt("Введіть рік"));
+
+        isLeapYear(tempYear);
+
+        function isLeapYear(year) {
+            if (validateDate(year)) {
+                if (year % 4 == 0) {
+                    if (year % 100 != 0 || (year % 100 == 0 && year % 400 == 0)) {
+                        alert("Рік " + year + " є високосним роком");
+                    } else {
+                        alert("Рік " + yearr + " не є високосним роком");
+                    }
+                } else {
+                    alert("Рік " + year + " не є високосним роком");
+                }
+            } else {
+                alert("Дані некоректні");
+            }
+
+        }
+
+        function validateDate(date) {
+            let strDate = String(date);
+            let preparedDate = strDate.replace(/\D/g, '');
+            
+            if (preparedDate === strDate && (strDate.length === 3 || strDate.length === 4)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

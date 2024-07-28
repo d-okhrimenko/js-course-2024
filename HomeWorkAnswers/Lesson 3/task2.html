@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Якщо забув, який сьогодні день - тисни на кнопку</p>
+    <button id="btn">Тисни</button>
+    <script>
+        let date = new Date();
+        document.querySelector('#btn').onclick = function() {
+            alert("Сьогодні " + getWeekDay(date) + " ;)");
+        }
+
+        function getWeekDay(date) {
+            let days = ['неділя', 'понеділок', 'вівторок', 'середа', 'четвер', 'п\'ятниця', 'cубота'];
+            return days[date.getDay()];
+        } 
+    </script>
+</body>
+</html>
