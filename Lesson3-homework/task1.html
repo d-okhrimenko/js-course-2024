@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Парні або непарні числа</title>
+</head>
+
+<body>
+    <script>
+        let userInput = prompt("Input number:");
+        let number = parseInt(userInput);
+
+        if (isNaN(number)) {
+            alert("Please, enter correct number.")
+        } else {
+            if (number % 2 === 0) {
+                alert("The number is even!");
+            } else {
+                alert("The number is odd!")
+            }
+        }
+    </script>
+</body>
+
+</html>
