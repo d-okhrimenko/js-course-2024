@@ -2,7 +2,7 @@
 //task1
 let ask = prompt("Введіть число")
 if (isNaN(ask)) {
-     alert("Not a number!")
+     alert("Not a number!") 
 } else {
     if (ask % 2 == 0) {
         alert("Число парне")
