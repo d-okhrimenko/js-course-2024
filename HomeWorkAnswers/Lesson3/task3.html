@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
     <script>
 
-        let userInput = prompt("Введіть ціле число");
+        let userInput = prompt("Введіть рік");
 
         let isNumber = !isNaN(userInput);
 
         if(isNumber){
-            let data = parseInt(userInput);
+            let year = parseInt(userInput);
 
-            let remainderOfDivision = data % 2;
-
-            if (remainderOfDivision == 0) {
-                alert("Парне число");
-            } 
-            else {
-                alert("Непарне число");
+            if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)){
+                alert(`${year} - високосний рік`);
+            }
+            else{
+                alert(`${year} - не високосний рік`);
             }
         }
         else{
@@ -32,5 +28,4 @@
 
     </script>
 </body>
-
 </html>
