@@ -1,0 +1,21 @@
+let day = ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"];
+let date = new Date();
+alert(day[date.getDay()])
+
+
+
+let number = prompt ("Enter number: " );
+if (number % 2 == 0) {
+    alert("The number is even.");
+}
+else { alert("The number is odd");
+
+}
+
+let Year = prompt ("Enter year: ");
+if (Year % 4 == 0 && Year % 100 != 0 || Year % 400 ==0) {
+    alert (`${Year}рік високосний`);
+}
+else {
+    alert (`${Year}рік не високосний`);
+}
