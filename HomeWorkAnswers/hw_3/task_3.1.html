@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_3.1</title>
+</head>
+<body>
+    <h2>Task_3.1</h2>
+    <h4>Завдання 1 </h4>
+    <p> Написати програму, яка визначає, чи є введене число парним або непарним.</p>
+    <script>
+        const value = parseInt (prompt ("input a value, please!"));
+        console.log(value, typeof(value));
+        console.log(isNaN(value));
+        if (isNaN(value)) {
+            alert ("You inputed not a number!!!!!");
+        } else if (value % 2 === 0) {
+             alert ("Correct! Entered value is even: "+value);
+        } else {
+            alert ("Entered value is odd: "+value);
+        }
+    </script>
+</body>
+</html>
