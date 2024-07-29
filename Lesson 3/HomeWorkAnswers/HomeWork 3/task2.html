@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let today = new Date();
+
+      let numberDay = today.getDay();
+
+      if (numberDay === 0) {
+        alert("It's Sunday");
+      } else if (numberDay === 1) {
+        alert("It's Monday");
+      } else if (numberDay === 2) {
+        alert("It's Tuesday");
+      } else if (numberDay === 3) {
+        alert("It's Wednesday");
+      } else if (numberDay === 4) {
+        alert("It's Thursday");
+      } else if (numberDay === 5) {
+        alert("It's Friday");
+      } else if (numberDay === 6) {
+        alert("It's Saturday");
+      } else {
+        alert("Opss, I don't know this date!");
+      }
+    </script>
+  </body>
+</html>
