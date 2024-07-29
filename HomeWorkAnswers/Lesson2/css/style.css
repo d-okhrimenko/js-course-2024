@@ -13,27 +13,6 @@ h1 {
   margin-bottom: 2rem;
 }
 
-.ui {
-  font-size: 3rem;
-  font-weight: bold;
-  font-style: italic;
-  padding: 2rem 0;
-}
-.output {
-  font-size: 3rem;
-  font-weight: bold;
-  font-style: italic;
-  padding: 2rem 0;
-  text-align: center;
-  margin: 3rem auto;
-}
-input {
-  height: 3rem;
-  font-size: 2rem;
-  border: none;
-  border-radius: 5px;
-}
-
 .btn {
   font-size: 2rem;
   font-weight: bold;
@@ -45,10 +24,4 @@ input {
 }
 .btn:hover {
   transform: translate(0, -1rem) scale(1.1);
-}
-.error {
-  color: orangered;
-}
-.success {
-  color: green;
 }
