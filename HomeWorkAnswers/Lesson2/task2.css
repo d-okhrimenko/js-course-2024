@@ -1,0 +1,44 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: antiquewhite;
+  margin-left: 2rem;
+}
+h1 {
+  font-size: 4rem;
+  text-align: center;
+
+  margin-bottom: 2rem;
+}
+.current {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 2rem 0;
+}
+.current-date {
+  font-weight: normal;
+  font-style: normal;
+  color: red;
+}
+
+.current-time {
+  font-weight: normal;
+  font-style: normal;
+  color: brown;
+}
+
+.btn {
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: aquamarine;
+  margin-top: 1rem;
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: translate(0, -1rem) scale(1.1);
+}
