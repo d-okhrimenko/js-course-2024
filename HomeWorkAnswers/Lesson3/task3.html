@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Task 3</h1>
+
+    <script>
+        let userYear = +prompt("Enter a year");
+
+        if (userYear % 4 == 0 && userYear % 100 != 0 || userYear % 400 == 0) {
+            alert(userYear + " is leap year");
+        } else if (isNaN(Number(userYear))) {
+            alert("Incorrect entry, please enter the year");
+        } else {
+            alert(userYear + " is not a leap year");
+        }
+    </script>
+
+</body>
+
+</html>
