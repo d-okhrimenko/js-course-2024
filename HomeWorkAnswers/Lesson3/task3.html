@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+      
+      let nYear = parseInt(prompt("Введіть рік для перевірки "));
+
+      if (isNaN(nYear) || nYear == 0) {
+        alert("Невірно введено значення року"); 
+      } else {
+        if (nYear % 4 == 0) {
+            if (nYear % 100 == 0 && nYear % 400 != 0){
+                   alert("Рік невисокосний");
+            } else {
+                alert("Рік високосний");
+            }
+        } else {
+            alert("Рік невисокосний");
+        }
+      }
+      
+   </script> 
+</body>
+</html>
