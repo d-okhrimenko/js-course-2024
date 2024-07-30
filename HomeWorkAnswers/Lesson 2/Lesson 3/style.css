@@ -1,0 +1,14 @@
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 40px;
+  background: #f1f1f1;
+  text-align: center;
+}
+
+div {
+  margin-bottom: 30px;
+}
+.outTask-2 {
+  color: blue;
+}
