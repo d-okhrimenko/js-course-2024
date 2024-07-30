@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1: even or odd number</title>
+  </head>
+  <body>
+    <script>
+      let value = prompt("Введіть число");
+      let valueParse = parseInt(value);
+      if (value.length != valueParse.toString().length)
+        alert("Input of number is not correct!!!");
+      else isEvenOrAdd(valueParse);
+
+      function isEvenOrAdd(checkNumber) {
+        if (checkNumber % 2 == 0) alert(`Number ${checkNumber} is EVEN`);
+        else alert(`Number ${checkNumber} is ODD`);
+      }
+    </script>
+  </body>
+</html>
