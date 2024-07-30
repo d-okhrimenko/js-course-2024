@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <b id="output"></b>
+
+    <script>
+        let dayName = new Date().getDay();
+        // dayName = 4; /*- перевірка*/
+
+        let greeting = "Вітаю! Сьогодні в нас ";
+        if (dayName === 0) {
+            alet("Неділя");
+            showResult(greeting + "Неділя");
+        }
+        if (dayName == 1) {
+            alert("Понеділок");
+            showResult(greeting + "Понеділок");
+        }
+        if (dayName == 2) {
+            alert("Вівторок");
+            showResult(greeting + "Вівторок");
+        }
+        if (dayName == 3) {
+            alert("Середа");
+            showResult(greeting + "Середа");
+        }
+        if (dayName == 4) {
+            alert("Четвер");
+            showResult(greeting + "Четвер");
+        }
+        if (dayName == 5) {
+            alert("П'ятниця");
+            showResult(greeting + "П'ятниця");
+        }
+        if (dayName == 6) {
+            alert("Субота");
+            showResult(greeting + "Субота");
+        }
+
+        function showResult(result) {
+            let output = document.querySelector("#output");
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The leap year checking</title>
+</head>
+
+<body>
+    <script>
+        let yearEntrance = Number(prompt("Введіть рік"));
+        let leapYear = (yearEntrance % 4);
+        // alert(leapYear);
+
+        if (leapYear === 0) {
+            alert("Високосний рік");
+        }
+
+        else {
+            alert("Невисокосний рік");
+        }
+    </script>
+</body>
+
+</html>
