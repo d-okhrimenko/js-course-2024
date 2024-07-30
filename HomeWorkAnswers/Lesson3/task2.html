@@ -9,6 +9,7 @@
 
 <body>
     <script>
+        //Визначити який сьогодні день тижня
         let days = [
             "неділя",
             "понеділок",
@@ -19,7 +20,8 @@
             "субота",
         ];
         let date = new Date();
-        if (date.getDay() == 0) {
+        alert("Cьогодні " + days[date.getDay()]);
+        /*if (date.getDay() == 0) {
             alert("Cьогодні " + days[0]);
         } else if (date.getDay() == 1) {
             alert("Cьогодні " + days[1])
@@ -33,7 +35,8 @@
             alert("Cьогодні " + days[5])
         } else if (date.getDay() == 6) {
             alert("Cьогодні " + days[6])
-        }  
+        }  */
+        
     </script>
 </body>
 
