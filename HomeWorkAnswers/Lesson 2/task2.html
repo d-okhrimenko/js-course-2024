@@ -7,22 +7,23 @@
     <link href="styles.css" rel="stylesheet" />
 </head>
 <body>
-    <p id="output">Hello JS</p>
+    <p id="outputDateTime">Hello JS</p>
     <button id="btn">Click me!</button> <br><br>
     <button id="btn2">Скажи привіт</button>
-    <p id="output2"></p>
+    <p id="outputText"></p>
     <script>
         document.querySelector("#btn").onclick = function() {
-            alert(new Date());
-            console.log(new Date());
-            let output = document.querySelector("#output");
-            output.innerHTML = new Date();
-            output.style.color = "green";
+            let dateTime = new Date().toLocaleString();
+            alert(dateTime);
+            console.log(dateTime);
+            let outputDateTime = document.querySelector("#outputDateTime");
+            outputDateTime.innerHTML = dateTime;
+            outputDateTime.style.color = "green";
         }
         document.querySelector("#btn2").onclick = function() {
-            let output = document.querySelector("#output2");
-            output.innerHTML = "Привіт Валерiй";
-            output.style.color = "orange";
+            let outputText = document.querySelector("#outputText");
+            outputText.innerHTML = "Привіт, Валерiй";
+            outputText.style.color = "orange";
         }
     </script>
 </body>
