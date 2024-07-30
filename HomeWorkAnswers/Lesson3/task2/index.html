@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function showDayOfWeek() {
+            let today = new Date();
+            let dayOfWeek = today.getDay();
+            
+            if (dayOfWeek === 0) {
+                alert("Сьогодні неділя");
+            } else if (dayOfWeek === 1) {
+                alert("Сьогодні понеділок");
+            } else if (dayOfWeek === 2) {
+                alert("Сьогодні вівторок");
+            } else if (dayOfWeek === 3) {
+                alert("Сьогодні середа");
+            } else if (dayOfWeek === 4) {
+                alert("Сьогодні четвер");
+            } else if (dayOfWeek === 5) {
+                alert("Сьогодні п'ятниця");
+            } else if (dayOfWeek === 6) {
+                alert("Сьогодні субота");
+            }
+        }
+
+        showDayOfWeek();
+    </script>
+</body>
+</html>
