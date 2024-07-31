@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  width: 1200px;
+  height: 600px;
+  margin: 50px auto;
+  padding-top: 100px;
+  text-align: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.container {
+  width: 600px;
+  margin: 50px auto;
+  display: flex;
+  gap: 10px;
+}
+
+div > #btn {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.container__item > img {
+  max-width: 100%;
+  height: auto;
+}
