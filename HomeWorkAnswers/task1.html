@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let value = prompt("Введіть число:")
+
+        if (Number(value) && value !== "" && value !== null) {
+            let res = isEven(value) ? 'Парне' : 'Непарне';
+            alert(res);
+        } else {
+            alert("не число")
+        }
+
+        function isEven(num) {
+            return num % 2 === 0;
+        }
+
+    </script>
+</body>
+
+</html>

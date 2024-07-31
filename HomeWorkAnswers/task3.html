@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let year = prompt("Введіть рік", "");
+        if (Number(year) && year !== "" && year !== null) {
+            let res = year % 4 === 0 ? "Високосний рік" : "Не високосний рік"
+            alert(res)
+        } else {
+            alert("Некоректні дані")
+        }
+    </script>
+</body>
+
+</html>
