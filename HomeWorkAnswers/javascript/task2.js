@@ -7,19 +7,21 @@ const thursday = 4
 const friday = 5
 const saturday = 6
 const sunday = 0
-
+let typeDay;
 //Обчислення
 if (sunday === date)
-	alert('Сьогодні Неділя!')
+	typeDay = 'Сьогодні Неділя!'
 else if (monday === date)
-	alert('Сьогодні Понеділок!')
+	typeDay = 'Сьогодні Понеділок!'
 else if (tuesday === date)
-	alert('Сьогодні Вівторок!')
+	typeDay = 'Сьогодні Вівторок!'
 else if (wednesday === date)
-	alert('Сьогодні середа!')
+	typeDay = 'Сьогодні Cереда!'
 else if (thursday === date)
-	alert('Сьогодні Четвер!')
+	typeDay = 'Сьогодні Четвер!'
 else if (friday === date)
-	alert("Сьогодні Пятниц'я!")
+	typeDay = "'Сьогодні Пятниц'я!"
 else if (saturday === date)
-	alert('Сьогодні Суббота!')
+	typeDay = 'Сьогодні Суббота!'
+
+document.write(`<h3>${typeDay}</h3>`)
