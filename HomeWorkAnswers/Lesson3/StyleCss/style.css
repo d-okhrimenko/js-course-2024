@@ -15,3 +15,10 @@ p {
   font-size: 25px;
   color: rgb(7, 51, 133);
 }
+
+#year_input {
+  font-weight: normal; 
+  font-size: 20px;
+  color: rgb(7, 51, 133);
+}
+ 
