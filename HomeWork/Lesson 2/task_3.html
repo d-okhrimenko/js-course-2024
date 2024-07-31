@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання № 3</title>
+    <style>
+        button {
+            margin: 50px;
+            background-color: yellowgreen;
+            color: black;
+            font-size: 20px;
+            border-radius: 20px;
+            border: none;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <button>Скажи привіт</button>
+    <script>
+        let header = document.querySelector("h1")
+        const btn = document.querySelector("button")
+        btn.onclick = () => {
+            header.innerHTML = "Привіт, Володимир!"
+        }
+    </script>
+</body>
+</html>
