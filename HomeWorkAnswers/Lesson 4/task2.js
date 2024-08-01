@@ -26,8 +26,6 @@ function mathQuiz() {
       if (attempts === 0) {
         incorrectAnswers++;
         break;
-      } else {
-        incorrectAnswers++;
       }
     }
 
