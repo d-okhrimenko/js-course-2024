@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <script>
+      const randomIntegerInRange = (min, max) =>
+        Math.floor(Math.random() * (max - min + 1)) + min;
+      const choices = ["scissors", "stone", "paper"];
+      const choiceNames = ["scissors", "stone", "paper"];
+
+      let computerScore = 0;
+      let userScore = 0;
+
+      function getUserChoice() {
+        let userChoice;
+        do {
+          userChoice = parseInt(
+            prompt("Type your choice: scissors - 1, stone - 2, paper - 3"),
+            10
+          );
+        } while (![1, 2, 3].includes(userChoice));
+        return userChoice;
+      }
+
+      function determineWinner(userChoice, computerChoice) {
+        if (userChoice === computerChoice) {
+          return "draw";
+        } else if (
+          (userChoice === 1 && computerChoice === 3) ||
+          (userChoice === 2 && computerChoice === 1) ||
+          (userChoice === 3 && computerChoice === 2)
+        ) {
+          return "user";
+        } else {
+          return "computer";
+        }
+      }
+
+      while (computerScore < 3 && userScore < 3) {
+        let userChoice = getUserChoice();
+        let computerChoice = randomIntegerInRange(1, 3);
+
+        let userChoiceName = choiceNames[userChoice - 1];
+        let computerChoiceName = choiceNames[computerChoice - 1];
+
+        let winner = determineWinner(userChoice, computerChoice);
+
+        if (winner === "draw") {
+          alert(
+            `The computer choice is ${computerChoiceName}. Your choice is ${userChoiceName}. It's a draw!`
+          );
+        } else if (winner === "user") {
+          alert(
+            `The computer choice is ${computerChoiceName}. The ${userChoiceName} beats ${computerChoiceName}. You win!`
+          );
+          userScore++;
+        } else {
+          alert(
+            `The computer choice is ${computerChoiceName}. The ${computerChoiceName} beats ${userChoiceName}. You lost!`
+          );
+          computerScore++;
+        }
+
+        alert(`Current score - You: ${userScore}, Computer: ${computerScore}`);
+      }
+
+      if (userScore === 3) {
+        alert("Congratulations! You won the game.");
+      } else {
+        alert("Sorry, you lost the game. Better luck next time!");
+      }
+    </script>
+  </body>
+</html>

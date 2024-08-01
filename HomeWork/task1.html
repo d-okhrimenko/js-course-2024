@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <script>
+      const randomIntegerInRange = (min, max) =>
+        Math.floor(Math.random() * (max - min + 1)) + min;
+      const choices = ["scissors", "stone", "paper"];
+
+      let computerScore = 0;
+      let userScore = 0;
+
+      while (computerScore < 3 && userScore < 3) {
+        let userInput = prompt(
+          "Type your choice: scissors - 1, stone - 2, paper - 3. Enter 'Exit' if you don't want to play anymore"
+        );
+
+        if (
+          userInput.toLowerCase() === "exit" ||
+          userInput.toLowerCase() === "вихід"
+        ) {
+          alert("You chose to exit the game. Goodbye!");
+          break;
+        }
+
+        let userChoice = parseInt(userInput);
+
+        if (![1, 2, 3].includes(userChoice)) {
+          alert("Invalid choice! Please choose 1, 2, or 3.");
+          continue;
+        }
+
+        let computerChoice = randomIntegerInRange(1, 3);
+        let userChoiceName = choices[userChoice - 1];
+        let computerChoiceName = choices[computerChoice - 1];
+
+        switch (userChoice) {
+          case 1: // scissors
+            switch (computerChoice) {
+              case 1: // scissors
+                alert(
+                  `The computer choice is ${computerChoiceName}. Your choice is ${userChoiceName}. It's a draw!`
+                );
+                break;
+              case 2: // stone
+                alert(
+                  `The computer choice is ${computerChoiceName}. The ${computerChoiceName} beats ${userChoiceName}. You lost!`
+                );
+                computerScore++;
+                break;
+              case 3: // paper
+                alert(
+                  `The computer choice is ${computerChoiceName}. The ${userChoiceName} beats ${computerChoiceName}. You win!`
+                );
+                userScore++;
+                break;
+            }
+            break;
+          case 2: // stone
+            switch (computerChoice) {
+              case 1: // scissors
+                alert(
+                  `The computer choice is ${computerChoiceName}. The ${userChoiceName} beats ${computerChoiceName}. You win!`
+                );
+                userScore++;
+                break;
+              case 2: // stone
+                alert(
+                  `The computer choice is ${computerChoiceName}. Your choice is ${userChoiceName}. It's a draw!`
+                );
+                break;
+              case 3: // paper
+                alert(
+                  `The computer choice is ${computerChoiceName}. The ${computerChoiceName} beats ${userChoiceName}. You lost!`
+                );
+                computerScore++;
+                break;
+            }
+            break;
+          case 3: // paper
+            switch (computerChoice) {
+              case 1: // scissors
+                alert(
+                  `The computer choice is ${computerChoiceName}. The ${computerChoiceName} beats ${userChoiceName}. You lost!`
+                );
+                computerScore++;
+                break;
+              case 2: // stone
+                alert(
+                  `The computer choice is ${computerChoiceName}. The ${userChoiceName} beats ${computerChoiceName}. You win!`
+                );
+                userScore++;
+                break;
+              case 3: // paper
+                alert(
+                  `The computer choice is ${computerChoiceName}. Your choice is ${userChoiceName}. It's a draw!`
+                );
+                break;
+            }
+            break;
+          default:
+            alert("Invalid choice! Please choose 1, 2, or 3.");
+        }
+
+        alert(`Current score - You: ${userScore}, Computer: ${computerScore}`);
+      }
+
+      if (computerScore < 3 && userScore < 3) {
+        alert("Game ended by user.");
+      } else if (userScore === 3) {
+        alert("Congratulations! You won the game.");
+      } else if (computerScore === 3) {
+        alert("Sorry, you lost the game. Better luck next time!");
+      }
+    </script>
+  </body>
+</html>
