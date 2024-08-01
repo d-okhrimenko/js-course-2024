@@ -12,6 +12,14 @@ body {
   border-radius: 5px;
   box-shadow: 3px 3px 5px rgba(241, 9, 230, 0.3);
 }
+.resultBlock {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+.resultBlock > p {
+  width: 100px;
+}
 .container {
   width: 600px;
   margin: 50px auto;
@@ -22,13 +30,18 @@ body {
   width: 280px;
   height: 200px;
 }
+p {
+  font-size: 24px;
+  font-weight: 700;
+}
 .forUserCHoice {
   display: flex;
   justify-content: space-evenly;
 }
-.block__img{
+.block__img {
   width: 200px;
   height: 200px;
+  cursor: pointer;
 }
 div > #btn {
   width: 100px;
@@ -37,7 +50,7 @@ div > #btn {
   margin-top: 20px;
   margin-bottom: 20px;
 }
- img {
+img {
   max-width: 100%;
   height: auto;
 }
