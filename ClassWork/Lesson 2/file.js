@@ -1,3 +1,6 @@
-console.log("Hello 1");
-console.log("Hello 2");
-console.log("Hello 3");
+document.querySelector("#btn").onclick = function () {
+    let name = "Oleksandr";
+    let output = document.querySelector("#output");
+    output.innerHTML = `Hello ${name}!`;
+    output.style.color = "red";
+  };
