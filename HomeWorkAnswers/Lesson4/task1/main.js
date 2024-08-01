@@ -4,9 +4,22 @@ let computerScore = 0;
 
 for (let i = 0; i < rounds; i++) {
   let choice = prompt(
-    `Раунд ${i + 1}/${rounds}. Введіть значення: 1.Камінь 2.Ножиці 3.Папір`
+    `Раунд ${
+      i + 1
+    }/${rounds}. Введіть значення: 1.Камінь 2.Ножиці 3.Папір (або "вихід" для завершення гри)`
   );
+
+  if (choice === null) {
+    alert("Гру скасовано.");
+    break;
+  }
+
   let choiceHuman = choice.toLowerCase().trim();
+
+  if (choiceHuman === "вихід") {
+    alert("Ви вирішили завершити гру.");
+    break;
+  }
 
   let choices = ["камінь", "ножиці", "папір"];
 
@@ -47,6 +60,6 @@ if (playerScore > computerScore) {
   alert("Вітаємо! Ви перемогли в грі!");
 } else if (playerScore < computerScore) {
   alert("На жаль, комп'ютер переміг. Спробуйте ще раз!");
-} else {
+} else if (playerScore == computerScore) {
   alert("Нічия! Чудова гра!");
 }
