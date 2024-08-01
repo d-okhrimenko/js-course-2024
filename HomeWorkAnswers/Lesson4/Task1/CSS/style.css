@@ -5,7 +5,7 @@ body {
 }
 .wrapper {
   width: 800px;
-  height: 500px;
+  /* height: 500px; */
   margin: 50px auto;
   padding-top: 100px;
   text-align: center;
@@ -22,15 +22,24 @@ body {
   display: flex;
   gap: 10px;
 }
-.container__item{
+.container__item {
   width: 280px;
   height: 200px;
 }
-
+.forUserCHoice {
+  display: flex;
+  justify-content: space-evenly;
+}
+.block__img{
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+}
 div > #btn {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 .container__item > img {
