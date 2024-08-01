@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="dayOfWeek"></h1>
+
+    <script>
+        const today = new Date();
+        const daysOfWeek = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда','Четверг', 'Пятница', 'Суббота'];
+        const currentDay = today.getDay();
+        const currentDayName = daysOfWeek[currentDay];
+        document.querySelector("#dayOfWeek").innerHTML = `Сегодня: ${currentDayName}`;
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- Завдання 2
+Написати програму, яка визначає, який сьогодні день тижня, і виводить відповідне повідомлення. -->
