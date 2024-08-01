@@ -35,34 +35,34 @@ document.querySelector("#determineNumber").onclick = function () {
 
 // HOMEWORK TASK 2
 
-let day = document.querySelector("#day");
-let currentDay = new Date().getDay();
+let currentDay = document.querySelector("#day");
+let day = new Date().getDay();
 
-switch (currentDay) {
+switch (day) {
   case 0:
-    day.innerHTML = "Сьогодні НЕДІЛЯ";
+    currentDay.innerHTML = "Сьогодні НЕДІЛЯ";
     break;
   case 1:
-    day.innerHTML = "Сьогодні ПОНЕДІЛОК";
+    currentDay.innerHTML = "Сьогодні ПОНЕДІЛОК";
     break;
   case 2:
-    day.innerHTML = "Сьогодні ВІВТОРОК";
+    currentDay.innerHTML = "Сьогодні ВІВТОРОК";
     break;
   case 3:
-    day.innerHTML = "Сьогодні СЕРЕДА";
+    currentDay.innerHTML = "Сьогодні СЕРЕДА";
     break;
   case 4:
-    day.innerHTML = "Сьогодні ЧЕТВЕР";
+    currentDay.innerHTML = "Сьогодні ЧЕТВЕР";
     break;
   case 5:
-    day.innerHTML = "Сьогодні П'ЯТНИЦЯ";
+    currentDay.innerHTML = "Сьогодні П'ЯТНИЦЯ";
     break;
   case 6:
-    day.innerHTML = "Сьогодні СУБОТА";
+    currentDay.innerHTML = "Сьогодні СУБОТА";
     break;
 
   default:
-    day.innerHTML = "Ой, яка різниця ... головне, що літо 😎";
+    currentDay.innerHTML = "Ой, яка різниця ... головне, що літо 😎";
 }
 
 document.querySelector("#true").onclick = function () {
@@ -84,6 +84,9 @@ document.querySelector("#determineYear").onclick = function () {
     outputYear.innerHTML = "Ну введи хоч що небудь 🤷‍♀️";
   } else if (isNaN(inputYear)) {
     outputYear.innerHTML = "Щось це не схоже на рік 🙄 ?";
+  } else if (inputYear < -45) {
+    outputYear.innerHTML =
+      "Стоп, стоп ... Юлій Цезар тоді ще не придумав свій календар";
   } else if (
     (+inputYear % 4 === 0 && +inputYear % 100 !== 0) ||
     +inputYear % 400 === 0
