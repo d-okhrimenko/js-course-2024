@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Використайте Math.random() для генерації двох випадкових чисел і оператора (+, -, *, /).
+
+      function generateQuestion() {
+        let numberOne = Math.floor(Math.random() * 100) + 1;
+        let numberTwo = Math.floor(Math.random() * 100) + 1;
+
+        const randomIntegerInRange = (min, max) =>
+          Math.floor(Math.random() * (max - min + 1)) + min;
+        let operator = randomIntegerInRange(1, 4);
+        let question;
+        let answer = 0;
+
+        switch (operator) {
+          case 1:
+            question = "Solve: " + numberOne + "+" + numberTwo;
+            answer = numberOne + numberTwo;
+            break;
+          case 2:
+            question = "Solve: " + numberOne + "-" + numberTwo;
+            answer = numberOne - numberTwo;
+            break;
+          case 3:
+            question = "Solve: " + numberOne + "*" + numberTwo;
+            answer = numberOne * numberTwo;
+            break;
+          case 4:
+            question = "Solve: " + numberOne + "/" + numberTwo;
+            answer = (numberOne / numberTwo).toFixed(2);
+            break;
+        }
+        return { question, answer };
+      }
+
+      let correctAnswers = 0;
+      let incorrectAnswers = 0;
+
+      for (let i = 0; i < 5; i++) {
+        let { question, answer } = generateQuestion();
+        let userAnswer = parseFloat(prompt(question));
+
+        if (
+          parseFloat(userAnswer).toFixed(2) === parseFloat(answer).toFixed(2)
+        ) {
+          alert("You are absolutelly right!!!");
+          correctAnswers++;
+        } else {
+          alert("Unfortunatelly the answer is wrong!");
+          incorrectAnswers++;
+        }
+      }
+
+      if (correctAnswers === 5) {
+        alert("You are GENIUS!!! You answered correctly to all questions!");
+      } else if (correctAnswers > incorrectAnswers) {
+        alert(
+          "You are very smart! Results:\nCorrect Answers: " +
+            correctAnswers +
+            "\nIncorrect Answers: " +
+            incorrectAnswers
+        );
+      } else {
+        alert(
+          "You need to repeat math! Results:\nCorrect Answers: " +
+            correctAnswers +
+            "\nIncorrect Answers: " +
+            incorrectAnswers
+        );
+      }
+    </script>
+  </body>
+</html>
