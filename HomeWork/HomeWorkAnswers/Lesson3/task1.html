@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML + CSS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>task1</h1>
+    <script>
+      let userNumber = Number(
+        prompt("Введи своє число для перевірки на парність")
+      );
+      if (userNumber == 0) {
+        alert("Ой, щось пішло не так 🤔. Спробуй ще!");
+      } else {
+        if (userNumber % 2 == 0) {
+          alert(userNumber + " - це парне число");
+        } else {
+          if (userNumber % 2 > 0) {
+            alert(userNumber + " - це непарне число");
+          } else {
+            alert("Хм...Це не число 🧐. Спробуй ще раз!");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
