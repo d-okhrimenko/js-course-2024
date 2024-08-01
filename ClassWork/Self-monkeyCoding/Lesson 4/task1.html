@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  Задача 1
+        // Написатипрограму, яка генерує випадкове число від 1 до 100 і дозволяє користувачеві відгадати його, 
+        // надаючи підказки "більше" або"менше". Програма повинна продовжувати запитувати у користувача числа, доки він не відгадає правильне.
+
+        // Кроки для виконаннязавдання:
+        // 1.Генерація випадкового числа: Використайте Math.random() для генерації випадкового числа від 1 до 100. 
+        // let randomNumber = Math.floor(Math.random() * 100) + 1
+
+        // 2.Введення користувачем числа: Використайте prompt для запиту числа у користувача.
+
+        // 3.Перевірка введеного числа:
+        // 1. Перевірте, чи введене число є коректним і чи відповідає випадковому числу.
+        // 2. Використайте умовні конструкції для надання підказок "більше" або "менше".
+
+        // 4.Цикл для продовження запитів:
+        // 1. Використайтецикл while або do...while для продовження запитів, доки користувач не відгадає правильне число.
+
+        // 5.Виведення результату:
+        // 1. Виведіть повідомлення про те, що користува чвідгадав правильне число.
+
+        // let randomNumber = Math.floor(Math.random() * 100) + 1;
+        // let gameIsOver = false;
+        // while (!gameIsOver) {
+        //     let value = Number(prompt("Введіть значення"));
+        //     if (value == randomNumber) {
+        //         alert("Ви вгадали. Загадане число " + randomNumber);
+        //         gameIsOver = true;
+        //     } else if (value < randomNumber) {
+        //         alert("Я загадав значення більше ніж " + value);
+        //     } else if (value > randomNumber) {
+        //         alert("Я загадав значення менше ніж " + value);
+        //     }
+        // }
+
+        // або можна зробити код білш читабельним
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        while (true) {
+            let value = Number(prompt("Введіть значення"));
+            if (value == randomNumber) {
+                alert("Ви вгадали. Загадане число " + randomNumber);
+                break;
+            } else if (value < randomNumber) {
+                alert("Я загадав значення більше ніж " + value);
+            } else if (value > randomNumber) {
+                alert("Я загадав значення менше ніж " + value);
+            }
+        }
+    </script>
+</body>
+
+</html>

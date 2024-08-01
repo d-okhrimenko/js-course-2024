@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 3адача 2
+        // Написати програму, яка визначає, чи є введений користувачем рядок паліндромом (тобто чи читається він однаково зліва направо і справа наліво).
+
+        // Кроки для виконання завдання:
+        // 1.Введення рядка: Використайте prompt для введення рядка користувачем.
+        // 2.Перевірка на паліндром: Перевірте, чи читається рядок однаково з ліва направо і справа наліво, використовуючи цикл і умовні конструкції.
+        // 3.Виведення результату: Використайте alert для виведення результату, чи є введений рядок паліндромом.
+        
+        let initialValue = prompt("Введіть значення"); //"І що сало ласощі";
+        let value = initialValue.replace(/\s+/g, "").toLowerCase(); // регулярні вірази - \s+ будь який не друкований символ, /g глобальний пошук
+        let len = value.length;
+        let isPalindrome;
+
+        for (let i = 0; i < len / 2; i++) {
+            if (value[i] !== value[len - 1 - i]) {
+                isPalindrome = false;
+                break;
+            }
+            isPalindrome = true;
+        }
+        if (isPalindrome) {
+            alert("Значення " + initialValue + " є паліндромом!");
+        } else {
+            alert("Значення " + initialValue + " не є паліндромом!");
+        }
+    </script>
+</body>
+
+</html>
