@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 3 - Task 2</title>
+</head>
+
+<body>
+    <script>
+        let currentDate = new Date();
+        let toDay = currentDate.getDay();
+        let day = "";
+
+        switch (toDay) {
+            case 1:
+                day = "важкий понеділок";
+                break;
+            case 2:
+                day = "неповторний вівторок";
+                break;
+            case 3:
+                day = "успішна середа";
+                break;
+            case 4:
+                day = "легкий четвер";
+                break;
+            case 5:
+                day = "довгождана п'ятниця";
+                break;
+            case 6:
+                day = "лінива субота";
+                break;
+            default:
+                day = "свята неділя";
+                break;
+        }
+        console.log(`Сьогодні: ${day}`);
+    </script>
+</body>
+
+</html>

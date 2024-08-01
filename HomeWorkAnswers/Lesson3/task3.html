@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 3 - Task 3</title>
+</head>
+
+<body>
+    <script>
+        let value = prompt("Введіть рік");
+        year = Number(value);
+        if (value === null) {
+            alert("Ви скасували введення!");
+        } else if (value.trim() === "" || isNaN(year) || year < 0 || !Number.isInteger(year)) {
+            alert("Некоректне введення!");
+        } else {
+            const date = new Date(year, 1, 29);
+            const day = date.getDate();
+            if (day === 29) {
+                alert(`${year} рік високосний`);
+            } else {
+                alert(`${year} рік не високосний`);
+            }
+        }
+    </script>
+</body>
+
+</html>
