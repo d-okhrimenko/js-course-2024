@@ -5,16 +5,12 @@ body {
 }
 .wrapper {
   width: 800px;
-  /* height: 500px; */
   margin: 50px auto;
   padding-top: 100px;
   text-align: center;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 3px 3px 5px rgba(241, 9, 230, 0.3);
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 .container {
   width: 600px;
@@ -33,7 +29,6 @@ body {
 .block__img{
   width: 200px;
   height: 200px;
-  background-color: aqua;
 }
 div > #btn {
   width: 100px;
@@ -42,7 +37,7 @@ div > #btn {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.container__item > img {
+ img {
   max-width: 100%;
   height: auto;
 }
