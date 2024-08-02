@@ -1,0 +1,16 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+div{
+    margin-bottom: 10px;
+}
+button{
+    background-color: rgb(78, 201, 205);
+    padding: 10px 35px;
+    margin-bottom: 10px;
+    border-radius: 60px;
+    font-size: 18px;
+    font-weight: 700;
+}
