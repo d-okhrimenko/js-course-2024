@@ -1,87 +1,102 @@
-let count = 3;
-let totalScore = 0;
+let count = 10;
+let totalWin = 0;
+let totalLose = 0;
+let playerTry = 0;
 
-const numberOne = Math.floor(Math.random() * 6);
-const numberTwo = Math.floor(Math.random() * 6);
+function randomDigit() {
+  const numberOne = Math.floor(Math.random() * 6) + 1;
+  const numberTwo = Math.floor(Math.random() * 6) + 1;
 
-const operators = ["+", "-", "*", "/"];
+  const operators = ["+", "-", "*", "/"];
 
-const operator = operators[Math.floor(Math.random() * operators.length)];
+  const operator = operators[Math.floor(Math.random() * operators.length)];
 
-let total;
-switch (operator) {
-  case "+":
-    total = numberOne + numberTwo;
-    break;
-  case "-":
-    total = numberOne - numberTwo;
-    break;
-  case "*":
-    total = numberOne * numberTwo;
-    break;
-  case "/":
-    total = numberOne / numberTwo;
-    break;
-}
+  let total;
 
-for (let i = 0; i < count; i++) {
-  let guess = prompt(
-    `Перше число: ${numberOne}. Друге число: ${numberTwo}. Оператор: ${operator}. Порахуйте та дайте правильну відповідь? Спроба № ${
-      i + 1
-    }`
-  );
-
-  if (guess === null) {
-    alert("Гру скасовано.");
-    break;
-  }
-
-  let choiceHuman = choice.toLowerCase().trim();
-
-  if (choiceHuman === "вихід") {
-    alert("Ви вирішили завершити гру.");
-    break;
-  }
-
-  let choices = ["камінь", "ножиці", "папір"];
-
-  let randomIndex = Math.floor(Math.random() * choices.length);
-  let randomChoice = choices[randomIndex];
-
-  console.log(`Раунд ${i + 1}:`);
-  console.log("Ваш вибір: " + choiceHuman);
-  console.log("Вибір комп'ютера: " + randomChoice);
-
-  if (choiceHuman === randomChoice) {
-    alert("Нічия!");
-  } else if (
-    (choiceHuman === "камінь" && randomChoice === "ножиці") ||
-    (choiceHuman === "ножиці" && randomChoice === "папір") ||
-    (choiceHuman === "папір" && randomChoice === "камінь")
-  ) {
-    alert("Ви виграли!!!");
-    playerScore++;
-  } else if (
-    (choiceHuman === "ножиці" && randomChoice === "камінь") ||
-    (choiceHuman === "папір" && randomChoice === "ножиці") ||
-    (choiceHuman === "камінь" && randomChoice === "папір")
-  ) {
-    alert("Виграв компьютер!!!");
-    computerScore++;
+  if (numberOne > numberTwo) {
+    switch (operator) {
+      case "+":
+        total = numberOne + numberTwo;
+        break;
+      case "-":
+        total = numberOne - numberTwo;
+        break;
+      case "*":
+        total = numberOne * numberTwo;
+        break;
+      case "/":
+        total = numberOne / numberTwo;
+        break;
+    }
   } else {
-    alert("Невірне введення. Цей раунд пропущено.");
-    i--; // Повторити раунд
-    continue;
+    switch (operator) {
+      case "+":
+        total = numberOne + numberTwo;
+        break;
+      case "-":
+        total = Math.abs(numberOne - numberTwo); // Щоб завжди отримувати додатній результат
+        break;
+      case "*":
+        total = numberOne * numberTwo;
+        break;
+      case "/":
+        if (numberTwo !== 0) {
+          total = (numberOne / numberTwo).toFixed(2); // Округлюємо результат до двох знаків після коми
+          console.log(total);
+        } else {
+          return randomDigit(); // Якщо ділення на нуль, генеруємо нові числа
+        }
+    }
   }
+  return { numberOne, numberTwo, operator, total };
 }
 
-alert(
-  `Гра закінчена! Фінальний рахунок: Ви ${playerScore} - ${computerScore} Комп'ютер`
-);
-if (playerScore > computerScore) {
-  alert("Вітаємо! Ви перемогли в грі!");
-} else if (playerScore < computerScore) {
-  alert("На жаль, комп'ютер переміг. Спробуйте ще раз!");
-} else if (playerScore == computerScore) {
-  alert("Нічия! Чудова гра!");
+function playGame() {
+  for (let i = 0; i < count; i++) {
+    const { numberOne, numberTwo, operator, total } = randomDigit();
+    let guess = prompt(
+      `Спроба № ${
+        i + 1
+      }\nПерше число: ${numberOne}.\nДруге число: ${numberTwo}.\nОператор: ${operator}.\nПорахуйте та дайте правильну відповідь?`
+    );
+
+    // Коли натиснув "відміна"
+    if (guess === null) {
+      alert("Гру скасовано.");
+      break;
+    }
+
+    guess = parseFloat(guess);
+
+    // Нічого не ввести та натиснути "ОК"
+    if (isNaN(guess)) {
+      alert("Невірне введення. Цей раунд пропущено.");
+      i--; // Повторити раунд
+      continue;
+    }
+
+    if (guess > total) {
+      alert("Ви були дуже близько, спробуйте ще раз! :)");
+      totalLose++;
+    } else if (guess < total) {
+      alert("Ви були дуже близько, спробуйте ще раз! :)");
+      totalLose++;
+    } else {
+      alert("Ви вгадали !!!");
+      totalWin++;
+    }
+
+    console.log(`Спроба № ${i + 1}`);
+    console.log("Ваш вибір: " + guess);
+    console.log("Правильних відповідей: " + totalWin);
+    console.log("Не правильних відповідей: " + totalLose);
+
+    playerTry++;
+  }
+
+  alert(
+    `Гра закінчена! Ваш результат:\nВгадав - ${totalWin}.\nНе вгадав - ${totalLose}.\nВсього спроб - ${playerTry}.`
+  );
 }
+
+playGame();
