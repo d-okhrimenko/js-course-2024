@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="date"></div>
+        <div class="greeting-container">
+            <div class="message"></div>
+            <button>Show greeting</button>
+        </div>
+    </div>
+
+    <script>
+        const date = new Date().toLocaleString();
+        document.querySelector('.date').textContent = `Today is ${date}`;
+
+        const showName = () => {
+            const name = 'Evgeniia';
+            document.querySelector('.message').textContent = `Hello, my name is ${name}`
+        }
+
+        document.querySelector('button'). addEventListener('click', showName)
+    </script>
+</body>
+</html>
