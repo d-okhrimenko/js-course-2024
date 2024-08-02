@@ -7,28 +7,31 @@
   </head>
   <body>
     <script>
-      const game = ["камінь", "ножиці", "папір", "вихід"];
-      let winPc = 0;
-      let winPl = 0;
-      while (true) {
-        let indPc = Math.floor(Math.random() * 3);
-        let playerPc = game[indPc];
-        let player = prompt("камінь, ножиці, папір? Для виходу з гри  - вихід");
-        let indPl = game.findIndex((el) => el === player.toLocaleLowerCase());
-        if (indPl === 3) break;
-        if (indPl === -1) {
-          alert("Введіть правильне значення!");
-          continue;
-        }
-        if (indPc === indPl) alert("Нічия");
-        else if (indPc < indPl && indPc !== 0) {
-          winPc++;
-          alert(`Ви програли! Рахунок ${winPl} : ${winPc}`);
-        } else {
-          winPl++;
-          alert(`Ви виграли! Рахунок ${winPl} : ${winPc}`);
-        }
+      let attempt = 3;
+      let rightAnswer = 0;
+      let wrongAnswer = 0;
+      const operation = ["+", "-", "*", "/"];
+      const action = operation[Math.floor(Math.random() * 4)];
+      const operand1 = Math.floor(Math.random() * 100);
+      const operand2 = Math.floor(Math.random() * 100) + 1;
+      const result =
+        Math.round(eval(`${operand1} ${action} ${operand2}`) * 10) / 10;
+      while (attempt !== 0) {
+        let answer = prompt(
+          `Введіть відповідь: ${operand1} ${action} ${operand2} = ?\nДробовий результат слід округлити до 1 знака після коми`
+        );
+        attempt--;
+        if (answer == result) {
+          rightAnswer++;
+          break;
+        } else wrongAnswer++;
       }
+
+      alert(
+        `Відповідь: ${result}.\nКількість спроб: ${
+          3 - attempt
+        }\nКількість неправильних відповідей: ${wrongAnswer}\nКількість правильних відповідей: ${rightAnswer}`
+      );
     </script>
   </body>
 </html>
