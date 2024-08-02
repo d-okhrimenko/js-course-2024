@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="sayHello">Скажи привіт</button>
+    <h2 id="hello" style="margin-top: 50px"></h2>
+    <script>
+      const name = prompt("What ur name?");
+      const btnHello = document.querySelector("#sayHello");
+      const hello = document.querySelector("#hello");
+
+      btnHello.onclick = () => {
+        hello.innerHTML = `Привіт ${name}!`;
+      };
+    </script>
+  </body>
+</html>
