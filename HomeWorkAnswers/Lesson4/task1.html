@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Камінь, ножиці, папір</title>
+</head>
+
+<body>
+  <script>
+    const OPTIONS = ['камінь', 'ножиці', 'папір'];
+    const RULES = [
+      ['камінь', 'ножиці', 'Камінь ламає ножиці'],
+      ['ножиці', 'папір', 'Ножиці ріжуть папір'],
+      ['папір', 'камінь', 'Папір накриває камінь']
+    ];
+    const ROUNDS = 3;
+    let countRounds = 0;
+    let countWins = 0;
+
+    do {
+      const computerChoice = OPTIONS[Math.floor(Math.random() * 3)];
+      const userAnswer = prompt('Введіть число: 0 - камінь, 1 - ножиці чи 2 - папір, або відміна для закінчення гри', '');
+
+      if (userAnswer === null) break;
+
+      if (![0, 1, 2].includes(Number(userAnswer)) || userAnswer === '') {
+        alert('Ви ввели не корректне значення. Введить 0, 1 або 2');
+        continue;
+      };
+
+      countRounds++;
+      const userChoice = OPTIONS[Number(userAnswer)];
+
+      alert(`Твій вибір ${userChoice}, комп'ютер обрав ${computerChoice}`);
+      if (userChoice === computerChoice) {
+        alert('Нічия');
+        countWins++;
+        if (countRounds !== ROUNDS) {
+          continue;
+        }
+        break;
+      }
+
+      for (let i = 0; i < RULES.length; i++) {
+        const rules = RULES[i];
+
+        if (!rules.includes(computerChoice) || !rules.includes(userChoice)) {
+          continue;
+        }
+
+        if (rules[0] === userChoice) {
+          alert('Ти виграв');
+          alert(rules[2]);
+          countWins++;
+        } else {
+          alert('Ти програв');
+          alert(rules[2]);
+        }
+      }
+
+      if (countRounds === ROUNDS) break;
+    } while (true)
+
+    alert(`Ви виграли ${countWins} раз з ${ROUNDS}`);
+  </script>
+</body>
+
+</html>

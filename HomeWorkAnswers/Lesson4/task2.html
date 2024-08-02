@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Математичний квіз</title>
+</head>
+
+<body>
+  <script>
+    const COUNTROUNDS = 6;
+    let countRound = 0;
+    let writeAnswers = 0;
+
+    alert('Точність при діленні 2 знака після коми. Використовуйте крапку(.), щоб відокремити основну частину числа від десяткової');
+
+    for (let i = 0; i < COUNTROUNDS; i++) {
+      const { expression, result } = createExpressionAndResult();
+      const userAnswer = prompt(`Скільки буде ${expression} ?`, '');
+
+      countRound++;
+
+      if (userAnswer == result) {
+        writeAnswers++;
+      }
+    }
+
+    alert(`Ви відповіли правильно на ${writeAnswers} з ${COUNTROUNDS} питань`);
+
+    function createExpressionAndResult() {
+      const OP = ['+', '-', '*', '/'];
+      const NUMBERlIMIT = 100;
+      const num1 = Math.floor(Math.random() * NUMBERlIMIT) + 1;
+      const num2 = Math.floor(Math.random() * NUMBERlIMIT) + 1;
+      const op = OP[Math.floor(Math.random() * OP.length)];
+
+
+      const operations = {
+        '+': (a, b) => a + b,
+        '-': (a, b) => a - b,
+        '*': (a, b) => a * b,
+        '/': (a, b) => (Math.round(a / b * 100) / 100)
+      }
+
+      const result = operations[op](num1, num2);
+      const expression = `${num1} ${op} ${num2}`;
+
+      return { result, expression }
+    }
+  </script>
+</body>
+
+</html>
