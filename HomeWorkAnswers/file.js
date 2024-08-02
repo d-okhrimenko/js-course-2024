@@ -1,14 +1,14 @@
     // Task 1
 
-    // let number = prompt("Введіть число");
-    // number = Number(number);
-    // console.log(number);
+    let number = prompt("Введіть число");
+    number = Number(number);
+    console.log(number);
 
-    // if(number % 2 > 0) {
-    //     alert("Число не парне");
-    // } else {
-    //     alert("Число парне");
-    //     }
+    if(number % 2 > 0) {
+        alert("Число не парне");
+    } else {
+        alert("Число парне");
+        }
 
     // Task 2
 
