@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function playGame() {
+            let userScore = 0;
+            let computerScore = 0;
+
+            const choices = ["камінь", "ножиці", "папір"];
+
+            function getComputerChoice() {
+                const randomIndex = Math.floor(Math.random() * 3);
+                return choices[randomIndex];
+            }
+
+            function getWinner(userChoice, computerChoice) {
+                if (userChoice === computerChoice) {
+                    return "нічия";
+                }
+                if (
+                    (userChoice === "камінь" && computerChoice === "ножиці") ||
+                    (userChoice === "ножиці" && computerChoice === "папір") ||
+                    (userChoice === "папір" && computerChoice === "камінь")
+                ) {
+                    return "користувач";
+                } else {
+                    return "комп'ютер";
+                }
+            }
+
+            while (true) {
+                const userChoice =
+                    prompt("Введіть ваш вибір (камінь, ножиці, папір) або 'вихід' для завершення гри:")
+                        .toLowerCase();
+
+                if (userChoice === "вихід") {
+                    break;
+                }
+
+                if (!choices.includes(userChoice)) {
+                    alert("Невірний вибір. Спробуйте знову.");
+                    continue;
+                }
+
+                const computerChoice = getComputerChoice();
+                const winner = getWinner(userChoice, computerChoice);
+
+                alert(`Ваш вибір: ${userChoice}\nВибір комп'ютера: ${computerChoice}\nРезультат: 
+            ${winner === "нічия" ? "Нічия" : winner === "користувач" ? "Ви виграли!"
+                        : "Комп'ютер виграв!"}`);
+
+                if (winner === "користувач") {
+                    userScore++;
+                } else if (winner === "комп'ютер") {
+                    computerScore++;
+                }
+
+                alert(`Рахунок: Ви - ${userScore}, Комп'ютер - ${computerScore}`);
+            }
+
+            alert("Гра завершена. Дякуємо за гру!");
+        }
+
+        playGame();
+    </script>
+</body>
+
+</html>
