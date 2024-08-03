@@ -13,6 +13,9 @@
         let compAnswer;
         let exitGame;
 
+        let playerWinCounter = 0;
+        let compWinCounter = 0;
+
         do {
             playerAnswer = prompt("Введіть один із варіантів: камінь, ножиці або папір").toLowerCase();
 
@@ -35,8 +38,10 @@
                     if (playerAnswer === "камінь" && compAnswer === "ножиці" ||
                         playerAnswer === "ножиці" && compAnswer === "папір" ||
                         playerAnswer === "папір" && compAnswer === "камінь") {
+                        playerWinCounter++;
                         alert("Гравець обрав " + playerAnswer + ", комп'ютер обрав " + compAnswer + " - виграв Гравець!");
                     } else {
+                        compWinCounter++;
                         alert("Гравець обрав " + playerAnswer + ", комп'ютер обрав " + compAnswer + " - виграв комп'ютер!");
                     }
 
@@ -47,6 +52,8 @@
             else {
                 alert("Ви ввели неправильне значення – спробуйте ще раз!");
             }
+
+            alert("Загальний рахунок: Гравець - " + playerWinCounter + " / Комп'ютер - " + compWinCounter);
 
             exitGame = prompt("Якщо ви бажаєте продовжити гру, натисніть OK, але якщо бажаєте закінчити гру, введіть: вихід");
 
