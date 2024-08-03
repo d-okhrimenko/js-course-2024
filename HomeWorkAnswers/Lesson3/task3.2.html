@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>День тижня</title>
+</head>
+
+<body>
+    <div>
+        <b id="output"></b>
+    </div>
+
+
+    <script>
+        let result;
+        switch (new Date().getDay()) {
+            case 0:
+                result = "Неділя";
+                break;
+            case 1:
+                result = "Понеділок";
+                break;
+            case 2:
+                result = "Вівторок";
+                break;
+            case 3:
+                result = "Середа";
+                break;
+            case 4:
+                result = "Четверг";
+                break;
+            case 5:
+                result = "П'ятниця";
+                break;
+            case 6:
+                result = "Субота";
+                break;
+        }
+        let output = document.querySelector("#output");
+        output.innerHTML = result;
+    </script>
+</body>
+
+</html>

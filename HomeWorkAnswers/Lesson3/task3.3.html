@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чи високосний рік?</title>
+</head>
+
+<body>
+    <script>
+        let year = prompt("Введіть рік:").replace(/^\s+|\s+$/g, '');
+        let result;
+        year = parseInt(year);
+        if (Number.isFinite(year)) {
+            if (year % 4 === 0) {
+                alert(year + " - високосний рік");
+            }
+            else {
+                alert(year + " - не високосний рік")
+            }
+        }
+        else {
+            alert("Не коректне значення!");
+        }
+    </script>
+</body>
+
+</html>

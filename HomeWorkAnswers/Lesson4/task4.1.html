@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Камінь, ножиці, папір</title>
+</head>
+
+<body>
+    <script>
+        let gameOptions = ["камінь", "ножиці", "папір", "вихід"];
+
+        function getChoice() {
+            while (true) {
+                let choice = prompt("Введіть одне з 3-х значень для гри: \"камінь, ножиці, папір\", або \"вихід\" для закінчення гри").replace(/^\s+|\s+$/g, '').toLowerCase();
+                let isValid = gameOptions.includes(choice);
+                if (isValid) return (choice);
+            }
+        }
+
+        function getRounds() {
+            while (true) {
+                let value = prompt("Введіть кількість раундів");
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) return Number(value);
+            }
+        }
+
+
+        let gameCount = 0;
+        let playerPoints = 0;
+        let computerPoints = 0;
+
+        let roundsPlayed = getRounds();
+
+        for (let i = 0; i < roundsPlayed; i++) {
+            let player = getChoice();
+            let computer = gameOptions[Math.floor(Math.random() * (gameOptions.length - 1))];
+            if (player === gameOptions[3]) {
+                break;
+            }
+            if (player === computer) {
+                playerPoints++;
+                computerPoints++;
+                alert("Однаковий вибір " + player + " Рахунок " + playerPoints + " : " + computerPoints);
+                continue;
+            }
+            if ((player === gameOptions[0] && computer === gameOptions[1]) ||
+                (player === gameOptions[1] && computer === gameOptions[2]) ||
+                (player === gameOptions[2] && computer === gameOptions[0])) {
+                playerPoints++;
+                alert(player + " б'є " + computer + " Рахунок " + playerPoints + " : " + computerPoints);
+                continue;
+            } else {
+                computerPoints++;
+                alert(computer + " б'є " + player + " Рахунок " + playerPoints + " : " + computerPoints);
+            }
+        }
+        if (playerPoints > computerPoints) {
+            alert("Ви перемогли");
+        } else if (playerPoints < computerPoints) {
+            alert("Переміг компьютер");
+        } else {
+            alert("Нічия")
+        }
+
+        alert(computer);
+    </script>
+</body>
+
+</html>
