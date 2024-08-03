@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 1</title>
+</head>
+
+<body>
+    <script>
+        let games = 0;
+        let winUser = 0;
+        let winComputer = 0
+
+        let userWord;
+        const rock = "камінь"
+        const scissors = "ножиці"
+        const paper = "папір"
+        while (true) {
+            while (true) {
+                userWord = prompt("Введіть камінь, ножиці або папір. (Щоб завершити гру, введіть exit)")
+                if (userWord == rock) {
+                    break;
+                }
+                else if (userWord == paper) {
+                    break;
+                }
+                else if (userWord == scissors) {
+                    break;
+                }
+                else if (userWord == "exit") {
+                    break;
+                }
+                else {
+                    alert("Ви ввели неправильне слово. Спробуйте ще раз.")
+                }
+            }
+            if (userWord == "exit") {
+                break;
+            }
+            const randomNumber = Math.floor(Math.random() * 3) + 1
+            let computerWord;
+            switch (randomNumber) {
+                case 1:
+                    computerWord = rock;
+                    break;
+                case 2:
+                    computerWord = scissors;
+                    break;
+                case 3:
+                    computerWord = paper;
+            }
+
+            if ((userWord == rock && computerWord == scissors) || (userWord == scissors && computerWord == paper) || (userWord == paper && computerWord == rock)) {
+                alert(`Ви вибрали ${userWord}, а комп'ютер вибрав ${computerWord}. Ви перемогли `)
+                winUser++;
+                games++;
+            }
+            else if ((computerWord == rock && userWord == scissors) || (computerWord == scissors && userWord == paper) || (computerWord == paper && userWord == rock)) {
+                alert(`Ви вибрали ${userWord}, а комп'ютер вибрав ${computerWord}. Комп'ютер переміг `)
+                winComputer++;
+                games++;
+            }
+            else {
+                alert(`Ви вибрали ${userWord} і комп'ютер вибрав ${computerWord}. Нічия `)
+            }
+        }
+        if (winUser > winComputer) {
+            alert(`Всього зіграно ${games} ігор. Ви набрали ${winUser} очок,  а комп'ютер набрав ${winComputer} очок.  Ви перемогли `)
+        }
+        else if (winComputer > winUser) {
+            alert(`Всього зіграно ${games} ігор. Ви набрали ${winUser} очок,  а комп'ютер набрав ${winComputer} очок. Комп'ютер переміг`)
+        }
+        else {
+            alert(`Всього зіграно ${games} ігор. Ви набрали ${winUser} очок і комп'ютер теж набрав ${winComputer} очок. Нічия`)
+        }
+    </script>
+</body>
+
+</html>

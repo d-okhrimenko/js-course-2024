@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+
+<body>
+    <script>
+        let round = 0;
+        let correct = 0;
+        let incorrect = 0;
+
+        while (incorrect < 3) {
+            const randomNumber1 = Math.floor(Math.random() * 10) + 1
+            const randomNumber2 = Math.floor(Math.random() * 10) + 1
+            const randomOperator = Math.floor(Math.random() * 4) + 1
+            let result;
+
+            let operator;
+            switch (randomOperator) {
+                case 1:
+                    operator = "+"
+                    break;
+                case 2:
+                    operator = "-"
+                    break;
+                case 3:
+                    operator = "*"
+                    break;
+                case 4:
+                    operator = "/"
+                    break;
+            }
+            let trys = 3
+            let input;
+            while (trys > 0) {
+                input = prompt(`Обчисліть. Дробові числа округліть до цілого. ${randomNumber1}${operator}${randomNumber2}=? (Щоб завершити гру, введіть exit)`)
+                if (input == "exit") {
+                    break;
+                }
+                if (operator == "+") {
+                    result = randomNumber1 + randomNumber2
+                }
+                else if (operator == "-") {
+                    result = randomNumber1 - randomNumber2
+                }
+                else if (operator == "*") {
+                    result = randomNumber1 * randomNumber2
+                }
+                else if (operator == "/") {
+                    result = randomNumber1 / randomNumber2
+                }
+                result = Math.round(result)
+                if (result == Number(input)) {
+                    alert("Правильно!")
+                    correct++;
+                    break;
+                }
+                else {
+                    trys--;
+                    if (trys != 0) {
+                        alert(`Не правильно! у вас залишилось ${trys} спроб`)
+                    }
+
+
+                }
+            }
+            if (trys == 0) {
+                incorrect++;
+                alert("Ви не вирішили це завдання!")
+            }
+
+            if (input == "exit") {
+                break;
+            }
+            round++;
+        }
+        alert(`Всього завдань : ${round}. Виконано правильно : ${correct}. Виконано неправильно : ${incorrect}.`)
+
+    </script>
+</body>
+
+</html>
