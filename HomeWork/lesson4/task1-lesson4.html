@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+</head>
+
+<body>
+    <script>
+        let list = ["камінь", "ножиці", "папір"];
+        let item;
+
+        while (true) {
+            item = prompt("Введіть ваш вибір (камінь, ножиці, папір):");
+            item = item.toLowerCase();
+            if (list.includes(item)) {
+                break;  
+            } else {
+                alert("Введіть один варіант зі списку: камінь, ножиці, папір");
+            }
+        }
+
+        let computerChoice = list[Math.floor(Math.random() * list.length)];
+
+        if (item === computerChoice) {
+            alert("Нічия!");
+        } else if (
+            (item === "камінь" && computerChoice === "ножиці") ||
+            (item === "ножиці" && computerChoice === "папір") ||
+            (item === "папір" && computerChoice === "камінь")
+        ) {
+            alert("Ви виграли!");
+        } else {
+            alert("Ви програли!");
+        }
+        alert("Ви обрали: " + item + " , а система обрала " + computerChoice);
+
+        //для виведення вибору користувача, вибору комп'ютера та результату гри.
+    </script>
+</body>
+
+</html>

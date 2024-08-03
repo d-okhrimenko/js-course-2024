@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function calculateExpression(num1, num2, operator) {
+            switch (operator) {
+                case '+': return num1 + num2;
+                case '-': return num1 - num2;
+                case '*': return num1 * num2;
+                case '/': return num1 / num2;
+                default: return null;
+            }
+        }
+
+        let numQuestions = 5; 
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+
+        for (let i = 0; i < numQuestions; i++) {
+            let num1 = getRandomInt(1, 10);
+            let num2 = getRandomInt(1, 10);
+            let operators = ['+', '-', '*', '/'];
+            let operator = operators[Math.floor(Math.random() * operators.length)];
+
+            if (operator === '/' && num2 === 0) {
+                num2 = getRandomInt(1, 10);
+            }
+
+            let correctResult = calculateExpression(num1, num2, operator);
+            let userAnswer = prompt(`Розв'яжіть: ${num1} ${operator} ${num2}`);
+
+            if (parseFloat(userAnswer) === correctResult) {
+                alert("Правильна відповідь!");
+                correctAnswers++;
+            } else {
+                alert(`Неправильна відповідь! Правильна відповідь: ${correctResult}`);
+                incorrectAnswers++;
+            }
+        }
+
+        alert(`Гра завершена! Правильні відповіді: ${correctAnswers}, Неправильні відповіді: ${incorrectAnswers}`);
+
+    </script>
+</body>
+
+</html>
