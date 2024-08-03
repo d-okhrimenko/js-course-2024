@@ -3,7 +3,9 @@ let list_options = document.querySelector('.list_options');
 let stone = document.querySelector('#stone');
 let scissors = document.querySelector('#scissors');
 let paper = document.querySelector('#paper');
-let messege_result = document.querySelector(".messege_result");
+let messege_result = document.querySelector(".message_result");
+let content_game = document.querySelector(".content_game");
+let result = document.querySelector(".message_all_result");
 let point_user = 0, point_comp = 0, count = 0;
 let text_won = "Ви виграли!";
 let text_lost = "Ви програли!";
@@ -80,12 +82,12 @@ document.querySelector("#btn_play").onclick = function () {
 }
 // натискання на кнопку завершити
 document.querySelector("#btn_end").onclick = function () {
+    content_game.remove();
     if (point_user > point_comp) {
-        messege_result.innerHTML = `З рахунком ${point_user} | ${point_comp} ${text_won}`;
+        result.innerHTML = `З рахунком ${point_user} | ${point_comp} ${text_won}`;
     } else if (point_user < point_comp) {
-        messege_result.innerHTML = `З рахунком ${point_user} | ${point_comp} ${text_lost}`;
+        result.innerHTML = `З рахунком ${point_user} | ${point_comp} ${text_lost}`;
     } else {
-        messege_result.innerHTML = `З рахунком ${point_user} | ${point_comp} ${text_draw}`;
+        result.innerHTML = `З рахунком ${point_user} | ${point_comp} ${text_draw}`;
     }
-    point_user = 0, point_comp = 0, count = 0
 }

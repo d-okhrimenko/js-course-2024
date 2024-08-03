@@ -40,11 +40,13 @@ body {
     margin: 15px 0;
 }
 
-.messege_result {
+.message {
     color: #da274f;
     padding: 10px 0 25px 0;
     text-transform: uppercase;
     font-weight: 600;
+    display: flex;
+    justify-content: center;
 }
 
 .active {
