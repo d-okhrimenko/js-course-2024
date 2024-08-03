@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+}
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+}
+.row {
+  text-align: center;
+}
+.cel {
+}
+#btn{
+  font-size: 24px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
