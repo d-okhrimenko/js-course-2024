@@ -41,13 +41,15 @@
                         break;
                     case 3:
                         operator = " / ";
-                        calculationResult = (randomNumber1 / randomNumber2).toFixed(2);
+                        calculationResult = randomNumber1 / randomNumber2;
                         break;
                 }
 
+                calculationResult = calculationResult.toFixed(2);
+
                 playerAnswer = Number(prompt("Спроба " + i + ": Введіть рішення " + randomNumber1 + operator + randomNumber2 + " ="));
 
-                if (playerAnswer === calculationResult) {
+                if (playerAnswer.toFixed(2) === calculationResult) {
                     correctAnswerCounter++;
                     alert("Вірно!");
                 }
