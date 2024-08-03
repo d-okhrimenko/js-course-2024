@@ -83,11 +83,12 @@ document.querySelector("#btn_play").onclick = function () {
 // натискання на кнопку завершити
 document.querySelector("#btn_end").onclick = function () {
     content_game.remove();
+    let text = `З рахунком ${point_user} | ${point_comp} `;
     if (point_user > point_comp) {
-        result.innerHTML = `З рахунком ${point_user} | ${point_comp} ${text_won}`;
+        result.innerHTML = `${text} ${text_won}`;
     } else if (point_user < point_comp) {
-        result.innerHTML = `З рахунком ${point_user} | ${point_comp} ${text_lost}`;
+        result.innerHTML = `${text} ${text_lost}`;
     } else {
-        result.innerHTML = `З рахунком ${point_user} | ${point_comp} ${text_draw}`;
+        result.innerHTML = `${text} ${text_draw}`;
     }
 }
