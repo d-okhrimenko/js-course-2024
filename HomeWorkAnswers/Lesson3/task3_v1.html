@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Task 3</h1>
+    <p>Enter the year</p>
+    <input type="text" id="userYear">
+    <button id="btnCheckLeap">Is it a leap year?</button>
+    <p>
+        <b id="result"> </b>
+    </p>
+
+    <script>
+        document.querySelector("#btnCheckLeap").onclick = function () {
+            let userYear = Number(document.querySelector("#userYear").value);
+
+            if (userYear % 4 == 0 && userYear % 100 != 0 || userYear % 400 == 0) {
+                document.querySelector("#result").innerHTML = userYear + " is leap year";
+            } else if (isNaN(Number(userYear))) {
+                document.querySelector("#result").innerHTML = "Incorrect entry, please enter the year";
+            } else {
+                document.querySelector("#result").innerHTML = userYear + " is not a leap year";
+            }
+        }
+    </script>
+</body>
+
+</html>
