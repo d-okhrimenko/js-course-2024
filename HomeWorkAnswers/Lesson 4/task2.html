@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математичний квіз</title>
+</head>
+
+<body>
+    <script>
+
+        const attemptCounter = 10;
+
+        let playerAnswer;
+        let operator;
+        let calculationResult;
+        let exitGame;
+
+        do {
+
+            let correctAnswerCounter = 0;
+
+            for (let i = 1; i <= attemptCounter; i++) {
+
+                let randomNumber1 = Math.floor(Math.random() * 1000);
+                let randomNumber2 = Math.floor(Math.random() * 1000);
+                let randomOperator = Math.floor(Math.random() * 4);
+
+                switch (randomOperator) {
+                    case 0:
+                        operator = " + ";
+                        calculationResult = randomNumber1 + randomNumber2;
+                        break;
+                    case 1:
+                        operator = " - ";
+                        calculationResult = randomNumber1 - randomNumber2;
+                        break;
+                    case 2:
+                        operator = " * ";
+                        calculationResult = randomNumber1 * randomNumber2;
+                        break;
+                    case 3:
+                        operator = " / ";
+                        calculationResult = randomNumber1 / randomNumber2;
+                        break;
+                }
+
+                calculationResult = calculationResult.toFixed(2);
+
+                playerAnswer = Number(prompt("Спроба " + i + ": Введіть рішення " + randomNumber1 + operator + randomNumber2 + " ="));
+
+                if (playerAnswer.toFixed(2) === calculationResult) {
+                    correctAnswerCounter++;
+                    alert("Вірно!");
+                }
+                else {
+                    alert("Не вірно! Правильна відповідь " + calculationResult);
+                }
+            }
+
+            alert("Всього було " + attemptCounter + " спроб, з яких " + correctAnswerCounter + " були вірними");
+
+            exitGame = prompt("Якщо ви бажаєте продовжити гру, натисніть OK, але якщо бажаєте закінчити гру, введіть: вихід");
+
+        } while (exitGame === null || exitGame.toLowerCase() !== "вихід")
+
+    </script>
+</body>
+
+</html>
