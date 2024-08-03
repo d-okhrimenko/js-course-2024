@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task2-Lesson4</title>
+</head>
+
+<body>
+  <script>
+    const operands = ['+', '-', '*', '/'];
+    const getRandom = num => Math.floor(Math.random() * num)
+
+    const getCorrectAnswer = (operand, a, b) => {
+      switch (operand) {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/': return (Math.round(a / b * 10) / 10);
+      }
+    };
+
+    const attemptMax = 5;
+    let attemptCount = 0;
+    let correctAnswerCount = 0;
+    let wrongAnswerCount = 0;
+
+    while (attemptCount < attemptMax) {
+      const randomNum1 = getRandom(10);
+      const randomNum2 = getRandom(10);
+      const randomOperand = operands[getRandom(operands.length)];
+      if (randomOperand === '/' && randomNum2 === 0) {
+        randomNum2 = getRandom(10);
+      }
+      const task = `${randomNum1} ${randomOperand} ${randomNum2}`;
+      const correctAnswer = getCorrectAnswer(randomOperand, randomNum1, randomNum2);
+
+      attemptCount++;
+
+      const userAnswer = parseFloat(prompt(`Спроба ${attemptCount}. \nНапиши, скільки буде ${task}? \nЯкщо відповідь не є цілим числом, то округли до десятих`));
+
+      if (userAnswer.length < 1 || isNaN(userAnswer)) {
+        attemptCount--;
+        alert(`Помилка! Будь ласка, введи число.`);
+      } else {
+        if (userAnswer === correctAnswer) {
+          correctAnswerCount++;
+          alert(`Вірно! ${task} = ${correctAnswer}`);
+        } else {
+          wrongAnswerCount++;
+          alert(`Невірно! ${task} не дорівнює ${userAnswer}.`);
+        }
+      }
+
+      if (attemptCount === attemptMax) {
+        alert(`Квіз завершено! Кількість правильних відповідей: ${correctAnswerCount}, а неправильних: ${wrongAnswerCount}`)
+      };
+    }
+  </script>
+</body>
+
+</html>

@@ -20,14 +20,13 @@
     let gameCount = 0;
     let userCount = 0;
     let computerCount = 0;
+    const getWinner = (user, computer) => user > computer
+      ? 'Ти виграв!' : user === computer
+        ? 'Нічия!' : 'Компьютер виграв!';
 
-    while (gameCount <= gameMax) {
+    while (gameCount < gameMax) {
       gameCount++;
-      if (gameCount > gameMax) {
-        alert(`Гру закінчено! Твій рахунок: ${userCount}. Рахунок компьютура:  ${computerCount}. Виграв ${userCount > computerCount ? 'Ти!' : 'Компьютер!'}`);
-        break;
-      }
-      const userChoice = prompt(`Раунд ${gameCount}. Введи свій вибір (${validChoices.join(', ')} або 'вихід' для завершення гри:)`);
+      const userChoice = prompt(`Раунд ${gameCount}. Введи свій вибір (${validChoices.join(', ')} або 'вихід' для завершення гри:)`).toLowerCase();
       const computerChoice = validChoices[Math.floor(Math.random() * 3)];
       if (userChoice === 'вихід') {
         alert('Ти обрав вихід з гри!')
@@ -51,11 +50,15 @@
           alert(`${rule[2]}, Ти виграв раунд!`);
           userCount++;
           break;
-        } else if (userChoice === rule[1] && computerChoice === rule[0]){
+        } else if (userChoice === rule[1] && computerChoice === rule[0]) {
           alert(`${rule[2]}, компьютер виграв раунд!`);
           computerCount++;
           break;
-        } 
+        }
+      }
+      if (gameCount === gameMax) {
+        alert(`Гру закінчено! Твій рахунок: ${userCount}. Рахунок компьютура:  ${computerCount}. ${getWinner(userCount, computerCount)}`);
+        break;
       }
     }
   </script>
