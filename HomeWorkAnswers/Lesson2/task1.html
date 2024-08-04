@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 2</title>
+  </head>
+  <body>
+    <p id="outBox"></p>
+    <p id="greet"></p>
+    <button id="btn">Скажи привіт</button>
+  </body>
+  <script>
+    document.querySelector("#outBox").innerHTML =
+      new Date().toLocaleDateString();
+    document.querySelector("#btn").onclick = function () {
+      document.querySelector("#greet").innerHTML = "Привіт, Valentyna";
+    };
+  </script>
+</html>
