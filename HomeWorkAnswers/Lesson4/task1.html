@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task1-Lesson4</title>
+</head>
+
+<body>
+  <script>
+    const validChoices = ['камінь', 'ножиці', 'папір'];
+    const winCondition = [
+      ['ножиці', 'папір', 'Ножиці ріжуть папір'],
+      ['папір', 'камінь', 'Папір обертає камінь'],
+      ['камінь', 'ножиці', 'Камінь затуплює ножиці'],
+    ];
+
+    const gameMax = 3;
+    let gameCount = 0;
+    let userCount = 0;
+    let computerCount = 0;
+    const getWinner = (user, computer) => user > computer
+      ? 'Ти виграв!' : user === computer
+        ? 'Нічия!' : 'Компьютер виграв!';
+
+    while (gameCount < gameMax) {
+      gameCount++;
+      const userChoice = prompt(`Раунд ${gameCount}. Введи свій вибір (${validChoices.join(', ')} або 'вихід' для завершення гри:)`).toLowerCase();
+      const computerChoice = validChoices[Math.floor(Math.random() * 3)];
+      if (userChoice === 'вихід') {
+        alert('Ти обрав вихід з гри!')
+        break;
+      };
+
+      if (!validChoices.includes(userChoice) || !userChoice) {
+        alert(`Помилка! Будь ласка, введи ${validChoices.join(', або ')}.`);
+        gameCount--;
+      };
+
+      if (validChoices.includes(userChoice)) {
+        alert(`Твій вибір: ${userChoice}, комп'ютер обрав: ${computerChoice}`);
+      }
+
+      for (rule of winCondition) {
+        if (userChoice === computerChoice) {
+          alert('Нічия!');
+          break;
+        } else if (userChoice === rule[0] && computerChoice === rule[1]) {
+          alert(`${rule[2]}, Ти виграв раунд!`);
+          userCount++;
+          break;
+        } else if (userChoice === rule[1] && computerChoice === rule[0]) {
+          alert(`${rule[2]}, компьютер виграв раунд!`);
+          computerCount++;
+          break;
+        }
+      }
+      if (gameCount === gameMax) {
+        alert(`Гру закінчено! Твій рахунок: ${userCount}. Рахунок компьютура:  ${computerCount}. ${getWinner(userCount, computerCount)}`);
+        break;
+      }
+    }
+  </script>
+</body>
+
+</html>
