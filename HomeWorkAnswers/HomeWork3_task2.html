@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // Отримання поточної дати
+      let today = new Date();
+
+      // Визначення дня тижня
+      let dayOfWeek = today.getDay();
+
+      // Масив з назвами днів тижня
+      let days = [
+        "неділя",
+        "понеділок",
+        "вівторок",
+        "середа",
+        "четвер",
+        "п'ятниця",
+        "субота",
+      ];
+
+      // Виведення результату
+      console.log(`Сьогодні ${days[dayOfWeek]}!`);
+    </script>
+  </body>
+</html>
