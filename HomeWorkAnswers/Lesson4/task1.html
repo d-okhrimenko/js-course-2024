@@ -27,13 +27,13 @@
         let valueRounds = prompt("Введіть кількість раундів гри:");
         let isValidRounds = !isNaN(valueRounds) && valueRounds !== "" && valueRounds !== null;
         if (isValidRounds) {
-            rounds = Number(valueRounds);
+            rounds = Number(valueRounds) || rounds;
         }
 
         let valueAttempts = prompt("Введіть кількість спроб у кожному раунді:");
         let isValidAttempts = !isNaN(valueAttempts) && valueAttempts !== "" && valueAttempts !== null;
         if (isValidAttempts) {
-            attempts = Number(valueAttempts);
+            attempts = Number(valueAttempts) || attempts;
         }
 
         showMsg(`Чудовий початок, ${userName},\nгра матиме раундів: ${rounds},\nу кожному раунді буде спроб: ${attempts}.`);
@@ -42,7 +42,7 @@
         let totalAttempts = 0;
         let currentRound = 0;
         let roundIsNotOver = false;
-        let roundOver = "";
+        let roundOver = 0;
 
         // раунди
         for (let round = 0; round < rounds; round++) {
@@ -55,6 +55,7 @@
                 console.log(`Раунд ${round + 1}-${attempt + 1}`);
 
                 // вибір комп'ютера
+                let valueComputer;
                 let randomNumberComputer = Math.floor(Math.random() * 3) + 1; // 1 або 2 або 3
                 switch (randomNumberComputer) {
                     case 1:
