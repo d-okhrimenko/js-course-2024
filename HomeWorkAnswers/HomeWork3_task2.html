@@ -14,22 +14,19 @@
       // Визначення дня тижня
       let dayOfWeek = today.getDay();
 
+      // Масив з назвами днів тижня
+      let days = [
+        "неділя",
+        "понеділок",
+        "вівторок",
+        "середа",
+        "четвер",
+        "п'ятниця",
+        "субота",
+      ];
+
       // Виведення результату
-      if (dayOfWeek === 0) {
-        console.log("Сьогодні неділя!");
-      } else if (dayOfWeek === 1) {
-        console.log("Сьогодні понеділок!");
-      } else if (dayOfWeek === 2) {
-        console.log("Сьогодні вівторок!");
-      } else if (dayOfWeek === 3) {
-        console.log("Сьогодні середа!");
-      } else if (dayOfWeek === 4) {
-        console.log("Сьогодні четвер!");
-      } else if (dayOfWeek === 5) {
-        console.log("Сьогодні п'ятниця!");
-      } else if (dayOfWeek === 6) {
-        console.log("Сьогодні субота!");
-      }
+      console.log(`Сьогодні ${days[dayOfWeek]}!`);
     </script>
   </body>
 </html>
