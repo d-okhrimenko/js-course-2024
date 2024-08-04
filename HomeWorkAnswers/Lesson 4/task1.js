@@ -45,7 +45,7 @@ let winComp = 0;
 let res = "";
 let rounds = 3;
 let userVariant, compVariant;
-["1", "2", "3", "q"];
+let inputVariant = ["1", "2", "3", "q"];
 
 function chooseVariant(value) {
 	switch (value) {
