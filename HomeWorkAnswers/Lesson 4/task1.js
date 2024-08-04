@@ -68,20 +68,22 @@ while (count < rounds) {
 	}
 
 	alert(
-		` Раунд № ${count}. \n Результат: ${res}. \n Людина "${userVariant}"  :  Компютер "${compVariant}".   Нічия: ${nobody}`,
+		` Раунд № ${count}. \n Результат: ${res}. \n Людина "${userVariant}"  :  Комп'ютер "${compVariant}".   Нічия: ${nobody}`,
 	);
 
 	console.log(`Раунд № ${count}. Людина =  ${userVariant} Компютер = ${compVariant}`);
 	console.log(`Раунд № ${count}. Результат: ${res}. Рахунок "Людина : Ком'пютер" =  ${winUser} : ${winComp}`);
 }
 let round = document.querySelector("#round");
-round.innerHTML = rounds; //Вибрано раундів для ігри
+	round.innerHTML = rounds; 		//Вибрано раундів для ігри
 let play = document.querySelector("#play");
-play.innerHTML = count; //Фактично зіграних раундів
+	play.innerHTML = count; 		//Фактично зіграних раундів
 let user = document.querySelector("#user");
-user.innerHTML = winUser; //Кількість перемог людини
+	user.innerHTML = winUser; 		//Кількість перемог людини
 let comp = document.querySelector("#comp");
-comp.innerHTML = winComp; //Кількість перемог комп'ютера
+	comp.innerHTML = winComp; 		//Кількість перемог комп'ютера
+let none = document.querySelector("#none");
+	none.innerHTML = nobody; 		//Кількість Нічий
 
 // let score = document.querySelector("#score");
 // score.innerHTML = "Результат = 'Людина' " + winUser + ": 'Комп'ютер' " + winComp + " 'Нічия': " + nobody;
