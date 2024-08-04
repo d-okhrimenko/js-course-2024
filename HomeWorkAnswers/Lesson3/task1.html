@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let userInput = prompt("Введіть ціле число");
+
+        let isNumber = !isNaN(userInput);
+
+        if(isNumber){
+            let data = parseInt(userInput);
+
+            let remainderOfDivision = data % 2;
+
+            if (remainderOfDivision == 0) {
+                alert("Парне число");
+            } 
+            else {
+                alert("Непарне число");
+            }
+        }
+        else{
+            alert("Ви ввели не число");
+        }
+
+    </script>
+</body>
+
+</html>
