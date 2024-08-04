@@ -4,14 +4,46 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
+		<style>
+			table {
+				width: 100%;
+				border-collapse: collapse;
+			}
+			th, td {
+				border: 1px solid #ddd;
+				padding: 8px;
+				text-align: center;
+			}
+			th {
+				background-color: #f2f2f2;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>Гра "Камінь, ножиці, папір"</h1>
-		<div>
-			<p id="round">Кількість раундів</p>
-			<p id="score">Рахунок</p>
-			<p></p>
-		</div>
+<div>
+	<p id="round">Вибрано раундів</p>
+	<p id="play">Зіграно раундів</p>
+
+
+</div>
+		<table>
+			<tr>
+				<th></th>
+				<th>Людина</th>
+				<th>:</th>
+				<th>Комп`ютер</th>
+			</tr>
+			<tr>
+				<td>Виграно</td>
+				<td id="user">0</td>
+				<td>:</td>
+				<td id="comp">0</td>
+			</tr>
+			<tr>
+				<td colspan="2">Зіграно у ничію</td>
+				<td id="none" colspan="2">0</td>
+			</tr>
 
 		<script src="task1.js"></script>
 	</body>
