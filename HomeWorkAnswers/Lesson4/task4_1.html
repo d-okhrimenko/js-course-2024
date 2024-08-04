@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let winnerUser=0;
+      let winnerPC=0;
+      while (true) {
+        let arrGame = ["камінь", "ножиці", "папір"];
+        let valuePC = arrGame[Math.floor(Math.random() * arrGame.length)]; //генерування значення ПК
+
+        function getValue(message) {
+          //Перевірка на коректність вводу даних користувачем
+          let isValid = false;
+          while (true) {
+            let initialValue = prompt(message);
+            let value = initialValue.replace(/\s+/g, "").toLowerCase();
+            for (let index = 0; index < arrGame.length; index++) {
+              if (arrGame[index] == value) {
+                isValid = true;
+              }
+            }
+            if (isValid) return value;
+          }
+        }
+
+        function getWin() {
+          //Визначення переможця
+          let win = 0;
+          if (valuePC[0] == "к" && valueUser[0] == "н") win = 1;
+          if (valuePC[0] == "н" && valueUser[0] == "п") win = 1;
+          if (valuePC[0] == "п" && valueUser[0] == "к") win = 1;
+          if (valuePC[0] == "к" && valueUser[0] == "к") win = 2;
+          if (valuePC[0] == "н" && valueUser[0] == "н") win = 2;
+          if (valuePC[0] == "п" && valueUser[0] == "п") win = 2;
+          return win;
+        }
+
+        function getResult(number, vUs, vPC) {
+          //Вивід результату гри
+          switch (number) {
+            case 0:
+              alert(
+                "Ви вибрали -" +
+                  vUs +
+                  "\nКомп'ютер вибрав -" +
+                  vPC +
+                  "\nВи виграли!!!!!!!!"
+              );
+              winnerUser++
+              break;
+            case 1:
+              alert(
+                "Ви вибрали -" +
+                  vUs +
+                  "\nКомп'ютер вибрав -" +
+                  vPC +
+                  "\nВи програли:))))))"
+              );
+              winnerPC++;
+              break;
+            case 2:
+              alert(
+                "Ви вибрали -" + vUs + "\nКомп'ютер вибрав -" + vPC + "\nНічия"
+              );
+              break;
+            default:
+              break;
+          }
+          alert(`Ви виграли ${winnerUser} раз(и), комп'ютер виграв ${winnerPC} раз(и) `)
+        }
+
+        let valueUser = getValue(
+          "Введіть камінь або ножиці або папір для початку гри"
+        );
+
+        let winner = getWin();
+        getResult(winner, valueUser, valuePC);
+        if (prompt("Для продовження гри введіть Y, для завершення N") == "N")
+          break;
+      }
+    </script>
+  </body>
+</html>
