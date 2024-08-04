@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function generateExpression() {
+        let randomNumber1 = Math.floor(Math.random() * 100) + 1;
+        let randomNumber2 = Math.floor(Math.random() * 100) + 1;
+        let operators = ["+", "-", "*", "/"];
+        let randomIndex = Math.floor(Math.random() * operators.length);
+        let operator = operators[randomIndex];
+        let expression = `${randomNumber1} ${operator} ${randomNumber2}`;
+        let correctAnswer;
+
+        switch (operator) {
+          case "+":
+            correctAnswer = randomNumber1 + randomNumber2;
+            break;
+          case "-":
+            correctAnswer = randomNumber1 - randomNumber2;
+            break;
+          case "*":
+            correctAnswer = randomNumber1 * randomNumber2;
+            break;
+          case "/":
+            correctAnswer = (randomNumber1 / randomNumber2).toFixed(2);
+            break;
+        }
+
+        return { expression, correctAnswer };
+      }
+
+      function mathQuiz() {
+        let correctCount = 0;
+        let incorrectCount = 0;
+        let attempts = 5;
+
+        for (let i = 0; i < attempts; i++) {
+          let { expression, correctAnswer } = generateExpression();
+          let userAnswer = prompt(`Розв'яжіть вираз: ${expression}`);
+
+          if (parseFloat(userAnswer) === parseFloat(correctAnswer)) {
+            alert("Правильно!");
+            correctCount++;
+          } else {
+            alert(`Неправильно. Правильна відповідь: ${correctAnswer}`);
+            incorrectCount++;
+          }
+        }
+
+        alert(
+          `Гра завершена. Правильних відповідей: ${correctCount}. Неправильних відповідей: ${incorrectCount}.`
+        );
+      }
+
+      mathQuiz();
+    </script>
+  </body>
+</html>

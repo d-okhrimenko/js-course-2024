@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Гра "Камінь, ножиці або папір"</title>
+  </head>
+  <body>
+    <script>
+      let userScore = 0;
+      let compScore = 0;
+      let rounds = 0;
+      while (true) {
+        let userChoice = prompt("Введіть значення:").toLowerCase();
+
+        if (userChoice === "вихід") {
+          alert(
+            `Гра завершена. Загальний рахунок: Користувач ${userScore} - ${compScore} Комп'ютер`
+          );
+          break;
+        }
+        let options = ["камінь", "ножиці", "папір"];
+        if (!options.includes(userChoice)) {
+          alert(
+            "Неправильний вибір. Будь ласка, введіть камінь, ножиці або папір."
+          );
+          continue;
+        }
+        let randomIndex = Math.floor(Math.random() * options.length);
+        let compChoise = options[randomIndex];
+        console.log(compChoise);
+        if (userChoice === compChoise) {
+          alert(
+            `Користувач обрав ${userChoice}, комп'ютер обрав ${compChoise}, Результат: Нічия`
+          );
+        } else if (
+          (userChoice === "камінь" && compChoise === "ножиці") ||
+          (userChoice === "ножиці" && compChoise === "папір") ||
+          (userChoice === "папір" && compChoise === "камінь")
+        ) {
+          alert(
+            `Користувач обрав ${userChoice}, комп'ютер обрав ${compChoise}, Результат: Користувач виграв`
+          );
+          userScore++;
+        } else {
+          alert(
+            `Користувач обрав ${userChoice}, комп'ютер обрав ${compChoise}, Результат: Користувач програв`
+          );
+          compScore++;
+        }
+        rounds++;
+        alert(
+          `Рахунок після ${rounds} раундів: Користувач ${userScore} - ${compScore} Комп'ютер`
+        );
+      }
+    </script>
+  </body>
+</html>
