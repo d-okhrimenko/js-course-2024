@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--чи є введений рік високосним?-->
+    <script>
+        function inputYearValue() {
+            let yaerValue = Number(prompt("Введіть любий рік:"));
+            //Перевірка, що користувач ввів коректне число.
+            if (isNaN(yaerValue)) {
+                alert("Це не цифра :( Спробуйте знову.")
+                inputYearValue();
+            }
+            //Перевірка, чи введений рік високосний.
+            else if ((yaerValue % 4 == 0 && yaerValue % 100 != 0) || yaerValue % 400 == 0) {
+                alert("Введений вами рік " + yaerValue + " - високосний");
+                inputYearValue();
+            } else {
+                alert("Введений вами рік " + yaerValue + " - не високосний");
+                inputYearValue();
+            }
+            inputYearValue();
+        }
+        inputYearValue();  
+    </script>
+
+</body>
+
+</html>

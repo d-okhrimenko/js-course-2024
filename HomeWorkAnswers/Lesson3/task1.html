@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function inputSomeValue() {
+            let userAnswer = Number(prompt("Введіть число:"))
+            //Перевірка, що користувач ввів коректне число.
+            if (isNaN(userAnswer)) {
+                alert("Це не цифра :( Спробуйте знову.")
+                inputSomeValue();
+            }
+            //Визначення, чи є число парним або непарним
+            else if (userAnswer % 2 == 0) {
+                alert("Ви ввели " + userAnswer + ", це парне число!")
+                inputSomeValue();
+            }
+            else if (userAnswer % 2 !== 0) {
+                alert("Ви ввели " + userAnswer + ", це не парне число!")
+                inputSomeValue();
+            }
+        }
+        inputSomeValue();
+    </script>
+</body>
+
+</html>
