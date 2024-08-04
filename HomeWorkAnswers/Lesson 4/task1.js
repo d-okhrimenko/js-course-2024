@@ -54,7 +54,7 @@ while (count < rounds) {
 		} else if (
 			(compChoiceNum === 1 && userChoiceNum === 2) || //Камінь б'є ножиці
 			(compChoiceNum === 2 && userChoiceNum === 3) || //Ножиці б'ють папір
-			(compChoiceNum === 3 && userChoiceNum === 1)    //Папір б'є камінь
+			(compChoiceNum === 3 && userChoiceNum === 1) //Папір б'є камінь
 		) {
 			res = "Виграв комп'ютер";
 			winComp++;
@@ -62,7 +62,7 @@ while (count < rounds) {
 			res = "Виграла людина";
 			winUser++;
 		}
-	 } else {
+	} else {
 		alert("Невірні значення, повторіть");
 		continue;
 	}
@@ -72,16 +72,16 @@ while (count < rounds) {
 	);
 
 	console.log(`Раунд № ${count}. Людина =  ${userVariant} Компютер = ${compVariant}`);
-	console.log(`Раунд № ${count}. Результат: ${res}. Рахунок "Людина:Компютер" =  ${winUser} : ${winComp}`);
+	console.log(`Раунд № ${count}. Результат: ${res}. Рахунок "Людина : Ком'пютер" =  ${winUser} : ${winComp}`);
 }
 let round = document.querySelector("#round");
-round.innerHTML = "Вибрано раундів: " + rounds;
+round.innerHTML = rounds; //Вибрано раундів для ігри
 let play = document.querySelector("#play");
-play.innerHTML = "Зіграно раундів: " + count;
+play.innerHTML = count; //Фактично зіграних раундів
 let user = document.querySelector("#user");
-user.innerHTML = winUser;
+user.innerHTML = winUser; //Кількість перемог людини
 let comp = document.querySelector("#comp");
-comp.innerHTML = winComp;
+comp.innerHTML = winComp; //Кількість перемог комп'ютера
 
 // let score = document.querySelector("#score");
 // score.innerHTML = "Результат = 'Людина' " + winUser + ": 'Комп'ютер' " + winComp + " 'Нічия': " + nobody;

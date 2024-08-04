@@ -9,7 +9,9 @@
 				width: 25%;
 				border-collapse: collapse;
 			}
-			th, td {
+
+			th,
+			td {
 				border: 1px solid #ddd;
 				padding: 8px;
 				text-align: center;
@@ -21,29 +23,38 @@
 	</head>
 	<body>
 		<h1>Гра "Камінь, ножиці, папір"</h1>
-<div>
-	<p id="round">Вибрано раундів</p>
-	<p id="play">Зіграно раундів</p>
-
-
-</div>
+<h2>Результат</h2>
 		<table>
 			<tr>
-				<th></th>
 				<th>Людина</th>
 				<th>:</th>
 				<th>Комп`ютер</th>
 			</tr>
 			<tr>
-				<td>Виграно</td>
 				<td id="user">0</td>
 				<td>:</td>
 				<td id="comp">0</td>
 			</tr>
+		</table>
+	</br>
+		<table>
+
 			<tr>
-				<td colspan="2">Зіграно у нічию</td>
-				<td id="none" colspan="2">0</td>
+				<td>Вибрано раундів</td>
+				<td>:</td>
+				<td id="round">0</td>
 			</tr>
+			<tr>
+				<td>Зіграно раундів</td>
+				<td>:</td>
+				<td id="play">0</td>
+			</tr>
+			<tr>
+				<td>Зіграно у нічию</td>
+				<td>:</td>
+				<td id="none">0</td>
+			</tr>
+		</table>
 
 		<script src="task1.js"></script>
 	</body>
