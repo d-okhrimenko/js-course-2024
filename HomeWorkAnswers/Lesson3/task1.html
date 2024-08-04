@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Lesson 3. Task 1.</h3>
+    <h4>
+        Завдання 1<br>
+        Написати програму, яка визначає, чи є введене число парним або непарним.<br>
+        Кроки для виконання завдання:<br>
+        - Введення числа:<br>
+        Використайте prompt для введення числа користувачем.<br>
+        - Перетворення введених даних на число:<br>
+        Перетворіть введене значення з рядка на число, використовуючи parseInt або Number.<br>
+        - Перевірка введених даних:<br>
+        Переконайтеся, що користувач ввів коректне число.<br>
+        - Перевірка на парність:<br>
+        Використайте оператор залишку від ділення (%), щоб визначити, чи є число парним або непарним.<br>
+        - Виведення результату:<br>
+        Використайте alert для виведення повідомлення про те, чи є число парним або непарним.<br>
+    </h4>
+    <h2>Done</h2>
+
+    <script>
+        let resultString;
+        let s = prompt("Введіть число: ");
+        let i = parseInt(s);
+        if (isNaN(i)) {
+            resultString = "Введене значення [" + s + "] не є числом";
+        } else {
+            resultString = "Число " + i + " ";
+            if (i%2 == 0) resultString += "є парним";
+            else          resultString += "не є парним";
+        }
+        alert(resultString);
+        console.log(resultString);
+    </script>
+    
+</body>
+</html>

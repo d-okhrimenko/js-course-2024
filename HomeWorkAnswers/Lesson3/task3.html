@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Lesson 3. Task 3.</h3>
+    <h4>
+        Завдання 3<br>
+        Написати програму, яка перевіряє, чи є введений рік високосним.<br>
+        Кроки для виконання завдання:<br>
+        Введення року:<br>
+        - Використайте prompt для введення року користувачем.<br>
+        Перетворення введених даних на число:<br>
+        - Перетворіть введене значення з рядка на число, використовуючи parseInt або Number.<br>
+        Перевірка введених даних:<br>
+        - Переконайтеся, що користувач ввів коректне число.<br>
+        Перевірка на високосний рік:<br>
+        - Використайте умовні оператори для перевірки, чи є рік високосним.<br>
+        Виведення результату:<br>
+        - Використайте alert для виведення результату.<br>
+    </h4>
+
+    <p id="output"><br></p>
+    <button id="btn">Рік</button>    
+    <h2 id="done">Press button</h2>
+
+    <script>
+        let resultString;
+        let s = prompt("Введіть рік: ");
+        let i = parseInt(s);
+        if (isNaN(i)) {
+            resultString = "Введене значення [" + s + "] не є числом";
+        } else if (i > 9999) {
+            resultString = "Введене значення [" + s + "] не є роком";
+        } else {
+            resultString = "Рік " + i + " ";
+            if (i%4 == 0) resultString += "є високосний";
+            else          resultString += "не є високосний";
+        }
+       
+        alert(resultString);
+        
+        let out = document.querySelector("#output");
+        out.innerHTML = resultString;
+        let btn = document.querySelector("#btn");
+        btn.innerHTML = resultString;
+
+        btn.onclick=function(){
+            out.innerHTML = resultString;
+            out.style.color = "green";
+            document.querySelector("#done").innerHTML = "Done";
+            console.log("Done");
+            console.log(resultString);
+        }       
+    </script>
+    
+</body>
+</html>
