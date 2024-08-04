@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Lesson4 tsk2</title>
+</head>
+<body>
+    <script>
+        let totalRounds = 3;
+        let roundCounter = 0;
+        let userNumberStr = "";
+        let userNumber = 0;
+        let countedNumber = 0;
+        let randomNumber1 = Math.floor(Math.random() * 100) + 1;
+        let randomNumber2 = Math.floor(Math.random() * 100) + 1;;
+        let operator = [" + ", " - ", " x ", " : "];
+        let randomOperator = Math.floor(Math.random() * 3) + 1;
+        switch (operator[randomOperator]) {
+            case " + ":
+                countedNumber = randomNumber1 + randomNumber2;
+            break;
+            case " - ":
+                countedNumber = randomNumber1 - randomNumber2;
+            break;
+            case " x ":
+                countedNumber = randomNumber1 * randomNumber2;
+            break;
+            case " : ":
+                countedNumber = randomNumber1 / randomNumber2;
+            break;
+        }
+        while (roundCounter < totalRounds) {
+            userNumberStr = prompt("Залишилось спроб: " + (totalRounds-roundCounter) + ". Веедіть результат виразу " + randomNumber1 + operator[randomOperator] + randomNumber2 + " = ");
+            if (/^-?\d+(\.?\d+)?$/.test(userNumberStr)) {
+                userNumber = parseInt(userNumberStr);
+                if (userNumber == countedNumber) {
+                    roundCounter++;
+                    alert("Спроба: " + roundCounter + ". Відповідь вірна! " + randomNumber1 + operator[randomOperator] + randomNumber2 + " = " + countedNumber);
+                    roundCounter = totalRounds;
+                } else {
+                    roundCounter++;
+                    let letTry = roundCounter < totalRounds ? "Спробуйте ще!" : ("Вірна відповідь: " + countedNumber);
+                    alert("Спроба: " + roundCounter + ". Відповідь не вірна! " + letTry);
+                  }
+            } else {
+                alert(userNumberStr + " - ввід не коректний!")
+            }
+        }
+    </script>
+</body>
+</html>
