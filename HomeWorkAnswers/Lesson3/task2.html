@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Lesson 3. Task 2.</h3>
+    <h4>
+        Завдання 2<br>
+        Написати програму, яка визначає, який сьогодні день тижня, і виводить відповідне повідомлення.<br>
+        Кроки для виконання завдання:<br>
+        Отримання поточної дати:<br>
+        - Використайте об'єкт Date для отримання поточної дати.<br>
+        Визначення дня тижня:<br>
+        - Використайте метод getDay() об'єкта Date для отримання дня тижня (0 для неділі, 1 для понеділка і т.д.).<br>
+        Виведення результату:<br>
+        - Використайте оператор if для визначення дня тижня і виведення відповідного повідомлення.<br>
+    </h4>
+    
+    <p id="output"><br></p>
+    <button id="btn">Сьогодні</button>    
+    <h2 id="done">Press button</h2>
+
+    <script>
+        let curDate = new Date();
+        let dayOfWeek = curDate.getDay();
+        let resultString = "Сьогодні ";
+        if (dayOfWeek == 0)
+            resultString += "неділя";
+        else if (dayOfWeek == 1)
+            resultString += "понеділок";
+        else if (dayOfWeek == 2)
+            resultString += "вівторок";
+        else if (dayOfWeek == 3)
+            resultString += "середа";
+        else if (dayOfWeek == 4)
+            resultString += "четвер";
+        else if (dayOfWeek == 5)
+            resultString += "п'ятниця";
+        else if (dayOfWeek == 6)
+            resultString += "субота";
+
+        document.querySelector("#btn").onclick=function(){
+            let out = document.querySelector("#output");
+            out.innerHTML = resultString;
+            out.style.color = "green";
+            document.querySelector("#done").innerHTML = "Done";
+            console.log("Done");
+            // alert(resultString);
+            console.log(resultString);
+        }
+    </script>
+    
+</body>
+</html>
