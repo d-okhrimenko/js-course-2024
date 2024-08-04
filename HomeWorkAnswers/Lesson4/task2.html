@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 4 - Task 2</title>
+</head>
+
+<body>
+    <script>
+        function showMsg(message) {
+            console.log(message);
+            alert(message);
+        }
+
+        let attempts = 3;
+        showMsg(`Вітаємо у грі "Математичний квіз"!`);
+
+        let userName = prompt("Введіть ваше ім'я у грі:");
+        if (userName === null || userName === "") {
+            userName = "невідомий гравець";
+        }
+
+        showMsg(`Чудовий початок, ${userName}.\nДля участі в математичному квізі Вам надається спроб: ${attempts}.\n\nПримітка. При ділення на нуль ввести Infinity, щоб відповідь була зарахована як правильна.`);
+
+        let valueAction, firstNumber, secondNumber;
+        let correctAnswers = 0; wrongAnswers = 0, example = 0;
+
+        while (attempts > 0) {
+            let randomAction = Math.floor(Math.random() * 4); // від 0 до 4: 0 (додавання) або 1 (віднімання) або 2 (множення) або 3 (ділення)
+            let firstNumber = Math.floor(Math.random() * 11); // від 0 до 11
+            let secondNumber = Math.floor(Math.random() * 11); // від 0 до 11
+            switch (randomAction) {
+                case 0:
+                    valueAction = "+";
+                    break;
+                case 1:
+                    valueAction = "-";
+                    break;
+                case 2:
+                    valueAction = "*";
+                    break;
+                default:
+                    valueAction = "/";
+                    break;
+            }
+
+            attempts--;
+            example += 1;
+
+            let userAnswer = prompt(`Приклад ${example}:\n${firstNumber} ${valueAction} ${secondNumber} = ?`);
+            if (userAnswer === null || isNaN(userAnswer)) {
+                continue;
+            } else {
+                userAnswer = Number(userAnswer);
+                let rightAnswer = eval(`${firstNumber}${valueAction}${secondNumber}`);
+
+                // console.log("Правильна відповідь:", eval(`${firstNumber}${valueAction}${secondNumber}`));
+
+                if (userAnswer === rightAnswer) {
+                    correctAnswers++;
+                } else {
+                    wrongAnswers++;
+                }
+            }
+        }
+        showMsg(`Отож, ${userName}, нарешті результати.\nВідповідей математичного квізу:\nправильних - ${correctAnswers},\nнеправильних - ${wrongAnswers}.`);
+    </script>
+</body>
+
+</html>
