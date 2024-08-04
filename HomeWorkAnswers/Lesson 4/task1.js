@@ -42,11 +42,19 @@ if (set == "камінь" || set == "ножиці" || set == "папір") {
 let count = 0;
 let winUser = 0;
 let winComp = 0;
+let nobody = 0;
 let res = "";
 let rounds = 3;
 let userVariant, compVariant;
 let inputVariant = ["1", "2", "3", "q"];
 
+function getValue(message) {
+	while (true) {
+		let value = prompt(message);
+		let isValid = !isNaN(value) && value !== "" && value !== null;
+		if (isValid) return Number(value);
+	}
+}
 function chooseVariant(value) {
 	switch (value) {
 		case 1:
@@ -63,11 +71,15 @@ function chooseVariant(value) {
 	}
 }
 
-rounds = prompt("Виберіть кількість раундів: ");
+rounds = getValue("Виберіть кількість раундів: ");
 
 while (count < rounds) {
-	let userChoice = prompt("Виберіть свій варіант (1-камінь, 2-ножиці, 3-папір, q - Вихід): ").toLowerCase;
-	// console.log(choose);
+	let userChoice = prompt("Виберіть свій варіант (1-камінь, 2-ножиці, 3-папір, q - Вихід): ");
+	if (!inputVariant.includes(userChoice)) {
+		alert("Неправильний вибір. Повторіть введення");
+		continue;
+	}
+
 	// let set = choose.replace(/\s+/g, "").toLowerCase();
 	// let isValid = set !== "" && value !== null;
 	// console.log(set);
@@ -76,25 +88,24 @@ while (count < rounds) {
 	//     "Виберіть свій варіант (0-камінь, 1-ножиці, 3-папір): "
 	//   );
 	// }
-	let isValid;
+	//else
 	if (userChoice == "q") {
-		alert("Game over");
+		// alert(
+		// 	`Гру закінчено \n Зіграно раундів = ${count}. \n Перемогла "Людина" =  ${winUser} \n Переміг "Комп'ютер" = ${winComp} \n "Ничія" = ${nobody}`,
+		// );
+		alert("Вихід");
 		break;
-	} else if (userChoice !== "" && userChoice !== null) {
+	}
+	if (userChoice !== "" && userChoice !== null) {
 		let userChoiceNum = Number(userChoice);
-		//console.log(userChoice, userChoiceNum);
-		//console.log("user:" + chooseVariant(userChoiceNum));
 		userVariant = chooseVariant(userChoiceNum);
 		let compChoiceNum = Math.floor(Math.random() * 2) + 1;
-
-		//console.log("comp:" + chooseVariant(compChoiceNum));
 		compVariant = chooseVariant(compChoiceNum);
 		count++;
-		//console.log("№ спроби " + count);
 
 		if (userChoiceNum == compChoiceNum) {
-			alert("Ничія");
 			res = "Ничія";
+			nobody++;
 		} else if (
 			(compChoiceNum === 1 && userChoiceNum === 2) ||
 			(compChoiceNum === 2 && userChoiceNum === 3) ||
@@ -112,13 +123,29 @@ while (count < rounds) {
 	}
 	//let output = document.querySelector("#output");
 	//output.innerHTML = "Раунд №" + count;
-	alert(`Рахунок "Людина" ${winUser} : "Компютер" ${winComp}.  Результат: ${res}.`);
+	alert(
+		` Раунд № ${count}. \n Результат: ${res}. \n Людина "${userVariant}"  :  Компютер "${compVariant}".   Ничія: ${nobody}`,
+	);
 
 	console.log(`Раунд № ${count}. Людина =  ${userVariant} Компютер = ${compVariant}`);
 	console.log(`Раунд № ${count}. Результат: ${res}. Рахунок "Людина:Компютер" =  ${winUser} : ${winComp}`);
 
-	let round = document.querySelector("#round");
-	round.innerHTML = "Кількість раундів: " + count;
-	let score = document.querySelector("#score");
-	score.innerHTML = "Результат = 'Людина' " + winUser + " : 'Комп'ютер' " + winComp;
+	// let round = document.querySelector("#round");
+	// round.innerHTML = "Кількість раундів: " + count;
+	// let score = document.querySelector("#score");
+	// score.innerHTML = "Результат = 'Людина' " + winUser + " : 'Комп'ютер' " + winComp + " 'Ничія': " + nobody;
 }
+let round = document.querySelector("#round");
+round.innerHTML = "Вибрано раундів: " + rounds;
+let play = document.querySelector("#play");
+play.innerHTML = "Зіграно раундів: " + count;
+let user = document.querySelector("#user");
+user.innerHTML = count;
+let comp = document.querySelector("#comp");
+comp.innerHTML = count;
+
+// let score = document.querySelector("#score");
+// score.innerHTML = "Результат = 'Людина' " + winUser + ": 'Комп'ютер' " + winComp + " 'Ничія': " + nobody;
+alert(
+	`Гра скінчилась.\n\n Зіграно раундів = ${count}.\n Перемогла "Людина" =  ${winUser}\n Переміг "Комп'ютер" = ${winComp}\n "Ничія" = ${nobody}`,
+);
