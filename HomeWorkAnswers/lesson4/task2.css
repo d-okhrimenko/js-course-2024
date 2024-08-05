@@ -1,0 +1,21 @@
+body {
+  background-color: rgb(197, 180, 134);
+  margin: 0;
+}
+
+.myCalc {
+  height: 60px;
+  padding-left: 24px;
+  margin: 40px;
+  font-size: 20px;
+}
+
+#btn {
+  margin-left: 60px;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: rgb(23, 189, 211);
+  font-size: 16px;
+  border-width: 4px;
+  border-radius: 8px;
+}
