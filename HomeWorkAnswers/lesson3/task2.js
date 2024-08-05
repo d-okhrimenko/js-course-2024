@@ -1,8 +1,9 @@
 document.querySelector("#btn").onclick = function () {
     let toDate = new Date();
+    let day = toDate.getDay();
     // console.log(toDate.getDay());
     // console.log(typeof toDate.getDay());
-    // switch (toDate.getDay()) {
+    // switch (day) {
     //     case 0:
     //         alert("Сьогодні неділя");
     //         break;
@@ -25,20 +26,20 @@ document.querySelector("#btn").onclick = function () {
     //         alert("Сьогодні субота");
     //         break;
     // }    
-    if (toDate.getDay() == 0) {
+    if (day == 0) {
         alert("Сьогодні неділя");
-    } else if (toDate.getDay() == 1) {
+    } else if (day == 1) {
         alert("Сьогодні понеділок");
-    } else if (toDate.getDay() == 2) {
+    } else if (day == 2) {
         alert("Сьогодні середа");
-    } else if (toDate.getDay() == 3) {
+    } else if (day == 3) {
         alert("Сьогодні понеділок");
-    } else if (toDate.getDay() == 4) {
+    } else if (day == 4) {
         alert("Сьогодні четвер");
-    } else if (toDate.getDay() == 5) {
+    } else if (day == 5) {
         alert("Сьогодні п'ятниця");
         console.log("Вітаю!!!");
-    } else if (toDate.getDay() == 6) {
+    } else if (day == 6) {
         alert("Сьогодні субота");
     } 
 };
