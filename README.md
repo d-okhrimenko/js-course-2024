@@ -40,3 +40,4 @@ Fork – це копія репозиторію, яка дозволяє вам 
 [3. Змінні та типи даних](https://www.youtube.com/watch?v=_-lYklatsts&t=2570s&ab_channel=ITVDN) <br>
 [4. Умови та цикли](https://www.youtube.com/watch?v=q8DX0yrijmQ&t=196s&ab_channel=ITVDN) <br>
 
+[2. Як почати писати на JavaScript](https://www.youtube.com/watch?v=Rp3aT2bEE24&ab_channel=ITVDN)
