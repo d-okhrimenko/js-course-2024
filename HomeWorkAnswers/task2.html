@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математичний квіз</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function generateQuestion() {
+                const num1 = Math.floor(Math.random() * 10) + 1;
+                const num2 = Math.floor(Math.random() * 10) + 1;
+                const operators = ['+', '-', '*', '/'];
+                const operator = operators[Math.floor(Math.random() * operators.length)];
+                let question = '';
+                let answer = 0;
+
+                switch(operator) {
+                    case '+':
+                        question = `${num1} + ${num2}`;
+                        answer = num1 + num2;
+                        break;
+                    case '-':
+                        question = `${num1} - ${num2}`;
+                        answer = num1 - num2;
+                        break;
+                    case '*':
+                        question = `${num1} * ${num2}`;
+                        answer = num1 * num2;
+                        break;
+                    case '/':
+                        // Avoid division by zero
+                        if (num2 === 0) num2 = 1;
+                        question = `${num1} / ${num2}`;
+                        answer = (num1 / num2).toFixed(2); 
+                        break;
+                }
+                return { question, answer };
+            }
+
+            function startQuiz() {
+                const totalQuestions = 5;
+                let correctAnswers = 0;
+                let incorrectAnswers = 0;
+
+                for (let i = 0; i < totalQuestions; i++) {
+                    const { question, answer } = generateQuestion();
+                    const userAnswer = prompt(`Вирішіть: ${question}`);
+
+                    if (userAnswer === null) {
+                        alert("Гра завершена користувачем.");
+                        return;
+                    }
+
+                    if (parseFloat(userAnswer) === parseFloat(answer)) {
+                        correctAnswers++;
+                    } else {
+                        incorrectAnswers++;
+                    }
+                }
+
+                alert(`Гра завершена! Правильні відповіді: ${correctAnswers}, Неправильні відповіді: ${incorrectAnswers}`);
+            }
+
+            
+            startQuiz();
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
