@@ -33,32 +33,29 @@ jobs:
         uses: actions/configure-pages@v5
         
       - name: Verify no symlinks
-        run: find ./HomeWorkAnswers -type l || true
+        run: find ./HomeWorkAnswers -type l
 
       - name: Calculate total size
-        run: du -sh ./HomeWorkAnswers || true
-
-      - name: Debug output of files
-        run: ls -R ./HomeWorkAnswers
-
+        run: du -sh ./HomeWorkAnswers
+        
       - name: Upload artifact for Lesson2
         if: github.ref_name == 'Lesson2'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v1
         with:
           path: './HomeWorkAnswers/Lesson2'
-        
+      
       - name: Upload artifact for Lesson3
         if: github.ref_name == 'Lesson3'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v1
         with:
           path: './HomeWorkAnswers/Lesson3'
           
       - name: Upload artifact for Lesson4
         if: github.ref_name == 'Lesson4'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v1
         with:
           path: './HomeWorkAnswers/Lesson4'
-          
+        
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
