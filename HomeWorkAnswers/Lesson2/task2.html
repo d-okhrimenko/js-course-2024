@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2. Task 2 - "Current date."</title>
+</head>
+<body>
+  <h1>JS Dates</h1>
+  <h2>Using "new Date()"</h2>
+  <p>new Date() without arguments, creates a date object with the current date and time:</p>
+  <p id = "date_now" style="font-weight: bold; color: blue;">Current date</p>
+  <p>
+    <span style="color: red;">Click the Calendar</span>
+    <button id="calendar_emoji" style='font-size:40px;'>&#128198;</button>
+  </p>
+  <script>
+    const current_date = new Date();
+    document.querySelector("#calendar_emoji").onclick = function(){
+      let date_now = document.querySelector("#date_now");
+      date_now.innerHTML = current_date
+    }
+
+  </script>
+</body>
+</html>
