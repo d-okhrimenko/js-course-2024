@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task3</title>
+</head>
+<body>
+    <script>
+        let year=prompt("Введіть рік");
+        year= Number(year)
+        if (!isNaN(year)){
+            if (year % 4 == 0){
+                alert("Цей рік високосний")
+            }
+            else{
+                alert("Цей рік не високосний")
+            }
+        }
+        else{
+            alert("Це не вірний формат року, спробуйте ще раз.")
+        }
+    </script>
+</body>
+</html>
