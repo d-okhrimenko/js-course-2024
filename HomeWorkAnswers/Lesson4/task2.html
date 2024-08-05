@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson4 tsk2</title>
 </head>
 <body>
@@ -30,20 +31,20 @@
             break;
         }
         while (roundCounter < totalRounds) {
-            userNumberStr = prompt("Залишилось спроб: " + (totalRounds-roundCounter) + ". Веедіть результат виразу " + randomNumber1 + operator[randomOperator] + randomNumber2 + " = ");
+            userNumberStr = prompt(`Залишилось спроб: ${(totalRounds-roundCounter)}. Введіть результат виразу ${randomNumber1} ${operator[randomOperator]} ${randomNumber2} = `);
             if (/^-?\d+(\.?\d+)?$/.test(userNumberStr)) {
                 userNumber = parseInt(userNumberStr);
                 if (userNumber == countedNumber) {
                     roundCounter++;
-                    alert("Спроба: " + roundCounter + ". Відповідь вірна! " + randomNumber1 + operator[randomOperator] + randomNumber2 + " = " + countedNumber);
+                    alert(`Спроба: ${roundCounter}. Відповідь вірна! ${randomNumber1} ${operator[randomOperator]} ${randomNumber2} = ${countedNumber}`);
                     roundCounter = totalRounds;
                 } else {
                     roundCounter++;
                     let letTry = roundCounter < totalRounds ? "Спробуйте ще!" : ("Вірна відповідь: " + countedNumber);
-                    alert("Спроба: " + roundCounter + ". Відповідь не вірна! " + letTry);
+                    alert(`Спроба: ${roundCounter}. Відповідь не вірна! ${letTry}`);
                   }
             } else {
-                alert(userNumberStr + " - ввід не коректний!")
+                alert(`${userNumberStr} - ввід не коректний!`);
             }
         }
     </script>
