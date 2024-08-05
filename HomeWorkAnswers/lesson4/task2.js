@@ -26,7 +26,13 @@ document.querySelector("#btn").onclick = function () {
       resultRandom = randomNumb1 * randomNumb2;
     } else if (randomOperator == 4) {
       result = Number(
-        prompt("Обчисліть операцію: " + randomNumb1 + "/" + randomNumb2 + "=")
+        prompt(
+          "Обчисліть (два знаки після коми)операцію: " +
+            randomNumb1 +
+            "/" +
+            randomNumb2 +
+            "="
+        )
       );
       resultRandom = (randomNumb1 / randomNumb2).toFixed(2);
       console.log(resultRandom);
@@ -34,9 +40,9 @@ document.querySelector("#btn").onclick = function () {
     counterStart += 1;
     if (result == resultRandom) {
       counterResult += 1;
-      alert("Вірно!");
+      // alert("Вірно!");
     } else {
-      alert("Помилка!");
+      alert(`Помилка. Вірна відповідь ${resultRandom}!`);
     }
   }
   if (counterResult > counterFinish / 2) {
