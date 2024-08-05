@@ -196,6 +196,7 @@ document.querySelector("#btnCheck").onclick = function () {
 
   counter--;
   counterValue.innerHTML = counter;
+  
 
   if (userNumber === "") {
     result.innerHTML = "Ну введи хоча б що небудь 🤷‍♂️";
