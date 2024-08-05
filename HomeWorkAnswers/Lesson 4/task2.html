@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-let num1, num2;
-const sign=["+", "-", "*","/"];
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			let num1, num2, res, resd;
+			const sign = ["+", "-", "*", "/"];
 
-    </script>
-</body>
+			function randomize(n1, n2) {
+				let rnd = Math.floor(Math.random() * n1) + n2;
+				return rnd;
+			}
+
+			let a = randomize(10, 0);
+			let b = randomize(10, 0);
+			let s = randomize(4, 1);
+			console.log(a, typeof a);
+			console.log("num a=" + a + " num a=" + b + " sign=" + s);
+
+			switch (sign[s - 1]) {
+				case "+":
+					res = a + b;
+					console.log("1 " + s + " " + a + "+" + b + "=" + res);
+					break;
+				case "-":
+					res = a - b;
+					console.log("2 " + s + " " + a + "-" + b + "=" + res);
+					break;
+				case "*":
+					res = a * b;
+					console.log("3  " + s + " " + a + "*" + b + "=" + res);
+					break;
+				case "/":
+					res = a / b;
+					// res = resd.toFixed(2);
+					console.log("4" + s + " " + a + "/" + b + "=" + res + "(" + res + ")");
+					break;
+			}
+			res = res.toFixed(2);
+			let quest = prompt(`Введіть результат виразу ${a} ${sign[s - 1]} ${b} =`);
+			quest = Number(quest).toFixed(2);
+			if (quest == res) {
+				alert(`Вгадали. Вказали ${quest}. Правильна відповідь ${res}`);
+			} else {
+				alert(`Невгадали. Вказали ${quest}. Правильна відповідь ${res}`);
+			}
+		</script>
+	</body>
 </html>
