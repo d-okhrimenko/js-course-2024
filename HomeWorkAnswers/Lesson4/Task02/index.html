@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-02</Task-02></title>
+</head>
+
+<body>
+    <script>
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = (!isNaN(value) && value !== "" && value !== null) || value.toUpperCase() == "Q";
+                if (isValid)
+                    return value;
+            }
+        }
+
+        function getPromt(num, op1, op2, operation) {
+            return `${num}. Підрахуйте: ${op1} ${operation} ${op2} = `
+        }
+
+        // Статистика
+        rightAnswers = 0;   // кількість вірних відповідей
+        falseAnswers = 0;   // кількість невірних відповідей
+
+        // Кількість запитаннь квізу
+        const questionsCount = 2;
+
+        for (let i = 0; i < questionsCount; i++) {
+
+            // Для того, щоб запити були адекватними і логічними, спочатку будемо генегувати операцію, а потім вже операнди, за відповідними правилами
+            let operation = ["+", "-", "*", "/"];
+            let operator = Math.floor(Math.random() * 4) + 1;
+
+            let operand1 = 0;
+            let operand2 = 0;
+            let computedResult = 0;
+            console.log(operator);
+            switch (operation[operator - 1]) {
+                case "+":
+                    operand1 = Math.floor(Math.random() * 99) + 1;
+                    operand2 = Math.floor(Math.random() * 99) + 1;
+                    computedResult = operand1 + operand2;
+                    break;
+                case "-":
+                    console.log("-");
+                    operand1 = Math.floor(Math.random() * 99) + 1;
+                    operand2 = Math.floor(Math.random() * 99) + 1;
+                    computedResult = operand1 - operand2
+                    break;
+                case "*":
+                    console.log("*");
+                    operand1 = Math.floor(Math.random() * 9) + 1;
+                    operand2 = Math.floor(Math.random() * 9) + 1;
+                    computedResult = operand1 * operand2;
+                    break;
+                case "/":
+                    console.log("/");
+                    operand1 = Math.floor(Math.random() * 9) + 1;
+                    operand2 = Math.floor(Math.random() * 9) + 1;
+                    operand1 = operand1 * operand2;
+                    computedResult = operand1 / operand2;
+                    break;
+                default:
+                    console.log("unknown operation");
+                    break;
+            }
+
+            let result = 0;
+            for (let j = 3; j > 0; j--) {
+                let result = Number(getValue(getPromt(i + 1, operand1, operand2, operation[operator - 1])));
+
+                if (result == computedResult) {
+                    alert("Вірно!");
+                    rightAnswers++;
+                    break;
+                }
+                else if (j > 1)
+                    alert(`Не вірно, але у вас ще є ${j - 1} спроби`);
+                else {
+                    alert("На жаль у вас не має вірної відповіді та усі спроби використано.");
+                    falseAnswers++;
+                }
+            }
+        }
+
+        let rightQuote = (questionsCount - falseAnswers) / questionsCount * 100;
+        let wishText;
+        switch (true) {
+            case (rightQuote == 100):
+                wishText = "Блискуче, 100% вірних відповідей. Так тримати!"
+                break;
+            case (rightQuote < 100 && rightQuote >= 80):
+                wishText = "Файно, у вас дуже гарний потенціал!"
+                break;
+            case (rightQuote < 80 && rightQuote >= 50):
+                wishText = "Непогано, але є над чим попрацювати."
+                break;
+            case (rightQuote < 50 && rightQuote >= 30):
+                wishText = "Помилки роблять нас сильнішими. Будьте уважніше і Ви впораєтесь!"
+                break;
+            case (rightQuote < 30 && rightQuote >= 0):
+                wishText = "Не той великий, хто ніколи не падав, а той великий - хто падав і вставав! Зробіть перерву та знову в бій!"
+                break;
+            default:
+                break;
+        }
+
+        let finishMessage = `Загалом надано запитань: ${questionsCount} \nВірних відповідей: ${rightAnswers} \nНевірних відповідей: ${falseAnswers} \n\n${wishText}\n\nДо наступної зустрічі!`;
+        alert(finishMessage);
+
+    </script>
+</body>
+
+</html>
