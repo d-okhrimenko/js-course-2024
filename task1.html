@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 1</title>
+</head>
+
+<body>
+
+    <script>
+
+        let getWins = 0;
+        let getDraw = 0;
+        let getLosses = 0;
+
+
+        let gameOptions = ["R", "S", "P"];
+
+        let playGame = function () {
+            let playerChoice = prompt("Please, choose R, S, or P :");
+
+            if (!playerChoice) {
+                return;
+            }
+
+            playerChoice = playerChoice.toLowerCase();
+
+            let index = Math.floor(Math.random() * gameOptions.length);
+            let computerChoice = gameOptions[index];
+
+            alert("The computer chose " + computerChoice)
+
+            if (playerChoice === computerChoice) {
+                getDraw++;
+                alert("It's a draw! Try again.");
+            }
+
+            else if (
+                (playerChoice === "R" && computerChoice === "S") ||
+                (playerChoice === "S" && computerChoice === "P") ||
+                (playerChoice === "P" && computerChoice === "R")                 
+
+            ) {
+                getWins++;
+                alert("Congrats! You won 🏆!");
+            }
+
+            else {
+                getLosses++;
+                alert("Sorry! You lost 🥺");
+            }
+
+                alert(
+                "Scoreboard of the game:\nWins: " + getWins + "\nLosses: " + getLosses + "\nDraw: " + getDraw
+            );
+
+            let replay = alert("Would you like to play again?")
+            let getChoices = prompt("If you want to play - please, enter 'Yes', if you don`t - enter 'No'");
+
+
+            if (getChoices === "Yes") {
+                playGame();
+            } else {
+                alert("Game is over");
+            }
+        };
+
+        playGame();
+
+    </script>
+</body>
+
+</html>
