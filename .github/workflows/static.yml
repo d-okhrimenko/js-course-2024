@@ -19,19 +19,17 @@ concurrency:
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
       
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        
+
       - name: Verify no symlinks
         run: find ./HomeWorkAnswers -type l
 
@@ -43,18 +41,21 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './HomeWorkAnswers/Lesson2'
-        
+          destination_path: 'Lesson2'
+
       - name: Upload artifact for Lesson3
         if: github.ref_name == 'Lesson3'
         uses: actions/upload-pages-artifact@v3
         with:
           path: './HomeWorkAnswers/Lesson3'
-          
+          destination_path: 'Lesson3'
+
       - name: Upload artifact for Lesson4
         if: github.ref_name == 'Lesson4'
         uses: actions/upload-pages-artifact@v3
         with:
           path: './HomeWorkAnswers/Lesson4'
+          destination_path: 'Lesson4'
           
       - name: Deploy to GitHub Pages
         id: deployment
