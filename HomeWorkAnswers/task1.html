@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Lesson 4 Task 1</title>
+	</head>	
+		
+
+		<style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .game-container {
+            /* display: flex;
+            flex-direction: column; */
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        select, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .result, .score {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Гра: Камінь, ножиці, папір</h1>
+        <select name="user-select" id="user-select">
+            <option value="">Оберіть опцію</option>
+            <option value="камінь">Камінь</option>
+            <option value="ножиці">Ножиці</option>
+            <option value="папір">Папір</option>
+        </select>
+        <button id="play-button">Грати</button>
+        <button id="exit-button">Вийти</button>
+        <div class="result"></div>
+        <div class="score"></div>
+    </div>
+
+    <script>
+        const userSelect = document.getElementById('user-select');
+        const playButton = document.getElementById('play-button');
+        const exitButton = document.getElementById('exit-button');
+        const resultDiv = document.querySelector('.result');
+        const scoreDiv = document.querySelector('.score');
+
+        let userScore = 0;
+        let computerScore = 0;
+
+        function getComputerChoice() {
+            const choices = ['камінь', 'ножиці', 'папір'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
+
+        function determineWinner(userChoice, computerChoice) {
+            if (userChoice === computerChoice) {
+                return 'Нічия';
+            }
+            if ((userChoice === 'камінь' && computerChoice === 'ножиці') ||
+                (userChoice === 'ножиці' && computerChoice === 'папір') ||
+                (userChoice === 'папір' && computerChoice === 'камінь')) {
+                userScore++;
+                return 'Ви виграли!';
+            } else {
+                computerScore++;
+                return 'Комп\'ютер виграв!';
+            }
+        }
+
+        function updateScore() {
+            scoreDiv.textContent = `Рахунок: Користувач ${userScore} - Комп'ютер ${computerScore}`;
+        }
+
+        playButton.addEventListener('click', () => {
+            const userChoice = userSelect.value;
+            if (!userChoice) {
+                alert('Будь ласка, оберіть опцію.');
+                return;
+            }
+            const computerChoice = getComputerChoice();
+            const result = determineWinner(userChoice, computerChoice);
+            resultDiv.textContent = `Ви обрали: ${userChoice}, Комп'ютер обрав: ${computerChoice}. Результат: ${result}`;
+            updateScore();
+        });
+
+        exitButton.addEventListener('click', () => {
+            userScore = 0;
+            computerScore = 0;
+            resultDiv.textContent = '';
+            updateScore();
+        });
+
+        updateScore();
+			
+			
+		</script>
+	</body>
+</html>
