@@ -2,7 +2,10 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ["Lesson2", "Lesson3", "Lesson4"]
+    branches:
+      - Lesson2
+      - Lesson3
+      - Lesson4
   workflow_dispatch:
 
 permissions:
@@ -16,40 +19,19 @@ concurrency:
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        
-      - name: Upload artifact for Lesson2
-        if: github.ref_name == 'Lesson2'
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages
-          path: './HomeWorkAnswers/Lesson2'
-        
-      - name: Upload artifact for Lesson3
-        if: github.ref_name == 'Lesson3'
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages
-          path: './HomeWorkAnswers/Lesson3'
 
-      - name: Upload artifact for Lesson4
-        if: github.ref_name == 'Lesson4'
-        uses: actions/upload-artifact@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          name: github-pages
-          path: './HomeWorkAnswers/Lesson4'
-          
+          path: ${{ github.workspace }}/HomeWorkAnswers/${{ github.ref_name }}
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
