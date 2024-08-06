@@ -1,0 +1,27 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: antiquewhite;
+  margin-left: 2rem;
+}
+h1 {
+  font-size: 4rem;
+  text-align: center;
+
+  margin-bottom: 2rem;
+}
+
+.btn {
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: aquamarine;
+  margin-top: 1rem;
+  padding: 1.5rem 2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: translate(0, -1rem) scale(1.1);
+}

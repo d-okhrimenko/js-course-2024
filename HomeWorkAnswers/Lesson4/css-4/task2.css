@@ -1,0 +1,64 @@
+@import url(style.css);
+.quiz {
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.random {
+  display: inline-block;
+  width: fit-content;
+  font-size: 4rem;
+  color: dodgerblue;
+}
+.operator {
+  text-align: center;
+  display: inline-block;
+  width: 3rem;
+  font-size: 4rem;
+  color: red;
+}
+.buttons {
+  width: fit-content;
+  margin: 4rem auto;
+}
+.btn-new {
+  background-color: lightgreen;
+  margin: 2rem 2rem;
+}
+
+.btn-guess {
+  background-color: orange;
+  margin: 2rem 2rem;
+}
+
+.btn-quit {
+  background-color: orangered;
+  margin: 1rem 1rem;
+}
+.score {
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: bold;
+}
+.score__correct {
+  width: 40%;
+  margin: 4rem;
+  display: inline-block;
+  color: lawngreen;
+}
+.span-correct {
+  font-size: 4rem;
+  color: darkgreen;
+}
+.score__wrong {
+  width: 40%;
+  margin: 4rem;
+  display: inline-block;
+  color: orangered;
+}
+.span-wrong {
+  font-size: 4rem;
+  color: darkred;
+}
