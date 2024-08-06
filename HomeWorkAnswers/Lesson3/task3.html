@@ -9,7 +9,8 @@
     <script>
         const year = Number(prompt('Введіть рік:'));
 
-        if (year % 4 === 0) {
+     // if (year % 4 === 0) {
+        if (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) {
             alert(`Рік ${year} високосний`);
         } else {
             alert(`Рік ${year} не високосний`);
