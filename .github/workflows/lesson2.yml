@@ -22,13 +22,17 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: Lesson2
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          path: "./HomeWorkAnswers/Lesson2"
-          destination: "lesson2"
+          node-version: "16"
+      - name: Build the project
+        run: |
+          mkdir -p public/lesson2
+          cp -r ./HomeWorkAnswers/Lesson2/* public/lesson2
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          destination_dir: lesson2
