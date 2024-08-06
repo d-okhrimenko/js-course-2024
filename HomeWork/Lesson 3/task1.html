@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Написати програму, яка визначає, чи є введене число парним або непарним
+    while (true) {
+      // Введення числа
+      let userInput = prompt("Enter a number:");
+      if (!userInput) break;
+      // Перетворення введених даних на число
+      let number = Number(userInput);
+
+      // Перевірка введених даних
+      if (isNaN(number)) {
+        alert("Please, enter a number correctly");
+      }
+      else {
+        // Виведення результату
+        alert(checkOddOrEven(number));
+      }
+    }
+
+    // Перевірка на парність
+    function checkOddOrEven(number) {
+      if (number % 2 === 0) {
+        return "It is Even Number";
+      }
+      else {
+        return "It is Odd Number";
+      }
+    }
+  </script>
+</body>
+
+</html>
