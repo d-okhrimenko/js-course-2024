@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Привітання</title>
+  </head>
+  <body>
+    <button id="greet-button">Скажи привіт</button>
+
+    <script>
+      const name = "Ім'я";
+
+      const button = document.getElementById("greet-button");
+
+      button.addEventListener("click", () => {
+        alert(`Привіт ${name}`);
+      });
+    </script>
+  </body>
+</html>
