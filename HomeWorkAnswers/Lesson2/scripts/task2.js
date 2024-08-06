@@ -1,4 +1,5 @@
 "use strict";
+
 const btn = document.querySelector(".btn");
 const boxDate = document.querySelector(".current-date");
 const boxTime = document.querySelector(".current-time");

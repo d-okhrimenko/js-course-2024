@@ -10,9 +10,11 @@ btn.addEventListener("click", function () {
   const data = prompt("Enter integer number not equal to 0");
   showResult(isValid, data, result);
 });
+
 const result = function (num) {
   return num % 2 === 0 ? "Even" : "Odd";
 };
+
 function showResult(isValid, data, result) {
   if (isValid(data)) {
     const num = +data;
@@ -20,6 +22,7 @@ function showResult(isValid, data, result) {
     outputResult.textContent = result(num);
   }
 }
+
 const isValid = function (data) {
   if (isNaN(+data) || +data === 0 || !Number.isInteger(+data)) {
     outputError.classList.remove("hidden");
