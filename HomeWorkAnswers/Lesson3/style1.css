@@ -1,0 +1,26 @@
+body {
+  font-size: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+input {
+  margin-bottom: 30px;
+}
+
+.container {
+  width: 50vw;
+  background-color: bisque;
+  margin: 0 auto;
+  padding: 2%;
+}
+
+.input-box {
+  margin: 0 auto;
+}
+
+#check-result {
+  text-align: center;
+}
