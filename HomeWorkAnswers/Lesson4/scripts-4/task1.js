@@ -12,18 +12,21 @@ const scoreYou = document.getElementById("score-you");
 let yourScore = 0;
 let pcScore = 0;
 
-function showMyOpt(opt) {
-  switch (opt.toLowerCase()) {
+function showOptionText(element, choice) {
+  switch (choice) {
     case "rock":
-      optYour.textContent = "💎";
+    case 0:
+      element.textContent = "💎";
       break;
 
     case "paper":
-      optYour.textContent = "📃";
+    case 1:
+      element.textContent = "📃";
       break;
 
     case "scissors":
-      optYour.textContent = "✂";
+    case 2:
+      element.textContent = "✂";
       break;
 
     default:
@@ -32,45 +35,38 @@ function showMyOpt(opt) {
   }
 }
 
-function showPcOpt() {
+function showPcOption() {
   const index = Math.floor(Math.random() * 3);
+  showOptionText(optPc, index);
+}
 
-  switch (index) {
-    case 0:
-      optPc.textContent = "💎";
-      break;
+function showYourOption(opt) {
+  showOptionText(optYour, opt);
+}
 
-    case 1:
-      optPc.textContent = "📃";
-      break;
-
-    case 2:
-      optPc.textContent = "✂";
-      break;
-  }
+function showScore() {
+  scoreYou.textContent = `${yourScore}`;
+  scorePc.textContent = `${pcScore}`;
 }
 
 function showOutcome() {
-  if (optYour.textContent === "💎" && optPc.textContent === "✂") {
+  const pcOption = optPc.textContent;
+  const yourOption = optYour.textContent;
+  if (
+    (yourOption === "💎" && pcOption === "✂") ||
+    (yourOption === "✂" && pcOption === "📃") ||
+    (yourOption === "📃" && pcOption === "💎")
+  ) {
     outcome.textContent = "You won! 🏆";
     yourScore++;
-    scoreYou.textContent = `${yourScore}`;
-  } else if (optYour.textContent === "✂" && optPc.textContent === "📃") {
-    outcome.textContent = "You won! 🏆";
-    yourScore++;
-    scoreYou.textContent = `${yourScore}`;
-  } else if (optYour.textContent === "📃" && optPc.textContent === "💎") {
-    outcome.textContent = "You won! 🏆";
-    yourScore++;
-    scoreYou.textContent = `${yourScore}`;
-  } else if (optYour.textContent === optPc.textContent) {
+    showScore();
+  } else if (yourOption === pcOption) {
     outcome.textContent = "it's a draw.";
-    scoreYou.textContent = `${yourScore}`;
-    scorePc.textContent = `${pcScore}`;
+    showScore();
   } else {
     outcome.textContent = "You lost... 💩";
     pcScore++;
-    scorePc.textContent = `${pcScore}`;
+    showScore();
   }
 }
 
@@ -79,8 +75,8 @@ function game() {
 
   setTimeout(function () {
     opt = prompt("What is your option? You can choose from three valid options: Rock, Paper or Scissors");
-    showMyOpt(opt);
-    showPcOpt();
+    showYourOption(opt);
+    showPcOption();
     showOutcome();
   }, 1000);
 }
