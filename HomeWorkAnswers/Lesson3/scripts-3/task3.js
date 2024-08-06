@@ -10,10 +10,12 @@ btn.addEventListener("click", function () {
   const data = prompt("Enter integer number not equal to 0");
   showResult(isValid, data, result);
 });
+
 const result = function (year) {
   if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) return "Leap year";
   else return "Not leap year";
 };
+
 function showResult(isValid, data, result) {
   if (isValid(data)) {
     const num = +data;
@@ -21,6 +23,7 @@ function showResult(isValid, data, result) {
     outputResult.textContent = result(num);
   }
 }
+
 const isValid = function (data) {
   if (isNaN(+data) || +data < 0 || !Number.isInteger(+data)) {
     outputError.classList.remove("hidden");

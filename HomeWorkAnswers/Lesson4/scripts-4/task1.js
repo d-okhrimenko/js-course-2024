@@ -8,6 +8,7 @@ const optPc = document.getElementById("pc");
 const outcome = document.getElementById("outcome");
 const scorePc = document.getElementById("score-pc");
 const scoreYou = document.getElementById("score-you");
+
 let yourScore = 0;
 let pcScore = 0;
 
@@ -16,9 +17,11 @@ function showMyOpt(opt) {
     case "rock":
       optYour.textContent = "💎";
       break;
+
     case "paper":
       optYour.textContent = "📃";
       break;
+
     case "scissors":
       optYour.textContent = "✂";
       break;
@@ -28,20 +31,25 @@ function showMyOpt(opt) {
       break;
   }
 }
+
 function showPcOpt() {
   const index = Math.floor(Math.random() * 3);
+
   switch (index) {
     case 0:
       optPc.textContent = "💎";
       break;
+
     case 1:
       optPc.textContent = "📃";
       break;
+
     case 2:
       optPc.textContent = "✂";
       break;
   }
 }
+
 function showOutcome() {
   if (optYour.textContent === "💎" && optPc.textContent === "✂") {
     outcome.textContent = "You won! 🏆";
@@ -65,8 +73,10 @@ function showOutcome() {
     scorePc.textContent = `${pcScore}`;
   }
 }
+
 function game() {
   let opt;
+
   setTimeout(function () {
     opt = prompt("What is your option? You can choose from three valid options: Rock, Paper or Scissors");
     showMyOpt(opt);
