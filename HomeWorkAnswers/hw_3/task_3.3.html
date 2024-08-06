@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task _3.3</title>
+</head>
+<body>
+    <h2>Task_3.2</h2>
+    <h4>Завдання 3 </h4>
+    <p> Написати програму, яка перевіряє, чи є введений рік високосним. </p>
+    <script>
+       const yearBig = parseInt (prompt ("Введіть рік будь ласка"));
+        
+        console.log(isNaN(yearBig));
+        if (isNaN(yearBig) || (yearBig > 5000) || (yearBig <=0)) {
+            alert ("Ви ввели не коректні дані (не рік)!!!!!");
+
+        } else if (yearBig % 4 === 0 ) {
+                    if (yearBig % 100 ===0 && yearBig % 400 !==0) {
+                    alert ("Рік не є високосний: "+yearBig);
+                    }
+                    else {
+                        alert ("Рік є високосний: "+yearBig);
+                    }
+        } else {
+            alert ("Рік не є високосний: "+yearBig);
+        } 
+        
+    </script>
+</body>
+</html>
