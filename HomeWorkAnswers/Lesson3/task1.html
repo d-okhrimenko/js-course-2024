@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function getValue(number) {
+                    while (true) {
+                        let value = prompt(number);
+                        let isValid = !isNaN(value) && value !== "" && value !== null;
+                        if (isValid) return Number(value);
+                    }
+                }
+
+        let inputData = getValue("Enter your number");
+
+            if ( inputData % 2 === 0 ) {
+                alert("Number is even");
+            } else {
+                alert("Number is odd");
+            }
+
+    </script>
+</body>
+</html>
+
+
+    <!-- <script>
+        let inputData = Number(prompt());
+        let isValid = !isNaN(inputData) && inputData !== "" && inputData !== null;
+
+        if (isValid) {
+            if ( inputData % 2 === 0 ) {
+                alert("Number is even");
+            } else {
+                alert("Number is odd");
+            }
+        } else {
+            alert("Некоректний ввод")
+        }
+    </script> -->
+
+
+<!-- Завдання 1
+Написати програму, яка визначає, чи є введене число парним або непарним. -->
