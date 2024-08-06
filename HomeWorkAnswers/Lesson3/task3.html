@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Високосний рік</title>
+</head>
+<body>
+  <script>
+    let yearText = '';
+    let yearNumber;
+
+    while(yearText != null && (!yearNumber || typeof yearNumber != "number" || yearText.length != 4)) {
+      yearText = prompt("Введіть рік (наприклад: 2024)");
+      yearNumber = Number.parseInt(yearText);
+    }
+
+    if(yearText != null) {
+      let typeNo = 'не';
+      if(yearNumber % 4 == 0) typeNo = ''
+      alert(`Рік ${yearText} ${typeNo} є високосним`);
+    } 
+</script> 
+</body>
+</html>
