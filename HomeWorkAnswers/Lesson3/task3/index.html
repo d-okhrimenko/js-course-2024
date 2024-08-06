@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkLeapYear() {
+            let year = prompt("Введіть рік:");
+
+            year = Number(year);
+
+            if (isNaN(year)) {
+                alert("Введене значення не є коректним числом");
+                checkLeapYear();
+            } else if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+                alert(year + " є високосним роком");
+                checkLeapYear();
+            } else {
+                alert(year + " не є високосним роком");
+                checkLeapYear();
+            }
+        }
+
+        checkLeapYear();
+    </script>
+</body>
+</html>
