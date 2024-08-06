@@ -6,11 +6,8 @@ document.querySelector('#startOddOrEven').onclick = (() => {
     number = parseInt(number);
   
     if (isNaN(number)) {
-      alert('Будь ласка, введіть дані у вигляді числа');
-      return;
-    }
-  
-    if (number % 2 === 0) {
+      return alert('Будь ласка, введіть дані у вигляді числа');
+    } else if (number % 2 === 0) {
       return alert('Число парне');
     }
 
