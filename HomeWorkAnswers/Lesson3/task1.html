@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let enterNumber = +prompt("Введіть число");
+      let numberValue = Number(enterNumber); //перетворення з рядка на число
+
+      if (isNaN(numberValue)) {
+        //перевірка чи коректне число
+        alert("Введене значення не є числом");
+      } else {
+        if (numberValue % 2 === 0) {
+          alert(" Парне");
+        } else {
+          alert("Непарне");
+        }
+      }
+    </script>
+  </body>
+</html>
