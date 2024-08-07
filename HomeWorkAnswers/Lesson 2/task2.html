@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <p id="outputDateTime">Hello JS</p>
+    <button id="btn">Click me!</button> <br><br>
+    <button id="btn2">Скажи привіт</button>
+    <p id="outputText"></p>
+    <script>
+        document.querySelector("#btn").onclick = function() {
+            let dateTime = new Date().toLocaleString();
+            alert(dateTime);
+            console.log(dateTime);
+            let outputDateTime = document.querySelector("#outputDateTime");
+            outputDateTime.innerHTML = dateTime;
+            outputDateTime.style.color = "green";
+        }
+        document.querySelector("#btn2").onclick = function() {
+            let outputText = document.querySelector("#outputText");
+            outputText.innerHTML = "Привіт, Валерiй";
+            outputText.style.color = "orange";
+        }
+    </script>
+</body>
+</html>
