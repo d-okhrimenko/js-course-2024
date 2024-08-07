@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Камінь, ножиці, папір</title>
+</head>
+
+<body>
+    <script>
+        let playerAnswer;
+        let compAnswer;
+        let exitGame;
+
+        let playerWinCounter = 0;
+        let compWinCounter = 0;
+
+        do {
+            playerAnswer = prompt("Введіть один із варіантів: камінь, ножиці або папір").toLowerCase();
+
+            let randomNumber = Math.floor(Math.random() * 3);
+
+            switch (randomNumber) {
+                case 0:
+                    compAnswer = "камінь";
+                    break;
+                case 1:
+                    compAnswer = "ножиці";
+                    break;
+                case 2:
+                    compAnswer = "папір";
+                    break;
+            }
+
+            if (playerAnswer === "камінь" || playerAnswer === "ножиці" || playerAnswer === "папір") {
+                if (playerAnswer !== compAnswer) {
+                    if (playerAnswer === "камінь" && compAnswer === "ножиці" ||
+                        playerAnswer === "ножиці" && compAnswer === "папір" ||
+                        playerAnswer === "папір" && compAnswer === "камінь") {
+                        playerWinCounter++;
+                        alert("Гравець обрав " + playerAnswer + ", комп'ютер обрав " + compAnswer + " - виграв Гравець!");
+                    } else {
+                        compWinCounter++;
+                        alert("Гравець обрав " + playerAnswer + ", комп'ютер обрав " + compAnswer + " - виграв комп'ютер!");
+                    }
+
+                } else {
+                    alert("Гравець та комп'ютер обрали " + playerAnswer + " - Нічия!");
+                }
+            }
+            else {
+                alert("Ви ввели неправильне значення – спробуйте ще раз!");
+            }
+
+            alert("Загальний рахунок: Гравець - " + playerWinCounter + " / Комп'ютер - " + compWinCounter);
+
+            exitGame = prompt("Якщо ви бажаєте продовжити гру, натисніть OK, але якщо бажаєте закінчити гру, введіть: вихід");
+
+        } while (exitGame === null || exitGame.toLowerCase() !== "вихід")
+
+    </script>
+</body>
+
+</html>
