@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loops</title>
+  </head>
+  <body>
+    <style>
+      .rock-scissors-paper {
+        margin: 200px;
+      }
+    </style>
+    <div class="rock-scissors-paper">
+      <h3>Гра камінь, ножиці, папір</h3>
+      <p>Камінь - 0, ножиці - 1, папір - 2</p>
+      <label for="text-input-1">Введіть свій предмет:</label>
+      <input type="number" min="1" max="3" value="1" id="text-input-1" />
+      <button id="btn-1-start">Почати гру</button>
+      <button id="btn-1-end">Обнулити рахунок</button>
+      <h2>Ваш рахунок: <span id="user_count">0</span></h2>
+    </div>
+
+    <div class="math-quiz">
+      <h3>Математичний квіз</h3>
+      <button id="generator-btn">Згенерувати математичий вираз</button>
+      <h4 id="math-task"></h4>
+      <label for="text-input-2">Введіть відповідь:</label>
+      <input type="text" id="text-input-2" />
+      <button id="btn-1-confirm">Підтвердити свою відповідь</button>
+      <button id="btn-2-end">Обнулити рахунок</button>
+      <h2>Ваш рахунок: <span id="user_count_2">0</span></h2>
+      <h4 id="result">Ваша відповідь:</h4>
+      <p>Кількість спроб: <span id="choices_count">0</span></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
