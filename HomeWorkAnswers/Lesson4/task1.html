@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson4 task1</title>
+</head>
+<body>
+    <script>
+        let roundCounter = 0;
+        let roundDetails = ``;
+        let userWinCounter = 0;
+        let userLossCounter = 0;
+        let userNumberStr = "";
+        let userNumber = -1;
+        let randomNumber = -1;
+        let choice = ["вихід", "камінь", "ножиці", "папір"];
+        while (userNumber != 0) {
+            randomNumber = Math.floor(Math.random() * 3) + 1;
+            userNumberStr = prompt("Зробіть Ваш вибір (0-вихід, 1-камінь, 2-ножиці, 3-папір): ");
+            if (/^[0-3]{1}$/.test(userNumberStr)) {
+                roundCounter++;
+                userNumber = parseInt(userNumberStr);
+                roundDetails = `Раунд: ${roundCounter}. Ваш вибір: ${choice[userNumber]}. Вибір комп'ютера: ${choice[randomNumber]}.`;
+                if (userNumber == randomNumber) {
+                    alert(`${roundDetails} Нічия! Рахунок: ${userWinCounter}:${userLossCounter}`);
+                //камінь vs ножиці:
+                } else if (userNumber == 1 && randomNumber == 2) {
+                    alert(`${roundDetails} Ви виграли! Рахунок: ${++userWinCounter}:${userLossCounter}`);
+                //камінь vs папір:
+                } else if (userNumber == 1 && randomNumber == 3) {
+                    alert(`${roundDetails} Ви програли! Рахунок: ${userWinCounter}:${++userLossCounter}`);
+                //ножиці vs папір:
+                } else if (userNumber == 2 && randomNumber == 3) {
+                    alert(`${roundDetails} Ви виграли! Рахунок: ${++userWinCounter}:${userLossCounter}`);
+                //ножиці vs камінь:
+                } else if (userNumber == 2 && randomNumber == 1) {
+                    alert(`${roundDetails} Ви програли! Рахунок: ${userWinCounter}:${++userLossCounter}`);
+                //папір vs камінь:
+                } else if (userNumber == 3 && randomNumber == 1) {
+                    alert(`${roundDetails} Ви виграли! Рахунок: ${++userWinCounter}:${userLossCounter}`);
+                //папір vs ножиці:
+                } else if (userNumber == 3 && randomNumber == 2) {
+                    alert(`${roundDetails} Ви програли! Рахунок: ${userWinCounter}:${++userLossCounter}`);
+                }
+            } else {
+                alert(`${userNumberStr} - вибір не коректний!`);
+            }
+        }
+    </script>
+</body>
+</html>

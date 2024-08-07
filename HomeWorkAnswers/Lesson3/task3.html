@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Lesson3 task3</title>
+</head>
+<body>
+    <script>
+        let numberStr = prompt("Введіть рік");
+        if (/^\d{1,4}$/.test(numberStr)) {
+            let year = parseInt(numberStr);
+            let leap;
+            if (year % 400 == 0) {
+                leap = true;
+            } else if (year % 100 == 0) {
+                leap = false;
+            } else if (year % 4 == 0) {
+                  leap = true;
+            } else {
+                leap = false;
+            }
+            if (leap) {
+                alert(numberStr + " - високосний рік")
+            } else (
+                alert(numberStr + " - не високосний рік")
+            )
+        } else {
+            alert(numberStr + " - число введено не коректно")
+        }
+    </script>
+</body>
+</html>

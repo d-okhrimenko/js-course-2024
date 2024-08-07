@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Lesson3 task1</title>
+</head>
+<body>
+    <script>
+        let numberStr = prompt("Введіть ціле число");
+        if (/^-?\d+$/.test(numberStr)) {
+            let numberInt = parseInt(numberStr);
+            if (numberInt % 2 === 0) {
+                alert("Число " + numberStr + " - парне");
+            } else {
+                alert("Число " + numberStr + " - непарне");
+            }
+        } else {
+            alert(numberStr + " - число введено не коректно")
+        }
+    </script>
+</body>
+</html>
