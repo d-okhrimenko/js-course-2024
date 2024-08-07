@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>task2</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>task2</h1>
+    <script>
+      let randomOperand1 = Math.floor(Math.random() * (10 - 0) + 1);
+      let randomOperand2 = Math.floor(Math.random() * (10 - 0) + 1);
+      let operators = ["+", "-", "*", "/"];
+      let randomElement = Math.floor(Math.random() * 4);
+      let randomOperator = operators[randomElement];
+
+      let randomResult;
+
+      switch (randomOperator) {
+        case "+":
+          randomResult = randomOperand1 + randomOperand2;
+          break;
+        case "-":
+          randomResult = randomOperand1 - randomOperand2;
+          break;
+        case "*":
+          randomResult = randomOperand1 * randomOperand2;
+          break;
+        case "/":
+          randomResult = randomOperand1 / randomOperand2;
+          break;
+      }
+      let answer = `${randomOperand1}${randomOperator}${randomOperand2}`;
+
+      for (let index = 0; index < 10; index++) {
+        let userAnswer = prompt(
+          `Вгадай математичний вираз із двох чисел від 1 до 10, який дає результата ${randomResult}`
+        );
+        if (answer == userAnswer) {
+          alert(
+            `Вітаю з перемогою! Ти використав таку кількість спроб: ${
+              index + 1
+            }`
+          );
+          break;
+        } else if (userAnswer == null) {
+          alert(`Гра закінчилась`);
+          break;
+        } else {
+          alert(
+            `Це не правильна відповідь. У тебе залишилась така кількість спроб ${
+              10 - (index + 1)
+            } із 10`
+          );
+        }
+      }
+      alert(`Правильна відповідь: ${answer}`);
+    </script>
+  </body>
+</html>
+
