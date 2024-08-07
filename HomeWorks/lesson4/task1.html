@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гра: Камінь, ножиці, папір</title>
+  <link rel="stylesheet" href="task1-style.css">
+</head>
+<body>
+
+<div class="game-container">
+  <h1>Гра: Камінь, ножиці, папір</h1>
+  <p id="message">Зробіть свій вибір:</p>
+  <div class="buttons">
+    <button onclick="playGame('камінь')">Камінь</button>
+    <button onclick="playGame('ножиці')">Ножиці</button>
+    <button onclick="playGame('папір')">Папір</button>
+  </div>
+  <p id="score"></p>
+  <button onclick="resetGame()">Скинути гру</button>
+</div>
+
+<script src="task1-script.js"></script>
+
+</body>
+</html>
