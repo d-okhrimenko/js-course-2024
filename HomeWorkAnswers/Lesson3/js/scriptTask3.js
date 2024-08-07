@@ -1,6 +1,6 @@
 while (true) {
-    let value = prompt("Enter the year");
-    year = Number(value);
+    let value = prompt("Enter the year"),
+        year = Number(value);
     if (value === null) {
         alert("You have canceled input!");
     } else if (value.trim() === "" || isNaN(year) || year < 0 || !Number.isInteger(year)) {
