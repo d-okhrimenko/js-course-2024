@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            text-align: center;
+            font-size: 100px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="current-date"></p>
+    <script>
+        const today = new Date();
+        const formattedDate = today.toLocaleDateString('uk-UA', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        const dateElement = document.getElementById('current-date');
+        dateElement.innerHTML = `Сьогодні:${formattedDate}`;
+    </script>
+</body>
+
+</html>
