@@ -26,31 +26,34 @@ for (let i = 0; i < rounds; i++) {
   let randomIndex = Math.floor(Math.random() * choices.length);
   let randomChoice = choices[randomIndex];
 
+  function myChoice() {
+    if (choiceHuman === randomChoice) {
+      alert("Нічия!");
+    } else if (
+      (choiceHuman === "камінь" && randomChoice === "ножиці") ||
+      (choiceHuman === "ножиці" && randomChoice === "папір") ||
+      (choiceHuman === "папір" && randomChoice === "камінь")
+    ) {
+      alert("Ви виграли!!!");
+      playerScore++;
+    } else if (
+      (choiceHuman === "ножиці" && randomChoice === "камінь") ||
+      (choiceHuman === "папір" && randomChoice === "ножиці") ||
+      (choiceHuman === "камінь" && randomChoice === "папір")
+    ) {
+      alert("Виграв компьютер!!!");
+      computerScore++;
+    } else {
+      alert("Невірне введення. Цей раунд пропущено.");
+      i--; // Повторити раунд
+    }
+  }
+
+  myChoice();
+
   console.log(`Раунд ${i + 1}:`);
   console.log("Ваш вибір: " + choiceHuman);
   console.log("Вибір комп'ютера: " + randomChoice);
-
-  if (choiceHuman === randomChoice) {
-    alert("Нічия!");
-  } else if (
-    (choiceHuman === "камінь" && randomChoice === "ножиці") ||
-    (choiceHuman === "ножиці" && randomChoice === "папір") ||
-    (choiceHuman === "папір" && randomChoice === "камінь")
-  ) {
-    alert("Ви виграли!!!");
-    playerScore++;
-  } else if (
-    (choiceHuman === "ножиці" && randomChoice === "камінь") ||
-    (choiceHuman === "папір" && randomChoice === "ножиці") ||
-    (choiceHuman === "камінь" && randomChoice === "папір")
-  ) {
-    alert("Виграв компьютер!!!");
-    computerScore++;
-  } else {
-    alert("Невірне введення. Цей раунд пропущено.");
-    i--; // Повторити раунд
-    continue;
-  }
 }
 
 alert(
