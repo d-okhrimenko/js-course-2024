@@ -19,12 +19,12 @@ function playGame() {
     let result;
 
     if (userSelection === computerChoice) {
-        result = 'Tie! :/\nYou chose: ' + userSelection + '\nComputer chose: ' + computerChoice;
+        result = `Tie! :/\nYou chose: ${userSelection}\nComputer chose: ${computerChoice}`;
     } else if ((userSelection === 'Rock' && computerChoice === 'Scissors') || (userSelection === 'Paper' && computerChoice === 'Rock') || (userSelection === 'Scissors' && computerChoice === 'Paper')) {
-        result = 'Win! :)\nYou chose: ' + userSelection + '\nComputer chose: ' + computerChoice;
+        result = `Win! :)\nYou chose: ${userSelection}\nComputer chose: ${computerChoice}`;
         playerScore++;
     } else {
-        result = 'Lose :(\nPlayer chose: ' + userSelection + '\nComputer chose: ' + computerChoice;
+        result = `Lose :(\nPlayer chose: ${userSelection}\nComputer chose: ${computerChoice}`;
         computerScore++;
     }
 
