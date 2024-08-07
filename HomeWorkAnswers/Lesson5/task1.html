@@ -12,23 +12,26 @@
         function getNumericValue(message) {
             while (true) {
                 let value = prompt(message);
-                let isValid = !isNaN(value) && value !== "" && value !== null && value >= 0;
-                if (isValid) return Number(value);
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) {
+                    value = Number(value);
+                    if (value > 0) return value;
+                }
             }
         }
 
         let toCalculateIMT = (m, h) => m / Math.pow(h / 100, 2);
 
         function getCategoryIMT(imt) {
-            let result = `Індекс маси тіла: ${imt.toFixed(1)}`;
+            let result = `Індекс маси тіла дорівнює ${imt.toFixed(1)}`;
             if (imt < 18.5) {
-                result = `${result} - недостатня маса тіла`;
+                result = `${result} - недостатня маса тіла.`;
             } else if (imt >= 18.5 && imt < 25) {
-                result = `${result} - нормальна маса тіла`;
+                result = `${result} - нормальна маса тіла.`;
             } else if (imt >= 25 && imt <= 30) {
-                result = `${result} - надмірна маса тіла`;
+                result = `${result} - надмірна маса тіла.`;
             } else {
-                result = `${result} - ознака ожиріння`;
+                result = `${result} - ознака ожиріння.`;
             }
             return result;
         }
