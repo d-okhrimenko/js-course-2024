@@ -46,7 +46,7 @@ function gameStart() {
                         ) {
                             userCount++;
                             alert(
-                                `Ви виграли! Ви вибрали "${userAnswer}", комп'ютр вибрав "${pcAnswer}" .
+                                `Ви виграли! Ви вибрали "${userAnswer}", комп'ютер вибрав "${pcAnswer}" .
                             Раунд №: ${playedRound}, 
                             К-сть ваших очок: "${userCount}", к-сть очок комп'ютера: "${pcCount}"`
                             );
