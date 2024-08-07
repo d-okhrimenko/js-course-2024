@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // Гра: "Математичний квіз"
+
+    // // Перевірка правильності введення значень
+    function numberValidation(message) {
+      while (true) {
+        let value = prompt(message);
+        let isValid = !isNaN(value) && value !== "" && value !== null;
+        if (isValid) return Number(value);
+        else {
+          alert("Введіть число коректно");
+        }
+      }
+    }
+
+    let totalRounds = numberValidation("Введіть кількість раундів гри числом:");
+
+    let totalAttempts = 3;
+    alert(`Ви маєте ${totalAttempts} спроби, щоб надати правильну відповідь для кожного виразу \nДля десткових дробів округліть до 2-го знаку після коми`);
+
+    let rightAnswers = 0;
+
+    for (let currentRound = 1; currentRound <= totalRounds; currentRound++) {
+
+      // Генерація математичних виразів
+      let operators = ["+", "-", "*", "/"];
+      let action = operators[Math.floor(Math.random() * operators.length)];
+      let number1 = Math.floor(Math.random() * 10) + 1;
+      let number2 = Math.floor(Math.random() * 10) + 1;
+
+      alert(`Надайте відповідь для виразу: ${number1} ${action} ${number2}`);
+
+      for (let attempt = 1; attempt <= totalAttempts; attempt++) {
+
+        let playerAnswer = numberValidation("Введіть відповідь числом:");
+
+        let result = Math.round(eval(number1 + action + number2) * 100) / 100;
+
+        // Перевірка відповідей та підрахунок результатів
+        if (playerAnswer === result) {
+          alert("Правильна відповідь!");
+          rightAnswers++
+          break;
+        }
+        else {
+          alert(`Нажаль, ні. У Вас залишилося спроб: ${totalAttempts - attempt}`);
+        }
+      }
+    }
+
+    // Виведення результатів
+    alert(`Ви надали правильних відповідей: ${rightAnswers} \nВи надали неправильних відповідей: ${totalRounds - rightAnswers}`);
+
+  </script>
+</body>
+
+</html>

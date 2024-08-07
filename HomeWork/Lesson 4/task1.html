@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+  // Гра: "Камінь, ножиці, папір"
+
+    // Перевірка правильності введення кількості раундів
+    function rounds(message) {
+      while (true) {
+        let value = prompt(message);
+        let isValid = !isNaN(value) && value !== "" && value !== null;
+        if (isValid) return Number(value);
+        else {
+          alert("Спробуйте ввести кількість раундів гри ще раз");
+        }
+      }
+    }
+
+    let totalRounds = rounds("Введіть кількість раундів гри числом:");
+    alert(`У будь-який момент Ви можете перервати гру командою "вихід"`);
+
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let currentRound = 1; currentRound <= totalRounds; currentRound++) {
+      // Перевірка правильності введення вибору гравця
+      function choice(input) {
+        while (true) {
+          let element = prompt(input);
+
+          let isValid = choices.includes(element);
+          if (isValid) return element;
+          // Переривання гри
+          if (element === "вихід") {
+            alert("Ви перервали гру");
+            concludeGame();
+            break;
+          }
+          else {
+            alert("Спробуйте ввести камінь, ножиці чи папір ще раз");
+          }
+        }
+      }
+
+      let choices = ["камінь", "ножиці", "папір"];
+
+      let playerChoice = choice("Введіть ваш вибір: камінь, ножиці чи папір").toLowerCase();
+
+      // Генерація вибору комп'ютера
+      let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+      // Визначення переможця
+      if (playerChoice === computerChoice) {
+        alert("Однакові вибори - нічия");
+      } else if (
+        (playerChoice === "камінь" && computerChoice === "ножиці") ||
+        (playerChoice === "папір" && computerChoice === "камінь") ||
+        (playerChoice === "ножиці" && computerChoice === "папір")
+      ) {
+        alert(`У цьому раунді Ви виграли: ${playerChoice} б\'є ${computerChoice}`);
+        playerScore++;
+      } else {
+        alert(`У цьому раунді комп\'ютер виграв: ${computerChoice} б\'є ${playerChoice}`);
+        computerScore++;
+      }
+      alert(`Player Score: ${playerScore} Computer Score: ${computerScore}`);
+    }
+    concludeGame();
+    
+    // Виведення результату
+    function concludeGame() {
+      let finalMessage = "";
+      if (playerScore > computerScore) {
+        finalMessage = "Вітаємо, Ви перемогли!";
+      } else if (playerScore < computerScore) {
+        finalMessage = "Game over, комп\'ютер переміг!";
+      } else {
+        finalMessage = "Гра завершилася нічиєю!";
+      }
+      alert(finalMessage);
+    }
+  </script>
+</body>
+
+</html>
