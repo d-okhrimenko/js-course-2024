@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let userScore = 0;
+        let computerScore = 0;
+        let gameCounter = 0;
+
+        function getUserChoise() {
+            while (true) {
+                let userChoise = prompt("Введіть один із варіантів\n- камінь \n- ножиці\n- папір\n- вийти");
+                let isValid = userChoise === "камінь" || userChoise === "ножиці" || userChoise === "папір" || userChoise === "вийти";
+                if (isValid) return userChoise;
+            }
+
+        }
+
+        let arr = ["камінь", "ножиці", "папір"];
+
+        function getComputerChoise() {
+            return arr[Math.floor(Math.random() * 3)];
+        }
+
+        function startGame() {
+            if (gameCounter === 3) return false;
+
+            const userChoise = getUserChoise();
+            alert("Ви обрали " + userChoise);
+            if(userChoise === "вийти") return false;
+
+            const computerChoise = getComputerChoise();
+            alert("Комп\'ютер вибрав " + computerChoise);
+
+            if (computerChoise === "камінь" && userChoise === "ножиці"
+                || computerChoise === "ножиці" && userChoise === "папір"
+                || computerChoise === "папір" && userChoise === "камінь") {
+                alert("Ви програли");
+                computerScore++;
+                gameCounter++;
+            } else if (userChoise === "камінь" && computerChoise === "ножиці"
+                || userChoise === "ножиці" && computerChoise === "папір"
+                || userChoise === "папір" && computerChoise === "камінь") {
+                alert("Ви виграли!");
+                userScore++;
+                gameCounter++;
+            } else if (userChoise === "камінь" && computerChoise === "камінь"
+                || userChoise === "ножиці" && computerChoise === "ножиці"
+                || userChoise === "папір" && computerChoise === "папір") {
+                alert("Нічия!");
+                gameCounter++;
+            }
+            return true;
+        }
+
+        function showResults() {
+            let result;
+           
+            if (userScore > computerScore) {
+                result = "Гра завершилась. Ви виграли! Рахунок: " + userScore + " : " + computerScore;
+                alert(result);
+            } else if (userScore < computerScore) {
+                result = "Гра завершилась. Ви програли! Рахунок: " + userScore + " : " + computerScore;
+                alert(result);
+            } else if (userScore === computerScore) {
+                result = "Рахунок рівний: " + userScore + " : " + computerScore;
+                alert(result);
+            }
+        }
+
+        while(startGame()) { }
+        showResults();
+    </script>
+</body>
+
+</html>
