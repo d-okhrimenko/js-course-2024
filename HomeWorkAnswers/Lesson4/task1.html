@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let computerRandom = ["камінь", "ножиці", "папір"];
+        let user;
+        let exit;
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+        do {
+            while (true) {
+                user = prompt("Введіть ваш вибір (камінь, ножиці, папір):");
+                itemUser = user.toLowerCase();
+                if (computerRandom.includes(itemUser)) {
+                    break;
+                } else {
+                    alert("Введіть один варіант зі списку: камінь, ножиці, папір");
+                }
+            }
+            let computerChoice = computerRandom[Math.floor(Math.random() * computerRandom.length)];
+            alert(computerChoice);
+            if (itemUser === computerChoice) {
+                alert("Нічия!");
+            } else if (
+                (itemUser === "камінь" && computerChoice === "ножиці") ||
+                (itemUser === "ножиці" && computerChoice === "папір") ||
+                (itemUser === "папір" && computerChoice === "камінь")
+            ) {
+                alert("Вітаємо, Ви виграли!");
+                correctAnswers++;
+            } else {
+                alert("Ви програли!");
+                incorrectAnswers++;
+            }
+            alert(`Ви обрали:  ${itemUser} , а система обрала  ${computerChoice}`);
+            exit = prompt("Продовжити гру, натисніть OK, закінчити гру, введіть: вихід");
+            alert(`Правильні відповіді: ${correctAnswers}. Неправильні відповіді: ${incorrectAnswers}`);
+
+        } while (exit === null || exit.toLowerCase() !== "вихід")
+    </script>
+</body>
+
+</html>

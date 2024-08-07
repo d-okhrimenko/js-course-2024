@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let answerCorrect = 0;
+        let answerInCorrect = 0;
+
+        while (true) {
+            let num1;
+            let num2;
+            let operator;
+            let resultComputer;
+
+
+            num1 = randomNumber();
+            num2 = randomNumber();
+            resultComputer = randomResult();
+
+            function randomNumber() {
+                return + Math.floor(Math.random() * 10) + 1;
+            }
+
+            function randomResult() {
+                let value = ['+', '-', '*', '/'];
+                let randomIndex = Math.floor(Math.random() * 4);
+                operator = value[randomIndex];
+
+                switch (randomIndex) {
+                    case 0:
+                        return num1 + num2;
+                    case 1:
+                        return num1 - num2;
+                    case 2:
+                        return num1 * num2;
+                    case 3:
+                        return num1 / num2;
+                }
+            }
+
+            playGame(resultComputer);
+            console.log(resultComputer);
+            function playGame() {
+                for (let i = 0; i < 3; i++) {
+                    let answerUser = +prompt(`Обчисліть вираз:   ${num1}  ${operator}  ${num2} = `);
+
+                    if (answerUser !== resultComputer && i === 2) {
+                        answerInCorrect++;
+                        alert('Ви програли');
+                    } else if (answerUser !== resultComputer) {
+                        answerInCorrect++;
+                        alert(`Невірно. Спроба ${i + 2}`);
+                    } else if (answerUser == resultComputer) {
+                        answerCorrect++;
+                        alert('Рішення вірне');
+                        break;
+                    }
+                }
+            }
+
+            let value = prompt('Продовжити чи вийти?');
+            if (value == 'вийти') {
+                break;
+            }
+        }
+
+        alert(`Правильних відповідей:  ${answerCorrect} Не правильних відповідей: ${answerInCorrect}`);
+    </script>
+</body>
+
+</html>
