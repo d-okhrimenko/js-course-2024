@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Figures</title>
+</head>
+
+<body>
+  <script src="../../ClassWork/common/my-library.js"></script>
+  <script>
+    class Circle {
+      constructor(type, r) {
+        this.type = type;
+        this.r = r;
+      }
+
+      static create() {
+        const radius = getNumericValue('Введіть радіус кола');
+        return new Circle('коло', radius);
+      }
+      getArea() {
+        return Math.round(Math.PI * this.r ** 2 * 100) / 100;
+      }
+
+      getPerimeter() {
+        return Math.round(2 * Math.PI * this.r * 100) / 100;
+      }
+    }
+
+    class Rect {
+      constructor(type, a, b) {
+        this.type = type;
+        this.a = a;
+        this.b = b;
+      }
+
+      static create() {
+        const a = getNumericValue('Введіть довжину прямокутника');
+        const b = getNumericValue('Введіть ширину прямокутника');
+        return new Rect('прямокутник', a, b);
+      }
+      getArea() {
+        return this.a * this.b;
+      }
+
+      getPerimeter() {
+        return 2 * (this.a + this.b);
+      }
+    }
+
+    class Triangle {
+      constructor(type, a, b, c) {
+        this.type = type;
+        this.a = a;
+        this.b = b;
+        this.c = c;
+      }
+
+      static create() {
+        const a = getNumericValue('Введіть першу сторону трикутника');
+        const b = getNumericValue('Введіть другу сторону трикутника');
+        const c = getNumericValue('Введіть третью сторону трикутника');
+        return new Triangle('трикутник', a, b, c);
+      }
+      getArea() {
+        const p = (this.a + this.b + this.c) / 2;
+        return Math.round(Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)) * 100) / 100;
+      }
+
+      getPerimeter() {
+        return this.a + this.b + this.c;
+      }
+    }
+    const OPTIONS = [Circle, Rect, Triangle];
+
+    const userChoice = prompt('Оберіть фігуру: 0 - коло, 1 - прямокутник чи 2 - трикутник', '');
+
+    if ([0, 1, 2].includes(Number(userChoice)) || userAnswer !== '') {
+      const figure = OPTIONS[userChoice].create();
+
+      alert(`Ви обрали ${figure.type}. Периметр = ${figure.getPerimeter()}. Площа = ${figure.getArea()}`)
+    };
+
+  </script>
+</body>
+
+</html>
