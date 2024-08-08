@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-02</title>
+</head>
+
+<body>
+
+    <p id="output"></p>
+
+    <script>
+        const days = ['неділя', 'понеділок', 'вівторок', 'середа', 'четвер', 'пʼятниця', 'субота'];
+        let dayNumber = new Date().getDay();
+
+        // days[dayNumber] - видає потрібний день тиждня з масиву days за індексом dayNumber
+        document.getElementById("output").innerHTML = `Сьогодні ${new Date().toLocaleString('uk-UA', {year:"numeric", month:"long",day:"numeric"})}, ${days[dayNumber]}`;
+
+    </script>
+</body>
+
+</html>
