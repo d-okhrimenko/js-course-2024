@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3: Сhecking leap year</title>
+  </head>
+  <body>
+    <script>
+      let year = prompt("Введіть рік:");
+      let yearParse = parseInt(year);
+      if (year.length != yearParse.toString().length)
+        alert("The year is entered incorrectly!!!");
+      else leapYear(yearParse);
+
+      function leapYear(year) {
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+          alert(`${year} is LEAP year!!!`);
+        else alert(`${year} is NON-LEAP year!!!`);
+      }
+    </script>
+  </body>
+</html>

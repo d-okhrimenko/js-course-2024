@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2: What day of week</title>
+  </head>
+  <body>
+    <script>
+      let date = new Date();
+      let nowDay = date.getDay();
+      alert(`Сьогодні - ${DayOfWeek(nowDay)}!!!`);
+
+      function DayOfWeek(dayAsNumber) {
+        switch (dayAsNumber) {
+          case 0:
+            return "Неділя";
+            break;
+          case 1:
+            return "Понеділок";
+            break;
+          case 2:
+            return "Вівторок";
+            break;
+          case 3:
+            return "Середа";
+            break;
+          case 4:
+            return "Червер";
+            break;
+          case 5:
+            return "П'ятниця";
+            break;
+          case 6:
+            return "Субота";
+            break;
+          default:
+            alert("Виникла помилка!");
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
