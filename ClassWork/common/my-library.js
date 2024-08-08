@@ -5,3 +5,4 @@ function getNumericValue(message) {
         if (isValid) return Number(value);
     }
 }
+

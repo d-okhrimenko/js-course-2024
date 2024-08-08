@@ -1,0 +1,81 @@
+<!-- Гра: "Математичний квіз"
+Опис гри:
+Програма генерує випадкові математичні вирази (додавання, віднімання, множення, ділення) та запитує у користувача правильну відповідь. 
+ористувач має обмежену кількість спроб, щоб дати правильну відповідь. 
+Програма виводить кількість правильних та неправильних відповідей після завершення гри. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const operators = ["+", "-", "*", "/"];
+        const range = 100;
+        rightAnswerCount = 0;
+        wrongAnswer = 0;
+        exit = false;
+        
+        while (!exit) {
+            let randomOperatorIndex = Math.floor(Math.random() * operators.length);
+            const randomOperator = operators[randomOperatorIndex];
+            //Використайте Math.random() для генерації двох випадкових чисел і оператора (+, -, *, /)
+            let randomNumber_1 = Math.floor(Math.random() * 100);
+            let randomNumber_2 = Math.floor(Math.random() * 100);
+
+            let result;
+            switch (randomOperator) {
+                case "+":
+                    result = randomNumber_1 + randomNumber_2;
+                    break;
+                case "-":
+                    result = randomNumber_1 - randomNumber_2;
+                    break;
+                case "*":
+                    result = randomNumber_1 * randomNumber_2;
+                    break;
+                case "/":
+                    // Перевірка, щоб не ділити на нуль
+                    result = randomNumber_2 !== 0 ? randomNumber_1 / randomNumber_2 : "Ділення на нуль";
+                    break;
+            }
+
+            for (let i = 1; i < 4; i++) {
+                //Використайте prompt для запиту відповідей у користувача.
+                let playerAnswer = Number(prompt(`Надайте відповідь : ${randomNumber_1} ${randomOperator} ${randomNumber_2} = ? ,або введіть будь-яку 
+                букву для виходу. Спроба ${i}.`));
+                if (!isNaN(playerAnswer) && playerAnswer !== null && playerAnswer !== '') {
+                    //Використайте умовні конструкції для перевірки правильності відповідей.
+                    //Підрахуйте кількість правильних та неправильних відповідей. 
+                    //Не вірна відповідь враховується після 3 спроб
+                    if (playerAnswer == result) {
+                        alert("Вірно");
+                        rightAnswerCount++;
+                        break;
+                    }
+                    else {
+                        alert("Не вірно");
+                        if (i == 3) {
+                            wrongAnswer++;
+                        }
+                    }
+
+                }
+                else {
+                    exit = true;
+                    break;
+                }
+
+            }
+        }
+        //Використайте alert для виведення підсумкових результатів.
+        alert(`Вірних відповідей ${rightAnswerCount}, не вірних ${wrongAnswer}`);
+    </script>
+</body>
+
+</html>

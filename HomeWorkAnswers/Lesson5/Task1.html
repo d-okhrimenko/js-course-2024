@@ -1,0 +1,51 @@
+<!-- Завдання 1
+Написати програму, яка обчислює індекс маси тіла (ІМТ) і дає рекомендації на основі отриманого значення. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../my-hw-library.js"></script>
+    <script>
+        //     Створити функцію для обчислення ІМТ:
+        //     - Формула: Індекс маси тіла розраховується шляхом ділення маси тіла (у кілограмах) на квадрат росту (у метрах квадратних)
+        const imt = (bodyMass, bodyHeight) => bodyMass / Math.pow(bodyHeight, 2);
+
+        //Створити функцію для визначення категорії ІМТ:
+        function getCategoryImt(imt) {
+            let categoryImt = "";
+            if (imt < 18.5) {
+                categoryImt = "Недостатня вага";
+            }
+            else if (imt >= 18.5 && imt < 24.9) {
+                categoryImt = "Нормальна вага";
+            }
+            else if (imt >= 25 && imt < 29.9) {
+                categoryImt = "Надмірна вага";
+            }
+            else if (imt >= 30) {
+                categoryImt = "Ожиріння";
+            }
+            return categoryImt;
+        }
+
+       //Запросити користувача ввести вагу і ріст:
+       const bodyMassUser = getNumericValueGreatedZero("Введіть масу тіла (у кілограмах)");
+       const bodyHeightUser = getNumericValueGreatedZero("Введіть зріст (у метрах)");
+       
+       //Обчислити ІМТ користувача і визначити категорію:
+       const imtResult = imt(bodyMassUser,bodyHeightUser);
+       const categoryImtResult = getCategoryImt(imtResult);
+
+       //Вивести результати:
+       alert(`Ваш IMT = ${imtResult.toFixed(2)}, це ${categoryImtResult}`);  
+
+    </script>
+</body>
+
+</html>

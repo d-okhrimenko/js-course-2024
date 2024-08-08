@@ -1,0 +1,32 @@
+<!-- Завдання 3
+Написати програму, яка перевіряє, чи є введений рік високосним. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Використайте prompt для введення року користувачем.
+        let year = prompt("Введіть рік");
+
+        // Перетворіть введене значення з рядка на число, використовуючи parseInt або Number.
+        year = parseInt(year);
+        if (!isNaN(year) && year > 0) { // Переконайтеся, що користувач ввів коректне число.
+            // Використайте умовні оператори для перевірки, чи є рік високосним.
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                alert(year + " є високосним роком.");
+            } else {
+                alert(year + " не є високосним роком.");
+            }
+        } else {
+            alert("Введіть коректний рік.");
+        }
+    </script>
+</body>
+
+</html>

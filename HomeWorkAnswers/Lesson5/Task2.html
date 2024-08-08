@@ -1,0 +1,74 @@
+<!-- Завдання 2
+Написати програму, яка обчислює площу та периметр різних геометричних фігур (коло, прямокутник, трикутник). 
+Кожна геометрична фігура повинна мати свою окрему функцію для обчислення площі та периметру. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../my-hw-library.js"></script>
+    <script>
+        //Створити функцію для обчислення площі та периметру кола:
+        let getCircleArea = radius => Math.PI * Math.pow(radius, 2);
+        let getCirclePerimeter = radius => 2 * Math.PI * radius;
+
+        //Створити функцію для обчислення площі та периметру прямокутника:
+        let getRectangleArea = (length, width) => length * width;
+        let getRectanglePerimeter = (length, width) => 2 * (length + width);
+
+        //Створити функцію для обчислення площі та периметру трикутника:
+        let getTriangleeArea = (side1, side2, side3) => {
+            let p = (side1 + side2 + side3);
+            return Math.sqrt((p - side1) * (p - side2) * (p - side3));
+        };
+        let getTrianglePerimeter = (side1, side2, side3) => side1 + side2 + side3;
+
+        function alertResult(area, perimeter) {
+            alert(`Площа фігури = ${area.toFixed(2)}, периметр = ${perimeter.toFixed(2)}`);
+        }
+
+        //Запросити користувача вибрати фігуру і ввести відповідні параметри:
+        const choices = ["коло", "прямокутник", "трикутник"];
+        let toContinue = true;
+        while (toContinue) {
+            let userFigure = getStringValue("Введіть фігуру (коло, прямокутник, трикутник)");
+            let userFigureIndex = choices.indexOf(userFigure);
+
+            if (userFigureIndex == -1) {//не коректно введене значення
+                continue;
+            }
+
+            switch (userFigureIndex) {
+                case 0:
+                    const radiusUser = getNumericValueGreatedZero("Введіть радіус кола");
+                    alertResult(getCircleArea(radiusUser), getCirclePerimeter(radiusUser));
+                    toContinue = false;
+                    break;
+                case 1:
+                    const lengthUser = getNumericValueGreatedZero("Введіть висоту прямокутника");
+                    const widthhUser = getNumericValueGreatedZero("Введіть ширину прямокутника");
+                    alertResult(getRectangleArea(lengthUser, widthhUser), getRectanglePerimeter(lengthUser, widthhUser));
+                    toContinue = false;
+                    break;
+                case 2:
+                    const side1hUser = getNumericValueGreatedZero("Введіть довжину сторони 1");
+                    const side2hUser = getNumericValueGreatedZero("Введіть довжину сторони 2");
+                    const side3hUser = getNumericValueGreatedZero("Введіть довжину сторони 3");
+                    alertResult(getTriangleeArea(side1hUser, side2hUser,side3hUser), 
+                    getTrianglePerimeter(side1hUser, side2hUser,side3hUser));
+                    toContinue = false;
+                    break;
+            }
+
+        }
+        getStringValue
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!-- Завдання 2
+Написати програму, яка визначає, який сьогодні день тижня, і виводить відповідне повідомлення. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Використайте об'єкт Date для отримання поточної дати.
+        let currentDate = new Date();
+        // Використайте метод getDay() об'єкта Date для отримання дня тижня (0 для неділі, 1 для понеділка і т.д.).
+        let currentDay = currentDate.getDay();
+        //Використайте оператор if для визначення дня тижня і виведення відповідного повідомлення.
+        //замість if використуємо swich
+        let day;
+        switch (currentDay) {
+            case 0:
+                day = "Неділя";
+                break;
+            case 1:
+                day = "Понеділок";
+                break;
+            case 2:
+                day = "Вівторок";
+                break;
+            case 3:
+                day = "Середа";
+                break;
+            case 4:
+                day = "Четверг";
+                break;
+            case 5:
+                day = "П'ятниця";
+                break;
+            case 6:
+                day = "Субота";
+                break;
+            default:
+                day = "Unknown day";
+        }
+        alert(day);
+    </script>
+</body>
+
+</html>
