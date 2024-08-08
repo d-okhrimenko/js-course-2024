@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-01</title>
+</head>
+
+<body>
+    <script>
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = (!isNaN(value) && value !== "" && value !== null && value > 0 && value <= 3) || value.trim().toUpperCase() == "Q";
+                if (isValid)
+                    return value;
+            }
+        }
+
+        // Статистика ігор
+        let compWins = 0;   // перемоги компʼютера
+        let gamerWins = 0;  // перемоги користувача
+        let drawns = 0;     // нічиї
+        let gameCounter = 0;// загальна кількість ігор
+
+        while (true) {
+
+            let gamerValue = getValue("Камінь(1), ножиці(2), папір(3)? 1, 2, 3...\n(введіть відповідну цифру.\n\n Для виходу з гри введіть \'q\' або \'Q\')");
+
+            if (gamerValue.trim().toUpperCase() == "Q")
+                break;
+            else
+                gamerValue = Number(gamerValue);
+            console.log(gamerValue);
+
+            let computerValue = Math.floor(Math.random() * 3) + 1;
+            console.log(computerValue);
+
+            // Складаємо двомірну матрицю, що відповідає виграшним комбінаціям компʼютер - користувач
+            // справа-наліво та зверху-вниз: камінь. ножиці, папір
+            // 1 - виграв компʼютер
+            // -1 - виграв користувач
+            // 0 - нічия
+            let gameWinner = [
+                [0, 1, -1],
+                [-1, 0, 1],
+                [1, -1, 0]
+            ]
+
+            // артефакти гри
+            let gameThing = ["камінь", "ножиці", "папір"];
+
+            // перевірка за допомогою матриці gameWinner, чи переміг компʼютер
+            let isComputerWinner = gameWinner[computerValue - 1][gamerValue - 1];
+
+            let resultMessage = `Ваш хід - ${gameThing[gamerValue - 1]}, хід комп´ютера - ${gameThing[computerValue - 1]}. \nРезультат: `;
+            switch (isComputerWinner) {
+                case 0:
+                    resultMessage += "нічия.";
+                    drawns++;
+                    break;
+                case 1:
+                    resultMessage += "комп´ютер Вас переміг. :(";
+                    compWins++;
+                    break;
+                case -1:
+                    resultMessage += "Ви перемогли комп´ютер! ;)";
+                    gamerWins++;
+                    break;
+                default:
+                    resultMessage += "невизначено.";
+                    break;
+            }
+            gameCounter++;
+            alert(resultMessage);
+        }
+
+        // Рахуємо загальний рахунок таким чином: 2-перемога, 1-нічия, 0-програш
+        let totalScore = `Загальний рахунок: ${gamerWins * 2 + drawns}:${compWins * 2 + drawns}`;
+        if (compWins > gamerWins)
+            totalScore += " (на  користь компʼютера)";
+        else if (compWins < gamerWins)
+            totalScore += " (на Вашу користь)";
+
+        let finishMessage = `Заголом зіграно ${gameCounter} ігор: \nВи перемогли комп´ютер: ${gamerWins} \nкомп´ютер переміг Вас: ${compWins} \nНічиїх: ${drawns}\n\n${totalScore} \n\nДо наступної зустрічі!`;
+        alert(finishMessage);
+
+
+    </script>
+</body>
+
+</html>
