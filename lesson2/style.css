@@ -1,0 +1,18 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    padding: 100px;
+
+}
+
+#btn {
+    width: 180px;
+    background-color: aquamarine;
+    height: 50px;
+    border: none;
+    border-radius: 30%;
+    box-shadow: 4px 4px 3px gray;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(152, 35, 35);
+}
