@@ -42,6 +42,10 @@
             return triangle;
         }
 
+        function outputResult(result) {
+            return alert(`Площа дорівнює ${result[0]} кв.см., періметр дорівнює ${result[1]} см.`);
+        }
+
         alert("Програма разрахунку площі та периметру різних геометричних фігур (коло, прямокутник, трикутник)");
 
         while (true) {
@@ -49,16 +53,16 @@
 
             if (figureType === 1) {
                 const radius = getValue("Введіть радіус");
-
-                alert(`Площа дорівнює ${calculationCircle(radius)[0]} кв.см., періметр дорівнює ${calculationCircle(radius)[1]} см.`);
+                const result = calculationCircle(radius);
+                outputResult(result);
                 break;
             }
 
             if (figureType === 2) {
                 const side1 = getValue("Введіть довжину першої сторони");
                 const side2 = getValue("Введіть довжину другої сторони");
-
-                alert(`Площа дорівнює ${calculationRectangle(side1, side2)[0]} кв.см., періметр дорівнює ${calculationRectangle(side1, side2)[1]} см.`);
+                const result = calculationRectangle(side1, side2);
+                outputResult(result);
                 break;
             }
 
@@ -66,8 +70,8 @@
                 const side1 = getValue("Введіть довжину першої сторони");
                 const side2 = getValue("Введіть довжину другої сторони");
                 const side3 = getValue("Введіть довжину третьої сторони");
-
-                alert(`Площа дорівнює ${calculationTriangle(side1, side2, side3)[0]} кв.см., періметр дорівнює ${calculationTriangle(side1, side2, side3)[1]} см.`);
+                const result = calculationTriangle(side1, side2, side3);
+                outputResult(result);
                 break;
             }
 
