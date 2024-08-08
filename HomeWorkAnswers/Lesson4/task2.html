@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Функція для генерації випадкового математичного виразу
+      function generateExpression() {
+        const num1 = Math.floor(Math.random() * 10) + 1;
+        const num2 = Math.floor(Math.random() * 10) + 1;
+        const operators = ["+", "-", "*", "/"];
+        const operator =
+          operators[Math.floor(Math.random() * operators.length)];
+
+        let expression;
+        let correctAnswer;
+
+        switch (operator) {
+          case "+":
+            expression = `${num1} + ${num2}`;
+            correctAnswer = num1 + num2;
+            break;
+          case "-":
+            expression = `${num1} - ${num2}`;
+            correctAnswer = num1 - num2;
+            break;
+          case "*":
+            expression = `${num1} * ${num2}`;
+            correctAnswer = num1 * num2;
+            break;
+          case "/":
+            expression = `${num1} / ${num2}`;
+            correctAnswer = (num1 / num2).toFixed(2); // Округлення до 2 знаків після коми
+            break;
+        }
+
+        return { expression, correctAnswer };
+      }
+
+      // Основна функція гри
+      function playMathQuiz() {
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+        const attempts = parseInt(prompt("Скільки спроб ви хочете мати?"), 10);
+
+        for (let i = 0; i < attempts; i++) {
+          const { expression, correctAnswer } = generateExpression();
+          const userAnswer = parseFloat(prompt(`Вирішіть: ${expression}`));
+
+          if (userAnswer === correctAnswer) {
+            correctAnswers++;
+            alert("Правильно!");
+          } else {
+            incorrectAnswers++;
+            alert(`Неправильно. Правильна відповідь: ${correctAnswer}`);
+          }
+        }
+
+        alert(
+          `Гра завершена!\nПравильні відповіді: ${correctAnswers}\nНеправильні відповіді: ${incorrectAnswers}`
+        );
+      }
+
+      // Запуск гри
+      playMathQuiz();
+    </script>
+  </body>
+</html>
