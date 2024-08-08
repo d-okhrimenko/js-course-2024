@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="task1.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Rock - Paper - Scissors</h1>
+      <p>make a choise and press the "START" button</p>
+      <form id="gameForm">
+        <label>
+          <input type="radio" name="rps-choise" value="Rock"> Rock
+          </label>
+        <br>
+        <label>
+          <input type="radio" name="rps-choise" value="Paper"> Paper
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="rps-choise" value="Scissors"> Scissors
+        </label>
+        <br>
+        <button type="button" onclick="playGame()">START</button>
+      </form>
+      <div id="score">
+        <h2>Score</h2>
+        <p>Player | Computer</p>
+        <p id="scoreOutput">0 : 0</p>
+        <button type="button" onclick="resetScore()">RESET SCORE</button>
+        <p>click to reset the score and play a new game</p>
+      </div>
+    </div>
+    <script src="task1.js"></script>
+  </body>
+</html>
