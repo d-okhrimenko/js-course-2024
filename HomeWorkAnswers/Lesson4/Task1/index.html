@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1</title>
+  </head>
+  <body>
+    <script>
+      function getRandomSelect() {
+        let selects = ["камінь", "ножиці", "папір"];
+        let randomNumber = Math.floor(Math.random() * 3);
+        return selects[randomNumber];
+      }
+
+      let scoreUser = 0,
+        scoreComputer = 0;
+      while (true) {
+        let userSelect = prompt(
+          "Зробіть свій вибір: камінь, ножиці чи папір \n або натисніть Q для виходу: "
+        ).toLowerCase();
+
+        let needIterance =
+          userSelect != "камінь" &&
+          userSelect != "ножиці" &&
+          userSelect != "папір" &&
+          userSelect != "q";
+        if (needIterance) continue;
+        if (userSelect == "q") break;
+        let computerSelect = getRandomSelect();
+
+        let messedge = isWinner(userSelect, computerSelect);
+        alert(
+          `Гравець вибрав "${userSelect}" - Комп'ютер вибрав "${computerSelect}"
+${messedge}
+Загальний рахунок між Гравцем і Комп'ютером: ${scoreUser} : ${scoreComputer}`
+        );
+      }
+
+      function isWinner(userValue, computerValue) {
+        if (userValue == computerValue) return "Нічья!";
+        if (
+          (userValue == "камінь" && computerValue == "ножиці") ||
+          (userValue == "ножиці" && computerValue == "папір") ||
+          (userValue == "папір" && computerValue == "камінь")
+        ) {
+          scoreUser++;
+          return "Виграв Гравець!";
+        } else {
+          scoreComputer++;
+          return "Виграв Комп'ютер!";
+        }
+      }
+    </script>
+  </body>
+</html>
