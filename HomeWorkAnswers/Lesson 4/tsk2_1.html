@@ -5,103 +5,134 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 	</head>
+
 	<body>
 		<script>
-			let res;
+			let res; // результат обчислення
 			let i = 1;
-			let quest;
-			let success = 0;
-			let unsuccess = 0;
-			let count = 0;
-			let a, b, s;
-			let attempt = 3;
+			let quest; // відповідь гравця
+			let success = 0; // кількість вгаданих
+			let unsuccess = 0; // кількість не вгаданих
+			let unsuccessAttempt = 0; //кількість невдалих спроб
+			let count = 0; // початкове значення кількості раундів (вводяться гравцем)
+			let a, b, s; // елементи математичного виразу
+			let attempt = 3; // кількість спроб по замовчуванню
+			let type = -1; // тип перевірки 0-для номера раунду, 1-для математичного виразу
+			let isValid = false; //
 
-			const sign = ["+", "-", "*", "/"];
+			const sign = ["+", "-", "*", "/"]; // набір математичних знаків операцій обчислення
 
-			function randomize(n1, n2) {
-				//функція пошуку випадкового значення. Параметр n1-максимальне значення, n2=0 - використовувати 0, n2=1 - не використовувати 0
-				let rnd = Math.floor(Math.random() * n1) + n2;
+			function randomize(n) {
+				// функція пошуку випадкового значення. Параметр n-максимальне значення
+				let rnd = Math.floor(Math.random() * n) + 1; // числа від 1 до n без 0 значення
 				return rnd;
 			}
 
-			function getValue(message) {
-				//функція перевірки правильності введення
+			function getValue(message, type) {
+				// функція перевірки правильності введення
 				while (true) {
 					let value = prompt(message);
-					let isValid = !isNaN(value) && value !== "" && value !== null && value > 0;
-					if (isValid) return Number(value);
+
+					switch (type) {
+						case 0:
+							isValid = !isNaN(value) && value !== "" && value !== null && value > 0;
+							break;
+						case 1:
+							isValid = !isNaN(value) && value !== "" && value !== null;
+							break;
+						default:
+							console.log("не визначений тип");
+					}
+					let typeOf = typeof value;
+
+					if (isValid) {
+						return Number(value); //.toFixed(2);
+					} else if (typeOf !== "object" && value.toLowerCase() == "q") {
+						alert(`Гру перервано гравцем`);
+						return value;
+					}
 				}
 			}
 
 			function newGenRound() {
-				//функція генерування нового виразу для обчислення
-				a = randomize(10, 0);
-				b = randomize(10, 0);
-				s = randomize(4, 1);
-				console.log("num A=" + a + " num B=" + b + " sign=" + s);
+				// функція генерування нового виразу для обчислення
+				a = randomize(10);
+				b = randomize(10);
+				s = randomize(1); //генерування знаку операції
 
+				// вибір математичного знаку зі списку за порядковим номером(випадково згенерованим)
 				switch (sign[s - 1]) {
 					case "+":
 						res = a + b;
-						console.log("1+" + s + " " + a + "+" + b + "=" + res);
 						break;
 					case "-":
 						res = a - b;
-						console.log("2-" + s + " " + a + "-" + b + "=" + res);
+
 						break;
 					case "*":
 						res = a * b;
-						console.log("3*" + s + " " + a + "*" + b + "=" + res);
+
 						break;
 					case "/":
 						res = a / b;
-						console.log("4/" + s + " " + a + "/" + b + "=" + res + "(" + res + ")");
 						break;
 				}
+				console.log(`${a} ${sign[s - 1]} ${b} = ${res} (${res.toFixed(2)})`);
 				res = res.toFixed(2);
 			}
 
-			console.log("Новий раунд");
-			newGenRound();
-			console.log("res=" + res);
+			// Початок гри
 
-			let rounds = getValue("Виберіть кількість раундів: ");
+			let rounds = getValue("Виберіть кількість раундів або натисніть 'q' для виходу: ", 0);
+			console.log(`Кількість вибраних раундів=${rounds}`);
 
 			while (count < rounds) {
-				console.log(`count=${count}, rounds=${rounds}`);
+				console.log(`старт раунда`);
+				newGenRound();
 				count++;
-				if (quest == "q") {
-					console.log("Натиснута кнопка 'q' - Вихід з гри за вибором ігрока");
+				console.log(`раунд ${count}`);
+				// quest = getValue(
+				// 	`Раунд № ${count} з ${rounds}\n Дайте відповідь на питання Скільки буде  ${a} ${
+				// 		sign[s - 1]
+				// 	} ${b} = ? \n Для виходу натисніть "q"`,
+				// 	1,
+				// );
+
+				if (quest !== "q") {
+					for (i = 1; i <= attempt; i++) {
+						quest = getValue(
+							`Раунд № ${count} з ${rounds}\n Дайте відповідь на питання Скільки буде  ${a} ${
+								sign[s - 1]
+							} ${b} = ? \n Для виходу натисніть "q"`,
+							1,
+						);
+						console.log(`Вибрана  відповідь=${quest}`);
+						quest = Number(quest).toFixed(2);
+						if (quest !== res) {
+							unsuccessAttempt++;
+							alert(`Не вгадали. \n Спроба № ${i}. Залишилось спроб ${attempt - i}`);
+							// quest = getValue(`Повторіть введення для виразу ${a} ${sign[s - 1]} ${b} =`,1);
+						} else {
+							alert(`Вгадали.\n Вказали ${quest}. Правильна відповідь ${res}`);
+							success++;
+							// unsuccess-=i;
+							break;
+						}
+
+						unsuccess++;
+					}
+					unsuccess-=i;
+				} else {
+					console.log("Раунд перервано");
 					break;
 				}
-			}
-			// 	quest = prompt(
-			// 		`Раунд № ${count} Спроба ${attempt - 1}	\n
-			// 			Дайте відповідь на питання або натисніть "q" для виходу \n
-			// 			Скільки буде  ${a} ${sign[s - 1]} ${b} = ?`,
-			// 	);
-
-			// 	quest = Number(quest).toFixed(2);
-
-			// 	if (quest == res) {
-			// 		alert(`Вгадали. Вказали ${quest}. Правильна відповідь ${res}`);
-			// 		success++;
-			// 		break;
-			// 	} else {
-			// 		for (i = 1; i < attempt; i++) {
-			// 			alert(`Невгадали.  \n Спроба № ${i}. Залишилось спроб ${attempt - i}`);
-			// 			quest = prompt(`Повторіть введення для виразу ${a} ${sign[s - 1]} ${b} =`);
-			// 			quest = Number(quest).toFixed(2);
-			// 		}
-			// 		unsuccess++;
-
-			// 		alert(`Невгадали. Залишилось спроб ${attempt - i} з ${attempt} Правильна відповідь ${res}`);
-			// 	}
-
-			// 	newGenRound();
-			// }
-
-			//alert(`Кінець. Зіграно раундів=${count}. Вгадано=${success}. Невгадано=${unsuccess}`);
+			} // end while
+			console.log(
+				`Вдало succes=${success} не вдало unsuccess=${unsuccess}, i=${i} невдалих спроб unsuccessAttempt=${unsuccessAttempt}`,
+			);
+			alert(
+				`Кінець.\n Зіграно раундів=${count}. Вгадано=${success}. Не вгадано=${unsuccess} \n Загальна кількість невдалих спроб=${unsuccessAttempt}`,
+			);
 		</script>
 	</body>
 </html>
