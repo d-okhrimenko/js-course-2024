@@ -1,16 +1,18 @@
 .buttons-container {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  justify-content: center;
   gap: 10px;
+  height: 100vh; 
 }
 
 .button {
   font-size: 20px;
-  padding: 10px 20px;
+  padding: 10px 30px;
   border: 2px solid #000;
   border-radius: 5px;
   background-color: inherit;
+  margin: 0px auto;
 }
 
 .button:hover {
