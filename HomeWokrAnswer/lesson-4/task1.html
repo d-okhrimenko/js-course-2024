@@ -1,0 +1,99 @@
+<!-- <!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Камінь, ножиці, папір</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice() {
+            const choices = ['камінь', 'ножиці', 'папір'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
+
+        function determineWinner(userChoice, computerChoice) {
+            if (userChoice === computerChoice) {
+                return 'Нічия!';
+            } else if (
+                (userChoice === 'камінь' && computerChoice === 'ножиці') ||
+                (userChoice === 'ножиці' && computerChoice === 'папір') ||
+                (userChoice === 'папір' && computerChoice === 'камінь')
+            ) {
+                return 'Ви виграли!';
+            } else {
+                return 'Комп\'ютер виграв!';
+            }
+        }
+
+        function playGame() {
+            const userChoice = prompt('Зробіть ваш вибір: камінь, ножиці, папір');
+            const computerChoice = getComputerChoice();
+            const result = determineWinner(userChoice.toLowerCase(), computerChoice);
+
+            alert(`Ваш вибір: ${userChoice}\nВибір комп'ютера: ${computerChoice}\nРезультат: ${result}`);
+        }
+
+        playGame();
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Камінь, ножиці, папір</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice() {
+            const choices = ['камінь', 'ножиці', 'папір'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
+
+        function determineWinner(userChoice, computerChoice) {
+            if (userChoice === computerChoice) {
+                return 'Нічия';
+            } else if (
+                (userChoice === 'камінь' && computerChoice === 'ножиці') ||
+                (userChoice === 'ножиці' && computerChoice === 'папір') ||
+                (userChoice === 'папір' && computerChoice === 'камінь')
+            ) {
+                return 'Користувач';
+            } else {
+                return 'Комп\'ютер';
+            }
+        }
+
+        function playGame(rounds) {
+            let userScore = 0;
+            let computerScore = 0;
+            let drawCount = 0;
+
+            for (let i = 0; i < rounds; i++) {
+                const userChoice = prompt(`Раунд ${i + 1}\nЗробіть ваш вибір: камінь, ножиці, папір`);
+                const computerChoice = getComputerChoice();
+                const result = determineWinner(userChoice.toLowerCase(), computerChoice);
+
+                if (result === 'Користувач') {
+                    userScore++;
+                } else if (result === 'Комп\'ютер') {
+                    computerScore++;
+                } else {
+                    drawCount++;
+                }
+
+                alert(`Раунд ${i + 1}\nВаш вибір: ${userChoice}\nВибір комп'ютера: ${computerChoice}\nРезультат: ${result}\n\nПоточний рахунок:\nКористувач: ${userScore}\nКомп'ютер: ${computerScore}\nНічия: ${drawCount}`);
+            }
+
+            alert(`Загальний рахунок після ${rounds} раундів:\nКористувач: ${userScore}\nКомп'ютер: ${computerScore}\nНічия: ${drawCount}`);
+        }
+ 
+         const rounds = parseInt(prompt('Скільки раундів ви хочете зіграти?'), 10);
+         playGame(rounds);
+    </script>
+</body>
+</html>
+
+

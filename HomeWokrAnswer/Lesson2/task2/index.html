@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевірка на парність</title>
+</head>
+<body>
+</body>
+<script> 
+// Запит користувача на введення даних
+let userInput = prompt("Будь ласка, введіть число:");
+// Виведення введених даних
+alert("Ви ввели: " + userInput);
+let number = parseInt(userInput);
+// Перевірка чи введені дані є числом
+if (!isNaN(number)) {
+    // Перевірка на парність
+    if (number % 2 === 0) {
+        alert("Ви ввели парне число.");
+    } else {
+        alert("Ви ввели непарне число.");
+    }
+} else {
+    alert("Будь ласка, введіть  число.");
+    userInput ;
+    number ;
+}        
+</script>
+</html>

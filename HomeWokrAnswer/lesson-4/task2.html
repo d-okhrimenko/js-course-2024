@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Математичний квіз</title>
+</head>
+<body>
+    <script>
+        function getRandomNumber(max) {
+            return Math.floor(Math.random() * max) + 1;
+        }
+
+        function getRandomOperator() {
+            const operators = ['+', '-', '*', '/'];
+            const randomIndex = Math.floor(Math.random() * operators.length);
+            return operators[randomIndex];
+        }
+
+        function generateExpression() {
+            const num1 = getRandomNumber(10);
+            const num2 = getRandomNumber(10);
+            const operator = getRandomOperator();
+            
+            let correctAnswer;
+            let expression;
+
+            switch (operator) {
+                case '+':
+                    correctAnswer = num1 + num2;
+                    break;
+                case '-':
+                    correctAnswer = num1 - num2;
+                    break;
+                case '*':
+                    correctAnswer = num1 * num2;
+                    break;
+                case '/':
+                    correctAnswer = parseFloat((num1 / num2).toFixed(2)); // Округлення до 2 знаків після коми
+                    break;
+            }
+
+            expression = `${num1} ${operator} ${num2}`;
+            return { expression, correctAnswer };
+        }
+
+        function playQuiz(rounds, attempts) {
+            let correctAnswers = 0;
+            let incorrectAnswers = 0;
+
+            for (let i = 0; i < rounds; i++) {
+                const { expression, correctAnswer } = generateExpression();
+                let userAnswer;
+                let success = false;
+
+                for (let j = 0; j < attempts; j++) {
+                    userAnswer = prompt(`Раунд ${i + 1}\nВирішіть: ${expression}\nСпроба ${j + 1} з ${attempts}`);
+                    userAnswer = parseFloat(userAnswer);
+
+                    if (userAnswer === correctAnswer) {
+                        alert('Правильно!');
+                        correctAnswers++;
+                        success = true;
+                        break;
+                    } else {
+                        alert('Неправильно, спробуйте ще раз.');
+                    }
+                }
+
+                if (!success) {
+                    alert(`Правильна відповідь була: ${correctAnswer}`);
+                    incorrectAnswers++;
+                }
+            }
+
+            alert(`Гра завершена!\nПравильних відповідей: ${correctAnswers}\nНеправильних відповідей: ${incorrectAnswers}`);
+        }
+
+        const rounds = parseInt(prompt('Скільки раундів ви хочете зіграти?'), 10);
+        const attempts = parseInt(prompt('Скільки спроб ви хочете мати для кожного раунду?'), 10);
+        playQuiz(rounds, attempts);
+    </script>
+</body>
+</html>
