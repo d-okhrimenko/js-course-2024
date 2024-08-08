@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null && value >= 0 && value < 3;
+                if (isValid) return Number(value);
+            }
+        }
+        function getValueName(ValueNumber) {
+            switch (ValueNumber) {
+                case 0:
+                    return "камінь";
+                case 1:
+                    return "ножиці";
+                case 2:
+                    return "папір";
+            }
+        }
+
+        let usercount = 0;
+        let compcount = 0;
+
+        while (true) {
+            let user = getValue("Введіть цифру: 0-камінь, 1-ножиці, 2-папір");
+            let comp = Math.floor(Math.random() * 3);
+
+            //- Камінь 0 б'є ножиці 1.    - Ножиці 1б'ють папір2.      - 2Папір б'є камінь0. - Однакові вибори - нічия.         
+
+            if (user == comp)
+                alert("Однакові вибори - нічия. \nВи " + getValueName(user) + ", Комп " + getValueName(comp) + "\nЗагальний рахунок: Ви " + usercount + ": " + compcount + " Комп");
+            else if ((user < 2) && (user < comp)) {
+                usercount++;
+                alert("Ви виграли! \nВи " + getValueName(user) + ", Комп " + getValueName(comp) + "\nЗагальний рахунок: Ви " + usercount + ": " + compcount + " Комп");
+            } else if ((user == 2) && (comp == 0)) {
+                usercount++;
+                alert("Ви виграли! \nВи " + getValueName(user) + ", Комп " + getValueName(comp) + "\nЗагальний рахунок: Ви " + usercount + ": " + compcount + " Комп");
+            } else if ((comp < 2) && (user > comp)) {
+                compcount++;
+                alert("Ви програли! \nВи " + getValueName(user) + ", Комп " + getValueName(comp) + "\nЗагальний рахунок: Ви " + usercount + ": " + compcount + " Комп");
+            } else if ((user == 0) && (comp == 2)) {
+                compcount++;
+                alert("Ви програли! \nВи " + getValueName(user) + ", Комп " + getValueName(comp) + "\nЗагальний рахунок: Ви " + usercount + ": " + compcount + " Комп");
+            }
+
+            if (prompt("Щоб завершити ведіть 0") == 0)
+                break;
+        }
+    </script>
+</body>
+
+</html>

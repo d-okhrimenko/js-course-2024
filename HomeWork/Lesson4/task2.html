@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = (value == "+" || value == "-" || value == "*" || value == "/");
+                if (isValid) return value;
+            }
+        }
+        function getValueName(ValueNumber) {
+            switch (ValueNumber) {
+                case 0:
+                    return "+";
+                case 1:
+                    return "-";
+                case 2:
+                    return "*";
+                case 3:
+                    return "/";
+            }
+        }
+
+        let usercount = 0;
+        let compcount = 0;
+
+        for (let i = 0; i < 5; i++) {
+            let comp =getValueName(Math.floor(Math.random() * 4));
+            let user = getValue(`Спроба ${i+1}. Введіть який знак задумав Комп: +,-,*,/`);
+            if (user == comp) {
+                usercount++;
+                alert("Ви вгадали! " + "\nЗагальний рахунок: Ви " + usercount + ": " + compcount + " Комп");
+            } else {
+                compcount++;
+                alert("Ви не вгадали! \nКомп задумав " + comp + "\nЗагальний рахунок: Ви " + usercount + ": " + compcount + " Комп");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
