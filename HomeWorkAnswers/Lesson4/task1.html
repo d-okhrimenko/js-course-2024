@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getChoiceNumber(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null
+                    && value > 0 && value <= 3;
+                if (isValid) return Number(value);
+            }
+        }
+
+        function getChoiceWord(number) {
+            switch (number) {
+                case 1:
+                    return "камінь";
+                case 2:
+                    return "ножиці";
+                case 3:
+                    return "бумага";
+
+            }
+
+        }
+
+        let userScore = 0;
+        let pcScore = 0;
+
+
+        let gameIsRunning = true;
+
+        while (gameIsRunning) {
+            let userChoice = getChoiceNumber("Виберіть: \n1 - камінь, \n2 - ножиці, \n3 - папір");
+            let pcChoice = Math.floor(Math.random() * 3 + 1);
+
+            if (userChoice == pcChoice) {
+                alert(`Нічия. \nВи - ${getChoiceWord(userChoice)} \nКомп'ютер - ${getChoiceWord(pcChoice)} \nЗагальний рахунок: Ви: ${userScore} Комп'ютер: ${pcScore}`);
+
+            } else if (userChoice == 1 && pcChoice == 2 ||
+                userChoice == 2 && pcChoice == 3 ||
+                userChoice == 3 && pcChoice == 1) {
+                userScore++;
+                alert(`Перемога! \nВи - ${getChoiceWord(userChoice)} \nКомп'ютер - ${getChoiceWord(pcChoice)} \nЗагальний рахунок: Ви: ${userScore} Комп'ютер: ${pcScore}`);
+
+            } else {
+                pcScore++;
+                alert(`Поразка! \nВи - ${getChoiceWord(userChoice)} \nКомп'ютер - ${getChoiceWord(pcChoice)} \nЗагальний рахунок: Ви: ${userScore} Комп'ютер: ${pcScore}`);
+
+            }
+
+            if (+prompt("Щоб завершити гру введить 0") == 0) {
+                alert(`Гру завершено! \nЗагальний рахунок: Ви: ${userScore} \nКомп'ютер: ${pcScore}`);
+                gameIsRunning = false;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let correctAnswer = 0;
+        let wrongAnswer = 0;
+        let operators = "+-*/";
+
+        function randomNumber() {
+            return Math.floor(Math.random() * 10) + 1;
+        }
+
+        function randomMath(x, y, operator) {
+            let math;
+
+            switch (operator) {
+                case "+":
+                    math = x + y;
+                    break;
+                case "-":
+                    math = x - y;
+                    break;
+                case "*":
+                    math = x * y;
+                    break;
+                case "/":
+                    math = x / y;
+                    break;
+            }
+            return math;
+        }
+
+        for (let i = 0; i < 5; i++) {
+            let num1 = randomNumber();
+            let num2 = randomNumber();
+            let randomOperator = operators[Math.floor(Math.random() * operators.length)];
+
+            let answer = +prompt(`Calculate the expression ${num1} ${randomOperator} ${num2}`);
+
+            let result = randomMath(num1, num2, randomOperator);
+
+            if (answer == result) {
+                alert("True answer");
+                correctAnswer++;
+            } else {
+                alert(`False answer.\nCorrert is: ${result}`);
+                wrongAnswer++
+            }
+        }
+
+        alert(`Number of correct answers: ${correctAnswer}\nNumber of incorrect answers: ${wrongAnswer}`);
+
+    </script>
+</body>
+
+</html>
