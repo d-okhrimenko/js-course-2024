@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task2</title>
+  </head>
+  <body>
+    <div id="date-container"></div>
+    <script>
+      const currentDate = new Date();
+      const formattedDate = currentDate.toLocaleString();
+
+      console.log(formattedDate);
+
+      const dateContainer = document.getElementById("date-container");
+      dateContainer.innerHTML = `Current Date and Time: ${formattedDate}`;
+    </script>
+  </body>
+</html>
