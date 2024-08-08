@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let yourYear = Number(prompt("Введіть рік"));
+
+    if (isNaN(yourYear)) {
+         alert("Введене значення не є коректним числом.");
+    } else {
+
+        let isLeapYear = false;
+
+        if ((yourYear % 4 === 0 && yourYear % 100 !== 0) || (yourYear % 400 === 0)) {
+            isLeapYear = true;
+        }
+
+        if (isLeapYear) {
+           alert(`${yourYear} рік  високосний.`);
+        } else {
+           alert(`${yourYear} рік не  високосний.`);
+        }
+    }
+    </script>
+</body>
+</html>
