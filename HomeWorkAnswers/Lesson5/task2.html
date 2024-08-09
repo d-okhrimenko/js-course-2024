@@ -10,28 +10,33 @@
 <body>
   <script src="../../ClassWork/common/my-library.js"></script>
   <script>
-    class Circle {
-      constructor(type, r) {
+    class Figure {
+      constructor(type) {
         this.type = type;
-        this.r = r;
+      }
+    }
+    class Circle extends Figure {
+      constructor(type, { radius }) {
+        super(type);
+        this.radius = radius;
       }
 
       static create() {
         const radius = getNumericValue('Введіть радіус кола');
-        return new Circle('коло', radius);
+        return new Circle('коло', { radius });
       }
       getArea() {
-        return Math.round(Math.PI * this.r ** 2 * 100) / 100;
+        return Math.round(Math.PI * this.radius ** 2 * 100) / 100;
       }
 
       getPerimeter() {
-        return Math.round(2 * Math.PI * this.r * 100) / 100;
+        return Math.round(2 * Math.PI * this.radius * 100) / 100;
       }
     }
 
-    class Rect {
-      constructor(type, a, b) {
-        this.type = type;
+    class Rect extends Figure {
+      constructor(type, { a, b }) {
+        super(type);
         this.a = a;
         this.b = b;
       }
@@ -39,7 +44,7 @@
       static create() {
         const a = getNumericValue('Введіть довжину прямокутника');
         const b = getNumericValue('Введіть ширину прямокутника');
-        return new Rect('прямокутник', a, b);
+        return new Rect('прямокутник', { a, b });
       }
       getArea() {
         return this.a * this.b;
@@ -50,9 +55,9 @@
       }
     }
 
-    class Triangle {
-      constructor(type, a, b, c) {
-        this.type = type;
+    class Triangle extends Figure {
+      constructor(type, { a, b, c }) {
+        super(type);
         this.a = a;
         this.b = b;
         this.c = c;
@@ -62,7 +67,7 @@
         const a = getNumericValue('Введіть першу сторону трикутника');
         const b = getNumericValue('Введіть другу сторону трикутника');
         const c = getNumericValue('Введіть третью сторону трикутника');
-        return new Triangle('трикутник', a, b, c);
+        return new Triangle('трикутник', { a, b, c });
       }
       getArea() {
         const p = (this.a + this.b + this.c) / 2;
@@ -81,6 +86,8 @@
       const figure = OPTIONS[userChoice].create();
 
       alert(`Ви обрали ${figure.type}. Периметр = ${figure.getPerimeter()}. Площа = ${figure.getArea()}`)
+    } else {
+      alert('Ви ввели некоректне значення');
     };
 
   </script>
