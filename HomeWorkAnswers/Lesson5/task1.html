@@ -9,7 +9,7 @@
   <script src="../common/my-library.js"></script>
   <script>
     function getBodyMassIndex(weight, height) {
-      return Math.round10(weight / ((height / 100) ** 2), -2);
+      return Math.round(100 * weight / ((height / 100) ** 2)) / 100;
       
     }
 
@@ -33,7 +33,6 @@
     Ріст: ${height} см
     Індекс маси тіла: ${bodyMassIndex} кг/м2
     Ознака ІМТ: ${category}`);
-    console.log(weight / ((height / 100) ** 2))
 
   </script>
 </body>
