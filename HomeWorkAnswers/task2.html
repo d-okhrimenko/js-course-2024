@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../ClassWork/common/my-library.js"></script>
+    <script>
+      function getCircle(radius) {
+        console.log(radius, typeof radius);
+        const circlePerimeter = 2 * Math.PI * radius;
+        const circleArea = Math.PI * Math.pow(radius, 2);
+        return `Периметр кола: ${circlePerimeter}, Площа кола: ${circleArea}`;
+      }
+
+      function getRectangle(height, width) {
+        const rectanglePerimeter = 2 * (height + width);
+        const rectangleArea = height * width;
+        return `Периметр прямокутника:${rectanglePerimeter}, Площа прямокутника:${rectangleArea}`;
+      }
+
+      function getTriangle(a, b, c) {
+        const trianglePerimeter = a + b + c;
+        const triangleArea = Math.sqrt(
+          trianglePerimeter *
+            (trianglePerimeter - a) *
+            (trianglePerimeter - b) *
+            (trianglePerimeter - c)
+        );
+        return `Периметр трикутника:${trianglePerimeter}, Площа трикутника:${triangleArea}`;
+      }
+
+      let selectType = prompt("Вкажіть фігуру(коло, прямокутник, трикутник):");
+      if (selectType === "коло") {
+        let enterRadius = getNumericValue("Вкажіть радіус:");
+        alert(getCircle(enterRadius));
+      } else if (selectType === "прямокутник") {
+        const enterHeight = getNumericValue("Вкажіть висоту:");
+        const enterWidth = getNumericValue("Вкажіть ширина:");
+        alert(getRectangle(enterHeight, enterWidth));
+      } else if (selectType === "трикутник") {
+        const enterFirstSide = getNumericValue("Вкажіть першу сторону:");
+        const enterSecondSide = getNumericValue("Вкажіть другу сторону:");
+        const enterThirdSide = getNumericValue("Вкажіть третя сторону:");
+        alert(getTriangle(enterFirstSide, enterSecondSide, enterThirdSide));
+      } else alert("Невалідне значення!");
+    </script>
+  </body>
+</html>
