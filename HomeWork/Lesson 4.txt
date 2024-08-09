@@ -26,6 +26,70 @@
 Додаткові завдання:
 1. Додати можливість гри кілька раундів з підрахунком загального рахунку.
 2. Додати можливість користувачеві вийти з гри за допомогою спеціальної команди (наприклад, введення "вихід")
+-------------
+Завдання 1
+
+function getUserChoice() {
+    let choice = prompt("Введіть свій вибір (камінь, ножиці, папір). Або введіть 'вихід' для завершення гри:");
+    choice = choice.toLowerCase();
+    if (choice === "камінь" || choice === "ножиці" || choice === "папір" || choice === "вихід") {
+        return choice;
+    } else {
+        alert("Неправильний вибір, спробуйте ще раз.");
+        return getUserChoice();
+    }
+}
+
+function getComputerChoice() {
+    const choices = ["камінь", "ножиці", "папір"];
+    const randomIndex = Math.floor(Math.random() * 3);
+    return choices[randomIndex];
+}
+
+function determineWinner(userChoice, computerChoice) {
+    if (userChoice === computerChoice) {
+        return "нічия";
+    }
+
+    if (
+        (userChoice === "камінь" && computerChoice === "ножиці") ||
+        (userChoice === "ножиці" && computerChoice === "папір") ||
+        (userChoice === "папір" && computerChoice === "камінь")
+    ) {
+        return "перемога";
+    } else {
+        return "поразка";
+    }
+}
+
+function playGame() {
+    let userScore = 0;
+    let computerScore = 0;
+
+    while (true) {
+        const userChoice = getUserChoice();
+        if (userChoice === "вихід") {
+            break;
+        }
+
+        const computerChoice = getComputerChoice();
+        const result = determineWinner(userChoice, computerChoice);
+
+        alert(`Ваш вибір: ${userChoice}\nВибір комп'ютера: ${computerChoice}\nРезультат: ${result}`);
+
+        if (result === "перемога") {
+            userScore++;
+        } else if (result === "поразка") {
+            computerScore++;
+        }
+
+        alert(`Рахунок:\nВи: ${userScore}\nКомп'ютер: ${computerScore}`);
+    }
+
+    alert(`Гра завершена!\nФінальний рахунок:\nВи: ${userScore}\nКомп'ютер: ${computerScore}`);
+}
+
+playGame();
 
 =================================================================
 
@@ -57,3 +121,65 @@
 5.Виведення результатів:
 
 	- Використайте alert для виведення підсумкових результатів.
+-----------------
+Завдання 2
+
+function generateExpression() {
+    const num1 = Math.floor(Math.random() * 10) + 1; // Генерація випадкового числа від 1 до 10
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    const operators = ["+", "-", "*", "/"];
+    const operator = operators[Math.floor(Math.random() * operators.length)];
+
+    let expression;
+    let correctAnswer;
+
+    switch (operator) {
+        case "+":
+            expression = `${num1} + ${num2}`;
+            correctAnswer = num1 + num2;
+            break;
+        case "-":
+            expression = `${num1} - ${num2}`;
+            correctAnswer = num1 - num2;
+            break;
+        case "*":
+            expression = `${num1} * ${num2}`;
+            correctAnswer = num1 * num2;
+            break;
+        case "/":
+            // Щоб уникнути ділення на нуль, використаємо число num2
+            expression = `${num1} / ${num2}`;
+            correctAnswer = (num1 / num2).toFixed(2); // Округлюємо до двох знаків після коми
+            break;
+    }
+
+    return { expression, correctAnswer };
+}
+
+function playMathQuiz() {
+    let correctAnswers = 0;
+    let incorrectAnswers = 0;
+    const totalQuestions = 5; // Кількість питань у квізі
+
+    for (let i = 0; i < totalQuestions; i++) {
+        const { expression, correctAnswer } = generateExpression();
+        const userAnswer = prompt(`Вирішіть вираз: ${expression}`);
+
+        if (userAnswer === null) {
+            alert("Гру перервано.");
+            return;
+        }
+
+        if (parseFloat(userAnswer) === parseFloat(correctAnswer)) {
+            alert("Правильно!");
+            correctAnswers++;
+        } else {
+            alert(`Неправильно. Правильна відповідь: ${correctAnswer}`);
+            incorrectAnswers++;
+        }
+    }
+
+    alert(`Гра завершена! Ваші результати:\nПравильні відповіді: ${correctAnswers}\nНеправильні відповіді: ${incorrectAnswers}`);
+}
+
+playMathQuiz();
