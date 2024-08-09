@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розрахунок площі та периметру різних геометричних фігур (коло, прямокутник, трикутник)</title>
+</head>
+
+<body>
+    <script>
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null && Number(value) > 0;
+                if (isValid) {
+                    return Number(value);
+                }
+                alert("Введіть коректне значення");
+            }
+        }
+
+        function calculationCircle(radius) {
+            const circle = [];
+            circle[0] = (Math.PI * Math.pow(radius, 2)).toFixed(2);
+            circle[1] = (2 * Math.PI * radius).toFixed(2);
+            return circle;
+        }
+
+        function calculationRectangle(side1, side2) {
+            const rectangle = [];
+            rectangle[0] = (side1 * side2).toFixed(2);
+            rectangle[1] = (2 * (side1 + side2)).toFixed(2);
+            return rectangle;
+        }
+
+        function calculationTriangle(side1, side2, side3) {
+            const triangle = [];
+            const halfOfPerimeter = (side1 + side2 + side3) / 2;
+            triangle[0] = (Math.sqrt(halfOfPerimeter * (halfOfPerimeter - side1) * (halfOfPerimeter - side2) * (halfOfPerimeter - side3))).toFixed(2);
+            triangle[1] = (halfOfPerimeter * 2).toFixed(2);
+            return triangle;
+        }
+
+        function outputResult(result) {
+            return alert(`Площа дорівнює ${result[0]} кв.см., періметр дорівнює ${result[1]} см.`);
+        }
+
+        alert("Програма разрахунку площі та периметру різних геометричних фігур (коло, прямокутник, трикутник)");
+
+        while (true) {
+            let figureType = getValue(`Введіть тип фігури: якщо коло – введіть "1", якщо прямокутник – введіть "2", якщо трикутник – введіть "3"`);
+
+            if (figureType === 1) {
+                const radius = getValue("Введіть радіус");
+                outputResult(calculationCircle(radius));
+                break;
+            }
+
+            if (figureType === 2) {
+                const side1 = getValue("Введіть довжину першої сторони");
+                const side2 = getValue("Введіть довжину другої сторони");
+                outputResult(calculationRectangle(side1, side2));
+                break;
+            }
+
+            if (figureType === 3) {
+                const side1 = getValue("Введіть довжину першої сторони");
+                const side2 = getValue("Введіть довжину другої сторони");
+                const side3 = getValue("Введіть довжину третьої сторони");
+                outputResult(calculationTriangle(side1, side2, side3));
+                break;
+            }
+
+            alert("Введіть коректне значення");
+        }
+
+    </script>
+</body>
+
+</html>

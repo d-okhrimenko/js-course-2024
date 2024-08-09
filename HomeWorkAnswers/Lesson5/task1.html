@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Індекс маси тіла (ІМТ)</title>
+</head>
+
+<body>
+    <script>
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null && Number(value) > 0;
+                if (isValid) {
+                    return Number(value);
+                }
+                alert("Введіть коректне значення");
+            }
+        }
+
+        function calculationIMT(weight, height) {
+            let imt = (weight / Math.pow(height / 100, 2)).toFixed(2);
+            if (imt < 18.5) return `IMT дорівнює ${imt} - це недостатня вага`;
+            if (imt >= 18.5 && imt < 24.9) return `IMT дорівнює ${imt} - це нормальна вага`;
+            if (imt >= 25 && imt < 29.9) return `IMT дорівнює ${imt} - це надмірна вага`;
+            return `IMT дорівнює ${imt} - це ожиріння`;
+        }
+
+        alert("Програма разрахунку індексу маси тіла (ІМТ)");
+
+        let weight = getValue("Введіть Введіть свою вагу в кілограмах");
+        let height = getValue("Введіть свій зріст у сантиметрах");
+
+        alert(calculationIMT(weight, height));
+
+    </script>
+</body>
+
+</html>
