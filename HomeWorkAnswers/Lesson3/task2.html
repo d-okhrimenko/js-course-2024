@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 3. Завдання 2</title>
+</head>
+
+<body>
+
+<!-- 
+    Завдання 2
+Написати програму, яка визначає, який сьогодні день тижня, і виводить відповідне повідомлення.
+
+Кроки для виконання завдання:
+
+Отримання поточної дати:
+- Використайте об'єкт Date для отримання поточної дати.
+
+Визначення дня тижня:
+- Використайте метод getDay() об'єкта Date для отримання дня тижня (0 для неділі, 1 для понеділка і т.д.).
+
+Виведення результату:
+- Використайте оператор if для визначення дня тижня і виведення відповідного повідомлення. 
+-->
+
+    <p>Визначення дня тижня.</p>
+    <script>
+        let l_currentDay = new Date().getDay();
+        if (l_currentDay == 0) {
+            s_result = 'Неділя';
+        } else if (l_currentDay == 1) {
+            s_result = 'Понеділок';
+        } else if (l_currentDay == 2) {
+            s_result = 'Вівторок'
+        } else if (l_currentDay == 3) {
+            s_result = 'Середа'
+        } else if (l_currentDay == 4) {
+            s_result = 'Четверг'
+        } else if (l_currentDay == 5) {
+            s_result = 'П\'ятниця'
+        } else if (l_currentDay == 6) {
+            s_result = 'Субота'
+        };
+        alert('Поточний день тижня: ' + s_result);
+    </script>
+    <p id="res">Результат: невідомо</p>
+    <script>
+        let p_res = document.getElementById("res");
+        res.innerHTML = "Результат: " + s_result;
+    </script>
+</body>
+
+</html>
