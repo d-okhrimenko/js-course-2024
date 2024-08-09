@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kablammo&family=Tektur:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Lesson4</title>
+  </head>
+  <body>
+    <h1 class="title">Обери гру, в яку хочеш пограти</h1>
+    <div class="wrapper">
+      <div class="game">
+        <div class="img-wrapper">
+          <img class="avatar-game" src="./images/game1.jpeg" alt="game" />
+          <h2 class="game-title">Гра "Камінь, ножиці, папір"</h2>
+        </div>
+        <div class="inner">
+          <p class="rule">
+            (Граємо до 5 очок, в будь який момент можеш вийти, якщо набридне)
+          </p>
+          <p class="descr">Зроби свій вибір</p>
+          <div class="buttons">
+            <button class="btn-img" id="rock">
+              <img src="./images/rock.jfif" alt="rock" />
+            </button>
+            <button class="btn-img" id="scissors">
+              <img src="./images/scissors.png" alt="scissors" />
+            </button>
+            <button class="btn-img" id="paper">
+              <img src="./images/paper.png" alt="paper" />
+            </button>
+          </div>
+          <p class="score">
+            Рахунок <span id="userScore">0</span> : <span id="botScore">0</span>
+          </p>
+          <p class="message" id="mesGame">Зараз дізнаємось, хто переможе !</p>
+          <div class="buttons">
+            <button class="btn" id="play">Старт</button>
+            <button class="btn" id="exit">Вихід</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="game">
+        <div class="img-wrapper">
+          <img class="avatar-game" src="./images/game2.png" alt="game" />
+          <h2 class="game-title">Порахуй значення випадкового виразу</h2>
+        </div>
+        <div class="inner">
+          <p class="rule">
+            (Граємо до 5 очок, в будь який момент можеш вийти, якщо набридне.
+            Результат від ділення округлюй до цілого в меншу сторону)
+          </p>
+          <p class="expression" id="expression">35 * 10 = ?</p>
+          <p class="descr">
+            Введи свою відповідь
+            <input
+              class="descr-input"
+              type="text"
+              id="userResult"
+              maxlength="6"
+            />
+          </p>
+          <p class="score">
+            Вірно - <span id="trueAnswer"> 0 </span> :
+            <span id="falseAnswer"> 0 </span> - Невірно
+          </p>
+          <p class="message" id="message">Перевіримо, який ти математик 🎓📚</p>
+          <div class="buttons">
+            <button class="btn" id="btnResultCheck">Перевірити</button>
+            <button class="btn" id="exitQuiz">Вихід</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="game">
+        <div class="img-wrapper">
+          <img class="avatar-game" src="./images/game3.webp" alt="numbers" />
+          <h2 class="game-title">Вгадай загадане число від 0 до 100</h2>
+        </div>
+        <div class="inner">
+          <p class="descr">
+            Введи свій варіант загаданого числа
+            <input
+              class="descr-input"
+              type="text"
+              id="userNumber"
+              maxlength="5"
+            />
+          </p>
+          <p class="attempt">Кількість спроб - <span id="counter"></span></p>
+          <p class="message" id="result">
+            Перевіримо твої телепатичні здібності !
+          </p>
+          <button class="btn" id="btnCheck">Перевірити</button>
+        </div>
+      </div>
+
+      <div class="game">
+        <div class="img-wrapper">
+          <img class="avatar-game" src="./images/game4.jfif" alt="letters" />
+          <h2 class="game-title">Придумай та перевір свій паліндром</h2>
+        </div>
+        <div class="inner">
+          <p class="rule">
+            (це фраза, яка читається однаково що з початку, що з кінця)
+          </p>
+          <p class="descr">
+            Введи свою фразу
+            <input
+              class="descr-input pal-input"
+              type="text"
+              id="userPhrase"
+              maxlength="25"
+            />
+          </p>
+          <p class="message" id="palResult">Давай, подумай гарненько !</p>
+          <button class="btn" id="btnPalCheck">Перевірити</button>
+        </div>
+      </div>
+
+      <div class="game">
+        <div class="img-wrapper">
+          <img class="avatar-game" src="./images/game5.webp" alt="numbers" />
+          <h2 class="game-title">Порахуй суму чисел в заданому діапазоні</h2>
+        </div>
+        <div class="inner">
+          <p class="descr sum-descr">
+            Введи діапазон: <br />
+            <span> Початок</span>
+            <input
+              class="descr-input sum-input"
+              type="text"
+              id="userStartNum"
+              maxlength="5"
+            />
+            <span> Кінець</span>
+
+            <input
+              class="descr-input sum-input"
+              type="text"
+              id="userEndNum"
+              maxlength="5"
+            />
+          </p>
+
+          <p class="message" id="resultSum">Цікаво, цікаво, що ж вийде 🤗?</p>
+          <button class="btn" id="btnSumCheck">Порахувати</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
