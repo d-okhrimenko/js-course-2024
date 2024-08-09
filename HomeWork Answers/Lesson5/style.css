@@ -1,0 +1,28 @@
+* {
+    background-color: rgb(203, 223, 241);
+}
+h1 {
+    color: rgb(70, 43, 226);
+    font-size: 48px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+button {
+    height: 100px ;
+    width: 300px;
+    font-size: 50px;
+    color: rgb(109, 84, 246);
+    background-color: rgb(214, 205, 255);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.buttons {
+    display: flex;
+}
