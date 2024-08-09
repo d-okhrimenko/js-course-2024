@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../ClassWork/common/my-library.js"></script>
+    <script>
+      const weight = getNumericValue("Введіть вагу");
+      const height = getNumericValue("Введіть зріст в форматі <m.cm>");
+      function getIndex(weight, height) {
+        return weight / Math.pow(height, 2);
+      }
+      let index = getIndex(weight, height);
+      function getCategory(index) {
+        if (index < 18.5) {
+          return "Недостатня вага";
+        } else if (index >= 18.5 && index < 24.9) {
+          return "Нормальна вага";
+        } else if (index >= 25 && index < 29.9) {
+          return "Надмірна вага";
+        } else if (index >= 30) {
+          return "Ожиріння";
+        }
+      }
+      indexResult = getCategory(index);
+      alert(`Індекс маси тіла: ${index}, тож Категорія: ${indexResult}`);
+    </script>
+  </body>
+</html>
