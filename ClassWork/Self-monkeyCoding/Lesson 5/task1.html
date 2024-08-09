@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 1</title>
+</head>
+
+<body>
+    <!--
+    Задача 1
+    Завдання: Написатип рограму, яка обчислює площу та периметр Кола. Потрібно зробити окрему функцію
+    для обчислення площіта периметру.
+    Кроки для виконання завдання:
+    1.Створити функцію для обчислення площі та периметру кола:
+    - Функція повинна приймати радіус кола.
+    - Використайте формули: площа= π * r², периметр = 2 * π * r.
+    2.Створити функцію для обчислення площі та периметру прямокутника:
+    - Функція повинна приймати довжину і ширину прямокутника.
+    - Використайте формули: площа = довжина * ширина, периметр = 2 * (довжина + ширина).
+    3. Запросити користувача вибрати фігуру і ввести відповідні параметри:
+    - Використайте prompt для запиту типу фігури та відповідних параметрів.
+    4. Вивести результати:
+    - Використайте alert для виведення результатів обчислень.
+    -->
+    <h3>To get the area and perimeter of the circle,
+        <br> click the button and enter the radius of the circle.
+    </h3>
+    <button id="C">Circle</button>
+    <h3>To get the area and perimeter of a rectangle,
+        <br> click the button and enter the length and width of the rectangle
+    </h3>
+    <button id="R">Rectangle</button>
+
+    <script src="../../common/my-library.js"></script>
+    <script>
+        document.querySelector("#C").addEventListener("click", calculateCircle);
+
+        let getCircleArea = radius => Math.PI * Math.pow(radius, 2);
+        let getCirclePerimetr = radius => 2 * Math.PI * radius;
+
+        function calculateCircle() {
+            const CircleRadius = getNumericValue("Enter value of radius");
+            let CircleArea = getCircleArea(CircleRadius);
+            let CirclePerimetr = getCirclePerimetr(CircleRadius);
+
+            return alert(`Circle area = ${CircleArea}\nCircle perimetr = ${CirclePerimetr}`);
+        }
+
+        document.querySelector("#R").addEventListener("click", calculateRectangle);
+
+        let getRectangleArea = (length, width) => length * width;
+        let getRectanglePerimetr = (length, width) => 2 * (length + width);
+
+        function calculateRectangle() {
+            const rectLength = getNumericValue("Enter length of rectangle");
+            const rectWidth = getNumericValue("Enter width of rectangle");
+            let RectangleArea = getRectangleArea(rectLength, rectWidth);
+            let RectanglePerimetr = getRectanglePerimetr(rectLength, rectWidth);
+
+            return alert(`Rectangle area = ${RectangleArea}\nRectangle perimetr = ${RectanglePerimetr}`);
+        }
+    </script>
+</body>
+
+</html>

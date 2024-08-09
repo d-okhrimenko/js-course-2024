@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 3</title>
+</head>
+
+<body>
+    <!--
+    Задача 3
+    Зробіть щоб наступний код працював:
+
+    let throwCount = +prompt("Скільки разів ви хочете кинути шестигранний кубик?");
+
+    for (let i = 0; i < throwCount; i++) {
+        const result = random(1, 6);
+        console.log(result);
+    }
+    -->
+    <script>
+        let throwCount = +prompt("Скільки разів ви хочете кинути шестигранний кубик?");
+        let random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
+        let dice6 = () => random(1, 6);
+        let dice12 = () => random(1, 12);
+
+        for (let i = 0; i < throwCount; i++) {
+            const result = d6();
+            console.log(result);
+        }
+    </script>
+</body>
+
+</html>
