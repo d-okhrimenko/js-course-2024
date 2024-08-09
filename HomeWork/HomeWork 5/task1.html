@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+        //Формула: Індекс маси тіла розраховується шляхом ділення маси тіла (у кілограмах) на квадрат росту (у метрах квадратних)
+        let ITM = (tmass,theight) => tmass / (theight * theight);
+        //категорії ІМТ: - Недостатня вага: ІМТ < 18.5   - Нормальна вага: 18.5 ≤ ІМТ < 24.9     
+        //- Надмірна вага: 25 ≤ ІМТ < 29.9      - Ожиріння: ІМТ ≥ 30        
+        let categoryITM = (titm) => {
+            if (titm < 18.5) return "Недостатня вага"
+            else if (titm < 24.9) return "Нормальна вага"
+            else if (titm < 29.9) return "Надмірна вага"
+            else return "Ожиріння";
+        }
+
+        let lmass = getNumericValue("Введіть вагу, кг");
+        let lheight = (getNumericValue("Введіть зріст, см") / 100);
+        let litm = Math.round(ITM(lmass,lheight)*10)/10;
+
+        alert(`ITM = ${litm}. Категорія = ${categoryITM(litm)}`);
+
+    </script>
+</body>
+</html>

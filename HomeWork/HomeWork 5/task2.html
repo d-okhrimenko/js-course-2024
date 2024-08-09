@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="btfigure" required="required">
+        <option value="">Виберіть фігуру</option>
+        <option value="1">Коло</option>
+        <option value="2">Прямокутник</option>
+        <option value="3">Трикутник</option>
+    </select>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+        let getCircleArea = radius => Math.round(Math.PI * Math.pow(radius, 2));
+        let getCirclePerimeter = radius => Math.round(2 * Math.PI * radius);
+
+        let getRectangleArea = (length, width) => Math.round(length * width);
+        let getRectanglePerimeter = (length, width) => Math.round(2 * (length + width));
+
+        let getTrianglePerimeter = (a, b, c) => (a + b + c) / 2;
+        let getTriangleArea = (a, b, c) => {
+            p = getTrianglePerimeter(a, b, c);
+            return Math.round(Math.sqrt(p * (p - a) * (p - b) * (p - c))*1000)/1000;
+        }
+
+        let select = document.querySelector('#btfigure');
+
+        select.addEventListener('change', function () {
+            if (this.value == 1) {
+                let radius = getNumericValue("Введіть радіус");
+                alert(`Коло Плоша = ${getCircleArea(radius)}, периметр = ${getCirclePerimeter(radius)}`);
+            } else if (this.value == 2) {
+                let length = getNumericValue("Введіть довжину");
+                let width = getNumericValue("Введіть ширину");
+                alert(`Прямокутник Плоша = ${getRectangleArea(length, width)}, периметр = ${getRectanglePerimeter(length, width)}`);
+            } else {
+                let a = getNumericValue("Введіть довжину сторіни 1");
+                let b = getNumericValue("Введіть довжину сторіни 2");
+                let c = getNumericValue("Введіть довжину сторіни 3");
+                alert(`Трикутник Плоша = ${getTriangleArea(a, b, c)}, периметр = ${getTrianglePerimeter(a, b, c)}`);
+            };
+        });
+
+    </script>
+</body>
+
+</html>
