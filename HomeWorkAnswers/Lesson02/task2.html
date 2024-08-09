@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>lesson.2 task.2</h2>
+    <p>Створіть сторінку яка виводить на екран поточну дату. Ви можете обрати для виводу на екран console.log або alert
+        або
+        використати приклад взаємодії з контентом сторінки з задачі №5 яка розглядалася на уроці. Наступний JS код
+        виводить
+        поточну дату
+
+        new Date()
+
+        Вставте це значення замість повідомлення, яке виводили в задачах на уроці.</p>
+    <p id="current-date"></p>
+    <script>
+        const p = document.querySelector('#current-date')
+        const currentDate = new Date();
+        console.log('new Date(): >>', currentDate);
+        console.log('localString: >>', currentDate.toLocaleString());
+        console.log({ currentDate });
+        console.dir(currentDate);
+
+        setInterval(() => {
+            const currentDate = new Date();
+            p.innerHTML = currentDate;
+        }, 1);
+    </script>
+</body>
+
+</html>
