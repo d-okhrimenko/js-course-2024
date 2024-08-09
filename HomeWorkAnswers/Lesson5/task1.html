@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ІМТ</title>
+</head>
+
+<body>
+  <script src="../../ClassWork/common/my-library.js"></script>
+  <script>
+    const getІМТ = (weight, height) => Math.floor(weight * 100 / height ** 2) / 100;
+    const getCategoryIMT = num => {
+      if (num < 18.5) {
+        return 'недостатня вага';
+      } else if (num >= 18.5 && num < 24.9) {
+        return 'нормальна вага';
+      } else if (num >= 25 && num < 29.9) {
+        return 'надмірна вага';
+      } else if (num >= 30) {
+        return 'ожиріння';
+      }
+    }
+    const weight = getNumericValue('Введіть вашу вагу у кілограмах');
+    const height = getNumericValue('Введіть ваш ріст у метрах');
+
+    const IMT = getІМТ(weight, height);
+    const categoryIMT = getCategoryIMT(IMT);
+    alert(`Ваш індекс IMT дорівнює ${IMT}, це ${categoryIMT}`);
+
+  </script>
+
+</body>
+
+</html>
