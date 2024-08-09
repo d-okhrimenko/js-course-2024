@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #300245;
+    font-size: 48px;
+}
+
+body {
+    background-color: #e8bff2;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+button {
+    height: 100px;
+    width: 200px;
+    background-color: #b689ff;
+    border: none;
+    border-radius: 10px;
+    font-size: 30px;
+    color: #300245;
+    cursor: pointer;
+    margin: 10px; 
+}
+
+.games {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%;
+    margin-top: 20px; 
+}
+
+.first-game, .second-game {
+    position: relative;
+    height: 600px;
+    width: 600px; 
+    margin: 0 20px; 
+    overflow: hidden; /* Приховує все, що виходить за межі блоку */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.first-game::before, .second-game::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5; /* Прозорість фону */
+    z-index: -1; /* Поміщає псевдоелемент за інший вміст */
+}
+
+.first-game::before {
+    background-image: url(./unnamed.webp);
+}
+
+.second-game::before {
+    background-image: url(./quiz-header-eodh.png);
+}
