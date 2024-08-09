@@ -19,18 +19,19 @@ function imtCalculateProgram() {
       let input = prompt(message);
 
       if (input === null) {
-        alert("Програму завершено...");
+        alert("Ввід скасовано.\nЗавершення програми...");
         throw new Error("Input cancelled.");
       }
 
       if (input === "" || isNaN(Number(input))) {
-        alert("Некоректний ввід!");
+        alert("Некоректний ввід!\nВедіть числове значення.");
+      } else if (Number(input) <= 0) {
+        alert("Некоректний ввід!\nВведіть число > 0.")
       } else {
         return Number(input);
       }
     }
   };
-
 
   function determineTheWeightCategory(imt) {
     switch (true) {

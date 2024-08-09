@@ -14,7 +14,6 @@ function areaAndPerimeterCalculateProgram() {
     if (a + b <= c || a + c <= b || b + c <= a) {
       alert("Неправильні параметри трикутника!");
     }
-
     const p = calculateTrianglePerimeter(a, b, c) / 2;
     return Math.sqrt(p * (p - a) * (p - b) * (p - c));
   };
@@ -41,7 +40,7 @@ function areaAndPerimeterCalculateProgram() {
         sideB = validateInput("Введіть довжину сторони B:");
         sideC = validateInput("Введіть довжину сторони C:");
         triangleArea = calculateTriangleArea(sideA, sideB, sideC);
-      } while (isNaN(triangleArea) || Math.abs(triangleArea) === 0);
+      } while (isNaN(triangleArea) || Math.abs(triangleArea) <= 0);
 
       alert(output(triangle, triangleArea.toFixed(3), calculateTrianglePerimeter(sideA, sideB, sideC)));
       break;
@@ -53,12 +52,14 @@ function areaAndPerimeterCalculateProgram() {
       let input = prompt(message);
 
       if (input === null) {
-        alert("Програму завершено...");
+        alert("Ввід скасовано.\nЗавершення програми...");
         throw new Error("Input cancelled.");
       }
 
       if (input === "" || isNaN(Number(input))) {
-        alert("Некоректний ввід!");
+        alert("Некоректний ввід!\nВедіть числове значення.");
+      } else if (Number(input) <= 0) {
+        alert("Некоректний ввід!\nВведіть число > 0.")
       } else {
         return Number(input);
       }
