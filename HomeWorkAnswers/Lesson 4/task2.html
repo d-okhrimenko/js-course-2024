@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		let res; // результат обчислення
+		let i = 1;
+		let quest; // відповідь гравця
+		let success = 0; // кількість вгаданих
+		let unsuccess = 0; // кількість не вгаданих
+		let unsuccessAttempt = 0; //кількість невдалих спроб вгадати
+		let count = 0; // початкове значення кількості раундів (вибір гравця)
+		let a, b, s; // елементи математичного виразу
+		let attempt = 3; // кількість спроб вгадати по замовчуванню
+		let type = -1; // тип перевірки 0-для номера раунду, 1-для математичного виразу
+		let isValid = false; // тригер  правильності введення
+		let isNoExit = true; // тригер виходу з гри
+		let typeOf; //тип даних введеного елементу
+
+		const sign = ["+", "-", "*", "/"]; // набір математичних знаків операцій обчислення
+
+		function randomize(n) {
+			// функція пошуку випадкового значення. Параметр n-максимальне значення
+			let rnd = Math.floor(Math.random() * n) + 1; // числа від 1 до n без 0 значення
+			return rnd;
+		}
+		function getValue(message, type) {
+			// функція перевірки правильності введення
+			while (true) {
+				let value = prompt(message);
+
+				switch (type) {
+					case 0:
+						isValid = !isNaN(value) && value !== "" && value !== null && value > 0;
+						break;
+					case 1:
+						isValid = !isNaN(value) && value !== "" && value !== null;
+						break;
+					default:
+						console.log("не визначений тип");
+				}
+				typeOf = typeof value;
+
+				if (isValid) {
+					return Number(value); //.toFixed(2);
+				} else if (typeOf !== "object" && value.toLowerCase() == "q") {
+					alert(`Гру перервано гравцем`);
+					return value;
+				}
+			}
+		}
+
+		function newGenRound() {
+			// функція генерування нового виразу для обчислення
+			a = randomize(10);
+			b = randomize(10);
+			s = randomize(4); //генерування номеру позиції знаку операції
+			// вибір математичного знаку зі списку за порядковим номером(випадково згенерованим)
+			switch (sign[s - 1]) {
+				case "+":
+					res = a + b;
+					break;
+				case "-":
+					res = a - b;
+
+					break;
+				case "*":
+					res = a * b;
+
+					break;
+				case "/":
+					res = a / b;
+					break;
+			}
+			console.log(`${a} ${sign[s - 1]} ${b} = ${res} (${res.toFixed(2)})`);
+			res = res.toFixed(2);
+		}
+
+		// Початок гри
+
+		let rounds = getValue("Виберіть кількість раундів або натисніть 'q' для виходу: ", 0);
+		console.log(`Кількість вибраних раундів=${rounds}`);
+
+		while (count < rounds) {
+
+			if (isNoExit) {
+				console.log(`старт раунда`);
+				newGenRound();
+				count++;
+				console.log(`раунд ${count}`);
+
+				for (i = 1; i <= attempt; i++) {
+					quest = getValue(`Раунд № ${count} з ${rounds}\n Дайте відповідь на питання Скільки буде  ${a} ${sign[s - 1]} ${b} = ? \n Для виходу натисніть "q"`, 1);
+					console.log(`Вибрана  відповідь=${quest}`);
+
+					if (quest !== "q") {
+						quest = Number(quest).toFixed(2);
+						if (quest !== res) {
+							unsuccessAttempt++;
+							alert(`Не вгадали. \n Спроба № ${i}. Залишилось спроб ${attempt - i}`);
+						} else {
+							alert(`Вгадали!!!.`);
+							success++;
+							break;
+						}
+					} else {
+						console.log("Раунд перервано");
+						isNoExit = false;
+						break;
+					}
+				}
+				alert(`Правильна відповідь  ${a} ${sign[s - 1]} ${b} =${res}`);
+
+
+			}
+			else {
+				break;
+			}
+
+		}
+
+		unsuccess = count - success;
+
+		alert(
+			`Кінець.\n Зіграно раундів=${count}. Вгадано=${success}. Не вгадано=${unsuccess} \n Загальна кількість невдалих спроб=${unsuccessAttempt}`,
+		);
+	</script>
+</body>
+
+</html>
