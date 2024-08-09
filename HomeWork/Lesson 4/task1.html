@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function getValue(message) {
+            while (true) {
+                let value = Number(prompt(message));
+                let isValid = value == 0 || value == 1 || value == 2 || value == 3;
+                if (isValid) return value;
+            }
+        }
+
+        let h = 0, m = 0, i = 1, numHuman = -1;
+
+        while (numHuman != 0) {
+
+            let ranNumber = Math.floor(Math.random() * 3) + 1;
+            numHuman = getValue(`${i} раунд. Зробіть вибір: [1] камінь; [2] ножиці; [3] папір; [0] ВИХІД`);
+
+            switch (true) {
+                case (numHuman == 1 && ranNumber == 3) || (numHuman == 2 && ranNumber == 1) || (numHuman == 3 && ranNumber == 2):
+                    alert("комп'ютер");
+                    m++;
+                    break;
+                case (numHuman == 1 && ranNumber == 2) || (numHuman == 2 && ranNumber == 3) || (numHuman == 3 && ranNumber == 1):
+                    alert("людина");
+                    h++;
+                    break;
+                case (numHuman == 1 && ranNumber == 1) || (numHuman == 2 && ranNumber == 2) || (numHuman == 3 && ranNumber == 3):
+                    alert("Нічия");
+                    break;
+            }
+            i++
+        }
+
+        switch (true) {
+            case (m == h):
+                alert("Нічия");
+                break;
+            case (m > h):
+                alert(`Виграв комп'ютер з рахунком ${m} проти ${h}`);
+                break;
+            case (m < h):
+                alert(`Виграла людина з рахунком ${h} проти ${m}`);
+                break;
+        }
+
+    </script>
+</body>
+
+</html>

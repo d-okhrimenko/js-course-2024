@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) return Number(value);
+            }
+        }
+
+        let start = getValue("Введіть кількість спроб");
+        const operator = ["+", "-", "*", "/"];
+        let i = 1; t = 0; f = 0;
+        let ranNumber = [];
+        let resTrue;
+
+        while (i <= start) {
+
+            for (let j = 0; j < 2; j++) {
+                ranNumber[j] = Math.floor(Math.random() * 100) + 1;
+            }
+
+            let ranOperator = Math.floor(Math.random() * 4);
+
+            switch (ranOperator) {
+                case 0:
+                    resTrue = ranNumber[0] + ranNumber[1];
+                    break;
+                case 1:
+                    resTrue = ranNumber[0] - ranNumber[1];
+                    break;
+                case 2:
+                    resTrue = ranNumber[0] * ranNumber[1];
+                    break;
+                case 3:
+                    resTrue = ranNumber[0] / ranNumber[1];
+                    break;
+            }
+
+            let resHum = getValue(`${i} спроба. Введіть відповідь для виразу ${ranNumber[0]} ${operator[ranOperator]} ${ranNumber[1]}`);
+
+            if (resHum == resTrue) {
+                alert(`Вірна відповідь ${resTrue}`);
+                t++;
+            }
+            else {
+                alert(`Невірна відповідь ${resTrue}`);
+                f++;
+            }
+            i++;
+        }
+        alert(`Вірних відповідей ${t} та невірних ${f}`);
+
+    </script>
+
+</body>
+
+</html>
