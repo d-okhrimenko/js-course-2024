@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson5 Task1</title>
+  </head>
+  <body>
+    <script>
+      const getImt = (massa, growth) => massa / Math.pow(growth, 2);
+
+      const getCategoryImt = (index) => {
+        if (index < 18.5) return "Недостатня вага";
+        if (18.5 <= index < 24.9) return "Нормальна вага";
+        if (index < 18.5) return "Надмірна вага";
+        else return "Ожиріння";
+      };
+
+      const massa = +prompt("Ведіть свою вагу в кг");
+      if (isNaN(massa)) alert("Введене значення некоректне");
+      const growth = +prompt("Ведіть свій ріст в м");
+    </script>
+  </body>
+</html>
