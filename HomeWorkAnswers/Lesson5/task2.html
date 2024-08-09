@@ -53,16 +53,14 @@
 
             if (figureType === 1) {
                 const radius = getValue("Введіть радіус");
-                const result = calculationCircle(radius);
-                outputResult(result);
+                outputResult(calculationCircle(radius));
                 break;
             }
 
             if (figureType === 2) {
                 const side1 = getValue("Введіть довжину першої сторони");
                 const side2 = getValue("Введіть довжину другої сторони");
-                const result = calculationRectangle(side1, side2);
-                outputResult(result);
+                outputResult(calculationRectangle(side1, side2));
                 break;
             }
 
@@ -70,8 +68,7 @@
                 const side1 = getValue("Введіть довжину першої сторони");
                 const side2 = getValue("Введіть довжину другої сторони");
                 const side3 = getValue("Введіть довжину третьої сторони");
-                const result = calculationTriangle(side1, side2, side3);
-                outputResult(result);
+                outputResult(calculationTriangle(side1, side2, side3));
                 break;
             }
 
