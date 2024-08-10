@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const calculateCircle = (radius) => {
+            const area = Math.PI * Math.pow(radius, 2);
+            const perimeter = 2 * Math.PI * radius;
+            return { area: area, perimeter: perimeter };
+        };
+
+        const calculateRectangle = (length, width) => {
+            const area = length * width;
+            const perimeter = 2 * (length + width);
+            return { area: area, perimeter: perimeter };
+        };
+
+        const calculateTriangle = (a, b, c) => {
+            const perimeter = a + b + c;
+            const semiPerimeter = perimeter / 2;
+            const area = Math.sqrt(semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c));
+            return { area: area, perimeter: perimeter };
+        };
+
+        const shape = prompt("Виберіть фігуру (коло, прямокутник, трикутник):").toLowerCase();
+
+        let result;
+
+        switch (shape) {
+            case 'коло':
+                const radius = parseFloat(prompt("Введіть радіус кола:"));
+                result = calculateCircle(radius);
+                break;
+            case 'прямокутник':
+                const length = parseFloat(prompt("Введіть довжину прямокутника:"));
+                const width = parseFloat(prompt("Введіть ширину прямокутника:"));
+                result = calculateRectangle(length, width);
+                break;
+            case 'трикутник':
+                const a = parseFloat(prompt("Введіть довжину сторони a:"));
+                const b = parseFloat(prompt("Введіть довжину сторони b:"));
+                const c = parseFloat(prompt("Введіть довжину сторони c:"));
+                result = calculateTriangle(a, b, c);
+                break;
+            default:
+                alert("Невідома фігура. Спробуйте ще раз.");
+                break;
+        }
+
+        if (result) {
+            alert(`Площа: ${result.area.toFixed(2)}. Периметр: ${result.perimeter.toFixed(2)}.`);
+        }
+
+    </script>
+</body>
+
+</html>
