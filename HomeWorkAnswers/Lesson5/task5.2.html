@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обчислюваня площи та периметру різних геометричних фігур</title>
+</head>
+
+<body>
+    <p>Що будемо обчислювати?</p>
+    <button id="btnCircle">Коло</button>
+    <button id="btnRectangle">Прямокутник</button>
+    <button id="btnTriangle">Трикутник</button>
+
+    <script src="../common/my-library.js"></script>
+    <script>
+        // Функції для обчислення площі та периметра
+        const getCircleArea = radius => Math.PI * Math.pow(radius, 2);
+        const getCirclePerimeter = radius => 2 * Math.PI * radius;
+        const getRectangleArea = (length, width) => length * width;
+        const getRectanglePerimeter = (length, width) => 2 * (length + width);
+        const getTriangleArea = (a, b, c) => {
+            const p = (a + b + c) / 2;
+            return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        };
+        const getTrianglePerimeter = (a, b, c) => (a + b + c);
+
+        const figures = ["кола", "прямокутника", "трикутника"];
+        let figure, area, perimeter;
+
+        const displayResults = () => alert(`Площа ${figure} - ${area}, Периметр ${figure} - ${perimeter}`);
+
+        const calculateCircle = () => {
+            figure = figures[0];
+            const radius = getNumericValue(`Введіть радіус ${figure}`);
+            area = getCircleArea(radius).toFixed(1);
+            perimeter = getCirclePerimeter(radius).toFixed(1);
+            displayResults();
+        }
+
+        const calculateRectangle = () => {
+            figure = figures[1];
+            const length = getNumericValue(`Введіть довжину ${figure}`);
+            const width = getNumericValue(`Введіть ширину ${figure}`);
+            area = getRectangleArea(length, width).toFixed(1);
+            perimeter = getRectanglePerimeter(length, width).toFixed(1);
+            displayResults();
+        }
+
+        const calculateTriangle = () => {
+            figure = figures[2];
+            const a = getNumericValue(`Введіть першу сторону ${figure}`);
+            const b = getNumericValue(`Введіть другу сторону ${figure}`);
+            const c = getNumericValue(`Введіть третю сторону ${figure}`);
+            perimeter = getTrianglePerimeter(a, b, c).toFixed(1);
+            area = getTriangleArea(a, b, c, perimeter / 2).toFixed(1);
+            displayResults();
+        }
+
+        document.querySelector("#btnCircle").onclick = calculateCircle;
+        document.querySelector("#btnRectangle").onclick = calculateRectangle;
+        document.querySelector("#btnTriangle").onclick = calculateTriangle;
+
+    </script>
+
+</body>
+
+</html>
