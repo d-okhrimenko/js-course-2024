@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+
+<body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+        const getCircleArea = radius => Math.PI * Math.pow(radius, 2);
+        const getCirclePerimeter = radius => 2 * Math.PI * radius;
+
+        const getRectangleArea = (length, width) => width * length; 
+        const getRectanglePerimeter = (length, width) => 2 * (width + length);
+
+        const getTriangleArea = (a, b, c) => {
+            const p = (a + b + c) / 2
+            return Math.sqrt(p * (p - a) * (p - b) * (p - c))
+        } 
+        const getTrianglePerimeter = (a, b, c) => a + b + c; 
+
+        function choosingFigure(){
+            while (true) {
+                let value = prompt("Виберіть фигуру (коло, прямокутник, трикутник)")
+                let isFigure = value == "коло" || value == "прямокутник" || value == "трикутник"
+                if (isFigure) return value
+                else alert("Ви ввели не вірну назву фігури. Спробуйте ще раз.")
+            }
+        }
+
+        const figure = choosingFigure()
+        if (figure == "коло"){
+            let radius = getNumericValue("Введіть радіус");
+            let area = getCircleArea(radius);
+            let perimeter = getCirclePerimeter(radius);
+            alert(`Площа кола = ${area}, Периметр кола = ${perimeter}`)
+        }
+        else if(figure == "прямокутник"){
+            let length = getNumericValue("Введіть довжину");
+            let width = getNumericValue("Введіть ширину");
+            let area = getRectangleArea(length,width);
+            let perimeter = getRectanglePerimeter(length,width);
+            alert(`Площа прямокутника = ${area}, Периметр прямокутника = ${perimeter}`)
+        }
+        else if(figure == "трикутник"){
+            let a = getNumericValue("Введіть довжину першої сторони");
+            let b = getNumericValue("Введіть довжину другої сторони");
+            let c = getNumericValue("Введіть довжину третьої сторони");
+            let area = getTriangleArea(a, b, c);
+            let perimeter = getTrianglePerimeter(a, b, c);
+            alert(`Площа трикутника = ${area}, Периметр трикутника = ${perimeter}`)
+        }
+        
+
+        // let radius = getNumericValue("Enter radius");
+        // let area = getCircleArea(radius);
+        // let perimeter = getCirclePerimeter(radius);
+
+        // console.log(area);
+        // console.log(perimeter);
+    </script>
+</body>
+
+</html>
