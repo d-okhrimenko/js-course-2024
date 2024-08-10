@@ -22,7 +22,6 @@
         let mass = getNumericValue("Введіть вашу вагу (В кг.)")
         let height = getNumericValue("Введіть ваш зріст (В метрах)")
         let imt = getIMT(mass, height)
-        console.log(imt)
         let messageCategory = categoryIMT(imt)
         alert(`imt = ${imt}. ${messageCategory}.`)
     </script>
