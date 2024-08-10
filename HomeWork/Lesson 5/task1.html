@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  //
+  <script src="../common/my-library.js"></script>
+  <script>
+    // Створити функцію для обчислення ІМТ
+    function getBodyMassIndex(mass, height) {
+      let index = mass / Math.pow(height, 2);
+      return index;
+    }
+
+    // Створити функцію для визначення категорії ІМТ
+    function getCategory(bodyMassIndex) {
+      if (bodyMassIndex < 18.5) {
+        return "Недостатня вага";
+      }
+      else if (bodyMassIndex >= 18.5 && bodyMassIndex < 24.9) {
+        return "Нормальна вага";
+      }
+      else if (bodyMassIndex >= 25 && bodyMassIndex < 29.9) {
+        return "Надмірна вага";
+      }
+      else {
+        return "Ожиріння";
+      }
+    }
+
+    // Запросити користувача ввести вагу і зріст
+    let mass = getNumericValue("Введіть масу тіла у кілограмах");
+    let height = getNumericValue("Введіть зріст у метрах");
+
+    // Обчислити ІМТ користувача і визначити категорію
+    let bodyMassIndex = getBodyMassIndex(mass, height);
+    let category = getCategory(bodyMassIndex)
+
+    // Вивести результати
+    alert(`Ваш ІМТ складає: ${bodyMassIndex.toFixed(2)}. ${category}.`);
+  </script>
+</body>
+
+</html>
