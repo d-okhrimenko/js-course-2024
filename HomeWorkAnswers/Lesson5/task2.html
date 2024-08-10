@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesso5 Task2</title>
+  </head>
+  <body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+      const figure = ["коло", "прямокутник", "трикутник"];
+      const ouput = {
+        area: 0,
+        perimeter: 0,
+      };
+
+      const getCircleParameters = (radius) => {
+        ouput.area = Math.round(Math.PI * Math.pow(radius, 2) * 10) / 10;
+        ouput.perimeter = Math.round(2 * Math.PI * radius * 10) / 10;
+      };
+      const getRectangleParameters = (a, b) => {
+        ouput.area = a * b;
+        ouput.perimeter = 2 * (a + b);
+      };
+      const getTriangleParameters = (a, b, c) => {
+        const p = (a + b + c) / 2;
+        ouput.area =
+          Math.round(Math.sqrt(p * (p - a) * (p - b) * (p - c)) * 10) / 10;
+        ouput.perimeter = a + b + c;
+      };
+
+      const choise = getNumericValue(
+        `Введіть 0, якщо обрана фігура - ${figure[0]},\n1, якщо обрана фігура - ${figure[1]},\n2, якщо обрана фігура - ${figure[2]}`
+      );
+      switch (choise) {
+        case 0:
+          const radius = getNumericValue("Введіть радіус");
+          getCircleParameters(radius);
+          break;
+        case 1:
+          const a = getNumericValue("Введіть довжину прямокутника");
+          const b = getNumericValue("Введіть ширину прямокутника");
+          getRectangleParameters(a, b);
+          break;
+        case 2:
+          const a1 = getNumericValue("Введіть 1 сторону трикутника");
+          const a2 = getNumericValue("Введіть 2 сторону трикутника");
+          const a3 = getNumericValue("Введіть 3 сторону трикутника");
+          getTriangleParameters(a1, a2, a3);
+          break;
+        default:
+          alert("Незрозумілий вибір");
+          break;
+      }
+      alert(`Площа: ${ouput.area}\nПериметер: ${ouput.perimeter}`);
+    </script>
+  </body>
+</html>
