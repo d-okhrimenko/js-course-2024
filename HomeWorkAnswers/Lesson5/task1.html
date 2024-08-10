@@ -15,13 +15,14 @@
         }
         function categoryIMT(imt) {
             if (imt < 18.5) return "Недостатня вага"
-            else if (18.5 <= imt < 24.9) return "Нормальна вага"
-            else if (25 <= imt < 29.9) return "Надмірна вага"
+            else if (18.5 <= imt && imt < 24.9) return "Нормальна вага"
+            else if (25 <= imt && imt < 29.9) return "Надмірна вага"
             else return "Ожиріння"
         }
         let mass = getNumericValue("Введіть вашу вагу (В кг.)")
         let height = getNumericValue("Введіть ваш зріст (В метрах)")
         let imt = getIMT(mass, height)
+        console.log(imt)
         let messageCategory = categoryIMT(imt)
         alert(`imt = ${imt}. ${messageCategory}.`)
     </script>
