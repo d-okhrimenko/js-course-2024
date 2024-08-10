@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обчислюваня індексу маси тіла (ІМТ)</title>
+</head>
+
+<body>
+    <script src="../common/my-library.js"></script>
+
+    <script>
+        let getIMT = (bodyMass, height) => bodyMass / Math.pow((height / 100), 2);
+
+        let determineIMTCategory = imt =>
+            imt < 18.5 ? "Недостатня вага" :
+                imt < 24.9 ? "Нормальна вага" :
+                    imt < 29.9 ? "Надмірна вага" :
+                        "Ожиріння";
+
+        const bodyMass = getNumericValue("Введіть масу тіла (кг)");
+        const height = getNumericValue("Введіть зріст (см)");
+
+        let imt = getIMT(bodyMass, height).toFixed(1);
+        let imtCategory = determineIMTCategory(imt);
+
+        alert(`Ваш ІМТ - ${imt}, у Вас -${imtCategory}`);
+    </script>
+
+</body>
+
+</html>
