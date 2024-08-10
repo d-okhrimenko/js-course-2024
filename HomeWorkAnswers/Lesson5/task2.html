@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task2-Lesson5</title>
+</head>
+
+<body>
+  <script src="../../ClassWork/common/my-library.js"></script>
+  <script>
+    const validChoices = ['коло', 'прямокутник', 'трикутник'];
+
+    const getRoundedNum = num => Math.round(num * 100) / 100;
+    const getCircleArea = radius => getRoundedNum(Math.PI * Math.pow(radius, 2));
+    const getCirclePerimeter = radius => getRoundedNum(2 * Math.PI * radius);
+    const getRectangleArea = (length, width) => getRoundedNum(length * width);
+    const getRectanglePerimeter = (length, width) => getRoundedNum(2 * (length + width));
+    const getTriangleArea = (side1, side2, side3) => {
+      let s = (side1 + side2 + side3) / 2;
+      return getRoundedNum(Math.sqrt(s * ((s - side1) * (s - side2) * (s - side3))))
+    };
+    const getTrianglePerimeter = (side1, side2, side3) => getRoundedNum(side1 + side2 + side3);
+
+    const showResult = (shape, area, perimeter) => alert(`${shape} має площу: ${area} та периметр : ${perimeter}`);
+    const showError = (msg) => {
+      alert(msg);
+      calculateGeometry();
+    };
+
+    const getShapeData = shape => {
+      switch (shape) {
+        case validChoices[0]:
+          return {
+            area: getCircleArea,
+            perimeter: getCirclePerimeter,
+          };
+
+        case validChoices[1]:
+          return {
+            area: getRectangleArea,
+            perimeter: getRectanglePerimeter,
+          };
+
+        case validChoices[2]:
+          return {
+            validate: function (side1, side2, side3) {
+              return side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1;
+            },
+            area: getTriangleArea,
+            perimeter: getTrianglePerimeter,
+          };
+
+        default:
+          return null;
+      }
+    }
+
+    function calculateGeometry() {
+      const shape = prompt(`Виберіть фігуру: ${validChoices.join(', ')}`).toLowerCase().trim();
+      const result = getShapeData(shape);
+
+      if (result) {
+        switch (shape) {
+          case validChoices[0]:
+            const radius = getNumericValue("Введіть радіус кола:");
+
+            if (radius <= 0) {
+              showError("Будь ласка, введіть правильний радіус.");
+            } else {
+              showResult(shape, result.area(radius), result.perimeter(radius));
+            }
+            break;
+
+          case validChoices[1]:
+            const length = getNumericValue("Введіть довжину прямокутника:");
+            const width = getNumericValue("Введіть ширину прямокутника:");
+
+            if (length <= 0 || width <= 0) {
+              showError("Будь ласка, введіть правильні довжину та ширину.");
+            } else {
+              showResult(shape, result.area(length, width), result.perimeter(length, width));
+            }
+            break;
+
+          case validChoices[2]:
+            const side1 = getNumericValue("Введіть довжину першої сторони трикутника:");
+            const side2 = getNumericValue("Введіть довжину другої сторони трикутника:");
+            const side3 = getNumericValue("Введіть довжину третьої сторони трикутника:");
+
+            if (side1 <= 0 || side2 <= 0 || side3 <= 0) {
+              showError("Будь ласка, введіть правильні довжини сторін.");
+            } else if (!result.validate(side1, side2, side3)) {
+              showError("Трикутник з такими сторонами не може існувати.");
+            } else {
+              showResult(shape, result.area(side1, side2, side3), result.perimeter(side1, side2, side3));
+            }
+            break;
+
+          default:
+            showError(`Невідома фігура. Будь ласка, виберіть: ${validChoices.join(', або ')}.`);
+        }
+      } else {
+        showError(`Невідома фігура. Будь ласка, виберіть: ${validChoices.join(', або ')}.`);
+      }
+    }
+    calculateGeometry();
+
+  </script>
+</body>
+
+</html>
