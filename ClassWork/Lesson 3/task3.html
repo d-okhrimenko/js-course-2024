@@ -1,44 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-    <p>
-        Введіть значення для перетворення
-        <input type="text" id="temp" />
-    </p>
-    <div>
-        <button id="btnToC">У градуси Цельсія</button>
-        <button id="btnToF">У градуси по Фаренгейту</button>
-    </div>
-    <div>
-        <b id="output"></b>
-    </div>
-
+  <body>
     <script>
-        document.querySelector("#btnToC").onclick = function() {
-            let tempF = Number(document.querySelector("#temp").value); 
-            let tempC = 5/9 * (tempF - 32);
-            showResult(tempC);
-        }
+      let input = prompt("Введіть рік:");
+      let year = parseInt(input);
+      if (isNaN(year)) {
+        alert("Ви ввели некоректний рік. Будь ласка, спробуйте знову.");
+      } else {
+        let isLeapYear = false;
 
-        document.querySelector("#btnToF").onclick = function() {
-            let tempC = Number(document.querySelector("#temp").value); 
-            let tempF = 9 / 5 * tempC + 32;
-            showResult(tempF);
+        if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+          isLeapYear = true;
         }
-
-        function showResult(result) 
-        {
-            let output = document.querySelector("#output");
-            output.innerHTML = result;
+        if (isLeapYear) {
+          alert("Рік є високосним.");
+        } else {
+          alert("Рік не є високосним.");
         }
+      }
     </script>
-</body>
-
+  </body>
 </html>
