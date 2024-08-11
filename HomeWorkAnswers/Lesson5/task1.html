@@ -11,10 +11,10 @@
       const getImb = (massa, growth) => massa / Math.pow(growth, 2);
 
       const getCategoryImb = (index) => {
-        if (index < 18.5) return "Ваш ІМТ "+index+"\nНедостатня вага";
+        if (index < 18.5) return "Ваш ІМТ " + index + "\nНедостатня вага";
         else if (index < 24.9) return "Ваш ІМТ " + index + "\nНормальна вага";
-        else if (index < 29.9) return "Ваш ІМТ " + index+ "\nНадмірна вага";
-        else return "Ваш ІМТ " + index+"\nОжиріння";
+        else if (index < 29.9) return "Ваш ІМТ " + index + "\nНадмірна вага";
+        else return "Ваш ІМТ " + index + "\nОжиріння";
       };
 
       const massa = getNumericValue("Ведіть свою вагу в кг");
