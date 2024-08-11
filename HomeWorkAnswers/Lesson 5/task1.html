@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Написати програму, яка обчислює індекс маси тіла (ІМТ) і дає рекомендації на основі отриманого значення. -->
+    <script src="../../ClassWork/common/my-library.js"> </script>
+
+    <script>
+        let getBMI = (bodyWeight, bodyHeight) =>
+            (bodyWeight / Math.pow(bodyHeight / 100, 2)).toFixed(1);
+
+        let getCategoryBMI = value => {
+            // let userCategory;
+            // Не знаю як краще: у кожному іф присвоювати змінній значення і вкінці зробити її ретьорн,
+            // чи в кожній умові робити ретьорн і не використовувати змінну
+
+            if (value < 18.5) {
+                return (`Your BMI: ${value}. You are underweight.`);
+            } else if (value >= 18.5 && value < 24.9) {
+                return (`Your BMI: ${value}. Your body weight is normal.`);
+            } else if (value >= 25 && value < 29.9) {
+                return (`Your BMI: ${value}. You are overweight.`);
+            } else if (value >= 30) {
+                return (`Your BMI: ${value}. You are obese.`);
+            }
+        }
+
+        userValue = getBMI(getNumericValue("Your weight (kg)"), getNumericValue("Your height (cm)"));
+
+        alert(getCategoryBMI(userValue));
+
+    </script>
+</body>
+
+</html>
