@@ -44,7 +44,7 @@
                     case 2:
                         let l = getData(lengthMessage);
                         let w = getData(widthMessage);
-                        alert(`Площа прямокутника: ${rectangleArea(l, w)}\nДовжина прямокутника: ${rectanglePerimeter(l, w)}`)
+                        alert(`Площа прямокутника: ${rectangleArea(l, w)}\nПериметр прямокутника: ${rectanglePerimeter(l, w)}`)
                         break;
                     case 3:
                         let a = getData(aSideMessage);
@@ -54,7 +54,7 @@
                             alert(`Одна із сторін більша або рівна за суму двох інших: ${Math.max(a, b, c)} ≥ ${Math.min(a, b, c)} + ${a + b + c - Math.max(a, b, c) - Math.min(a, b, c)}`)
                         }
                         else {
-                            alert(`Площа трикутника: ${triangleArea(a, b, c)}\nДовжина трикутника: ${trianglePerimeter(a, b, c)}`)
+                            alert(`Площа трикутника: ${triangleArea(a, b, c)}\nПериметр трикутника: ${trianglePerimeter(a, b, c)}`)
                         }
                         break;
                 }
