@@ -1,0 +1,19 @@
+body {
+  background-color: azure;
+  margin: 0;
+}
+h2 {
+  padding-left: 120px;
+  margin-bottom: 60px;
+}
+.numbers {
+  margin: 60px;
+}
+#btnIndex {
+  margin-left: 80px;
+  font-size: 16px;
+}
+.index {
+  margin: 120px;
+  font-size: 20px;
+}
