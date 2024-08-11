@@ -1,19 +1,19 @@
-let userWeight;
-let userHeight;
-let userBmi;
-let bmiCat;
-
-function askUserParameters() {
-    userWeight = parseFloat(prompt("Input your weight (in kg):"));
-    userHeight = parseFloat(prompt("Input your height (in centimeters):")) / 100;
-}
-
 function calculateBmi() {
-    userBmi = userWeight / (Math.pow(userHeight, 2));
+    let userWeight = parseFloat(document.getElementById("weight").value);
+    let userHeight = parseFloat(document.getElementById("height").value) / 100;
+    
+    if (isNaN(userWeight) || isNaN(userHeight) || userWeight <= 0 || userHeight <= 0) {
+        alert("Please input numbers!");
+        return null;
+    }
+
+    let userBmi = userWeight / (Math.pow(userHeight, 2));
     return userBmi;
 }
 
-function defineBmiCategory() {
+function defineBmiCategory(userBmi) {
+    let bmiCat;
+
     switch (true) {
         case (userBmi < 18.5):
             bmiCat = "Underweight";
@@ -30,13 +30,18 @@ function defineBmiCategory() {
         default:
             bmiCat = "Can't define BMI";
     }
+
+    return bmiCat;
 }
 
 function outputUserBmi() {
-    alert(`Your BMI is: ${userBmi}\nBMI category is: ${bmiCat}`);
+    let userBmi = calculateBmi();
+    
+    if (userBmi !== null) {
+        let bmiCat = defineBmiCategory(userBmi);
+        document.getElementById("bmiResult").innerText = userBmi.toFixed(1);
+        document.getElementById("bmiCategory").innerText = bmiCat;
+    }
 }
 
-askUserParameters();
-calculateBmi();
-defineBmiCategory();
-outputUserBmi();
+document.getElementById("calculateBmiButton").addEventListener("click", outputUserBmi);
