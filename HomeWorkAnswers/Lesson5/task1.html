@@ -9,13 +9,12 @@
 
 <body>
     <script>
-        const maxWeight = 610;
-        const maxHight = 2.74;
+        const maxWeight = 650; //https://en.wikipedia.org/wiki/List_of_heaviest_people
+        const maxHight = 2.72; //https://en.wikipedia.org/wiki/List_of_tallest_people
         let weightMessage = "Введіть Вашу вагу (в кілограмах)";
         let hightMessage = "Введіть Ваш ріст (в метрах)";
         let weight = getData(weightMessage);
         let hight = getData(hightMessage);
-
         let bmi = countBMI(weight, hight);
         alert(`Ваш ІМТ: ${bmi} - у Вас ${countBMICategory(bmi)}.`);
 
