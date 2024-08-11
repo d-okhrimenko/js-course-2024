@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+        function getCircleAreaAndPermeter(radius) {
+            let area = (Math.PI * Math.pow(radius, 2)).toFixed(1);
+            let perimeter = (2 * Math.PI * radius).toFixed(1);
+            return `Площа кола: ${area}, периметр кола: ${perimeter}`;
+        }
+
+        function getRectangleAreaAndPermeter(length, width) {
+            let area = (length * width).toFixed(1);
+            let perimeter = (2 * (length + width)).toFixed(1);
+            return `Площа прямокутника: ${area}, периметр прямокутника: ${perimeter}`;
+        }
+
+        function getTriangleleAreaAndPermeter(a, b, c) {
+            let p = ((a + b + c) / 2).toFixed(1);
+            let area = Math.sqrt((p * (p - a) * (p - b) * (p - c)));;
+            let perimeter = (a + b + c).toFixed(1);
+            return `Площа трикутника: ${area}, периметр трикутника: ${perimeter}`;
+        }
+
+        let shape = getNumericValue("Введіть відповідну цифру, щоб обрати потрібну фігуру \n1 - коло \n2 - прамокутник \n3 - трикутник");
+
+        let getShapeRadius = () => getNumericValue("Введіть радіус кола");
+        let getShapeLength = () => getNumericValue("Введіть довжину прямокутника");
+        let getShapeWidth = () => getNumericValue("Введіть ширину прямокутника");
+        let getSideLength1 = () => getNumericValue("Введіть одну сторону трикутника");
+        let getSideLength2 = () => getNumericValue("Введіть другу сторону трикутника");
+        let getSideLength3 = () => getNumericValue("Введіть третю сторону трикутника");
+
+        function calculateAreaAndPerimeter(shape) {
+            let result;
+            if (shape === 1) {
+                result = getCircleAreaAndPermeter(getShapeRadius());
+                return alert(result);
+
+            } else if (shape === 2) {
+                result = getRectangleAreaAndPermeter(getShapeLength(), getShapeWidth());
+                return alert(result);
+
+            } else if (shape === 3) {
+                result = getTriangleleAreaAndPermeter(getSideLength1(), getSideLength2(), getSideLength3());
+                return alert(result);
+
+            } else {
+                return alert("Помилка під час вибору фігури");
+            }
+        }
+
+        calculateAreaAndPerimeter(shape);
+    </script>
+</body>
+
+</html>
