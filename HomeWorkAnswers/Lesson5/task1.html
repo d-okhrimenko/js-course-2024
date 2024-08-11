@@ -10,12 +10,12 @@
 <body>
     <script>
         const maxWeight = 650; //https://en.wikipedia.org/wiki/List_of_heaviest_people
-        const maxHight = 2.72; //https://en.wikipedia.org/wiki/List_of_tallest_people
+        const maxHeight = 2.72; //https://en.wikipedia.org/wiki/List_of_tallest_people
         let weightMessage = "Введіть Вашу вагу (в кілограмах)";
-        let hightMessage = "Введіть Ваш ріст (в метрах)";
+        let heightMessage = "Введіть Ваш ріст (в метрах)";
         let weight = getData(weightMessage);
-        let hight = getData(hightMessage);
-        let bmi = countBMI(weight, hight);
+        let height = getData(heightMessage);
+        let bmi = countBMI(weight, height);
         alert(`Ваш ІМТ: ${bmi} - у Вас ${countBMICategory(bmi)}.`);
 
         function getData(message) {
@@ -30,7 +30,7 @@
                     else if (message == weightMessage && promptValue > maxWeight) {
                         alert(`${promptString} - вага надто велика!`);
                     }
-                    else if (message == hightMessage && promptValue > maxHight) {
+                    else if (message == heightMessage && promptValue > maxHeight) {
                         alert(`${promptString} - ріст надто високий!`);
                     }
                     else {
@@ -44,8 +44,8 @@
             }
         }
 
-        function countBMI(weight, hight) {
-            return parseFloat(weight / Math.pow(hight, 2)).toFixed(1);
+        function countBMI(weight, height) {
+            return parseFloat(weight / Math.pow(height, 2)).toFixed(1);
         }
 
         function countBMICategory(bmi) {
