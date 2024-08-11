@@ -1,6 +1,6 @@
 
 let vaga = +prompt("Введіть вагу");
-let height = +prompt("Введіть зріст");
+let height = +prompt("Введіть зріст"); 
 
 let formula = vaga / height ** 2;
 function checkIMT() {
