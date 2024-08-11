@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson5 task2</title>
+</head>
+
+<body>
+    <script>
+        //circle
+        let radiusMessage = "Введіть радіус кола";
+        let circleArea = r => Math.PI * Math.pow(r, 2);
+        let circlePerimeter = r => 2 * Math.PI * r;
+        //rectangle
+        let lengthMessage = "Введіть довжину прямокутника";
+        let widthMessage = "Введіть ширину прямокутника";
+        let rectangleArea = (l, w) => l * w;
+        let rectanglePerimeter = (l, w) => l + w;
+        //triangle
+        let aSideMessage = "Введіть 1-шу сторону трикутника";
+        let bSideMessage = "Введіть 2-гу сторону трикутника";
+        let cSideMessage = "Введіть 3-тю сторону трикутника";
+        let triangleArea = (a, b, c) => {
+            let p = (a + b + c) / 2;
+            return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        };
+        let trianglePerimeter = (a, b, c) => a + b + c;
+
+        let choice = ["вихід", "коло", "прямокутник", "трикутник"];
+        let userChoice = -1;
+        while (userChoice != 0) {
+            userChoiceStr = prompt("Зробіть Ваш вибір (0-вихід, 1-коло, 2-прямокутник, 3-трикутник): ");
+            if (/^[0-3]{1}$/.test(userChoiceStr)) {
+                userChoice = parseInt(userChoiceStr);
+                switch (userChoice) {
+                    case 0:
+                        break;
+                    case 1:
+                        let r = getData(radiusMessage);
+                        alert(`Площа кола: ${circleArea(r)}\nДовжина кола: ${circlePerimeter(r)}`)
+                        break;
+                    case 2:
+                        let l = getData(lengthMessage);
+                        let w = getData(widthMessage);
+                        alert(`Площа прямокутника: ${rectangleArea(l, w)}\nДовжина прямокутника: ${rectanglePerimeter(l, w)}`)
+                        break;
+                    case 3:
+                        let a = getData(aSideMessage);
+                        let b = getData(bSideMessage);
+                        let c = getData(cSideMessage);
+                        if (Math.max(a, b, c) >= a + b + c - Math.max(a, b, c )) {
+                            alert(`Одна із сторін більша або рівна за суму двох інших: ${Math.max(a, b, c)} ≥ ${Math.min(a, b, c)} + ${a + b + c - Math.max(a, b, c) - Math.min(a, b, c)}`)
+                        }
+                        else {
+                            alert(`Площа трикутника: ${triangleArea(a, b, c)}\nДовжина трикутника: ${trianglePerimeter(a, b, c)}`)
+                        }
+                        break;
+                }
+            } else {
+                alert(`${userChoiceStr} - вибір не коректний!`);
+            }
+        }
+
+        function getData(message) {
+            let promptString = ``;
+            while (true) {
+                promptString = prompt(`${message}: `);
+                promptValue = parseFloat(promptString)
+                if (/^\d+(\.?\d+)?$/.test(promptString)) {
+                    if (promptValue == 0) {
+                        alert(`${promptString} - не допустиме значення!`);
+                    }
+                    else {
+                        return promptValue;
+                        break;
+                    }
+                }
+                else {
+                    alert(`${promptString} - ввід не коректний!`);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
