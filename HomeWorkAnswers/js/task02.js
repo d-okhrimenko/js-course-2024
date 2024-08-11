@@ -5,10 +5,15 @@ let shapes = {
 };
 
 function countMeasures() {
-    let shape = getNumericValue(
-        "Виберіть фігуру: 1 - коло, 2 - прямокутник, 3 - трикутник"
-    );
-    shapes[shape]();
+    while (true) {
+        let shape = getNumericValue(
+            "Виберіть фігуру: 1 - коло, 2 - прямокутник, 3 - трикутник"
+        );
+        if(shape <=3 && shape >=1) {
+            shapes[shape]();
+            break;
+        }
+    }
 }
 
 function showInfo(message) {
@@ -40,8 +45,13 @@ function handleTriangle() {
     let side3 = getNumericValue("Введіть довжину третьої сторони трикутника");
     let perimeter = side1 + side2 + side3;
     let p = perimeter / 2;
-    let area = Math.sqrt(p * (p - side1) * (p - side2) * (p - side3));
-    showInfo(
-        `Трикутник з сторонами ${side1}, ${side2}, ${side3} має периметр ${perimeter} та площу ${area}`
-    );
+    let area = (Math.sqrt(p * (p - side1) * (p - side2) * (p - side3))).toFixed(2);
+    if(isNaN(area)){
+        showInfo('Такого трикутника не існує');
+    } else {
+
+        showInfo(
+            `Трикутник з сторонами ${side1}, ${side2}, ${side3} має периметр ${perimeter} та площу ${area}`
+        );
+    }
 }
