@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <script src="library.js"></script>
+
+    <h2>Task 1. Calculation of body mass index (BMI)</h2>
+    <h3>Enter your parameters to get information about your body condition</h3>
+    <div>
+        <label for="weight">Your weight:</label>
+        <br>
+        <input type="text" id="weight" placeholder="In kilo">
+        <br><br>
+
+        <label for="height">Your height:</label>
+        <br>
+        <input type="text" id="height" placeholder="In centimeters">
+    </div>
+
+    <div>
+        <p id="bmiOutput"></p>
+        <button id="bmi">Calculate</button>
+    </div>    
+
+    <hr color="black">
+    <h2>Task 2. Calculation of area and perimeter of various geometric shapes</h2>
+    <h3>Just pick the shape and enter the appropriate parameters</h3>
+    
+    <div>
+        <p>
+            <b>Circle</b>
+        </p>
+        <label for="radius">Enter value:</label>
+        <br>
+        <input type="text" id="radius" placeholder="Radius of circle">
+    </div>
+
+    <div>
+        <p id="circleOutput"></p>
+        <button id="circle">Calculate</button>
+    </div>
+    <hr>
+    <div>
+        <p>
+            <b>Rectangle</b>
+        </p>
+        <label for="length">Enter value:</label>
+        <br>
+        <input type="text" id="length" placeholder="Length">
+        <br><br>
+
+        <label for="width">Enter value:</label>
+        <br>
+        <input type="text" id="width" placeholder="Width">
+    </div>
+
+    <div>
+        <p id="rectangleOutput"></p>
+        <button id="rectangle">Calculate</button>
+    </div>
+    <hr>
+    <div>
+        <p>
+            <b>Triangle</b>
+        </p>
+        <label for="sideA">Enter length:</label>
+        <br>
+        <input type="text" id="sideA" placeholder="Side a">
+        <br><br>
+
+        <label for="sideB">Enter length:</label>
+        <br>
+        <input type="text" id="sideB" placeholder="Side b">
+        <br><br>
+
+        <label for="sideC">Enter length:</label>
+        <br>
+        <input type="text" id="sideC" placeholder="Side c">
+    </div>
+
+    <div>
+        <p id="triangleOutput"></p>
+        <button id="triangle">Calculate</button>
+    </div>
+    <hr>
+    <script src="task1.js"></script>
+    <script src="task2.js"></script>
+</body>
+
+</html>
