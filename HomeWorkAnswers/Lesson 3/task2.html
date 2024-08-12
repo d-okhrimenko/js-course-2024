@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const date = new Date();
+        console.log(date);
+        const weekDay = date.getDay();
+        console.log(weekDay);
+        if (weekDay === 0) {
+            console.log("Сьогодні неділя");
+        } else if (weekDay === 1) {
+            console.log("Сьогодні понеділок");
+        } else if (weekDay === 2) {
+            console.log("Сьогодні вівторок");
+        } else if (weekDay === 3) {
+            console.log("Сьогодні середа");
+        } else if (weekDay === 4) {
+            console.log("Сьогодні четвер");
+        } else if (weekDay === 5) {
+            console.log("Сьогодні п'ятниця");
+        } else if (weekDay === 6) {
+            console.log("Сьогодні субота");
+        };
+    </script>
+</body>
+
+</html>
