@@ -10,21 +10,21 @@
 <body>
   <script src="../../ClassWork/common/my-library.js"></script>
   <script>
-    class Figure {
-      constructor(type) {
-        this.type = type;
-      }
-    }
-    class Circle extends Figure {
-      constructor(type, { radius }) {
-        super(type);
+
+    class Circle {
+      constructor({ radius }) {
         this.radius = radius;
       }
 
       static create() {
         const radius = getNumericValue('Введіть радіус кола');
-        return new Circle('коло', { radius });
+        return new Circle({ radius });
       }
+
+      get type() {
+        return 'коло';
+      }
+
       getArea() {
         return Math.round(Math.PI * this.radius ** 2 * 100) / 100;
       }
@@ -34,9 +34,8 @@
       }
     }
 
-    class Rect extends Figure {
-      constructor(type, { a, b }) {
-        super(type);
+    class Rect {
+      constructor({ a, b }) {
         this.a = a;
         this.b = b;
       }
@@ -44,8 +43,13 @@
       static create() {
         const a = getNumericValue('Введіть довжину прямокутника');
         const b = getNumericValue('Введіть ширину прямокутника');
-        return new Rect('прямокутник', { a, b });
+        return new Rect({ a, b });
       }
+
+      get type() {
+        return 'прямокутник';
+      }
+
       getArea() {
         return this.a * this.b;
       }
@@ -55,9 +59,8 @@
       }
     }
 
-    class Triangle extends Figure {
-      constructor(type, { a, b, c }) {
-        super(type);
+    class Triangle {
+      constructor({ a, b, c }) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -67,8 +70,13 @@
         const a = getNumericValue('Введіть першу сторону трикутника');
         const b = getNumericValue('Введіть другу сторону трикутника');
         const c = getNumericValue('Введіть третью сторону трикутника');
-        return new Triangle('трикутник', { a, b, c });
+        return new Triangle({ a, b, c });
       }
+
+      get type() {
+        return 'трикутник';
+      }
+
       getArea() {
         const p = (this.a + this.b + this.c) / 2;
         return Math.round(Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)) * 100) / 100;
@@ -85,7 +93,7 @@
     if ([0, 1, 2].includes(Number(userChoice)) || userAnswer !== '') {
       const figure = OPTIONS[userChoice].create();
 
-      alert(`Ви обрали ${figure.type}. Периметр = ${figure.getPerimeter()}. Площа = ${figure.getArea()}`)
+      alert(`Ви обрали ${figure.type}. Периметр = ${figure.getPerimeter()}. Площа = ${figure.getArea()}`);
     } else {
       alert('Ви ввели некоректне значення');
     };
