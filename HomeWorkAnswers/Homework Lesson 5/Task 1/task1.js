@@ -3,7 +3,7 @@ function calculateBmi() {
     let userHeight = parseFloat(document.getElementById("height").value) / 100;
     
     if (isNaN(userWeight) || isNaN(userHeight) || userWeight <= 0 || userHeight <= 0) {
-        alert("Please input numbers!");
+        alert("Please input NUMBER!\nGreater than 0!");
         return null;
     }
 
@@ -43,5 +43,3 @@ function outputUserBmi() {
         document.getElementById("bmiCategory").innerText = bmiCat;
     }
 }
-
-document.getElementById("calculateBmiButton").addEventListener("click", outputUserBmi);

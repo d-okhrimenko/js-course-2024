@@ -1,7 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: white;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,12 +10,12 @@ body {
   }
 
   h1 {
-    color: #4CAF50;
+    color: green;
     text-align: center;
   }
 
   .container {
-    background-color: #fff;
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -32,7 +32,7 @@ body {
     padding: 10px;
     margin: 5px 0 15px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid lightgray;
     font-size: 16px;
     box-sizing: border-box;
   }
@@ -40,7 +40,7 @@ body {
   button {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: green;
     color: white;
     border: none;
     border-radius: 5px;
@@ -49,10 +49,5 @@ body {
   }
 
   button:hover {
-    background-color: #45a049;
+    background-color: green;
   }
-
-  #bmiResult, #bmiCategory {
-    font-weight: bold;
-  }
-  
