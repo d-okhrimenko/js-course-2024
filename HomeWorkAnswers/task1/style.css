@@ -1,0 +1,14 @@
+#IMD_form {
+    border: 2px solid;
+    border-color: rgb(75, 145, 6);
+
+    height: 100px;
+    width: 400px;
+
+    padding: 20px;
+}
+
+#output {
+    border: 1px solid;
+    height: 20px;
+}
