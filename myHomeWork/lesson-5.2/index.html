@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<title>площа геомітричних фігур</title>
+</head>
+    <body id="body">
+        <div class="wrapper">
+           
+            <main class="hero">
+                <div class="hero__container">
+                    <div class="hero__body">
+                        <h1 class="hero__title">Натисни на геометрічну фігуру щоб порахувати площу та периметр</h1>
+                        <div class="hero__block">
+                            <div class="hero__item " id="triangle">
+                                <div class="hero__elem triangle">
+                                    <img src="img/img.png" alt="">
+                                </div>
+                             </div>
+                            <div class="hero__item" id="square">
+                                <div class="hero__elem square"></div>
+                            </div>
+                            <div class="hero__item" id="circle">
+                                <div class="hero__elem circle" ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+          
+          
+        </div>
+        <!-- popup hidden -->
+        <div class="popup hidden " id="popup">
+            <div class="popup__icon" id="popup-close-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon-cross">
+                    <path
+                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"
+                        fill="#6D7174" 
+                
+                        stroke-width="1" 
+                        />
+                </svg>
+
+            </div>
+          
+            <div class="popup__body">
+                <div class="popup__items">
+                    <form action="#" id="form" class="popup__form form">
+                       
+                    </form>
+
+                </div>
+           
+       
+            </div>
+            
+        </div>
+        <!-- popup result -->
+        <div class="popup-result hidden" id="popup-result">
+            <div class="popup-result__body">
+                <div class="popup-result__item">
+                
+                     <div class="popup-result__block">
+                        <p class="popup-result__text" id="area">
+                            
+                        </p>
+                        <p class="popup-result__text" id="perimetr">
+                           
+                        </p>
+                    </div> 
+                    <button type="button" class="popup-result__btn"> ok </button>
+                </div>
+            </div>
+        
+        </div>
+
+    <div class="popup-result__block">
+        <p class="popup-result__text" id="area">
+
+        </p>
+        <p class="popup-result__text" id="perimetr">
+    
+        </p>
+    </div>
+   
+        <script src="js/main.js"></script>
+    </body>
+</html>
+
+
