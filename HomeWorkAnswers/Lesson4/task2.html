@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const operandArray = ["+", "-", "*", "/"];
+        let result = 0;
+        let userVins = 0;
+        let userLooses = 0;
+        let userChoise = 0;
+
+        while (true) {
+            let operand = Math.floor(Math.random() * 4);
+            let number_1 = Math.floor(Math.random() * 10) + 1;
+            let number_2 = Math.floor(Math.random() * 10) + 1;
+
+            switch (operand) {
+                case 0:
+                    result = number_1 + number_2;
+                    break; 
+                case 1:
+                    result = number_1 - number_2;
+                    break; 
+                case 2:
+                    result = number_1 * number_2;
+                    break; 
+                case 3:
+                    result = number_1 / number_2;
+                    break; 
+            }
+
+            userChoise = prompt(`Перше число: ${number_1}, друге число: ${number_2}; Результат: ${Number(result.toFixed(2))}. \nОберіть операнд: +,  -,  *,  /;  Для виходу натисніть "9"`);
+
+            if (userChoise == 9) {
+                break;
+            } else if (userChoise === operandArray[operand]) {
+                alert("Ви вгадали!");
+                userVins++;
+            } else if (userChoise !== operandArray[operand]) {
+                alert(`Ви не вгадали! Вірна відповідь: [ ${operandArray[operand]} ]`);
+                userLooses++;
+            }
+        }
+        alert(`Вірних відповідей: [${userVins}], невірних відповідей: [${userLooses}]`);
+    </script>
+</body>
+</html>
+
+
+<!-- Завдання 2
+
+Гра: "Математичний квіз"
+
+Опис гри:
+Програма генерує випадкові математичні вирази (додавання, віднімання, множення, ділення) та запитує у користувача правильну відповідь. Користувач має обмежену кількість спроб, щоб дати правильну відповідь. Програма виводить кількість правильних та неправильних відповідей після завершення гри. -->
