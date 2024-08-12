@@ -20,6 +20,12 @@ img {
   height: auto;
   object-fit: cover;
   border-radius: 10px;
+  transition: all 0.8s ease;
+}
+
+img:hover{
+  transform: scale(1.05);
+
 }
 
 .wrapper {
