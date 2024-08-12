@@ -24,7 +24,7 @@ let ask1, ask2, ask3;
 } else if (ask == "коло") {
     ask1 = prompt("Введіть радіус")
     console.log(ask1);
-    calcCircle();
+    calcCircle()
 
 } else {
         alert("Некоректне введення")

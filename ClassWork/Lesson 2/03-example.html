@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="output" style="color:green">Hello</p>
+    <button id="btn">Click me!</button>
+
+    <script>
+        document.querySelector("#btn").onclick = function() {
+            let output = document.querySelector("#output");
+            output.innerHTML = "Hello, my name is Dmytro";
+            output.style.color = "red";
+        }
+    </script>
+</body>
+</html>
