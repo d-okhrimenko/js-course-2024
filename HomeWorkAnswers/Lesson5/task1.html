@@ -17,7 +17,7 @@
           return "Ваш ІМТ " + Math.round(index * 10) / 10 + "\nНормальна вага";
         else if (index < 29.9)
           return "Ваш ІМТ " + Math.round(index * 10) / 10 + "\nНадмірна вага";
-        else return "Ваш ІМТ " + index + "\nОжиріння";
+        else return "Ваш ІМТ " + Math.round(index * 10) / 10 + "\nОжиріння";
       };
 
       const massa = getNumericValue("Ведіть свою вагу в кг");
