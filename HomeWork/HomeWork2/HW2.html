@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="output" style="color:green">Привіт</p>
+    <button id="btn">Скажи привіт</button>
+
+    <script>
+        let today = new Date();//.toDateString()
+        // d = today;
+        // d = [
+        //     '0' + d.getDate(),
+        //     '0' + (d.getMonth() + 1),
+        //     '' + d.getFullYear(),
+        //     '0' + d.getHours(),
+        //     '0' + d.getMinutes()
+        // ].map(component => component.slice(-2));
+        output.innerHTML = "Поточна дата:" + today.toLocaleString();  //d.slice(0, 3).join('.') + ' ' + d.slice(3).join(':');
+        //alert(today);
+        document.querySelector("#btn").onclick = function() {
+            let output = document.querySelector("#output");
+            output.innerHTML = "Привіт, Alex!";
+            output.style.color = "blue";
+        }
+    </script>
+</body>
+</html>
