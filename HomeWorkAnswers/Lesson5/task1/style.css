@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin-top: 15px;
+}
