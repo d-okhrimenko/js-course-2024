@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="output1">Option 1 - Change text on date here</p>
+    <button id="btn1">Click me! (option 1)</button>
+    <br>
+    <br>
+    <p id="output2">Option 2 - Show date into consol</p>
+    <button id="btn2">Click me! (option 2)</button>
+    <br>
+    <br>
+    <p id="output3">Option 3 - Show date into alert</p>
+    <button id="btn3">Click me! (option 3)</button>
+
+    <script>
+
+        const date = new Date();
+
+        document.querySelector("#btn1").onclick = function () {
+            let output = document.querySelector("#output1");
+            output.innerHTML = date;
+        }
+
+        document.querySelector("#btn2").onclick = function () {
+            let output = document.querySelector("#output2");
+            output.innerHTML = "Look into console";
+            console.log(date)
+        }
+
+        document.querySelector("#btn3").onclick = function () {
+            let output = document.querySelector("#output3");
+            output.innerHTML = "Look into ALERT =(";
+            alert(date)
+        }
+    </script>
+</body>
+
+</html>

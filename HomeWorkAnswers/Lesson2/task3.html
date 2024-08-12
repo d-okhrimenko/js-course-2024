@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="btn">Скажи привіт!</button>
+
+    <script>
+
+        const myName = "Oleksandr"
+
+        document.querySelector("#btn").onclick = function () {
+            console.log(`Привіт, ${myName}`);
+            //or
+            console.log("Привіт, " + myName);
+        }
+
+    </script>
+</body>
+
+</html>
