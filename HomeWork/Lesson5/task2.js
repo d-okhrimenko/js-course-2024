@@ -47,7 +47,7 @@ function getTriangleParams() {
 }
 
 function isTriangleExists(edge1, edge2, edge3) {
-    edge1 + edge2 > edge3 && edge2 + edge3 > edge1 && edge1 + edge3 > edge2
+    return edge1 + edge2 > edge3 && edge2 + edge3 > edge1 && edge1 + edge3 > edge2;
 }
 
 function selectShape() {
