@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let date = new Date()
+      let day = date.getDay()
+      let result
+
+      if (day === 0) {
+        result = 'Сьогодні неділя'
+      } else if (day === 1) {
+        result = 'Сьогодні понеділок'
+      } else if (day === 2) {
+        result = 'Сьогодні вівторок'
+      } else if (day === 3) {
+        result = 'Сьогодні середа'
+      } else if (day === 4) {
+        result = 'Сьогодні четвер'
+      } else if (day === 5) {
+        result = 'Сьогодні пятниця'
+      } else if (day === 6) {
+        result = 'Сьогодні субота'
+      }
+      alert(result)
+    </script>
+  </body>
+</html>
