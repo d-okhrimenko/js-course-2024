@@ -1,3 +1,5 @@
+// SET DATE
+
 let dateAndTime = document.querySelector("#date");
 
 let currentDate = new Date();
@@ -49,26 +51,16 @@ let year = currentDate.getFullYear();
 
 dateAndTime.innerHTML = `${day}, ${date} ${month} ${year}, ${hour}:${minutes}`;
 
+// BTN CLICK
+
 btn.onclick = function () {
   let btn = document.querySelector("#btn");
   let body = document.querySelector("body");
   let title = document.querySelector("h1");
 
-  if (body.classList.contains("dark")) {
-    btn.innerHTML = "DARK MODE";
-    body.classList.remove("dark");
-    body.classList.add("light");
-    btn.classList.remove("btn-dark");
-    btn.classList.add("btn-light");
-    title.classList.remove("title-dark");
-    title.classList.add("title-light");
-  } else {
-    btn.innerHTML = "LIGHT MODE";
-    body.classList.remove("light");
-    body.classList.add("dark");
-    btn.classList.remove("btn-light");
-    btn.classList.add("btn-dark");
-    title.classList.remove("title-light");
-    title.classList.add("title-dark");
-  }
+  body.classList.toggle("light");
+  title.classList.toggle("title-light");
+  btn.classList.toggle("btn-light");
+
+  btn.innerHTML = btn.innerHTML === "LIGHT MODE" ? "DARK MODE" : "LIGHT MODE";
 };
