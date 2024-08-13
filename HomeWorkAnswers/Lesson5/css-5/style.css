@@ -4,13 +4,32 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: antiquewhite;
-  margin-left: 2rem;
+  margin-left: 5rem;
 }
 h1 {
   font-size: 4rem;
   text-align: center;
 
   margin-bottom: 2rem;
+}
+
+form {
+  width: 80%;
+}
+
+input {
+  height: 3rem;
+  font-size: 2rem;
+  font-style: italic;
+  text-align: center;
+  color: brown;
+  border: none;
+  border-radius: 5px;
+}
+
+input::placeholder {
+  color: lightslategray;
+  text-align: center;
 }
 
 .btn {
@@ -22,6 +41,7 @@ h1 {
   border-radius: 2rem;
   cursor: pointer;
 }
+
 .btn:hover {
   transform: translate(0, -1rem) scale(1.1);
 }
@@ -30,4 +50,16 @@ h1 {
   display: block;
   width: fit-content;
   margin: 5rem auto;
+}
+
+.error {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 2rem 0;
+  color: red;
+}
+
+.hidden {
+  opacity: 0;
 }

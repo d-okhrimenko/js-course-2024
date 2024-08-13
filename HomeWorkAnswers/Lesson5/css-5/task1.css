@@ -10,9 +10,9 @@ legend {
   font-size: 3rem;
   font-weight: bold;
   font-style: italic;
-  padding: 2rem 0;
   color: blue;
   text-align: center;
+  padding: 2rem 2rem;
 }
 .input {
   font-size: 3rem;
