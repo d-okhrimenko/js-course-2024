@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <script></script>
+    <button class="btn">Скажи привіт</button>
+    <p class="answer"></p>
+    <script>
+      document.write(new Date())
+
+      document.querySelector('.btn').onclick = sayHello
+      function sayHello() {
+        let name = prompt('Скажіть Ваше імя')
+        document.querySelector('.answer').innerHTML = `Привіт ${name}`
+      }
+    </script>
   </body>
 </html>
