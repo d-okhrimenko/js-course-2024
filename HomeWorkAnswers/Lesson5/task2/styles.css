@@ -1,12 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .container {
@@ -15,6 +19,8 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  max-width: 90%;
+  width: 400px;
 }
 
 h1 {
@@ -23,34 +29,61 @@ h1 {
 }
 
 .input-container {
-  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
-input {
+.input-container input,
+.input-container button {
+  width: 100%;
   padding: 0.5rem;
   font-size: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  margin-right: 0.5rem;
 }
 
-button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+.input-container button {
   background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-button:hover {
+.input-container button:hover {
   background-color: #45a049;
+}
+
+.input-container .calculate {
+  background-color: #4c6faf;
+  grid-column: 1 / -1;
+  /* margin-top: 10px; */
+}
+
+.input-container .calculate:hover {
+  background-color: #5777b3;
+}
+
+.input-container input {
+  grid-column: 1 / -1;
+  /* margin-top: 10px; */
 }
 
 #result {
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 1rem;
+}
+
+/* Добавлено медиа-правило для адаптивности на маленьких экранах */
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .input-container {
+    grid-template-columns: 1fr;
+  }
 }
