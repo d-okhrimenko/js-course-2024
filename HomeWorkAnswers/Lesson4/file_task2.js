@@ -1,5 +1,6 @@
+const numberOfQuestions = 5
 document.querySelector("#begin").onclick = function() {
-for (r = 0; r < 5; r++) {
+for (r = 0; r < numberOfQuestions; r++) {
     const oper = ["+", "-", "*", "/"];
     let randNum1 = Math.floor(Math.random() * 100) + 1;
     let randNum2 = Math.floor(Math.random() * 100) + 1;
@@ -33,8 +34,9 @@ for (r = 0; r < 5; r++) {
     let corrAnsw = 0;
     let wrongAnsw = 0;
     let wrongAnsw1 = 0;
+    const numberOfAttempts = 3 
 
-    for (let i = 3; i > 0; i--) {
+    for (let i = numberOfAttempts; i > 0; i--) {
         let userValue = getValue(`Вкажіть правильний результат математичного виразу: \n${randNum1} ${selectOper} ${randNum2} \nУ вас буде 3 спроби`);
         if (userValue === result) {
             alert("Ваша відповідь вірна!");
