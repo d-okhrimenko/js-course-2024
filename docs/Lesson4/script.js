@@ -196,45 +196,38 @@ document.querySelector("#btnCheck").onclick = function () {
 
   counter--;
   counterValue.innerHTML = counter;
-  
 
   if (userNumber === "") {
     result.innerHTML = "Ну введи хоча б що небудь 🤷‍♂️";
   } else if (isNaN(userNumber)) {
     result.innerHTML = "Ти впевнений, що це взагалі число ? 🙄";
-    document.querySelector("#userNumber").value = "";
   } else if (+userNumber > 100) {
     result.innerHTML = "Ого ти розігнався, число має бути менше ніж 100 😎";
-    document.querySelector("#userNumber").value = "";
   } else if (+userNumber < 0) {
-    result.innerHTML =
-      "Довго ж ти будеш вгадувати, число має бути більше ніж 0 🤨";
-    document.querySelector("#userNumber").value = "";
+    result.innerHTML = "Довго ж ти будеш вгадувати, число має бути більше ніж 0 🤨";
   } else if (randomNumber === +userNumber) {
     result.innerHTML = `Вітаю ! Ти вгадав ! Я загадав число ${randomNumber}`;
     document.querySelector("#btnCheck").innerHTML = "Грати ще раз";
-    document.querySelector("#userNumber").value = "";
     counter = 6;
     counterValue.innerHTML = counter;
     randomNumber = Math.floor(Math.random() * 100) + 1;
   } else if (randomNumber > +userNumber) {
     result.innerHTML = `Спробуй ще раз ! Я загадав число більше ніж ${userNumber}`;
-    document.querySelector("#userNumber").value = "";
     document.querySelector("#btnCheck").innerHTML = "Наступна спроба";
   } else if (randomNumber < +userNumber) {
     result.innerHTML = `Спробуй ще раз ! Я загадав число менше ніж ${userNumber}`;
-    document.querySelector("#userNumber").value = "";
     document.querySelector("#btnCheck").innerHTML = "Наступна спроба";
   }
 
   if (counter === 0) {
     result.innerHTML = "Телепат з тебе так собі... починай все спочатку";
     document.querySelector("#btnCheck").innerHTML = "Почати спочатку";
-    document.querySelector("#userNumber").value = "";
     counter = 6;
     counterValue.innerHTML = counter;
     randomNumber = Math.floor(Math.random() * 100) + 1;
   }
+
+  document.querySelector("#userNumber").value = "";
 };
 
 // CLASSWORK TASK 2
