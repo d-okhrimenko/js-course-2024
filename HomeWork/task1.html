@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../ClassWork/common/my-library.js"></script>
+    <script>
+      let getBmi = (weight, height) => {
+        let heightInMeters = height / 100;
+        let bmi = weight / Math.pow(heightInMeters, 2);
+        return Math.round(bmi * 100) / 100;
+      };
+
+      let getBmiCategory = (bmi) => {
+        if (bmi < 18.5) bmiCategory = "Insufficient weight";
+        if (18.5 <= bmi && bmi < 24.9) bmiCategory = "Normal weight";
+        if (25 <= bmi && bmi < 29.9) bmiCategory = "Overweight";
+        if (bmi >= 30) bmiCategory = "Obese";
+        return bmiCategory;
+      };
+
+      let messageWeight = "Please enter your weight in kg";
+      let messageHeight = "Please enter your height in cm";
+
+      let userWeight = getNumericValue(messageWeight);
+      let userHeight = getNumericValue(messageHeight);
+      let userBMI = getBmi(userWeight, userHeight);
+      let userConditions = getBmiCategory(userBMI);
+
+      alert(`Your BMI is ${userBMI}, you are ${userConditions}`);
+    </script>
+  </body>
+</html>

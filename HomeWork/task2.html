@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../ClassWork/common/my-library.js"></script>
+    <script>
+      //circle
+      let getCircleArea = (radius) => Math.PI * Math.pow(radius, 2);
+      let getCircumference = (radius) => 2 * Math.PI * radius;
+
+      //rectangle
+      let getRectangleArea = (length, width) => length * width;
+      let getRectanglePerimeter = (length, width) => 2 * (length + width);
+
+      //triangle
+      let getTriangleArea = (a, b, c) => {
+        let p = (a + b + c) / 2;
+        let triangleArea = Math.sqrt((p * (p - a) * (p - b) * (p - c)));
+        return Math.round(triangleArea * 100) / 100;
+      };
+
+      let getTrianglePerimeter = (a, b, c) => a + b + c;
+
+      let type;
+
+      do {
+        let messageType =
+          "Choose a figure and enter corresponding number. Circle - 1, Rectangle - 2, Triangle - 3";
+        type = getNumericValue(messageType);
+
+        if (![1, 2, 3].includes(type)) {
+          alert("Invalid choice! Please choose 1, 2, or 3.");
+        }
+      } while (![1, 2, 3].includes(type));
+
+      if (type === 1) {
+        let userRadius = getNumericValue("Please enter the radius value in cm");
+        alert(
+          `The area of your circle is ${getCircleArea(
+            userRadius
+          )} sq.cm and the circumference of your circle is ${getCircumference(
+            userRadius
+          )} cm`
+        );
+      }
+      if (type === 2) {
+        let userLenght = getNumericValue(
+          "Please enter the length of your rectangle in cm"
+        );
+        let userWidth = getNumericValue(
+          "Please enter the withd of your rectangle in cm"
+        );
+        alert(
+          `The area of your rectangle is ${getRectangleArea(
+            userLenght,
+            userWidth
+          )} sq.cm and the perimeter is ${getRectanglePerimeter(
+            userLenght,
+            userLenght
+          )} cm. `
+        );
+      }
+      if (type === 3) {
+        let userASide = getNumericValue(
+          "Please enter the length of A side of the rectangle"
+        );
+        let userBSide = getNumericValue(
+          "Please enter the length of B side of the rectangle"
+        );
+        let userCSide = getNumericValue(
+          "Please enter the length of C side of the rectangle"
+        );
+        let userTriangleArea = getTriangleArea(userASide, userBSide, userCSide);
+        let userTrianglePerimeter = getTrianglePerimeter(
+          userASide,
+          userBSide,
+          userCSide
+        );
+        alert(
+          `The area of your triangle is ${userTriangleArea} sq.cm and the perimeter is ${userTrianglePerimeter} cm.`
+        );
+      }
+    </script>
+  </body>
+</html>
