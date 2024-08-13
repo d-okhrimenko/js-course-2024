@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Today:</h1>
+    <p id="date"></p>
+    <button id="btn-hello">Скажи привіт</button>
+    <p id="hello"></p>
+    <script>
+        document.querySelector("#date").innerHTML = new Date();
+        document.querySelector("#btn-hello").onclick = function () { 
+            let name = "Мар'яна"
+            document.querySelector("#hello").innerHTML = ("Привіт, " + name)
+          
+        }
+    </script>
+</body>
+</html>

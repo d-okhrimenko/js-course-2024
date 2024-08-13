@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML + CSS</title>
+    <style>
+      div {
+        background-color: #aac7b6;
+        justify-content: center;
+        height: 480px;
+        width: 360px;
+      }
+      div .numberDate {
+        font-size: 84px;
+        text-align: center;
+        height: 90px;
+        margin-top: 100px;
+        margin-right: 5px;
+        margin-left: 5px;
+        width: 340px;
+      }
+      div .month {
+        font-size: 48px;
+        text-align: center;
+        color: #000000;
+        height: 54px;
+        margin-top: 40px;
+        margin-right: 5px;
+        margin-left: 5px;
+        width: 340px;
+      }
+      div .day {
+        font-size: 44px;
+        text-align: center;
+        color: #ffffff;
+        height: 52px;
+        margin-top: 40px;
+        margin-right: 5px;
+        margin-left: 5px;
+        width: 340px;
+      }
+      button {
+        display: block;
+        color: white;
+        margin: 40px auto;
+        height: 36px;
+        background-color: #1b61d1;
+        border: none;
+        border-radius: 8px;
+        height: 36px;
+        font-size: 14px;
+        font-weight: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="numberDate">Календар</div>
+      <div class="month"></div>
+      <div class="day"></div>
+      <button id="btn">Дізнайся який сьогодні день</button>
+    </div>
+
+    <script>
+      let date = new Date();
+      let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      let day = days[date.getDay()];
+      let months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      let month = months[date.getMonth()];
+      let numberDay = date.getDate();
+
+      document.querySelector("#btn").onclick = function () {
+        document.querySelector(".numberDate").innerHTML = numberDay;
+        document.querySelector(".month").innerHTML = month;
+        document.querySelector(".day").innerHTML = day;
+      };
+    </script>
+  </body>
+</html>
