@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let elementsOfGame = ["камінь", "ножиці", "папір"];
+        let countOfElemenstOfGame = elementsOfGame.length;
+
+        while(true){
+
+            let inputUser = prompt("Зробіть свій вибір : 'камінь', 'ножиці' чи 'папір'").toLowerCase();
+            let isCorrectInput = elementsOfGame.includes(inputUser);
+    
+            if(isCorrectInput){
+                let hiddenNumber = Math.floor(Math.random() * countOfElemenstOfGame);
+
+                if(inputUser === 'камінь' && hiddenNumber == 0
+                    || inputUser === 'ножиці' && hiddenNumber == 1
+                    || inputUser === 'папір' && hiddenNumber == 2){
+                        alert(`Ви вибрали - ${inputUser},\n компьютер = ${elementsOfGame[hiddenNumber]},\n Результат гри - нічия!`);
+                }
+                else if(inputUser === 'камінь' && hiddenNumber == 1
+                    || inputUser === 'ножиці' && hiddenNumber == 2
+                    || inputUser === 'папір' && hiddenNumber == 0){
+                        alert(`Ви вибрали - ${inputUser},\n компьютер = ${elementsOfGame[hiddenNumber]},\n Результат гри - Ви перемогли! Вітаємо!`);
+                }
+                else{
+                    alert(`Ви вибрали - ${inputUser},\n компьютер = ${elementsOfGame[hiddenNumber]},\n Результат гри - Ви програли(`);
+                }
+
+            }else{
+                alert("Невірний вибір");
+            }
+        }
+
+    </script>
+</body>
+</html>

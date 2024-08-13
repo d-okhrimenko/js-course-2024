@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let operands = ["+", "-", "*", "/"];
+        let correctAnswers = 0;
+        let inCorrectAnswers = 0;
+
+        while(true){
+
+            let firstNumber = Math.floor(Math.random() * 20);
+            let indexOfOperand = Math.floor(Math.random() * 4);
+            let secondNumber = Math.floor(Math.random() * 10);
+
+            let expressionResult = 0;
+            switch(operands[indexOfOperand]){
+                case "+":
+                    expressionResult = firstNumber + secondNumber;
+                    break;
+                case "-":
+                    expressionResult = firstNumber - secondNumber;
+                    break;
+                case "*":
+                    expressionResult = firstNumber * secondNumber;
+                    break;
+                case "/":
+                    expressionResult = firstNumber / secondNumber;
+                    break;
+            }
+
+            let numberRemainingAttempts = 3;
+            while(numberRemainingAttempts > 0){
+
+                let userAnswer = prompt(`Дайте вірну відповідь: ${firstNumber} ${operands[indexOfOperand]} ${secondNumber} = \nЗалишилось спроб - ${numberRemainingAttempts}`);
+                let isNumber = !isNaN(userAnswer);
+
+                if(isNumber){
+                    let userNumber = parseInt(userAnswer);
+                    if(userNumber === expressionResult){
+                        alert("Відповідь вірна");
+                        correctAnswers++;
+                        break;
+                    }else{
+                        numberRemainingAttempts--;
+                        alert(`Невірна відповідь, подумайте ще. \nЗалишилось спроб: ${numberRemainingAttempts}`);
+                    }
+        
+                }else{
+                    numberRemainingAttempts--;
+                    alert(`Невірний ввод. \nЗалишилось спроб: ${numberRemainingAttempts}`);
+                }
+                if(numberRemainingAttempts == 0){
+
+                    inCorrectAnswers++;
+                }
+            }
+
+            alert(`Вірних відповідей - ${correctAnswers}\nНевірних відповідей - ${inCorrectAnswers}`)
+        }
+
+    </script>
+</body>
+</html>
