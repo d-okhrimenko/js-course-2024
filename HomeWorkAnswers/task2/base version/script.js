@@ -31,9 +31,7 @@ function calculateTrianglePerimeter(sides) {
     let side2 = parseInt(sidesList[1])
     let side3 = parseInt(sidesList[2])
 
-    console.log("мене використали")
     return side1 + side2 + side3
-    
 }
 
 function calculateTriangleArea(sides) {
