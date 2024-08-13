@@ -8,18 +8,8 @@
 </head>
 
 <body>
+    <script src="./my-library.js"></script>
     <script>
-        function getNumericValue(message) {
-            while (true) {
-                let value = prompt(message);
-                let isValid = !isNaN(value) && value !== "" && value !== null;
-                if (isValid) {
-                    value = Number(value);
-                    if (value > 0) return value;
-                }
-            }
-        }
-
         let toCalculateIMT = (m, h) => m / Math.pow(h / 100, 2);
 
         function getCategoryIMT(imt) {
