@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik+Wet+Paint&family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Lesson 5</title>
+  </head>
+  <body>
+    <div class="shapes">
+      <h2 class="shapes-title">
+        Порахуйте <span class="color-square">площу</span> та
+        <span class="color-perimeter">периметр</span> геометричних фігур
+      </h2>
+      <div class="wrapper">
+        <img src="./images/shapes.jpg" alt="shapes" width="300" />
+        <div class="inner">
+          <h3 class="sub-title">Оберіть фігуру</h3>
+          <p class="values">
+            Введіть значення, яке буде використане для обчислення
+          </p>
+          <div class="geometric-shapes">
+            <button class="square shapes-btn" id="square"></button>
+            <button class="rectangle shapes-btn" id="rectangle"></button>
+            <button class="circle shapes-btn" id="circle"></button>
+            <button class="triangle shapes-btn" id="triangle"></button>
+          </div>
+          <div class="output">
+            <label
+              class="shapes-label"
+              for="firstValueInput"
+              id="firstValueLabel"
+            ></label>
+            <input
+              class="shapes-input"
+              type="text"
+              id="firstValueInput"
+              maxlength="4"
+            />
+
+            <label
+              class="shapes-label"
+              for="secondValueInput"
+              id="secondValueLabel"
+            ></label>
+            <input
+              class="shapes-input"
+              type="text"
+              id="secondValueInput"
+              maxlength="4"
+            />
+
+            <label
+              class="shapes-label"
+              for="thirdValueInput"
+              id="thirdValueLabel"
+            ></label>
+            <input
+              class="shapes-input"
+              type="text"
+              id="thirdValueInput"
+              maxlength="4"
+            />
+          </div>
+
+          <button class="count" id="count"><span>Порахувати</span></button>
+          <p class="result" id="shapesResult">
+            Тут буде відображатись результат обчислень
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bmi">
+      <h2 class="bmi-title">Порахуйте індекс маси тіла ( ІМТ )</h2>
+      <div class="wrapper">
+        <div class="inner">
+          <p class="values">Введіть зріст у см та вагу у кг для обчислення</p>
+
+          <div class="output">
+            <label class="bmi-label" for="weightInput" id="weight">Вага</label>
+            <input
+              class="bmi-input"
+              type="text"
+              id="weightInput"
+              maxlength="3"
+            />
+
+            <label class="bmi-label" for="heightInput" id="height">Зріст</label>
+            <input
+              class="bmi-input"
+              type="text"
+              id="heightInput"
+              maxlength="3"
+            />
+          </div>
+          <div class="buttons">
+            <button class="count countBMI" id="countBMI">
+              <span>Порахувати</span>
+            </button>
+            <button class="count countBMI" id="resetBMI">
+              <span>Очистити</span>
+            </button>
+          </div>
+
+          <p class="result" id="resultBMI">
+            Тут буде відображатись результат обчислень
+          </p>
+        </div>
+        <img src="./images/bmi.jpg" alt="shapes" width="400" />
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
