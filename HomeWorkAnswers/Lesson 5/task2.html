@@ -54,12 +54,13 @@
 						let areaCircle = getCircleArea(radius);
 						let perimeterCircle = getCirclePerimeter(radius);
 
-						console.log(areaCircle);
-						console.log(perimeterCircle);
+						console.log(`Площа круга ${areaCircle}`);
+						console.log(`Періметр круга ${perimeterCircle}`);
 
 						return "Коло";
 
 					case "2":
+                        
 						return "Трикутник";
 					case "3":
 						let getRectangleArea = (length, width) => length * width;
@@ -73,8 +74,8 @@
 						let areaRect = getRectangleArea(length, width);
 						let perimeterRect = getRectanglePerimeter(length, width);
 
-						console.log(areaRect);
-						console.log(perimeterRect);
+						console.log(`Площа прямокутника ${areaRect}`);
+						console.log(`Періметр прямокутника${perimeterRect}`);
 						return "Прямокутник";
 				}
 			}
