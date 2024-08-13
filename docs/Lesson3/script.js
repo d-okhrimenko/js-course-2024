@@ -1,16 +1,31 @@
 // CLASSWORK
 
-document.querySelector("#btnToC").onclick = function () {
-  let tempF = +document.querySelector("#temp").value;
-  let tempC = ((5 / 9) * (tempF - 32)).toFixed(2);
-  showResult(tempC);
+let getValue = () => +document.querySelector("#temp").value;
+let toCelcius = (temp) => ((5 / 9) * (temp - 32)).toFixed(2);
+let toFarenheit = (temp) => ((9 / 5) * temp + 32).toFixed(2);
+
+let convert = (converter) => {
+  return () => {
+    let temp = getValue();
+    let value = converter(temp);
+    showResult(value);
+  };
 };
 
-document.querySelector("#btnToF").onclick = function () {
-  let tempC = +document.querySelector("#temp").value;
-  let tempF = ((9 / 5) * tempC + 32).toFixed(2);
-  showResult(tempF);
-};
+document.querySelector("#btnToC").onclick = convert(toCelcius);
+document.querySelector("#btnToF").onclick = convert(toFarenheit);
+
+// document.querySelector("#btnToC").onclick = function () {
+//   let tempF = +document.querySelector("#temp").value;
+//   let tempC = ((5 / 9) * (tempF - 32)).toFixed(2);
+//   showResult(tempC);
+// };
+
+// document.querySelector("#btnToF").onclick = function () {
+//   let tempC = +document.querySelector("#temp").value;
+//   let tempF = ((9 / 5) * tempC + 32).toFixed(2);
+//   showResult(tempF);
+// };
 
 function showResult(result) {
   let output = document.querySelector("#output");
