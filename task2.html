@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 2</title>
+</head>
+
+<body>
+
+    <script>
+
+        function startGame() {
+            let numberOfQuestions = parseInt(prompt('Скільки математичних виразів ви хочете отримати?'));
+            playGame(numberOfQuestions);
+        }
+
+        function playGame(numberOfQuestions) {
+            let correctAnswers = 0;
+            let wrongAnswers = 0;
+
+            for (let i = 0; i < numberOfQuestions; i++) {
+                let num1 = Math.floor(Math.random() * 10) + 1;
+                let num2 = Math.floor(Math.random() * 10) + 1;
+                let operator = ['+', '-', '*', '/'][Math.floor(Math.random() * 3)];
+
+                let expression = `${num1} ${operator} ${num2}`;
+                let userAnswer = parseInt(prompt(`Обчисліть вираз: ${expression}`));
+                let correctAnswer = eval(expression);
+
+                if (userAnswer === correctAnswer) {
+                    correctAnswers++;
+                    alert('Правильно!');
+                } else {
+                    wrongAnswers++;
+                    alert(`Неправильно. Правильна відповідь: ${correctAnswer}`);
+                }
+            }
+
+            alert(`Гра завершена! Правильних відповідей: ${correctAnswers}, неправильних відповідей: ${wrongAnswers}`);
+
+
+        }
+
+        startGame();
+
+
+    </script>
+</body>
+
+</html>
