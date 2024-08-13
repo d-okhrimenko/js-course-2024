@@ -19,7 +19,7 @@ body {
   display: inline-block;
   margin: 0 auto;
   font-family: "Kablammo", system-ui;
-  font-size: 96px;
+  font-size: 66px;
   text-align: center;
   margin-bottom: 30px;
   color: #300856;
@@ -43,14 +43,14 @@ body {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 50px 100px;
+  gap: 30px;
   justify-content: center;
   align-items: stretch;
 }
 
 .game {
-  max-width: 660px;
-  padding: 16px 20px 25px;
+  max-width: 580px;
+  padding: 16px 20px;
   background-color: rgba(250, 247, 229, 0.8);
   background-blend-mode: overlay;
   border-radius: 15px;
@@ -80,13 +80,13 @@ body {
 
 
 .game-title {
-  font-size: 24px;
+  font-size: 20px;
   color: #300856;
   text-align: left;
 }
 
 .rule {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 10px;
 }
 
@@ -101,17 +101,17 @@ body {
 
 .descr {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   max-width: 600px;
 }
 
 .descr-input {
   max-width: 80px;
-  height: 30px;
+  height: 28px;
   margin-left: 10px;
   border-radius: 8px;
   border: 1px solid #300856;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   outline: #300856;
 }
@@ -132,21 +132,21 @@ body {
 
 .attempt span {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .message {
   font-style: italic;
   margin: 8px auto 12px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: #300856;
 }
 
 .btn {
-  width: 250px;
-  padding: 10px 20px;
-  font-size: 18px;
+  width: 220px;
+  padding: 8px 15px;
+  font-size: 16px;
   text-transform: uppercase;
   background-color: #300856;
   color: #ffffff;
@@ -168,8 +168,8 @@ body {
 }
 
 .btn-img {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 8px;
   border: 1px solid #300856;
   cursor: pointer;
@@ -187,20 +187,21 @@ body {
 }
 
 .btn-img img {
-  width: 63px;
-  height: 63px;
+  width: 53px;
+  height: 53px;
   object-fit: cover;
 }
 
 .score {
-  font-size: 24px;
+  font-size: 20px;
   color: #eb175e;
   font-weight: 700;
   text-transform: uppercase;
+  padding-top: 5px;
 }
 
 .expression {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
   margin: 12px auto;
   color: #300856;
