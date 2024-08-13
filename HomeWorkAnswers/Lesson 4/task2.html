@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let firstNumber = Math.floor(Math.random() * 100) + 1;
+        let secondNumber = Math.floor(Math.random() * 100) + 1;
+
+        const operators = ['+', '-', '*', '/'];
+        let signIndex = Math.floor(Math.random() * operators.length);
+        let sign = operators[signIndex];
+        console.log(sign);
+
+        let example;
+        let answer;
+        switch (sign) {
+            case '+':
+                example = firstNumber + secondNumber;
+                break;
+            case '-':
+                example = firstNumber - secondNumber;
+                break;
+            case '*':
+                example = firstNumber * secondNumber;
+                break;
+            case '/':
+                example = firstNumber / secondNumber;
+                break;
+        }
+
+        console.log(example);
+
+        let rightCounter = 0;
+        let wrongCounter = 0;
+
+        for (let i = 1; i <= 5; i++) {
+            let answer = +prompt("Введіть відповідь!");
+            let isValid = !isNaN(answer) && answer !== "" && answer !== null;
+            if (isValid) {
+
+                if (answer === example) {
+                    rightCounter += 1;
+                    alert("Ви відгадали!!!!");
+                    break;
+
+                } else {
+                    wrongCounter += 1;
+                }
+            } else {
+                alert("Введіть коректно число");
+            }
+
+        }
+        alert(`Правильних відповідей: ${rightCounter}, НЕправильних відповідей: ${wrongCounter}`);
+
+    </script>
+</body>
+
+</html>
