@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Body Mass Index</title>
+    <link rel="stylesheet" href="css-5/task1.css" />
+    <script src="../commonLibrary/validation.js"></script>
+    <script src="scripts-5/task1.js" defer></script>
+  </head>
+  <body>
+    <h1>Body Mass Index Calculator</h1>
+    <p class="error hidden" id="error">Please enter valid values for weight and height</p>
+    <form id="bmiForm">
+      <fieldset>
+        <legend>Enter your personal data</legend>
+        <div class="input">
+          <label for="weight">Weight (kg):</label>
+          <input type="number" id="weight" name="weight" min="2" max="300" step="0.1" required placeholder="67.5" />
+        </div>
+        <div class="input">
+          <label for="height">Height (cm):</label>
+          <input type="number" id="height" name="height" min="40" max="250" step="0.1" required placeholder="170.5" />
+        </div>
+      </fieldset>
+
+      <button type="button" class="btn btn-center">Calculate BMI</button>
+    </form>
+
+    <div class="result">
+      <p class="bmi">BMI: <span id="bmiResult"></span></p>
+      <p class="category">Category: <span id="bmiCategory"></span></p>
+    </div>
+  </body>
+</html>
