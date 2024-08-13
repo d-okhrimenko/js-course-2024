@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getOperatorName(key) {
+            switch (key) {
+                case 0:
+                    return "+";
+                case 1:
+                    return "-";
+                case 2:
+                    return "*";
+                case 3:
+                    return "/";
+            }
+        }
+
+        function getResult(mathOperator, firstOperand, secondOperand) {
+            if (mathOperator == "+") {
+                return firstOperand + secondOperand;
+            } else if (mathOperator == "-") {
+                return firstOperand - secondOperand;
+            } else if (mathOperator == "*") {
+                return firstOperand * secondOperand;
+            } else {
+                return floor(firstOperand / secondOperand, -2);
+            }
+        }
+
+        let endGame = false;
+
+        alert("Вітаю. Зіграємо в гру \"Математичний квіз\"");
+        do {
+            let mathOperator = getOperatorName(Math.floor(Math.random() * 4));
+            let firstOperand = Math.floor(Math.random() * 100 + 1);
+            let secondOperand = Math.floor(Math.random() * 100 + 1);
+            let trueAnswer = getResult(mathOperator, firstOperand, secondOperand);
+            let countTrueAnswer = 0;
+            let countFalseStep = 1;
+
+            for (k = 3; k != 0; k--) {
+                let userAnswer = parseFloat(prompt(`Обчисліть будь-ласка вираз з точністю до 2-ох знаків після коми: ${firstOperand} ${mathOperator} ${secondOperand}`));
+                if (userAnswer == trueAnswer) {
+                    countTrueAnswer += 1;
+                    alert(`Правильна відповідь. Молодець!!!. К-сть спроб ${countFalseStep}`);
+                    break;
+                } else {
+                    alert(`Невірна відповідь. Залишилось ${k - 1} спроб.`);
+                    countFalseStep += 1;
+                    alert(trueAnswer);
+                }
+            }
+            if (parseInt(prompt("Спробуєм ще раз? (1 - Так, будь-який вибір - Ні)")) != 1) {
+                endGame = true;
+            }
+
+        } while (!endGame)
+    </script>
+</body>
+</html>
