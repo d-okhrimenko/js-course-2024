@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let enterYear = +prompt("Введіть рік");
+      let yearValue = parseInt(enterYear); //перетворення з рядка на число
+
+      if (isNaN(yearValue)) {
+        //перевірка чи коректне число
+        alert("Введене значення не є числом");
+      } else {
+        if (yearValue % 4 === 0) {
+          alert(" Високосний");
+        } else {
+          alert("Невисокосний");
+        }
+      }
+    </script>
+  </body>
+</html>
