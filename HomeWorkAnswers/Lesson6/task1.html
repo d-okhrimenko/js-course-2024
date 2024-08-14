@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 6 - Task 1</title>
+</head>
+
+<body>
+    <script src="./my-library.js"></script>
+    <script>
+        function getArrayRandomPoints(numberPoints = 10) {
+            let points = Array.from({ length: numberPoints }, () => {
+                let randomPoint = Math.floor(Math.random() * 101); // 0..100
+                return randomPoint;
+            });
+            return points;
+        }
+
+        function getSumArrayPoints(points) {
+            let sumPoints = 0;
+            for (let point of points) {
+                sumPoints += point;
+            }
+            return sumPoints;
+        }
+
+        let calculateAveragePoints = (points) => getSumArrayPoints(points) / points.length;
+
+        let getMaxPoint = (points) => Math.max(...points);
+
+        let getMinPoint = (points) => Math.min(...points);
+
+        let numberPoints = getNumericValue("Введіть кількість оцінок:");
+        let points = getArrayRandomPoints(numberPoints);
+        let averagePoints = calculateAveragePoints(points).toFixed(2);
+        let maxPoint = getMaxPoint(points);
+        let minPoint = getMinPoint(points);
+
+        alert(`Згенеровано оцінок студентів: ${numberPoints}.\nСередній бал: ${averagePoints}.\nМаксимальний бал: ${maxPoint}.\nМінімальний бал: ${minPoint}.`);
+        console.log(points);
+    </script>
+
+</body>
+
+</html>
