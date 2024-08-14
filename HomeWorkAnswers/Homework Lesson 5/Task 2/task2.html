@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area and perimeter</title>
+  <link rel="stylesheet" href="task2.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Area and Perimeter Calculator</h1>
+    <div class="sections">
+      <section>
+        <h2>Circle</h2>
+        <p>Input Radius:</p>
+        <input type="number" id="circleRadius">
+        <br>
+        <button onclick="calculateCircle()">Calculate Circle</button>
+        <p>Circle Area: <span id="circleArea"></span></p>
+        <p>Circle Perimeter: <span id="circlePerimeter"></span></p>
+      </section>
+      <section>
+        <h2>Rectangle</h2>
+        <p>Input Length:</p>
+        <input type="number" id="rectangleLength">
+        <p>Input Width:</p>
+        <input type="number" id="rectangleWidth">
+        <br>
+        <button onclick="calculateRectangle()">Calculate Rectangle</button>
+        <p>Rectangle Area: <span id="rectangleArea"></span></p>
+        <p>Rectangle Perimeter: <span id="rectanglePerimeter"></span></p>
+      </section>
+      <section>
+        <h2>Triangle</h2>
+        <p>Input First Side Length:</p>
+        <input type="number" id="firstSideLength">
+        <p>Input Second Side Length:</p>
+        <input type="number" id="secondSideLength">
+        <p>Input Third Side Length:</p>
+        <input type="number" id="thirdSideLength">
+        <br>
+        <button onclick="calculateTriangle()">Calculate Triangle</button>
+        <p>Triangle Area: <span id="triangleArea"></span></p>
+        <p>Triangle Perimeter: <span id="trianglePerimeter"></span></p>
+      </section>
+    </div>
+  </div>
+  <script src="task2.js"></script>
+</body>
+</html>
