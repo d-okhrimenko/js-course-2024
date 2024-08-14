@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../common/my-library.js"></script>
+    <script>
+      function countIMT(weight, height) {
+        return weight / (height * height);
+      }
+
+      function defineIMTcategory(IMT) {
+        if (IMT < 18.5) {
+          return " Недостатня вага: ІМТ < 18.5";
+        } else if (IMT >= 18.5 && IMT < 24.9) {
+          return " Нормальна вага: 18.5 ≤ ІМТ < 24.9";
+        } else if (IMT >= 24.9 && IMT < 29.9) {
+          return " Надмірна вага: 25 ≤ ІМТ < 29.9";
+        } else {
+          return " Ожиріння: ІМТ ≥ 30";
+        }
+      }
+
+      const weight = getNumericValue("Введіть вагу людини в кг");
+      const height = getNumericValue("Введіть зріст людини в м");
+
+      let IMT = countIMT(weight, height);
+      let roundedIMT = Math.round(IMT * 10) / 10;
+
+      let categoryIMT = defineIMTcategory(roundedIMT);
+
+      alert("Показник ІМТ, кг/м2: " + roundedIMT + categoryIMT);
+    </script>
+  </body>
+</html>
