@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 4 - Task 1</title>
+</head>
+
+<body>
+    <script>
+        function showMsg(message) {
+            console.log(message);
+            alert(message);
+        }
+
+        showMsg(`Вітаємо у грі "Камінь, ножиці, папір"!`);
+
+        let userName = prompt("Введіть ваше ім'я у грі:");
+        if (userName === null || userName === "") {
+            userName = "невідомий гравець";
+        }
+
+        let game = true;
+        let rounds = 1, attempts = 3, totalWinUser = 0, totalWinComputer = 0, totalEqually = 0;
+
+        let valueRounds = prompt("Введіть кількість раундів гри:");
+        let isValidRounds = !isNaN(valueRounds) && valueRounds !== "" && valueRounds !== null;
+        if (isValidRounds) {
+            rounds = Number(valueRounds) || rounds;
+        }
+
+        let valueAttempts = prompt("Введіть кількість спроб у кожному раунді:");
+        let isValidAttempts = !isNaN(valueAttempts) && valueAttempts !== "" && valueAttempts !== null;
+        if (isValidAttempts) {
+            attempts = Number(valueAttempts) || attempts;
+        }
+
+        showMsg(`Чудовий початок, ${userName},\nгра матиме раундів: ${rounds},\nу кожному раунді буде спроб: ${attempts}.`);
+
+        let totalRounds = 0;
+        let totalAttempts = 0;
+        let currentRound = 0;
+        let roundIsNotOver = false;
+        let roundOver = 0;
+
+        // раунди
+        for (let round = 0; round < rounds; round++) {
+            let winUserRound = 0, winComputerRound = 0, equallyRound = 0;
+            currentRound += 1;
+
+            // спроби у раунді
+            for (let attempt = 0; attempt < attempts; attempt++) {
+
+                console.log(`Раунд ${round + 1}-${attempt + 1}`);
+
+                // вибір комп'ютера
+                let valueComputer;
+                let randomNumberComputer = Math.floor(Math.random() * 3) + 1; // 1 або 2 або 3
+                switch (randomNumberComputer) {
+                    case 1:
+                        valueComputer = "камінь";
+                        break;
+                    case 2:
+                        valueComputer = "ножиці";
+                        break;
+                    default:
+                        valueComputer = "папір";
+                        break;
+                }
+
+                // console.log(`Комп'ютер обрав ${valueComputer}`);
+
+                let valueUser;
+                let isValidUserInput = "";
+                while (!isValidUserInput) {
+                    valueUser = prompt(`Раунд ${round + 1}-${attempt + 1}\nВи обираєте - камінь, ножиці, папір чи вихід?`);
+                    if (valueUser !== null) {
+                        valueUser = valueUser.toLowerCase().trim();
+                    }
+                    isValidUserInput = (valueUser === "камінь") || (valueUser === "ножиці") || (valueUser === "папір") || (valueUser === "вихід");
+                }
+
+                // console.log(`Гравець обрав ${valueUser}`);
+
+                if (valueUser === "вихід") {
+                    game = false;
+                    roundIsNotOver = true; // поточний раунд завершився виходом з гри
+                    break;
+                }
+
+                if (valueUser === valueComputer) {
+                    equallyRound += 1;
+                    showMsg(`нічия`);
+                } else if (valueComputer === "камінь") {
+                    if (valueUser === "ножиці") {
+                        winComputerRound += 1;
+                        showMsg(`${valueComputer} комп'ютера б'є ваші ${valueUser}`);
+                    } else if (valueUser === "папір") {
+                        winUserRound += 1;
+                        showMsg(`ваш ${valueUser} б'є ${valueComputer} комп'ютера`);
+                    }
+                } else if (valueComputer === "ножиці") {
+                    if (valueUser === "камінь") {
+                        winUserRound += 1;
+                        showMsg(`ваш ${valueUser} б'є ${valueComputer} комп'ютера`);
+                    } else if (valueUser === "папір") {
+                        winComputerRound += 1;
+                        showMsg(`${valueComputer} комп'ютера б'ють ваш ${valueUser}`);
+                    }
+                } else if (valueComputer === "папір") {
+                    if (valueUser === "камінь") {
+                        winComputerRound += 1;
+                        showMsg(`${valueComputer} комп'ютера б'є ваш ${valueUser}`);
+                    } else if (valueUser === "ножиці") {
+                        winUserRound += 1;
+                        showMsg(`ваші ${valueUser} б'ють ${valueComputer} комп'ютера`);
+                    }
+                }
+                totalAttempts += 1;
+            }
+
+            roundOver = (roundIsNotOver) ? `раунд ${currentRound} не завершився повністю` : roundOver;
+            totalRounds += 1;
+            totalWinUser += winUserRound;
+            totalWinComputer += winComputerRound;
+            totalEqually += equallyRound;
+
+            if (!game) {
+                showMsg(`${userName}, ви вийшли з гри`);
+                totalRounds -= 1; // поточний раунд завершився достроково
+                console.log(`Раунд ${currentRound} не завершився повністю`);
+                break;
+            }
+
+            showMsg(`У ${round + 1} раунді:\nваших перемог: ${winUserRound},\nперемог комп'ютера: ${winComputerRound},\nнічиїх: ${equallyRound}.`);
+        }
+        showMsg(`Результати гри:\nповних раундів/незавершені раунди/усього спроб:\n${totalRounds}/${roundOver}/${totalAttempts},\nваших перемог: ${totalWinUser},\nперемог комп'ютера: ${totalWinComputer},\nнічиїх: ${totalEqually}.`);
+    </script>
+</body>
+
+</html>
