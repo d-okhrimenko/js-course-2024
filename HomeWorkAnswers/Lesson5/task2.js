@@ -1,64 +1,119 @@
-document.querySelector("#circle").addEventListener("click", calculateCircle);
+document.querySelector("#circle").addEventListener("click", showCircleCalculation);
+
+let getCircleRadius = () => getNumValue("#radius");
 
 let getCircleArea = radius => Math.PI * Math.pow(radius, 2);
+
 let getCirclePerimetr = radius => 2 * Math.PI * radius;
 
-function calculateCircle() {
-   const circleRadius = getNumValue("#radius");
-   if (circleRadius !== null) {
-      let circleArea = getCircleArea(circleRadius).toFixed(2);
-      let circlePerimetr = getCirclePerimetr(circleRadius).toFixed(2);
+let calculateCircleArea = () => {
+   let radius = getCircleRadius();
+   return getCircleArea(radius).toFixed(2);
+}
 
-      return showResult(`Circle area = ${circleArea}<br>Circle perimetr = ${circlePerimetr}`, "#circleOutput");
+let calculateCirclePerimetr = () => {
+   let radius = getCircleRadius();
+   return getCirclePerimetr(radius).toFixed(2);
+}
+
+function showCircleCalculation() {
+   let radius = getCircleRadius();
+
+   if (radius !== null && radius > 0) {
+      const area = calculateCircleArea();
+      const perimetr = calculateCirclePerimetr();
+
+      return showResult(`Circle area = ${area}<br>Circle perimetr = ${perimetr}`, "#circleOutput");
    } else {
       showResult(`Please enter a valid number`, "#circleOutput");
    }
 }
 
 
-document.querySelector("#rectangle").addEventListener("click", calculateRectangle);
+document.querySelector("#rectangle").addEventListener("click", showRectCalculation);
 
-let getRectangleArea = (length, width) => length * width;
-let getRectanglePerimetr = (length, width) => 2 * (length + width);
+let getRectLength = () => getNumValue("#length");
 
-function calculateRectangle() {
-   const rectLength = getNumValue("#length");
-   const rectWidth = getNumValue("#width");
+let getRectWidth = () => getNumValue("#width");
 
-   if (rectLength !== null && rectWidth !== null) {
-      let rectangleArea = getRectangleArea(rectLength, rectWidth);
-      let rectanglePerimetr = getRectanglePerimetr(rectLength, rectWidth);
+let getRectArea = (length, width) => length * width;
 
-      return showResult(`Rectangle area = ${rectangleArea}<br>Rectangle perimetr = ${rectanglePerimetr}`, "#rectangleOutput");
+let getRectPerimetr = (length, width) => 2 * (length + width);
+
+let calculateRectArea = () => {
+   let length = getRectLength();
+   let width = getRectWidth();
+
+   return getRectArea(length, width);
+}
+
+let calculateRectPerimetr = () => {
+   let length = getRectLength();
+   let width = getRectWidth();
+
+   return getRectPerimetr(length, width);
+}
+
+let isValidRectangle = (length, width) => length !== null && width !== null && length > 0 && width > 0;
+
+function showRectCalculation() {
+   let length = getRectLength();
+   let width = getRectWidth();
+
+   if (isValidRectangle(length, width)) {
+      let area = calculateRectArea();
+      let perimetr = calculateRectPerimetr();
+
+      return showResult(`Rectangle area = ${area}<br>Rectangle perimetr = ${perimetr}`, "#rectangleOutput");
    } else {
       showResult(`Please enter a valid number`, "#rectangleOutput");
    }
 }
 
 
-document.querySelector("#triangle").addEventListener("click", calculateTriangle);
+document.querySelector("#triangle").addEventListener("click", showTriangleCalculation);
 
-let getTrianglePerimetr = (a, b, c) => a + b + c;
+let getSideA = () => getNumValue("#sideA");
+let getSideB = () => getNumValue("#sideB");
+let getSideC = () => getNumValue("#sideC");
 
 let getTriangleArea = (a, b, c) => {
    let p = getTrianglePerimetr(a, b, c) / 2;
    return Math.sqrt((p * (p - a) * (p - b) * (p - c)));
 }
 
-let isValidTriangle = (a, b, c) => {
-   return (a + b > c) && (a + c > b) && (b + c > a);
+let getTrianglePerimetr = (a, b, c) => a + b + c;
+
+let calculateTriangleArea = () => {
+   let a = getSideA();
+   let b = getSideB();
+   let c = getSideC();
+
+   return getTriangleArea(a, b, c).toFixed(2);
 }
 
-function calculateTriangle() {
-   const sideA = getNumValue("#sideA");
-   const sideB = getNumValue("#sideB");
-   const sideC = getNumValue("#sideC");
+let calculateTrianglePerimetr = () => {
+   let a = getSideA();
+   let b = getSideB();
+   let c = getSideC();
 
-   if (sideA !== null && sideB !== null && sideC !== null) {
-      if (isValidTriangle(sideA, sideB, sideC)) {
-         let trianglePerimetr = getTrianglePerimetr(sideA, sideB, sideC);
-         let triangleArea = getTriangleArea(sideA, sideB, sideC).toFixed(2);
-         return showResult(`Triangle area = ${triangleArea}<br>Triangle perimetr = ${trianglePerimetr}`, "#triangleOutput");
+   return getTrianglePerimetr(a, b, c);
+}
+
+let isRightTriangle = (a, b, c) => (a + b > c) && (a + c > b) && (b + c > a);
+
+let isValidTriangle = (a, b, c) => (a !== null && a > 0) && (b !== null && b > 0) && (c !== null && c > 0);
+
+function showTriangleCalculation() {
+   let a = getSideA();
+   let b = getSideB();
+   let c = getSideC();
+
+   if (isValidTriangle(a, b, c)) {
+      if (isRightTriangle(a, b, c)) {
+         let area = calculateTriangleArea();
+         let perimetr = calculateTrianglePerimetr();
+         return showResult(`Triangle area = ${area}<br>Triangle perimetr = ${perimetr}`, "#triangleOutput");
       } else {
          showResult(`The sum of two sides of a triangle must always be greater than the third side.`, "#triangleOutput");
       }
