@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 4. Завдання 2</title>
+</head>
+
+<body>
+    <!-- Завдання 2
+
+Гра: "Математичний квіз"
+
+Опис гри:
+Програма генерує випадкові математичні вирази (додавання, віднімання, множення, ділення) 
+та запитує у користувача правильну відповідь. Користувач має обмежену кількість спроб, 
+щоб дати правильну відповідь. Програма виводить кількість правильних та неправильних 
+відповідей після завершення гри.
+
+Кроки для виконання завдання:
+
+1. Генерація математичних виразів:
+
+	- Використайте Math.random() для генерації двох випадкових чисел і оператора (+, -, *, /).
+
+2. Запит правильних відповідей:
+
+	- Використайте prompt для запиту відповідей у користувача.
+
+3 Перевірка відповідей:
+
+	- Використайте умовні конструкції для перевірки правильності відповідей.
+
+4 Підрахунок результатів:
+
+	- Підрахуйте кількість правильних та неправильних відповідей.
+
+5.Виведення результатів:
+
+	- Використайте alert для виведення підсумкових результатів. -->
+    <p>Опис гри:</p>
+    <ul>
+        <li>Програма генерує випадкові математичні вирази (додавання, віднімання, множення, ділення)
+            та запитує у користувача правильну відповідь. </li>
+        <li> Користувач має обмежену кількість спроб,
+            щоб дати правильну відповідь.</li>
+        <li>Програма виводить кількість правильних та неправильних
+            відповідей після завершення гри.</li>
+    </ul>
+    <script>
+        setTimeout(function () { Application(); }, 1000);
+        function randomIntFromInterval(min, max) { // min and max included 
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        function nameitem(p_num) {
+            switch (p_num) {
+                case 1:
+                    return 'додати';
+                    break;
+                case 2:
+                    return 'відняти';
+                    break;
+                case 3:
+                    return 'помножити';
+                    break;
+                case 4:
+                    return 'поділити';
+                    break;
+            }
+        }
+        function Application() {
+            let l_match = 5;
+            let l_false_count = 3;
+            let l_valid = 0;
+            
+            for (let i = 1; i <= l_match; i++) { // 1
+                let firstNum = randomIntFromInterval(1, 10);
+                let secondNum = randomIntFromInterval(1, 10);
+                let operator = randomIntFromInterval(1, 4);
+                for (let j = 1; j <= l_false_count; j++) {
+                    let l_prompt = prompt("Завдання "+i+". Спроба "+j+". Введіть результат " + firstNum + " " + nameitem(operator) + " " + secondNum);
+                    let l_num = Number(l_prompt);
+                    if (!isNaN(l_num)) {
+                        switch (operator) {
+                            case 1:
+                                l_result = firstNum+secondNum;
+                                break;
+                            case 2:
+                                l_result = firstNum-secondNum;
+                                break;
+                            case 3:
+                                l_result = firstNum*secondNum;
+                                break;
+                            case 4:
+                                l_result = firstNum/secondNum;
+                                break;
+                        }
+                        if ( Math.trunc(l_result) === l_num) {
+                            l_valid = l_valid + 1;
+                            alert("Вірно");
+                            break;
+                        } else {
+                            alert("Помилка");
+                        }
+                    } else {
+                        s_result = "Введено " + l_prompt + ". Це не число!";
+                    }
+                }
+            }
+            alert("Вірних відповідей "+l_valid+" з "+l_match+" завдань.")
+        }
+
+    </script>
+
+</body>
+
+</html>
