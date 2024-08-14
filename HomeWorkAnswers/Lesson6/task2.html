@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 6 - Task 2</title>
+</head>
+
+<body>
+    <script src="./my-library.js"></script>
+    <script>
+        function shoppingCart() {
+            let goods = [];
+            let exitFromCart = false;
+            let optionsCart = ["додати", "видалити", "список", "вихід"];
+            let productName;
+
+            let itemInCart = (items, item) => items.includes(item);
+
+            let addItemToCart = (items, item) => items.push(item);
+
+            function optionAddProduct(productName, catalogue) {
+                if (productName === null) return;
+                if (productName.trim() === "") {
+                    alert("Ви не вказали найменування товару.");
+                    return;
+                };
+                productName = productName.toLowerCase().trim();
+                addItemToCart(catalogue, productName);
+                alert(`Товар "${productName}" успішно доданий у кошик!`);
+            }
+
+            function optionRemoveProduct(productName, catalogue) {
+                if (productName === null) return;
+                if (!itemInCart(catalogue, productName)) {
+                    alert(`Товар з назвою "${productName}" у кошику відсутній!\nПерегляньте (список) товарів у кошику.`);
+                } else {
+                    productName = productName.toLowerCase().trim();
+                    let indexItem = catalogue.indexOf(productName);
+                    if (indexItem > -1) {
+                        catalogue.splice(indexItem, 1);
+                    }
+                    alert(`Товар "${productName}" успішно видалений з кошика!`);
+                }
+            }
+
+            function optionRevisionProduct(catalogue) {
+                let headCart = "Товари в кошику на цей момент:\n";
+                let tailCart = "";
+                for (let item of catalogue) {
+                    tailCart += `- ${item}\n`;
+                }
+                alert(`${headCart}${tailCart || "відсутні"}`);
+            }
+
+            while (true) {
+                let valueUser = getStringValue(`Оберіть опцію кошика покупок:\n(додати) новий товар у кошик,\n(видалити) наявний товар з кошику,\nнадрукувати (список) товарів з кошика\nчи (вихід) з кошика?`, optionsCart);
+
+                switch (valueUser) {
+                    case "вихід":
+                        exitFromCart = true;
+                        break;
+                    case "додати":
+                        productName = prompt("Введіть назву товару, щоб покласти його у кошик:");
+                        optionAddProduct(productName, goods);
+                        break;
+                    case "видалити":
+                        if (goods.length === 0) {
+                            alert(`Кошик порожній.\nСпочатку додайте у кошик товар.`);
+                            continue;
+                        }
+                        productName = prompt("Введіть назву товару, який потрібно видалити з кошика:");
+                        optionRemoveProduct(productName, goods);
+                        break;
+                    default:
+                        optionRevisionProduct(goods);
+                        break;
+                }
+
+                if (exitFromCart) {
+                    break;
+                }
+            }
+            alert("Дякуємо за покупки!");
+        }
+        shoppingCart();
+    </script>
+
+</body>
+
+</html>
