@@ -30,3 +30,22 @@ function isValidHeight(height) {
 function getFormInput(inputField) {
   return inputField.value;
 }
+
+// function validating user input to be  a positive number
+function isValidPositiveNumber(value) {
+  //prettier-ignore
+  if (Number.isNaN(value) || 
+  value <= 0) return false;
+  return true;
+}
+
+function isValidTriangle(a, b, c) {
+  return a + b > c && a + c > b && b + c > a;
+}
+
+function revealError() {
+  errorField.classList.remove("hidden");
+  setTimeout(function () {
+    errorField.classList.add("hidden");
+  }, 2000);
+}
