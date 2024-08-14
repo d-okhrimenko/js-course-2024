@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let perimeter;
+        let area;
+        let radius;
+        let figure = prompt("Введіть назву фігури (коло, прямокутник, трикутник)");
+
+        let getCirclePerimeter = radius => 2 * Math.PI * radius;
+        // function getCirclePerimeter(radius) {
+        //   return 2 * Math.PI * radius;
+        // }
+
+        let getCircleArea = radius => Math.PI * Math.pow(radius, 2);
+        // function getCircleArea(radius) {
+        //   return Math.PI * Math.pow(radius, 2);
+        // }
+        let getRectanglePerimeter = (a, b) => 2 * (a + b);
+        // function getRectanglePerimeter(a, b) {
+        //   return 2 * (a + b);
+        // }
+        let getRectangleArea = (a, b) => a * b;
+        // function getRectangleArea(a, b) {
+        //   return a * b;
+        // }
+
+        let getTrianglePerimeter = (a, b, c) => a + b + c;
+        // function getTrianglePerimeter(a, b, c) {
+        //   return a + b + c;
+        // }
+        let getTriangleArea = (a, b, c) => {
+            p = getTrianglePerimeter(a, b, c) / 2;
+            return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        };
+        // function getTriangleArea(a, b, c) {
+        //   p = getTrianglePerimeter(a, b, c) / 2;
+        //   return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        // }
+
+        switch (figure) {
+            case "коло":
+                radius = +prompt("Введіть радіус");
+                perimeter = getCirclePerimeter(radius);
+                area = getCircleArea(radius);
+                break;
+            case "прямокутник":
+                let width = +prompt("Введіть довжину");
+                let height = +prompt("Введіть ширину");
+                perimeter = getRectanglePerimeter(width, height);
+                area = getRectangleArea(width, height);
+                break;
+            case "трикутник":
+                let a = +prompt("Введіть 1 сторону");
+                let b = +prompt("Введіть 2 сторону");
+                let c = +prompt("Введіть 3 сторону");
+                perimeter = getTrianglePerimeter(a, b, c);
+                area = getTriangleArea(a, b, c);
+                break;
+        };
+
+        alert(`${figure}
+                Периметр = ${perimeter}
+                Площа = ${area}`); 
+    </script>
+</body>
+
+</html>
