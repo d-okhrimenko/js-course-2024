@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      for (i = 0; i < 10; i++) {
+        let choices = ["Камінь", "Ножиці", "Папір"];
+        let randomNumber = Math.floor(Math.random() * choices.length);
+        let computerRandomChoice = choices[randomNumber];
+        //alert(computerRandomChoice);
+
+        let playerChoice = prompt("Ваш вибір? \n Камінь \n Ножиці \n Папір");
+        // alert(playerChoice);
+
+        if (playerChoice === "Вихід") {
+          alert("Гру завершено.");
+          break;
+        }
+
+        let result = "";
+        if (
+          playerChoice === "Камінь" ||
+          playerChoice === "Ножиці" ||
+          playerChoice === "Папір"
+        ) {
+          if (computerRandomChoice === playerChoice) {
+            result = "Нічия";
+          } else if (
+            (computerRandomChoice === "Камінь" && playerChoice === "Ножиці") || // && - логічне і , || - або
+            (computerRandomChoice === "Ножиці" && playerChoice === "Папір") ||
+            (computerRandomChoice === "Папір" && playerChoice === "Камінь")
+          ) {
+            result =
+              "Вибір компьютера - ( " +
+              computerRandomChoice +
+              " ) Нажаль програш!Спробуй ще!!!";
+          } else {
+            result =
+              "Вибір компьютера - ( " +
+              computerRandomChoice +
+              " ) Ти переміг! Вітаю!!!";
+          }
+        } else {
+          result = "Введено некоректні дані";
+        }
+
+        alert(result);
+      }
+    </script>
+  </body>
+</html>
