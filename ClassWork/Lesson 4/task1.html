@@ -10,10 +10,12 @@
 <body>
     <script>
         let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = [];
         // Ctrl + D Ctrl + S
         
         while (true) {
             let value = Number(prompt("Введіть значення"));
+            attempts.push(value);
 
             if (value == randomNumber) {
                 alert("Ви вгадали. Загадане число " + randomNumber);
@@ -26,6 +28,9 @@
                 alert("Я загадав значення більше ніж " + value);
             }
         }
+
+        console.log("Ви зробили " + attempts.length + " спроб");
+        attempts.forEach(x => console.log(x));
         
     </script>
 </body>
