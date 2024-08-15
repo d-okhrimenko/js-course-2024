@@ -7,22 +7,51 @@
   </head>
   <body>
     <script>
-      let userAnswer = prompt('Введіть Ваш варіант (Камінь, Ножниці, Бумага)')
+      let userAnswer
       let game = ['Камінь', 'Ножниці', 'Бумага']
-      let compRandom = Math.floor(Math.random() * 3)
-      let compAnswer = game[compRandom]
-      let result
+      let compRandom
+      let compAnswer
+      let result,
+        userCount = 0,
+        compCount = 0
+      for (let index = 0; index < 5; index++) {
+        userAnswer = prompt('Введіть Ваш варіант (Камінь, Ножниці, Бумага)')
 
-      if (userAnswer === 'Камінь' && compAnswer === 'Ножниці') result = 'Виграв користувач'
-      else if (userAnswer === 'Ножниці' && compAnswer === 'Камінь') result = 'Виграв компютер'
-      else if (userAnswer === 'Ножниці' && compAnswer === 'Бумага') result = 'Виграв користувач'
-      else if (userAnswer === 'Бумага' && compAnswer === 'Ножниці') result = 'Виграв компютер'
-      else if (userAnswer === 'Бумага' && compAnswer === 'Камінь') result = 'Виграв користувач'
-      else if (userAnswer === 'Камінь' && compAnswer === 'Бумага') result = 'Виграв компютер'
-      else if (userAnswer === compAnswer) result = 'Нічия'
+        compRandom = Math.floor(Math.random() * 3)
+        compAnswer = game[compRandom]
 
-      console.log(userAnswer)
-      console.log(compAnswer)
+        if (userAnswer === 'Камінь' && compAnswer === 'Ножниці') {
+          // result = 'Виграв користувач'
+          userCount++
+        } else if (userAnswer === 'Ножниці' && compAnswer === 'Камінь') {
+          // result = 'Виграв компютер'
+          compCount++
+        } else if (userAnswer === 'Ножниці' && compAnswer === 'Бумага') {
+          // result = 'Виграв користувач'
+          userCount++
+        } else if (userAnswer === 'Бумага' && compAnswer === 'Ножниці') {
+          // result = 'Виграв компютер'
+          compCount++
+        } else if (userAnswer === 'Бумага' && compAnswer === 'Камінь') {
+          // result = 'Виграв користувач'
+          userCount++
+        } else if (userAnswer === 'Камінь' && compAnswer === 'Бумага') {
+          // result = 'Виграв компютер'
+          compCount++
+        }
+        // else if (userAnswer === compAnswer) {
+        //   result = 'Нічия'
+        // }
+      }
+
+      // console.log(userAnswer)
+      // console.log(compAnswer)
+      console.log(userCount)
+      console.log(compCount)
+
+      if (userCount > compCount) result = 'Виграв користувач'
+      else if (userCount < compCount) result = 'Виграв компютер'
+      else result = 'Нічия'
       console.log(result)
     </script>
   </body>
