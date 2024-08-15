@@ -8,7 +8,7 @@ function checkYear() {
   let year = Number(prompt("Введіть рік"));
   let msg;
 
-  if (typeof year == "number" && !isNaN(year))
+  if (typeof year == "number" && !isNaN(year) && year > 0)
     msg = `${year} рік - ` + ((isItLeapYear(year) )? "" : "не") + " високосний";
   else msg = "Введено не коректне значення року";
 
