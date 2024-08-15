@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let shoppingList = ['Хліб', 'Молоко', 'Яйця'];
+
+        function addItem(item) {
+            shoppingList.push(item);
+            alert(`${item} додано до списку покупок.`);
+        }
+
+        function removeItem(item) {
+            const index = shoppingList.indexOf(item);
+            if (index !== -1) {
+                shoppingList.splice(index, 1);
+                alert(`${item} видалено зі списку покупок.`);
+            } else {
+                alert(`${item} не знайдено у списку покупок.`);
+            }
+        }
+
+        function displayList() {
+            if (shoppingList.length === 0) {
+                alert('Список покупок порожній.');
+            } else {
+                let list = 'Ваш список покупок:\n';
+                shoppingList.forEach((item, index) => {
+                    list += `${index + 1}. ${item}\n`;
+                });
+                alert(list);
+            }
+        }
+
+        function promptUser() {
+            while (true) {
+                const action = prompt
+                ('Виберіть дію: 1 - додати товар, 2 - видалити товар, 3 - показати список, 4 - вийти');
+
+                if (action === '1') {
+                    const newItem = prompt('Введіть назву товару для додавання:');
+                    addItem(newItem);
+                } else if (action === '2') {
+                    const removeItemName = prompt('Введіть назву товару для видалення:');
+                    removeItem(removeItemName);
+                } else if (action === '3') {
+                    displayList();
+                } else if (action === '4') {
+                    alert('Завершення роботи.');
+                    break;
+                } else {
+                    alert('Невірний вибір. Спробуйте ще раз.');
+                }
+            }
+        }
+
+        promptUser();
+
+    </script>
+</body>
+
+</html>
