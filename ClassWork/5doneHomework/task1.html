@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const calculateBMI = (weight, height) => weight / (height ** 2);
+
+        const getBMICategory = (bmi) => {
+            if (bmi < 18.5) {
+                return 'Недостатня вага';
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                return 'Нормальна вага';
+            } else if (bmi >= 25 && bmi < 29.9) {
+                return 'Надмірна вага';
+            } else {
+                return 'Ожиріння';
+            }
+        };
+
+        const weight = parseFloat(prompt("Введіть вашу вагу (кг):"));
+        const height = parseFloat(prompt("Введіть ваш ріст (м):"));
+        const bmi = calculateBMI(weight, height);
+        const bmiCategory = getBMICategory(bmi);
+
+        alert(`Ваш ІМТ: ${bmi.toFixed(2)}. Категорія: ${bmiCategory}.`);
+
+    </script>
+</body>
+
+</html>
