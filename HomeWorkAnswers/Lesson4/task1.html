@@ -20,7 +20,8 @@
         compRandom = Math.floor(Math.random() * 3)
         compAnswer = game[compRandom]
 
-        if (userAnswer === 'Камінь' && compAnswer === 'Ножниці') {
+        if (userAnswer === 'Вихід') break
+        else if (userAnswer === 'Камінь' && compAnswer === 'Ножниці') {
           // result = 'Виграв користувач'
           userCount++
         } else if (userAnswer === 'Ножниці' && compAnswer === 'Камінь') {
