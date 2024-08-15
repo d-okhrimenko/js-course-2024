@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="css-4/task1.css" />
+    <script src="scripts-4/task1.js" defer></script>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+    <p class="info">
+      Click <span>New game</span> to start, <span>Continue game</span> to continue or <span>Quit game</span> to finish
+      game
+    </p>
+    <div class="output">
+      <p class="option-your">
+        Your option:
+        <span id="your"></span>
+      </p>
+      <p class="option-pc">
+        PC option:
+        <span id="pc"></span>
+      </p>
+      <p class="result">Game outcome: <span class="outcome" id="outcome"></span></p>
+      <p class="total">
+        Total score: PC score:<span class="score-pc" id="score-pc">0</span> You score:
+        <span class="score-you" id="score-you">0</span>
+      </p>
+    </div>
+    <div class="buttons">
+      <button type="button" class="btn game-new">New game</button>
+      <button type="button" class="btn game-continue">Continue game</button>
+      <button type="button" class="btn game-quit">Quit game</button>
+    </div>
+  </body>
+</html>
