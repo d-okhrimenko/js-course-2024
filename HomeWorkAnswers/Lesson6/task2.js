@@ -1,22 +1,22 @@
-function addGoods(nameGoods){
+function addGoods(nameGoods) {
     shoppingList.push(nameGoods);
 }
 
-function deleteGoods(nameGoods){
+function deleteGoods(nameGoods) {
     let goodsIndex = shoppingList.indexOf(nameGoods);
-    if(goodsIndex != -1){
+    if (goodsIndex != -1) {
         shoppingList.splice(goodsIndex, 1);
     }
 }
 
-function displayShoppingList(){
-shoppingList.forEach(item => {
-    console.log(item);
-});
+function displayShoppingList() {
+    shoppingList.forEach(item => {
+        console.log(item);
+    });
 }
 
-function implementationOfUserChoice(userAction){
-    switch(userAction){
+function implementationOfUserChoice(userAction) {
+    switch (userAction) {
         case "а":
             currentGoods = prompt("Введіть назву товару, який треба додати:");
             addGoods(currentGoods);
@@ -31,13 +31,13 @@ function implementationOfUserChoice(userAction){
         case "г":
             continueShopping = false;
             break;
-    default:
+        default:
             alert("Невірний вибір");
     }
 }
 
 let shoppingList = ["сало"];
-let currentGoods; 
+let currentGoods;
 let continueShopping = true;
 
 do {
