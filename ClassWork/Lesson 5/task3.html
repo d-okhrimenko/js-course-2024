@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let throwCount = +prompt("Скільки разів ви хочете кинути шестигранний кубик?");
+        let random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+        
+        let d12 = () => random(1, 12);
+        let d6 = () => random(1, 6);
+
+        for (let i = 0; i < throwCount; i++) {
+            const result = d6();
+            console.log(result);
+        }
+    </script>
+</body>
+
+</html>
