@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson6 task2</title>
+</head>
+
+<body>
+    <script>
+        let shoppingCart = [];
+
+        const getItems = (array) => {
+            let str = "";
+            for (let i = 0; i < array.length; i++) {
+                str = str + array[i] + "\n";
+            }
+            return str;
+        };
+
+        const addItem = (array) => {
+            promptString = prompt("Введіть назву товару: ");
+            array.push(promptString);
+            alert(`Додано товар: ${promptString}`);
+        };
+
+        const removeItem = (array) => {
+            if (array.length > 0) {
+                promptString = prompt("Введіть назву товару: ");
+                let index = array.indexOf(promptString);
+                if (index == -1) {
+                    alert(`Не знайдено товар: ${promptString}`);
+                } else {
+                    array.splice(index, 1);
+                    alert(`Вилучено товар: ${promptString}`);
+                }
+            }
+        };
+
+        let userChoice = -1;
+        while (userChoice != 0) {
+            userChoiceStr = prompt(`Зробіть Ваш вибір:\n0 - вихід\n1 - додавання товару\n${shoppingCart.length == 0 ? "" : "2 - видалення товару\n"}3 - список товарів`);
+            if (/^[0-3]{1}$/.test(userChoiceStr) && !(shoppingCart.length == 0 && parseInt(userChoiceStr) === 2)) {
+                userChoice = parseInt(userChoiceStr);
+                switch (userChoice) {
+                    case 0:
+                        break;
+                    case 1:
+                        addItem(shoppingCart);
+                        break;
+                    case 2:
+                        removeItem(shoppingCart);
+                        break;
+                    case 3:
+                        let list = getItems(shoppingCart);
+                        alert(`Список товарів${list != "" ? (":\n" + list) : " порожній!"}`);
+                        break;
+                }
+            } else {
+                alert(`${userChoiceStr} - вибір не коректний!`);
+            }
+        }
+    </script>
+</body>
+
+</html>
