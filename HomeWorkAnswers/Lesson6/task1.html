@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оцінки</title>
+</head>
+<body>
+  <script src="../common/my-library.js"></script>
+  <script>
+    const grades = [];
+    let value = '';
+
+    while(value != null) {
+      value = getNumericValueInRange("Введіть оцінку від 0 до 100", 0, 100);
+      if(value != null) grades.push(value);
+    }
+
+    const averageValue = returnAverageValue(grades);
+    const highestValuee = returnHighestValue(grades);
+    const lowestValue = returnLowestValue(grades);
+
+    alert(`Ваші результати:
+    Середній бал: ${averageValue}
+    Найвища оцінка: ${highestValuee}
+    Найнижча оцінка: ${lowestValue}`);
+
+    function returnAverageValue(arrayValues) {
+      return Math.round(arrayValues.reduce((accumulator, currentValue) => accumulator + currentValue) / arrayValues.length);
+    }
+
+    function returnHighestValue(arrayValues) {
+      return arrayValues.reduce((accumulator, currentValue) => accumulator > currentValue ? accumulator : currentValue);
+    }
+
+    function returnLowestValue(arrayValues) {
+      return arrayValues.reduce((accumulator, currentValue) => accumulator < currentValue ? accumulator : currentValue)
+    }
+  </script>
+</body>
+</html>
