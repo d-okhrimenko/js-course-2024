@@ -15,8 +15,15 @@
       addProduct('Булка', products)
       addProduct('Кефір', products)
 
-      function deleteProduct(product, array) {}
+      // function deleteProduct(product, array) {}
 
+      function showProducts(array) {
+        for (let index = 0; index < array.length; index++) {
+          console.log(array[index])
+          document.write(array[index] + ' , ')
+        }
+      }
+      showProducts(products)
       console.log(products)
     </script>
   </body>
