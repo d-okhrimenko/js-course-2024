@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+</head>
+
+<body>
+  <script>
+    class Cart {
+      #products;
+      constructor(products = []) {
+        this.#products = products;
+      }
+
+      add(productName) {
+        if (!this.has(productName)) {
+          this.#products.push(new Product(productName));
+        }
+      }
+
+      remove(productName) {
+        if (!this.has(productName)) {
+          alert('Такого товару нема у корзині');
+          return;
+        }
+        this.#products = this.#products.filter(item => item.name !== productName);
+      }
+
+      show() {
+        if (this.#products.length === 0) {
+          alert('Корзина пуста');
+          return;
+        }
+        alert('Наразі у корзині:');
+        for (const product of this.#products) {
+          alert(product.name);
+        }
+      }
+
+      has(productName) {
+        return this.#products.find(item => item.name === productName);
+      }
+    }
+
+    class Product {
+      constructor(name) {
+        this.name = name;
+      }
+    }
+
+    class Actions {
+      constructor(cart) {
+        this.cart = cart;
+      }
+
+      handleChoice(option) {
+        this[option]();
+      }
+
+      add() {
+        const value = prompt('Який товар треба додати?', '');
+        if (!value) return;
+        this.cart.add(value);
+      }
+
+      remove() {
+        const value = prompt('Який товар треба видалити?', '');
+        if (!value) return;
+        this.cart.remove(value);
+      }
+
+      show() {
+        this.cart.show()
+      }
+    }
+
+    const OPTIONS = ['add', 'remove', 'show'];
+    const actions = new Actions(new Cart([new Product('яблуко'), new Product('лимон'), new Product('віноград')]));
+
+    while (true) {
+      const choice = prompt('0 - Додати товар, 1 - видалити, 2 - показати список покупок', '');
+      if (choice === null) break;
+      if (![0, 1, 2].includes(Number(choice))) {
+        alert('Вибір має бути 0,1 або 2.');
+        continue;
+      }
+      actions.handleChoice(OPTIONS[choice]);
+    }
+
+  </script>
+</body>
+
+</html>
