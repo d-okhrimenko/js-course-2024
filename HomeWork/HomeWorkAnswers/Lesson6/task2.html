@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task2-Lesson6</title>
+</head>
+
+<body>
+  <script>
+    let shoppingList = [];
+
+    const addItem = item => {
+      if (item) {
+        shoppingList.push(item);
+        alert(`Товар "${item}" додано до списку.`);
+      } else {
+        alert("Назва товару не може бути порожньою.");
+      }
+    };
+
+    const removeItem = item => {
+      const initialLength = shoppingList.length;
+      shoppingList = shoppingList.filter(el => el !== item);
+
+      if (shoppingList.length < initialLength) {
+        alert(`Товар "${item}" видалено зі списку.`);
+      } else {
+        alert(`Товар "${item}" не знайдено у списку.`);
+      }
+    };
+
+    const displayList = () => {
+      if (shoppingList.length > 0) {
+        const visibleList = shoppingList.map((item, index) => `${index + 1}. ${item}`).join("\n");
+        alert("Поточний список покупок:\n" + visibleList);
+      } else {
+        alert("Поточний список покупок порожній.");
+      }
+    };
+
+    const handleShoppingList = () => {
+      let action;
+
+      while (true) {
+        action = prompt("Введіть номер дії:\n1 -> Додати товар\n2 -> Видалити товар\n3 -> Показати список\n4 -> Вийти");
+
+        if (action === "1") {
+          const itemToAdd = prompt("Введіть назву товару для додавання:").trim();
+          addItem(itemToAdd);
+        } else if (action === "2") {
+          const itemToRemove = prompt("Введіть назву товару для видалення:").trim();
+          removeItem(itemToRemove);
+        } else if (action === "3") {
+          displayList();
+        } else if (action === "4" || action === null) {
+          alert("Роботу завершено.");
+          break;
+        } else {
+          alert("Невірна дія, введіть відповідний номер від 1 до 4.");
+        }
+      }
+    };
+
+    handleShoppingList();
+
+  </script>
+</body>
+
+</html>

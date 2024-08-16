@@ -8,7 +8,6 @@
 </head>
 
 <body>
-  <script src="../../../ClassWork/common/my-library.js"></script>
   <script>
     const getAverage = grades => grades.reduce((acc, grade) => acc + grade, 0) / grades.length;
     const getMaxGrade = grades => Math.max(...grades);
@@ -23,6 +22,7 @@
         input = prompt("Введіть оцінку від 0 до 100 або натисніть Cancel для завершення:");
 
         if (input === null) {
+          alert("Роботу завершено.");
           break;
         }
 
