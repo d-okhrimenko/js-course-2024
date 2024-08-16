@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let list = [];
+
+      function addItem(item) {
+        list.push(item);
+      }
+
+      function removeItem(item) {
+        const index = list.indexOf(item);
+        if (index !== -1) {
+          list.splice(index, 1);
+        } else {
+          alert("Товар не знайдено у списку.");
+        }
+      }
+
+      function viewList() {
+        if (list.length === 0) {
+          alert("Список покупок порожній.");
+        } else {
+          list.forEach((item, index) => {
+            alert(`Список покупок: ${index + 1}. ${item}`);
+          });
+        }
+      }
+
+      while (true) {
+        const action = prompt(
+          "Виберіть дію: 'додати', 'видалити', 'показати', або 'вихід' для завершення роботи."
+        );
+
+        if (action === "додати") {
+          const newItem = prompt("Введіть назву товару для додавання:");
+          addItem(newItem);
+        } else if (action === "видалити") {
+          const removeItemName = prompt("Введіть назву товару для видалення:");
+          removeItem(removeItemName);
+        } else if (action === "показати") {
+          viewList();
+        } else if (action === "вихід") {
+          break;
+        } else {
+          alert("Неправильна дія, спробуйте ще раз.");
+        }
+      }
+
+      alert("Роботу завершено.");
+    </script>
+  </body>
+</html>

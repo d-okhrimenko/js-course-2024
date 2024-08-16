@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let marks = prompt("Введіть елементи масиву через пробіл");
+      let elements = marks.split(" ").map(Number);
+
+      function max(arr) {
+        return Math.max(...arr);
+      }
+      function min(arr) {
+        return Math.min(...arr);
+      }
+      function avg(arr) {
+        sum = 0;
+        for (const value of arr) {
+          sum += value;
+        }
+        return sum / arr.length;
+      }
+
+      alert(
+        `Cередній бал: ${avg(elements)}, найвища оцінка: ${max(
+          elements
+        )} та найнижча оцінка: ${min(elements)}`
+      );
+    </script>
+  </body>
+</html>
