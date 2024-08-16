@@ -20,7 +20,7 @@
     let scissors = "2";
     let paper = "3";
     let quit = "q";
-    let continueGame = "c";
+    let continueGame = "c"; //en
     let round = 1;
     let userScore = 0;
     let randomScore = 0;
@@ -36,14 +36,14 @@
         if (value == rock || value == scissors || value == paper || value.toLowerCase() == quit || value.toLowerCase() == continueGame) {
           return value;
         } else {
-          alert('Please enter a valid input: 1, 2, 3, Q, C');
+          alert('Please enter a valid input: 1, 2, 3, Q, C(en)');
         }
       }
     }
 
     while (isEqual) {
-      let userValue = getValue("Enter a number from 1 to 3. Q — quit, C — continue.");
-      if (userValue == continueGame && round == 0){
+      let userValue = getValue("Enter a number from 1 to 3. Q — quit, C(en) — continue.");
+      if (userValue == continueGame && round == 0) {
         continue;
       }
 
@@ -54,7 +54,7 @@
           alert(`Equal elections — a draw.
           \nSCORE: User: ${userScore}; Random: ${randomScore} \nROUND ${round}`);
           console.log(`userValue + ${userValue}, randomNumber + ${randomNumber}`);
-          continueOrGuit = prompt("Do you want to continue the game? \nType 'C' to continue or 'Q' to quit!");
+          continueOrGuit = prompt("Do you want to continue the game? \nType 'C'(en) to continue or 'Q' to quit!");
           if (continueOrGuit == continueGame) {
             round += 1;
             alert(`ROUND ${round} \nSCORE: User: ${userScore}; Random: ${randomScore}`);
@@ -94,7 +94,7 @@
     }
 
     alert(`The game is finished. \n SCORE: User: ${userScore}; Random: ${randomScore}`);
-    
+
   </script>
 </body>
 
