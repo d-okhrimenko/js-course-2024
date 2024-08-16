@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lesson5task1</title>
+    <link rel="stylesheet" href="task1.css" />
+  </head>
+  <body>
+    <h2>Перевіримо індекс маси тіла?</h2>
+    <div class="numbers">
+      Введіть Вашу вагу в кілограмах-
+      <input type="text" id="weight" />
+      Введіть Ваш зріст в метрах -
+      <input type="text" id="height" />
+    </div>
+    <div>
+      <button id="btnIndex">Тисни, щоб дізнатись</button>
+      <b id="output" class="index"></b>
+    </div>
+
+    <script>
+      document.querySelector("#btnIndex").onclick = function () {
+        let userWeight = document.querySelector("#weight").value;
+        let userHeight = document.querySelector("#height").value;
+
+        if (isValidNumber(userWeight) && isValidNumber(userHeight)) {
+          let result = calculateIndex(userWeight, userHeight);
+          console.log(result);
+          showIndex(result);
+        } else {
+          alert("Введіть коректно числа.");
+        }
+      };
+      let isValidNumber = (value) =>
+        !isNaN(value) && value !== "" && value !== null;
+      // function isValidNumber(value) {
+      //   let isValid = !isNaN(value) && value !== "" && value !== null;
+      //   return isValid;
+      // }
+
+      function calculateIndex(weight, height) {
+        let index = weight / Math.pow(height, 2);
+        return index.toFixed(1);
+      }
+
+      function showIndex(result) {
+        let output = document.querySelector("#output");
+        if (result < 18.5) {
+          output.innerHTML = `ІМТ становить - ${result}. У Вас недостатня вага: ІМТ < 18.5`;
+        } else if (result >= 18.5 && result < 24.9) {
+          output.innerHTML = `ІМТ становить - ${result}. У Вас нормальна вага: 18.5 ≤ ІМТ < 24.9`;
+        } else if (result >= 24.9 && result < 29.9) {
+          output.innerHTML = `ІМТ становить - ${result}. У Вас надмірна вага: 24.9 ≤ ІМТ < 29.9`;
+        } else if (result >= 29.9) {
+          output.innerHTML = `ІМТ становить - ${result}. У Вас ожиріння: ІМТ ≥ 29.9`;
+        }
+      }
+    </script>
+  </body>
+</html>
