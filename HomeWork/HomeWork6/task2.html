@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="btfigure" required="required">
+        <option value="">Виберіть дію</option>
+        <option value="1">додавання товару</option>
+        <option value="2">видалення товару</option>
+        <option value="3">виведення списку</option>
+    </select>
+    <div id="output"></div>
+    <script>
+        let goods = ['пиво', 'снеки', 'чипси', 'сало', 'хліб', 'чеснок'];
+
+        function goodsAdd(products, productName) {
+            products.push(productName);
+        }
+
+        function removeProduct(products, productName) {
+            const index = products.indexOf(productName);
+            if (index !== -1) {
+                products.splice(index, 1);
+            }
+            else alert(`Продукт ${productName} не знайдено`);
+            return products;
+        }
+
+        let select = document.querySelector('#btfigure');
+
+        select.addEventListener('change', function () {
+            if (this.value == 1) {
+                goodsAdd(goods, prompt("Введіть назву товару"));
+            } else if (this.value == 2) {
+                removeProduct(goods, prompt("Введіть назву товару"));
+            } else {
+                goods.forEach((value, index) => {
+                    //console.log(`index ${ index } = ${ value }`);
+                    let output = "";
+                    for (let i = 0; i < goods.length; i++) {
+                        output += `№ ${ i + 1 } = ${ goods[i] } <br>`;
+                    }
+                    document.getElementById("output").innerHTML = output;
+                });
+            };
+        });
+
+    </script>
+</body>
+
+</html>
