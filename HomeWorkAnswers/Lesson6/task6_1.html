@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="value.js"></script>
+    <script>
+      let number = []; //масив з оцніками
+      function getAssessment() {
+        //Отримаємо масив з оцінками
+        for (let index = 0; index < 5; index++) {
+          // Запитуємо 5 оцінок у користувача
+          //number[index] = getValue(`Введіть оцінку № ${index+1} за 100 бальною шкалою`);
+          number.push(
+            getValue(`Введіть оцінку № ${index + 1} за 100 бальною шкалою`)
+          );
+        }
+        for (let index = 0; index < 10; index++) {
+          // Генеруємо 10 оцінок
+          number.push(Math.floor(Math.random() * 100) + 1);
+        }
+        return number;
+      }
+
+      let showNumber = () => {
+        //Метод для виводу списку елементів масиву
+        let stringNumber = "";
+        for (let i = 0; i < number.length; i++) {
+          stringNumber += number[i] + " ";
+        }
+        return stringNumber;
+      };
+
+      let minNumber = () => Math.min(...number); //Знаходимо мінімальне значення в масиві
+      let maxNumber = () => Math.max(...number); //Знаходимо максимальне значення в масиві
+      let averageNumber = () => {
+        //Знаходимо середнє значення елементів масиву
+        let sum = 0;
+        for (let i = 0; i < number.length; i++) {
+          sum += number[i];
+        }
+        return sum / number.length;
+      };
+
+      getAssessment();
+      alert(
+        `Масив оцінок: ${showNumber()}\nCередній бал: ${averageNumber().toFixed(
+          2
+        )}\nНайвища оцінка: ${maxNumber()}\nНайнижча оцінка: ${minNumber()} `
+      );
+    </script>
+  </body>
+</html>
