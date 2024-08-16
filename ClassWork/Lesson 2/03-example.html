@@ -6,14 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <p id="output" style="color:green">Hello</p>
-    <button id="btn">Click me!</button>
+    <p id="output"></p>
+    <button id="btn">Скажи привіт!</button>
 
     <script>
         document.querySelector("#btn").onclick = function() {
             let output = document.querySelector("#output");
-            output.innerHTML = "Hello, my name is Dmytro";
-            output.style.color = "red";
+            output.innerHTML = "Привіт Андрій!";
+            output.style.color = "blue";
         }
     </script>
 </body>
