@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Lesson 6. Task 2.</h3>
+    <h5>Програма, яка працює зі списком покупок: додає нові товари, видаляє наявні та виводить список товарів на
+        екран.<br></h5>
+    <!-- Кроки для виконання завдання:
+        1. Створити масив для зберігання списку покупок:
+        - Початково масив може бути порожнім або містити кілька базових товарів.
+        2. Створити функцію для додавання товару до списку:
+        - Функція приймає назву товару як аргумент і додає його до масиву.
+        3. Створити функцію для видалення товару зі списку:
+        - Функція приймає назву товару як аргумент, знаходить його у масиві та видаляє.
+        4. Створити функцію для виведення поточного списку покупок:
+        - Функція виводить всі елементи масиву у зручному для читання форматі.
+        5. Запропонувати користувачу вибрати дію:
+        - Використати `prompt` для вибору дії: додавання товару, видалення товару або виведення списку.
+        6. Реалізувати вибір користувача:
+        - Викликати відповідні функції на основі вибраної дії.
+        7. Повторити процес, поки користувач не завершить роботу:
+        - Дати можливість користувачу виконувати дії у циклі. -->
+    <div>
+        <h3>Обчислити середній бал, найвищу та найнижчу оцінку</h3>
+        <h4>
+            Ввести товар: <input type="text" id="inItem" value="Хліб" />
+            <!-- Ріст, см: <input type="text" id="inputHeight" value="190"/> -->
+        </h4>
+    </div>
+    <div>
+        <button id="btnAdd">додавання товару</button>
+        <button id="btnDel">видалення товару</button>
+        <button id="btnList">виведення списку</button>
+    </div>
+    <div>
+        <h4 id="result" style="color:none"></h4>
+    </div>
+
+    <script>
+        let items = ["Хліб", "Масло", "Огірки", "Помідори"];
+
+        document.querySelector("#btnAdd").onclick = function () {
+            let item = document.querySelector("#inItem").value;
+            addItem(item);
+        }
+
+        document.querySelector("#btnDel").onclick = function () {
+            let item = document.querySelector("#inItem").value;
+            delItem(item);
+        }
+
+        document.querySelector("#btnList").onclick = function () {
+            showResult(items, "blue");
+        }
+
+        function addItem(item) {
+            if (items.includes(item)) {
+                showResult(`Товар ${item} вже є в списку: [${items}]`, "red");
+            } else {
+                items.push(item);
+                showResult(`Товар ${item} додано в список: [${items}]`, "green");
+            }
+        }
+
+        function delItem(item) {
+            let i = items.indexOf(item);
+            if (i >= 0) {
+                items.splice(i, 1);
+                showResult(`Товар ${item} видалено зi списку: [${items}]`, "green");
+            } else {
+                showResult(`Товару ${item} нема в списку: [${items}]`, "red");
+            }
+        }
+
+        function showResult(str, color) {
+            let res = document.querySelector("#result");
+            res.style.color = color;
+            res.innerHTML = str;
+            logArray(items);
+        }
+
+        function logArray(array) {
+            array.forEach((value, index) => {
+                console.log(`index ${index} = ${value}`);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
