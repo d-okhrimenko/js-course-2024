@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../ClassWork/common/my-library.js"></script>
+    <script>
+      function average(array) {
+        // let sum = 0;
+        // array.array.forEach(element => {
+        //     sum += element;
+        // });
+        // return sum / 2;
+        let sum = array.reduce((acc, curr) => acc + curr, 0);
+        return sum / array.length;
+      }
+
+      function min(array) {
+        // let min = Number.MAX_VALUE;
+        // for (const value of marks) {
+        //   if (value < min) {
+        //     min = value;
+        //   }
+        // }
+        // return min;
+        return Math.min(...array);
+      }
+      function max(array) {
+        // let max = Number.MIN_VALUE;
+        // for (const value of marks) {
+        //     if(value > max) {
+        //         max = value;
+        //     }
+        // }
+        // return max;
+        return Math.max(...array);
+      }
+
+      let message =
+        "You will be asked to enter 5 marks in the range 0 - 100. Please enter a mark";
+      let message2 = "Please enter the next mark";
+
+      let marks = [];
+
+      for (let i = 0; i < 5; i++) {
+        let mark;
+        while (true) {
+          mark = getNumericValue(i === 0 ? message : message2);
+          if (mark >= 1 && mark <= 100) {
+            break; // Если число в диапазоне, выходим из внутреннего цикла
+          } else {
+            alert("Please enter a number between 1 and 100.");
+          }
+        }
+        marks.push(mark);
+      }
+
+      let averageMark = average(marks);
+      let minMark = min(marks);
+      let maxMark = max(marks);
+
+      alert(
+        `Your student's average mark is ${averageMark}. Student's minimum mark is ${minMark} and maximum mark is ${maxMark}`
+      );
+    </script>
+  </body>
+</html>
