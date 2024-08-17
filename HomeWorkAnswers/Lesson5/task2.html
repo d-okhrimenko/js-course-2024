@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function squareCircle(radius) {
+        let squareCircle = Math.PI * Math.pow(radius, 2);
+        return squareCircle;
+      }
+
+      function perimetrCircle(radius) {
+        let perimetrCircle = 2 * Math.PI * radius;
+        return perimetrCircle;
+      }
+
+      function squareRectangle(length, width) {
+        let squareRectangle = length * width;
+        return squareRectangle;
+      }
+
+      function perimetrRectangle(length, width) {
+        let perimetrRectangle = (length + width) * 2;
+        return perimetrRectangle;
+      }
+
+      function perimetrTriangle(a, b, c) {
+        let perimetrTriangle = a + b + c;
+        return perimetrTriangle;
+      }
+
+      function squareTriangle(a, b, c) {
+        let squareTriangle = Math.sqrt(
+          perimetrTriangle *
+            (perimetrTriangle - a) *
+            (perimetrTriangle - b) *
+            (perimetrTriangle - c)
+        );
+        return squareTriangle;
+      }
+
+      let figureType = 
+        prompt("Введіть назву фігури (коло, прямокутник або трикутник):")
+      .toLowerCase();
+
+      switch (figureType) {
+        case "коло":
+          let radius = Number(prompt("Введіть значення радіусу для кола: "));
+          let calcSquareCircle = squareCircle(radius);
+          let calcPerimetrCircle = perimetrCircle(radius);
+          alert(
+            "Площа кола: " +
+            calcSquareCircle.toFixed(2) +
+              " Периметр кола: " +
+              calcPerimetrCircle.toFixed(2)
+          );
+          break;
+
+        case "прямокутник":
+          let length = Number(
+            prompt("Введіть значення довжини для прямокутника: ")
+          );
+          let width = Number(
+            prompt("Введіть значення ширини для прямокутника: ")
+          );
+          let calcSquareRectangle = squareRectangle(length, width);
+          let calcPerimetrRectangle = perimetrRectangle(length, width);
+          alert(
+            "Площа прямокутника: " +
+            calcSquareRectangle.toFixed(2) +
+              " Периметр прямокутника: " +
+              calcPerimetrRectangle.toFixed(2)
+          );
+          break;
+
+        case "трикутник":
+          let a = Number(prompt("Введіть значення сторони а для трикутника: "));
+          let b = Number(prompt("Введіть значення сторони b для трикутника: "));
+          let c = Number(prompt("Введіть значення сторони c для трикутника: "));
+          let calcSquareTriangle = squareTriangle(a, b, c);
+          let calcPerimetrTriangle = perimetrTriangle(a, b, c);
+
+          alert(
+            "Площа трикутника: " +
+            calcSquareTriangle.toFixed(2) +
+              " Периметр трикутника: " +
+              calcPerimetrTriangle.toFixed(2)
+          );
+
+          break;
+        default:
+          alert(
+            "Ви ввели некоректне значення. Спробуйте ще раз. Для цього оновіть, будь ласка, сторінку"
+          );
+      }
+    </script>
+  </body>
+</html>
