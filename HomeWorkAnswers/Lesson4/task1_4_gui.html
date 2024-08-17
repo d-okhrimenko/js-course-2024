@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="task1_4_gui_style.css" />
+  </head>
+  <body>
+    <div id="game_over">
+      <p id="game_over_message">Гру завершено!</p>
+      <p id="game_over_win_message">
+        Вітаю! Ви виграли із рахунком: <b id="user_fin_score">0</b> -
+        <b id="robot_fin_score">0</b>
+      </p>
+      <p id="game_over_lose_message">Ви програли. Спробуйте ще раз.</p>
+      <p id="game_over_draw_message">Нічия</p>
+      <button id="start_new_game">Нова гра</button>
+    </div>
+    <div id="playfield">
+      <div id="controls">
+        <div id="stone_ctrl" class="ctrl"></div>
+        <div id="scissors_ctrl" class="ctrl"></div>
+        <div id="paper_ctrl" class="ctrl"></div>
+      </div>
+
+      <div id="user_field" class="field">
+        <div id="user_image_container" class="image_container">
+          <img
+            id="user_rock_img"
+            class="hidden"
+            src="img/rock_user.png"
+            alt="Камінь"
+          />
+          <img
+            id="user_scissors_img"
+            class="hidden"
+            src="img/scissors_user.png"
+            alt="Ножиці"
+          />
+          <img
+            id="user_paper_img"
+            class="hidden"
+            src="img/paper_user.png"
+            alt="Папір"
+          />
+        </div>
+        <div id="score">
+          <p id="user_name" class="player_name">
+            User <b id="player_score">0</b>
+          </p>
+        </div>
+      </div>
+      <div id="robot_field" class="field">
+        <div id="robot_image_container" class="image_container">
+          <img
+            id="robot_rock_img"
+            class="hidden"
+            src="img/rock_robot.png"
+            alt="Камінь"
+          />
+          <img
+            id="robot_scissors_img"
+            class="hidden"
+            src="img/scissors_robot.png"
+            alt="Ножиці"
+          />
+          <img
+            id="robot_paper_img"
+            class="hidden"
+            src="img/paper_robot.png"
+            alt="Папір"
+          />
+        </div>
+        <div id="score">
+          <p class="player_name">Robot <b id="robot_score">0</b></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="task1_4_gui_scripts.js"></script>
+  </body>
+</html>
