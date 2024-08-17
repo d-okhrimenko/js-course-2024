@@ -1,8 +1,8 @@
 function askParameters() {
     let weigth = askWeight();
     let height = askHeight();
-    let result = calcIndex(weigth, height);
-    alert(`Weight: ${weigth}, Height: ${height}, Index: ${result} (${getIndexCategory(result)})`);
+    let index = calcIndex(weigth, height);
+    alert(`Weight: ${weigth}, Height: ${height}, Index: ${index} (${getIndexCategory(index)})`);
 }
 
 function askHeight() {
@@ -28,22 +28,27 @@ function askWeight() {
 }
 
 function calcIndex(weigth, height) {
+    if (weigth === 1 || height === 1) {
+        return -1;
+    }
+
     let sHeight = height/100;
     return weigth / (sHeight*sHeight);
 }
 
 function getIndexCategory(index) {
-    let result = "incorrect value";
-    if (index < 18.5) {
-        result = "Underweight";
+    let categoryDescription = "incorrect data";
+    
+    if (index > 0 && index < 18.5) {
+        categoryDescription = "Underweight";
     }
     else if (index >= 18.5 && index < 24.9) {
-        result = "Normal weight";
+        categoryDescription = "Normal weight";
     } else if (index >= 25 && index < 29.9) {
-        result = "Overweight";
+        categoryDescription = "Overweight";
     } else if (index >= 30) {
-        result = "Obesity";
+        categoryDescription = "Obesity";
     }
 
-    return result;
+    return categoryDescription;
 }
