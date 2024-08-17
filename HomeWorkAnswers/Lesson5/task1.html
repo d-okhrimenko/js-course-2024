@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Lesson 1. Task 1.</h3>
+    <h3>Lesson 5. Task 1.</h3>
     <h5>Програма, яка обчислює індекс маси тіла (ІМТ) і дає рекомендації на основі отриманого значення.<br></h5>
     <!-- Кроки для виконання завдання:
     1. Створити функцію для обчислення ІМТ:
@@ -40,7 +40,9 @@
         <h4 id="result" style="color:none"></h4>
     </div>
 
-    <script>            
+    <script>
+        let getImt = (weight, height) => weight * 10000 / (height * height);
+
         document.querySelector("#btnStart").onclick = function() {
             let weight = +document.querySelector("#inputWeight").value;
             let height = +document.querySelector("#inputHeight").value;
@@ -49,10 +51,10 @@
             showResult(imtValue);
         }
 
-        function getImt(weight, height) {
-            let imt = weight * 10000 / (height * height);
-            return imt;
-        }
+        // function getImt(weight, height) {
+        //     let imt = weight * 10000 / (height * height);
+        //     return imt;
+        // }
 
         function getImtCategory(imt) {
             if(imt < 18.5)
