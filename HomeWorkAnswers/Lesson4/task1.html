@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 4 Task 1 "Stone, Scissor or Paper"</title>
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Зіграємо у Камінь, ножиці та папір?</h1>
+      <div class="game-field">
+        <div class="choice-box">
+          <h2 class="choice-box__title">Твій вибір</h2>
+          <ul class="choice-box__list-var">
+            <li class="choice-box__item" data-item="0">
+              <img
+                id="stone"
+                class="choice-box__pict"
+                src="stone.png"
+                alt="Stone"
+              />
+            </li>
+            <li class="choice-box__item" data-item="1">
+              <img
+                id="scissor"
+                class="choice-box__pict"
+                src="scissor.png"
+                alt="Scissor"
+              />
+            </li>
+            <li class="choice-box__item" data-item="2">
+              <img
+                id="paper"
+                class="choice-box__pict"
+                src="paper.png"
+                alt="Paper"
+              />
+            </li>
+          </ul>
+        </div>
+        <div class="choice-box">
+          <h2 class="choice-box__title">Вибір комп'ютера</h2>
+          <div class="choice-box__computer">
+            <img
+              id="computer-choice"
+              class="choice-box__pict-computer choice-box__pict_hidden"
+              src="stone.png"
+              alt="Computer`s choice"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="_hidden" id="result">Game result</div>
+      <div class="score" id="score">
+        Загальний рахунок <span id="count-user-win">0</span> :
+        <span id="count-computer-win">0</span>
+      </div>
+    </div>
+
+    <script src="game1.js"></script>
+  </body>
+</html>

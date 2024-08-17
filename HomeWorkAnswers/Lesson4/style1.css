@@ -1,0 +1,95 @@
+body {
+  background-color: white;
+  font-size: 20px;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.container {
+  width: 90%;
+  /* height: 100vh; */
+  margin: 0 auto;
+  background-color: #F5F5DC;
+  color: #474838;
+  border: 2px solid #474838;
+  border-radius: 5px;
+}
+
+.game-field {
+  display: flex;
+  padding: 1%;
+  margin-bottom: 30px;
+}
+
+.choice-box {
+  width: 50%;
+}
+
+.choice-box__title {
+  color: #acac9a;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.choice-box__list-var {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.choice-box__pict,
+.choice-box__pict-computer {
+  width: 130px;
+  object-fit: cover;
+}
+
+.choice-box__pict-computer {
+  border: 5px solid #fab1d2;
+  background-color: #f6906c;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px #474838;
+}
+
+.choice-box__item {
+  cursor: pointer;
+}
+
+.choice-box__item.selected {
+  background-color: #cdd8bb;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px #474838;
+}
+
+.choice-box__computer {
+  text-align: center;
+
+}
+
+#result {
+  margin-bottom: 30px;
+  font-size: 30px;
+  text-align: center;
+  color: red;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.choice-box__pict_hidden,
+._hidden {
+  visibility: hidden;
+}
+
+.score {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.score>span {
+  font-weight: 800;
+}
