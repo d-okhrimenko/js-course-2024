@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аналіз оцінок студентів</title>
+    <link rel="stylesheet" href="task1-style.css">
+</head>
+<body>
+<h1>Аналіз оцінок студентів</h1>
+<div class="container">
+    <div>
+        <input type="number" id="gradeInput" placeholder="Введіть оцінку" min="1" max="100">
+        <button onclick="addGrade()">Додати оцінку</button>
+        <button onclick="generateRandomGrades()">Згенерувати оцінки</button>
+        <button onclick="analyzeGrades()">Аналізувати оцінки</button>
+    </div>
+    <div class="grade-list">
+        <h2>Список оцінок:</h2>
+        <ul id="gradeList"></ul>
+    </div>
+</div>
+<div id="result"></div>
+
+<script src="task1-script.js"></script>
+</body>
+</html>

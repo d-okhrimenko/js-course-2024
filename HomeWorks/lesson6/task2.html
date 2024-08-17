@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список покупок</title>
+    <link rel="stylesheet" href="task1-style.css">
+</head>
+<body>
+<h1>Список покупок</h1>
+
+<div class="container">
+    <input type="text" id="itemInput" placeholder="Назва товару">
+    <button onclick="addItem()">Додати товар</button>
+    <button onclick="removeItem()">Видалити товар</button>
+    <button onclick="toggleShoppingList()">Список</button>
+</div>
+
+<div id="shoppingWindow" class="shopping-list">
+    <h2>Ваш список покупок:</h2>
+    <ol id="shoppingList"></ol>
+</div>
+
+<script src="task2-script.js"></script>
+</body>
+</html>
