@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аналіз списку оцінок студентів</title>
+</head>
+
+<body>
+    <p>Зробіть вибір</p>
+    <button id="btnAutomaticInput">Автоматичне заповнення</button>
+    <button id="btnManualInput">Ручне зповнення</button>
+    <button id="btnDisplayGrades">Вивід всіх оцінок</button>
+    <button id="btnСlearingGraades">Очищення масиву оцінок</button>
+
+    <script src="../common/my-library.js"></script>
+
+    <script>
+
+        const calculateAverage = (array) => {
+            return (array.reduce((accumulator, currentValue) => accumulator + currentValue) / array.length).toFixed(1);
+        }
+
+        const findHighestGrade = (array) => Math.max(...array);
+
+        const findLowestGrade = (array) => Math.min(...array);
+
+        const calculate = () => {
+            average = calculateAverage(grades);
+            highestGrade = findHighestGrade(grades);
+            lowestGrade = findLowestGrade(grades);
+        }
+
+        const displayResults = () => alert(`Середній бал: - ${average}, Максимальна оцінка - ${highestGrade}, Мінімальна оцінка - ${lowestGrade}`);
+
+        const automaticInput = () => {
+            const numberOfGrades = getNumericValue(`Введіть кількість оцінок`);
+
+            for (let index = 0; index < numberOfGrades; index++) {
+                let randomNumber = Math.floor(Math.random() * 100) + 1;
+                grades.push(randomNumber);
+            }
+
+            calculate();
+            displayResults();
+        }
+
+        const manualInput = () => {
+            const numberOfGrades = getNumericValue(`Введіть кількість оцінок`);
+
+            for (let index = 0; index < numberOfGrades; index++) {
+                grades.push(getNumericValue(`Введіть оцінку`));
+            }
+            
+            calculate();
+            displayResults();
+        }
+
+        const displayGrades = () => {
+            alert(`Оцінки: ${grades.toString()}`);
+        }
+
+        const сlearingGraades = () => {
+            grades.splice(0);
+            displayGrades();
+        }
+
+        let grades = [];
+        let average;
+        let highestGrade;
+        let lowestGrade;
+
+        document.querySelector("#btnAutomaticInput").onclick = automaticInput;
+        document.querySelector("#btnManualInput").onclick = manualInput;
+        document.querySelector("#btnDisplayGrades").onclick = displayGrades;
+        document.querySelector("#btnСlearingGraades").onclick = сlearingGraades;
+
+    </script>
+</body>
+
+</html>
