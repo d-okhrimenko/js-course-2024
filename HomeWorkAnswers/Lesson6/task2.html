@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 6. Завдання 2</title>
+
+</head>
+
+<body>
+    <script>
+
+        // 1. Створити масив для зберігання списку покупок:
+        //- Початково масив може бути порожнім або містити кілька базових товарів.
+        let goods = [];
+        let good_name;
+        let user_ch;
+
+        //2. Створити функцію для додавання товару до списку:
+        //- Функція приймає назву товару як аргумент і додає його до масиву.
+        function goods_add(p_goods, p_good_name) {
+            p_goods.push(p_good_name);
+            return p_goods;
+        }
+
+        //3. Створити функцію для видалення товару зі списку:
+        //- Функція приймає назву товару як аргумент, знаходить його у масиві та видаляє.
+        function goods_del(p_goods, p_good_name) {
+            item = p_goods.indexOf(p_good_name);
+            //console.log(`index item ${item}`);
+            if (item >= 0) {
+                p_goods.splice(item, 1);
+            }
+            return p_goods;
+        }
+
+        //4. Створити функцію для виведення поточного списку покупок:
+        //- Функція виводить всі елементи масиву у зручному для читання форматі.
+        function goods_show(p_goods) {
+            let text = p_goods.map(function (item, index) {
+                var item_number = index + 1;
+                return item_number + ". " + item;
+            }
+            ).join("\n");
+            return text;
+        }
+
+        function getValueNum(message) {
+            let l_first = 1;
+            let value;
+            while (true) {
+                if (l_first === 1)
+                    value = prompt(message);
+                else
+                    value = prompt("Необхідно ввести число! " + message);
+
+                let l_num_value = Number(value);
+                if (!isNaN(l_num_value) && value !== "" && value !== null) {
+                    return l_num_value;
+                } else {
+                    l_first += 1;
+                }
+            }
+        }
+
+        //7. Повторити процес, поки користувач не завершить роботу:
+        //- Дати можливість користувачу виконувати дії у циклі. 
+        while (true) {
+
+            //5. Запропонувати користувачу вибрати дію:
+            //- Використати `prompt` для вибору дії: додавання товару, видалення товару або виведення списку.
+            user_ch = getValueNum("Виберіть дію: додати товар (1), видалити товару(2), виведення списку(3), завершити(0)");
+            //console.log(user_ch);
+            //6. Реалізувати вибір користувача:
+            //- Викликати відповідні функції на основі вибраної дії.
+            if (user_ch === 0) {
+                break;
+            }
+            if (user_ch === 1 || user_ch === 2) {
+                good_name = prompt("Введіть назву товару");
+            }
+            //console.log(`good_name - ${good_name}`);
+            switch (user_ch) {
+                case 1:
+                    goods = goods_add(goods, good_name);
+                    break;
+                case 2:
+                    goods = goods_del(goods, good_name);
+                    break;
+                case 3: alert(goods_show(goods));
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
