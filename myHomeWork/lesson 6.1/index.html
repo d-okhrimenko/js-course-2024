@@ -1,0 +1,79 @@
+ <!DOCTYPE html>
+ <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/null.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title> масивы </title>
+    </head>
+    <body>
+        <div class="wrapper">
+           
+                <header class="header">
+                    <div class="header__container">
+                        <div class="header__body">
+                            <form action="#" class="header__form form">
+                                <div class="form__line">
+                
+                                    <input id="inp-add" required autocomplete="off" type="text" name="inp-add"
+                                        placeholder="Введіть назву товару ..." class="form__input">
+                                </div>
+                                <button id="btn-add" type="button" class="form__button">Додати</button>
+                            </form>
+                        </div>
+                        <div class="find__body">
+                            <form action="#" class="find__form form">
+                                <div class="form__line">
+                        
+                                    <input id="inp-filter" required autocomplete="off" type="text" name="inp-filter"
+                                        placeholder="Введіть назву товару ..." class="form__input">
+                                </div>
+                                <button id="dell-btn" type="button" class="form__button dell-btn">Видалити</button>
+                            </form>
+                        </div>
+                
+                    </div>
+                  
+                </header>
+                <main class="page">
+                    <!-- list -->
+                    <div class="page__list list">
+                        <div class="list__container">
+                            <div class="list__body">
+                                <ul class="list__list">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+              
+    
+                
+
+        </div>
+        <!-- popup попередження  -->
+        <div class="popup hidden" id="popup-warn">
+            <div class="popup__body">
+                <div class="popup__item">
+                    <h2 class="popup__title">Увага!</h2>
+                    <div class="popup__row-text">
+                        <p>Щоб видалити продукт, введіть його повну назву</p>
+                    </div>
+                    <button type="button" class="popup__btn"> ok </button>
+                </div>
+        
+        
+            </div>
+        
+        </div>
+
+        
+        
+        <script type="module" src="js/main.js"></script>
+        <script src="js/1.js"></script>
+        
+    
+    </body>
+ </html>
