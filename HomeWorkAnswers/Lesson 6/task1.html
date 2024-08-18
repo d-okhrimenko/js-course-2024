@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getAverageMark(arr) {
+            return (arr.reduce((a, b) => (a + b)) / arr.length).toFixed(2);
+        }
+
+        function getHighestMark(arr) {
+            return Math.max(...arr);
+        }
+
+        function getLowesttMark(arr) {
+            return Math.min(...arr);
+        }
+
+        function showResult(a, b, c) {
+            return alert("Середній бал  " + a + ", найвищий бал " + b + ", найнищий бал " + c);
+        }
+
+        function calculate() {
+            let marks = [];
+
+            while (true) {
+
+                let value = prompt("Введіть, будь ласка, ваш бал. Для завершення введіть слово \"ВСЕ\" ", 0);
+                if(value < 0 || value > 100) {
+                    alert("Бал можебути від 0 до 100. Спробуйте ще раз");
+                } else if(value === "" || value === null || !isFinite(value)){
+                    break;
+                } else {
+                    marks.push(+value);
+                }
+
+            }
+
+            let averageMark = getAverageMark(marks);
+            let highestMark = getHighestMark(marks);
+            let lowesttMark = getLowesttMark(marks);
+
+            showResult(averageMark, highestMark, lowesttMark);
+        }
+
+        calculate();
+    </script>
+</body>
+
+</html>
