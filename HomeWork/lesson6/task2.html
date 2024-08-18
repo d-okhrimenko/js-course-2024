@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let productList = [];
+
+        function addProduct(item) {
+            productList.push(item);
+            alert(`Товар ${item} було додано до списку`);
+        }
+
+        function deleteProduct(item) {
+            const itemIndex = productList.indexOf(item);
+            if (itemIndex > -1) {
+                productList.splice(itemIndex, 1);
+                alert(`Товар ${item} було видалено зі списку`);
+            }
+        }
+
+        function currentList() {
+            if (productList.length === 0) {
+                alert("Список порожній");
+            } else {
+                alert("Поточний список покупок: \n" + productList.join(`, `));
+            }
+        }
+
+        while (true) {
+            let action = prompt("Виберіть дію: (1) Додати товар, (2) Видалити товар, (3) Показати список, (4) Вийти");
+
+            if (action === "4") {
+                alert("Дякуємо за використання списку покупок!");
+                break;
+            }
+
+            switch (action) {
+                case "1":
+                    let newItem = prompt("Введіть назву товару для додавання:");
+                    if (newItem) {
+                        addProduct(newItem);
+                    } else {
+                        alert("Введіть вірний товар");
+                    }
+                    break;
+                case "2":
+                    let removeItemName = prompt("Введіть назву товару для видалення:");
+                    if (removeItemName) {
+                        deleteProduct(removeItemName);
+                    } else {
+                        alert("Введіть вірний товар");
+                    }
+                    break;
+                case "3":
+                    currentList();
+                    break;
+                default:
+                    alert("Невірна дія. Будь ласка, виберіть 1, 2, 3 або 4.");
+            }
+        }
+    </script>
+</body>
+
+</html>
