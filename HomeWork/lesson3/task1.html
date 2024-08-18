@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let value = +prompt("Введіть число:");
+
+        function checkEvenOrOdd(number) {
+            if (isNaN(number)) {
+                alert('Будь ласка, введіть коректне число');
+            } else if (number % 2 === 0) {
+                alert(number + ' є парним числом');
+            } else {
+                alert(number + ' є непарним числом');
+            }
+        }
+
+        checkEvenOrOdd(value);
+</script>
+</body >
+
+</html >
