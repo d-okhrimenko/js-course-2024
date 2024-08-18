@@ -1,0 +1,28 @@
+body {
+  background-color: white;
+  font-size: 20px;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.container {
+  width: 90%;
+  height: 90vh;
+  margin: 0 auto;
+  background-color: #F5F5DC;
+  color: #474838;
+  border: 2px solid #474838;
+  border-radius: 5px;
+}
+
+#parameters {
+  display: none;
+}
+
+#results {
+  display: none;
+}
