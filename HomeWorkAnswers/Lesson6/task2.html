@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let productList = ["хліб", "молоко", "яйця"];
+
+        let addProduct = item => {
+            productList.push(item);
+            alert(`Товар ${item} успішно додано до списку`);
+        }
+
+        let deleteProduct = item => {
+            let index = productList.indexOf(item);
+            if (index !== -1) {
+                productList.splice(index, 1);
+                alert(`Товар ${item} успішно видалений зі списку`);
+            }
+            else {
+                alert(`Товар ${item} не знайдено у списку`);
+            }
+        }
+
+        let showProducts = () => {
+            if (productList === 0) {
+                alert("Список покупок порожній");
+            }
+            else {
+                alert("Поточний список покупок: \n" + productList.join(`, `));
+            }
+        }
+
+        let getProductName = (action) => {
+            while (true) {
+                let productName = prompt(`Введіть назву товару, який хочете ${action}`);
+                let isValid = isNaN(productName) && productName !== "" && productName !== null;
+                if (isValid) {
+                    return productName;
+                }
+            }
+        }
+
+        let chooseAction = () => {
+            while (true) {
+                let choice = prompt("Введіть цифру, яка відповідає за певну дію:\n1. Додати товар.\n2. Видалити товар\n3. Вивести список товарів.\n4. Завершити роботу.");
+                if (['1', '2', '3', '4'].includes(choice)) return choice;
+                alert("Неправильний ввід. Будь ласка, введіть цифру від 1 до 4.");
+            }
+        }
+
+        let performAction = action => {
+            switch (action) {
+                case '1':
+                    addProduct(getProductName("додати"));
+                    break;
+                case '2':
+                    deleteProduct(getProductName("видалити"));
+                    break;
+                case '3':
+                    showProducts();
+                    break;
+                case '4':
+                    alert("Завершено роботу");
+                    exit = true;
+                    return;
+                default:
+                    alert("Невірний вибір. Спробуйте ще раз.");
+                    break;
+            }
+        }
+        let exit = false;
+        do {
+            let action = chooseAction();
+            performAction(action);
+        } while (!exit);
+    </script>
+</body>
+
+</html>

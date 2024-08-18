@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let ratings = [50, 38, 60, 99, 23, 82, 77, 78, 61, 9];
+
+        let getAvgRating = ratings => {
+            let sum = 0;
+            for (const element of ratings) {
+                sum += element;
+            }
+            return sum / ratings.length;
+        }
+
+        let getMaxRating = ratings => Math.max(...ratings);
+
+        let getMinRating = ratings => Math.min(...ratings);
+
+        let getInputGrades = () => {
+            let grades = [];
+            let numberOfGrades;
+            while (true) {
+                numberOfGrades = prompt("Скільки ви хочете додати оцінок?");
+                if (!isNaN(numberOfGrades) && numberOfGrades !== "" && numberOfGrades !== null) {
+                    break;
+                }
+            }
+            for (let i = 0; i < numberOfGrades; i++) {
+                while (true) {
+                    let grade = prompt(`Введіть оцінку ${i + 1}:`)
+                    if (!isNaN(grade) && grade !== "" && grade !== null) {
+                        grades.push(Number(grade));
+                        break;
+                    }
+                }
+            }
+            return grades;
+        }
+
+        let showInfo = (avgRating, maxRating, minRating) => alert(`Середній бал: ${avgRating.toFixed(3)}\nМаксимальний рейтинг: ${maxRating}\nМінімальний рейтинг: ${minRating}`)
+
+        let inputGrades = getInputGrades();
+        ratings.push(...inputGrades);
+        let avgRating = getAvgRating(ratings);
+        let maxRating = getMaxRating(ratings);
+        let minRating = getMinRating(ratings);
+        showInfo(avgRating, maxRating, minRating);
+    </script>
+</body>
+
+</html>
