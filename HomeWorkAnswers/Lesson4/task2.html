@@ -7,49 +7,81 @@
   </head>
   <body>
     <script>
-      let products = ['Хліб', 'Шоколад', 'Молоко']
-      function addProduct(product, array) {
-        return array.push(product)
-      }
+      // let products = ['Хліб', 'Шоколад', 'Молоко']
+      // function addProduct(product, array) {
+      //   return array.push(product)
+      // }
 
-      addProduct('Булка', products)
-      addProduct('Кефір', products)
+      // addProduct('Булка', products)
+      // addProduct('Кефір', products)
 
-      // function deleteProduct(product, array) {}
+      // // function deleteProduct(product, array) {}
 
-      function showProducts(array) {
-        for (let index = 0; index < array.length; index++) {
-          console.log(array[index])
-          document.write(array[index] + ' , ')
+      // function showProducts(array) {
+      //   for (let index = 0; index < array.length; index++) {
+      //     console.log(array[index])
+      //     document.write(array[index] + ' , ')
+      //   }
+      // }
+      // showProducts(products)
+      // console.log(products)
+      let positive = 0,
+        negative = 0
+
+      let num1 = parseInt(Math.floor(Math.random() * 5) + 1)
+      console.log(num1)
+
+      let num2 = parseInt(Math.floor(Math.random() * 5) + 1)
+      console.log(num2)
+
+      let operations = ['+', '-', '/', '*']
+      let operation = Math.floor(Math.random() * operations.length)
+      console.log(operations[operation])
+
+      let compNumber = parseInt(`${num1}+${operations[operation]}+${num2}`)
+      console.log(compNumber)
+
+      for (let index = 0; index < 3; index++) {
+        let userAnswer = parseInt(prompt('Введіть відповідь'))
+        if (userAnswer === compNumber) {
+          console.log('Ви вгадали')
+          positive++
+        } else {
+          console.log('Ви не вгадали')
+          negative++
         }
       }
-      showProducts(products)
-      console.log(products)
+      console.log(positive)
+      console.log(negative)
     </script>
   </body>
 </html>
 <!-- Завдання 2
-Написати програму, яка працює зі списком покупок: додає нові товари, видаляє наявні та виводить список товарів на екран.
+
+Гра: "Математичний квіз"
+
+Опис гри:
+Програма генерує випадкові математичні вирази (додавання, віднімання, множення, ділення) та запитує у користувача правильну відповідь.
+Користувач має обмежену кількість спроб, щоб дати правильну відповідь. Програма виводить кількість правильних та неправильних відповідей після завершення гри.
 
 Кроки для виконання завдання:
 
-1. Створити масив для зберігання списку покупок:
-   - Початково масив може бути порожнім або містити кілька базових товарів.
+1. Генерація математичних виразів:
 
-2. Створити функцію для додавання товару до списку:
-   - Функція приймає назву товару як аргумент і додає його до масиву.
+	- Використайте Math.random() для генерації двох випадкових чисел і оператора (+, -, *, /).
 
-3. Створити функцію для видалення товару зі списку:
-   - Функція приймає назву товару як аргумент, знаходить його у масиві та видаляє.
+2. Запит правильних відповідей:
 
-4. Створити функцію для виведення поточного списку покупок:
-   - Функція виводить всі елементи масиву у зручному для читання форматі.
+	- Використайте prompt для запиту відповідей у користувача.
 
-5. Запропонувати користувачу вибрати дію:
-   - Використати `prompt` для вибору дії: додавання товару, видалення товару або виведення списку.
+3 Перевірка відповідей:
 
-6. Реалізувати вибір користувача:
-   - Викликати відповідні функції на основі вибраної дії.
+	- Використайте умовні конструкції для перевірки правильності відповідей.
 
-7. Повторити процес, поки користувач не завершить роботу:
-   - Дати можливість користувачу виконувати дії у циклі. -->
+4 Підрахунок результатів:
+
+	- Підрахуйте кількість правильних та неправильних відповідей.
+
+5.Виведення результатів:
+
+	- Використайте alert для виведення підсумкових результатів. -->
