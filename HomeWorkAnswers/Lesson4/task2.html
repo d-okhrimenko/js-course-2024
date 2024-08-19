@@ -36,16 +36,21 @@
 
       let operations = ['+', '-', '/', '*']
       let operation = Math.floor(Math.random() * operations.length)
+
+      let compAnswer = num1 + operations[operation] + num2
+      console.log(compAnswer)
+
       console.log(operations[operation])
 
-      let compNumber = parseInt(`${num1}+${operations[operation]}+${num2}`)
-      console.log(compNumber)
+      let correctAnswer = eval(compAnswer)
+      console.log(correctAnswer)
 
       for (let index = 0; index < 3; index++) {
         let userAnswer = parseInt(prompt('Введіть відповідь'))
-        if (userAnswer === compNumber) {
+        if (userAnswer === correctAnswer) {
           console.log('Ви вгадали')
           positive++
+          break
         } else {
           console.log('Ви не вгадали')
           negative++
