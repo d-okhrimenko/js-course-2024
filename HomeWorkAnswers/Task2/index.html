@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task2</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Обчислення площі та периметру фігур</h1>
+    <div class="container">
+      <label for="figure">Виберіть фігуру:</label>
+      <select id="figure">
+        <option value="circle">Коло</option>
+        <option value="rectangle">Прямокутник</option>
+        <option value="triangle">Трикутник</option>
+      </select>
+
+      <div id="parameters"></div>
+
+      <button onclick="calculate()">Обчислити</button>
+    </div>
+    <p id="result"></p>
+
+    <script src="script.js"></script>
+  </body>
+</html>
