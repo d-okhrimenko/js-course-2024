@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Написати програму, яка обчислює площу та периметр різних геометричних фігур (коло, прямокутник, трикутник).  -->
+    <!-- Кожна геометрична фігура повинна мати свою окрему функцію для обчислення площі та периметру. -->
+    <script src="../../ClassWork/common/my-library.js"> </script>
+
+    <script>
+        let getCircleData = radius => {
+            const area = Math.PI * Math.pow(radius, 2);
+            const perimeter = 2 * Math.PI * radius;
+            return [area, perimeter];
+        }
+
+        let getRectangleData = (lenght, width) => {
+            const area = lenght * width;
+            const perimeter = 2 * (lenght + width);
+            return [area, perimeter];
+        }
+
+        let getTriangleData = (a, b, c) => {
+            let perimeter = a + b + c;
+            let p = perimeter / 2;
+            let area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+            return [area, perimeter];
+
+        }
+
+        const shapeType = getNumericValue("Select a shape type\n1 - circle\n2 - rectangle\n3 - triangle");
+
+        let areaAndPerimeter = [];
+
+        switch (shapeType) {
+            case 1:
+                radius = getNumericValue("Enter the radius of the circle");
+                areaAndPerimeter = getCircleData(radius);
+                break;
+            case 2:
+                length = getNumericValue("Enter the length of the rectangle");
+                width = getNumericValue("Enter the width of the rectangle");
+                areaAndPerimeter = getRectangleData(length, width);
+                break;
+            case 3:
+                a = getNumericValue("Enter the length of side a");
+                b = getNumericValue("Enter the length of side b");
+                c = getNumericValue("Enter the length of side c");
+                if ((a + b) <= c || (b + c) <= a || (c + a) <= b) {
+                    alert("A triangle with such side sizes does not exist")
+                } else {
+                    areaAndPerimeter = getTriangleData(a, b, c);
+                }
+                break;
+        }
+
+        if (areaAndPerimeter != []) {
+            alert(
+                `Area of ​​the figure: ${areaAndPerimeter[0].toFixed(2)}\nPerimeter of the figure: ${areaAndPerimeter[1].toFixed(2)}`
+            );
+        }
+
+    </script>
+</body>
+
+</html>
