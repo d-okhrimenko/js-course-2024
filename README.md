@@ -40,4 +40,5 @@ Fork – це копія репозиторію, яка дозволяє вам 
 [3. Змінні та типи даних](https://www.youtube.com/watch?v=_-lYklatsts&t=2570s&ab_channel=ITVDN) <br>
 [4. Умови та цикли](https://www.youtube.com/watch?v=q8DX0yrijmQ&t=196s&ab_channel=ITVDN) <br>
 [5. Функції](https://www.youtube.com/watch?v=F2m-A9RzsgU&t=1806s) <br>
+[6. Масиви](https://www.youtube.com/watch?v=8anASKTZDBo) <br>
 
