@@ -20,26 +20,41 @@
 			// 6. Обчислити середній бал, найвищу і найнижчу оцінки:
 			// 7. Вивести результати:
 			//    - Використайте `alert` для виведення середнього балу, найвищої та найнижчої оцінок.
-			//let marks = [];
-			let marks = [10, 20, 30];
+			let marks = [];
+			//let marks = [10, 20, 30];
 
 			// 		if (userChoice == "q") {
 			// 	console.log("Натиснута кнопка 'q' - Вихід з гри за вибором гравця");
 			// 	break;
 			// }
+			let count = getNumericValue(`Вкажіть, скільки відміток ви хочете ввести`);
+
+			for (let i = 0; i < values.length; i++) {
+            if(values[i] < 0)
+                values[i] = 0;
+        }
+								
 			let input = getNumericValue(`Введіть оцінки від 1 до 100`);
-			//let input = prompt("Введите массив через пробел :");
-			//marks = input.trim().split(/\s+/);
-			//marks = +input.trim().split(",");
+			// let input = prompt("Введите массив через пробел :");
+			// marks = input.trim().split(/\s+/);
+
+
 
 			console.log(marks, input);
-			marks.push(input);
+			marks.push(marks);
+
+
+
+
+
 
 			marks.forEach((value, index) => {
 				console.log(`index ${index} = ${value}`);
 			});
-
+			
 			alert(`Мін=${min(marks)} Макс=${max(marks)} Середній=${avg(marks).toFixed(2)}`);
+
+			
 
 			function getNumericValue(message) {
 				while (true) {
@@ -60,16 +75,15 @@
 			function sum(array) {
 				let sum = 0;
 				for (const value of array) {
-					//sum += value;
 					sum = sum + value;
 				}
-
 				return sum;
 			}
 
 			function avg(array) {
 				return sum(array) / array.length;
 			}
+
 		</script>
 	</body>
 </html>
