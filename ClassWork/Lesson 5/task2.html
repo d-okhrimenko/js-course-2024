@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        Введіть значення для перетворення
+        <input type="text" id="temp" />
+    </p>
+    <div>
+        <button id="btnToC">У градуси Цельсія</button>
+        <button id="btnToF">У градуси по Фаренгейту</button>
+    </div>
+    <div>
+        <b id="output"></b>
+    </div>
+
+    <script>
+        let getValue = () => Number(document.querySelector("#temp").value);
+        let toCelsius = temp => 5 / 9 * (temp - 32);
+        let toFarenheit = temp => 9 / 5 * tempC + 32;
+
+        let convert = converter => {
+            return () => {
+                let temp = getValue();
+                let value = converter(temp);
+                showResult(value);
+            }
+        }
+
+        document.querySelector("#btnToC").onclick = convert(toCelsius);
+        document.querySelector("#btnToF").onclick = convert(toFarenheit);
+
+        function showResult(result) {
+            let output = document.querySelector("#output");
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>
