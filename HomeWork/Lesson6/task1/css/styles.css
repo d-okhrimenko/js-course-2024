@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+    opacity: 0; /* Начальная непрозрачность для анимации */
+    animation: fadeIn 1s forwards; /* Анимация появления */
+}
+
+.input-section {
+    display: grid;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0; /* Начальная непрозрачность для анимации */
+    animation: fadeIn 1s forwards 0.5s; /* Анимация появления с задержкой */
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.result-message {
+    display: none; /* Скрываем сообщения по умолчанию */
+    color: cadetblue;
+    animation: fadeIn 0.5s ease-in-out; /* Анимация появления */
+}
+
+.error-message {
+    color: red;
+    display: none; /* Скрываем сообщение об ошибке по умолчанию */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
