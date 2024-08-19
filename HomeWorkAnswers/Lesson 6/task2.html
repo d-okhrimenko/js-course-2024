@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let shoppingList = [];
+
+      function addProduct(item) {
+        shoppingList.push(item);
+        alert(`${item} has been added to the shopping list.`);
+      }
+
+      function removeProduct(item) {
+        shoppingList = shoppingList.filter(
+          (currentItem) => currentItem !== item
+        );
+        alert(`${item} has been removed from the shopping list.`);
+      }
+
+      function showCurrentList() {
+        if (shoppingList.length === 0) {
+          alert("Your shopping list is empty.");
+        } else {
+          alert("Your shopping list:" + shoppingList.join(", "));
+        }
+      }
+      while (true) {
+        const userChoise = prompt(
+          "What do you want to do? (add, remove, display, exit)"
+        ).toLowerCase();
+
+        if (userChoise === "add") {
+          const nameProduct = prompt(
+            "Enter the name of the item you want to add:"
+          );
+          addProduct(nameProduct);
+        } else if (userChoise === "remove") {
+          const nameProduct = prompt(
+            "Enter the name of the item you want to remove:"
+          );
+          removeProduct(nameProduct);
+        } else if (userChoise === "display") {
+          showCurrentList();
+        } else if (userChoise === "exit") {
+          alert("Exiting the program.");
+          break;
+        } else {
+          alert(
+            "Invalid action. Please enter 'add', 'remove', 'display', or 'exit'."
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

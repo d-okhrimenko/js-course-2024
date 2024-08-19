@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
-        let attempts = [];
-        // Ctrl + D Ctrl + S
-        
-        while (true) {
-            let value = Number(prompt("Введіть значення"));
-            attempts.push(value);
+      let randomNumber = Math.floor(Math.random() * 100) + 1;
+      let attempts = [];
+      // Ctrl + D Ctrl + S
 
-            if (value == randomNumber) {
-                alert("Ви вгадали. Загадане число " + randomNumber);
-                break;
-            }
-            else if (value > randomNumber) {
-                alert("Я загадав значення менше ніж " + value);
-            }
-            else if (value < randomNumber) {
-                alert("Я загадав значення більше ніж " + value);
-            }
+      while (true) {
+        let value = Number(prompt("Введіть значення"));
+        attempts.push(value);
+
+        if (value == randomNumber) {
+          alert("Ви вгадали. Загадане число " + randomNumber);
+          break;
+        } else if (value > randomNumber) {
+          alert("Я загадав значення менше ніж " + value);
+        } else if (value < randomNumber) {
+          alert("Я загадав значення більше ніж " + value);
         }
+      }
 
-        console.log("Ви зробили " + attempts.length + " спроб");
-        attempts.forEach(x => console.log(x));
-        
+      console.log("Ви зробили " + attempts.length + " спроб");
+      attempts.forEach((x) => console.log(x));
     </script>
-</body>
-
+  </body>
 </html>

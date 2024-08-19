@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let studentGrades = [];
+      function getRandomScores(score) {
+        const grades = [];
+        for (let i = 0; i < score; i++) {
+          grades.push(Math.floor(Math.random() * 101));
+        }
+        return grades;
+      }
+      function min(array) {
+        const minValue = Math.min(...array);
+        alert(`Minimum grade is ${minValue}`);
+        return minValue;
+      }
+
+      function max(array) {
+        const maxValue = Math.max(...array);
+        alert(`Maximum grade is ${maxValue}`);
+        return maxValue;
+      }
+
+      function average(array) {
+        let sumValue = 0;
+        for (const value of array) {
+          sumValue += value;
+        }
+        const averageValue = sumValue / array.length;
+        alert(`Average grade is ${averageValue}`);
+        return averageValue;
+      }
+
+      const numberOfScores = 10;
+      studentGrades = getRandomScores(numberOfScores);
+
+      function getScoreFromUser() {
+        let scores = [];
+        let value;
+
+        while (true) {
+          input = prompt("Enter a score (or type 'stop' to finish):");
+          if (input === null || input.toLowerCase() === "stop") break;
+
+          let numberInput = Number(input);
+
+          if (!isNaN(numberInput) && numberInput >= 0 && numberInput <= 100) {
+            scores.push(numberInput);
+          } else {
+            alert("Please enter a valid score between 0 and 100.");
+          }
+        }
+        return scores;
+      }
+
+      let choiceOfArray = prompt(
+        "Do you want to enter scores manually or generate them automatically? Type 'manual' or 'auto'."
+      );
+
+      if (choiceOfArray.toLowerCase() === "manual") {
+        studentGrades = getScoreFromUser();
+      } else if (choiceOfArray.toLowerCase() === "auto") {
+        const numberOfScores = Number(
+          prompt("How many scores do you want to generate?")
+        );
+        if (isNaN(numberOfScores) || numberOfScores <= 0) {
+          alert("Please enter a valid number of scores.");
+          studentGrades = [];
+        } else {
+          studentGrades = getRandomScores(numberOfScores);
+        }
+      } else {
+        alert("Invalid choice. Please refresh and enter 'manual' or 'auto'.");
+        studentGrades = [];
+      }
+
+      if (studentGrades.length > 0) {
+        min(studentGrades);
+        max(studentGrades);
+        average(studentGrades);
+      } else {
+        alert("No scores were entered.");
+      }
+    </script>
+  </body>
+</html>
