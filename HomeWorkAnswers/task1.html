@@ -8,29 +8,39 @@
   <body>
     <p class="result">a</p>
     <script>
-      function getIndexWeightBody(weight, height) {
-        let imt = parseFloat(weight / (height * height))
-        console.log(imt)
-
-        return imt
+      function getIMT(weight, height) {
+        return weight / Math.pow(height, 2)
       }
 
-      function showCategory(imt) {
+      function getPersonCategory(imt) {
         let result
         if (imt < 18.5) result = 'Недостатня вага'
         else if (imt >= 18.5 && imt < 24.9) result = 'Нормальна вага'
         else if (imt >= 25 && imt < 29.9) result = 'Надмірна вага'
         else if (imt >= 30) result = 'Ожиріння'
-        console.log(result)
         return result
       }
+
+      // =====================================
+      function getNumberValue(message) {
+        while (true) {
+          let value = prompt(message)
+          let isValid = !isNaN(value) && value !== '' && value !== null
+          if (isValid) return Number(value)
+          break
+        }
+      }
+      // =====================================
 
       function showResult(block, result) {
         return (document.querySelector(block).innerHTML = result)
       }
 
-      let userWeight = getIndexWeightBody(75, 1.94)
-      let userCategory = showCategory(userWeight)
+      let userWeight = getNumberValue('Введіть Вашу вагу')
+      let userHeight = getNumberValue('Введіть Ваш зріст')
+
+      let userIMT = getIMT(userWeight, userHeight)
+      let userCategory = getPersonCategory(userIMT)
       showResult('.result', userCategory)
     </script>
   </body>
