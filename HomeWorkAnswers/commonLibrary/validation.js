@@ -53,3 +53,43 @@ function revealError() {
     errorField.classList.add("hidden");
   }, 2000);
 }
+
+function isValidStringInput(value, arr) {
+  if (!arr.some((el) => value.toLowerCase() === el)) {
+    alert(`⛔ Invalid input 💩. 
+      Please enter value from the list 
+      ["a", "r", "p"].
+      Reload page and try again.`);
+    return false;
+  } else {
+    return true;
+  }
+}
+
+// function that returns user input without validation
+function getWithoutValidation(message) {
+  const input = prompt(message);
+  return input;
+}
+
+//function that returns user input, validated against predefined array of legal values
+const getMatchedInput = function (message, checkingFunc, legalValues) {
+  let input;
+  do {
+    input = prompt(message).toLowerCase();
+  } while (!checkingFunc(input, legalValues));
+  return input;
+};
+
+// functions that validates user input against array of legal values
+function isMatchingString(value, arr) {
+  if (!arr.some((el) => value === el)) {
+    alert(`⛔ Invalid input 💩.
+        Please enter value from the list
+        ${arr}.
+        Try again.`);
+    return false;
+  } else {
+    return true;
+  }
+}
