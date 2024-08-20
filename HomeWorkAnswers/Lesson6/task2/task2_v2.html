@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Управління товарами</h1>
+      <div class="input-group">
+        <label for="action">Виберіть дію:</label>
+        <select id="action">
+          <option value="">-- Виберіть дію --</option>
+          <option value="1">Додати товар</option>
+          <option value="2">Видалити товар</option>
+          <option value="3">Показати список</option>
+        </select>
+      </div>
+      <div class="input-group" id="productInputGroup" style="display: none">
+        <label for="productInput">Назва товару:</label>
+        <input type="text" id="productInput" />
+      </div>
+      <button id="actionButton">Виконати</button>
+      <div id="productList">
+        <h2>Список товарів</h2>
+        <ul id="products"></ul>
+      </div>
+    </div>
+    <script src="main_v2.js"></script>
+  </body>
+</html>

@@ -19,32 +19,48 @@ function listProduct() {
   alert("Список товарів:\n" + productArray.join("\n"));
 }
 
-let choice = prompt(
-  `Виберіть дію:\n"1" - Додавання товару\n"2" - Видалення товару\n"3" - Виведення списку товарів`
-);
+let continueProgram = true;
 
-if (choice === null) {
-  alert("Програму завершено!");
-} else {
-  choice = Number(choice);
-  if (isNaN(choice) || choice < 1 || choice > 3) {
-    alert("Невірний вибір. Будь ласка, виберіть 1, 2 або 3.");
+while (continueProgram) {
+  let choice = prompt(
+    `Виберіть дію:\n"1" - Додавання товару\n"2" - Видалення товару\n"3" - Виведення списку товарів\n"4" - Вихід`
+  );
+
+  if (choice === null) {
+    continueProgram = false;
+  } else if (choice.trim() === "") {
+    alert("Ви нічого не ввели. Будь ласка, виберіть дію.");
   } else {
-    switch (choice) {
-      case 1:
-        let product = prompt("Додайте товар!");
-        addProduct(product);
-        break;
-      case 2:
-        let productRem = prompt("Введіть назву товару який треба видалити!");
-        removeProduct(productRem);
-        break;
-      case 3:
-        listProduct();
-        break;
-      default:
-        alert("Ви не вибрали дію!");
-        break;
+    choice = Number(choice);
+    if (isNaN(choice) || choice < 1 || choice > 4) {
+      alert("Невірний вибір. Будь ласка, виберіть 1, 2, 3 або 4.");
+    } else {
+      switch (choice) {
+        case 1:
+          let product = prompt("Додайте товар!");
+          if (product && product.trim() !== "") {
+            addProduct(product.trim());
+          } else {
+            alert("Ви не ввели назву товару.");
+          }
+          break;
+        case 2:
+          let productRem = prompt("Введіть назву товару який треба видалити!");
+          if (productRem && productRem.trim() !== "") {
+            removeProduct(productRem.trim());
+          } else {
+            alert("Ви не ввели назву товару для видалення.");
+          }
+          break;
+        case 3:
+          listProduct();
+          break;
+        case 4:
+          continueProgram = false;
+          break;
+      }
     }
   }
 }
+
+alert("Дякуємо за використання програми!");
