@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+
+        // Завдання 3
+        let vvedRik = +prompt("введіть рік на перевірку високосності")
+        let misiacLutyj = new Date(vvedRik, 1, 29)
+        if (misiacLutyj.getMonth() == 1) {
+            console.log(vvedRik + "  -є високосним, бо лютий має 29 дн.")
+        }
+        else {
+            console.log(vvedRik + "  -не високосний, бо лютий має 28 дн.")
+        }
+    </script>
+</body>
+
+</html>
