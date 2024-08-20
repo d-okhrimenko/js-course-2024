@@ -34,3 +34,24 @@ function calculateTriangleArea(a, b, c) {
   const area = Math.sqrt(p * (p - a) * (p - b) * (p - c)).toFixed(2);
   return area;
 }
+
+// getting a random integer between two values, inclusive
+function getRandomIntInclusive(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+// function that takes an array of integers and return average
+function getAverage(arr) {
+  const sum = arr.reduce((acum, curr) => acum + curr, 0);
+  return (sum / arr.length).toFixed(2);
+}
+
+// function that takes an array of integers and return minimum integer
+function getMinInteger(arr) {
+  return Math.min(...arr);
+}
+
+// function that takes an array of integers and return maximum integer
+function getMaxInteger(arr) {
+  return Math.max(...arr);
+}

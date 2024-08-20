@@ -34,8 +34,12 @@ function getFormInput(inputField) {
 // function validating user input to be  a positive number
 function isValidPositiveNumber(value) {
   //prettier-ignore
-  if (Number.isNaN(value) || 
-  value <= 0) return false;
+  if (!Number.isInteger(Number(value)) || 
+  value <= 0) {
+    alert("Invalid number 💩. Number should be bigger than 0 ❗  Reload page and try again.");
+    return false;
+  }
+
   return true;
 }
 

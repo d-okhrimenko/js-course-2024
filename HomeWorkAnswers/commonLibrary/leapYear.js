@@ -17,5 +17,6 @@ const isValid = function (data) {
 };
 const getInput = function (message, isValid) {
   const input = prompt(message);
+  if (!isValid(input)) return;
   return input;
 };
