@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function getNumericValue(message) {
+         while (true) {
+           let value = prompt(message);
+           let isValid = !isNaN(value) && value !== "" && value !== null;
+           if (isValid) return Number(value);
+         }
+       }
+
+       function getFigure(){
+          while (true) {            
+            let numberOfFigure = getNumericValue("Вкажіть тип фігури (1 - коло, 2 - прямокутник, 3 - трикутник): ");
+            if (numberOfFigure == 1 || numberOfFigure == 2 || numberOfFigure == 3) return numberOfFigure;
+          } 
+       }  
+
+        let getCircleArea = radius => Math.PI * Math.pow(radius, 2);
+        
+        let getCirclePerimeter = radius => 2 * Math.PI * radius;
+        
+        let getRectangleArea = (a, b) => a * b;
+        
+        let getRectanglePerimeter = (a, b) => 2 * (a + b);
+        
+        let getTrianglePerimeter = (a, b, c) => a + b + c;
+        
+        function getTriangleArea(a, b, c) 
+        {
+            let p2 = getTrianglePerimeter(a, b, c)/2;
+            return Math.sqrt(p2 * (p2 - a)*(p2 -b)*(p2 - c));
+        }
+        let numberOfFigure = getFigure();
+
+        if (numberOfFigure == 1) {
+            let radius = getNumericValue("Введіть радіус кола: ");
+            alert(`Площа кола = ${getCircleArea(radius)}, периметр = ${getCirclePerimeter(radius)}`);
+        } else if (numberOfFigure == 2) {
+            let a = getNumericValue("Введіть значення сторони \"а\" прямокутника: ");
+            let b = getNumericValue("Введіть значення сторони \"b\" прямокутника: ");
+            alert(`Площа прямокутника = ${getRectangleArea(a, b)}, периметр = ${getRectanglePerimeter(a, b)}`);
+        } else {
+            let a = getNumericValue("Введіть значення сторони \"а\" трикутника: ");
+            let b = getNumericValue("Введіть значення сторони \"b\" трикутника: ");
+            let c = getNumericValue("Введіть значення сторони \"c\" трикутника: ");
+            alert(`Площа трикутника = ${getTriangleArea(a, b, c)}, периметр = ${getTrianglePerimeter(a, b, c)}`);
+        }   
+        
+    </script>
+</body>
+</html>
