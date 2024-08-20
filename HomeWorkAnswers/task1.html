@@ -21,16 +21,13 @@
         return result
       }
 
-      // =====================================
       function getNumberValue(message) {
         while (true) {
           let value = prompt(message)
           let isValid = !isNaN(value) && value !== '' && value !== null
           if (isValid) return Number(value)
-          break
         }
       }
-      // =====================================
 
       function showResult(block, result) {
         return (document.querySelector(block).innerHTML = result)
@@ -41,6 +38,7 @@
 
       let userIMT = getIMT(userWeight, userHeight)
       let userCategory = getPersonCategory(userIMT)
+
       showResult('.result', userCategory)
     </script>
   </body>
