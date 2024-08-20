@@ -6,6 +6,96 @@
     <title>Document</title>
   </head>
   <body>
-    <script></script>
+    <p class="result"></p>
+    <script>
+      function getNumberValue(message) {
+        while (true) {
+          let value = prompt(message)
+          let isValid = !isNaN(value) && value !== '' && value !== null
+          if (isValid) return Number(value)
+        }
+      }
+      function showResult(block, result) {
+        return (document.querySelector(block).innerHTML += result)
+      }
+      // =====================================================================
+      // 1
+      function getCircleArea(radius) {
+        return Math.PI * Math.pow(radius, 2)
+      }
+
+      function getCirclePerimeter(radius) {
+        return 2 * Math.PI * radius
+      }
+
+      function getCircleParameter() {
+        let radius = getNumberValue('Введіть радіус')
+
+        let circleArea = getCircleArea(radius)
+        let circlePerimeter = getCirclePerimeter(radius)
+
+        showResult('.result', circleArea + '</br>')
+        showResult('.result', circlePerimeter + '</br>')
+      }
+
+      // 2
+      function getRectangleArea(length, width) {
+        return length * width
+      }
+      function getRectanglePerimeter(length, width) {
+        return 2 * (length + width)
+      }
+
+      function getRectangleParameters() {
+        let rectangleLength = getNumberValue('Введіть довжину прямокутника')
+        let rectangleWidth = getNumberValue('Введіть ширину прямокутника')
+
+        let rectangleArea = getRectangleArea(rectangleLength, rectangleWidth)
+        let rectanglePerimeter = getRectanglePerimeter(rectangleLength, rectangleWidth)
+
+        showResult('.result', rectangleArea + '</br>')
+        showResult('.result', rectanglePerimeter + '</br>')
+      }
+
+      // 3
+      function getTriangleArea(a, b, c) {
+        let p = (a + b + c) / 2
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c))
+      }
+      function getTrianglePerimeter(a, b, c) {
+        return a + b + c
+      }
+
+      function getTriangleParameters() {
+        let triangleSideA = getNumberValue('Введіть довжину сторони А трикутника')
+        let triangleSideB = getNumberValue('Введіть довжину сторони B трикутника')
+        let triangleSideC = getNumberValue('Введіть довжину сторони C трикутника')
+
+        let triangleArea = getTriangleArea(triangleSideA, triangleSideB, triangleSideC)
+        let trianglePerimeter = getTrianglePerimeter(triangleSideA, triangleSideB, triangleSideC)
+
+        showResult('.result', triangleArea + '</br>')
+        showResult('.result', trianglePerimeter + '</br>')
+      }
+
+      let userFigure = prompt('Введіть фігуру', 'Коло, Прямокутник, Трикутник')
+
+      if (userFigure === 'Коло') getCircleParameter()
+      else if (userFigure === 'Прямокутник') getRectangleParameters()
+      else if (userFigure === 'Трикутник') getTriangleParameters()
+    </script>
   </body>
 </html>
+<!-- Завдання 2
+
+Написати програму, яка обчислює площу та периметр різних геометричних фігур (коло, прямокутник, трикутник). Кожна геометрична фігура повинна мати свою окрему функцію для обчислення площі та периметру.
+
+4. Запросити користувача вибрати фігуру і ввести відповідні параметри:
+   - Використайте `prompt` для запиту типу фігури та відповідних параметрів.
+
+5. Обчислити площу та периметр вибраної фігури:
+   - Викликати відповідні функції для обчислення площі та периметру.
+
+6. Вивести результати:
+   - Використайте `alert` для виведення результатів обчислень.
+ -->
