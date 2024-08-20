@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+        let productsList = [];
+
+        function addToList(arr, item) {
+            arr.push(item);
+        }
+
+        function removeFromList(arr, item) {
+            let index = arr.indexOf(item);
+            arr.splice(index, 1);
+        }
+
+        function showList(arr) {
+            if (arr.length === 0) { 
+                return alert("Список пустий!");
+            }
+            return alert("Список продуктів: " + arr.toString());
+            //arr.forEach(x => console.log(x));
+        }
+
+        while (true) {
+            let userChoice = getNumericValue("Введіть номер операції, яку бажаєте: \n1 - додати товар\n2 - видалити товар\n3 - показати список товарів\n4 - вийти");
+
+            if(userChoice === 4) {
+                alert("Повертайтесь");
+                break;
+            } else if (userChoice === 1) {
+                let item = prompt("Введіть назву товару");
+                addToList(productsList, item);
+            } else if (userChoice === 2) {
+                let item = prompt("Введіть назву товару");
+                removeFromList(productsList, item);
+            } else if (userChoice === 3) {
+                showList(productsList);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
