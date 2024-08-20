@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perimeter and Area Calculator</title>
+    <link rel="stylesheet" href="css-5/task2.css" />
+    <script src="../commonLibrary/validation.js"></script>
+    <script src="../commonLibrary/mathFunctions.js"></script>
+    <script src="scripts-5/task2.js" defer></script>
+  </head>
+  <body>
+    <h1>Perimeter and Area Calculator</h1>
+    <p class="error hidden" id="error">Please enter valid value</p>
+    <h2>Start typing circle, rectangle or triangle in the input field to choose</h2>
+    <div class="input">
+      <label for="figure-option-choice">Choose a figure:</label>
+      <input list="geometry-figures" id="figure-option-choice" name="figure-option-choice" />
+    </div>
+
+    <datalist id="geometry-figures">
+      <option value="Circle"></option>
+      <option value="Rectangle"></option>
+      <option value="Triangle"></option>
+    </datalist>
+    <form id="form-circle" class="hidden">
+      <p class="note">radius should be greater than 0</p>
+      <fieldset id="circle">
+        <legend>Enter calculation data</legend>
+        <div class="input">
+          <label for="radius">Radius (units):</label>
+          <input type="number" id="radius" name="radius" required />
+        </div>
+        <div class="output">
+          <p>Perimeter (units): <span class="perimeter" id="perimeter-circle"></span></p>
+        </div>
+        <div class="output">
+          <p>Area (square units): <span class="area" id="area-circle"></span></p>
+        </div>
+      </fieldset>
+
+      <button type="button" class="btn btn-center" id="btn-circle">Calculate Circle</button>
+    </form>
+
+    <form id="form-rectangle" class="hidden">
+      <p class="note">length and width should be greater than 0</p>
+      <fieldset id="fieldset-rectangle">
+        <legend>Enter calculation data</legend>
+        <div class="input">
+          <label for="length">Length (units):</label>
+          <input type="number" id="length" name="length" min="0" required />
+        </div>
+        <div class="input">
+          <label for="width">Width (units):</label>
+          <input type="number" id="width" name="width" min="0" required />
+        </div>
+        <div class="output">
+          <p>Perimeter (units): <span class="perimeter" id="perimeter-rectangle"></span></p>
+        </div>
+        <div class="output">
+          <p>Area (square units): <span class="area" id="area-rectangle"></span></p>
+        </div>
+      </fieldset>
+
+      <button type="button" class="btn btn-center" id="btn-rectangle">Calculate Rectangle</button>
+    </form>
+
+    <form id="form-triangle" class="hidden">
+      <p class="note">
+        all three sides should be greater than 0 and the sum of any two of the sides should be greater than the third
+      </p>
+      <fieldset id="fieldset-triangle">
+        <legend>Enter calculation data</legend>
+        <div class="input">
+          <label for="side1">Side 1 length (units):</label>
+          <input type="number" id="side1" name="side1" required />
+        </div>
+        <div class="input">
+          <label for="side2">Side 2 length (units):</label>
+          <input type="number" id="side2" name="side2" required />
+        </div>
+        <div class="input">
+          <label for="side3">Side 3 length (units):</label>
+          <input type="number" id="side3" name="side3" required />
+        </div>
+        <div class="output">
+          <p>Perimeter (units): <span class="perimeter" id="perimeter-triangle"></span></p>
+        </div>
+        <div class="output">
+          <p>Area (square units): <span class="area" id="area-triangle"></span></p>
+        </div>
+      </fieldset>
+
+      <button type="button" class="btn btn-center" id="btn-triangle">Calculate Triangle</button>
+    </form>
+  </body>
+</html>

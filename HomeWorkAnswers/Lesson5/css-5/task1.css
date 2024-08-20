@@ -1,0 +1,66 @@
+@import url(style.css);
+
+fieldset {
+  border: 3px solid lightgreen;
+  border-radius: 10px;
+  padding-bottom: 3rem;
+}
+
+legend {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  color: blue;
+  text-align: center;
+  padding: 2rem 2rem;
+}
+.input {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 1rem 0;
+  color: blue;
+}
+.input input {
+  height: 3rem;
+  font-size: 2rem;
+  font-style: italic;
+  text-align: center;
+  color: brown;
+  border: none;
+  border-radius: 5px;
+}
+input::placeholder {
+  color: lightslategray;
+  text-align: center;
+}
+/* .invalid {
+  background-color: lightpink;
+  border: 1px solid red;
+} */
+
+.bmi,
+.category {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 2rem 0;
+  color: blueviolet;
+  margin: 0;
+}
+
+.error {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 2rem 0;
+  color: red;
+}
+.hidden {
+  opacity: 0;
+}
+
+#bmiResult,
+#bmiCategory {
+  color: brown;
+}
