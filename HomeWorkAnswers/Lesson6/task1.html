@@ -8,58 +8,44 @@
 	<body>
 		<script>
 			// 	1. Створити масив для зберігання оцінок студентів:
-			//    - Оцінки можуть бути представлені як цілі числа від 0 до 100.
-
 			// 2. Створити функцію для обчислення середнього балу:
 			// 3. Створити функцію для знаходження найвищої оцінки:
 			// 4. Створити функцію для знаходження найнижчої оцінки:
-
 			// 5. Запросити користувача ввести кілька оцінок і зберегти їх у масив:
-			//    - Використайте `prompt` для запиту оцінок, можна також згенерувати їх автоматично.
-
 			// 6. Обчислити середній бал, найвищу і найнижчу оцінки:
 			// 7. Вивести результати:
-			//    - Використайте `alert` для виведення середнього балу, найвищої та найнижчої оцінок.
+
 			let marks = [];
-			//let marks = [10, 20, 30];
 
-			// 		if (userChoice == "q") {
-			// 	console.log("Натиснута кнопка 'q' - Вихід з гри за вибором гравця");
-			// 	break;
-			// }
-			let count = getNumericValue(`Вкажіть, скільки відміток ви хочете ввести`);
+			const count = getNumericValue(`Вкажіть, скільки відміток ви хочете ввести`);
 
-			for (let i = 0; i < values.length; i++) {
-            if(values[i] < 0)
-                values[i] = 0;
-        }
-								
-			let input = getNumericValue(`Введіть оцінки від 1 до 100`);
-			// let input = prompt("Введите массив через пробел :");
-			// marks = input.trim().split(/\s+/);
-
-
-
-			console.log(marks, input);
-			marks.push(marks);
-
-
-
-
-
+			inputValues(count);
 
 			marks.forEach((value, index) => {
 				console.log(`index ${index} = ${value}`);
 			});
-			
+
 			alert(`Мін=${min(marks)} Макс=${max(marks)} Середній=${avg(marks).toFixed(2)}`);
 
-			
+			function inputValues(count) {
+				for (let i = 0; i < count; i++) {
+					marks.push(checkRangeValues(`Введіть оцінку ${i + 1} з ${count}: від 1 до 100`, 1, 100));
+				}
+			}
+
+			function checkRangeValues(message, min, max) {
+				while (true) {
+					let value = getNumericValue(message);
+					if (value >= min && value <= max) {
+						return value;
+					}
+				}
+			}
 
 			function getNumericValue(message) {
 				while (true) {
 					let value = prompt(message);
-					let isValid = !isNaN(value) && value !== "" && value !== null;
+					let isValid = !isNaN(value) && value !== "" && value !== null && value > 0;
 					if (isValid) return Number(value);
 				}
 			}
@@ -83,7 +69,6 @@
 			function avg(array) {
 				return sum(array) / array.length;
 			}
-
 		</script>
 	</body>
 </html>

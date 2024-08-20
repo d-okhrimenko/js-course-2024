@@ -5,22 +5,95 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 	</head>
+
 	<body>
 		<script>
 			// 1. Створити масив для зберігання списку покупок:
-			//    - Початково масив може бути порожнім або містити кілька базових товарів.
 			// 2. Створити функцію для додавання товару до списку:
-			//    - Функція приймає назву товару як аргумент і додає його до масиву.
 			// 3. Створити функцію для видалення товару зі списку:
-			//    - Функція приймає назву товару як аргумент, знаходить його у масиві та видаляє.
 			// 4. Створити функцію для виведення поточного списку покупок:
-			//    - Функція виводить всі елементи масиву у зручному для читання форматі.
 			// 5. Запропонувати користувачу вибрати дію:
-			//    - Використати `prompt` для вибору дії: додавання товару, видалення товару або виведення списку.
 			// 6. Реалізувати вибір користувача:
-			//    - Викликати відповідні функції на основі вибраної дії.
 			// 7. Повторити процес, поки користувач не завершить роботу:
-			//    - Дати можливість користувачу виконувати дії у циклі.
+
+			let list = ["хліб", "м'ясо", "кефір", "цукор"];
+			let isNotExit = true;
+
+			while (isNotExit) {
+				let input = prompt(`1-додати, 2-видалити, 3-показати, q-вихід або інша`).toLowerCase();
+
+				console.log(actionKey(list, input));
+			}
+
+			function actionKey(array, value) {
+				switch (value) {
+					case "1": {
+						console.log(`1 pressed`);
+						addGood(array, getTheName("додати"));
+						break;
+					} //add
+
+					case "2": {
+						console.log(`2 pressed`);
+						deleteGood(array, getTheName("видалити"));
+						break;
+					} //delete
+
+					case "3": {
+						console.log(`3 pressed`);
+						listOFGoods(array);
+						break;
+					} //list
+
+					case "q": {
+						console.log(`q pressed`);
+						isNotExit = false;
+						break;
+					} //exit
+
+					default: {
+						console.log(`pressed any key`);
+						isNotExit = false;
+						break;
+					}
+				}
+			}
+
+			function getTheName(message) {
+				return prompt(`Введіть назву товару, який ви хочете ${message}`).toLowerCase();
+			}
+
+			function isExists(array, nameOfGood) {
+				let exists = array.includes(nameOfGood);
+				return exists;
+			}
+
+			function addGood(array, value) {
+				if (isExists(array, value)) {
+					alert(`${value} вже існує у списку`);
+				} else {
+					array.push(value);
+					console.log(array);
+				}
+			}
+
+			function arrayPosition(array, item) {
+				return array.indexOf(item);
+			}
+
+			function deleteGood(array, value) {
+				if (!isExists(array, value)) {
+					alert(`${value} не існує у списку`);
+				} else {
+					array.splice(arrayPosition(array, value), 1);
+					console.log(array);
+				}
+			}
+
+			function listOFGoods(array) {
+				console.log(array);
+				alert(array);
+			}
 		</script>
 	</body>
 </html>
