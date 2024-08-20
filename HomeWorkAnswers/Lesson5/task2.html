@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 5 - Task 2</title>
+</head>
+
+<body>
+    <script src="./my-library.js"></script>
+    <script>
+        function toCalculateCircle(r) {
+            // площа = π * r², периметр = 2 * π * r
+            let area = Math.PI * Math.pow(r, 2);
+            let perimeter = 2 * Math.PI * r;
+            showResults(area, perimeter, `кола з радіусом ${r}`);
+        }
+
+        function toCalculateRectangle(a, b) {
+            // площа = a * b, периметр = 2 * (a + b)
+            let area = a * b;
+            let perimeter = 2 * (a + b);
+            showResults(area, perimeter, `прямокутника зі стронами ${a} і ${b}`);
+        }
+
+        function isValidTriangle(a, b, c) {
+            if ((a + b > c) && (a + c > b) && (b + c > a)) {
+                return true;
+            }
+            return false;
+        }
+
+        function toCalculateTriangle(a, b, c) {
+            let isValid = isValidTriangle(a, b, c);
+            while (!isValid) {
+                alert(`Трикутника зі сторонами ${a}, ${b} і ${c} не існує.\nПримітка. Сума довжин будь-яких двох сторін трикутника повинна бути завжди більшою за довжину третьої сторони.`)
+                a = getNumericValue("Введіть довжину 1-ї сторони трикутника:");
+                b = getNumericValue("Введіть довжину 2-ї сторони трикутника:");
+                c = getNumericValue("Введіть довжину 3-ї сторони трикутника:");
+                isValid = isValidTriangle(a, b, c);
+            }
+            // площа = √(p * (p - a) * (p - b) * (p - c)), де p = (a + b + c) / 2, периметр = a + b + c
+            let perimeter = a + b + c;
+            let p = perimeter / 2;
+            let area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+            showResults(area, perimeter, `трикутника зі стронами ${a}, ${b} і ${c}`);
+        }
+
+        function chooseShape() {
+            let isValid, shape;
+            while (!isValid) {
+                shape = prompt(`Обчислюємо площу та периметр геометричних фігур.\nВи обираєте - коло, прямокутник чи трикутник?`);
+                if (shape !== null) {
+                    shape = shape.toLowerCase().trim();
+                }
+                isValid = (shape === "коло") || (shape === "прямокутник") || (shape === "трикутник");
+            }
+            return shape;
+        }
+
+        function toCalculate(shape) {
+            switch (shape) {
+                case "коло":
+                    let radius = getNumericValue("Введіть радіус кола:");
+                    toCalculateCircle(radius);
+                    break;
+                case "прямокутник":
+                    let w = getNumericValue("Введіть ширину прямокутника:");
+                    let h = getNumericValue("Введіть довжину прямокутника:");
+                    toCalculateRectangle(w, h);
+                    break;
+                default:
+                    let a = getNumericValue("Введіть довжину 1-ї сторони трикутника:");
+                    let b = getNumericValue("Введіть довжину 2-ї сторони трикутника:");
+                    let c = getNumericValue("Введіть довжину 3-ї сторони трикутника:");
+                    toCalculateTriangle(a, b, c);
+                    break;
+            }
+        }
+
+        function showResults(area, perimeter, shape) {
+            let message = `Площа ${shape} дорівнює ${area.toFixed(2)}.\nПериметр ${shape} дорівнює ${perimeter.toFixed(2)}.`;
+            alert(message);
+            console.log(message);
+        }
+
+        let youShape = chooseShape();
+        toCalculate(youShape);
+
+    </script>
+</body>
+
+</html>
