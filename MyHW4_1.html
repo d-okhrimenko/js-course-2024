@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p > Гра: "Камінь, ножиці, папір"</p>
+    <script>
+
+        let scoreGrav = 0;
+        let scoreKomp = 0;
+
+
+
+        while (scoreGrav <= 5 || scoreKomp <= 5) {
+            let vvedSlovaPershe = prompt("Введи одне з 3 слів- камінь, ножиці чи папір");
+            let vvedSlova = vvedSlovaPershe.toLowerCase();
+
+            let vypadkoveZnach = Math.floor(Math.random() * 3);
+
+            let vypadkoveSlovo;
+
+            switch (vypadkoveZnach) {
+                case 0:
+                    vypadkoveSlovo = "камінь";
+                    break;
+                case 1:
+                    vypadkoveSlovo = "ножиці";
+                    break;
+                case 2:
+                    vypadkoveSlovo = "папір";
+                    break;
+            }
+
+            if (vvedSlova == vypadkoveSlovo) {
+                alert("Нічия!")
+            } else if ((vvedSlova == "камінь" && vypadkoveSlovo == "ножиці") || (vvedSlova == "ножиці" && vypadkoveSlovo == "папір") ||
+                (vvedSlova == "папір" && vypadkoveSlovo == "камінь")) {
+                alert("Гравець виграв!")
+                scoreGrav++
+            }
+            else {
+                alert("Гравця бито!")
+                scoreKomp++
+            };
+            alert("рахунок гравця =" + scoreGrav + " і рахунок комп'ютера=  " + scoreKomp)
+        }
+
+
+
+    </script>
+</body>
+
+</html>
