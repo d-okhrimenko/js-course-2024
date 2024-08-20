@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Гра: "Математичний квіз"</p>
+    <script>
+
+
+        let kilkistPrykladiv = 0;
+        let pravVidpov = 0;
+        let nepravVidpov = 0;
+        while (kilkistPrykladiv < 3) {
+            let chyslo1 = Math.floor(Math.random() * 10)
+            let chyslo2 = Math.floor(Math.random() * 10)
+
+
+            let vypadkoveZnach = Math.floor(Math.random() * 4);
+
+            let operator;
+
+            switch (vypadkoveZnach) {
+                case 0:
+                    operator = "*";
+                    break;
+                case 1:
+                    operator = "/";
+                    break;
+                case 2:
+                    operator = "-";
+                    break;
+                case 3:
+                    operator = "+";
+                    break;
+            }
+
+            function calckStr(num1, num2, operatorToCalc) {
+                let calculation;
+                switch (operatorToCalc) {
+                    case "+":
+                        calculation = num1 + num2;
+                        break;
+                    case "-":
+                        calculation = num1 - num2;
+                        break;
+                    case "*":
+                        calculation = num1 * num2;
+                        break;
+                    case "/":
+                        calculation = num1 / num2;
+                        break;
+                }
+                return calculation;
+            }
+
+
+            let zadacha = chyslo1 + operator + chyslo2;
+            let rachynok = 0;
+            while (rachynok < 2) {
+
+                let zapytNaVyrishennia = prompt(zadacha + "=");
+                let vidpovGravcia = Number(zapytNaVyrishennia)
+
+
+
+
+                let obrachynok = calckStr(chyslo1, chyslo2, operator)
+
+                if (vidpovGravcia == obrachynok) {
+                    alert("У тебе все добре з математикою!")
+                    pravVidpov++
+                    break;
+
+
+                } else {
+                    alert("Відповідь неправильна, спробуй ще раз!");
+                    rachynok++
+                    nepravVidpov++
+                }
+            }
+            kilkistPrykladiv++
+        }
+
+
+
+        alert("Всього ти зробив прикладів - " + kilkistPrykladiv + ", з них правильних відповідей - " + pravVidpov + ", а неправильних - " + nepravVidpov)
+
+    </script>
+</body>
+
+</html>
