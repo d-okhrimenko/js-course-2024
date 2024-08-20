@@ -4,6 +4,7 @@
 //   optionsLength - довжина масиву без елементу команди "вихід"
 //   optionsString - представлення значень гравцю, доступних у гри
 //   playerMsgs - масив повідомлень гравцю в грі
+//   this.rounds - кількість раундів гри
 //   playerScore - рахунок гравця
 //   computerScore - рахунок комп'ютера
 //
@@ -11,7 +12,9 @@
 //   getOptionsString() - метод формує і повертає представлення доступних значень гри
 //   getPlayerChoice() - метод отримання вводу гравця
 //   getComputerChoice() - генерація одного з трьох варіянтів можливих значень гри
-//  playRound() - основний метод класу гри
+//   choseValediction() - обираємо формальне прощання з гравцем
+//   play() - основний метод класу гри
+//   refresh() - обнуляємо лічильники об'єкту гри 
 //
 class Game {
   constructor() {
@@ -19,8 +22,9 @@ class Game {
     this.optionsLength = this.options.length - 1;
     this.optionsString = this.getOptionsString();
 
-    this.playerMsgs = ["Ви виграли!", "Ви програли!", "Нічия.", "Дякую за гру!"];
+    this.playerMsgs = ["Ви виграли!", "Ви програли!", "Нічия.", "Дякую за гру!", "Шкода, що не зіграли...", "Шкода, що так швидко йдете..."];
 
+    this.rounds = 0;
     this.playerScore = 0;
     this.computerScore = 0;
   } //  constructor()
@@ -40,7 +44,7 @@ class Game {
   /////////////////////////////////////////////////////////////////////////////////
   // Робота з введеним вибором гравцем та згенерованого комп'єтером
 
-  // вибір ігрока
+  // обробка вибору гравця
   getPlayerChoice() {
     let playerChoice = "";
     while (true) {
@@ -51,12 +55,12 @@ class Game {
     }
   } // getPlayerChoice()
 
-  // імітація введення вибору комп'ютером
+  // симуляція вибору від комп'ютера
   getComputerChoice() {
     return this.options[Math.floor(Math.random() * this.optionsLength)];
   } // getComputerChoice()
 
-  // формуємо інформацію для ігрока про стан раунду гри.
+  // формуємо інформацію для гравця про стан раунду гри.
   formPlayerMsg(inMsg, symb = "|", playerChoice = "", computerChoice = "") {
     return (
       `${inMsg}` +
@@ -70,8 +74,16 @@ class Game {
     );
   } // formPlayerMsg()
 
-  // раунд гри
-  playRound() {
+  // вибираємо формальне прощання, при виході гравця з гри
+  choseValediction() {
+    if(this.computerScore == 0 && this.computerScore == this.playerScore)
+      if(this.rounds == 0) return this.playerMsgs[4];
+      else return this.playerMsgs[5];
+    else return this.playerMsgs[3];
+  } // choseValediction()
+
+  // власне сама гра
+  play() {
     let playerChoice, computerChoice;
     let msg = "";
 
@@ -80,7 +92,7 @@ class Game {
       console.log(playerChoice);
 
       if (playerChoice === this.options[this.optionsLength]) {
-        msg = this.formPlayerMsg(this.playerMsgs[3]);
+        msg = this.formPlayerMsg(this.choseValediction());
         console.log(msg);
         break;
       }
@@ -101,11 +113,19 @@ class Game {
         this.computerScore++;
         msg = this.formPlayerMsg(this.playerMsgs[1], "<", playerChoice, computerChoice);
       }
+      this.rounds++;
       alert(msg);
     }
     alert(msg);
   } // playRound()
+
+  // обнуляємо лічильники
+  refresh() {
+    this.rounds = 0;
+    this.playerScore = 0;
+    this.computerScore = 0;
+  } //  refresh()
 } // class Game
 
 let gameObject = new Game();
-gameObject.playRound();
+gameObject.play();
