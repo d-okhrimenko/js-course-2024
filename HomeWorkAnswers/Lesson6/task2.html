@@ -31,7 +31,7 @@
         function showList(array) {
             let list = "";
             for (const index in array) {
-                list += `${Number(index) + 1}. ${array[index]}\n`;
+                list += `${Number(index) + 1}. ${array[index].charAt(0).toUpperCase() + array[index].slice(1)}\n`;
             }
             return list;
         }
