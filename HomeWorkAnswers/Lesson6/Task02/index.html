@@ -13,7 +13,11 @@
         let products = [];
 
         // додати продукт до списку
-        let addProduct = (productName) => products.push(productName);
+        let addProduct = (productName) => {
+            var index = products.indexOf(productName);
+            if(index==-1)
+                products.push(productName)
+        };
 
         // видалити продукт зі списку
         let delProduct = (productName) => {
