@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    <body>
+    
+        <script>
+            // 1. Створення масиву для зберігання списку покупок
+            let shoppingList = [];
+        
+            // 2. Функція для додавання товару до списку
+            function addItem(item) {
+                shoppingList.push(item);
+                alert(item + " додано до списку.");
+            }
+        
+            // 3. Функція для видалення товару зі списку
+            function removeItem(item) {
+                let index = shoppingList.indexOf(item);
+                if (index > -1) {
+                    shoppingList.splice(index, 1);
+                    alert(item + " видалено зі списку.");
+                } else {
+                    alert("Товар не знайдено у списку.");
+                }
+            }
+        
+            // 4. Функція для виведення поточного списку покупок
+            function displayList() {
+                if (shoppingList.length > 0) {
+                    alert("Список покупок: \n" + shoppingList.join("\n"));
+                } else {
+                    alert("Список покупок порожній.");
+                }
+            }
+        
+            // 5. Запропонувати користувачу вибрати дію
+            function promptUser() {
+                let action = prompt("Виберіть дію: додати (add), видалити (remove), показати список (show), завершити (exit)");
+                return action.toLowerCase();
+            }
+        
+            // 6. Реалізувати вибір користувача
+            while (true) {
+                let action = promptUser();
+                
+                if (action === "add") {
+                    let item = prompt("Введіть назву товару для додавання:");
+                    addItem(item);
+                } else if (action === "remove") {
+                    let item = prompt("Введіть назву товару для видалення:");
+                    removeItem(item);
+                } else if (action === "show") {
+                    displayList();
+                } else if (action === "exit") {
+                    break;
+                } else {
+                    alert("Невірна дія, спробуйте ще раз.");
+                }
+            }
+        </script>
+    </body>
+</html>
