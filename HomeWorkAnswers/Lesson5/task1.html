@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+        //function getIMT(weight, heiht) {
+        //    return weight/heiht*heiht;
+        //}
+        
+        let getIMT = (weight, height) => (weight/(height*height)).toFixed(1);
+
+        function getCategoryIMT(index) {
+            if(index < 18.5) {
+                return "недостатня вага";
+            } else if(index >= 18.5 && index < 24.9) {
+                return "нормальна вага";
+            } else if(index >= 25 && index < 29.9) {
+                return "надмірна вага";
+            } else if(index >= 30) {
+                return "ожиріння";
+            } else {
+                return "Помилка в розрахунках";
+            }
+        }
+
+        let userWeight = getNumericValue("Напишіть Вашу вагу в кілограмах");
+        let userHeight = getNumericValue("Напишіть Ваш зріст в метрах");
+        let userIMT = getIMT(userWeight, userHeight);
+
+        function calculateUserCategoryIMT() {
+            return getCategoryIMT(userIMT);
+        }
+
+        function showResults() {
+            return alert(`Якщо ваша вага ${userWeight} та ваш зріст ${userHeight}. Тоді ваш індекс маси тіла ${userIMT}. Тобто у вас ${calculateUserCategoryIMT()}`);
+        }
+       
+        showResults();
+    </script>
+</body>
+</html>
