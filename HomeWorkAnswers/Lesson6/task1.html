@@ -12,7 +12,7 @@
         function getValue(message) {
             while (true) {
                 let value = prompt(message);
-                let isValid = !isNaN(value) && value !== "" && value !== null && Number(value) >= 0 && Number(value) < 100;
+                let isValid = !isNaN(value) && value !== "" && value !== null && Number(value) >= 0 && Number(value) <= 100;
                 if (isValid) {
                     return Number(value);
                 }
