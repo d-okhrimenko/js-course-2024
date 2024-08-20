@@ -39,62 +39,63 @@ function getCounters() {
 }
 
 function getComputerChoice(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
+
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 document.querySelector("#play").onclick = function () {
-  let substitution = document.querySelector("#result").innerHTML;
+  let substitution = document.querySelector("#result");
+  let substitution1 = document.querySelector("#playerchoice");
+  let substitution2 = document.querySelector("#computerchoice");
   let playerChoice = +prompt(
     "Введите свой выбор(0-камень, 1-ножницы, 2-бумага)"
   );
   if ((playerChoice >= 0) & (playerChoice <= 2)) {
     switch (playerChoice) {
       case 0:
-        document.querySelector("#playerchoice").innerHTML = "Ты выбрал камень!";
+        substitution1.innerHTML = "Ты выбрал камень!";
         break;
       case 1:
-        document.querySelector("#playerchoice").innerHTML =
+        substitution1.innerHTML =
           "Ты выбрал ножницы!";
         break;
       case 2:
-        document.querySelector("#playerchoice").innerHTML = "Ты выбрал бумагу!";
+        substitution1.innerHTML = "Ты выбрал бумагу!";
         break;
     }
     let computerChoice = getComputerChoice(min, max);
     switch (computerChoice) {
       case 0:
-        document.querySelector("#computerchoice").innerHTML =
+        substitution2.innerHTML =
           "Я выбрал камень!";
         break;
       case 1:
-        document.querySelector("#computerchoice").innerHTML =
+        substitution2.innerHTML =
           "Я выбрал ножницы!";
         break;
       case 2:
-        document.querySelector("#computerchoice").innerHTML =
+        substitution2.innerHTML =
           "Я выбрал бумагу!";
         break;
     }
 
     if ((playerChoice == 0) & (computerChoice == 1)) {
-      substitution = "Ты выиграл!";
+      substitution.innerHTML = "Ты выиграл!";
       playerWinCounter++;
       getCounters();
     } else if ((playerChoice == 1) & (computerChoice == 2)) {
-      substitution = "Ты выиграл!";
+      substitution.innerHTML = "Ты выиграл!";
       playerWinCounter++;
       getCounters();
     } else if ((playerChoice == 2) & (computerChoice == 0)) {
-      substitution = "Ты выиграл!";
+      substitution.innerHTML = "Ты выиграл!";
       playerWinCounter++;
       getCounters();
     } else if (playerChoice == computerChoice) {
-      substitution = "Ничья!";
+      substitution.innerHTML = "Ничья!";
       getCounters();
     } else {
-      substitution = "Я выиграл!";
+      substitution.innerHTML = "Я выиграл!";
       computerWinCounter++;
       getCounters();
     }

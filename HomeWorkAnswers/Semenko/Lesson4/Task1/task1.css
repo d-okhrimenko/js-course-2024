@@ -1,5 +1,5 @@
 body {
-  background-color: beige;
+  background-color:whitesmoke;
 }
 p {
   color: red;
@@ -19,6 +19,6 @@ button {
 }
 #counters,
 h1 {
-  background-color: lightgray;
-  color: green;
+  background-color: lightgreen;
+  color: blue;
 }
