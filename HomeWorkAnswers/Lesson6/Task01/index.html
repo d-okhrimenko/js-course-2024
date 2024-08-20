@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-01</title>
+</head>
+
+<body>
+    <script>
+        let notes = [];
+
+        function genarateNotes(count) {
+            let array = [];
+            for (let i = 0; i < count; i++) {
+                const num = Math.floor(Math.random() * 100) + 1;
+                array.push(num);
+            }
+            return array;
+        }
+
+        let print = (array) => `${array.join(', ')}`;
+
+        let avg = (array) => (array.reduce((accumulator, currentValue) => accumulator + currentValue, 0) / array.length).toFixed(2);
+        let max = (array) => Math.max(...array);
+        let min = (array) => Math.min(...array);
+
+        notes = genarateNotes(10);
+
+        let listOfNotes = print(notes);
+        let avgNote = avg(notes);
+        let maxNote = max(notes);
+        let minNote = min(notes);
+
+        console.log(listOfNotes);
+        console.log(avgNote);
+        console.log(maxNote);
+        console.log(minNote);
+
+        let message = `Оцінки студентів: ${listOfNotes}\n\nСередній бал: ${avgNote}\nНайвища оцінка: ${maxNote}\nНайнижча оцінка: ${minNote}`
+        alert(message);
+
+    </script>
+</body>
+
+</html>
