@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let ratings = [2, 45, 76, 33, 65, 23, 98, 77, 48, 12, 5, 79, 87];
+
+        function average(array) {
+            let sum = 0;
+            for (let i = 0; i < array.length; i += 1) {
+                sum += array[i];
+            }
+            let avg = Math.round(sum / array.length);
+            // console.log(avg);
+            return avg;
+        }
+        average(ratings);
+
+        function highest(array) {
+            return Math.max(...array);
+        }
+        console.log(highest(ratings));
+
+        function lowest(array) {
+            return Math.min(...array);
+        }
+        console.log(lowest(ratings));
+
+
+        let arr = [];
+        let num;
+        for (let i = 0; i < 6; i++) {
+            num = parseInt(prompt("Введіть оцінку від 0 до 100"));
+            if (!isNaN(num) && num >= 0 && num <= 100) {
+                arr.push(num);
+            } else {
+                alert("Будь ласка, введіть коректну оцінку від 0 до 100.");
+                i--;
+            }
+        }
+        console.log(arr);
+        let avg = average(arr);
+        let high = highest(arr);
+        let low = lowest(arr);
+
+        alert(`Середній бал: ${avg}`);
+        alert(`Найвища оцінка: ${high}`);
+        alert(`Найнижча оцінка: ${low}`);
+
+    </script>
+</body>
+
+</html>

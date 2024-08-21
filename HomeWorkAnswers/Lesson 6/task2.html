@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="add">Додати товар до списку</button>
+    <button class="remove">Видалити товар зі списку</button>
+    <button class="btnList">Показати список продуктів</button>
+
+    <ol class="list"></ol>
+
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+        let shopping = ["TV", "refrigerator", "washing"];
+
+        const addEl = document.querySelector(".add");
+        const removeEl = document.querySelector(".remove");
+        const btnListEl = document.querySelector(".btnList");
+        const listEl = document.querySelector(".list");
+
+        addEl.addEventListener("click", add);
+        removeEl.addEventListener("click", remove);
+        btnListEl.addEventListener("click", listShopping);
+
+
+        let action = getNumericValue("Виберіть дію, яку хочете виконати першою: додавання товару(1), видалення товару(2), виведення списку(3)");
+
+        if (action === 1) {
+            add(name);
+        } else if (action === 2) {
+            const name = prompt("Введіть товар, який хочете видалити з списку");
+            remove(name);
+        } else if (action === 3) {
+            listShopping(shopping);
+        }
+
+        function add() {
+            let name = prompt("Введіть товар, який хочете добавити в список");
+            shopping.push(name);
+            console.log(shopping);
+            return shopping;
+        }
+
+        function remove() {
+            let name = prompt("Введіть товар, який хочете видалити зі список");
+            const index = shopping.indexOf(name);
+            if (index !== -1) {
+                shopping.splice(index, 1);
+                console.log(shopping);
+            } else {
+                console.log("Товар не знайдено.");
+            }
+        }
+
+        function listShopping() {
+            const markup = shopping
+                .map((value) => `<li class="list-item">${value}</li>`)
+                .join("");
+
+            listEl.innerHTML = markup;
+            // return list;
+        }
+
+
+    </script>
+</body>
+
+</html>
