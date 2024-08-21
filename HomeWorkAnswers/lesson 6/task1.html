@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let studentGrades = [];
+      let numberOfGrades = +prompt("Скільки оцінок ви хочете згенерувати?");
+
+      for (let i = 0; i < numberOfGrades; i++) {
+        studentGrades.push(Math.floor(Math.random() * 100) + 1);
+      }
+
+      let getAverage = arr =>
+        arr.reduce((total, value) => (total + value) / arr.length);
+
+      let getHighestRating = arr => Math.max(...arr);
+
+      let getlowestRating = arr => Math.min(...arr);
+
+      alert(
+        `Найвища оцінка: ${getHighestRating(
+          studentGrades
+        )}\nНайнижча оцінка: ${getlowestRating(
+          studentGrades
+        )}\nСередній бал: ${getAverage(studentGrades)}`
+      );
+    </script>
+  </body>
+</html>
