@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesso5 Task2</title>
+  </head>
+  <body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+      const figure = ["коло", "прямокутник", "трикутник"];
+
+      const getCircleParameters = (radius) => {
+        const output = {
+          area: 0,
+          perimeter: 0,
+        };
+        output.area = Math.round(Math.PI * Math.pow(radius, 2) * 10) / 10;
+        output.perimeter = Math.round(2 * Math.PI * radius * 10) / 10;
+        return output;
+      };
+      const getRectangleParameters = (a, b) => {
+        const output = {
+          area: 0,
+          perimeter: 0,
+        };
+        output.area = a * b;
+        output.perimeter = 2 * (a + b);
+        return output;
+      };
+      const getTriangleParameters = (a, b, c) => {
+        const output = {
+          area: 0,
+          perimeter: 0,
+        };
+        const p = (a + b + c) / 2;
+        output.area =
+          Math.round(Math.sqrt(p * (p - a) * (p - b) * (p - c)) * 10) / 10;
+        output.perimeter = a + b + c;
+        return output;
+      };
+
+      const choise = getNumericValue(
+        `Введіть 0, якщо обрана фігура - ${figure[0]},\n1, якщо обрана фігура - ${figure[1]},\n2, якщо обрана фігура - ${figure[2]}`
+      );
+      let output;
+      switch (choise) {
+        case 0:
+          const radius = getNumericValue("Введіть радіус");
+          output = getCircleParameters(radius);
+          alert(`Площа: ${output.area}\nДовжина кола: ${output.perimeter}`);
+          break;
+        case 1:
+          const a = getNumericValue("Введіть довжину прямокутника");
+          const b = getNumericValue("Введіть ширину прямокутника");
+          output = getRectangleParameters(a, b);
+          alert(`Площа: ${output.area}\nПериметер: ${output.perimeter}`);
+          break;
+        case 2:
+          const a1 = getNumericValue("Введіть 1 сторону трикутника");
+          const a2 = getNumericValue("Введіть 2 сторону трикутника");
+          const a3 = getNumericValue("Введіть 3 сторону трикутника");
+          output = getTriangleParameters(a1, a2, a3);
+          alert(`Площа: ${output.area}\nПериметер: ${output.perimeter}`);
+          break;
+        default:
+          alert("Незрозумілий вибір");
+          break;
+      }
+    </script>
+  </body>
+</html>

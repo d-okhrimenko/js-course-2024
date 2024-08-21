@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson5 Task1</title>
+  </head>
+  <body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+      const category = {
+        0: "Недостатня вага",
+        1: "Нормальна вага",
+        2: "Надмірна вага",
+        3: "Ожиріння",
+      };
+      const getOutputMessage = (index, categoryId) =>
+        "Ваш ІМТ " + index + "\n" + category[categoryId];
+      const getImb = (massa, growth) =>
+        Math.round((massa / Math.pow(growth, 2)) * 10) / 10;
+
+      const getCategoryImb = (index) => {
+        if (index < 18.5) return 0;
+        else if (index < 24.9) return 1;
+        else if (index < 29.9) return 2;
+        else return 3;
+      };
+
+      const massa = getNumericValue("Ведіть свою вагу в кг");
+      const growth = getNumericValue("Ведіть свій ріст в м");
+      const index = getImb(massa, growth);
+      alert(getOutputMessage(index, getCategoryImb(index)));
+    </script>
+  </body>
+</html>
