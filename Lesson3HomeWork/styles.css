@@ -23,6 +23,10 @@ ul {
     text-align: center;
     border: 2px solid rgb(8, 81, 81);
     border-radius: 16px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
 }
 
 h1 {
@@ -46,6 +50,7 @@ a {
 
 a:hover {
     text-decoration: underline;
+    text-shadow: 5px 5px 5px rgba(85, 15, 88, 0.3);
 }
 
 .content {
@@ -76,4 +81,9 @@ a:hover {
     background-color: #4b0082;
     scale: 1.05;
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    font-size: 24px;
+    font-weight: 500;
 }
