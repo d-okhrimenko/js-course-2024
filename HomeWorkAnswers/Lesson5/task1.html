@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task1-Lesson5</title>
+</head>
+
+<body>
+  <script src="../../ClassWork/common/my-library.js"></script>
+
+  <script>
+    const calculateIMT = (weight, height) => Math.round((weight / Math.pow(height, 2) * 100 / 100));
+
+    const getIMTcategory = (imtVal) => {
+      switch (true) {
+        case imtVal < 18.5: return 'недостатня вага';
+        case imtVal < 24.9: return 'нормальна вага';
+        case imtVal < 29.9: return 'надмірна вага';
+        default: return 'ожиріння';
+      }
+    }
+
+    const getResultIMT = () => {
+      const userWeight = getNumericValue('Введіть вашу вагу в кілограмах');
+      const userHeight = getNumericValue('Введіть ваш ріст в метрах');
+
+      if (userWeight <= 0 || userHeight <= 0) {
+        alert("Будь ласка, введіть коректні значення ваги та росту.");
+        getResultIMT();
+      } else {
+        const userIMT = calculateIMT(userWeight, userHeight);
+        alert(`Ваш Індекс маси тіла: ${userIMT}, орієнтовно у Вас ${getIMTcategory(userIMT)}.`)
+      }
+    }
+
+    getResultIMT()
+  </script>
+</body>
+
+</html>
