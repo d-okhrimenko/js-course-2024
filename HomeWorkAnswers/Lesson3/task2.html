@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>День тижня</title>
+</head>
+<body>
+    <script>
+        const today = new Date();
+
+        const dayIndex = today.getDay();
+
+        let dayName;
+
+        if (dayIndex === 0) {
+            dayName = 'неділя';
+        } else if (dayIndex === 1) {
+            dayName = 'понеділок';
+        } else if (dayIndex === 2) {
+            dayName = 'вівторок';
+        } else if (dayIndex === 3) {
+            dayName = 'середа';
+        } else if (dayIndex === 4) {
+            dayName = 'четвер';
+        } else if (dayIndex === 5) {
+            dayName = 'п\'ятниця';
+        } else if (dayIndex === 6) {
+            dayName = 'субота';
+        }
+
+        alert('Сьогодні: ' + dayName);
+    </script>
+</body>
+</html>

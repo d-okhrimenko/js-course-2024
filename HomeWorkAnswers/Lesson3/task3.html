@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевірка високосного року</title>
+</head>
+<body>
+    <script>
+        const input = prompt('Введіть рік:');
+
+        const year = Number(input);
+
+        if (isNaN(year) || year <= 0 || !Number.isInteger(year)) {
+            alert('Будь ласка, введіть коректний рік.');
+        } else {
+            let isVysYear = false;
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                isVysYear = true;
+            }
+
+            if (isVysYear) {
+                alert(year + ' є високосним роком.');
+            } else {
+                alert(year + ' не є високосним роком.');
+            }
+        }
+    </script>
+</body>
+</html>

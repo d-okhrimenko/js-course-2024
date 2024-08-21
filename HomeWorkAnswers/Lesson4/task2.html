@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математичний квіз</title>
+</head>
+<body>
+    <script>
+        const numQuestions = 5; 
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+
+        for (let i = 0; i < numQuestions; i++) {
+            const num1 = Math.floor(Math.random() * 10) + 1;
+            const num2 = Math.floor(Math.random() * 10) + 1;
+            const operators = ['+', '-', '*', '/'];
+            const operator = operators[Math.floor(Math.random() * operators.length)];
+
+            let correctAnswer;
+
+            if (operator === '+') {
+                correctAnswer = num1 + num2;
+            } else if (operator === '-') {
+                correctAnswer = num1 - num2;
+            } else if (operator === '*') {
+                correctAnswer = num1 * num2;
+            } else if (operator === '/') {
+                correctAnswer = (num1 / num2).toFixed(2);
+            }
+
+            const userAnswer = parseFloat(prompt(`${num1} ${operator} ${num2} = ?`));
+
+            if (userAnswer === correctAnswer) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        }
+
+        alert(`Гра закінчена!\nКількість правильних відповідей: ${correctAnswers}\nКількість неправильних відповідей: ${incorrectAnswers}`);
+    </script>
+</body>
+</html>

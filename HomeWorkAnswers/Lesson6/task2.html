@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список покупок</title>
+</head>
+<body>
+    <script>
+        let shoppingList = [];
+
+        function addItem(item) {
+            if (!item.trim()) {
+                alert("Назву товару не введено або введено пробіл.");
+                return;
+            }
+            if (shoppingList.includes(item)) {
+                alert(`${item} вже в списку.`);
+            } else {
+                shoppingList.push(item);
+                alert(`${item} додано до списку покупок.`);
+            }
+        }
+
+        function removeItem(item) {
+            if (!item.trim()) {
+                alert("Назву товару не введено або введено пробіл.");
+                return;
+            }
+            let index = shoppingList.indexOf(item);
+            if (index !== -1) {
+                shoppingList.splice(index, 1);
+                alert(`${item} видалено зі списку покупок.`);
+            } else {
+                alert(`${item} не знайдено в списку.`);
+            }
+        }
+
+        function showList() {
+            if (shoppingList.length === 0) {
+                alert("Список покупок пустий.");
+            } else {
+                alert("Список покупок:\n" + shoppingList.join("\n"));
+            }
+        }
+
+        function manageShoppingList() {
+            let action;
+            do {
+                action = prompt("Оберіть дію:\n1. Додати товар\n2. Видалити товар\n3. Показати список\n4. Вийти").trim();
+                
+                switch(action) {
+                    case '1':
+                        let addItemName = prompt("Введіть назву товару для додавання:");
+                        addItem(addItemName);
+                        break;
+                    case '2':
+                        let removeItemName = prompt("Введіть назву товару для видалення:");
+                        removeItem(removeItemName);
+                        break;
+                    case '3':
+                        showList();
+                        break;
+                    case '4':
+                        alert("Завершення роботи.");
+                        break;
+                    default:
+                        alert("Введіть дійсний пункт меню");
+                }
+            } while (action !== '4');
+        }
+
+        manageShoppingList();
+    </script>
+</body>
+</html>

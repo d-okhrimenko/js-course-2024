@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оцінки</title>
+</head>
+<body>
+    <script>
+
+let grades = [];
+
+
+function calculateAverage(gradesArray) {
+    if (gradesArray.length === 0) return 0;
+    let sum = gradesArray.reduce((sum, index) => sum + index, 0);
+    return sum / gradesArray.length;
+}
+
+
+function findMaxGrade(gradesArray) {
+    if (gradesArray.length === 0) return null;
+    return Math.max(...gradesArray);
+}
+
+function findMinGrade(gradesArray) {
+    if (gradesArray.length === 0) return null;
+    return Math.min(...gradesArray);
+}
+
+function getGrades() {
+    let input = prompt("Введіть оцінки через кому:");
+    if (input) {
+        grades = input.split(",").map(num => parseInt(num.trim(), 10)).filter(num => !isNaN(num) && num >= 0 && num <= 100);
+    }
+}
+
+getGrades();
+
+let average = calculateAverage(grades);
+let max = findMaxGrade(grades);
+let min = findMinGrade(grades);
+
+alert(`Середній бал: ${average.toFixed(2)}
+Найвища оцінка: ${max}
+Найнижча оцінка: ${min}`);
+
+    </script>
+</body>
+</html>
