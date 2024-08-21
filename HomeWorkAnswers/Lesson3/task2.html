@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson3 task2</title>
+</head>
+<body>
+    <div>
+        <b id="output"></b>
+    </div>
+    <script>
+        let dayInt = new Date().getDay();
+        let dayStr;
+
+        switch(dayInt) {
+            case 0:
+                dayStr = "неділя";
+                break;
+            case 1:
+                dayStr = "понеділк";
+                break;                
+            case 2:
+                dayStr = "віторок";
+                break;
+            case 3:
+                dayStr = "середа";
+                break;
+            case 4:
+                dayStr = "четвер";
+                break;
+            case 5:
+                dayStr = "п'ятниця";
+                break;
+            case 6:
+                dayStr = "субота";
+                break;
+            default:
+                dayStr = "вихідний";
+        }
+
+        showResult("сьогодні " + dayStr);
+
+        function showResult(result) 
+        {
+            let output = document.querySelector("#output");
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+</html>
