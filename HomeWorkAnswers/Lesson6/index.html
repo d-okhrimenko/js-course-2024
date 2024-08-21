@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 6</title>
+</head>
+
+<body>
+    <script src="library.js"></script>
+    <h2>Task 1. Student grades</h2>
+    <h3>
+        This program allows you to store a list of student's grades
+        <br>and automatically calculates the average grade,
+        <br>determines the highest and lowest grade.
+        <br>A student can add new grades to track the current progress.
+        <br>Just enter the grade in the appropriate field and click the button to analyze.
+    </h3>
+    <div>
+        <label for="addGrade">Add your latest grade:</label>
+        <br>
+        <input id="addGrade" placeholder="50">
+        <p id="gradeOutput"></p>
+        <button id="submit">Submit</button>
+        <br><br>
+    </div>
+
+    <div>
+        <label for="gpa">Your grade point average:</label>
+        <p id="gpaOutput"></p>
+        <button id="gpa">Calculate</button>
+        <br><br>
+    </div>
+
+    <div>
+        <label for="max">Your highest grade:</label>
+        <p id="maxOutput"></p>
+        <button id="max">Calculate</button>
+        <br><br>
+    </div>
+
+    <div>
+        <label for="min">Your lowest grade:</label>
+        <p id="minOutput"></p>
+        <button id="min">Calculate</button>
+        <br><br>
+    </div>
+
+    <hr color="black">
+
+    <h2>Task 2. Shopping list</h2>
+    <h3>
+        This program allows you to create a shopping list:
+        <br>add new products, delete existing ones, and display a list of items.
+    </h3>
+    <div>
+        <label for="addItem">Enter item name:</label>
+        <br>
+        <input id="addItem" placeholder="milk">
+        <p id="addOutput"></p>
+        <button id="btnAdd">Add to the list</button>
+        <br><br>
+    </div>
+
+    <div>
+        <label for="removeItem">Enter item name:</label>
+        <br>
+        <input id="removeItem" placeholder="milk">
+        <p id="removeOutput"></p>
+        <button id="btnRemove">Remove from the list</button>
+        <br><br>
+    </div>
+
+    <div>
+        <p id="listOutput"></p>
+        <button id="btnList">Display items list</button>
+        <br><br>
+    </div>
+    <hr>
+    <div>
+        <p>The same shopping list, but via “prompt()”.
+            <br>You need to open the console to see the results.
+        </p>
+        <button id="btnRun">Run shopping list</button>
+        <br><br>
+    </div>
+    <script src="task1.js"></script>
+    <script src="task2.js"></script>
+</body>
+
+</html>
