@@ -1,5 +1,9 @@
-// реалізація гри "камінь ножиці папір" через клас "Game"
-// поля класу:
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// реалізація гри "камінь ножиці папір" через кляс "StoneScissorsPaperGame"
+// реалізовано механізм нескінченної гри до введення гравцем команди "вихід".
+// також реалізовано метод онулення лічильників рахунків гравців і кількості зіграних раундів
+//
+// поля клясу:
 //   options - масив рядкових значень-команд, доступних для гри
 //   optionsLength - довжина масиву без елементу команди "вихід"
 //   optionsString - представлення значень гравцю, доступних у гри
@@ -8,7 +12,7 @@
 //   playerScore - рахунок гравця
 //   computerScore - рахунок комп'ютера
 //
-// методи:
+// методи клясу:
 //   getOptionsString() - метод формує і повертає представлення доступних значень гри
 //   getPlayerChoice() - метод отримання вводу гравця
 //   getComputerChoice() - генерація одного з трьох варіянтів можливих значень гри
@@ -16,7 +20,7 @@
 //   play() - основний метод класу гри
 //   refresh() - обнуляємо лічильники об'єкту гри 
 //
-class Game {
+class StoneScissorsPaperGame {
   constructor() {
     this.options = ["камінь", "ножиці", "папір", "вихід"];
     this.optionsLength = this.options.length - 1;
@@ -29,19 +33,8 @@ class Game {
     this.computerScore = 0;
   } //  constructor()
 
-  // формуємо рядок для демонстрації гравцю
-  getOptionsString() {
-    let gameOptionsString = "";
-
-    for (let i = 0; i < this.optionsLength; i++) {
-      gameOptionsString += this.options[i];
-      if (i == this.optionsLength - 1) 
-        return gameOptionsString += "?";
-      gameOptionsString += ", ";
-    }
-  } // getOptionsString()
-
-  /////////////////////////////////////////////////////////////////////////////////
+  
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Робота з введеним вибором гравцем та згенерованого комп'єтером
 
   // обробка вибору гравця
@@ -59,6 +52,21 @@ class Game {
   getComputerChoice() {
     return this.options[Math.floor(Math.random() * this.optionsLength)];
   } // getComputerChoice()
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Допоміжні функції клясу
+
+  // формуємо рядок для демонстрації гравцю
+  getOptionsString() {
+    let gameOptionsString = "";
+
+    for (let i = 0; i < this.optionsLength; i++) {
+      gameOptionsString += this.options[i];
+      if (i == this.optionsLength - 1) 
+        return gameOptionsString += "?";
+      gameOptionsString += ", ";
+    }
+  } // getOptionsString()
 
   // формуємо інформацію для гравця про стан раунду гри.
   formPlayerMsg(inMsg, symb = "|", playerChoice = "", computerChoice = "") {
@@ -81,6 +89,9 @@ class Game {
       else return this.playerMsgs[5];
     else return this.playerMsgs[3];
   } // choseValediction()
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Методи керування грою
 
   // власне сама гра
   play() {
@@ -127,5 +138,5 @@ class Game {
   } //  refresh()
 } // class Game
 
-let gameObject = new Game();
+let gameObject = new StoneScissorsPaperGame();
 gameObject.play();
