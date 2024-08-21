@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+        let ratings = [6,10,20,35,50,65,78,86,93,98];
+
+        function calculateAverage(array) {
+            let sum = 0;
+            for (let i = 0; i < array.length; i++) {
+                sum += array[i];
+            }
+            return sum / array.length;
+        }
+
+        function max(array) {
+            return Math.max(...array);
+        }
+
+        function min(array) {
+            return Math.min(...array);
+        }
+
+        function ratingsAdd(countrt) {
+            for (let index = 0; index < countrt; index++) ratings.push(Math.floor(Math.random() * 100));
+        }
+        
+        ratingsAdd(getNumericValue("Введіть кількість оцінок, яку треба згенерувати"));
+        alert(`Середній бал =${calculateAverage(ratings)}, найвища = ${max(ratings)} та найнижча оцінока = ${min(ratings)} `);
+    </script>
+</body>
+
+</html>
