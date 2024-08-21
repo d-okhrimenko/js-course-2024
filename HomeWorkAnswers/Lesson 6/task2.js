@@ -4,17 +4,30 @@ let value = "";
 function addElement(array) {
 	value = prompt("Введіть назву товару");
 
-	return array.push(value);
+	if (value) {
+		array.push(value);
+	} else {
+		alert("Назва товару не може бути пустою!");
+	}
 }
 
 function removeElement(array) {
 	value = prompt("Введіть назву товару");
 
-	return array.filter(element => element !== value);
+	if (value) {
+		return array.filter(element => element !== value);
+	} else {
+		alert("Назва товару не може бути пустою!");
+		return array;
+	}
 }
 
-function printArrayElements(array) {
-	alert(array);
+function printElements(array) {
+	if (array.length > 0) {
+		alert(array.join(", "));
+	} else {
+		alert("Список покупок пустий!");
+	}
 }
 
 let action = 0;
@@ -30,7 +43,7 @@ do {
 			shoppingList = removeElement(shoppingList);
 			break;
 		case 3:
-			printArrayElements(shoppingList);
+			printElements(shoppingList);
 			break;
 		default:
 			break;
