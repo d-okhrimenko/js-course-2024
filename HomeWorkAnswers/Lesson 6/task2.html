@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. Створити масив для зберігання списку покупок
+      let shoppingList = ["хліб", "молоко", "яйця"];
+
+      // 2. Створити функцію для додавання товару до списку
+      function addItem(item) {
+        shoppingList.push(item);
+        alert(`${item} додано до списку покупок.`);
+      }
+
+      // 3. Створити функцію для видалення товару зі списку
+      function removeItem(item) {
+        let index = shoppingList.indexOf(item);
+        if (index !== -1) {
+          shoppingList.splice(index, 1);
+          alert(`${item} видалено зі списку покупок.`);
+        } else {
+          alert(`${item} не знайдено у списку покупок.`);
+        }
+      }
+
+      // 4. Створити функцію для виведення поточного списку покупок
+      function displayList() {
+        if (shoppingList.length === 0) {
+          alert("Список покупок порожній.");
+        } else {
+          alert("Поточний список покупок:\n" + shoppingList.join("\n"));
+        }
+      }
+
+      // 5. Запропонувати користувачу вибрати дію
+      function chooseAction() {
+        let action;
+        do {
+          action = prompt(
+            "Виберіть дію: додати (add), видалити (remove), показати (show) або завершити (exit):"
+          ).toLowerCase();
+          switch (action) {
+            case "add":
+              let itemToAdd = prompt("Введіть назву товару для додавання:");
+              addItem(itemToAdd);
+              break;
+            case "remove":
+              let itemToRemove = prompt("Введіть назву товару для видалення:");
+              removeItem(itemToRemove);
+              break;
+            case "show":
+              displayList();
+              break;
+            case "exit":
+              alert("Роботу завершено.");
+              break;
+            default:
+              alert("Невідома дія. Спробуйте ще раз.");
+          }
+        } while (action !== "exit");
+      }
+
+      // 7. Повторити процес, поки користувач не завершить роботу
+      chooseAction();
+    </script>
+  </body>
+</html>

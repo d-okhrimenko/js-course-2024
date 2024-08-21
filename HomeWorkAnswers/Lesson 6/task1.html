@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. Створити масив для зберігання оцінок студентів
+      let grades = [];
+
+      // 5. Запросити користувача ввести кілька оцінок і зберегти їх у масив
+      let numberOfGrades;
+      do {
+        numberOfGrades = prompt("Скільки оцінок ви хочете ввести?");
+      } while (
+        !Number.isInteger(Number(numberOfGrades)) ||
+        numberOfGrades <= 0
+      );
+
+      for (let i = 0; i < numberOfGrades; i++) {
+        let grade;
+        do {
+          grade = prompt(`Введіть оцінку ${i + 1} (від 0 до 100):`);
+        } while (!Number.isInteger(Number(grade)) || grade < 0 || grade > 100);
+        grades.push(parseInt(grade));
+      }
+
+      // 2. Створити функцію для обчислення середнього балу
+      function calculateAverage(grades) {
+        let sum = grades.reduce((acc, grade) => acc + grade, 0);
+        return sum / grades.length;
+      }
+      //   function calculateAverage(grades) {
+      //     let sum = 0;
+      //     for (const value of grades) {
+      //       //   sum = sum + value;
+      //       sum += value;
+      //     }
+      //     return sum / grades.length;
+      //   }
+
+      // 3. Створити функцію для знаходження найвищої оцінки
+      function findHighestGrade(grades) {
+        return Math.max(...grades);
+      }
+
+      // 4. Створити функцію для знаходження найнижчої оцінки
+      function findLowestGrade(grades) {
+        return Math.min(...grades);
+      }
+
+      // 6. Обчислити середній бал, найвищу і найнижчу оцінки
+      let average = calculateAverage(grades);
+      let highest = findHighestGrade(grades);
+      let lowest = findLowestGrade(grades);
+
+      // 7. Вивести результати
+      alert(`Середній бал: ${average.toFixed(2)}`);
+      alert(`Найвища оцінка: ${highest}`);
+      alert(`Найнижча оцінка: ${lowest}`);
+    </script>
+  </body>
+</html>
