@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Визначення площі та периметру обраної фігури</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Розрахунок периметру та площі фігури</h1>
+
+      <h2>Оберіть фігуру:</h2>
+      <select id="shapeSelect" onchange="updateInputs()">
+        <option value="">-- Ваш вибір --</option>
+        <option value="circle">Коло</option>
+        <option value="rectangle">Прямокутник</option>
+        <option value="treangle">Трикутник</option>
+      </select>
+      <div id="parameters">
+        <h3>Введіть параметри для обраної фігури:</h3>
+        <div id="inputFields"></div>
+        <button onclick="calculate()">Розрахувати</button>
+      </div>
+
+      <div id="results">
+        <h3>Результати:</h3>
+        <p id="areaResult"></p>
+        <p id="perimeterResult"></p>
+      </div>
+    </div>
+    <script src="/ClassWork/common/my-library.js"></script>
+    <script>
+      // Circle
+      let getCircleArea = (radius) => Math.PI * Math.pow(radius, 2);
+      let getCirclePerimeter = (radius) => 2 * Math.PI * radius;
+      // Rectangle
+      let getRectangleArea = (lenght, width) => lenght * width;
+      let gerRectanglePerimeter = (lenght, width) =>
+        (Number(lenght) + Number(width)) * 2;
+      // Triangle
+      let gerTreanglePerimeter = (side1, side2, side3) =>
+        Number(side1) + Number(side2) + Number(side3);
+      let getTreangleArea = (side1, side2, side3) => {
+        let p = gerTreanglePerimeter(side1, side2, side3) / 2;
+        let treangleArea = Math.sqrt(
+          p * (p - side1) + (p - side2) * (p - side3)
+        );
+        return treangleArea;
+      };
+
+      // Вибір фігури та введення її параметрів
+      function updateInputs() {
+        const shape = document.getElementById("shapeSelect").value;
+        const parametersDiv = document.getElementById("parameters");
+        const inputFields = document.getElementById("inputFields");
+        const results = document.getElementById("results");
+
+        // Очистити попередні введені значення
+        inputFields.innerHTML = "";
+        results.style.display = "none";
+
+        if (shape) {
+          parametersDiv.style.display = "block";
+          let inputs = "";
+
+          if (shape === "circle") {
+            inputs +=
+              '<label>Радіус: <input type="number" id="radius"></label>';
+          } else if (shape === "rectangle") {
+            inputs +=
+              '<label>Довжина: <input type="number" id="length"></label>';
+            inputs += '<label>Ширина: <input type="number" id="width"></label>';
+          } else if (shape === "treangle") {
+            inputs +=
+              '<label>Сторона 1: <input type="number" id="side1"></label>';
+            inputs +=
+              '<label>Сторона 2: <input type="number" id="side2"></label>';
+            inputs +=
+              '<label>Сторона 3: <input type="number" id="side3"></label>';
+          }
+
+          inputFields.innerHTML = inputs;
+        } else {
+          parametersDiv.style.display = "none";
+        }
+      }
+
+      // Проведення розрахунків
+      function calculate() {
+        const shape = document.getElementById("shapeSelect").value;
+        let area, perimeter;
+
+        if (shape === "circle") {
+          const radius = document.getElementById("radius").value;
+          area = getCircleArea(radius);
+          perimeter = getCirclePerimeter(radius);
+        } else if (shape === "rectangle") {
+          const length = document.getElementById("length").value;
+          const width = document.getElementById("width").value;
+          area = getRectangleArea(length, width);
+          perimeter = gerRectanglePerimeter(length, width);
+        } else if (shape === "treangle") {
+          const side1 = document.getElementById("side1").value;
+          const side2 = document.getElementById("side2").value;
+          const side3 = document.getElementById("side3").value;
+          area = getTreangleArea(side1, side2, side3);
+          // console.log(`area= ${area}`);
+          perimeter = gerTreanglePerimeter(side1, side2, side3);
+        }
+
+        document.getElementById("areaResult").textContent = `Площа: ${area}`;
+        document.getElementById(
+          "perimeterResult"
+        ).textContent = `Периметр: ${perimeter}`;
+        document.getElementById("results").style.display = "block";
+      }
+    </script>
+  </body>
+</html>
