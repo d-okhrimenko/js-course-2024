@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1. </title>
+</head>
+
+<body>
+  <h1>Rock, Scissors, Paper</h1>
+  <script>
+    // Камінь б'є ножиці. 1 - 2
+    // Ножиці б'ють папір. 2 - 3
+    // Папір б'є камінь. 3 - 1
+    // Однакові вибори - нічия.
+
+    let rock = "1";
+    let scissors = "2";
+    let paper = "3";
+    let quit = "q";
+    let continueGame = "c"; //en
+    let round = 1;
+    let userScore = 0;
+    let randomScore = 0;
+    let continueOrGuit;
+    let isEqual = true;
+
+    let randomNumber = Math.floor(Math.random() * 3) + 1;
+
+    function getValue(message) {
+      while (true) {
+        let value = prompt(message);
+
+        if (value == rock || value == scissors || value == paper || value.toLowerCase() == quit || value.toLowerCase() == continueGame) {
+          return value;
+        } else {
+          alert('Please enter a valid input: 1, 2, 3, Q, C(en)');
+        }
+      }
+    }
+
+    while (isEqual) {
+      let userValue = getValue("Enter a number from 1 to 3. Q — quit, C(en) — continue.");
+      if (userValue == continueGame && round == 0) {
+        continue;
+      }
+
+      else if (Number(userValue) > 3 || Number(userValue) < 1) {
+        alert(`Number should be from 1 to 3: your number is ${userValue}`);
+      } else {
+        if (Number(userValue) == randomNumber) {
+          alert(`Equal elections — a draw.
+          \nSCORE: User: ${userScore}; Random: ${randomScore} \nROUND ${round}`);
+          console.log(`userValue + ${userValue}, randomNumber + ${randomNumber}`);
+          continueOrGuit = prompt("Do you want to continue the game? \nType 'C'(en) to continue or 'Q' to quit!");
+          if (continueOrGuit == continueGame) {
+            round += 1;
+            alert(`ROUND ${round} \nSCORE: User: ${userScore}; Random: ${randomScore}`);
+            continue;
+          } else {
+            isEqual = false;
+            break;
+          }
+        }
+
+        else if (Number(userValue) == 1 && randomNumber == 2) {
+          userScore += 1;
+          alert(`Rock beats Scissors.\nSCORE: User: ${userScore}; Random: ${randomScore} \nROUND ${round}`);
+          console.log(`userValue + ${userValue}, randomNumber + ${randomNumber}`);
+        }
+        else if (Number(userValue) == 2 && randomNumber == 3) {
+          userScore += 1;
+          alert(`Scissors beats Paper.\nSCORE: User: ${userScore}; Random: ${randomScore} \nROUND ${round}`)
+          console.log(`userValue + ${userValue}, randomNumber + ${randomNumber}`);
+        }
+        else if (Number(userValue) == 3 && randomNumber == 1) {
+          userScore += 1;
+          alert(`Paper beats Rock. \nSCORE: User: ${userScore}; Random: ${randomScore} \nROUND ${round}`)
+          console.log(`userValue + ${userValue}, randomNumber + ${randomNumber}`);
+        }
+        else if (userValue == 'q') {
+          break;
+        }
+        else {
+          randomScore += 1;
+          alert(`You are not a Winner! Random beats: ${randomNumber}, your number: ${userValue}. 
+          \nSCORE: User: ${userScore}; Random: ${randomScore}
+          \nROUND ${round}`);
+          console.log(`You are not a Winner! Random beats: ${randomNumber}, your number: ${userValue}`);
+        }
+      }
+    }
+
+    alert(`The game is finished. \n SCORE: User: ${userScore}; Random: ${randomScore}`);
+
+  </script>
+</body>
+
+</html>

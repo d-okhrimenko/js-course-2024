@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2.</title>
+</head>
+
+<body>
+  <script>
+    let rightAnswerCount = 0;
+    let wrongAnswerCount = 0;
+    let attempts = 2;
+
+    function getValue(message) {
+      while (true) {
+        let value = prompt(message);
+        let isValid = !isNaN(value) && value !== "" && value !== null;
+        if (isValid) return Number(value);
+      }
+    }
+
+    function getRandomOperator() {
+      const operators = ['+', '-', '*', '/'];
+      const randomIndex = Math.floor(Math.random() * operators.length);
+      return operators[randomIndex];
+    }
+
+    function generateRandomMathExpression() {
+      let randomNumber1 = Math.floor(Math.random() * 15) + 1;
+      let randomNumber2 = Math.floor(Math.random() * 15) + 1;
+      let operator = getRandomOperator();
+      return { number1: randomNumber1, number2: randomNumber2, operator: operator };
+    }
+
+    function calculateCorrectAnswer(expression) {
+      const { number1, number2, operator } = expression;
+
+      switch (operator) {
+        case '+':
+          return number1 + number2;
+        case '-':
+          return number1 - number2;
+        case '*':
+          return number1 * number2;
+        case '/':
+          return number2 === 0 ? null : number1 / number2;
+        default:
+          throw new Error("Unknown operator");
+      }
+    }
+
+    while (true) {
+      let mathExpression = generateRandomMathExpression();
+      let correctAnswer = calculateCorrectAnswer(mathExpression);
+      let userAnswer = getValue(`Solve the math problem: 
+        ${mathExpression.number1} ${mathExpression.operator} ${mathExpression.number2}`);
+
+      if (userAnswer === correctAnswer) {
+        rightAnswerCount++;
+        alert(`Correct! Your answer: ${userAnswer}`);
+      } else {
+        wrongAnswerCount++;
+        alert(`Wrong answer! You have ${attempts} attempts left.`);
+
+        let remainingAttempts = attempts;
+
+        for (let i = 0; i < remainingAttempts + 1; i++) {
+          let newAnswer = getValue(
+            `Try again: ${mathExpression.number1} ${mathExpression.operator} ${mathExpression.number2}`
+          );
+
+          if (newAnswer === correctAnswer) {
+            rightAnswerCount++;
+            alert(`Correct! Your answer: ${newAnswer}`);
+            break;
+          } else {
+            wrongAnswerCount++;
+            remainingAttempts--;
+            alert(`Wrong! You have ${remainingAttempts} attempts left.`);
+            if (remainingAttempts === 0) {
+              alert(`No more attempts. The correct answer was: ${correctAnswer}`);
+            }
+          }
+        }
+      }
+
+      let continueGame = confirm("Do you want to solve another math expression?");
+      if (!continueGame) {
+        break;
+      }
+    }
+
+    alert(`Total correct answers: ${rightAnswerCount}\nTotal wrong answers: ${wrongAnswerCount}`);
+  </script>
+</body>
+
+</html>
