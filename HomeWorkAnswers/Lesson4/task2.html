@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let correctAnswers = 0;
+      let incorrectAnswers = 0;
+      let resultCalcucation = 0;
+      const totalRounds = 3;
+
+      for (let i = 0; i < totalRounds; i++) {
+
+        let num1 = Math.floor(Math.random() * 10);
+        let num2 = Math.floor(Math.random() * 10);
+        let randomOperator = Math.floor(Math.random() * 4);
+
+        switch (randomOperator) {
+          case 0:
+            randomOperator = "+"
+            resultCalcucation = num1 + num2;
+            break;
+          case 1:
+            randomOperator = "-";
+            resultCalcucation = num1 - num2;
+            break;
+          case 2:
+            randomOperator = "*";
+            resultCalcucation = num1 * num2;
+            break;
+          case 3:
+            randomOperator = "/";
+            resultCalcucation = num1 / num2;
+            break;
+        }
+
+        let windowTask = alert(
+          "Обчисліть вираз " +
+            num1 +
+            randomOperator +
+            num2 +
+            " та введіть відповідь у наступному вікні"
+        );
+        let windowAnswer = parseInt(prompt(
+          "Напишіть, будь ласка, Вашу відповідь"
+        ).toLowerCase());
+
+                
+        if (num2 === 0 && randomOperator === "/"){
+            alert("Ділення на нуль неможливе!");
+        }
+        else if (windowAnswer === resultCalcucation) {
+          correctAnswers++;
+          alert(
+            "Правильно! Кількість правильних відповідей: " + correctAnswers
+          );
+        } else if (isNaN(windowAnswer)) {
+          alert("Некоретний ввід! Спробуйте ще раз!");
+        } else {
+          incorrectAnswers++;
+          alert(
+            "Неправильно! Кількість неправильних відповідей: " +
+              incorrectAnswers
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

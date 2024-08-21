@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task1</title>
+</head>
+<body>
+    
+    <script>
+
+        let pointsOfPlayer1 = 0;
+        let pointsOfPlayer2 = 0;
+
+        const value1 = "камінь";
+        const value2 = "ножиці";
+        const value3 = "папір";
+
+        while (true) {
+        let player1 = prompt("Виберіть: Камінь, Ножиці, Папір або вихід").toLowerCase();
+        let player2 = Math.floor(Math.random() * 3);
+
+        switch (player2) {
+            case 1:
+            player2 = value1;
+            break;
+            case 2:
+             player2 = value2;
+            break;
+            case 3:
+            player2 = value3;
+            break;
+        }
+
+        if (player1 === "вихід"){
+             break;}
+
+        if(player1 != "вихід" || value1 || value2 || value3){
+            alert("Некоретний ввід! Спробуйте ще раз!");
+            break;
+        }
+
+        if ((player1 ===  player2 )){
+            alert(player1);
+            alert(player2);
+            alert("Нічия!");
+        } else if ((player1 === value1 && player2 === value2) || 
+        (player1 === value2 && player2 === value3) ||
+        (player1 === value3 && player2 === value1)){
+            pointsOfPlayer1 ++;
+            alert(" Вибір гравця: " + player1 + " Рахунок гравця: " + pointsOfPlayer1 +
+            " Вибір комп'ютера: " + player2 + " Рахунок комп'ютера: " + pointsOfPlayer2 +
+             " Гравець переміг комп'ютер!");
+        } else {
+            pointsOfPlayer2 ++;
+            alert(" Вибір гравця: " + player1 + " Рахунок гравця: " + pointsOfPlayer1 +
+            " Вибір комп'ютера: " + player2 + " Рахунок комп'ютера: " + pointsOfPlayer2 +
+            " Комп'ютер переміг гравця!");
+        } }
+
+        console.log("Game over")
+
+    </script>
+</body>
+</html>
