@@ -1,9 +1,7 @@
-// Генерація випадкового числа в заданому діапазоні
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Генерація випадкового математичного виразу
 function generateExpression() {
   const num1 = getRandomNumber(1, 10);
   const num2 = getRandomNumber(1, 10);
@@ -13,7 +11,6 @@ function generateExpression() {
   return `${num1} ${operator} ${num2}`;
 }
 
-// Питання користувача та перевірка відповіді
 function playQuiz() {
   const attempts = 3;
   let correctAnswers = 0;
@@ -23,7 +20,6 @@ function playQuiz() {
     const expression = generateExpression();
     const userAnswer = prompt(`Обчисліть вираз: ${expression}`);
 
-    // Перевірка правильності відповіді
     const correctResult = eval(expression);
     if (userAnswer !== null && parseFloat(userAnswer) === correctResult) {
       correctAnswers++;
@@ -32,11 +28,9 @@ function playQuiz() {
     }
   }
 
-  // Виведення результатів
   alert(
     `Гра завершена!\nПравильних відповідей: ${correctAnswers}\nНеправильних відповідей: ${wrongAnswers}`
   );
 }
 
-// Запуск гри
 playQuiz();

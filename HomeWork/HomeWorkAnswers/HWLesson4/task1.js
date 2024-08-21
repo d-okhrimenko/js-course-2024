@@ -1,12 +1,9 @@
-// Запит вибору користувача
-const userChoice = prompt("Виберіть: камінь, ножиці або папір?") .toLowerCase();
+const userChoice = prompt("Виберіть: камінь, ножиці або папір?").toLowerCase();
 
-// Генерація випадкового вибору комп'ютера
 const computerChoices = ["камінь", "ножиці", "папір"];
 const computerChoice =
   computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-// Визначення переможця
 let result;
 if (userChoice === computerChoice) {
   result = "Нічия!";
@@ -20,27 +17,23 @@ if (userChoice === computerChoice) {
   result = `Ви програли! Комп'ютер обрав ${computerChoice}.`;
 }
 
-// Виведення результату
 alert(result);
 let totalRounds = 0;
 let userWins = 0;
 let computerWins = 0;
 
 while (true) {
-  // Запит вибору користувача
   const userChoice = prompt(
     "Виберіть: камінь, ножиці або папір (або 'вихід' для завершення гри):"
-  ). toLowerCase();
+  ).toLowerCase();
 
   if (userChoice === "вихід") {
     break; // Вихід з гри
   }
 
-  // Генерація випадкового вибору комп'ютера
   const computerChoice =
     computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-  // Визначення переможця
   let result;
   if (userChoice === computerChoice) {
     result = "Нічия!";
@@ -60,5 +53,4 @@ while (true) {
   alert(result);
 }
 
-// Виведення загального рахунку
 alert(`Загальний рахунок: Ви ${userWins} : ${computerWins} Комп'ютер`);
