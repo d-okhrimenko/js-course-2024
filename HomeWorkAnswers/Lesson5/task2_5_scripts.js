@@ -1,31 +1,6 @@
 // Завдання 2
-
-// Написати програму, яка обчислює площу та периметр різних геометричних фігур (коло, прямокутник, трикутник). Кожна геометрична фігура повинна мати свою окрему функцію для обчислення площі та периметру.
-
-// Кроки для виконання завдання:
-// 1. Створити функцію для обчислення площі та периметру кола:
-//    - Функція повинна приймати радіус кола.
-//    - Використайте формули: площа = π * r², периметр = 2 * π * r.
-
-// 2. Створити функцію для обчислення площі та периметру прямокутника:
-//    - Функція повинна приймати довжину і ширину прямокутника.
-//    - Використайте формули: площа = довжина * ширина, периметр = 2 * (довжина + ширина).
-
-// 3. Створити функцію для обчислення площі та периметру трикутника:
-//    - Функція повинна приймати довжини трьох сторін трикутника.
-//    - Використайте формули: площа = √(p * (p - a) * (p - b) * (p - c)), де p = (a + b + c) / 2, периметр = a + b + c.
-
-// 4. Запросити користувача вибрати фігуру і ввести відповідні параметри:
-//    - Використайте `prompt` для запиту типу фігури та відповідних параметрів.
-
-// 5. Обчислити площу та периметр вибраної фігури:
-//    - Викликати відповідні функції для обчислення площі та периметру.
-
-// 6. Вивести результати:
-//    - Використайте `alert` для виведення результатів обчислень.
-// length of the first side of the triangle
-// the second
-// the third
+// Написати програму, яка обчислює площу та периметр різних геометричних фігур (коло, прямокутник, трикутник).
+//Кожна геометрична фігура повинна мати свою окрему функцію для обчислення площі та периметру.
 
 function getNumericValue(message) {
   while (true) {
@@ -35,18 +10,9 @@ function getNumericValue(message) {
   }
 }
 
-let getCircleArea = (radius) => Math.PI * Math.pow(radius, 2); // arrow f-n
-
-function getCirclePerimeter() {
-  return 2 * Math.PI * radius;
-}
-
-let firstSideOfTriangle;
-let secondSideOfTriangle;
-let thirdSideOfTriangle;
-let radius;
-
-let figureType = prompt("Виберіть фігуру для якої потрібно вичислити площу");
+let figureType = prompt(
+  "Виберіть фігуру для якої потрібно вичислити площу: трикутник, коло чи прямокутник"
+);
 if (figureType == "трикутник") {
   let firstSideOfTriangle = getNumericValue(
     "Введіть довжину першої сторони трикутника"
@@ -57,18 +23,54 @@ if (figureType == "трикутник") {
   let thirdSideOfTriangle = getNumericValue(
     "Введіть довжину третьої сторони трикутника"
   );
-  getTriangleArea();
+
+  let getTrianglePerimeter = (
+    firstSideOfTriangle,
+    secondSideOfTriangle,
+    thirdSideOfTriangle
+  ) => firstSideOfTriangle + secondSideOfTriangle + thirdSideOfTriangle;
+  let pt =
+    getTrianglePerimeter(
+      firstSideOfTriangle,
+      secondSideOfTriangle,
+      thirdSideOfTriangle
+    ) / 2;
+
+  let getTriangleArea = () =>
+    Math.sqrt(
+      pt *
+        (pt - firstSideOfTriangle) *
+        (pt - secondSideOfTriangle) *
+        (pt - thirdSideOfTriangle)
+    );
+
+  console.log(pt);
+  console.log(getTriangleArea());
+  let trAreaAnswer = getTriangleArea();
+  trAreaAnswer.toFixed(2);
+
+  alert(
+    `Периметр трикутника - ${getTrianglePerimeter(
+      firstSideOfTriangle,
+      secondSideOfTriangle,
+      thirdSideOfTriangle
+    )}; Площа трикутника ${trAreaAnswer.toFixed(2)};`
+  );
 } else if (figureType == "коло") {
   let radius = getNumericValue("Введіть радіус кола");
-  let area = getCircleArea(radius);
-  let perimeter = getCirclePerimeter(radius);
-  console.log(radius);
-  console.log(perimeter);
-  console.log(area);
+  let getCircleArea = (radius) => Math.PI * Math.pow(radius, 2);
+  let getCirclePerimeter = (radius) => 2 * Math.PI * radius;
+  alert(
+    `Площа кола - ${getCircleArea(radius).toFixed(
+      2
+    )}; Периметр кола - ${getCirclePerimeter(radius).toFixed(2)};`
+  );
+} else if (figureType == "прямокутник") {
+  let rectangleHeight = getNumericValue("Введіть висоту прямокутника");
+  let rectangleWidth = getNumericValue("Введіть ширину прямокутника");
+  rectangleArea = rectangleHeight * rectangleWidth;
+  rectanglePerimeter = 2 * (rectangleHeight + rectangleWidth);
+  alert(
+    `Площа прямокутника - ${rectangleArea}; Периметр прямокутника - ${rectanglePerimeter};`
+  );
 }
-function getTriangleArea() {
-  return firstSideOfTriangle + secondSideOfTriangle + thirdSideOfTriangle;
-}
-let area = getTriangleArea();
-console.log(area);
-// площа = √(p * (p - a) * (p - b) * (p - c)), де p = (a + b + c) / 2, периметр = a + b + c.
