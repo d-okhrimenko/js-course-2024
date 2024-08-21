@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let grades = [];
+
+        let numberOfGrades = prompt("Скільки оцінок ви хочете ввести?");
+        for (let i = 0; i < numberOfGrades; i++) {
+            let grade = parseInt(prompt(`Введіть оцінку №${i + 1} (від 0 до 100):`), 10);
+            grades.push(grade);
+        }
+
+        function calculateAverage(grades) {
+            let sum = grades.reduce((acc, grade) => acc + grade, 0);
+            return sum / grades.length;
+        }
+
+        function findHighestGrade(grades) {
+            return Math.max(...grades);
+        }
+
+        function findLowestGrade(grades) {
+            return Math.min(...grades);
+        }
+
+        let averageGrade = calculateAverage(grades);
+        let highestGrade = findHighestGrade(grades);
+        let lowestGrade = findLowestGrade(grades);
+
+        alert(`Середній бал: ${averageGrade.toFixed(2)}`);
+        alert(`Найвища оцінка: ${highestGrade}`);
+        alert(`Найнижча оцінка: ${lowestGrade}`);
+
+    </script>
+</body>
+
+</html>
