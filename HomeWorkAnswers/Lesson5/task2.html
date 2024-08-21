@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+<body>
+   <h3>Lesson 1. Task 2.</h3>
+   <h5>Програма, яка обчислює площу та периметр геометричних фігур (коло, прямокутник, трикутник).<br></h5>
+   <!-- Кроки для виконання завдання:
+   1. Створити функцію для обчислення площі та периметру кола:
+   - Функція повинна приймати радіус кола.
+   - Використайте формули: площа = π * r², периметр = 2 * π * r.
+   2. Створити функцію для обчислення площі та периметру прямокутника:
+   - Функція повинна приймати довжину і ширину прямокутника.
+   - Використайте формули: площа = довжина * ширина, периметр = 2 * (довжина + ширина).
+   3. Створити функцію для обчислення площі та периметру трикутника:
+   - Функція повинна приймати довжини трьох сторін трикутника.
+   - Використайте формули: площа = √(p * (p - a) * (p - b) * (p - c)), де p = (a + b + c) / 2, периметр = a + b + c.
+
+   4. Запросити користувача вибрати фігуру і ввести відповідні параметри:
+   - Використайте `prompt` для запиту типу фігури та відповідних параметрів.
+
+   5. Обчислити площу та периметр вибраної фігури:
+   - Викликати відповідні функції для обчислення площі та периметру.
+   6. Вивести результати:
+   - Використайте `alert` для виведення результатів обчислень. -->
+   <div>
+      <h4>
+         Вибрати фігуру (1)коло, (2)прямокутник, (3)трикутник:
+         <input type="number" id="inputFigure" value="1"/> 
+         <button id="btnSelectFigure">Вибрати фігуру</button>
+      </h4>
+   </div>
+   <div>
+      <h4 style="display:block;" id="select1">
+         Ввести радіус кола:
+         <input type="text" id="inputRadius" value="10"/>
+         <button id="btnStart1">Обчислити площу та периметр кола</button>
+      </h4>
+      <h4 style="display: none;" id="select2">
+         Ввести сторони прямокутника:
+         <input type="text" id="inputA" value="10"/>
+         <input type="text" id="inputB" value="20"/>
+         <button id="btnStart2">Обчислити площу та периметр прямокутника</button>
+      </h4>
+      <h4 style="display: none;" id="select3">
+         Ввести сторони трикутника:
+         <input type="text" id="inputA" value="10"/>
+         <input type="text" id="inputB" value="15"/>
+         <input type="text" id="inputC" value="25"/>
+         <button id="btnStart3">Обчислити площу та периметр прямокутника</button>
+      </h4>
+   </div>
+   <div hidden>
+      <button id="btnStart">Обчислити площу та периметр вибраної фігури</button>
+   </div>
+   <div>
+      <h4 id="result" style="color:none">RESULT</h4>
+   </div>
+
+   <script> 
+      fgCode = +document.querySelector("#inputFigure").value;
+      fgName = getFigureName(fgCode);
+      let r = +document.querySelector("#inputRadius").value;
+      let area = getCircleArea(r);
+      let peri = getCirclePerimeter(r);
+      let s = `Фигура = ${fgName}: площа = ${area}, периметр = ${peri}`;
+      console.log(s);
+      showResult(s);
+      
+      document.querySelector("#btnSelectFigure").onclick = function() {
+         fgCode = +document.querySelector("#inputFigure").value;
+         fgName = getFigureName(fgCode);
+         let s = `Фигура = ${fgName}`;
+         console.log(s);
+         showResult(s);
+         setVisibleBlock(fgCode);
+      }
+
+      document.querySelector("#btnStart1").onclick = function() {
+         let r = +document.querySelector("#inputRadius").value;
+         let area = getCircleArea(r);
+         let peri = getCirclePerimeter(r);
+         let s = `Фигура = ${fgName}: площа = ${area}, периметр = ${peri}`;
+         console.log(s);
+         showResult(s);
+      }
+
+      document.querySelector("#btnStart2").onclick = function() {
+         let a = +document.querySelector("#inputA").value;
+         let b = +document.querySelector("#inputB").value;
+         let area = getRectangleArea(a,b);
+         let peri = getRectanglePerimeter(a,b);
+         let s = `Фигура = ${fgName}: площа = ${area}, периметр = ${peri}`;
+         console.log(s);
+         showResult(s);
+      }
+
+      document.querySelector("#btnStart3").onclick = function() {
+         let a = +document.querySelector("#inputA").value;
+         let b = +document.querySelector("#inputB").value;
+         let c = +document.querySelector("#inputC").value;
+         let area = getTriangleArea(a,b,c);
+         let peri = getTrianglePerimeter(a,b,c);
+         let s = `Фигура = ${fgName}: площа = ${area}, периметр = ${peri}`;
+         console.log(s);
+         showResult(s);
+      }
+
+      // покажем блок с выбранной фигурой (1,2,3)
+      function setVisibleBlock(figure) {
+         let f1 = document.querySelector("#select1");
+         let f2 = document.querySelector("#select2");
+         let f3 = document.querySelector("#select3");
+         f1.style="display: none;"
+         f2.style="display: none;"
+         f3.style="display: none;"
+         switch(figure) {
+            case 1:
+               f1.style="display:block;";
+               break;
+            case 2:
+               f2.style="display:block;";
+               break;
+            case 3:
+               f3.style="display:block;";
+               break;
+            default:
+               document.querySelector("inputFigure").innerHTML = 1;
+               showResult("Виберіть цифру 1,2 або 3");
+               break;
+         }
+      }
+      function getFigureName(figure) {
+         let s;
+         switch(figure) {
+            case 1:
+               s = "(1)коло";
+               break;
+            case 2:
+               s = "(2)прямокутник";
+               break;
+            case 3:
+               s = "(3)трикутник";
+               break;
+            default:
+               s = "помилка";
+         }
+         return s;
+      }
+
+      function getCircleArea(radius) {
+         return Math.PI * radius * radius;
+      }
+      function getCirclePerimeter(radius) {
+         return 2 * Math.PI * radius;
+      }
+      function getRectangleArea(a, b) {
+         return a * b;
+      }      
+      function getRectanglePerimeter(a, b) {
+         return 2 * (a + b);
+      }
+      function getTriangleArea(a, b, c) {
+         let p = (a + b + c) / 2;
+         return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+      }
+      function getTrianglePerimeter(a, b, c) {
+         return a + b + c;
+      }
+
+      function showResult(resultText) {
+         let res = document.querySelector("#result");
+         //res.style.color = "none";
+         res.innerHTML = resultText; //`Індекс маси тіла IMT = ${imtValue}, категорія = ${[imtCategory]}`;
+      }
+   </script>
+   
+</body>
+</html>      

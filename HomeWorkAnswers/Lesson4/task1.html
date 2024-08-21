@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<div>
+   <h3>Lesson 4. Task 1.</h3>
+   <h5>Гра: "Камінь, ножиці, папір"<br>
+      <!-- Опис гри:<br>Користувач грає проти комп'ютера в класичну гру "Камінь, ножиці, папір". Програма запитує вибір користувача, генерує випадковий вибір для комп'ютера, визначає переможця та виводить результат.<br>
+      Кроки для виконання завдання:<br>
+      1. Введення вибору користувача:<br>- Використайте `prompt` для запиту вибору користувача (камінь, ножиці, папір).<br>
+      2. Генерація вибору комп'ютера:<br>- Використайте `Math.random()` для випадкового вибору між каменем, ножицями і папером.<br>
+      3. Визначення переможця:<br>- Використайте умовні конструкції для визначення переможця за правилами гри:<br>
+           - Камінь б'є ножиці.<br>
+           - Ножиці б'ють папір.<br>
+           - Папір б'є камінь.<br>
+           - Однакові вибори - нічия.<br>
+      4. Виведення результату:<br>
+         - Використайте `alert` для виведення вибору користувача, вибору комп'ютера та результату гри.<br>
+      Додаткові завдання:<br>
+      1. Додати можливість гри кілька раундів з підрахунком загального рахунку.<br>
+      2. Додати можливість користувачеві вийти з гри за допомогою спеціальної команди (наприклад, введення "вихід")<br> -->
+   </h5>
+
+   <div>
+      Введіть цифри: (1)Камінь, (2)Ножиці, (3)Папір, (9)Вихід
+      <input type="text" id="inputNum"/>
+   </div>
+   <div>
+      <br>
+      <button id="btnStart">Почати</button>
+   </div>
+   <div>
+      <br>
+      <div><b id="input"></b></div><br>
+      <div></div><b id="output"></b></div><br>
+      <div></div><b id="result" style="color:none"></b></div>
+      <div></div><b id="score" style="color:none"></b></div>
+   </div>
+
+   <script>
+         let inCnt = 0;
+         let pcCnt = 0;         
+         document.querySelector("#btnStart").onclick = function() {
+         let inNum = Number(document.querySelector("#inputNum").value);
+         console.log("inNum = " + inNum);
+         if (inNum === 9) {
+            showResult(inNum, "", "Кінець гри");
+            inCnt = 0; 
+            pcCnt = 0;
+            return;
+         } else if (inNum != 1 && inNum != 2 && inNum != 3) {
+            showResult(inNum, "", "Помилка вводу");
+            return;
+         }
+         let pcNum = Math.floor(Math.random() * 3) + 1;
+         console.log("pcNum = " + pcNum);
+         let inWord = numToWord(inNum);
+         console.log("inWord = " + inWord);
+         let pcWord = numToWord(pcNum);
+         console.log("pcWord = " + pcWord);
+         let result = doBattle(inWord, pcWord)
+         console.log("result = " + result);
+         showResult(inWord, pcWord, result);
+      }
+      
+      function numToWord(i) {
+         switch (i) {
+            case 1:
+               s = "Камінь";
+               break;
+            case 2:
+               s = "Ножиці";
+               break;
+            case 3:
+               s = "Папір";
+               break;
+            default:
+               s = "Помилка!!!";
+         }
+         return s;
+      }
+
+      function doBattle(inWord, pcWord) {
+         if (inWord===pcWord) {
+            return "Нічия";
+         }
+         if((inWord === "Камінь" && pcWord === "Ножиці") || 
+            (inWord === "Ножиці" && pcWord === "Папір") || 
+            (inWord === "Папір" && pcWord === "Камінь")) {
+            inCnt += 1;   
+            return "Переміг користувач";
+         } else {
+            pcCnt += 1;   
+            return "Перемогла програма";
+         }
+      }
+
+      function showResult(inNum, pcNum, result) {
+            document.querySelector("#input").innerHTML = "Користувач: " + inNum + " [" + inCnt + "]";
+            document.querySelector("#output").innerHTML = "Програма: " + pcNum + " [" + pcCnt + "]";
+            let res = document.querySelector("#result");
+            res.innerHTML = "Результат гри: " + result;
+            let scr = document.querySelector("#score");
+            scr.innerHTML = "Загальний рахунок: [Користувач/Програма] = " + "[" + inCnt + ":" + pcCnt + "]";
+            if (inCnt > pcCnt) {
+               scr.style.color = "green";
+            } else if (inCnt < pcCnt) {
+               scr.style.color = "red";
+            } else {
+               scr.style.color = "blue";
+            }
+            switch (result) {
+               case "Переміг користувач":
+                  res.style.color = "green";
+                  break;
+               case "Нічия":
+                  res.style.color = "blue";
+                  break;
+               default:
+                  res.style.color = "red";
+            }
+      }
+   </script>
+   
+</body>
+</html>
