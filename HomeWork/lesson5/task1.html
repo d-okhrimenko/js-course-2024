@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>body mass index</title>
+  </head>
+  <body>
+    <script>
+      let getHeight = () => {
+        const height = Number(prompt("Введіть зріст у см"));
+        console.log(height);
+
+        return height;
+      };
+
+      let getWeight = () => {
+        const weight = Number(prompt("Введіть вагу у кг"));
+        console.log(weight);
+
+        return weight;
+      };
+
+      const calculateBMI = (weightUser, heightUser) => {
+        let bmi = weightUser / (heightUser / 100) ** 2;
+        return bmi.toFixed(2);
+      };
+
+      let bmiUser = calculateBMI(getWeight(), getHeight());
+      console.log(`Ваш ІМТ: ${bmiUser}`);
+      if (bmiUser < 18.5) {
+        alert(`У Вас недостатня вага. Ваш ІМТ: ${bmiUser}`);
+      } else if (bmiUser >= 18.5 && bmiUser < 24.9) {
+        alert(`У Вас нормальна вага. Ваш ІМТ: ${bmiUser}`);
+      } else if (bmiUser >= 18.5 && bmiUser <= 24.9) {
+        alert(`У Вас нормальна вага. Ваш ІМТ: ${bmiUser}`);
+      } else if (bmiUser >= 25 && bmiUser <= 29.9) {
+        alert(`У Вас надмірна вага. Ваш ІМТ: ${bmiUser}`);
+      } else if (bmiUser >= 30) {
+        alert(`У Вас ожиріння. Ваш ІМТ: ${bmiUser}`);
+      }
+    </script>
+  </body>
+</html>

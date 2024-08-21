@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Оберіть фігуру для обчислення площі й периметру</p>
+    <button id="circle">Круг</button>
+    <button id="rectangle">Прямокутник</button>
+    <button id="triangle">Трикутник</button>
+    <p>Площа <span id="area"></span></p>
+    <p>Периметр <span id="perimeter"></span></p>
+    <script src="../common/my-library.js"></script>
+    <script>
+      // =========== круг ==========
+
+      let getCircleArea = (radius) => Math.PI * Math.pow(radius, 2);
+
+      function getCirclePerimeter(radius) {
+        return 2 * Math.PI * radius;
+      }
+      document.querySelector("#circle").onclick = function ask() {
+        const radius = getNumericValue("Введіть радіус");
+        let areaCircle = getCircleArea(radius);
+        let perimeterCircle = getCirclePerimeter(radius);
+        console.log(areaCircle);
+        console.log(perimeterCircle);
+        result("круга", areaCircle.toFixed(2), perimeterCircle.toFixed(2));
+      };
+
+      //  ========= прямокутник ==========
+
+      let getRectangleArea = (length, width) => length * width;
+      let getRectanglePerimeter = (length, width) => (length + width) * 2;
+
+      document.querySelector("#rectangle").onclick = function ask() {
+        const length = getNumericValue("Введіть довжину прямокутника");
+        const width = getNumericValue("Введіть ширину прямокутника");
+
+        let areaRectangle = getRectangleArea(length, width);
+        let perimeterRectangle = getRectanglePerimeter(length, width);
+
+        console.log(areaRectangle);
+        console.log(perimeterRectangle);
+        result(
+          "прямокутника",
+          areaRectangle.toFixed(2),
+          perimeterRectangle.toFixed(2)
+        );
+      };
+
+      //  ============ трикутник =========
+      let getTriangleleArea = (a, b, c) => {
+        let p = (a + b + c) / 2;
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+      };
+
+      let getTrianglelePerimeter = (a, b, c) => a + b + c;
+
+      document.querySelector("#triangle").onclick = function ask() {
+        const a = getNumericValue("Введіть довжину першої cторони трикутника");
+        const b = getNumericValue("Введіть довжину другої cторони трикутника");
+        const c = getNumericValue("Введіть довжину третьої cторони трикутника");
+        let areaTriangle = getTriangleleArea(a, b, c);
+        let perimeterTriangle = getTrianglelePerimeter(a, b, c);
+
+        console.log(areaTriangle.toFixed(2));
+        console.log(perimeterTriangle.toFixed(2));
+        result(
+          "трикутника",
+          areaTriangle.toFixed(2),
+          perimeterTriangle.toFixed(2)
+        );
+      };
+
+      // ========== вивід результату
+
+      function result(figure, calcArea, calcPerimeter) {
+        document.querySelector("#area").innerHTML = `${figure} є ${calcArea}`;
+        document.querySelector(
+          "#perimeter"
+        ).innerHTML = `${figure} є ${calcPerimeter}`;
+      }
+    </script>
+  </body>
+</html>
