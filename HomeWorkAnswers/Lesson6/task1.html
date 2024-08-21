@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task1-Lesson6</title>
+</head>
+
+<body>
+  <script>
+    const getAverage = grades => grades.reduce((acc, grade) => acc + grade, 0) / grades.length;
+    const getMaxGrade = grades => Math.max(...grades);
+    const getMinGrade = grades => Math.min(...grades);
+    const generateRandomGrades = count => [...Array(count)].map(() => Math.floor(Math.random() * 101));
+
+    const getGradesFromUser = () => {
+      const grades = [];
+      let input;
+
+      while (true) {
+        input = prompt("Введіть оцінку від 0 до 100 або натисніть Cancel для завершення:");
+
+        if (input === null) {
+          alert("Роботу завершено.");
+          break;
+        }
+
+        const grade = Number(input.trim());
+
+        if (grade.length && !isNaN(grade) && grade >= 0 && grade <= 100) {
+          grades.push(grade);
+        } else {
+          alert("Оцінка має бути числом від 0 до 100.");
+        }
+      }
+
+      return grades;
+    }
+
+    const analyzeGrades = () => {
+      let grades = getGradesFromUser();
+
+      if (grades.length === 0) {
+        grades = generateRandomGrades(10);
+        alert("Оскільки ви не ввели жодної оцінки, було згенеровано 10 випадкових оцінок.");
+      }
+
+      const results = {
+        average: getAverage(grades),
+        highest: getMaxGrade(grades),
+        lowest: getMinGrade(grades)
+      };
+
+      alert(`Середній бал: ${results.average.toFixed(2)}
+      \nНайвища оцінка: ${results.highest}
+      \nНайнижча оцінка: ${results.lowest}`);
+    }
+
+    analyzeGrades();
+
+  </script>
+</body>
+
+</html>
