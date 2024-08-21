@@ -7,9 +7,9 @@ function addItemToArray() {
 		alert("Please enter an ITEM!");
 	} else {
 		itemsToBuy.push(item);
-		itemInput.value = "";
 		displayItems();
 	}
+	document.getElementById("itemAdd").value = "";
 }
 
 function deleteItemFromArray() {
