@@ -27,6 +27,25 @@ document.getElementById("figure").addEventListener("change", function () {
   }
 });
 
+function calculateCircle(radius) {
+  const area = Math.PI * Math.pow(radius, 2);
+  const perimeter = 2 * Math.PI * radius;
+  return { area, perimeter };
+}
+
+function calculateRectangle(length, width) {
+  const area = length * width;
+  const perimeter = 2 * (length + width);
+  return { area, perimeter };
+}
+
+function calculateTriangle(a, b, c) {
+  const p = (a + b + c) / 2;
+  const area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+  const perimeter = a + b + c;
+  return { area, perimeter };
+}
+
 function calculate() {
   const figure = document.getElementById("figure").value;
   let area = 0;
@@ -34,20 +53,16 @@ function calculate() {
 
   if (figure === "circle") {
     const radius = parseFloat(document.getElementById("radius").value);
-    area = Math.PI * Math.pow(radius, 2);
-    perimeter = 2 * Math.PI * radius;
+    ({ area, perimeter } = calculateCircle(radius));
   } else if (figure === "rectangle") {
     const length = parseFloat(document.getElementById("length").value);
     const width = parseFloat(document.getElementById("width").value);
-    area = length * width;
-    perimeter = 2 * (length + width);
+    ({ area, perimeter } = calculateRectangle(length, width));
   } else if (figure === "triangle") {
     const a = parseFloat(document.getElementById("sideA").value);
     const b = parseFloat(document.getElementById("sideB").value);
     const c = parseFloat(document.getElementById("sideC").value);
-    const p = (a + b + c) / 2;
-    area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
-    perimeter = a + b + c;
+    ({ area, perimeter } = calculateTriangle(a, b, c));
   }
 
   document.getElementById("result").textContent = `Площа: ${area.toFixed(
