@@ -23,7 +23,11 @@
     <script>
         let getValue = () => Number(document.querySelector("#temp").value);
         let toCelsius = temp => 5 / 9 * (temp - 32);
+<<<<<<< HEAD
+        let toFarenheit = temp => 9 / 5 * temp + 32;
+=======
         let toFarenheit = temp => 9 / 5 * tempC + 32;
+>>>>>>> 52d73720a02bdb17461a544e34069b942ffae312
 
         let convert = converter => {
             return () => {
