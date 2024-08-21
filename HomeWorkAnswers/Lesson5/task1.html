@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let getBMI = (weight, height) => weight / (height ** 2);
+
+        let getCategory = bmi => {
+            if (bmi < 18.5) return "Недостатня вага";
+            if (bmi >= 18.5 && bmi < 24.9) return "Нормальна вага";
+            if (bmi >= 25 && bmi < 29.9) return "Надмірна вага";
+            return "Ожиріння";
+        };
+
+        function getNumericValue(msg) {
+            while (true) {
+                let value = prompt(msg);
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) return Number(value);
+            }
+        }
+
+        let getValue = type => getNumericValue(`Введіть ваш ${type} у ${type === "вагу" ? "кілограмах" : "метрах"}`);
+
+        let showInfo = (bmi, category) => alert(`Ваш індекс маси тіла: ${bmi.toFixed(1)}\nУ вас ${category}`);
+
+        let weight = getValue("вагу");
+        let height = getValue("ріст");
+        let bmi = getBMI(weight, height);
+        let category = getCategory(bmi);
+        showInfo(bmi, category);
+    </script>
+</body>
+
+</html>

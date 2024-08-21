@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const figures = ["прямокутник", "трикутник", "коло"];
+
+        let getCircleArea = radius => Math.PI * (radius ** 2);
+
+        let getCirclePerimeter = radius => Math.PI * radius * 2;
+
+        let getRectangleArea = (length, width) => length * width;
+
+        let getRectanglePerimeter = (length, width) => 2 * (length + width);
+
+        let getTrianglePerimeter = (side1, side2, side3) => side1 + side2 + side3;
+
+        let getTriangleArea = (side1, side2, side3) => {
+            const p = getTrianglePerimeter(side1, side2, side3) / 2;
+            return Math.sqrt(p * (p - side1) * (p - side2) * (p - side3));
+        };
+
+        let getFigure = () => {
+            let figure;
+            while (true) {
+                figure = prompt(`Введіть фігуру(${figures.join(", ")}) площу та периметр якої ви хочете дізнатись`).trim().toLowerCase();
+                if (figures.includes(figure)) return figure;
+            }
+        }
+
+        let getNumericValue = msg => {
+            let value;
+            while (true) {
+                value = prompt(msg);
+                if (!isNaN(value) && value !== "" && value !== null) return Number(value);
+            }
+        }
+
+        let showInfo = (figure, area, perimeter) => alert(`Площа фігури ${figure}: ${area.toFixed(2)}\nПериметр фігури ${figure}: ${perimeter.toFixed(2)}`);
+
+        let figure = getFigure();
+
+        if (figure === figures[2]) {
+            let radius = getNumericValue("Введіть радіус");
+            let circleArea = getCircleArea(radius);
+            let circlePerimeter = getCirclePerimeter(radius);
+            showInfo(figure, circleArea, circlePerimeter);
+        }
+        else if (figure === figures[0]) {
+            let length = getNumericValue("Введіть довжину");
+            let width = getNumericValue("Введіть ширину");
+            let rectangleArea = getRectangleArea(length, width);
+            let rectanglePerimeter = getRectanglePerimeter(length, width);
+            showInfo(figure, rectangleArea, rectanglePerimeter);
+        }
+        else if (figure === figures[1]) {
+            let side1 = getNumericValue("Введіть 1-шу сторону");
+            let side2 = getNumericValue("Введіть 2-гу сторону");
+            let side3 = getNumericValue("Введіть 3-тю сторону");
+            let triangleArea = getTriangleArea(side1, side2, side3);
+            let trianglePerimeter = getTrianglePerimeter(side1, side2, side3);
+            showInfo(figure, triangleArea, trianglePerimeter);
+        }
+
+    </script>
+</body>
+
+</html>
