@@ -12,7 +12,7 @@
         function getValue(message) {
             while (true) {
                 let value = prompt(message);
-                let isValid = !isNaN(value) && value !== "" && value !== null && Number(value) >= 0;
+                let isValid = !isNaN(value) && value !== "" && value !== null && Number(value) >= 0 && Number(value) < 4;
                 if (isValid) {
                     return Number(value);
                 }
@@ -46,7 +46,7 @@
         let productList = [];
 
         while (true) {
-            let actionNumber = getValue(`Введіть дію, яку ви хочете зробити: \n"1" - Показати перелік товарів; \n"2" - Додати товар до списку; \n"3" - Видалити товар зі списку; \n"0" - Вийти із програми`)
+            let actionNumber = getValue(`Введіть дію, яку ви бажаєте зробити: \n"1" - Показати перелік товарів; \n"2" - Додати товар до списку; \n"3" - Видалити товар зі списку; \n"0" - Вийти із програми`)
             let product;
 
             if (actionNumber == 0) break;
@@ -69,7 +69,7 @@
                 if (productList.length == 0) {
                     alert("Список покупок порожній, нічого видаляти");
                 } else {
-                    product = prompt(`Введіть назву товару, який хочете видалити зі списку: \n${showList(productList)}`).toLowerCase();
+                    product = prompt(`Введіть назву товару, який бажаєте видалити зі списку: \n${showList(productList)}`).toLowerCase();
                     let indexOfPoduct = findInList(productList, product);
                     if (indexOfPoduct == null) {
                         alert("Такого продукту немає у списку");
@@ -79,8 +79,6 @@
                     }
                 }
             }
-
-            if (actionNumber > 3) alert("Введіть коректне значення");
         }
     </script>
 </body>
