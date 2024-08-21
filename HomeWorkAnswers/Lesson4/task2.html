@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Математичний квіз</title>
+</head>
+<body>
+  <script>
+    const operators = ['+', '-', '*', '/'];
+    let numberAnswers = 0;
+    let correctAnswer = 0;
+    let notCorrectAnswer = 0;
+    let numberAttempts = 0;
+
+    while (true) {
+      let randomNumber1 = getRandomNumber();
+      let randomNumber2 = getRandomNumber();
+      let randomIndex = getRandomNumber(4) - 1;
+      let randomOperator = operators[randomIndex];
+      let result = getResult(randomOperator, randomNumber1, randomNumber2);
+      let expression = `${randomNumber1} ${randomOperator} ${randomNumber2} =`;
+      let userResult = getValue(`Надайте відповідь для математичного виразу:
+    ${expression}
+
+Для відповіді маєте три спроби!
+Для закінчення гри натисніть "Отмена"`);
+      
+      if(!userResult) {
+        gameOver();
+        break;
+      }
+
+      userResult = Number(userResult);
+      numberAnswers ++;
+      numberAttempts = 1;
+
+      userResult = checkNotCorrectAnswer(userResult, result, expression); 
+
+      if(!userResult) {
+        gameOver();
+        break;
+      }
+      if (userResult == result) {
+        correctAnswer ++;
+        alert("Ви дали вірну відповідь!");
+      }
+      else {
+        notCorrectAnswer ++;
+        alert(`Відповідь не вірна!
+Вірна відповідь: ${result}`);
+      }
+    }
+
+    function checkNotCorrectAnswer(userResult, result, expression) {
+      if (userResult != result && numberAttempts < 3) {
+        userResult = getValue(`Відповідь не вірна, спробуйте ще раз!
+    ${expression}
+    
+Залишилось ${3 - numberAttempts} спроби!`);
+
+        if(!userResult) {
+          return userResult;
+        }
+        userResult = Number(userResult);
+        numberAttempts ++;
+        checkNotCorrectAnswer(userResult, result, expression)
+      }
+      return userResult;
+    }
+
+    function getValue(message) {
+      while (true) {
+        let value = prompt(message);
+        let isValid = value === null || !isNaN(value) && value !== "";
+        if (isValid) return value;
+      }
+    }
+
+    function getResult(operator, value1, value2) {
+      if(operator === '+') return value1 + value2;
+      else if (operator === '-') return value1 - value2;
+      else if(operator === '*') return value1 * value2;
+      else if(operator === '/') return Math.round(100 * (value1 / value2)) / 100;
+    }
+
+    function getRandomNumber(multiplier = 10) {
+      return Math.floor(Math.random() * multiplier) + 1;
+    }
+
+    function gameOver() {
+      alert(`Гра закінчена!
+Загальний кількість завдань: ${numberAnswers}
+Кількість вірних відповідей: ${correctAnswer}
+Кількість не вірних відповідей: ${notCorrectAnswer}`) ;
+    }
+  </script>
+</body>
+</html>
