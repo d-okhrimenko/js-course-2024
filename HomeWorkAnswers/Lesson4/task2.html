@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function startQuiz() {
+    const totalQuestions = 5;
+    let correctAnswers = 0;
+    let wrongAnswers = 0;
+    let attempts = 0;
+
+    while (attempts < totalQuestions) {
+        const num1 = Math.floor(Math.random() * 10) + 1;
+        const num2 = Math.floor(Math.random() * 10) + 1; 
+        const operators = ['+', '-', '*', '/'];
+        const operator = operators[Math.floor(Math.random() * operators.length)];
+
+        let correctAnswer;
+        switch (operator) {
+            case '+':
+                correctAnswer = num1 + num2;
+                break;
+            case '-':
+                correctAnswer = num1 - num2;
+                break;
+            case '*':
+                correctAnswer = num1 * num2;
+                break;
+            case '/':
+                correctAnswer = (num1 / num2).toFixed(2); 
+                break;
+        }
+
+        const userAnswer = parseFloat(prompt(`Скільки буде: ${num1} ${operator} ${num2}?`));
+
+        if (userAnswer === correctAnswer) {
+            alert("Правильна відповідь!");
+            correctAnswers++;
+        } else {
+            alert(`Неправильна відповідь! Правильна відповідь: ${correctAnswer}`);
+            wrongAnswers++;
+        }
+
+        attempts++;
+    }
+
+    alert(`Гра закінчена!\nПравильні відповіді: ${correctAnswers}\nНеправильні відповіді: ${wrongAnswers}`);
+}
+
+startQuiz();
+
+    </script>
+    
+</body>
+</html>

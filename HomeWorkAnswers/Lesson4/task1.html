@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+ function playGame() {
+    const choices = ["камінь", "ножиці", "папір"];
+    let userScore = 0;
+    let computerScore = 0;
+
+    while (true) {
+        let userChoice = prompt("Введіть ваш вибір (камінь, ножиці, папір) або 'вихід' для завершення гри").toLowerCase();
+
+        if (userChoice === null || userChoice === 'вихід') {
+            alert(`Дякуємо за гру!\nВаш рахунок: ${userScore}\nРахунок комп'ютера: ${computerScore}`);
+            break;
+        }
+
+        if (!choices.includes(userChoice)) {
+            alert("Невірний вибір. Будь ласка, виберіть камінь, ножиці або папір.");
+            continue;
+        }
+
+        const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+        let result;
+        if (userChoice === computerChoice) {
+            result = "Нічия!";
+        } else if (
+            (userChoice === "камінь" && computerChoice === "ножиці") ||
+            (userChoice === "ножиці" && computerChoice === "папір") ||
+            (userChoice === "папір" && computerChoice === "камінь")
+        ) {
+            result = "Ви виграли!";
+            userScore++;
+        } else {
+            result = "Комп'ютер виграв!";
+            computerScore++;
+        }
+
+        alert(`Ваш вибір: ${userChoice}\nВибір комп'ютера: ${computerChoice}\n${result}`);
+    }
+}
+
+playGame();
+
+
+    </script>
+    
+</body>
+</html>
