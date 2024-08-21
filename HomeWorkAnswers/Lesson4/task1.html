@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гра Камінь-Ножиці-Папір"</title>
+</head>
+<body>
+  <div id="result">Загальний рахунок:</div>
+  <div style="display: inline-flex;">
+    <button id="next">Грати далі</button>
+    <button id="end">Закінчити</button>
+  </div>
+
+  <script>
+    const optionsGame = ['камінь', 'ножиці', 'папір'];
+    const resultGame = {
+      resultYou: 0,
+      resultComp: 0,
+      result: 'Нічья',
+      start: false
+    };
+    const totalScore = document.querySelector('#result');
+    const buttonNext = document.querySelector('#next');
+    buttonNext.addEventListener('click', game);
+    const buttonEnd = document.querySelector('#end');
+    buttonEnd.addEventListener('click', gameOver);
+
+    game();
+
+    function gameOver() {
+      const vivatText = resultGame.resultYou == resultGame.resultComp ? 'Нічья' : resultGame.resultYou > resultGame.resultComp ? 'Ви перемогли!' : 'Компьютер переміг!';
+      alert(`Гра закінчена!
+Загальний рахунок: 
+  Ви: ${resultGame.resultYou}
+  Компьютер: ${resultGame.resultComp}
+${vivatText}`) ;
+      resultGame.start = false;
+      totalScore.innerHTML = `Гра закінчена! ${vivatText}`;
+      buttonNext.innerHTML = 'Грати ще';
+      buttonEnd.style['display'] = 'none';
+    }
+
+    function getValue(message) {
+      while (true) {
+        let value = prompt(message);
+        let isValid = value === null || optionsGame.includes(value.toLowerCase());
+        if (isValid) return value;
+      }
+    }
+
+    function game() {
+      if (!resultGame.start) {
+        resultGame.start = true;
+        resultGame.resultYou = 0;
+        resultGame.resultComp = 0;
+        buttonNext.innerHTML = 'Грати далі';
+        buttonEnd.style['display'] = 'block';
+      }
+      let userChoice = getValue(`Вибиріть та напишить один из варіантів: Камінь, Ножиці, Папір
+Для закінчення гри натисніть "Отмена"`); 
+    
+    if (userChoice) {
+      let randomIndex = Math.floor(Math.random() * 3);
+      let randomValue = optionsGame[randomIndex];
+      let userValue = userChoice.toLowerCase();
+      let result;
+      if (randomValue === userValue) {
+        resultGame.result = 'Нічья';
+        resultGame.resultYou ++;
+        resultGame.resultComp ++;
+      } else if (randomValue === 'камінь' && userValue === 'ножиці' || 
+          randomValue === 'ножиці' && userValue === 'папір' ||
+          randomValue === 'папір'  && userValue === 'камінь') {
+        resultGame.result = 'Компьютер переміг!';
+        resultGame.resultComp += 2;
+      } else {
+        resultGame.result = 'Ви перемогли!';
+        resultGame.resultYou += 2;
+      }
+      let totalScoreText = `Рахунок: ${resultGame.resultYou} : ${resultGame.resultComp}`;
+      alert(`Ваш вибір: ${userChoice} 
+Вибір компьютера: ${randomValue}
+${resultGame.result}
+${totalScoreText}`)
+
+      totalScore.innerHTML = totalScoreText;
+    } else gameOver();
+    }
+  </script>   
+</body>
+</html>
