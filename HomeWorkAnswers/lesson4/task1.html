@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getComputerChoice() {
+            const choices = ['камінь', 'ножиці', 'папір'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
+
+        function determineWinner(userChoice, computerChoice) {
+            if (userChoice === computerChoice) {
+                return 'Нічия!';
+            } else if (
+                (userChoice === 'камінь' && computerChoice === 'ножиці') ||
+                (userChoice === 'ножиці' && computerChoice === 'папір') ||
+                (userChoice === 'папір' && computerChoice === 'камінь')
+            ) {
+                return 'Ви виграли!';
+            } else {
+                return 'Комп\'ютер виграв!';
+            }
+        }
+
+        function playGame() {
+            let userScore = 0;
+            let computerScore = 0;
+            let rounds = 0;
+
+            while (true) {
+                let userChoice = prompt("Введіть ваш вибір: камінь, ножиці, папір або 'вихід' для завершення гри.");
+
+                if (userChoice === 'вихід') {
+                    alert(`Гра завершена! Рахунок: Ви - ${userScore}, Комп'ютер - ${computerScore}`);
+                    break;
+                }
+
+                if (!['камінь', 'ножиці', 'папір'].includes(userChoice)) {
+                    alert('Невірний вибір! Спробуйте ще раз.');
+                    continue;
+                }
+
+                const computerChoice = getComputerChoice();
+                const result = determineWinner(userChoice, computerChoice);
+
+                alert(`Ви обрали: ${userChoice}\nКомп'ютер обрав: ${computerChoice}\nРезультат: ${result}`);
+
+                if (result === 'Ви виграли!') {
+                    userScore++;
+                } else if (result === 'Комп\'ютер виграв!') {
+                    computerScore++;
+                }
+
+                rounds++;
+                alert(`Рахунок після ${rounds} раундів:\nВи: ${userScore}\nКомп'ютер: ${computerScore}`);
+            }
+        }
+
+        playGame();
+
+    </script>
+</body>
+
+</html>

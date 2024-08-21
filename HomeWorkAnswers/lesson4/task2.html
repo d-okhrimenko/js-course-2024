@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function generateRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function generateRandomOperation() {
+            const operations = ['+', '-', '*', '/'];
+            const randomIndex = Math.floor(Math.random() * operations.length);
+            return operations[randomIndex];
+        }
+
+        function generateExpression() {
+            const num1 = generateRandomNumber(1, 10);
+            const num2 = generateRandomNumber(1, 10);
+            const operation = generateRandomOperation();
+
+            let expression;
+            let correctAnswer;
+
+            switch (operation) {
+                case '+':
+                    expression = `${num1} + ${num2}`;
+                    correctAnswer = num1 + num2;
+                    break;
+                case '-':
+                    expression = `${num1} - ${num2}`;
+                    correctAnswer = num1 - num2;
+                    break;
+                case '*':
+                    expression = `${num1} * ${num2}`;
+                    correctAnswer = num1 * num2;
+                    break;
+                case '/':
+                    expression = `${num1} / ${num2}`;
+                    correctAnswer = parseFloat((num1 / num2).toFixed(2)); // Округлення до 2 знаків після коми
+                    break;
+            }
+
+            return { expression, correctAnswer };
+        }
+
+        function playMathQuiz() {
+            let correctAnswers = 0;
+            let wrongAnswers = 0;
+            const totalRounds = 5;
+
+            for (let i = 1; i <= totalRounds; i++) {
+                const { expression, correctAnswer } = generateExpression();
+                const userAnswer = parseFloat(prompt(`Раунд ${i}: Скільки буде ${expression}?`));
+
+                if (userAnswer === correctAnswer) {
+                    alert('Правильно!');
+                    correctAnswers++;
+                } else {
+                    alert(`Неправильно! Правильна відповідь: ${correctAnswer}`);
+                    wrongAnswers++;
+                }
+            }
+
+            alert(`Гра завершена! Ваші результати:\nПравильні відповіді: ${correctAnswers}\nНеправильні відповіді: ${wrongAnswers}`);
+        }
+
+        playMathQuiz();
+
+    </script>
+</body>
+
+</html>
