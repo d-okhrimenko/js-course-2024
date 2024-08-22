@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Lesson 5 task 2</title>
+	</head>
+	<body>
+		<p>
+			Написати програму, яка обчислює площу та периметр різних
+			геометричних фігур (коло, прямокутник, трикутник). Кожна геометрична
+			фігура повинна мати свою окрему функцію для обчислення площі та
+			периметру:
+		</p>
+		<ul>
+			<li>кола</li>
+			<li>прямокутника</li>
+			<li>трикутника</li>
+		</ul>
+		<script src="../../ClassWork/common/my-library.js"></script>
+		<script>
+			function calcCircleArea(r) {
+				let circleArea = Math.PI * Math.pow(r, 2);
+				return circleArea;
+			}
+
+			function calcCirclePerimeter(r) {
+				let circlePerim = 2 * Math.PI * r;
+				return circlePerim;
+			}
+
+			function calcRectArea(length, width) {
+				return length * width;
+			}
+
+			function calcRectPerimeter(length, width) {
+				return 2 * (length + width);
+			}
+
+			function calcTriangleArea(a, b, c) {
+				let p = (a + b + c) / 2;
+				return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+			}
+
+			function calcTrianglePerim(a, b, c) {
+				return a + b + c;
+			}
+
+			function getCalculatedResult() {
+				let shape = prompt('Choose circle, rectangle or triangle', '');
+
+                switch (shape.toLowerCase()) {
+					case 'circle':
+                        let messageRad = 'Enter circle radius:';						
+                        let r = getNumericValue(messageRad);
+						alert(
+							'Circle area: ' +
+								calcCircleArea(r).toFixed(2) +
+								'\nCircle perimeter: ' +
+								calcCirclePerimeter(r).toFixed(2)
+						);
+						break;
+
+					case 'rectangle':
+                        let messageLength = 'Enter rectangle length:'
+                        let messageWidth = 'Enter rectangle width:'
+                        let length = getNumericValue(messageLength);
+                        let width = getNumericValue(messageWidth);
+						
+						alert(
+							'Rectangle area: ' +
+								calcRectArea(length, width).toFixed(2) +
+								'\nRectangle perimeter: ' +
+								calcRectPerimeter(length, width).toFixed(2)
+						);
+						break;
+
+					case 'triangle':
+                        let messageA = 'Enter side a of triangle:'
+                        let messageB = 'Enter side b of triangle:'
+                        let messageC = 'Enter side c of triangle:'
+
+						let a = getNumericValue(messageA);
+						let b = getNumericValue(messageB);
+						let c = getNumericValue(messageC);
+						alert(
+							'Triangle: ' +
+								calcTriangleArea(a, b, c).toFixed(2) +
+								'\nTriangle perimeter: ' +
+								calcTrianglePerim(a, b, c).toFixed(2)
+						);
+						break;
+
+					default:
+						alert('Unknown figure');
+				}
+			}
+
+			getCalculatedResult();
+		</script>
+	</body>
+</html>
