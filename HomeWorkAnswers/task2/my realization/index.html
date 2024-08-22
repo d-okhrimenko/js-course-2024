@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Калькулятор периметру і площі фігур</h1>
+        <p>Таких як трикутник, прямокутник, коло, круг</p>
+    </header>
+
+    <main>
+        <div class="choose_figure_div">
+            <section id="triangle_section">
+                <div class="big_title_div">
+                    <h2>Трикутник</h2>
+                </div>
+                <div>
+                    <div class="triangle_input">
+                        <h3>Введіть потрібні сторони</h3>
+                        <p>Сторона 1:</p>
+                        <textarea id="side1"></textarea>
+                        <p>Сторона 2:</p>
+                        <textarea id="side2"></textarea>
+                        <p>Сторона 3:</p>
+                        <textarea id="side3"></textarea>
+                        <button type="button" onclick="calculateTriangle()">Обчислити</button>
+                    </div>
+
+                    <div class="triangle_output">
+                        <h3>Результат</h3>
+                        <p>Периметр:</p>
+                        <textarea id="perimeter_of_triangle"></textarea>
+                        <p>Площа:</p>
+                        <textarea id="area_of_triangle"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <section id="rectangle_section">
+                <div class="big_title_div">
+                    <h2>Прямокутник</h2>
+                </div>
+                <div>
+                    <div class="rectangle_input">
+                        <h3>Введіть ширину і висоту</h3>
+                        <p>Ширина:</p>
+                        <textarea id="width"></textarea>
+                        <p>Висота:</p>
+                        <textarea id="height"></textarea>
+                        <button type="button" onclick="calculateRectangle()">Обчислити</button>
+                    </div>
+
+                    <div class="rectangle_output">
+                        <h3>Результат</h3>
+                        <p>Периметр:</p>
+                        <textarea id="perimeter_of_rectangle"></textarea>
+                        <p>Площа:</p>
+                        <textarea id="area_of_rectangle"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <section id="circle_section">
+                <div class="big_title_div">
+                    <h2>Коло, круг</h2>
+                </div>
+                <div>
+                    <div class="circle_input">
+                        <h3>Введіть радіус</h3>
+                        <p>Радіус:</p>
+                        <textarea id="radius"></textarea>
+                        <button type="button" onclick="calculateCircle()">Обчислити</button>
+                    </div>
+
+                    <div class="circle_output">
+                        <h3>Результат</h3>
+                        <p>Периметр:</p>
+                        <textarea id="perimeter_of_circle"></textarea>
+                        <p>Площа:</p>
+                        <textarea id="area_of_circle"></textarea>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
