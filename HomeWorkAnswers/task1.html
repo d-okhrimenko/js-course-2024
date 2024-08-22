@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marks</title>
+</head>
+
+<body>
+  <script>
+    const MARKQUANTITY = 10;
+    const MINMARK = 0;
+    const MAXMARK = 100;
+    let marks = [];
+
+    for (let i = 0; i < MARKQUANTITY; i++) {
+      const mark = getMark(i + 1);
+      if (mark === false) {
+        marks = null;
+        break;
+      }
+      marks.push(mark);
+    }
+
+    if (marks) {
+      const averageMark = getAverageMark(marks);
+      const minMark = getMinMark(marks);
+      const maxMark = getMaxMark(marks);
+
+      alert(`Ваші оцінки - ${marks}.
+      Середній бал = ${averageMark},
+      мінімальний бал = ${minMark}
+      максимальний бал = ${maxMark}`);
+    }
+
+    function getAverageMark(marks) {
+      return marks.reduce((sum, mark) => sum += mark, 0) / marks.length;
+    }
+
+    function getMaxMark(marks) {
+      return Math.max(...marks);
+    }
+
+    function getMinMark(marks) {
+      return Math.min(...marks);
+    }
+
+    function getMark(markNumber) {
+      while (true) {
+        const mark = getNumericValue(`Введіть ${markNumber} оцінку, мінімальна - ${MINMARK}, максимальна - ${MAXMARK}`, '');
+
+        if (mark === false) return false;
+        if (isInteger(mark) && inRange(mark, MINMARK, MAXMARK)) return mark;
+
+        alert(`Ваше число або за діапазоном ${MINMARK} - ${MAXMARK}, або не ціле`, '');
+      }
+    }
+
+    function getNumericValue(message) {
+      while (true) {
+        const value = prompt(message);
+
+        if (value === null) return false;
+        if (isValid(value)) return Number(value);
+
+        alert('Ви ввели не число');
+      }
+    }
+
+    function inRange(num, from, to) {
+      if (to < from) {
+        [from, to] = [to, from];
+      }
+
+      return num >= from && num <= to;
+    }
+
+    function isInteger(num) {
+      return Number.isInteger(num);
+    }
+
+    function isValid(value) {
+      return !isNaN(value) && value !== "" && value !== null;
+    }
+  </script>
+</body>
+
+</html>
