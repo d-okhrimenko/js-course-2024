@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Покупки</title>
+</head>
+<body>
+  <script src="../common/my-library.js"></script>
+  <script>
+    const shoppingList = [];
+    const actions = ['Додавання товару', 'Видалення товару', 'Виведення списку товару', 'Вихід'];
+
+    let userChoiceActions;
+    let product;
+
+    do {
+      userChoiceActions = userChoice();
+      switch (userChoiceActions) {
+        case 1:
+          product = getValue('Введіть назву товару:')
+          productAddition(product);
+          break;
+        case 2:
+          if(shoppingList.length) {
+            product = getValue('Введіть назву товару:');
+            productRemoval(product);
+          } else alert('Корзина пуста!')
+          break;
+        case 3:
+          listOutput();
+          break;
+        case 4:
+          alert("Дякуємо за покупки!");
+          break;
+        default:
+          alert("Помилка! Ви не обрали жодної дії!");
+      } 
+    } while (userChoiceActions != 4);
+
+    function productAddition(product) {
+      shoppingList.push(product);
+      alert(`Товар ${product} доданий до корзини!`);
+    }
+
+    function productRemoval(product) {
+      let textAlert;
+      const index = shoppingList.findIndex( element => element === product) ;
+      if(index >= 0) {
+        shoppingList.splice(index, 1);
+        textAlert = 'видалений з корзини';
+      } else textAlert = 'відсутній в корзині';
+      alert(`Товар ${product} ${textAlert}!`);
+    }
+
+    function listOutput() {
+      const listText = getListText(shoppingList);
+      alert(`Cписок товару в корзині: ${listText}`);
+    }
+
+    function getListText(arrayValue) {
+      return arrayValue.reduce((list, currentValue, index) => `${list}
+      ${index + 1}. ${currentValue}`, '');
+    }
+
+    function userChoice() {
+      const listText = getListText(actions);
+      return getNumericValueInRange(`Вибиріть та введіть номер дії: ${listText}`, 1, 4);
+    }
+  </script>
+</body>
+</html>
