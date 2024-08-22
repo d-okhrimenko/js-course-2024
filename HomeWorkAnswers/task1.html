@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students group</title>
+</head>
+
+<body>
+  <script>
+    class Student {
+      constructor({ firstName, lastName, age, id, averageMark }) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.id = id;
+        this.averageMark = averageMark;
+      }
+
+      log() {
+        return `Вітаю! Моє повне ім'я ${this.firstName} ${this.lastName}.
+                Мій вік - ${this.age}.
+                Моє id ${this.id}.
+                Мій середній бал дорівнює ${this.averageMark}`;
+      }
+    }
+    class Group {
+      #members;
+      constructor(members = []) {
+        this.#members = members;
+      }
+
+      add(student) {
+        if (this.find(student.id)) return;
+        this.#members.push(new Student(student));
+      }
+
+      remove(id) {
+        if (!this.find(id)) return;
+        this.#members = this.#members.filter(member => member.id !== id);
+      }
+
+      info() {
+        let info = '';
+        this.#members.forEach(member => info += member.log() + '\n');
+        return info;
+      }
+
+      find(id) {
+        return this.#members.find(member => member.id === id);
+      }
+    }
+
+    const alex = {
+      firstName: 'Олександр',
+      lastName: 'Гуменюк',
+      age: 30,
+      id: 1,
+      averageMark: 93
+    }
+
+    const nataliya = {
+      firstName: 'Наталія',
+      lastName: 'Коваленко',
+      age: 28,
+      id: 2,
+      averageMark: 88
+    }
+
+    const petro = {
+      firstName: 'Петро',
+      lastName: 'Ткаченко',
+      age: 32,
+      id: 3,
+      averageMark: 74
+    }
+
+    const group = new Group([new Student(alex), new Student(nataliya), new Student(petro)]);
+
+    console.log(group.info());
+    console.log(group.find(2).log());
+
+    const olesya = {
+      firstName: 'Олеся',
+      lastName: 'Лисенко',
+      age: 36,
+      id: 4,
+      averageMark: 84
+    }
+
+    group.add(olesya);
+    console.log(group.info());
+
+    group.remove(3);
+    console.log(group.info());
+  </script>
+</body>
+
+</html>
