@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>S i P геометричних фігур</p>
+    <script>
+// Аналіз введених даних користувачем даних
+function getValue(message) {
+    while (true) {
+        let value=prompt(message);
+        let isValid=!isNaN(value)&&value!=""&&value!=null;
+        if (isValid) return Number(value);
+    }
+}
+
+zapytNaObrahunok=prompt("Можна порахувати S і P для кола, прямокутника, трикутника. \n Виберіть фігуру:")
+if (zapytNaObrahunok==="коло"){
+
+// Обрахунки S і P для кола
+function getCircleArea() {
+return Math.PI*Math.pow(radius,2); 
+}   
+function getCirclePerimeter (radius){
+    return 2*Math.PI*radius;
+}
+let radius=getValue("Введіть радіус");
+let area=getCircleArea(radius).toFixed(2);
+let perimrter=getCirclePerimeter(radius).toFixed(2);
+alert("Площа кола = "+ area);
+alert ("Периметр кола =" + perimrter);
+}
+else if (zapytNaObrahunok==="прямокутник"){
+
+// Обрахунки S і P для прямокутника
+let dovgyna=getValue("Введіть дані довжини сторони прямокутника");
+let shyryna=getValue("Введіть дані ширини сторони прямокутника");
+let getSPriamokutn=(dovgyna,shyryna)=>dovgyna*shyryna;
+let SPriamokutn=getSPriamokutn(dovgyna, shyryna);
+let getPPriamokut=(dovgyna,shyryna)=>2*(dovgyna+shyryna);
+let PPriamokut=getPPriamokut(dovgyna,shyryna);
+alert("Площа прямокутника = "+ SPriamokutn);
+alert("Периметр прямокутника = "+ PPriamokut);
+}
+else {
+
+// Обрахунки S і P для трикутника
+let a=getValue("Введіть довжину сторони трикутника А: ");
+let b=getValue("Введіть довжину сторони трикутника B: ");
+let c=getValue("Введіть довжину сторони трикутника C: ");
+if (a + b > c && a + c > b && b + c > a) {
+let getp=(a,b,c)=>(a+b+c)/2;
+let p=getp(a,b,c);
+let getStrykuntyka=(a,b,c,p)=>Math.sqrt(p*(p - a)*(p - b)*(p - c));
+let Strykutnyka=getStrykuntyka(a,b,c,p).toFixed(2);
+alert("S трикутника =  "+Strykutnyka);
+let getPerymetrTrykut=(a,b,c)=>a+b+c;
+let PerymetrTrykut=getPerymetrTrykut(a,b,c);
+alert("P трикутника =  "+PerymetrTrykut);
+}
+else {
+    alert("Введені сторони не можуть утворити трикутник.")
+}
+};
+
+    </script>
+
+
+</body>
+</html>
