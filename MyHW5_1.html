@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>індекс маси тіла (ІМТ)</p>
+    <script>
+
+let zapytVaga=prompt("Вкажіть вагу в кг");
+let zapytZrostu=prompt("Вкажіть зріст в метрах");
+let vaga=parseFloat(zapytVaga.replace(",","."));
+let zrist=parseFloat(zapytZrostu.replace(",","."));
+
+function znajtyIndMasTila (vaga, zrist) {
+    let IMT=vaga/(zrist*zrist);
+    return IMT
+}
+let IMTporah=znajtyIndMasTila(vaga, zrist);
+function vyznachKategorIMT(IMT){
+
+    if (IMT< 18.5) {
+        alert ("Ваш IMT = "+ IMT +",згідно натегорій ВООЗ Ваша категорія - Недостатня вага ")
+    };
+    if (IMT>=18.6 && IMT< 24.9) {
+        alert ("Ваш IMT = "+ IMT +",згідно натегорій ВООЗ Ваша категорія - Нормальна  вага ")   
+    };
+    if (IMT>=25.0 && IMT < 29.9) {
+     
+    alert ("Ваш IMT = "+ IMT +",згідно натегорій ВООЗ Ваша категорія - Надмірна  вага ")    
+    }
+    if (IMT>=30.0)
+    {alert ("Ваш IMT = "+ IMT +",згідно натегорій ВООЗ Ваша категорія - Ожиріння ") }
+}
+vyznachKategorIMT (IMTporah);
+    </script>
+</body>
+</html>
