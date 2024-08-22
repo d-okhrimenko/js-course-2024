@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson6 Task2</title>
+  </head>
+  <body>
+    <script>
+      const purshaces = [];
+
+      function addProduct(item) {
+        purshaces.push(item);
+      }
+
+      function removeProduct(item) {
+        purshaces.splice(
+          purshaces.findIndex((it) => it === item),
+          1
+        );
+      }
+
+      function getPurshaces(arr) {
+        let purshacesList = "Товари у кошику:\n";
+        let count = 1;
+        arr.map((item) => {
+          purshacesList += count + ". " + item + "\n";
+          count++;
+        });
+        return purshacesList;
+      }
+
+      let condition = true;
+      while (condition) {
+        const choice = prompt(
+          "1-додавання товару,\n2-видалення товару,\n3-виведення списку,\n4-оформити замовлення"
+        );
+        switch (choice) {
+          case "1":
+            const productAdd = prompt("Введіть назву товару");
+            addProduct(productAdd);
+            break;
+          case "2":
+            const productRem = prompt("Введіть назву товару");
+            removeProduct(productRem);
+            break;
+          case "3":
+            alert(getPurshaces(purshaces));
+            break;
+          case "4":
+            alert("Дякуємо за покупку!");
+            condition = false;
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

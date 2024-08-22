@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson6 Task1</title>
+  </head>
+  <body>
+    <script>
+      function SendMessage(aver, min, max) {
+        return `Середній бал: ${aver}\nНайвища оцінка: ${max}\nНайнижча оцінка: ${min}`;
+      }
+
+      function MinEvaluation(arr) {
+        return Math.min(...arr);
+      }
+
+      function MaxEvaluation(arr) {
+        return Math.max(...arr);
+      }
+
+      function AverageEvaluation(arr) {
+        const sum = arr.reduce((s, value) => s + value, 0);
+        return sum / arr.length;
+      }
+
+      const inputString = prompt(
+        "Введіть кілька оцінок студентів від 1 до 100 через кому"
+      );
+      const evaluation = inputString.split(",");
+      const tranformArr = evaluation.map((el) => Number(el));
+      alert(
+        SendMessage(
+          AverageEvaluation(tranformArr),
+          MinEvaluation(tranformArr),
+          MaxEvaluation(tranformArr)
+        )
+      );
+    </script>
+  </body>
+</html>
