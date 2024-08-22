@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Lesson 5 task 1</title>
+	</head>
+	<body>
+		<p>
+			Написати програму, яка обчислює індекс маси тіла (ІМТ) і дає
+			рекомендації на основі отриманого значення.
+		</p>
+
+		<script src="../../ClassWork/common/my-library.js"></script>
+
+		<script>
+			function calcIMT(weight, height) {
+				return weight / Math.pow(height, 2);
+			}
+
+			function getIMTCategory(imt) {
+				if (imt < 18.5) {
+					return 'Недостатня вага';
+				} else if (imt >= 18.5 && imt < 24.9) {
+					return 'Нормальна вага';
+				} else if (imt >= 25 && imt < 29.9) {
+					return 'Надмірна вага';
+				} else {
+					return 'Ожиріння';
+				}
+			}
+
+			let weight = getNumericValue('Введіть вашу вагу в кілограмах:');
+			let height = getNumericValue('Введіть ваш зріст у метрах:');
+
+			let imt = calcIMT(weight, height);
+			let category = getIMTCategory(imt);
+
+            alert("Ваш ІМТ: " + imt.toFixed(2) + "\nКатегорія: " + category);
+		</script>
+	</body>
+</html>
