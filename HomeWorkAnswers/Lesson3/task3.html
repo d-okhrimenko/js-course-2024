@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task3</title>
+  </head>
+  <body>
+    <h1>Перевірка на високосний рік</h1>
+    <button onclick="checkLeapYear()">Перевірити рік</button>
+
+    <script>
+      function checkLeapYear() {
+        const yearInput = prompt("Введіть рік для перевірки:");
+        const year = parseInt(yearInput, 10);
+
+        if (isNaN(year)) {
+          alert("Будь ласка, введіть коректне число.");
+          return;
+        }
+
+        let isLeapYear = false;
+
+        if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+          isLeapYear = true;
+        }
+
+        if (isLeapYear) {
+          alert(`${year} рік є високосним.`);
+        } else {
+          alert(`${year} рік не є високосним.`);
+        }
+      }
+    </script>
+  </body>
+</html>

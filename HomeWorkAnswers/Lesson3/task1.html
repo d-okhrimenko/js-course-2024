@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task1</title>
+  </head>
+  <body>
+    <h1>Перевірка парності числа</h1>
+    <button onclick="checkParity()">Ввести число</button>
+
+    <script>
+      function checkParity() {
+        const input = prompt("Введіть число:");
+        const number = parseInt(input, 10);
+
+        if (isNaN(number)) {
+          alert("Будь ласка, введіть коректне число.");
+        } else {
+          if (number % 2 === 0) {
+            alert(`Число ${number} є парним.`);
+          } else {
+            alert(`Число ${number} є непарним.`);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task2</title>
+  </head>
+  <body>
+    <h1>Дізнайтеся, який сьогодні день тижня</h1>
+    <button onclick="checkDayOfWeek()">Перевірити день тижня</button>
+    <p id="dayOfWeek"></p>
+
+    <script>
+      function checkDayOfWeek() {
+        const today = new Date();
+        const dayIndex = today.getDay();
+        let dayName = "";
+
+        if (dayIndex === 0) {
+          dayName = "Неділя";
+        } else if (dayIndex === 1) {
+          dayName = "Понеділок";
+        } else if (dayIndex === 2) {
+          dayName = "Вівторок";
+        } else if (dayIndex === 3) {
+          dayName = "Середа";
+        } else if (dayIndex === 4) {
+          dayName = "Четвер";
+        } else if (dayIndex === 5) {
+          dayName = "П'ятниця";
+        } else if (dayIndex === 6) {
+          dayName = "Субота";
+        }
+
+        document.getElementById("dayOfWeek").innerText = `Сьогодні ${dayName}.`;
+      }
+    </script>
+  </body>
+</html>
