@@ -32,8 +32,7 @@
           );
           if (value == 111) {
             break;
-          }
-          if (value >= 0 && value <= 100 && Number.isInteger(value)) {
+          } else if (value >= 0 && value <= 100 && Number.isInteger(value)) {
             array.push(value);
           } else {
             alert("Введіть ціле число від 0 до 100 включно!");
