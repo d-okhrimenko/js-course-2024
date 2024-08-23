@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Завдання: Написати програму для управління інформацією про студентів у групі. 
+ Програма повинна дозволяти додавати нових студентів, видаляти студентів і виводити інформацію про всіх студентів. -->
+
+    <script>
+      class Student {
+        constructor(id, name, surname, age, averageGrade) {
+          this.id = id;
+          this.name = name;
+          this.surname = surname;
+          this.age = age;
+          this.averageGrade = averageGrade;
+        }
+      }
+
+      let studentsDatabase = {
+        studentsList: [
+          {
+            id: 1,
+            name: 'Alex',
+            surname: 'Cheshire',
+            age: 25,
+            averageGrade: 10.6,
+          },
+          {
+            id: 2,
+            name: 'Olena',
+            surname: 'Prokopchuk',
+            age: 23,
+            averageGrade: 11,
+          },
+          {
+            id: 3,
+            name: 'Ivan',
+            surname: 'Fedoriv',
+            age: 26,
+            averageGrade: 9.3,
+          },
+        ],
+
+        // addStudent(id, name, surname, age, averageGrade) {
+        //   this.studentsList.push({
+        //     id: id,
+        //     name: name,
+        //     surname: surname,
+        //     age: age,
+        //     averageGrade: averageGrade,
+        //   });
+        // },
+
+        addStudent(id, name, surname, age, averageGrade) {
+          this.studentsList.push(
+            new Student(id, name, surname, age, averageGrade)
+          );
+          console.log(`The new student with ID ${id} has been added`);
+        },
+
+        removeStudentById(id) {
+          let index = this.studentsList.findIndex(student => student.id === id);
+          this.studentsList.splice(index, 1);
+          console.log(`Student with ID ${id} was deleted`);
+        },
+
+        display(student) {
+          console.log(
+            `id = ${student.id}, name = ${student.name}, surname = ${student.surname}, age = ${student.age}, averageGrade = ${student.averageGrade}`
+          );
+        },
+
+        showAllStudents() {
+          this.studentsList.forEach(student => this.display(student));
+        },
+
+        searchStudentById(id) {
+          let index = this.studentsList.findIndex(student => student.id === id);
+          console.log(`Student with ID ${id} found:`);
+          this.display(this.studentsList[index]);
+        },
+      };
+
+      // tests
+
+      studentsDatabase.showAllStudents();
+
+      studentsDatabase.addStudent(4, 'Alisa', 'Fox', 30, 10.1);
+
+      studentsDatabase.showAllStudents();
+
+      studentsDatabase.removeStudentById(1);
+
+      studentsDatabase.showAllStudents();
+
+      studentsDatabase.searchStudentById(2);
+    </script>
+  </body>
+</html>
