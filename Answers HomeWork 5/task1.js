@@ -1,9 +1,9 @@
 // Визначення індексу маси тіла
-function bodyMassIndex(weight, height) {
+function getBodyMassIndex(weight, height) {
     return weight / (height * height);
 }
 // Визначення категорії ІМТ
-function categoryBMI(bmi) {
+function getCategoryBMI(bmi) {
     if (bmi < 18.5) {
         return "У Вас недостатня вага";
     }
@@ -28,8 +28,8 @@ if (inValid === true) {
     continue;
     // Обчислення ІМТ користувача
 } else {
-    let bmi = bodyMassIndex(weight,height);
-    let userCategoryBMI = categoryBMI(bmi);
+    let bmi = getBodyMassIndex(weight,height);
+    let userCategoryBMI = getCategoryBMI(bmi);
     alert(`Індекс Вашої маси тіла ${bmi.toFixed(1)} \n${userCategoryBMI} `)
 } break;
 }
