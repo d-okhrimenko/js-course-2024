@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Student {
+        constructor(name, surname, age, id, avg) {
+          this.name = name;
+          this.surname = surname;
+          this.age = age;
+          this.id = id;
+          this.avg = avg;
+        }
+      }
+
+      class StudentsDB {
+        constructor() {
+          this.students = [];
+        }
+
+        addStudent(name, surname, age, id, avg) {
+          const student = new Student(name, surname, age, id, avg);
+          this.students.push(student);
+        }
+
+        removeStudent(id) {
+          this.students = this.students.filter((student) => student.id !== id);
+        }
+
+        getAllStudents() {
+          this.students.forEach((student) => {
+            console.log(
+              `Ім'я: ${student.name}, Прізвище: ${student.surname}, Вік: ${student.age}, ID: ${student.id}, Середній бал: ${student.avg}`
+            );
+          });
+        }
+
+        findStudentById(id) {
+          const student = this.students.find((student) => student.id === id);
+          if (student) {
+            console.log(
+              `Ім'я: ${student.name}, Прізвище: ${student.surname}, Вік: ${student.age}, ID: ${student.id}, Середній бал: ${student.avg}`
+            );
+          } else {
+            console.log(`Студент з ID: ${id} не знайдений.`);
+          }
+        }
+      }
+
+      const group = new StudentsDB();
+      group.addStudent("Петро", "Петров", 20, 123, 90);
+      group.addStudent("Іван", "Іванов", 21, 124, 85);
+      group.getAllStudents();
+      group.findStudentById(123);
+      group.removeStudent(123);
+      group.getAllStudents();
+    </script>
+  </body>
+</html>
