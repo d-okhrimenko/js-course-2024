@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+
+        function getNumberGrades(numberGrades) {
+            const grades = []
+            for (let i = 0; i < numberGrades; i++) {
+                grades.push(сheckGrades("Введіть оцінку (від 0 до 100)"))
+
+            }
+            return grades
+        }
+
+        function сheckGrades(message) {
+            while (true) {
+                let value = getNumericValue(message)
+                if (0 <= value && value <= 100) return value
+            }
+
+        }
+
+        function maxGrade(grades) {
+            return Math.max(...grades)
+        }
+
+        function minGrade(grades) {
+            return Math.min(...grades)
+        }
+
+        function averageGrade(grades) {
+            let sum = 0
+            for (const element of grades) {
+                sum += element
+            }
+            return sum / grades.length
+        }
+        const numberGrades = getNumericValue("Введіть кількість оцінок") // 5
+
+        const studentAssessment = getNumberGrades(numberGrades)
+
+        alert(`Максимальна оцінка : ${maxGrade(studentAssessment)}`)
+        alert(`Мінімальна оцінка : ${minGrade(studentAssessment)}`)
+        alert(`Середній бал : ${averageGrade(studentAssessment)}`)
+
+
+    </script>
+</body>
+
+</html>

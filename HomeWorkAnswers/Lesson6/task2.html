@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const shoppingCart = [];
+
+        function addProduct(nameProduct) {
+            shoppingCart.push(nameProduct)
+            alert(`Товар ${nameProduct} додано до списку покупок`)
+        }
+
+        function removeProduct(nameProduct) {
+            let indexRemoveProduct = shoppingCart.indexOf(nameProduct)
+            if (indexRemoveProduct !== -1){
+                shoppingCart.splice(indexRemoveProduct, 1)
+                alert(`Товар ${nameProduct} видалено з вашого списку.`)
+            }
+            else{
+                alert(`Товару ${nameProduct} немає у вашому списку.`)
+            }
+        }
+
+        function showListProducts() {
+            if (shoppingCart.length !== 0) {
+                let listProducts= "Список ваших товарів :\n";
+                shoppingCart.forEach((element, index) => {
+                    listProducts += `${index + 1}. ${element}\n`
+                })
+                alert(listProducts)
+            }
+            else{
+                alert("Ваш список покупки порожній.")
+            }
+        }
+
+        
+
+        while (true) {
+            let action = Number(prompt("Зробіть Ваш вибір: 1-Додати товар; 2-Видалити товар; 3-Показати список; 4-Вихід"))
+
+            if (action === 1) {
+                action = prompt("Введіть назву товару, який ви бажаєте додати")
+                addProduct(action)
+            }
+            else if (action === 2) {
+                action = prompt("Введіть назву товару, який ви бажаєте видалити")
+                removeProduct(action)
+            }
+            else if (action === 3) {
+                showListProducts()
+            }
+            else if (action === 4) {
+                break;
+            }
+            else {
+                alert("Ви ввели не вірне число. Спробуйте ще раз.")
+            }
+        }
+    </script>
+</body>
+
+</html>
