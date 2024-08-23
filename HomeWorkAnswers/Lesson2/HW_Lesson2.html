@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="date"></p>
+
+    <button id="btn">Say Hello</button>
+    <p id="output"></p>
+
+    <script>
+      let date = new Date();
+      //   alert(date);
+      document.querySelector('#date').innerHTML = date;
+
+      document.querySelector('#btn').onclick = function () {
+        let output = document.querySelector('#output');
+        output.innerHTML = 'Hello, Anna';
+      };
+    </script>
+  </body>
+</html>
