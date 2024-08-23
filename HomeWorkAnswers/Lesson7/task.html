@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 7 - Task</title>
+</head>
+
+<body>
+    <!--
+    Завдання: Написати програму для управління інформацією про студентів у групі. Програма повинна дозволяти додавати нових студентів, видаляти студентів і виводити інформацію про всіх студентів.
+
+Кроки для виконання завдання:
+
+1. Створити конструктор або фабричну функцію для створення об'єктів студентів:
+
+    - Кожен об'єкт студента повинен містити наступні властивості: ім'я, прізвище, вік, ідентифікаційний номер, середній бал.
+
+2. Створити об'єкт для управління групою студентів:
+
+    - Цей об'єкт повинен містити масив студентів та методи для додавання, видалення і виведення інформації про студентів.
+
+    - Додати метод для додавання нового студента:
+        - Метод повинен приймати параметри для створення нового об'єкта студента і додавати його до масиву.
+
+    - Додати метод для видалення студента:
+        - Метод повинен видаляти студента за його ідентифікаційним номером.
+
+    - Додати метод для виведення списку всіх студентів:
+        - Метод повинен виводити на екран список студентів із зазначенням всіх їхніх властивостей.
+    
+    - Додати функціонал для пошуку студента за його ідентифікаційним номером:
+        - Метод повинен шукати студента в масиві і повертати всю інформацію про нього.
+    -->
+
+    <script>
+        let journal = {
+
+            ids: [1, 2],
+
+            students: [
+                { "номер": 1, "ім'я": "Брендан", "прізвище": "Айк", "вік": 63, "середній бал": 95 },
+                { "номер": 2, "ім'я": "Юкіхіро", "прізвище": "Мацумото", "вік": 59, "середній бал": 89 },
+            ],
+
+            isValidID(id) {
+                let hit = this.ids.includes(id);
+                if (hit) {
+                    let indexExistsStudent = this.searchIndexStudentByID(id);
+                    let existsStudent = this.students[indexExistsStudent];
+                    this.showMessage(`Під номером ${id} у журналі вже записаний студент "${existsStudent["iм'я"]} ${existsStudent["прізвище"]}". При додаванні у журнал нового студента його номер має бути унікальним.`);
+                    return false;
+                }
+                return true;
+            },
+
+            addStudent(id, name, surname, age, average) {
+                this.showMessage(`Додавання студента "${name} ${surname}" з номером "${id}" у журнал...`);
+                if (this.isValidID(id)) {
+                    let student = { "номер": id, "iм'я": name, "прізвище": surname, "вік": age, "середній бал": average };
+                    this.students.push(student);
+                    this.ids.push(id);
+                    this.showMessage(`Студент "${student['iм\'я']} ${student['прізвище']}" під номером "${id}" успішно доданий в журнал`);
+                }
+            },
+
+            searchIndexStudentByID(id) {
+                let student = this.students.filter(item => item["номер"] === id)[0];
+                let indexItem = this.students.indexOf(student);
+                return indexItem;
+            },
+
+            searchStudentByID(id) {
+                this.showMessage(`Пошук у журналі студента з номером "${id}"...`);
+                let indexStudent = this.searchIndexStudentByID(id);
+                if (indexStudent > - 1) {
+                    let foundStudent = this.students[indexStudent];
+                    let resultSearch = "\n";
+                    for (let property in foundStudent) {
+                        resultSearch += `${property}: ${foundStudent[property]}\n`;
+                    }
+                    this.showMessage(`Інформацію про студента з номером "${id}" знайдено:\n${resultSearch}`);
+                } else {
+                    this.showMessage(`Студент з номером "${id}" відсутній в журналі`);
+                }
+            },
+
+            removeStudentByID(id) {
+                this.showMessage(`Видалення з журналу студента під номером "${id}"...`);
+                let indexStudent = this.searchIndexStudentByID(id);
+                if (indexStudent > -1) {
+                    let removeStudent = this.students.splice(indexStudent, 1)[0];
+                    this.showMessage(`Cтудент "${removeStudent["ім'я"]} ${removeStudent["прізвище"]}" з номером "${id}" успішно видалений з журналу`);
+                } else {
+                    this.showMessage(`Студент з номером "${id}" відсутній в журналі`);
+                }
+            },
+
+            showAllStudents() {
+                let head = "Список студентів у журналі на цей момент:\n\n";
+                let tail = "";
+                for (let student of this.students) {
+                    for (let property in student) {
+                        tail += `${property}: ${student[property]}\n`;
+                    }
+                    tail += "\n";
+                }
+                this.showMessage(`${head}${tail.trim() || "порожній"}`);
+            },
+
+            showMessage(message) {
+                console.log(message);
+            },
+
+            exit() {
+                this.showMessage("Робота з журналом завершена.");
+            }
+        };
+
+
+        journal.showAllStudents();
+
+        journal.addStudent(3, "Б’ярне", 'Страуструп', 73, 90);
+
+        journal.addStudent(4, "Гвідо", 'ван Россум', 68, 98);
+
+        journal.showAllStudents();
+
+        journal.addStudent(4, "Лінус", 'Торвальдс', 54, 85);
+
+        journal.removeStudentByID(2);
+
+        journal.showAllStudents();
+
+        journal.searchStudentByID(2);
+
+        journal.removeStudentByID(5);
+
+        journal.searchStudentByID(4);
+
+        journal.exit();
+    </script>
+
+</body>
+
+</html>
