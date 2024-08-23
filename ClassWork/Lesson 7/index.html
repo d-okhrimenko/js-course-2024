@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let proiducts = [creteProduct(1, "Phone", 10000), 
+        // creteProduct(2, "Laptop", 50000)];
+        class Product {
+            constructor(id, name, price) {
+                this.id = id;
+                this.name = name;
+                this.price = price;
+            }
+
+            displayInfo () {
+                console.log(this.name);
+                console.log(this.price);
+            };
+        }
+
+        let product1 = creteProduct(1, "Phone", 10000);
+        let product2 = creteProduct(2, "Laptop", 50000);
+
+        let product3 = new Product(1, "Phone", 10000);
+        let product4 = new Product(2, "Laptop", 50000);
+
+        function creteProduct(id, name, price) {
+            let product = {};
+
+            product.id = id;
+            product.name = name;
+            product.price = price;
+            product.displayInfo = function () {
+                console.log(this.name);
+                console.log(this.price);
+            };
+
+            return product;
+        }
+
+        product1.displayInfo();
+        product2.displayInfo();
+        product3.displayInfo();
+        product4.displayInfo();
+
+    </script>
+</body>
+
+</html>
