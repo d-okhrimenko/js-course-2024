@@ -64,6 +64,8 @@
                 this.showMessage(`Видалення з журналу студента під номером "${id}"...`);
                 let indexStudent = this.searchIndexStudentByID(id);
                 if (indexStudent > -1) {
+                    let indexRemoveID = this.ids.indexOf(id);
+                    if (indexRemoveID > -1) this.ids.splice(indexRemoveID, 1);
                     let removeStudent = this.students.splice(indexStudent, 1)[0];
                     this.showMessage(`Cтудент "${removeStudent["ім'я"]} ${removeStudent["прізвище"]}" з номером "${id}" успішно видалений з журналу`);
                 } else {
@@ -92,9 +94,8 @@
             }
         };
 
-
         journal.showAllStudents();
-
+        
         journal.addStudent(3, "Б’ярне", 'Страуструп', 73, 90);
 
         journal.addStudent(4, "Гвідо", 'ван Россум', 68, 98);
@@ -104,7 +105,7 @@
         journal.addStudent(4, "Лінус", 'Торвальдс', 54, 85);
 
         journal.removeStudentByID(2);
-
+        
         journal.showAllStudents();
 
         journal.searchStudentByID(2);
