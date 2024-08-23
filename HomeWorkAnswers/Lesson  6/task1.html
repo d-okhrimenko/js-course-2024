@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<p>
+			Написати програму, яка аналізує список оцінок студентів і знаходить
+			середній бал, найвищу та найнижчу оцінки.
+		</p>
+
+		<script>
+			let gradesList = [];
+
+			function calculateAverage(arr) {
+				let sum = arr.reduce((acc, elem) => acc + elem, 0);
+				let avg = (sum / arr.length).toFixed(2);
+				return avg;
+			}
+
+			function findLowestGrade(arr) {
+				return Math.min(...arr);
+			}
+
+			function findHighestGrade(arr) {
+				return Math.max(...arr);
+			}
+
+			let inputGrades = prompt(
+				'Enter grades(integer) from 0 to 100 separated by commas:'
+			);
+
+			gradesList = inputGrades.split(',').map(Number);
+
+			function validateGrades(gradesList) {
+				return gradesList.every(
+					(grade) =>
+						Number.isInteger(grade) && grade >= 0 && grade <= 100
+				);
+			}
+
+			if (validateGrades(gradesList)) {
+				let average = calculateAverage(gradesList);
+				let highestGrade = findHighestGrade(gradesList);
+				let lowestGrade = findLowestGrade(gradesList);
+
+				alert(
+					'Average grade: ' +
+						average +
+						'\nHighest Grade: ' +
+						highestGrade +
+						'\nLowest Grade: ' +
+						lowestGrade
+				);
+			} else {
+				alert('Grades should be integer from 0 to 100 separated by commas');
+			}
+		</script>
+	</body>
+</html>
