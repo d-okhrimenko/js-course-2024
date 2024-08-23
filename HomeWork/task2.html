@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../ClassWork/common/my-library.js"></script>
+    <script>
+      let items = [];
+
+      function add(item) {
+        items.push(item);
+        alert(`${item} is added to the shoping list.`);
+      }
+
+      function remove(item) {
+        const index = items.indexOf(item);
+
+        if (index !== -1) {
+          items.splice(index, 1);
+          alert(`${item} is removed from the shoping list.`);
+        } else {
+          alert(`${item} was'n found in the list.`);
+        }
+      }
+
+      function displayItems() {
+        if (items.length === 0) {
+          alert("The list is empty");
+        } else {
+          alert("Your shopping list:\n" + items.join("\n"));
+        }
+      }
+
+      let message =
+        "Choose an action:\n1 - Add product\n2 - Remove product\n3 - Display list\n4 - Exit";
+
+      while (true) {
+        let userChoice = getNumericValue(message);
+
+        if (userChoice === 4 || userChoice === null) {
+          alert("Stopped. Good bye!");
+          break;
+        }
+
+        switch (userChoice) {
+          case 1:
+            let itemToAdd = prompt("Enter the name of the product to add:");
+            if (itemToAdd) add(itemToAdd);
+            break;
+
+          case 2:
+            let itemToRemove = prompt(
+              "Enter the name of the product to remove:"
+            );
+            if (itemToRemove) remove(itemToRemove);
+            break;
+
+          case 3:
+            displayItems();
+            break;
+
+          default:
+            alert("Wrong choice, please try again.");
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
