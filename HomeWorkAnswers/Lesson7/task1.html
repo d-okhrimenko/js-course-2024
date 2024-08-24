@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students</title>
+  </head>
+  <body>
+    <script>
+      class Student {
+        constructor(firstName, lastName, age, id, averageScore) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.age = age;
+          this.id = id;
+          this.averageScore = averageScore;
+        }
+      }
+
+      let StudentsGroup = {
+        students: [],
+
+        addStudent(student) {
+          this.students.push(student);
+        },
+
+        deleteStudent(id) {
+          this.students = this.students.filter((student) => student.id !== id);
+        },
+        displayInfo() {
+          return this.students;
+        },
+        findStudent(id) {
+          const student = this.students.find((student) => student.id === id);
+          return student ? student : `Студента з id=${id} не знайдено`;
+        },
+      };
+
+      //   Тест програми
+      let student1 = new Student("Vasyl'", "Vasylenko", 20, 1, 10.5);
+      let student2 = new Student("Petro", "Petrenko", 30, 2, 11.5);
+      let student3 = new Student("Stepan", "Stepanenko", 40, 3, 12.0);
+
+      StudentsGroup.addStudent(student1);
+      StudentsGroup.addStudent(student2);
+      StudentsGroup.addStudent(student3);
+      StudentsGroup.addStudent(new Student("Olena", "Olenenko", 25, 4, 12.0));
+
+      console.log(StudentsGroup.displayInfo());
+      console.log(StudentsGroup.findStudent(1));
+      console.log(StudentsGroup.findStudent(5));
+      StudentsGroup.deleteStudent(1);
+      console.log(StudentsGroup.displayInfo());
+    </script>
+  </body>
+</html>
