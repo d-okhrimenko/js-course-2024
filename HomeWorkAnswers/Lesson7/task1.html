@@ -20,6 +20,10 @@
                 this.number_id = number_id;
                 this.average_score = average_score;
             }
+
+            info2display() {
+                console.log(`Студент: Ім'я ${this.firstname}, прізвище ${this.lastname}, вік ${this.age}, ідентифікаційний номер ${this.number_id}, середній бал ${this.average_score}`); 
+        }
         }
 
         // Створити об'єкт для управління групою студентів:
@@ -31,6 +35,7 @@
             add: function (firstname, lastname, age, number_id, average_score) {
                 let new_person = new Student(firstname, lastname, age, number_id, average_score);
                 this.Person.push(new_person);
+                console.log(`Елемент масиву number_id=${number_id} додано.`);
             },
 
             // Додати метод для видалення студента:
@@ -50,16 +55,16 @@
             info_all: function() {
                     
                     this.Person.forEach(el => {
-                        info2display(el);
+                        el.info2display();
                     });
             },
 
             // Додати функціонал для пошуку студента за його ідентифікаційним номером:
             // Метод повинен шукати студента в масиві і повертати всю інформацію про нього.
             search: function (number_id) {
-                let result = this.Person.findIndex(Person => Person.number_id === number_id);
-                if (result > -1) {
-                    info2display(this.Person[result]);
+                let result = this.Person.find(Person => Person.number_id === number_id);
+                if (result) {
+                    result.info2display();
                 }
                 else {
                     console.log(`Значення number_id=${number_id} відсутне`);
@@ -67,9 +72,6 @@
             },
         }
 
-        function info2display(el) {
-                console.log(`Студент: Ім'я ${el.firstname}, прізвище ${el.lastname}, вік ${el.age}, ідентифікаційний номер ${el.number_id}, середній бал ${el.average_score}`); 
-        }
 
         group_Student.add('Andriy', 'Serednyak', 20, 'ST-2022-1',60);
         group_Student.add('Valentin', 'Vasilenko', 22, 'ST-2022-2',70);
@@ -78,7 +80,7 @@
         group_Student.search('ST-2022-0');
         group_Student.search('ST-2022-2');
         group_Student.del('ST-2022-3');
-        group_Student.info_all();
+        
 
 
     </script>
