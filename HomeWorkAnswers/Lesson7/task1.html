@@ -22,8 +22,8 @@
             }
 
             info2display() {
-                console.log(`Студент: Ім'я ${this.firstname}, прізвище ${this.lastname}, вік ${this.age}, ідентифікаційний номер ${this.number_id}, середній бал ${this.average_score}`); 
-        }
+                console.log(`Студент: Ім'я ${this.firstname}, прізвище ${this.lastname}, вік ${this.age}, ідентифікаційний номер ${this.number_id}, середній бал ${this.average_score}`);
+            }
         }
 
         // Створити об'єкт для управління групою студентів:
@@ -50,13 +50,13 @@
                     console.log(`Значення number_id=${number_id} відсутне.`);
                 }
             },
-                // Додати метод для виведення списку всіх студентів:
-                // Метод повинен виводити на екран список студентів із зазначенням всіх їхніх властивостей.
-            info_all: function() {
-                    
-                    this.Person.forEach(el => {
-                        el.info2display();
-                    });
+            // Додати метод для виведення списку всіх студентів:
+            // Метод повинен виводити на екран список студентів із зазначенням всіх їхніх властивостей.
+            info_all: function () {
+
+                this.Person.forEach(el => {
+                    el.info2display();
+                });
             },
 
             // Додати функціонал для пошуку студента за його ідентифікаційним номером:
@@ -73,14 +73,14 @@
         }
 
 
-        group_Student.add('Andriy', 'Serednyak', 20, 'ST-2022-1',60);
-        group_Student.add('Valentin', 'Vasilenko', 22, 'ST-2022-2',70);
-        group_Student.add('Oksana', 'Vodogray', 18, 'ST-2022-3',90);
+        group_Student.add('Andriy', 'Serednyak', 20, 'ST-2022-1', 60);
+        group_Student.add('Valentin', 'Vasilenko', 22, 'ST-2022-2', 70);
+        group_Student.add('Oksana', 'Vodogray', 18, 'ST-2022-3', 90);
         group_Student.info_all();
         group_Student.search('ST-2022-0');
         group_Student.search('ST-2022-2');
         group_Student.del('ST-2022-3');
-        
+
 
 
     </script>
