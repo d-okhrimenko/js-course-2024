@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 7. Завдання 1</title>
+</head>
+
+<body>
+    <script>
+        // Створити конструктор або фабричну функцію для створення об'єктів студентів:
+
+        // Кожен об'єкт студента повинен містити наступні властивості: ім'я, прізвище, вік, ідентифікаційний номер, середній бал.
+        class Student {
+            constructor(firstname, lastname, age, number_id, average_score) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.age = age;
+                this.number_id = number_id;
+                this.average_score = average_score;
+            }
+        }
+
+        // Створити об'єкт для управління групою студентів:
+        let group_Student = {
+            Person: [],
+
+            ///Додати метод для додавання нового студента:
+            //Метод повинен приймати параметри для створення нового об'єкта студента і додавати його до масиву.
+            add: function (firstname, lastname, age, number_id, average_score) {
+                let new_person = new Student(firstname, lastname, age, number_id, average_score);
+                this.Person.push(new_person);
+            },
+
+            // Додати метод для видалення студента:
+            // Метод повинен видаляти студента за його ідентифікаційним номером.
+            del: function (number_id) {
+                let result = this.Person.findIndex(Person => Person.number_id === number_id);
+                if (result > -1) {
+                    this.Person.splice(result, 1);
+                    console.log(`Елемент масиву number_id=${number_id} видалений.`);
+                }
+                else {
+                    console.log(`Значення number_id=${number_id} відсутне.`);
+                }
+            },
+                // Додати метод для виведення списку всіх студентів:
+                // Метод повинен виводити на екран список студентів із зазначенням всіх їхніх властивостей.
+            info_all: function() {
+                    
+                    this.Person.forEach(el => {
+                        info2display(el);
+                    });
+            },
+
+            // Додати функціонал для пошуку студента за його ідентифікаційним номером:
+            // Метод повинен шукати студента в масиві і повертати всю інформацію про нього.
+            search: function (number_id) {
+                let result = this.Person.findIndex(Person => Person.number_id === number_id);
+                if (result > -1) {
+                    info2display(this.Person[result]);
+                }
+                else {
+                    console.log(`Значення number_id=${number_id} відсутне`);
+                }
+            },
+        }
+
+        function info2display(el) {
+                console.log(`Студент: Ім'я ${el.firstname}, прізвище ${el.lastname}, вік ${el.age}, ідентифікаційний номер ${el.number_id}, середній бал ${el.average_score}`); 
+        }
+
+        group_Student.add('Andriy', 'Serednyak', 20, 'ST-2022-1',60);
+        group_Student.add('Valentin', 'Vasilenko', 22, 'ST-2022-2',70);
+        group_Student.add('Oksana', 'Vodogray', 18, 'ST-2022-3',90);
+        group_Student.info_all();
+        group_Student.search('ST-2022-0');
+        group_Student.search('ST-2022-2');
+        group_Student.del('ST-2022-3');
+        group_Student.info_all();
+
+
+    </script>
+</body>
+
+</html>
