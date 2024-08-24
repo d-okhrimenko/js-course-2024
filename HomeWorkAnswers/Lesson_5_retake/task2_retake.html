@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// ================== Функція вводу ==================
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) return Number(value);
+            }
+        }
+// ================== Коло ==================
+        function circleGetParam() {
+            let radius = getValue("Введіть радіус кола: ");
+            return radius;
+        }
+        function circleCalculate(radius) {
+            let circleArea = (Math.PI * Math.pow(radius, 2)).toFixed(2);
+            let circlePerimeter = (Math.PI * radius * 2).toFixed(2);
+            return [circleArea, circlePerimeter];
+        }
+        function circleResult(circleArea, circlePerimeter) {
+            alert(`Площа кола = ${circleArea}, периметр кола = ${circlePerimeter}`);
+        }
+// ================== Прямокутник ==================
+        function rectangleGetParam() {
+            let length = getValue("Введіть довжину прямокутника: ");
+            let width = getValue("Введіть ширину прямокутника: ");
+            return [length, width];
+        }
+        function rectangleCalculate(length, width) {
+            let rectangleArea = (length * width).toFixed(2);
+            let rectanglePerimeter = ((length + width) * 2).toFixed(2);
+            return [rectangleArea, rectanglePerimeter];
+        }
+        function rectangleResult(rectangleArea, rectanglePerimeter) {
+            alert(`Площа прямокутника = ${rectangleArea}, периметр прямокутника = ${rectanglePerimeter}`);
+        }
+// ================== Трикутник ==================
+        function triangleGetParam() {
+            let side_A = getValue("Введіть 1-шу сторону трикутника: ");        
+            let side_B = getValue("Введіть 2-гу сторону трикутника: ");        
+            let side_C = getValue("Введіть 3-тю сторону трикутника: ");   
+            return [side_A, side_B, side_C];
+        }
+        function triangleCalculate(side_A, side_B, side_C) {
+            let trianglePerimeter = (side_A + side_B + side_C).toFixed(2);
+            let p = trianglePerimeter / 2;
+            let triangleArea = Math.sqrt(p * (p - side_A) * (p - side_B) * (p - side_C)).toFixed(2);
+            return [triangleArea, trianglePerimeter];
+        }
+        function triangleResult(triangleArea, trianglePerimeter) {
+            alert(`Площа трикутника = ${triangleArea}, периметр трикутника = ${trianglePerimeter}`);
+        }
+// ================== Вибір фігури ==================
+        while (true) {
+            let figure = prompt("Оберіть фігуру: \nКоло - натисніть [1], \nПрямокутник - натисніть [2], \nТрикутник - натисніть [3], \nЩоб закінчити - натисніть [4]");
+
+            if (figure == 1) {
+                let radius = circleGetParam();
+                let [circleArea, circlePerimeter] = circleCalculate(radius);
+                circleResult(circleArea, circlePerimeter);
+            } else if (figure == 2) {
+                let [length, width] = rectangleGetParam();
+                let [rectangleArea, rectanglePerimeter] = rectangleCalculate(length, width);
+                rectangleResult(rectangleArea, rectanglePerimeter);
+            } else if (figure == 3) {
+                let [side_A, side_B, side_C] = triangleGetParam();
+                let [triangleArea, trianglePerimeter] = triangleCalculate(side_A, side_B, side_C);
+                triangleResult(triangleArea, trianglePerimeter);
+            } else if (figure == 4) {
+                break;
+            }
+        }
+    </script>    
+</body>
+</html>
+
+<!-- ================================================================ -->
+
+<!-- Завдання 2
+
+Написати програму, яка обчислює площу та периметр різних геометричних фігур (коло, прямокутник, трикутник). Кожна геометрична фігура повинна мати свою окрему функцію для обчислення площі та периметру.
+
+Кроки для виконання завдання:
+1. Створити функцію для обчислення площі та периметру кола:
+   - Функція повинна приймати радіус кола.
+   - Використайте формули: площа = π * r², периметр = 2 * π * r.
+
+2. Створити функцію для обчислення площі та периметру прямокутника:
+   - Функція повинна приймати довжину і ширину прямокутника.
+   - Використайте формули: площа = довжина * ширина, периметр = 2 * (довжина + ширина).
+
+3. Створити функцію для обчислення площі та периметру трикутника:
+   - Функція повинна приймати довжини трьох сторін трикутника.
+   - Використайте формули: площа = √(p * (p - a) * (p - b) * (p - c)), де p = (a + b + c) / 2, периметр = a + b + c.
+
+4. Запросити користувача вибрати фігуру і ввести відповідні параметри:
+   - Використайте `prompt` для запиту типу фігури та відповідних параметрів.
+
+5. Обчислити площу та периметр вибраної фігури:
+   - Викликати відповідні функції для обчислення площі та периметру.
+
+6. Вивести результати:
+   - Використайте `alert` для виведення результатів обчислень. -->
+
+<!-- ================================================================ -->
+
+<!-- краще розділити роботу з користувачем і обчислення. Бажано щоб кожна функція виконувала одну роботу. Зараз ці функції виконують три завдання, отримують данні від користувача, роблять обчислення, виводять результат на екран -->
+
+<!-- ================================================================ -->
