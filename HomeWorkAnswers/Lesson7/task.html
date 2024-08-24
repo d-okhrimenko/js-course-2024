@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+</head>
+
+<body>
+    <script>
+
+
+
+        const groupStudents = {
+            students: [],
+            addStudent: function (firstName, lastName, year, id, averageGrade) {
+                let infoStudent = {
+                    firstName: firstName,
+                    lastName: lastName,
+                    year: year,
+                    id: id,
+                    averageGrade: averageGrade
+                }
+                this.students.push(infoStudent)
+            },
+            removeStudent: function (id) {
+                let student = this.students.filter(x => x.id == id)[0]
+                let indexRemoveStudent = this.students.indexOf(student)
+                if (indexRemoveStudent !== -1) {
+                    this.students.splice(indexRemoveStudent, 1)
+                    alert(`Студента ${student.firstName} ${student.lastName} видалено з вашої групи.`)
+                }
+                else {
+                    alert(`Студента немає у вашій групи.`)
+                }
+            },
+            getInformationStudent: function (id) {
+                let student = this.students.filter(x => x.id == id)[0]
+                let indexRemoveStudent = this.students.indexOf(student)
+                if (indexRemoveStudent !== -1) {
+                    alert(`Інформація про студента : \n Ім'я : ${student.firstName}, \n Прізвище : ${student.lastName} \n Вік : ${student.year}, \n Ідентифікаційний номер : ${student.id}, \n Середній бал : ${student.averageGrade}.`)
+                }
+                else {
+                    alert(`Студента немає у вашій групи.`)
+                }
+            }
+        }
+        while (true) {
+            console.log(groupStudents)
+            let action = Number(prompt("Зробіть Ваш вибір: 1-Додати cтудента у групу; 2-Видалити студента з групи; 3-Отримати інформацію про студента; 4-Вихід"))
+
+
+            if (action === 1) {
+                firstName = prompt("Введіть ім'я студента, якого ви бажаєте додати у групу")
+                lastName = prompt("Введіть прізвище студента, якого ви бажаєте додати у групу")
+                year = prompt("Введіть вік студента, якого ви бажаєте додати у групу")
+                id = prompt("Введіть ідентифікаційний номер студента, якого ви бажаєте додати у групу")
+                averageGrade = prompt("Введіть середній бал студента, якого ви бажаєте додати у групу")
+                groupStudents.addStudent(firstName, lastName, year, id, averageGrade)
+            }
+            else if (action === 2) {
+                id = prompt("Введіть ідентифікаційний номер студента, якого ви бажаєте видалити з групи")
+                groupStudents.removeStudent(id)
+            }
+            else if (action === 3) {
+                id = prompt("Введіть ідентифікаційний номер студента, про якого ви бажаєте дізнатися інформацію ")
+                groupStudents.getInformationStudent(id)
+            }
+            else if (action === 4) {
+                break;
+            }
+            else {
+                alert("Ви ввели не вірне число. Спробуйте ще раз.")
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
