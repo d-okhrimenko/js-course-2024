@@ -1,0 +1,19 @@
+body {
+  background-color: rgb(250, 241, 229);
+}
+
+h1 {
+  text-align: center;
+}
+
+.instruction {
+  font-size: 20px;
+}
+
+.input_text {
+    padding-bottom: 10px;
+}
+
+.output {
+    background-color: rgb(255, 236, 211);
+}
