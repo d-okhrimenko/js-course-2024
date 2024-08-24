@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getValue(message) {
+        while (true) {
+          let value = prompt(message).toLocaleLowerCase().trim();
+          let isValid = ["камінь", "ножиці", "папір"].includes(value);
+          if (isValid) return value;
+        }
+      }
+
+      function playRound() {
+        let userChoice = getValue("Введіть камінь, ножиці або папір");
+        alert(`Ви обрали ${userChoice}`);
+
+        const choice = ["камінь", "ножиці", "папір"];
+        let randomChoice = choice[Math.floor(Math.random() * choice.length)];
+        alert(`Комп'ютер обрав ${randomChoice}`);
+
+        if (userChoice === "камінь" && randomChoice === "ножиці") {
+          alert("Вітаю, Ви виграли! Камінь б'є ножиці");
+          return "user";
+        } else if (userChoice === "камінь" && randomChoice === "папір") {
+          alert("Нажаль, Ви програли! Папір б'є камінь");
+          return "computer";
+        } else if (userChoice === "ножиці" && randomChoice === "камінь") {
+          alert("Нажаль, Ви програли! Камінь б'є ножиці");
+          return "computer";
+        } else if (userChoice === "ножиці" && randomChoice === "папір") {
+          alert("Вітаю, Ви виграли! Ножиці б'ють папір");
+          return "user";
+        } else if (userChoice === "папір" && randomChoice === "камінь") {
+          alert("Вітаю, Ви виграли! Папір б'є камінь");
+          return "user";
+        } else if (userChoice === "папір" && randomChoice === "ножиці") {
+          alert("Нажаль, Ви програли! Ножиці б'ють папір");
+          return "computer";
+        } else {
+          alert("Нічия!");
+          return "draw";
+        }
+      }
+
+      let userWins = 0;
+      let computerWins = 0;
+
+      for (let i = 1; i <= 3; i++) {
+        alert(`Раунд ${i}`);
+        let result = playRound();
+
+        if (result === "user") {
+          userWins++;
+        } else if (result === "computer") {
+          computerWins++;
+        }
+      }
+
+      if (userWins > computerWins) {
+        alert(`Вітаю! Ви перемогли з рахунком ${userWins}:${computerWins}`);
+      } else if (userWins < computerWins) {
+        alert(`Нажаль, Ви програли з рахунком ${userWins}:${computerWins}`);
+      } else {
+        alert(`Нічия! Рахунок гри ${userWins}:${computerWins}`);
+      }
+    </script>
+  </body>
+</html>
