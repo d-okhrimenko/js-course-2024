@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task1-Lesson7</title>
+</head>
+
+<body>
+  <script>
+    class Student {
+      constructor(firstName, lastName, age, id, averageGrade) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.id = id;
+        this.averageGrade = averageGrade;
+      }
+
+      getInfo() {
+        return `Ім'я: ${this.firstName}, Прізвище: ${this.lastName}, Вік: ${this.age}, ID: ${this.id}, Середній бал: ${this.averageGrade}`;
+      };
+
+      static fromObject(obj) {
+        return new Student(obj.firstName, obj.lastName, obj.age, obj.id, obj.averageGrade);
+      }
+    }
+
+    const studentDatabase = {
+      students: [
+        { firstName: "Olena", lastName: "Shevchenko", age: 21, id: 1, averageGrade: 90 },
+        { firstName: "Andriy", lastName: "Kovalchuk", age: 22, id: 2, averageGrade: 85 },
+        { firstName: "Mariya", lastName: "Boyko", age: 20, id: 3, averageGrade: 88 },
+      ],
+
+      addStudent(firstName, lastName, age, id, averageGrade) {
+        const newStudent = new Student(firstName, lastName, age, id, averageGrade);
+        this.students.push(newStudent);
+        console.log(`Студент ${firstName} ${lastName} доданий до групи.`);
+      },
+
+      removeStudent(id) {
+        const index = this.students.findIndex(student => student.id === id);
+        if (index !== -1) {
+          const removedStudent = this.students.splice(index, 1)[0];
+          console.log(`Студент ${removedStudent.firstName} ${removedStudent.lastName} видалений з групи.`);
+        } else {
+          console.log(`Студент з ідентифікаційним номером ${id} не знайдений.`);
+        }
+      },
+
+      displayAllStudents(list = this.students) {
+        console.log("Список студентів:");
+        // console.table(list)
+        list.forEach(student => {
+          const studentInstance = student instanceof Student ? student : Student.fromObject(student);
+          console.log(studentInstance.getInfo());
+        });
+      },
+
+      findStudentById(id) {
+        const student = this.students.find(student => student.id === id);
+        if (student) {
+          console.log("Знайдений студент:");
+          const studentInstance = student instanceof Student ? student : Student.fromObject(student);
+          console.log(studentInstance.getInfo());
+        } else {
+          console.log(`Студент з ідентифікаційним номером ${id} не знайдений.`);
+        }
+        return student;
+      }
+    };
+
+    // studentDatabase.addStudent("Володимир", "Петренко", 20, 4, 76);
+    // studentDatabase.addStudent("Ксенія", "Коваленко", 19, 5, 84);
+    // studentDatabase.addStudent("Олексій", "Сидоренко", 21, 6, 92);
+    // studentDatabase.displayAllStudents();
+    // studentDatabase.removeStudent(2);
+    // studentDatabase.displayAllStudents(studentDatabase.students);
+    // studentDatabase.findStudentById(1);
+    // studentDatabase.findStudentById(14);
+
+  </script>
+</body>
+
+</html>
