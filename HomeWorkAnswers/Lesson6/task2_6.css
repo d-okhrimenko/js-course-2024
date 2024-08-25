@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Questrial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.questrial-regular {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#container {
+    background-color: rgb(214, 223, 240);
+    display: flex;
+    justify-content: center;
+    width: 94%;
+    margin: 40px auto;
+    border-radius: 20px;
+}
+#field {
+    background-color: rgb(246, 247, 252);
+    width: 94%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#btn_container {
+    background-color: rgb(246, 247, 252);
+    width: 26%;
+    min-width: 200px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#list {
+    width: 74%;
+    border-radius: 14px;
+    margin: 20px;
+    margin-left: 0;
+    background-color: rgb(246, 247, 252);
+    border-width: 1px;
+    border-color: rgb(214, 223, 240);
+    border-style: solid;
+
+}
+.btn {
+    height: 48px;
+    width: 160px;
+    border-radius: 14px;
+    margin: 10px 20px;
+    background-color: rgb(246, 247, 252);
+    border-width: 1px;
+    border-color: rgb(214, 223, 240);
+    border-style: solid;
+    font-size: 16px;
+}
+.btn:hover {
+    background-color: rgb(214, 223, 240);
+}
+ul {
+    list-style-position: inside;
+    margin: 20px;
+}
