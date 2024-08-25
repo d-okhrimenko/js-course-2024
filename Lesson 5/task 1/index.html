@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Індекс маси тіла (ІМТ)</title>
+</head>
+<body>
+    <h1>Обчислення Індексу Маси Тіла (ІМТ)</h1>
+    <p>Введіть свою вагу (в кілограмах) та ріст (в метрах):</p>
+    <label for="weight">Вага (кг):</label>
+    <input type="number" id="weight" placeholder="Введіть вагу">
+    <br><br>
+    <label for="height">Ріст (м):</label>
+    <input type="number" id="height" step="0.01" placeholder="Введіть ріст">
+    <br><br>
+    <button onclick="calculateBMI()">Обчислити ІМТ</button>
+
+    <p id="result"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
