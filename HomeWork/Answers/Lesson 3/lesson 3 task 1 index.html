@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2 task 1 Chorna</title>
+</head>
+<body>
+    <script>
+        let value = prompt("Введіть число");
+        value = Number(value);
+        console.log("число " + value);
+        //нижче для визначення коректне дане число чи ні
+        function inputSomeValue(){
+            let userAnswer = prompt("Введіть число для того, щоб переконатися, що це дійсно число:");
+            if (isNaN(userAnswer)){
+                alert("Це не число :( Спробуйте знову.");
+                inputSomeValue();
+            }else {
+                alert("Це дійсно число!")
+            }
+        }
+        inputSomeValue();
+        //нижче визначення парності числа 
+      
+       let Answer = prompt(" Введіть число для визначенності парності:");
+       Answer = Number(Answer);
+        {
+            if(Answer % 2 == 0){
+                alert("Це парне число");
+            }
+            else {
+                alert("Це непарне число!");
+            }
+        }
+       
+        
+
+        
+         
+        
+
+    </script>
+    <script src="./file.js"></script>
+    
+</body>
+</html>
