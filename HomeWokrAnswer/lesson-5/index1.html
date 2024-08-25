@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+function calculateCircle(radius) {
+    const pi = Math.PI;
+    const area = pi * radius ** 2;
+    const perimeter = 2 * pi * radius;
+    return { area, perimeter };
+}
+
+// Крок 2: Функція для обчислення площі та периметру прямокутника
+function calculateRectangle(length, width) {
+    const area = length * width;
+    const perimeter = 2 * (length + width);
+    return { area, perimeter };
+}
+
+// Крок 3: Функція для обчислення площі та периметру трикутника
+function calculateTriangle(a, b, c) {
+    const p = (a + b + c) / 2;
+    const area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+    const perimeter = a + b + c;
+    return { area, perimeter };
+}
+
+// Крок 4: Запитати користувача вибрати фігуру та ввести параметри
+const figure = prompt("Виберіть фігуру: коло, прямокутник або трикутник").toLowerCase();
+
+if (figure === "коло") {
+    const radius = parseFloat(prompt("Введіть радіус кола"));
+    const { area, perimeter } = calculateCircle(radius);
+    alert(`Площа кола: ${area.toFixed(2)}, Периметр кола: ${perimeter.toFixed(2)}`);
+} else if (figure === "прямокутник") {
+    const length = parseFloat(prompt("Введіть довжину прямокутника"));
+    const width = parseFloat(prompt("Введіть ширину прямокутника"));
+    const { area, perimeter } = calculateRectangle(length, width);
+    alert(`Площа прямокутника: ${area.toFixed(2)}, Периметр прямокутника: ${perimeter.toFixed(2)}`);
+} else if (figure === "трикутник") {
+    const a = parseFloat(prompt("Введіть довжину першої сторони трикутника"));
+    const b = parseFloat(prompt("Введіть довжину другої сторони трикутника"));
+    const c = parseFloat(prompt("Введіть довжину третьої сторони трикутника"));
+    const { area, perimeter } = calculateTriangle(a, b, c);
+    alert(`Площа трикутника: ${area.toFixed(2)}, Периметр трикутника: ${perimeter.toFixed(2)}`);
+} else {
+    alert("Невірний вибір фігури. Спробуйте ще раз.");
+}
+
+</script>
+</body>
+</html>
