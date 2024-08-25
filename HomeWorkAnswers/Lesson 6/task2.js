@@ -15,7 +15,13 @@ function removeElement(array) {
 	value = prompt("Введіть назву товару");
 
 	if (value) {
-		return array.filter(element => element !== value);
+		// return array.filter(element => element !== value);		
+		for (let i = 0; i < array.length; i++) {
+			if (array[i] === value) {
+				array.splice(i, 1);
+				break;
+			}
+		}
 	} else {
 		alert("Назва товару не може бути пустою!");
 		return array;
@@ -40,7 +46,8 @@ do {
 			addElement(shoppingList);
 			break;
 		case 2:
-			shoppingList = removeElement(shoppingList);
+			// shoppingList = removeElement(shoppingList);
+			removeElement(shoppingList);
 			break;
 		case 3:
 			printElements(shoppingList);
@@ -48,6 +55,4 @@ do {
 		default:
 			break;
 	}
-} while (
-	action !== 4
-)
+} while (action !== 4)
