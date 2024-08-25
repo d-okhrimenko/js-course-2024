@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let userChoice = 0;
+        let userVictories = 0;
+        let computerVictories = 0;
+        let rounds = 0;
+
+        while (userChoice !== 4) {
+            userChoice = Number(prompt('Оберіть Камінь(1), Ножиці(2) чи Папір(3); вихід - (4)'));
+            let computerChoice = Math.floor(Math.random() * 3) + 1;
+
+            if (userChoice === 1 && computerChoice === 2) {
+                userVictories++;
+                rounds++;
+                alert('Ви перемогли!');
+            }
+            if (userChoice === 1 && computerChoice === 3) {
+                computerVictories++;
+                rounds++;
+                alert('Ви програли!');
+            }
+            if (userChoice === 2 && computerChoice === 1) {
+                computerVictories++;
+                rounds++;
+                alert('Ви програли!');
+            }
+            if (userChoice === 2 && computerChoice === 3) {
+                userVictories++;
+                rounds++;
+                alert('Ви перемогли!');
+            }
+            if (userChoice === 3 && computerChoice === 1) {
+                userVictories++;
+                rounds++;
+                alert('Ви перемогли!');
+            }
+            if (userChoice === 3 && computerChoice === 2) {
+                computerVictories++;
+                rounds++;
+                alert('Ви програли!');
+            }
+            if (userChoice === computerChoice) {
+                rounds++;
+                alert('Нічия');
+            }
+        } 
+        alert(`Рахунок перемог: Ви - ${userVictories}, компьютер - ${computerVictories}, зіграно партій - ${rounds}`);
+
+    </script>
+</body>
+</html>
+
+
+<!-- Завдання 1 -->
+
+<!-- Гра: "Камінь, ножиці, папір" -->
+
+<!-- Опис гри: -->
+<!-- Користувач грає проти комп'ютера в класичну гру "Камінь, ножиці, папір". Програма запитує вибір користувача, генерує випадковий вибір для комп'ютера, визначає переможця та виводить результат. -->
+
+<!-- Додаткові завдання: -->
+<!-- 1. Додати можливість гри кілька раундів з підрахунком загального рахунку. -->
+<!-- 2. Додати можливість користувачеві вийти з гри за допомогою спеціальної команди (наприклад, введення "вихід") -->
