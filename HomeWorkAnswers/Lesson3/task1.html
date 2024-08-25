@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Task 1: Lesson 3</title>
+</head>
+
+<body>
+    <p>Завдання 1:Написати програму, яка визначає, чи є введене число парним або непарним.</p>
+
+    <script>
+        let valueToCheck = prompt("Введіть число:");
+        valueToCheck = isAvalidNumber(valueToCheck);
+
+        let restValue = valueToCheck % 2;
+
+        if (restValue === 0) {
+            alert("Введене число є парним");
+        } else {
+            alert("Введене число є непарним");
+        }
+
+        function isAvalidNumber(x) {
+            let x2 = x; // a new value within function in case the user typed NaN;
+            while (isNaN(x2)) {
+                alert("Введене значення не є цифрою. Спробуйте ще раз.");
+                x2 = prompt("Введіть число:");
+            }
+            return parseInt(x2);
+        }
+    </script>
+
+</body>
+
+</html>

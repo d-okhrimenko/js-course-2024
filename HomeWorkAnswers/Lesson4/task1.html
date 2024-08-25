@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4 : Homework answers</title>
+</head>
+
+<body>
+    <p>
+    <h3>Завдання 1</h3>
+
+    <div>Гра: "Камінь, ножиці, папір"</div>
+
+    <p><b>Опис гри:</b></p>
+    <p>Користувач грає проти комп'ютера в класичну гру "Камінь, ножиці, папір". Програма запитує вибір користувача,
+        генерує випадковий вибір для комп'ютера, визначає переможця та виводить результат.</p>
+    </p>
+
+    <div>
+        <table>
+            <th>
+                <h3>Результати гри:</h3>
+            </th>
+            <tr>
+                <td><i>Кількість раундів:</i></td>
+                <td id="numRounds"></td>
+            </tr>
+            <tr>
+                <td><i>Нічиї:</i></td>
+                <td id="numUndecided"></td>
+            </tr>
+            <tr>
+                <td><i>Переміг комп'ютер:</i></td>
+                <td id="numPCwins"></td>
+            </tr>
+            <tr>
+                <td><i>Переміг користувач:</i></td>
+                <td id="numUserWins"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+
+        let gameArray = ["папір", "ножиці", "камінь"];
+        let userChoice; // defining global variable
+        let userWins = 0;
+        let computerWins = 0;
+        let undecided = 0;
+        let rounds = 0;
+
+        do {
+
+            let computerChoice = Math.floor(Math.random() * (4 - 1) + 1);
+
+            while (true) {
+                userChoice = prompt("Зробіть ваш вибір: (камінь=3, ножиці=2, папір=1, вихід=0)"); // using global variable
+                let isValid = userChoice >= 0 && userChoice <= 3 && !isNaN(userChoice) && userChoice !== "" && userChoice !== null;
+                if (isValid) {
+                    break;
+                }
+                alert("Введені значення можуть бути тільки від '0' до '3'. Спробуйте ще раз.");
+            }
+
+            if (userChoice == 0) break;
+
+            rounds = rounds + 1;
+
+            if (userChoice == computerChoice) {
+                alert(`Ваш вибір: ${gameArray[userChoice - 1]}, вибір комп'ютера: ${gameArray[computerChoice - 1]}. Результат гри - нічия.`);
+                undecided++;
+
+            } else if (userChoice == 1 && computerChoice == 3) {
+                alert(`Ваш вибір: ${gameArray[userChoice - 1]}, вибір комп'ютера: ${gameArray[computerChoice - 1]}. Результат гри - ви виграли.`);
+                userWins++;
+            } else if (userChoice > computerChoice) {
+                alert(`Ваш вибір: ${gameArray[userChoice - 1]}, вибір комп'ютера: ${gameArray[computerChoice - 1]}. Результат гри - ви виграли.`);
+                userWins++;
+            } else {
+                alert(`Ваш вибір: ${gameArray[userChoice - 1]}, вибір комп'ютера: ${gameArray[computerChoice - 1]}. Результат гри - виграв комп'ютер.`);
+                computerWins++;
+            }
+
+        } while (true);
+
+        document.querySelector("#numRounds").innerHTML = rounds;
+
+        document.querySelector("#numUndecided").innerHTML = undecided;
+        document.querySelector("#numUndecided").style.color = "blue";
+        
+        document.querySelector("#numPCwins").innerHTML = computerWins;
+        document.querySelector("#numPCwins").style.color = "red";
+
+        document.querySelector("#numUserWins").innerHTML = userWins;
+        document.querySelector("#numUserWins").style.color = "green";
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Task 3: Lesson 3</title>
+</head>
+
+<body>
+    <p>Завдання 3:Написати програму, яка перевіряє, чи є введений рік високосним.</p>
+
+    <script>
+        let yearToCheck = prompt("Введіть рік:");
+        yearToCheck = isAvalidNumber(yearToCheck);
+
+        let restValue = yearToCheck % 2;
+
+        if (yearToCheck % 400 === 0 || yearToCheck % 4 === 0) {
+            alert("Введений рік є високосним");
+        } else {
+            alert("Введений рік НЕ є високосним");
+        }
+
+        function isAvalidNumber(x) {
+            let x2 = x; // a new value within function in case the user typed NaN;
+            while (isNaN(x2)) {
+                alert("Введене значення не є цифрою. Спробуйте ще раз.");
+                x2 = prompt("Введіть рік:");
+            }
+            return parseInt(x2);
+        }
+    </script>
+
+</body>
+
+</html>

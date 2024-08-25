@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Task2: Lesson 3</title>
+</head>
+
+<body>
+    <p>Завдання 2: Написати програму, яка визначає, який сьогодні день тижня, і виводить відповідне повідомлення.</p>
+
+    <div>
+        <b id="weekDay"></b>
+    </div>
+
+    <script>
+        let currentDate = new Date();
+        let currentDay = currentDate.getDay();
+
+        if (currentDay == 0) {
+            document.querySelector("#weekDay").innerHTML = "Sunday";
+        } else if (currentDay == 1) {
+            document.querySelector("#weekDay").innerHTML = "Monday";
+        } else if (currentDay == 1) {
+            document.querySelector("#weekDay").innerHTML = "Tuesday";
+        } else if (currentDay == 1) {
+            document.querySelector("#weekDay").innerHTML = "Wednesday";
+        } else if (currentDay == 1) {
+            document.querySelector("#weekDay").innerHTML = "Thursday";
+        } else if (currentDay == 1) {
+            document.querySelector("#weekDay").innerHTML = "Friday";
+        } else {
+            document.querySelector("#weekDay").innerHTML = "Saturday";
+        }
+
+    </script>
+</body>
+
+</html>
