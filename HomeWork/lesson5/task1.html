@@ -9,11 +9,11 @@
 
 <body>
     <script>
-        function sum(a, b) {
-            if (b > 10) {
-                b = b / 100;
+        function imt(weight, height) {
+            if (height > 10) {
+                height = height / 100;
             }
-            let index = a / (b * b);
+            let index = weight / (height * height);
             if (index < 18.5) {
                 return "Недостатня вага";
             } else if (index >= 18.5 && index <= 24.9) {
@@ -28,7 +28,7 @@
         let userHeight = +prompt("Введіть ваш зріст в метрах: ");
         let userWeight = +prompt("Введіть вашу вагу в кілограмах: ");
 
-        const result = sum(userWeight, userHeight);
+        const result = imt(userWeight, userHeight);
         alert(`Ваша категорія ІМТ: ${result}`);
     </script>
 </body>

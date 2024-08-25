@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const studentMark = [];
+
+        function averageMark(studentMark) {
+            if (studentMark.length === 0) {
+                return 0;
+            }
+
+            let sum = 0;
+            for (let i = 0; i < studentMark.length; i++) {
+                sum += studentMark[i];
+            }
+
+            let average = sum / studentMark.length;
+            return average;
+        }
+
+        function maxMark(studentMark) {
+            return Math.max(...studentMark);
+        }
+
+        function minMark(studentMark) {
+            return Math.min(...studentMark);
+        }
+
+        let numberOfMarks = parseInt(prompt("Скільки оцінок ви хочете ввести?"));
+        if (!isNaN(numberOfMarks) && numberOfMarks > 0) {
+            for (let i = 0; i < numberOfMarks; i++) {
+                let mark = parseFloat(prompt(`Введіть оцінку ${i + 1}:`));
+                if (!isNaN(mark) && mark >= 0) {
+                    studentMark.push(mark);
+                } else {
+                    alert("Невірна оцінка. Будь ласка, введіть число.");
+                    i--;
+                }
+            }
+        } else {
+            alert("Невірне число оцінок. Оновіть сторінку та спробуйте ще раз.");
+        }
+
+        let sMinMark = minMark(studentMark);
+        let sMaxMark = maxMark(studentMark);
+        let sAverageMark = averageMark(studentMark);
+
+        alert(`Мінімальна оцінка ${sMinMark} , Максимальна оцінка ${sMaxMark}, Середня оцінка ${sAverageMark}`);
+    </script>
+</body>
+
+</html>
