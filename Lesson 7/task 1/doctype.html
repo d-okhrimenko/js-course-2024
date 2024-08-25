@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Student Management System</h1>
+    <div class="container">
+        <div class="form-group">
+            <label for="studentId">ID</label>
+            <input type="number" id="studentId" placeholder="Enter student ID">
+        </div>
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" placeholder="Enter first name">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" placeholder="Enter last name">
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter age">
+        </div>
+        <div class="form-group">
+            <label for="averageGrade">Average Grade</label>
+            <input type="number" id="averageGrade" placeholder="Enter average grade">
+        </div>
+        <button onclick="addStudent()">Add Student</button>
+        <button onclick="displayStudents()">Show All Students</button>
+        <button onclick="findStudent()">Find Student by ID</button>
+        <button onclick="removeStudent()">Remove Student by ID</button>
+
+        <div id="output" class="student-list"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
