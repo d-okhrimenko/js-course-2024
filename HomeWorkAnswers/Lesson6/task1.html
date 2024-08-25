@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Lesson 6. Task 1.</h3>
+    <h5>Програма, яка аналізує список оцінок студентів і знаходить середній бал, найвищу та найнижчу оцінки.<br></h5>
+    <!-- Кроки для виконання завдання:
+    1. Створити масив для зберігання оцінок студентів:
+    - Оцінки можуть бути представлені як цілі числа від 0 до 100.
+    2. Створити функцію для обчислення середнього балу:
+    - Функція повинна приймати масив оцінок як аргумент і повертати середнє значення.
+    3. Створити функцію для знаходження найвищої оцінки:
+    - Функція повинна приймати масив оцінок як аргумент і повертати найвищу оцінку.
+    4. Створити функцію для знаходження найнижчої оцінки:
+    - Функція повинна приймати масив оцінок як аргумент і повертати найнижчу оцінку.
+    5. Запросити користувача ввести кілька оцінок і зберегти їх у масив:
+    - Використайте `prompt` для запиту оцінок, можна також згенерувати їх автоматично.
+    6. Обчислити середній бал, найвищу і найнижчу оцінки:
+    - Викликати відповідні функції для обчислень.
+    7. Вивести результати:
+    - Використайте `alert` для виведення середнього балу, найвищої та найнижчої оцінок. -->
+    <div>
+        <h3>Обчислити середній бал, найвищу та найнижчу оцінку</h3>
+    </div>
+    <div>
+        <h4>
+            Кількість оцінок: <input type="number" id="arrSize" value="10"/> 
+        </h4>
+    </div>
+    <div>
+        <button id="btnStart">Сгенерувати</button>
+        <button id="btnStartByHand">Ввести вручну</button>
+    </div>
+    <div>
+        <h4 id="result" style="color:none"></h4>
+    </div>
+
+    <script>
+        document.querySelector("#btnStart").onclick = function() {
+            let arrSize = +document.querySelector("#arrSize").value;
+            let arrGrade = makeArrayRandom(arrSize);
+            logArray(arrGrade);
+            let outStr = `average = ${average(arrGrade)}, max = ${max(arrGrade)}, min = ${min(arrGrade)}`;
+            console.log(outStr);
+            showResult(outStr);
+        }
+        
+        document.querySelector("#btnStartByHand").onclick = function() {
+            let arrSize = +document.querySelector("#arrSize").value;
+            let arrGrade = makeArrayByHand(arrSize);
+            // logArray(arrGrade);
+            let outStr = `average = ${average(arrGrade)}, max = ${max(arrGrade)}, min = ${min(arrGrade)}`;
+            console.log(outStr);
+            showResult(outStr);
+        }
+
+        function logArray(array) {
+            array.forEach((value, index) => {
+                console.log(`index ${index} = ${value}`);
+                });
+        }
+
+        function makeArrayRandom(count) {
+            let arr = [];
+            for (let i = 0; i < count; i++) {
+                arr[i] = Math.floor(Math.random() * 100) + 1; 
+            }
+            return arr;
+        }
+
+        function makeArrayByHand(count) {
+            const EXIT_VALUE = 999;
+            let arr = [];
+            for (let i = 0; i < count; i++) {
+                do {
+                    arr[i] = +prompt(`Введіть оцінку № ${i+1} (1-100, ${EXIT_VALUE} - вихід) : `);
+                    if (arr[i] === EXIT_VALUE) break;
+                    } while (arr[i] <= 0 || arr[i] > 100);
+                if (arr[i] === EXIT_VALUE) break;
+            }
+            return arr;
+        }
+
+        function average(array) {
+            let res = 0;
+            for (const value of array) {
+                res += value;
+            }
+            return res/array.length;
+        }
+
+        function max (array) {
+            // return Math.max(...array);
+            let res = array[0];
+            for (const value of array) {
+                if (value > res) 
+                    res = value;
+            }
+            return res;
+        }
+
+        function min (array) {
+            // return Math.min(...array);
+            let res = array[0];
+            for (const value of array) {
+                if (value < res) 
+                    res = value;
+            }
+            return res;
+        }
+
+        function showResult(str) {
+            let res = document.querySelector("#result");
+            res.style.color = "blue";
+            res.innerHTML = str;
+        }
+    </script>
+    
+</body>
+</html>
