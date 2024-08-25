@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4 : Homework answers</title>
+</head>
+
+<body>
+    <p>
+    <h3>Завдання 2</h3>
+
+    <div>Гра: "Математичний квіз"</div>
+
+    <p><b>Опис гри:</b></p>
+    <p>Програма генерує випадкові математичні вирази (додавання, віднімання, множення, ділення) та запитує у користувача
+        правильну відповідь. Користувач має обмежену кількість спроб, щоб дати правильну відповідь. Програма виводить
+        кількість правильних та неправильних відповідей після завершення гри.</p>
+    </p>
+
+    <div>
+        <button id="btn">Почати гру</button>
+    </div>
+
+    <div>
+        <table>
+            <th>
+                <h3>Результати гри:</h3>
+            </th>
+            <tr>
+                <td><i>Кількість раундів:</i></td>
+                <td id="numRounds"></td>
+            </tr>
+            <tr>
+                <td><i>Кількість правильних відповідей:</i></td>
+                <td id="numRights"></td>
+            </tr>
+            <tr>
+                <td><i>Кількість неправильних відповідей:</i></td>
+                <td id="numFalses"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+
+        document.querySelector("#btn").onclick = function () {
+            
+            let operandArray = ["+", "-", "*", "/"];
+            let userAnsw; // defining global variable
+            let rightAnsw = 0;
+            let falseAnsw = 0;
+            let rounds = 0;
+            let exitVar = false;
+
+            do {
+                let valueOne = Math.floor(Math.random() * 100 + 1);
+                let valueTwo = Math.floor(Math.random() * 100 + 1);
+                let valueOperand = operandArray[Math.floor(Math.random() * (4 - 0) + 0)];
+                let result = eval(valueOne + valueOperand + valueTwo).toFixed(2);    // function eval() converts a string into math expression; however eval() has sequrity risks;
+
+                rounds++;
+
+                while (true) {
+                    userAnsw = prompt(`Гра номер: ${rounds}. Ваше завдання правильно обчислити значення математичного виразу (до двох цифр після крапки. "000" зупиняє раунд): ${valueOne} ${valueOperand} ${valueTwo} =`); // using global variable
+
+                    if (userAnsw === "000") exitVar = true;
+
+                    let isValid = !isNaN(userAnsw) && userAnsw !== "" && userAnsw !== null;
+                    if (isValid) {
+                        break;
+                    }
+                    alert("Введені значення можуть бути тільки цифри. Спробуйте ще раз.");
+                }
+
+                if (exitVar) {
+                    rounds--;
+                    break;
+                }
+
+                do {
+                    if (parseFloat(userAnsw) == parseFloat(result)) {
+                        alert(`Ваша відповідь правильна: ${valueOne} ${valueOperand} ${valueTwo} = ${userAnsw}`);
+                        rightAnsw++;
+                        break;
+                    } else {
+                        alert("Ваша відповідь неправильна. Спробуйте ще раз.");
+                        userAnsw = prompt(`Гра номер: ${rounds}. Ваше завдання правильно обчислити значення математичного виразу (до двох цифр після крапки): ${valueOne} ${valueOperand} ${valueTwo} =`);
+                        falseAnsw++;
+                    }
+
+                } while (true);
+
+            } while (true);
+
+
+            document.querySelector("#numRounds").innerHTML = rounds;
+            document.querySelector("#numRounds").style.color = "blue";
+
+            document.querySelector("#numRights").innerHTML = rightAnsw;
+            document.querySelector("#numRights").style.color = "green";
+
+            document.querySelector("#numFalses").innerHTML = falseAnsw;
+            document.querySelector("#numFalses").style.color = "red";
+        }
+
+    </script>
+
+</body>
+
+</html>
