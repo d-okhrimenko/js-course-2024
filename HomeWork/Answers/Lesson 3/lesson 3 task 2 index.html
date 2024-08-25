@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3 task 2 Chorna</title>
+</head>
+<body>
+    
+    <script> //Завдання: написати програму, яка визначає який сьогодні день та день тижня тижня
+
+    //який сьогодні день
+        var todayDate = new Date();
+        var currrYear = todayDate.getFullYear();
+        var currMonth = todayDate.getMonth()+1;
+        var currDay = todayDate.getDate();
+        document.write("Сьогоднішня дата: ");
+        document.write( currDay  + " _ " + currMonth  + "_" + currrYear);
+    
+    // який сьогодні день  тижня тижня    
+        let date = new Date ();
+        console.log(date.getDay());
+        alert("Сьогоднішня дата");
+
+
+    </script>
+    <script src="./file.js"></script>
+</body>
+</html>
