@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1. IMB</title>
+</head>
+<body>
+  <script src="../../ClassWork/common/my-library.js"></script>
+  <script>
+    const minNormalIMB = 18.5;
+    const maxNormalIMB = 24.9;
+    const minOverIMB = 25.0;
+    const maxOverIMB = 29.9;
+    const obesityIMB = 30.0;
+
+    let lackWeightMsg = "Lack weight";
+    let normalMsg = "Normal weight";
+    let overweightMsg = "Overweight";
+    let obesityMsg = "Obesity";
+
+    let weightMsg = "Enter weight";
+    let heightMsg = "Enter height";
+
+    let weight = getNumericValue(weightMsg);
+    let height = getNumericValue(heightMsg);
+
+    let indexMB = (weight, height) => (weight / Math.pow(height / 100, 2)).toFixed(2);
+
+    let outputResult = indexMB => {     
+      if(indexMB < minNormalIMB) {return lackWeightMsg;}
+      else if(indexMB >= minNormalIMB && indexMB <= maxNormalIMB) {return normalMsg;}
+      else if(indexMB >=minOverIMB && indexMB <= maxOverIMB) {return overweightMsg;}
+      else if(indexMB >= obesityIMB) {return obesityMsg;}
+    }   
+   
+    myIndex = indexMB(weight, height);
+    outputResult(myIndex);
+    alert(`Index ${myIndex}. ${outputResult(myIndex)}`)
+  </script>
+</body>
+</html>
