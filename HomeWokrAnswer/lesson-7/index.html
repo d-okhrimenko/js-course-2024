@@ -1,0 +1,289 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+// class Student {
+//     constructor(name, surname, age, studentId, averageGrade) {
+//         this.name = name;
+//         this.surname = surname;
+//         this.age = age;
+//         this.studentId = studentId;
+//         this.averageGrade = averageGrade;
+//     }
+// }
+
+// // Створення об'єкта студента
+// const student1 = new Student("John", "Doe", 20, "12345", 4.5);
+
+// // Виведення інформації про студента
+// console.log(`Ім'я: ${student1.name}`);
+// console.log(`Прізвище: ${student1.surname}`);
+// console.log(`Вік: ${student1.age}`);
+// console.log(`ID студента: ${student1.studentId}`);
+// console.log(`Середній бал: ${student1.averageGrade}`);
+
+// class StudentGroup {
+//     constructor() {
+//         this.students = []; // Масив студентів
+//     }
+
+//     // Метод для додавання нового студента
+//     addStudent(student) {
+//         this.students.push(student);
+//     }
+
+//     // Метод для видалення студента за ідентифікаційним номером
+//     removeStudent(studentId) {
+//         this.students = this.students.filter(student => student.studentId !== studentId);
+//     }
+
+//     // Метод для виведення інформації про всіх студентів
+//     displayStudents() {
+//         this.students.forEach(student => {
+//             console.log(`Ім'я: ${student.name}, Прізвище: ${student.surname}, Вік: ${student.age}, ID: ${student.studentId}, Середній бал: ${student.averageGrade}`);
+//         });
+//     }
+// }
+
+// // Приклад використання
+// const group = new StudentGroup();
+
+// // Додавання студентів
+// group.addStudent({ name: "John", surname: "Doe", age: 20, studentId: "12345", averageGrade: 4.5 });
+// group.addStudent({ name: "Jane", surname: "Smith", age: 21, studentId: "67890", averageGrade: 4.2 });
+
+// // Виведення інформації про всіх студентів
+// group.displayStudents();
+
+// Фабрична функція для створення об'єкта студента
+function createStudent(name, surname, age, id, averageGrade) {
+  return {
+    name: name,
+    surname: surname,
+    age: age,
+    id: id,
+    averageGrade: averageGrade
+  };
+}
+
+// Об'єкт для управління групою студентів
+const studentGroup = {
+  students: [],
+
+  // Метод для додавання нового студента
+  addStudent(name, surname, age, id, averageGrade) {
+    const newStudent = createStudent(name, surname, age, id, averageGrade);
+    this.students.push(newStudent);
+    console.log(`Студент ${name} ${surname} успішно доданий.`);
+  },
+
+  // Метод для видалення студента за його ідентифікаційним номером
+  removeStudent(id) {
+    const index = this.students.findIndex(student => student.id === id);
+    if (index !== -1) {
+      const removedStudent = this.students.splice(index, 1)[0];
+      console.log(`Студент ${removedStudent.name} ${removedStudent.surname} успішно видалений.`);
+    } else {
+      console.log(`Студент з ID ${id} не знайдений.`);
+    }
+  },
+
+  // Метод для виведення списку всіх студентів
+  listStudents() {
+    if (this.students.length === 0) {
+      console.log("Список студентів порожній.");
+    } else {
+      console.log("Список студентів:");
+      this.students.forEach(student => {
+        console.log(`Ім'я: ${student.name}, Прізвище: ${student.surname}, Вік: ${student.age}, ID: ${student.id}, Середній бал: ${student.averageGrade}`);
+      });
+    }
+  },
+
+  // Метод для пошуку студента за його ідентифікаційним номером
+  findStudentById(id) {
+    const student = this.students.find(student => student.id === id);
+    if (student) {
+      console.log(`Інформація про студента з ID ${id}: Ім'я: ${student.name}, Прізвище: ${student.surname}, Вік: ${student.age}, Середній бал: ${student.averageGrade}`);
+    } else {
+      console.log(`Студент з ID ${id} не знайдений.`);
+    }
+  }
+};
+
+// Приклад використання
+studentGroup.addStudent("Іван", "Іванов", 20, "001", 4.5);
+studentGroup.addStudent("Марія", "Петрів", 21, "002", 4.7);
+studentGroup.listStudents();
+studentGroup.findStudentById("001");
+studentGroup.removeStudent("001");
+studentGroup.listStudents();
+studentGroup.findStudentById("001");
+
+  </script>  
+</body>
+</html>   
+
+
+<!-- <!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управління студентами</title>
+</head>
+<body>
+    <h1>Управління студентами</h1>
+    <form id="studentForm">
+        <label for="name">Ім'я:</label>
+        <input type="text" id="name" required><br>
+
+        <label for="surname">Прізвище:</label>
+        <input type="text" id="surname" required><br>
+
+        <label for="age">Вік:</label>
+        <input type="number" id="age" required><br>
+
+        <label for="studentId">ID студента:</label>
+        <input type="text" id="studentId" required><br>
+
+        <label for="averageGrade">Середній бал:</label>
+        <input type="number" id="averageGrade" step="0.01" required><br>
+
+        <button type="button" onclick="addStudent()">Додати студента</button>
+    </form>
+
+    <div id="output"></div>
+
+    <script>
+        const students = [];
+
+        function addStudent() {
+            const name = document.getElementById('name').value;
+            const surname = document.getElementById('surname').value;
+            const age = parseInt(document.getElementById('age').value);
+            const studentId = document.getElementById('studentId').value;
+            const averageGrade = parseFloat(document.getElementById('averageGrade').value);
+
+            const student = { name, surname, age, studentId, averageGrade };
+            students.push(student);
+
+            displayStudents();
+        }
+
+        function displayStudents() {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '';
+
+            students.forEach(student => {
+                const studentInfo = `Ім'я: ${student.name}, Прізвище: ${student.surname}, Вік: ${student.age}, ID: ${student.studentId}, Середній бал: ${student.averageGrade}`;
+                const studentElement = document.createElement('p');
+                studentElement.textContent = studentInfo;
+                outputDiv.appendChild(studentElement);
+            });
+        }
+
+       class StudentGroup {
+    constructor() {
+        this.students = []; // Масив студентів
+    }
+
+    // Метод для додавання нового студента
+    addStudent(student) {
+        this.students.push(student);
+    }
+
+    // Метод для видалення студента за ідентифікаційним номером
+    removeStudent(studentId) {
+        this.students = this.students.filter(student => student.studentId !== studentId);
+    }
+
+    // Метод для виведення інформації про всіх студентів
+    displayStudents() {
+        this.students.forEach(student => {
+            console.log(`Ім'я: ${student.name}, Прізвище: ${student.surname}, Вік: ${student.age}, ID: ${student.studentId}, Середній бал: ${student.averageGrade}`);
+        });
+    }
+}
+
+// Приклад використання
+const group = new StudentGroup();
+
+// Додавання студентів
+group.addStudent({ name: "John", surname: "Doe", age: 20, studentId: "12345", averageGrade: 4.5 });
+group.addStudent({ name: "Jane", surname: "Smith", age: 21, studentId: "67890", averageGrade: 4.2 });
+
+// Виведення інформації про всіх студентів
+group.displayStudents();
+
+// Видалення студента за ідентифікаційним номером
+group.removeStudent("12345");
+
+// Виведення оновленої інформації про студентів
+console.log("Після видалення:");
+group.displayStudents();
+ 
+    </script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+class StudentGroup {
+    constructor() {
+        this.students = []; // Масив студентів
+    }
+
+    // Метод для додавання нового студента
+    addStudent(student) {
+        this.students.push(student);
+    }
+
+    // Метод для видалення студента за ідентифікаційним номером
+    removeStudent(studentId) {
+        this.students = this.students.filter(student => student.studentId !== studentId);
+    }
+
+    // Метод для виведення інформації про всіх студентів
+    displayStudents() {
+        this.students.forEach(student => {
+            console.log(`Ім'я: ${student.name}, Прізвище: ${student.surname}, Вік: ${student.age}, ID: ${student.studentId}, Середній бал: ${student.averageGrade}`);
+        });
+    }
+}
+
+// Приклад використання
+const group = new StudentGroup();
+
+// Додавання студентів
+group.addStudent({ name: "John", surname: "Doe", age: 20, studentId: "12345", averageGrade: 4.5 });
+group.addStudent({ name: "Jane", surname: "Smith", age: 21, studentId: "67890", averageGrade: 4.2 });
+
+// Виведення інформації про всіх студентів
+group.displayStudents();
+
+// Видалення студента за ідентифікаційним номером
+group.removeStudent("12345");
+
+// Виведення оновленої інформації про студентів
+console.log("Після видалення:");
+group.displayStudents();
+
+
+   </script> 
+</body>
+</html>
