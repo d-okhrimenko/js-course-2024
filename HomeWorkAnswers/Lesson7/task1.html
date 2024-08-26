@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Конструктор для створення об'єктів студентів
+      function Student(firstName, lastName, age, id, averageGrade) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.id = id;
+        this.averageGrade = averageGrade;
+      }
+
+      // Об'єкт для управління групою студентів
+      const studentGroup = {
+        students: [],
+
+        // Метод для додавання нового студента
+        addStudent: function (firstName, lastName, age, id, averageGrade) {
+          const newStudent = new Student(
+            firstName,
+            lastName,
+            age,
+            id,
+            averageGrade
+          );
+          this.students.push(newStudent);
+        },
+
+        // Метод для видалення студента за його ідентифікаційним номером
+        removeStudent: function (id) {
+          this.students = this.students.filter((student) => student.id !== id);
+        },
+
+        // Метод для виведення списку всіх студентів
+        listStudents: function () {
+          this.students.forEach((student) => {
+            console.log(
+              `Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, ID: ${student.id}, Середній бал: ${student.averageGrade}`
+            );
+          });
+        },
+
+        // Метод для пошуку студента за його ідентифікаційним номером
+        findStudentById: function (id) {
+          const student = this.students.find((student) => student.id === id);
+          if (student) {
+            console.log(
+              `Знайдено Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, ID: ${student.id}, Середній бал: ${student.averageGrade}`
+            );
+          } else {
+            console.log(`Студента з ID ${id} не знайдено.`);
+          }
+        },
+      };
+
+      // Приклади використання
+      studentGroup.addStudent("Іван", "Іванов", 20, 1, 85);
+      studentGroup.addStudent("Марія", "Петренко", 22, 2, 90);
+      studentGroup.listStudents();
+      studentGroup.findStudentById(1);
+      studentGroup.removeStudent(1);
+      studentGroup.listStudents();
+    </script>
+  </body>
+</html>
