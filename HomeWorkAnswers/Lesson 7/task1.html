@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Student {
+            constructor(id, name, surname, age, avgMark) {
+                this.id = id;
+                this.name = name;
+                this.surname = surname;
+                this.age = age;
+                this.avgMark = avgMark;
+            }
+
+            displayInfo() {
+                console.log(`id = ${this.id}; name = ${this.name}; surname = ${this.surname}; age = ${this.age}; avgMark = ${this.avgMark}; `);
+            }
+        }
+
+        let studentsManagement = {
+            students: [],
+
+            add: function (id, name, surname, age, avgMark) {
+                this.students.push(new Student(id, name, surname, age, avgMark));
+            },
+
+            remove: function(id) {
+                let student = this.students.find(x => x.id === id);
+                let index = this.students.indexOf(student);
+                this.students.splice(index, 1);
+            },
+
+            showStudentsList: function() {
+                this.students.forEach((s) => console.log(s.displayInfo()));
+            },
+
+            find: function(id) {
+                let student = this.students.find(x => x.id === id);
+                let index = this.students.indexOf(student);
+                this.students[index].displayInfo();
+            }
+        }
+
+    </script>
+</body>
+
+</html>
