@@ -7,8 +7,5 @@ let getEnteredValue = (msg, isTextAnswer = false) => {
         else if(!isNaN(value)) return Number(value);
         alert("Не коректне значення!");
       }
-       
-      // if (!isNaN(value) && value !== "" && value !== null) return Number(value);
-      // alert("Не коректне значення!");
     }
   }
