@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="value.js"></script>
+    <script>
+      let studentDatabase = {
+        students: [
+          { name: "Олександр", lastname: "Петров", age: 21, id: 120, average: 85 },
+          { name: "Андрій", lastname: "Тирса", age: 20, id: 215, average: 80 },
+          { name: "Олег", lastname: "Чебан", age: 20, id: 302, average: 75 },
+        ],
+
+        // додати студента
+        add(name, lastname, age, id, average) {
+          this.students.push({
+            name: name,
+            lastname: lastname,
+            age: age,
+            id: id,
+            average: average,
+          });
+        },
+
+        // видалити студента за id
+        remove(index) {
+          let idx = studentDatabase.search(index);
+          if (idx != -1) this.students.splice(idx, 1);
+          else alert("Такого ID немає у списку");
+        },
+
+        //пошук студента за id
+        search(index) {
+          let student = this.students.filter((x) => x.id == index)[0];
+          let idx = this.students.indexOf(student);
+          if (idx != -1)
+            //console.log(this.students[idx]);
+            return idx;
+          else alert("Такого ID немає у списку");
+        },
+       
+        //Вивід інформації про студента за ID
+        searchShow(index) {
+          let idx = studentDatabase.search(index);
+          console.log(this.students[idx]);
+        },
+
+        // Показати інофрмацію про студентів
+        showDisplay() {
+          this.students.forEach((element) => console.log(element));
+        },
+      };
+
+
+      let options = {
+        show: function () {
+          let total = studentDatabase.showDisplay();
+          console.log(total);
+        },
+
+        add: function () {
+          let userName = getValueText("Введіть ім'я студента");
+          let userLastName = getValueText("Введіть прізвище студента");
+          let userAge = getValue("Введіть вік студента");
+          let userID = getValue("Введіть ID студента (номер залікової книжки)");
+          let userAverage = getValue("Введіть його середній бал");
+          studentDatabase.add(userName, userLastName, userAge, userID, userAverage);
+          options.show();
+        },
+
+        remove: function () {
+          let userID = getValue(
+            "Введіть ID студента, що потребує видалення зі списку"
+          );
+          studentDatabase.remove(userID);
+          options.show();
+        },
+
+        search: function () {
+          let userID = getValue("Введіть ID студента, якого шукаєте у списку");
+          studentDatabase.searchShow(userID);
+        },
+      };
+
+      while (true) {
+        let mode = getValueText(
+          "Якщо маєте бажання працювати зі списком студентів - натисніть Y, не бажаєте - натисніть N"
+        );
+        if (mode == "Y") {
+          console.log("Виберіть режим роботи зі списком");
+          let option = prompt("select show, add, remove or search");
+          options[option]();
+        } 
+        else if (mode == "N") break;
+        else continue;
+      }
+    </script>
+  </body>
+</html>
