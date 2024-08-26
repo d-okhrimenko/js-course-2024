@@ -20,6 +20,7 @@ let getTriangleArea = (paramsArr) => {
 };
 let getTrianglePerimeter = (paramsArr) => paramsArr[0] + paramsArr[1] + paramsArr[2];
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 // допоміжні функції
 
 // отримуємо представлення доступних фігур
@@ -31,14 +32,21 @@ let getFiguresString = () => {
 };
 // перевіряємо чи введена фігура дозволена
 let isProperFigure = (figure) => figuresNames.includes(figure); 
+// отримуємо представлення значень параметрів фігури
+let getFigureParamsString = (figParams) => {
+  let str = "";
+  for (let i = 0; i < figParams.length; i++) 
+    str += `${figParams[i]}${(i < figParams.length -1) ? ", " : ""}`;
+  return str;
+}
 // подаємо користувачу результати
 let reportFigureCharacteristics = (figIdx, getArea, getPerimeter, figParams) => 
-  `${figuresNames[figIdx]} :\n` +
+  `${figuresNames[figIdx]} (${getFigureParamsString(figParams)}):\n` + 
   `${figureCharacteristics[0]} = ${(getArea(figParams)).toFixed(2)}\n` +
   `${figureCharacteristics[1]} = ${(getPerimeter(figParams)).toFixed(2)}`;
 // отримуємо масив введених користувачем значень параметрів фігури
 let getFigureParamsArray = (figIdx) => {
-  let figureParamsArray = [];
+  let figureParamsArray = new Array();
   let sndIdx = 0;
   for (let i = 0; i < figIdx + 1; i++)
     figureParamsArray.push(getEnteredValue(`Введіть ${figuresNames[figIdx]} : ${figuresParams[figIdx][sndIdx++]}`));
