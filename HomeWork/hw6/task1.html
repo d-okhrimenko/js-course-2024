@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students performance analysis</title>
+  </head>
+  <body>
+    <script>
+      let grades = [];
+      for (let i = 0; i < 5; i++) {
+        let grade = +prompt("Введіть оцінку студента від 0 до 100");
+        grades.push(grade);
+      }
+      function min(arr) {
+        return Math.min(...arr);
+      }
+      function max(arr) {
+        return Math.max(...arr);
+      }
+      function average(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          sum += arr[i];
+        }
+        let average = sum / (arr.length + 1);
+        return average.toFixed(1);
+      }
+      alert(`Мінімальний бал ${min(grades)}`);
+      alert(`Максимальний бал ${max(grades)}`);
+      alert(`Середній бал ${average(grades)}`);
+    </script>
+  </body>
+</html>
