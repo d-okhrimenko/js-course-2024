@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+      let weight = getNumericValue("Ваша вага(кг):");
+      let height = getNumericValue("Ваш ріст(см):");
+
+      function calculateIMT(weight, height) {
+        let heightInMeters = height / 100;
+        let imt = (weight / (heightInMeters * heightInMeters)).toFixed(1);
+        return imt;
+      }
+
+      let imt = calculateIMT(weight, height);
+
+      function getCategory(imt) {
+        if (imt < 18.5) return "У Вас недостатня вага.";
+        else if (imt >= 18.5 && imt <= 24.9) return "У Вас нормальна вага.";
+        else if (imt >= 25 && imt <= 29.9) return "У вас надмірна вага!";
+        else if (imt >= 30) return "У вас ожиріння!";
+      }
+
+      let category = getCategory(imt);
+
+      function showResult() {
+        alert(`Ваш ІМТ: ${imt}. ${category}`);
+      }
+
+      showResult();
+    </script>
+  </body>
+</html>

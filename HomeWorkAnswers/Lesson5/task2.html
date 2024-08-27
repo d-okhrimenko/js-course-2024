@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+      function getNumericValue(message) {
+        return parseFloat(prompt(message));
+      }
+      let getCircleSquare = (radius) => Math.PI * Math.pow(radius, 2);
+      let getCirclePerimeter = (radius) => 2 * Math.PI * radius;
+
+      let getRectangleSquare = (length, width) => length * width;
+      let getRectanglePerimeter = (length, width) => 2 * (length + width);
+
+      let getTriangleSquare = (side1, side2, side3) => {
+        let p = (side1 + side2 + side3) / 2;
+        let square = Math.sqrt(p * (p - side1) * (p - side2) * (p - side3));
+        return square;
+      };
+      let getTrianglePerimeter = (side1, side2, side3) => side1 + side2 + side3;
+
+      let figure = prompt(
+        "Виберіть фігуру: коло, прямокутник, трикутник"
+      ).toLowerCase();
+
+      if (figure === "коло") {
+        const radius = getNumericValue("Введіть радіус:");
+        let square = getCircleSquare(radius).toFixed(0);
+        let per = getCirclePerimeter(radius).toFixed(0);
+        alert(`Площа кола: ${square} \n Периметр кола: ${per}`);
+      } else if (figure === "прямокутник") {
+        const length = getNumericValue("Введіть довжину:");
+        const width = getNumericValue("Введіть ширину:");
+        let square = getRectangleSquare(length, width).toFixed(0);
+        let per = getRectanglePerimeter(length, width).toFixed(0);
+        alert(`Площа прямокутника: ${square} \n Периметр прямокутника: ${per}`);
+      } else if (figure === "трикутник") {
+        const side1 = getNumericValue("Введіть довжину 1 сторони трикутника:");
+        const side2 = getNumericValue("Введіть довжину 2 сторони трикутника:");
+        const side3 = getNumericValue("Введіть довжину 3 сторони трикутника:");
+        let square = getTriangleSquare(side1, side2, side3).toFixed(0);
+        let per = getTrianglePerimeter(side1, side2, side3).toFixed(0);
+        alert(`Площа трикутника: ${square} \n Периметр трикутника: ${per}`);
+      } else {
+        alert(
+          "Невідома фігура. Будь ласка, оберіть коло, прямокутник або трикутник."
+        );
+      }
+
+      let repeat = confirm("Хочете обчислити площу та периметр іншої фігури?");
+      if (repeat) {
+        location.reload();
+      } else {
+        alert("Дякуємо за використання програми!");
+      }
+    </script>
+  </body>
+</html>
