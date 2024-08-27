@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arrayAssessment = [];
+
+        function avgAssessment(array) {
+            const sum = array.reduce((ass, val) => ass + val, 0);
+            return array.length ? sum / array.length : 0;
+        }
+
+        function maxAssessment(array) {
+            return Math.max(...array);
+        }
+
+        function minAssessment(array) {
+            return Math.min(...array);
+        }
+
+        let amountAssessments = getNumericValue(
+            "Введіть скільки оцінок хочете ввести цілим числом?"
+        );
+
+        for (let i = 1; i <= amountAssessments; i++) {
+            const arrayAssessments = getNumericValue(`Введіть оцінку від 0 до 100 ${i} з ${amountAssessments}`);
+            arrayAssessment.push(arrayAssessments);
+        }
+
+        alert(` Всього оцінок: ${amountAssessments}
+                Середній бал: ${avgAssessment(arrayAssessment)}
+                Найвища оцінка: ${maxAssessment(arrayAssessment)}
+                Найменша оцінка: ${minAssessment(arrayAssessment)}`);
+    </script>
+</body>
+
+</html>

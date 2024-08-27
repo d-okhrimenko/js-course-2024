@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let products = [];
+
+        function addProduct(product) {
+            products.push(product);
+            alert(`Товар ${product} додано до списку`);
+        }
+
+        function delProduct(product) {
+            const productIndex = products.indexOf(product);
+            if (productIndex > -1) {
+                products.splice(productIndex, 1);
+                alert(`Товар ${product} видалено зі списку`);
+            } else {
+                alert("Товар не знайдено у списку");
+            }
+        }
+
+        function currentList(product) {
+            if (products.length === 0) {
+                alert("Список пустий");
+            } else {
+                alert("поточний список товарів " + products.join(`,`));
+            }
+        }
+
+
+        while (true) {
+            let action = prompt("Виберіть дію:  Додати товар, Видалити товар,  Показати список, Вийти");
+
+            if (action === "Вийти") {
+                alert("Дякуємо за використання списку покупок!");
+                break;
+            }
+
+            switch (action) {
+                case "Додати":
+                    let newItem = prompt("Введіть назву товару для додавання:");
+                    if (newItem) {
+                        addProduct(newItem);
+                    } else {
+                        alert("Введіть вірний товар");
+                    }
+                    break;
+                case "Видалити":
+                    let removeItemName = prompt("Введіть назву товару для видалення:");
+                    if (removeItemName) {
+                        delProduct(removeItemName);
+                        currentList();
+                    } else {
+                        alert("Введіть вірний товар");
+                    }
+                    break;
+                case "Показати":
+                    currentList();
+                    break;
+                default:
+                    alert("Будь ласка, виберіть Додати, Видалити, Показати або Вийти.");
+            }
+        }
+    </script>
+</body>
+
+</html>
