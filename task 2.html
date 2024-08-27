@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+
+<body>
+    <script>
+
+       function addItemToList(itemName, productList) {
+            productList.push(itemName);
+            return productList;
+        }
+
+        function removeItemFromList(itemName, productList) {
+            const index = productList.indexOf(itemName);
+            if (index !== -1) {
+                productList.splice(index, 1);
+            }
+            return productList;
+        }
+
+        function displayShoppingList(productList) {
+            console.log('Поточний список покупок:');
+            productList.forEach((item, index) => {
+                console.log(`${index + 1}. ${item}`);
+            });
+        }
+
+        function result() {
+            let productList = ["Папір офісний", "Ручка", "Записник"];
+            let action;
+
+            while (action !== '4') {
+                action = prompt('Виберіть дію:\n1. Додати товар\n2. Видалити товар\n3. Вивести список\n4. Завершити роботу');
+
+                switch (action) {
+                    case '1':
+                        const addItem = prompt('Введіть назву товару для додавання:');
+                        productList = addItemToList(addItem, productList);
+                        break;
+                    case '2':
+                        const removeItem = prompt('Введіть назву товару для видалення:');
+                        productList = removeItemFromList(removeItem, productList);
+                        break;
+                    case '3':
+                        displayShoppingList(productList);
+                        break;
+                    case '4':
+                        console.log('Роботу завершено.');
+                        break;
+                    default:
+                        console.log('Невірний вибір, спробуйте ще раз.');
+                }
+            }
+        }
+
+        result();
+
+    </script>
+</body>
+
+</html>

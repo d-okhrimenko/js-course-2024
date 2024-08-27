@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 1</title>
+</head>
+
+<body>
+    <script>
+        function collectGrades() {
+            let grades = [];
+            for (let i = 0; i <= 100; i++) {
+                //grades.push(i);
+                console.log(`${i}`);
+            }
+
+            let numberOfGrades = parseInt(prompt("Скільки оцінок ви хочете ввести?"));
+
+            for (let i = 0; i < numberOfGrades; i++) {
+                let grade = parseFloat(prompt(`Введіть оцінку ${i + 1}:`));
+                grades.push(grade);
+            }
+            return grades;
+        }
+
+        function calculateAverage(grades) {
+            let total = grades.reduce((sum, grade) => sum + grade, 0);
+            return total / grades.length;
+        }
+
+        function findHighestGrade(grades) {
+            return Math.max(...grades);
+        }
+
+        function findLowestGrade(grades) {
+            return Math.min(...grades);
+        }
+
+        function result() {
+            let grades = collectGrades();
+            let average = calculateAverage(grades);
+            let highest = findHighestGrade(grades);
+            let lowest = findLowestGrade(grades);
+
+            alert(`Ваш середній бал: ${average.toFixed(2)}`);
+            alert(`Ваша найвища оцінка: ${highest}`);
+            alert(`Ваша найнижча оцінка: ${lowest}`);
+        }
+        result();
+
+    </script>
+</body>
+
+</html>
