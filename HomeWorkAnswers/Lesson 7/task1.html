@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Student {
+            constructor(id, firstName, lastName, age, avgMark) {
+                this.id = id;
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age=age;
+                this.avgMark = averageMark;
+            }
+
+            displayInfo() {
+                console.log(this.id);
+                console.log(this.firstName);
+                console.log(this.lastName);
+                console.log(this.age);
+                console.log(this.avgMark);
+            }
+        }
+
+        let studentsDatabase = {
+            students: [{ id: 1236547892, firstName: "Stud_1_name", lastName: "Stud_1_lastname", age:17, averageMark: 121 }],
+
+            add: function (id, firstName, lastName, age, avgMark) {
+                this.students.push({ id: id, firstName: firstName, lastName: lastName, age:age, avgMark: avgMark });
+            },
+            remove: function (id) {
+                let student = this.students.filter(x => x.id == id)[0];
+                let index = this.indexOf(student);
+                this.students.splice(index, 1);
+            },
+        };
+
+        let student1 = new Student(1, "FirstName", "LastName", 144);
+
+        student1.displayInfo();
+
+
+        // let studentsDatabase = {
+
+        //     products: [
+        //         { name: "Папір офісний А4, 80 г/м2, 500 л", price: 280.25 },
+        //         { name: "Біндери для паперу 51 мм", price: 56 },
+        //         { name: "Ручка кулькова синя", price: 12.50 }],
+
+        //     add: function (name, price) {
+        //         this.products.push({ name: name, price: price });
+        //     },
+
+        //     remove: function (name) {
+        //         let product = this.products.filter(x => x.name == name)[0];
+        //         let index = this.indexOf(product);
+        //         this.products.splice(index, 1);
+        //     }
+        // };
+
+        // let uiController = {
+        //     display: function (message) {
+        //         console.log(message);
+        //     },
+
+        //     promptNumaber: function (message) {
+        //         return +prompt(message)
+        //     },
+
+        //     promptByList: function (list, messageTemplateFn) {
+        //         return list.map(element => this.promptNumaber(messageTemplateFn(element)))
+        //     },
+
+        //     displayList: function (list, messageTemplateFn) {
+        //         list.forEach(x => this.display(messageTemplateFn(x)))
+        //     }
+        // };
+
+        // // app
+        // let productCount = uiController.promptByList(shopDatabase.products, x => `${x.name} = ${x.price}грн`);
+
+        // shopDatabase.products.forEach((p, index) => {
+        //     shoppingCart.add(p, productCount[index]);
+        // });
+
+        // let total = shoppingCart.getTotalPrice();
+        // console.log(total);
+    </script>
+</body>
+
+</html>
