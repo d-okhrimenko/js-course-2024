@@ -177,3 +177,24 @@ function isMatchingString(value, arr) {
     return true;
   }
 }
+
+/////////////// WORKING WITH ARRAYS /////////////
+
+/////////////// WORKING WITH OBJECTS /////////////
+
+function findObjectByProp(arr, key, value) {
+  const object = arr.find((el) => el[key] === value);
+  return object;
+}
+
+// print object properties with corresponding values to console
+function printProps(obj) {
+  let info = "";
+  for (const [key, value] of Object.entries(obj)) {
+    info =
+      info +
+      `${key}: ${value}
+          `;
+  }
+  console.log(info);
+}
