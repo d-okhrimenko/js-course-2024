@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pattaya&family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Lesson 6</title>
+  </head>
+  <body>
+    <div class="wrapper-score">
+      <div class="inner-score">
+        <div class="output-score">
+          <p id="showScores">Введені бали:</p>
+          <p>Середній бал групи - <span id="averageScore">0</span></p>
+          <p>Найвищий бал групи - <span id="maxScore">0</span></p>
+          <p>Найнижчий бал групи - <span id="minScore">0</span></p>
+        </div>
+
+        <div class="input-score">
+          <h2 class="title">Статистика балів студентів</h2>
+          <p class="descr">
+            Введіть бали, які потрібно проаналізувати (ціле число від 0 до 100)
+          </p>
+          <input class="input" type="text" id="studentScore" maxlength="3" />
+          <div class="buttons">
+            <button class="btn-score" id="addScore">Додати</button>
+            <button class="btn-score" id="removeScore">Видалити</button>
+          </div>
+          <p class="error" id="error"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper-shopping">
+      <h2 class="title title-shopping">Список покупок</h2>
+      <div class="inner-shopping">
+        <div class="input-item">
+          <p>Додайте товар до списку покупок</p>
+          <input
+            class="shopping-input"
+            type="text"
+            id="inputItem"
+            maxlength="40"
+          />
+          <button class="btn-shopping" id="addGoods">Додати</button>
+          <button class="btn-shopping clear-btn" id="clearGoods">
+            Очистити
+          </button>
+        </div>
+
+        <div class="shopping-box">
+          <img src="./images/notepad.png" alt="notebook" />
+          <ul class="shopping-list" id="shoppingList"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
