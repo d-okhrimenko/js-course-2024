@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // створюю конструктор для створення об'єктів студентів
+
+      class Students {
+        constructor(firstName, lastName, age, id, averageGrade) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.age = age;
+          this.id = id;
+          this.averageGrade = averageGrade;
+        }
+      }
+
+      //   об'єкт для управління групою студентів:
+
+      let student1 = new Students("Kateryna", "Bartko", 23, "1", 80);
+
+      let manageStudent = {
+        studentsArr: [],
+
+        // метод для додавання нового студента:
+        add: function (firstName, lastName, age, id, averageGrade) {
+          const newStudents = new Students(
+            firstName,
+            lastName,
+            age,
+            id,
+            averageGrade
+          );
+
+          this.studentsArr.push(newStudents);
+        },
+
+        // метод для видалення студента:
+        remove: function (id) {
+          const index = this.studentsArr.findIndex(
+            (student) => student.id == id
+          );
+          this.studentsArr.splice(index, 1);
+        },
+
+        //  метод для виведення списку всіх студентів:
+        displayInfo: function () {
+          this.studentsArr.forEach((student) => {
+            console.log(
+              `Name: ${student.firstName} ${student.lastName} \nAge: ${student.age} \nId:${student.id} \nGrade: ${student.averageGrade}`
+            );
+          });
+        },
+
+        //   функціонал для пошуку студента за його ідентифікаційним номером:
+        findStudentById: function (id) {
+          const student = this.studentsArr.find((student) => student.id == id);
+          return `Name: ${student.firstName} ${student.lastName} \nAge: ${student.age} \nId:${student.id} \nGrade: ${student.averageGrade}`;
+        },
+      };
+
+      let newStudent1 = manageStudent.add("Kateryna", "Bartko", 23, "1", 80);
+      let newStudent2 = manageStudent.add("Petro", "Petrov", 18, "2", 75);
+      let newStudent3 = manageStudent.add("Ola", "Olaniva", 20, "3", 100);
+      //   manageStudent.displayInfo();
+      manageStudent.remove(1);
+      manageStudent.displayInfo();
+    </script>
+  </body>
+</html>
