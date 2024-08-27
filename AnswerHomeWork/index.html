@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson7 task1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="input-group">
+      <input
+        type="text"
+        class="search form-control"
+        id="search"
+        placeholder="Введіть id студента"
+      /><span class="input-group-text" id="searchBtn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+          />
+        </svg>
+      </span>
+    </div>
+    <p class="student"></p>
+    <h2>Студенти групи:</h2>
+    <button id="showBtn" class="button">Показати</button>
+    <ul id="list" class="list is-hidden"></ul>
+    <h3>Для додавання студента заповніть форму</h3>
+    <form id="form" class="form">
+      <div class="mb-3">
+        <label for="id" class="form-label">id студента</label>
+        <input
+          type="text"
+          class="form-control"
+          id="id"
+          name="id"
+          placeholder="Введіть id студента"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="first-name" class="form-label">Ім'я студента</label>
+        <input
+          type="text"
+          class="form-control"
+          id="first-name"
+          name="firstName"
+          placeholder="Введіть ім'я студента"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="last-name" class="form-label">Призвище студента</label>
+        <input
+          type="text"
+          class="form-control"
+          id="last-name"
+          name="lastName"
+          placeholder="Введіть призвище студента"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="age" class="form-label">Вік студента</label>
+        <input
+          type="text"
+          class="form-control"
+          id="age"
+          name="age"
+          placeholder="Введіть вік студента"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="score" class="form-label">Середній бал студента</label>
+        <input
+          type="text"
+          class="form-control"
+          id="score"
+          name="score"
+          placeholder="Введіть середній бал студента"
+          required
+        />
+      </div>
+      <button type="submit" id="addBtn" class="button">Додати</button>
+    </form>
+    <script>
+      function deleteMarkup(nodeElem) {
+        for (let i = nodeElem.children.length - 1; i >= 0; i--) {
+          nodeElem.children[i].remove();
+        }
+      }
+
+      function createMarkup(studentInfoArray, nodeList) {
+        studentInfoArray.map((item) => {
+          let li = document.createElement("li");
+          li.className = "list-item";
+
+          let span1 = document.createElement("span");
+          span1.className = "student-info";
+          span1.innerHTML = item;
+          li.append(span1);
+
+          let span2 = document.createElement("span");
+          span2.className = "delete";
+          span2.innerHTML = "X";
+          span2.id = "deleteBtn";
+          li.append(span2);
+
+          nodeList.append(li);
+        });
+      }
+
+      function createStudent(firstName, lastName, age, id, averageScore) {
+        let student = {};
+
+        student.id = id;
+        student.firstName = firstName;
+        student.lastName = lastName;
+        student.age = age;
+        student.averageScore = averageScore;
+
+        return student;
+      }
+
+      const students = {
+        students: [],
+
+        add: function (firstName, lastName, age, id, averageScore) {
+          const student = createStudent(
+            firstName,
+            lastName,
+            age,
+            id,
+            averageScore
+          );
+          this.students.push(student);
+        },
+
+        remove: function (id) {
+          const index = this.students.findIndex((el) => el.id === id);
+          return this.students.splice(index, 1);
+        },
+
+        list: function () {
+          return this.students.map(
+            (student) =>
+              "id: " +
+              student.id +
+              ", Ім'я: " +
+              student.firstName +
+              ", Призвище: " +
+              student.lastName +
+              ", Вік: " +
+              student.age +
+              ", Середній бал: " +
+              student.averageScore
+          );
+        },
+
+        findById: function (id) {
+          return this.students.find((student) => student.id === id);
+        },
+      };
+
+      const showButton = document.getElementById("showBtn");
+      const studentList = document.getElementById("list");
+      const addForm = document.getElementById("form");
+      const searchButton = document.getElementById("searchBtn");
+      const searchControl = document.getElementById("search");
+
+      searchControl.addEventListener("focus", handleSeachFocus);
+
+      searchButton.addEventListener("click", handleSearchClick);
+
+      showButton.addEventListener("click", handleShowHide);
+
+      addForm.addEventListener("submit", handleSubmit);
+
+      studentList.addEventListener("click", handleDeleteBtnClick);
+
+      function handleSeachFocus() {
+        document.querySelector(".student").innerHTML = "";
+      }
+
+      function handleSearchClick() {
+        const studentId = document.getElementById("search").value;
+        const student = students.findById(studentId);
+        if (student)
+          document.querySelector(".student").innerHTML =
+            student.firstName +
+            " " +
+            student.lastName +
+            ", Вік: " +
+            student.age +
+            ", Середній бал: " +
+            student.averageScore;
+        else alert("Студента за таким id не знайдено!");
+        searchControl.value = "";
+      }
+
+      function handleDeleteBtnClick(event) {
+        const studentInfoString = event.target.parentElement.outerText;
+        const startIndex = studentInfoString.indexOf(":") + 2;
+        const endIndex = studentInfoString.indexOf(",");
+
+        students.remove(studentInfoString.slice(startIndex, endIndex));
+        elementUpdate(studentList);
+      }
+
+      function handleShowHide() {
+        if (showButton.textContent === "Показати") {
+          showButton.textContent = "Приховати";
+          createMarkup(students.list(), studentList);
+        } else {
+          showButton.textContent = "Показати";
+          deleteMarkup(studentList);
+        }
+        studentList.classList.toggle("is-hidden");
+      }
+
+      function handleSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
+        const id = form.elements.id.value;
+        const firstName = form.elements.firstName.value;
+        const lastName = form.elements.lastName.value;
+        const age = form.elements.age.value;
+        const score = form.elements.score.value;
+
+        students.add(firstName, lastName, age, id, score);
+        form.reset();
+      }
+
+      function elementUpdate(elem) {
+        deleteMarkup(elem);
+        createMarkup(students.list(), elem);
+      }
+    </script>
+  </body>
+</html>
