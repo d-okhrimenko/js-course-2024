@@ -18,6 +18,8 @@
     <button id="btnDisplayAllStudents">Вивести список студентів</button>
 
     <script>
+        const studentGroup = new StudentGroup();
+
         const addStudent = () => {
             const id = getNumericValue(`Введіть ідентифікаційний номер`);
             const firstName = getValue(`Введіть ім'я`);
@@ -26,9 +28,7 @@
             const averageGrade = getNumericValue(`Введіть середній бал`);
 
             studentGroup.add(id, firstName, lastName, age, averageGrade);
-
             alert(`Студент: ${lastName} успішно доданий`);
-
         }
 
         const delStudent = () => {
@@ -41,20 +41,19 @@
             studentGroup.displayStudent(id);
         }
 
-
         const displayAllStudents = () => {
             studentGroup.displayStudents();
         }
 
+        studentGroup.add(1, "Шевченко", "Тарас", 23, 97);
+        studentGroup.add(2, "Сірко", "Іван", 35, 98);
+        studentGroup.add(3, "Хмельницкий", "Богдан", 39, 95);
+
         document.querySelector("#btnStudent").onclick = addStudent;
         document.querySelector("#btnDelStudent").onclick = delStudent;
-        document.querySelector("#btnDisplayInfoByIndex").onclick = delStudent;
+        document.querySelector("#btnDisplayInfoByIndex").onclick = displayStudent;
         document.querySelector("#btnDisplayAllStudents").onclick = displayAllStudents;
-
     </script>
-
-
-
 
 </body>
 

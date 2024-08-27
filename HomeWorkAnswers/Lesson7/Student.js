@@ -8,15 +8,17 @@ class Student {
     }
 }
 
-let studentGroup = {
-    students: [],
+class StudentGroup {
+    constructor() {
+        this.students = [];
+    }
 
-    add: function (id, firstName, lastName, age, averageGrade) {
+    add(id, firstName, lastName, age, averageGrade) {
         const newStudent = new Student(id, firstName, lastName, age, averageGrade);
         this.students.push(newStudent);
-    },
+    }
 
-    remove: function (id) {
+    remove(id) {
         const index = this.students.findIndex(student => student.id === id);
         if (index !== -1) {
             const removedStudent = this.students.splice(index, 1)[0];
@@ -24,29 +26,21 @@ let studentGroup = {
         } else {
             alert(`Студент з ідентифікаційним номером ${id} відсутній в списку`);
         }
-    },
+    }
 
-    displayStudent: function (id) {
+    displayStudent(id) {
         const student = this.students.find(student => student.id === id);
         if (student) {
             alert(`ID: ${student.id}, Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, Середній бал: ${student.averageGrade}`);
         } else {
             alert(`Студент з ідентифікаційним номером ${id} відсутній в списку`);
         }
-    },
+    }
 
-    displayStudents: function () {
-        let listStudents = "";
-        this.students.forEach(student => {
-            listStudents += `ID: ${student.id}, Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, Середній бал: ${student.averageGrade}\n`;
-        });
+    displayStudents() {
+        const listStudents = this.students.map(student =>
+            `ID: ${student.id}, Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, Середній бал: ${student.averageGrade}`
+        ).join('\n');
         alert(listStudents);
-    },
-
-};
-
-
-studentGroup.add(1, "aa", "bb", 23, 34);
-studentGroup.add(22, "пп", "рр", 24, 78);
-studentGroup.add(3, "aa3", "bb3", 235, 23);
-
+    }
+}
