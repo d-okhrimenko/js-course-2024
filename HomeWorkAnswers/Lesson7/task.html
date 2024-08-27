@@ -24,7 +24,7 @@
                 while (true) {
                     let digital = false;
                     let value = prompt(message);
-                    for (let letter of value) {
+                    for (letter of value) {
                         let isValid = isNaN(letter) && letter !== "" && letter !== null;
                         if (!isValid) {
                             digital = true;
@@ -53,7 +53,7 @@
                 while (true) {
                     let value = this["getDigitalValue"](message);
                     let duplicate = false;
-                    for (let index in array) {
+                    for (index in array) {
                         if (value == array[index][key])
                             duplicate = true;
                     }
@@ -78,7 +78,7 @@
                     alert("Список студентів порожній");
                 } else {
                     let list = "";
-                    for (const index in array) {
+                    for (index in array) {
                         list += `${Number(index) + 1}. ${this["studentDetails"](array, index)}\n`;
                     }
                     alert(list);
@@ -109,12 +109,12 @@
                     alert("Список студентів порожній, нічого видаляти");
                 } else {
                     const id = dataEntry["getDigitalValue"](`Введіть ${this["properties"]["id"]} студента, якого треба видалити:`);
-                    for (const index in array) {
+                    for (index in array) {
                         if (array[index]["id"] == id) {
                             return array.splice(index, 1);
                         }
                     }
-                    alert("Такого id немає у базі даних студентів")
+                    alert(`Такого ${this["properties"]["id"]} немає у базі даних студентів`)
                 }
             },
 
@@ -123,7 +123,7 @@
                     alert("Список студентів порожній");
                 } else {
                     const id = dataEntry["getDigitalValue"](`Введіть ${this["properties"]["id"]} студента, якого треба знайти:`);
-                    for (const index in array) {
+                    for (index in array) {
                         if (array[index]["id"] == id) {
                             return alert(this["studentDetails"](array, index));
                         }
