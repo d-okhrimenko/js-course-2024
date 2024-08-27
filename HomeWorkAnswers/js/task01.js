@@ -79,6 +79,8 @@ function main() {
     console.log("Додаємо студента з ID 7");
     group.add(7, "Olena", "Shevchenko", 25, 220);
     
+    console.log("Додаємо студента з вже існуючим ID 7");
+    group.add(7, "Olena", "Shevchenko", 25, 220);
     
     
     console.log("Шукаємо студента з ID 7");
