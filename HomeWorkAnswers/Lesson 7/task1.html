@@ -14,8 +14,8 @@
                 this.id = id;
                 this.firstName = firstName;
                 this.lastName = lastName;
-                this.age=age;
-                this.avgMark = averageMark;
+                this.age = age;
+                this.avgMark = avgMark;
             }
 
             displayInfo() {
@@ -28,21 +28,50 @@
         }
 
         let studentsDatabase = {
-            students: [{ id: 1236547892, firstName: "Stud_1_name", lastName: "Stud_1_lastname", age:17, averageMark: 121 }],
+            students: [{ id: 9123654789, firstName: "Stud_1_name", lastName: "Stud_1_lastname", age: 17, avgMark: 121 }],
 
             add: function (id, firstName, lastName, age, avgMark) {
-                this.students.push({ id: id, firstName: firstName, lastName: lastName, age:age, avgMark: avgMark });
+                this.students.push({ id: id, firstName: firstName, lastName: lastName, age: age, avgMark: avgMark });
             },
             remove: function (id) {
-                let student = this.students.filter(x => x.id == id)[0];
-                let index = this.indexOf(student);
+                let student = this.students.filter(x => x.id === id)[0];
+                let index = this.students.indexOf(student);
                 this.students.splice(index, 1);
+                console.log(`Видалено запис з ID=${student.id}`)
             },
         };
 
-        let student1 = new Student(1, "FirstName", "LastName", 144);
 
-        student1.displayInfo();
+        let uiController = {
+            display: function (message) {
+                console.log(message);
+            },
+
+            promptNumber: function (message) {
+                return +prompt(message)
+            },
+
+            promptByList: function (list, messageTemplateFn) {
+                return list.map(element => this.promptNumber(messageTemplateFn(element)))
+            },
+
+            displayList: function (list, messageTemplateFn) {
+                list.forEach(x => this.display(messageTemplateFn(x)))
+            }
+        };
+
+
+        let student1 = studentsDatabase.add(1123456789, "FirstName", "LastName", 15, 144);
+        let student2 = studentsDatabase.add(2123456789, "FirstName2", "LastName2", 22, 144);
+
+
+
+        uiController.displayList(studentsDatabase.students, x => `${x.id}, ${x.firstName}, ${x.lastName}, ${x.age}, ${x.avgMark}`);
+
+        studentsDatabase.remove(9123654789);
+
+        uiController.displayList(studentsDatabase.students, x => `${x.id}, ${x.firstName}, ${x.lastName}, ${x.age}, ${x.avgMark}`);
+
 
 
         // let studentsDatabase = {
