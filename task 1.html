@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 1</title>
+</head>
+
+<body>
+    <script>
+
+        let weight, height;
+
+        function calcBMI() {
+            weight = prompt("Вкажіть будь ласка, Вашу вагу /кг.");
+            height = prompt("Вкажіть будь ласка, Ваш ріст /м.");
+            if (weight > 0 && height > 0) {
+                return;
+            } else {
+                alert("Будь ласка, введіть вірні значення ваги та росту");
+            }
+        }
+        calcBMI();
+
+        let bmi = Math.round(weight / (height * height));
+
+        function defineCategory() {
+            if (bmi < 18.5)
+                alert(`Ваш індекс маси тіла - ${bmi}, у Вас недостатня вага`);
+
+            else if (bmi >= 18.5 && bmi < 24.9)
+                alert(`Ваш індекс маси тіла - ${bmi}, у Вас нормальна вага`);
+
+            else if (bmi > 25 && bmi < 29.9)
+                alert(`Ваш індекс маси тіла - ${bmi}, у Вас надмірна вага`);
+
+            else {
+                alert(`Ваш індекс маси тіла - ${bmi}, Вам необхідно звернутися до спеціаліста, у Вас ожиріння 🥺`);
+            }
+        }
+        defineCategory();
+
+    </script>
+</body>
+
+</html>
