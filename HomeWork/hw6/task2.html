@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+  </head>
+  <body>
+    <h2>Список обраних товарів</h2>
+    <p id="cart"></p>
+    <script>
+      // ----------- масив для зберігання списку покупок:
+      let cart = [];
+
+      //  -------------- функцію для додавання товару до списку
+      function addProduct(arr, product) {
+        arr.push(product);
+        return arr;
+      }
+
+      //   ---------------функцію для видалення товару зі списку:
+      function removeProduct(arr, product) {
+        const index = arr.indexOf(product);
+        if (index !== -1) {
+          arr.splice(index, 1);
+        }
+
+        return arr;
+      }
+      //   --------функцію для виведення поточного списку покупок
+      function showCart(arr) {
+        const cartElement = document.querySelector("#cart");
+        cartElement.innerHTML = ""; // Очищуємо попередній список
+        arr.forEach((element) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = element;
+          cartElement.appendChild(listItem);
+        });
+        return arr;
+      }
+      //  -------------Запропонувати користувачу вибрати дію
+      function manageItems(arr) {
+        let action;
+        do {
+          action = prompt(
+            "Виберіть дію: додати товар, видалити товар або вивести список (введіть 'вихід' для завершення):"
+          );
+
+          if (action === "додати товар") {
+            let product = prompt("Введіть назву товару для додавання:");
+            addProduct(arr, product);
+          } else if (action === "видалити товар") {
+            let product = prompt("Введіть назву товару для видалення:");
+            removeProduct(arr, product);
+          } else if (action === "вивести список") {
+            showCart(arr);
+          } else if (action !== "вихід") {
+            alert("Невідома дія. Спробуйте ще раз.");
+          }
+        } while (action !== "вивести список");
+      }
+      manageItems(cart);
+    </script>
+  </body>
+</html>
