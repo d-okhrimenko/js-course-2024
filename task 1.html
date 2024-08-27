@@ -9,37 +9,46 @@
 
 <body>
     <script>
-
-        let weight, height;
-
-        function calcBMI() {
-            weight = prompt("Вкажіть будь ласка, Вашу вагу /кг.");
-            height = prompt("Вкажіть будь ласка, Ваш ріст /м.");
-            if (weight > 0 && height > 0) {
-                return;
-            } else {
-                alert("Будь ласка, введіть вірні значення ваги та росту");
+        function collectGrades() {
+            let grades = [];
+            for (let i = 0; i <= 100; i++) {
+                //grades.push(i);
+                console.log(`${i}`);
             }
-        }
-        calcBMI();
 
-        let bmi = Math.round(weight / (height * height));
+            let numberOfGrades = parseInt(prompt("Скільки оцінок ви хочете ввести?"));
 
-        function defineCategory() {
-            if (bmi < 18.5)
-                alert(`Ваш індекс маси тіла - ${bmi}, у Вас недостатня вага`);
-
-            else if (bmi >= 18.5 && bmi < 24.9)
-                alert(`Ваш індекс маси тіла - ${bmi}, у Вас нормальна вага`);
-
-            else if (bmi > 25 && bmi < 29.9)
-                alert(`Ваш індекс маси тіла - ${bmi}, у Вас надмірна вага`);
-
-            else {
-                alert(`Ваш індекс маси тіла - ${bmi}, Вам необхідно звернутися до спеціаліста, у Вас ожиріння 🥺`);
+            for (let i = 0; i < numberOfGrades; i++) {
+                let grade = parseFloat(prompt(`Введіть оцінку ${i + 1}:`));
+                grades.push(grade);
             }
+            return grades;
         }
-        defineCategory();
+
+        function calculateAverage(grades) {
+            let total = grades.reduce((sum, grade) => sum + grade, 0);
+            return total / grades.length;
+        }
+
+        function findHighestGrade(grades) {
+            return Math.max(...grades);
+        }
+
+        function findLowestGrade(grades) {
+            return Math.min(...grades);
+        }
+
+        function result() {
+            let grades = collectGrades();
+            let average = calculateAverage(grades);
+            let highest = findHighestGrade(grades);
+            let lowest = findLowestGrade(grades);
+
+            alert(`Ваш середній бал: ${average.toFixed(2)}`);
+            alert(`Ваша найвища оцінка: ${highest}`);
+            alert(`Ваша найнижча оцінка: ${lowest}`);
+        }
+        result();
 
     </script>
 </body>
