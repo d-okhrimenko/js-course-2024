@@ -20,7 +20,25 @@
         }
 
         let dataEntry = {
-            getValue: function (message) {
+            getLiteralValue: function (message) {
+                while (true) {
+                    let digital = false;
+                    let value = prompt(message);
+                    for (let letter of value) {
+                        let isValid = isNaN(letter) && letter !== "" && letter !== null;
+                        if (!isValid) {
+                            digital = true;
+                        }
+                    }
+                    if (digital) {
+                        alert("Введіть коректне значення");
+                    } else {
+                        return value;
+                    }
+                }
+            },
+
+            getDigitalValue: function (message) {
                 while (true) {
                     let value = prompt(message);
                     let isValid = !isNaN(value) && value !== "" && value !== null && Number(value) > 0;
@@ -31,16 +49,16 @@
                 }
             },
 
-            getValueAndDuplicateCheck: function (array, key) {
+            getValueAndDuplicateCheck: function (array, key, message) {
                 while (true) {
-                    let value = this["getValue"](`Введіть ${key}:`);
+                    let value = this["getDigitalValue"](message);
                     let duplicate = false;
                     for (let index in array) {
                         if (value == array[index][key])
                             duplicate = true;
                     }
                     if (duplicate) {
-                        alert(`Введіть інше значення ${key}`);
+                        alert("Таке значення вже є, введіть інше значення");
                     } else {
                         return value;
                     }
@@ -70,14 +88,16 @@
 
             add: function (array) {
                 const object = new Student();
+
                 for (key in object) {
                     let value = "";
+                    let message = `Введіть ${this["properties"][key]}:`;
                     if (key == "firstName" || key == "lastName") {
-                        value = prompt(`Введіть ${this["properties"][key]}:`);
+                        value = dataEntry["getLiteralValue"](message);
                     } else if (key != "id") {
-                        value = dataEntry["getValue"](`Введіть ${this["properties"][key]}:`);
+                        value = dataEntry["getDigitalValue"](message);
                     } else {
-                        value = dataEntry["getValueAndDuplicateCheck"](array, key);
+                        value = dataEntry["getValueAndDuplicateCheck"](array, key, message);
                     }
                     object[key] = value;
                 }
@@ -88,7 +108,7 @@
                 if (array.length == 0) {
                     alert("Список студентів порожній, нічого видаляти");
                 } else {
-                    const id = dataEntry["getValue"]("Введіть id студента, якого треба видалити:")
+                    const id = dataEntry["getDigitalValue"](`Введіть ${this["properties"]["id"]} студента, якого треба видалити:`);
                     for (const index in array) {
                         if (array[index]["id"] == id) {
                             return array.splice(index, 1);
@@ -102,13 +122,13 @@
                 if (array.length == 0) {
                     alert("Список студентів порожній");
                 } else {
-                    const id = dataEntry["getValue"]("Введіть id студента, якого треба знайти:");
+                    const id = dataEntry["getDigitalValue"](`Введіть ${this["properties"]["id"]} студента, якого треба знайти:`);
                     for (const index in array) {
                         if (array[index]["id"] == id) {
                             return alert(this["studentDetails"](array, index));
                         }
                     }
-                    alert("Такого id немає у базі даних студентів");;
+                    alert(`Такого ${this["properties"]["id"]} немає у базі даних студентів`);
                 }
             }
         }
