@@ -70,20 +70,19 @@
             properties: new Student("ім'я", "прізвище", "вік", "середній бал", "ідентифікаційний номер"),
 
             studentDetails: function (array, index) {
-                return `${array[index]["firstName"]} ${array[index]["lastName"]}, вік: ${array[index]["age"]}, середній бал: ${array[index]["score"]}, id:${array[index]["id"]}`;
+                return `${array[index]["firstName"]} ${array[index]["lastName"]}, вік: ${array[index]["age"]}, середній бал: ${array[index]["score"]}, id: ${array[index]["id"]}`;
             },
 
             view: function (array) {
+                let message = "";
                 if (array.length == 0) {
-                    alert("Список студентів порожній");
+                    message = "Список студентів порожній";
                 } else {
-                    let list = "";
                     for (index in array) {
-                        list += `${Number(index) + 1}. ${this["studentDetails"](array, index)}\n`;
+                        message += `${Number(index) + 1}. ${this["studentDetails"](array, index)}\n`;
                     }
-                    alert(list);
                 }
-                return;
+                return message;
             },
 
             add: function (array) {
@@ -101,35 +100,41 @@
                     }
                     object[key] = value;
                 }
-                return array.push(object);
+                array.push(object);
+                return "Додано у базу даних";
             },
 
             del: function (array) {
+                let message = "";
                 if (array.length == 0) {
-                    alert("Список студентів порожній, нічого видаляти");
+                    message = "Список студентів порожній, нічого видаляти";
                 } else {
                     const id = dataEntry["getDigitalValue"](`Введіть ${this["properties"]["id"]} студента, якого треба видалити:`);
                     for (index in array) {
                         if (array[index]["id"] == id) {
-                            return array.splice(index, 1);
+                            array.splice(index, 1);
+                            return "Видалено з бази даних";
                         }
                     }
-                    alert(`Такого ${this["properties"]["id"]} немає у базі даних студентів`)
+                    message = `Такого ${this["properties"]["id"]} немає у базі даних студентів`;
                 }
+                return message;
             },
 
             find: function (array) {
+                let message = "";
                 if (array.length == 0) {
-                    alert("Список студентів порожній");
+                    message = "Список студентів порожній";
                 } else {
                     const id = dataEntry["getDigitalValue"](`Введіть ${this["properties"]["id"]} студента, якого треба знайти:`);
                     for (index in array) {
                         if (array[index]["id"] == id) {
-                            return alert(this["studentDetails"](array, index));
+                            return this["studentDetails"](array, index);
                         }
                     }
-                    alert(`Такого ${this["properties"]["id"]} немає у базі даних студентів`);
+                    message = `Такого ${this["properties"]["id"]} немає у базі даних студентів`;
                 }
+                return message;
             }
         }
 
@@ -139,7 +144,7 @@
             let option = prompt(`Введіть дію, яку ви бажаєте зробити зі списком студентів: \n"view" - Показати перелік всіх студентів; \n"add" - Додати студента до списку; \n"del" - Видалити сутдента зі списку; \n"find" - Знайти студента за id; \n"exit" - Вийти із програми`).toLowerCase();
             if (option == "exit") break;
             if (option == "view" || option == "add" || option == "del" || option == "find" || option == "exit") {
-                studentsDatabase[option](students);
+                alert(studentsDatabase[option](students));
             } else {
                 alert("Введіть коректне значення");
             }
