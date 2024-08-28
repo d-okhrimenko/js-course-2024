@@ -39,6 +39,9 @@
                 this.students.splice(index, 1);
                 console.log(`Видалено запис з ID=${student.id}`)
             },
+            find: function (id){
+                
+            }
         };
 
 
@@ -51,9 +54,9 @@
                 return +prompt(message)
             },
 
-            promptByList: function (list, messageTemplateFn) {
-                return list.map(element => this.promptNumber(messageTemplateFn(element)))
-            },
+            // promptByList: function (list, messageTemplateFn) {
+            //     return list.map(element => this.promptNumber(messageTemplateFn(element)))
+            // },
 
             displayList: function (list, messageTemplateFn) {
                 list.forEach(x => this.display(messageTemplateFn(x)))
@@ -61,12 +64,8 @@
         };
 
 
-        let student1 = studentsDatabase.add(1123456789, "FirstName", "LastName", 15, 144);
-        let student2 = studentsDatabase.add(2123456789, "FirstName2", "LastName2", 22, 144);
-
-
-
-        uiController.displayList(studentsDatabase.students, x => `${x.id}, ${x.firstName}, ${x.lastName}, ${x.age}, ${x.avgMark}`);
+        studentsDatabase.add(1123456789, "FirstName", "LastName", 15, 144);
+        studentsDatabase.add(2123456789, "FirstName2", "LastName2", 22, 144);
 
         studentsDatabase.remove(9123654789);
 
