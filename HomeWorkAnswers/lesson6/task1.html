@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аналіз оцінок студентів</title>
+</head>
+<body>
+    <h1>Аналіз оцінок студентів</h1>
+    <button onclick="analyzeGrades()">Аналізувати оцінки</button>
+
+    <script>
+        // Функція для запиту оцінок у користувача
+        function getGrades() {
+            const grades = [];
+            let input;
+            do {
+                input = prompt("Введіть оцінку студента (від 0 до 100) або залиште поле порожнім для завершення:");
+                if (input !== "" && !isNaN(input)) {
+                    let grade = parseInt(input);
+                    if (grade >= 0 && grade <= 100) {
+                        grades.push(grade);
+                    } else {
+                        alert("Будь ласка, введіть оцінку від 0 до 100.");
+                    }
+                }
+            } while (input !== "");
+            return grades;
+        }
+
+        // Функція для обчислення середнього балу
+        function calculateAverage(grades) {
+            let sum = grades.reduce((acc, grade) => acc + grade, 0);
+            return sum / grades.length;
+        }
+
+        // Функція для знаходження найвищої оцінки
+        function findHighestGrade(grades) {
+            return Math.max(...grades);
+        }
+
+        // Функція для знаходження найнижчої оцінки
+        function findLowestGrade(grades) {
+            return Math.min(...grades);
+        }
+
+        // Основна функція для аналізу оцінок
+        function analyzeGrades() {
+            let grades = getGrades();
+
+            if (grades.length === 0) {
+                alert("Ви не ввели жодної оцінки.");
+                return;
+            }
+
+            let average = calculateAverage(grades).toFixed(2);
+            let highest = findHighestGrade(grades);
+            let lowest = findLowestGrade(grades);
+
+            alert(`Середній бал: ${average}\nНайвища оцінка: ${highest}\nНайнижча оцінка: ${lowest}`);
+        }
+    </script>
+</body>
+</html>
