@@ -21,20 +21,37 @@
       function delProduct(array) {
         let product = prompt('Введіть продукт')
         for (let i = 0; i < array.length; i++) {
-          //  if (product === array[i]) array.splice(array[i], 1)
+          if (product === array[i]) {
+            delete array[i]
+          }
         }
         return array
       }
-      let removeProduct = delProduct(productsList)
-      console.log(removeProduct)
+      // let removeProduct = delProduct(productsList)
+      // console.log(removeProduct)
       // 4
       function showProductsList(array) {
         for (let i = 0; i < array.length; i++) {
           console.log(array[i])
         }
       }
-      showProductsList(productsList)
+      // showProductsList(productsList)
       // 5
+      function getUserProduct(array) {
+        let userQuestion = prompt('Виберіть дію: (додавання товару, видалення товару, виведення списку)')
+        if (userQuestion === 'додавання товару') {
+          let addProduct = addToArray(productsList)
+          console.log(addProduct)
+        } else if (userQuestion === 'видалення товару') {
+          let removeProduct = delProduct(productsList)
+          console.log(removeProduct)
+        } else if (userQuestion === 'виведення списку') {
+          showProductsList(productsList)
+        } else {
+          console.log('Error')
+        }
+      }
+      getUserProduct(productsList)
     </script>
   </body>
 </html>
@@ -55,10 +72,10 @@
 +4. Створити функцію для виведення поточного списку покупок:
    - Функція виводить всі елементи масиву у зручному для читання форматі.
 
-5. Запропонувати користувачу вибрати дію:
++5. Запропонувати користувачу вибрати дію:
    - Використати `prompt` для вибору дії: додавання товару, видалення товару або виведення списку.
 
-6. Реалізувати вибір користувача:
++6. Реалізувати вибір користувача:
    - Викликати відповідні функції на основі вибраної дії.
 
 7. Повторити процес, поки користувач не завершить роботу:
