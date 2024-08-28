@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let birthYear = +prompt("Введіть рік народження");
-        let currentYear = new Date().getFullYear();
-        let curretAge = currentYear - birthYear;
+      let today = new Date();
+      let dayOfWeek = today.getDay();
+      let dayName;
 
-        const adultAge = 18;
-        if(curretAge === adultAge) {  // > < >= <= != ==
-            alert("Повнолітній користувач");
-        } 
-        else {
-            alert("Неповнолітній користувач");
-        }
+      if (dayOfWeek === 0) {
+        dayName = "неділя";
+      } else if (dayOfWeek === 1) {
+        dayName = "понеділок";
+      } else if (dayOfWeek === 2) {
+        dayName = "вівторок";
+      } else if (dayOfWeek === 3) {
+        dayName = "середа";
+      } else if (dayOfWeek === 4) {
+        dayName = "четвер";
+      } else if (dayOfWeek === 5) {
+        dayName = "п'ятниця";
+      } else if (dayOfWeek === 6) {
+        dayName = "субота";
+      }
+
+      alert("Сьогодні " + dayName + ".");
     </script>
-</body>
+  </body>
 </html>

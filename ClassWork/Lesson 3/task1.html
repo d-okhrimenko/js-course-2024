@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        let value1 = +prompt("Введіть перше значення");
-        let value2 = +prompt("Введіть друге значення");
-        let value3 = +prompt("Введіть третє значення");
-
-        // Number(), parseInt(), parseFloat() +
-        // value1 = parseFloat(value1);
-        // value2 = parseFloat(value2);
-        // value3 = parseFloat(value3);
-
-        let sum = value1 + value2 + value3;
-        let avg = sum / 3;
-        console.log("Averege is " + avg.toFixed(2));
-
+      let input = prompt("Введіть число:");
+      let number = parseInt(input);
+      if (isNaN(number)) {
+        alert("Ви ввели некоректне число. Будь ласка, спробуйте знову.");
+      } else {
+        if (number % 2 === 0) {
+          alert("Число є парним.");
+        } else {
+          alert("Число є непарним.");
+        }
+      }
     </script>
-</body>
-
+  </body>
 </html>
