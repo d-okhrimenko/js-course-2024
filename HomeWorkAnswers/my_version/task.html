@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="white_form">
+        <div id="heading_div">
+            <h1>Table of students</h1>
+            <button class="main_buttons" onclick="students.addStudent()">Додати студента</button>
+            <button class="main_buttons" onclick="students.deleteStudent()">Видалити студента</button>
+        </div>
+        <table id="students_table">
+            <thead>
+                <tr>
+                    <td>ім'я</td>
+                    <td>прізвище</td>
+                    <td>вік</td>
+                    <td>ідентифікаційний номер</td>
+                    <td>середній бал</td>
+                </tr>
+            </thead>
+            <tbody id="place_for_students"></tbody>
+        </table>
+
+        <p>Нажаль не зміг зробити так, щоб студент видалявся і в масиві, і в таблиці на сторінці</p>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
