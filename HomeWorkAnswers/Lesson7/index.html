@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 7</title>
+</head>
+
+<body>
+    <script src="library.js"></script>
+    <h2>Task 1. Student group.</h2>
+    <h3>
+        This program allows you to manage student data in a group.
+        <br>It allows you to easily add new students, delete information about graduates,
+        <br>and view the full list of students.
+    </h3>
+    <div>
+        <label for="idAdd">Add new student:</label>
+        <br>
+        <input id="idAdd" placeholder="id">
+        <br><br>
+        <input id="name" placeholder="Name">
+        <br><br>
+        <input id="lastName" placeholder="Last Name">
+        <br><br>
+        <input id="age" placeholder="Age">
+        <br><br>
+        <input id="gpa" placeholder="GPA">
+        <p id="addOutput"></p>
+        <button id="btnAdd">Submit</button>
+        <br><br>
+    </div>
+
+    <div>
+        <label for="idRemove">Remove student:</label>
+        <br>
+        <input id="idRemove" placeholder="id">
+        <p id="removeOutput"></p>
+        <button id="btnRemove">Submit</button>
+        <br><br>
+    </div>
+
+    <div>
+        <label for="idInfo">Student Info:</label>
+        <br>
+        <input id="idInfo" placeholder="id">
+        <p id="infoOutput"></p>
+        <button id="btnInfo">Submit</button>
+        <br><br>
+        <p id="listOutput"></p>
+        <button id="btnList">Students List</button>
+    </div>
+
+    <script src="task1.js"></script>
+</body>
+
+</html>
