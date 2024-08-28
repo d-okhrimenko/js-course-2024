@@ -34,13 +34,13 @@ let students = {
       console.log("Список студентів порожній.");
     } else {
       console.log("Список студентів:");
-      this.group.forEach(function (student) {
+      this.group.forEach((student) => {
         console.log("------------------------");
         console.log(`ID: ${student.id}`);
-        console.log(`Имя: ${student.firstName}`);
-        console.log(`Фамилия: ${student.lastName}`);
-        console.log(`Возраст: ${student.age}`);
-        console.log(`Средний балл: ${student.averageScore}`);
+        console.log(`Ім'я: ${student.firstName}`);
+        console.log(`Прізвище: ${student.lastName}`);
+        console.log(`Вік: ${student.age}`);
+        console.log(`Середній бал: ${student.averageScore}`);
         console.log("------------------------");
       });
     }
