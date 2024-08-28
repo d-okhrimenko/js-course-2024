@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function averageGrades(array) {
+              let sum = 0;
+              let count = 0            
+              for (const value of array) {
+                 sum += value; 
+                 count += 1;
+              }
+              return sum/count;
+         } 
+         let maxGrades = (array) => Math.max(...array);
+         let minGrades = (array) => Math.min(...array); 
+         
+        let grades = [12, 15 , 25, 45, 50, 80, 90, 37, 28, 39, 27, 68, 47];
+        alert(`Середній бал = ${averageGrades(grades)}, максимальна оцінка = ${maxGrades(grades)}, мінімальна оцінка = ${minGrades(grades)}`)
+        
+    </script>
+</body>
+</html>
