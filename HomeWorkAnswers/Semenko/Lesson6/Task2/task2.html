@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="products-list"></ul>
+    <button id="operation">Выбрать операцию</button>
+    <button id="exit">Завершить программу</button>
+
+    <script>
+      let Products = [];
+      const productsList = document.querySelector(".products-list");
+      let list = "";
+
+      function addProduct(Name) {
+        Products.push(Name);
+      }
+
+      function deleteProduct(Name) {
+        let product = Products.find((item) => item == Name);
+        if (product) {
+          let index = Products.indexOf(product);
+          delete Products[index];
+        } else {
+          alert("Такого продукта нет в списке ");
+        }
+      }
+
+      function showAllProducts() {
+        let list = "";
+        Products.forEach((element) => {
+          list += `<li>${element}</li>`;
+        });
+        productsList.innerHTML = list;
+      }
+
+      function inputProductName() {
+        let productName = prompt("Введите наименование продукта ");
+        productName.toLowerCase();
+        return productName;
+      }
+
+      document.querySelector("#operation").onclick =
+        function chooseOperation() {
+          let userChoice = +prompt(
+            "Выберите действие (1 - добавить продукт, 2 - удалить, 3 - вывести общий список)"
+          );
+
+          switch (userChoice) {
+            case 1:
+              addProduct(inputProductName());
+              break;
+            case 2:
+              deleteProduct(inputProductName());
+              break;
+            case 3:
+              showAllProducts();
+          }
+        };
+      document.querySelector("#exit").onclick = function () {
+        alert("Программа завершена");
+        window.close();
+      };
+    </script>
+  </body>
+</html>
