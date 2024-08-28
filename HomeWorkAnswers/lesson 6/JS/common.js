@@ -5,3 +5,9 @@ let getNumericValue = msg => {
       alert("Не коректне значення!");
     }
   }
+
+let getSymbolString = (symbol, qty) =>{
+    str = "";
+    for(let step = 0; step < qty; step++) str += symbol;
+    return str; 
+}
