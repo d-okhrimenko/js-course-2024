@@ -69,8 +69,8 @@
         let studentsDatabase = {
             properties: new Student("ім'я", "прізвище", "вік", "середній бал", "ідентифікаційний номер"),
 
-            studentDetails: function (array, index) {
-                return `${array[index]["firstName"]} ${array[index]["lastName"]}, вік: ${array[index]["age"]}, середній бал: ${array[index]["score"]}, id: ${array[index]["id"]}`;
+            studentDetails: function (object) {
+                return `${object["firstName"]} ${object["lastName"]}, вік: ${object["age"]}, середній бал: ${object["score"]}, id: ${object["id"]}`;
             },
 
             view: function (array) {
@@ -78,9 +78,7 @@
                 if (array.length == 0) {
                     message = "Список студентів порожній";
                 } else {
-                    for (index in array) {
-                        message += `${Number(index) + 1}. ${this["studentDetails"](array, index)}\n`;
-                    }
+                    array.forEach((value, index) => message += `${index + 1}. ${this["studentDetails"](value)}\n`);
                 }
                 return message;
             },
@@ -110,11 +108,10 @@
                     message = "Список студентів порожній, нічого видаляти";
                 } else {
                     const id = dataEntry["getDigitalValue"](`Введіть ${this["properties"]["id"]} студента, якого треба видалити:`);
-                    for (index in array) {
-                        if (array[index]["id"] == id) {
-                            array.splice(index, 1);
-                            return "Видалено з бази даних";
-                        }
+                    let index = array.findIndex(value => value["id"] == id);
+                    if (index != -1) {
+                        array.splice(index, 1);
+                        return "Видалено з бази даних";
                     }
                     message = `Такого ${this["properties"]["id"]} немає у базі даних студентів`;
                 }
@@ -127,11 +124,8 @@
                     message = "Список студентів порожній";
                 } else {
                     const id = dataEntry["getDigitalValue"](`Введіть ${this["properties"]["id"]} студента, якого треба знайти:`);
-                    for (index in array) {
-                        if (array[index]["id"] == id) {
-                            return this["studentDetails"](array, index);
-                        }
-                    }
+                    message = array.find(value => value["id"] == id);
+                    if (message) return `${this["studentDetails"](message)}`;
                     message = `Такого ${this["properties"]["id"]} немає у базі даних студентів`;
                 }
                 return message;
