@@ -7,7 +7,9 @@
   </head>
   <body>
     <script>
+      // 1
       let productsList = ['bread', 'meat', 'egg', 'kiwi', 'banana']
+      // 2
       function addToArray(array) {
         let product = prompt('Введіть продукт')
         array.push(product)
@@ -15,13 +17,24 @@
       }
       // let addProduct = addToArray(productsList)
       // console.log(addProduct)
-
+      // 3
+      function delProduct(array) {
+        let product = prompt('Введіть продукт')
+        for (let i = 0; i < array.length; i++) {
+          //  if (product === array[i]) array.splice(array[i], 1)
+        }
+        return array
+      }
+      let removeProduct = delProduct(productsList)
+      console.log(removeProduct)
+      // 4
       function showProductsList(array) {
         for (let i = 0; i < array.length; i++) {
           console.log(array[i])
         }
       }
-      // showProductsList(productsList)
+      showProductsList(productsList)
+      // 5
     </script>
   </body>
 </html>
