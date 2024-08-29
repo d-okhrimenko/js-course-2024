@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Завдання: Написати програму для управління інформацією про студентів у групі. 
+ Програма повинна дозволяти додавати нових студентів, видаляти студентів і виводити інформацію про всіх студентів. -->
+
+    <script>
+      class Student {
+        constructor(id, name, surname, age, averageGrade) {
+          this.id = id;
+          this.name = name;
+          this.surname = surname;
+          this.age = age;
+          this.averageGrade = averageGrade;
+        }
+
+        showOnDisplay() {
+          console.log(
+            `id: ${this.id}, name: ${this.name}, surname: ${this.surname}, age: ${this.age}, averageGrade: ${this.averageGrade}`
+          );
+          console.log('----------------------');
+        }
+      }
+
+      let studentsDatabase = {
+        studentsList: [],
+
+        addStudent(id, name, surname, age, averageGrade) {
+          this.studentsList.push(
+            new Student(id, name, surname, age, averageGrade)
+          );
+          console.log(`The new student with ID ${id} has been added`);
+        },
+
+        removeStudentById(id) {
+          let index = this.studentsList.findIndex(student => student.id === id);
+          this.studentsList.splice(index, 1);
+          console.log(`Student with ID ${id} was deleted`);
+          console.log('----------------------');
+        },
+
+        searchStudentById(id) {
+          let target = this.studentsList.find(student => student.id === id);
+          console.log(`Student with ID ${id} found:`);
+          target.showOnDisplay();
+        },
+
+        showAllStudents() {
+          this.studentsList.forEach(student => student.showOnDisplay());
+        },
+      };
+
+      // tests
+      studentsDatabase.addStudent(1, 'Alisa', 'Fox', 30, 10.1);
+      studentsDatabase.addStudent(2, 'Alex', 'Cheshire', 41, 11.5);
+      studentsDatabase.addStudent(3, 'Andry', 'Fedoriv', 36, 10.9);
+      studentsDatabase.addStudent(4, 'Olena', 'Paduchi', 28, 11.2);
+
+      studentsDatabase.showAllStudents();
+
+      studentsDatabase.searchStudentById(2);
+
+      studentsDatabase.removeStudentById(1);
+
+      studentsDatabase.showAllStudents();
+    </script>
+  </body>
+</html>
