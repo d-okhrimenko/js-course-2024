@@ -6,8 +6,12 @@
     <title>Lesson 2 - Task 1</title>
 </head>
 <body>
+    <button id="btn">Скажи привіт</button>
     <script>
-       alert(new Date);
+       let btn = document.querySelector("#btn");
+       btn.onclick = function(){
+        alert("Привіт, Тетяно");
+       };
     </script>
 </body>
 </html>
