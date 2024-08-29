@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>task2</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>task1 Lesson5</h1>
+    <script>
+      function indexBodyWeight(weight, height) {
+        return weight / Math.pow(height / 100, 2);
+      }
+
+      function categoryIndex(indexBody) {
+        if (indexBody < 18.5) {
+          alert(
+            `Ваш індекс маси тіла: ${indexBody}. Ви маєте не достатню вагу тіла`
+          );
+        } else if (indexBody >= 18.5 && indexBody < 24.9) {
+          alert(
+            `Ваш індекс маси тіла: ${indexBody}. Ваша вага тіла у межах норми`
+          );
+        } else if (indexBody >= 25 && indexBody < 29.9) {
+          alert(
+            `Ваш індекс маси тіла: ${indexBody}. Ви маєте надмірну вагу тіла`
+          );
+        } else {
+          alert(
+            `Ваш індекс маси тіла: ${indexBody}. Ваш індекс маси тіла свідчить про ожиріння`
+          );
+        }
+      }
+
+      let userWeight = Number(prompt("Введіть масу свого тіла у кілограмах"));
+      let userHeight = Number(prompt("Введіть ваш зріст у сантиментрах"));
+      let userIndexbody = indexBodyWeight(userWeight, userHeight).toFixed(1);
+      let userCategory = categoryIndex(userIndexbody);
+    </script>
+  </body>
+</html>
+

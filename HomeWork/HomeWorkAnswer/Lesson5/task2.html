@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>task2</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>task2 Lesson5</h1>
+    <script>
+      //1.Функція для визначення площі і переметру круга, яка повертає відповідний обєкт:
+      function circle(radius) {
+        return {
+          square: Math.PI * Math.pow(radius, 2),
+          perimeter: 2 * Math.PI * radius,
+        };
+      }
+
+      //2.Функція для визначення площі і переметру прямокутника, яка повертає відповідний обєкт:
+      function rectangle(firstSide, secondSide) {
+        return {
+          square: firstSide * secondSide,
+          perimeter: 2 * (firstSide + secondSide),
+        };
+      }
+      //3.Функція для визначення площі і переметру трикутника, яка повертає відповідний обєкт, з перевіркою сторін:
+      function triangle(a, b, c) {
+        if (a + b > c && a + c > b && b + c > a) {
+          let p = (a + b + c) / 2;
+          return {
+            square: Math.sqrt(p * (p - a) * (p - b) * (p - c)),
+            perimeter: a + b + c,
+          };
+        } else {
+          alert("Трикутника з такими сторонами не існує");
+        }
+      }
+      //4.Запит у користувача виду фігури:
+      let userFigure = Number(
+        prompt(
+          `Обери фігуру для обчислення її площі та периметру натиснувши її номер:\n1. Круг;\n2. Прямокутник;\n3. Трикутник`
+        )
+      );
+
+      //5.Функція, яка показує результат розрахунку площі та периметру фігури, вибраної користувачем через prompt:
+      function showResult(figure) {
+        if (figure == 1) {
+          let userRadius = Number(prompt("Введіть радіус круга"));
+          let userCircle = circle(userRadius);
+          let userCircleSquare = userCircle.square.toFixed(2);
+          let userCirclePerimetr = userCircle.perimeter.toFixed(2);
+
+          alert(
+            `Площа круга становить: ${userCircleSquare}\n Периметр круга становить: ${userCirclePerimetr}`
+          );
+        } else if (figure == 2) {
+          let userfirstSide = Number(
+            prompt("Введіть першу сторону прямокутника")
+          );
+          let userSecondSide = Number(
+            prompt("Введіть другу сторону прямокутника")
+          );
+          let userRectangle = rectangle(userfirstSide, userSecondSide);
+          let userRectangleSquare = userRectangle.square.toFixed(2);
+          let userRectanglePerimeter = userRectangle.perimeter.toFixed(2);
+          alert(
+            `Площа прямокутника становить: ${userRectangleSquare}\n Периметр прямокутника становить: ${userRectanglePerimeter}`
+          );
+        } else if (figure == 3) {
+          let userA = Number(prompt("Введи першу сторону трикутника"));
+          let userB = Number(prompt("Введи другу сторону трикутника"));
+          let userC = Number(prompt("Введи третю сторону трикутника"));
+          let userTriangle = triangle(userA, userB, userC);
+          let userTriangleSquare = userTriangle.square.toFixed(2);
+          let userTrianglePerimeter = userTriangle.perimeter.toFixed(2);
+          alert(
+            `Площа трикутника становить: ${userTriangleSquare}\n Периметр трикутника становить: ${userTrianglePerimeter}`
+          );
+        }
+      }
+
+      //6.Виклик функції showResult:
+      showResult(userFigure);
+    </script>
+  </body>
+</html>
