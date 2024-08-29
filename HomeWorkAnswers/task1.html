@@ -5,5 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <script>
+      function createStudent(name, surname, years, id) {
+        let student = {}
+        student.name = name
+        student.surname = surname
+        student.years = years
+        student.id = id
+        student.infoStudent = function () {
+          console.log(this.name)
+          console.log(this.surname)
+        }
+        return student
+      }
+
+      class Student {
+        constructor(name, surname, years, id, averageScore) {
+          this.name = name
+          this.surname = surname
+          this.years = years
+          this.id = id
+          this.averageScore = averageScore
+        }
+        studentInfo() {
+          console.log(this.name)
+          console.log(this.surname)
+          console.log(this.years)
+          console.log(this.id)
+          console.log(this.averageScore)
+        }
+      }
+
+      student1 = createStudent('Viktor', 'Petsko', 35, 2)
+      console.log(student1)
+
+      let student2 = createStudent('Yulia', 'Petsko', 34, 1)
+      console.log(student2)
+
+      let student3 = new Student('Yulia', 'Petsko', 34, 1, 10.4)
+      console.log(student3)
+    </script>
+  </body>
 </html>
+<!-- Завдання: Написати програму для управління інформацією про студентів у групі. Програма повинна дозволяти додавати нових студентів, видаляти студентів і виводити інформацію про всіх студентів.
+
+Кроки для виконання завдання:
+
++Створити конструктор або фабричну функцію для створення об'єктів студентів:
+Кожен об'єкт студента повинен містити наступні властивості: ім'я, прізвище, вік, ідентифікаційний номер, середній бал.
+
+Додати метод для додавання нового студента:
+Метод повинен приймати параметри для створення нового об'єкта студента і додавати його до масиву.
+
+Додати метод для видалення студента:
+Метод повинен видаляти студента за його ідентифікаційним номером.
+
+Додати метод для виведення списку всіх студентів:
+Метод повинен виводити на екран список студентів із зазначенням всіх їхніх властивостей.
+
+Створити об'єкт для управління групою студентів:
+Цей об'єкт повинен містити масив студентів та методи для додавання, видалення і виведення інформації про студентів.
+
+Додати функціонал для пошуку студента за його ідентифікаційним номером:
+Метод повинен шукати студента в масиві і повертати всю інформацію про нього. -->
