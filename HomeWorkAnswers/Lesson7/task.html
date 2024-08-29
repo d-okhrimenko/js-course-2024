@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 7 - Task</title>
+</head>
+
+<body>
+    <script>
+        let journal = {
+
+            ids: [1, 2],
+
+            students: [
+                { "номер": 1, "ім'я": "Брендан", "прізвище": "Айк", "вік": 63, "середній бал": 95 },
+                { "номер": 2, "ім'я": "Юкіхіро", "прізвище": "Мацумото", "вік": 59, "середній бал": 89 },
+            ],
+
+            isValidID(id) {
+                let hit = this.ids.includes(id);
+                if (hit) {
+                    let indexExistsStudent = this.searchIndexStudentByID(id);
+                    let existsStudent = this.students[indexExistsStudent];
+                    this.showMessage(`Під номером ${id} у журналі вже записаний студент "${existsStudent["iм'я"]} ${existsStudent["прізвище"]}". При додаванні у журнал нового студента його номер має бути унікальним.`);
+                    return false;
+                }
+                return true;
+            },
+
+            addStudent(id, name, surname, age, average) {
+                this.showMessage(`Додавання студента "${name} ${surname}" з номером "${id}" у журнал...`);
+                if (this.isValidID(id)) {
+                    let student = { "номер": id, "iм'я": name, "прізвище": surname, "вік": age, "середній бал": average };
+                    this.students.push(student);
+                    this.ids.push(id);
+                    this.showMessage(`Студент "${student["iм'я?"]} ${student["прізвище"]}" під номером "${id}" успішно доданий в журнал`);
+                }
+            },
+
+            searchIndexStudentByID(id) {
+                let student = this.students.filter(item => item["номер"] === id)[0];
+                let indexItem = this.students.indexOf(student);
+                return indexItem;
+            },
+
+            searchStudentByID(id) {
+                this.showMessage(`Пошук у журналі студента з номером "${id}"...`);
+                let indexStudent = this.searchIndexStudentByID(id);
+                if (indexStudent > - 1) {
+                    let foundStudent = this.students[indexStudent];
+                    let resultSearch = "\n";
+                    for (let property in foundStudent) {
+                        resultSearch += `${property}: ${foundStudent[property]}\n`;
+                    }
+                    this.showMessage(`Інформацію про студента з номером "${id}" знайдено:\n${resultSearch}`);
+                } else {
+                    this.showMessage(`Студент з номером "${id}" відсутній в журналі`);
+                }
+            },
+
+            removeStudentByID(id) {
+                this.showMessage(`Видалення з журналу студента під номером "${id}"...`);
+                let indexStudent = this.searchIndexStudentByID(id);
+                if (indexStudent > -1) {
+                    let indexRemoveID = this.ids.indexOf(id);
+                    if (indexRemoveID > -1) this.ids.splice(indexRemoveID, 1);
+                    let removeStudent = this.students.splice(indexStudent, 1)[0];
+                    this.showMessage(`Cтудент "${removeStudent["ім'я"]} ${removeStudent["прізвище"]}" з номером "${id}" успішно видалений з журналу`);
+                } else {
+                    this.showMessage(`Студент з номером "${id}" відсутній в журналі`);
+                }
+            },
+
+            showAllStudents() {
+                let head = "Список студентів у журналі на цей момент:\n\n";
+                let tail = "";
+                for (let student of this.students) {
+                    for (let property in student) {
+                        tail += `${property}: ${student[property]}\n`;
+                    }
+                    tail += "\n";
+                }
+                this.showMessage(`${head}${tail.trim() || "порожній"}`);
+            },
+
+            showMessage(message) {
+                console.log(message);
+            },
+
+            exit() {
+                this.showMessage("Робота з журналом завершена.");
+            }
+        };
+
+        journal.showAllStudents();
+        
+        journal.addStudent(3, "Б’ярне", 'Страуструп', 73, 90);
+
+        journal.addStudent(4, "Гвідо", 'ван Россум', 68, 98);
+
+        journal.showAllStudents();
+
+        journal.addStudent(4, "Лінус", 'Торвальдс', 54, 85);
+
+        journal.removeStudentByID(2);
+        
+        journal.showAllStudents();
+
+        journal.searchStudentByID(2);
+
+        journal.removeStudentByID(5);
+
+        journal.searchStudentByID(4);
+
+        journal.exit();
+    </script>
+
+</body>
+
+</html>
