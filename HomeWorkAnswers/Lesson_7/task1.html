@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Student {
+            constructor(name, surname, age, id, avgGrade) {
+                this.name = name;
+                this.surname = surname;
+                this.age = age;
+                this.id = id;
+                this.avgGrade = avgGrade;
+            }
+            displayStudent() {
+                console.log(`id: ${this.id}, name: ${this.name}, surname: ${this.surname}, age: ${this.age}, average_Grade: ${this.avgGrade}`);
+            }
+        }
+
+        let studentManagement = {
+            students: [],
+            add: function (name, surname, age, id, avgGrade) {
+                this.students.push(new Student(name, surname, age, id, avgGrade));
+            },
+            remove: function (id) {
+                let index = this.students.findIndex(student => student.id === id);
+                console.log(index);
+                if (index > -1) {
+                    this.students.splice(index, 1);
+                }
+                else { console.log(`Student with id: ${id} is not found`) }
+            },
+            findById: function (id) {
+                let student = this.students.find(student => student.id === id);
+                if (student) {
+                    student.displayStudent();
+                }
+                else { console.log(`Student with id: ${id} is not found`) }
+            },
+            display: function () {
+                this.students.forEach(student => student.displayStudent());
+            }
+        }
+        studentManagement.add("Petro", "Shchesniuk", 20, 1, 90);
+        studentManagement.add("Oksana", "Pastuh", 6, 2, 76.9);
+        studentManagement.display();
+        studentManagement.findById(1);
+        studentManagement.findById(3);
+        studentManagement.remove(1);
+        studentManagement.remove(10);
+        studentManagement.display();
+    </script>
+</body>
+
+</html>
