@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // function createStudent(firstName, lastName, age, id, averageScore) {
+      //     let student = {};
+
+      //     student.firstName = firstName;
+      //     student.lastName = lastName;
+      //     student.age = age;
+      //     student.id = id;
+      //     student.averageScore = averageScore;
+
+      //     return student;
+      // }
+
+      class Student {
+        constructor(firstName, lastName, age, id, averageScore) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          this.age = age;
+          this.id = id;
+          this.averageScore = averageScore;
+        }
+
+        displayInfo() {
+        console.log(`Name: ${this.firstName} ${this.lastName}`);
+        console.log(`ID: ${this.id}`);
+        console.log(`Age: ${this.age}`);
+        console.log(`Average Score: ${this.averageScore}`);
+        console.log('-----------------------');
+    }
+}
+
+      let group = {
+        students: [],
+
+        add: function (student) {
+          this.students.push(student);
+        },
+
+        remove: function (id) {
+            let index = this.students.findIndex(student => student.id === id);
+        if (index !== -1) {
+            this.students.splice(index, 1);
+        } else {
+            console.log(`Student with ID ${id} not found.`);
+        }
+        },
+
+        printAll: function() {
+        this.students.forEach(student => student.displayInfo());
+    },
+
+        search: function(id) {
+            let student = this.students.find(student => student.id === id);
+          if(student) {
+            student.displayInfo();
+          } else {
+            console.log(`Student with ID ${id} not found.`)
+          }
+        },
+
+        worstStudent: function() {
+            let worstStudent = this.students.reduce((lowest, current) => {
+                return current.averageScore < lowest.averageScore ? current : lowest;
+            });
+             
+            return worstStudent.id;
+        }
+      };
+
+      let student1 = new Student("Tim", "Barton", 19, 1, 78);
+      let student2 = new Student("Olga", "Stone", 20, 34, 98);
+      let student3 = new Student("Peter", "Pen", 19, 83, 80);
+      let student4 = new Student("Monica", "Belucci", 21, 3, 100);
+
+      group.add(student1);
+      group.add(student2);
+      group.add(student3);
+      group.add(student4);
+
+
+      console.log("All students: ")
+      group.printAll();
+      console.log('*************************');
+
+console.log("Searching student with id 3: ")
+      group.search(3);
+      console.log('*************************');
+
+      console.log("Removing worst student: ")
+      group.search(group.worstStudent());
+      group.remove(group.worstStudent());
+      console.log('*************************');
+
+      console.log("Thats the group after repressions: ")
+      group.printAll();
+      console.log('*************************');
+
+
+
+
+
+    </script>
+  </body>
+</html>
