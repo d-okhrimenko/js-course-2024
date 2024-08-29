@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="task1-style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Управління Студентами</h1>
+
+    <div class="form">
+        <h2>Додати нового студента</h2>
+        <input type="text" id="firstName" placeholder="Ім'я">
+        <input type="text" id="lastName" placeholder="Прізвище">
+        <input type="number" id="age" placeholder="Вік">
+        <input type="text" id="studentID" placeholder="ID студента">
+        <input type="number" step="0.01" id="averageGrade" placeholder="Середній бал">
+        <button id="addStudentBtn">Додати студента</button>
+    </div>
+
+    <div class="search">
+        <h2>Пошук студента за ID</h2>
+        <input type="text" id="searchID" placeholder="Введіть ID студента">
+        <button id="searchStudentBtn">Шукати студента</button>
+        <p id="searchResult"></p>
+    </div>
+
+    <div class="student-list">
+        <h2>Список студентів</h2>
+        <ul id="studentList"></ul>
+    </div>
+</div>
+
+<script src="task1-script.js"></script>
+</body>
+</html>
