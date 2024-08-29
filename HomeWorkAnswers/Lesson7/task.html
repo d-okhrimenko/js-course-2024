@@ -22,29 +22,16 @@
         let dataEntry = {
             getLiteralValue: function (message) {
                 while (true) {
-                    let digital = false;
                     let value = prompt(message);
-                    for (letter of value) {
-                        let isValid = isNaN(letter) && letter !== "" && letter !== null;
-                        if (!isValid) {
-                            digital = true;
-                        }
-                    }
-                    if (digital) {
-                        alert("Введіть коректне значення");
-                    } else {
-                        return value;
-                    }
+                    if (value.search(/\d/) != 0) return value;
+                    alert("Введіть коректне значення");
                 }
             },
 
             getDigitalValue: function (message) {
                 while (true) {
                     let value = prompt(message);
-                    let isValid = !isNaN(value) && value !== "" && value !== null && Number(value) > 0;
-                    if (isValid) {
-                        return Number(value);
-                    }
+                    if (!isNaN(value) && value !== "" && value !== null && Number(value) > 0) return Number(value);
                     alert("Введіть коректне значення");
                 }
             },
@@ -53,15 +40,9 @@
                 while (true) {
                     let value = this["getDigitalValue"](message);
                     let duplicate = false;
-                    for (index in array) {
-                        if (value == array[index][key])
-                            duplicate = true;
-                    }
-                    if (duplicate) {
-                        alert("Таке значення вже є, введіть інше значення");
-                    } else {
-                        return value;
-                    }
+                    array.forEach((element) => duplicate = (value == element[key]));
+                    if (!duplicate) return value;
+                    alert("Таке значення вже є, введіть інше значення");
                 }
             }
         }
