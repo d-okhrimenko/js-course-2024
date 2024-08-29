@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let year = prompt("Уведіть рік:");
+        year = parseInt(year);
+
+        if (isNaN(year)) {
+            alert("Уведіть вірне число");
+        } else {
+            let isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+            if (isLeapYear) {
+                alert(year + " рік високосний");
+            } else {
+                alert(year + " рік не високосний");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

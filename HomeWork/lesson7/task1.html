@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Конструктор для створення об'єктів студентів
+        function Student(firstName, lastName, age, id, averageGrade) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.id = id;
+            this.averageGrade = averageGrade;
+        }
+
+        // Об'єкт для управління групою студентів
+        const StudentGroup = {
+            students: [],
+
+            // Метод для додавання нового студента
+            addStudent: function (firstName, lastName, age, id, averageGrade) {
+                const newStudent = new Student(firstName, lastName, age, id, averageGrade);
+                this.students.push(newStudent);
+                alert(`Студент ${firstName} ${lastName} успішно доданий!`);
+            },
+
+            // Метод для видалення студента за ідентифікаційним номером
+            removeStudent: function (id) {
+                const initialLength = this.students.length;
+                this.students = this.students.filter(student => student.id !== id);
+
+                if (initialLength > this.students.length) {
+                    alert(`Студента з ID ${id} успішно видалено.`);
+                } else {
+                    alert(`Студента з ID ${id} не знайдено.`);
+                }
+            },
+
+            // Метод для виведення списку всіх студентів
+            listStudents: function () {
+                if (this.students.length === 0) {
+                    alert("Немає студентів у групі.");
+                } else {
+                    let studentList = "Список студентів:\n";
+                    this.students.forEach(student => {
+                        studentList += `Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, ID: ${student.id}, Середній бал: ${student.averageGrade}\n`;
+                    });
+                    alert(studentList);
+                }
+            },
+
+            // Метод для пошуку студента за ідентифікаційним номером
+            findStudentById: function (id) {
+                const student = this.students.find(student => student.id === id);
+                if (student) {
+                    alert(`Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, ID: ${student.id}, Середній бал: ${student.averageGrade}`);
+                } else {
+                    alert(`Студент з ID ${id} не знайдений.`);
+                }
+            }
+        };
+
+        // Взаємодія з користувачем через prompt
+        let continueLoop = true;
+
+        while (continueLoop) {
+            const action = prompt("Введіть дію (додати (1), видалити (2), список (3), знайти (4), вийти (5)):").toLowerCase();
+
+            if (action === "1") {
+                const firstName = prompt("Введіть ім'я:");
+                const lastName = prompt("Введіть прізвище:");
+                const age = parseInt(prompt("Введіть вік:"));
+                const id = prompt("Введіть ідентифікаційний номер:");
+                const averageGrade = parseFloat(prompt("Введіть середній бал:"));
+                StudentGroup.addStudent(firstName, lastName, age, id, averageGrade);
+
+            } else if (action === "2") {
+                const id = prompt("Введіть ідентифікаційний номер студента для видалення:");
+                StudentGroup.removeStudent(id);
+
+            } else if (action === "3") {
+                StudentGroup.listStudents();
+
+            } else if (action === "4") {
+                const id = prompt("Введіть ідентифікаційний номер студента для пошуку:");
+                StudentGroup.findStudentById(id);
+
+            } else if (action === "5") {
+                continueLoop = false;
+                alert("Програма завершена.");
+            } else {
+                alert("Невідома дія, спробуйте ще раз.");
+            }
+        }
+    </script>
+</body>
+
+</html>
