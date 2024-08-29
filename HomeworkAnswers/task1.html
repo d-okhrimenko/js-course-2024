@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./index.js"></script>
+    <script>
+      let getBmi = (weight, height) => weight / height;
+
+      let weight = getNumericValue("Введіть свою масу в кілограмах"); // 10
+      let heightCm = getNumericValue("Введіть свій зріст в сантиметрах");
+      let height = Math.pow(heightCm / 100, 2);
+
+      const bmi = Math.round(getBmi(weight, height), 2);
+
+      if (bmi < 18.5) {
+        alert(`Ваш індекс маси тіла ${bmi}. \nУ Вас недостатня вага`);
+      } else if (18.5 <= bmi < 24.9) {
+        alert(`Ваш індекс маси тіла ${bmi}. \nУ Вас нормальна вага`);
+      } else if (25 <= bmi < 29.9) {
+        alert(`Ваш індекс маси тіла ${bmi}. \nУ Вас надмірна вага`);
+      } else {
+        alert(`Ваш індекс маси тіла ${bmi}. \nУ Вас ожиріння`);
+      }
+    </script>
+  </body>
+</html>

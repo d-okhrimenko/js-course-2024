@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./index.js"></script>
+    <script>
+      function getTextValue(message) {
+        while (true) {
+          let value = prompt(message).toLocaleLowerCase().trim();
+          let isValid = ["коло", "прямокутник", "трикутник"].includes(value);
+          if (isValid) return value;
+        }
+      }
+
+      let shape = getTextValue(
+        "Введіть назву фігури: коло, прямокутник, трикутник"
+      );
+
+      if (shape === "коло") {
+        let radius = getNumericValue("Введіть радіус кола");
+
+        function getCirclePerimeter(radius) {
+          return 2 * Math.PI * radius;
+        }
+
+        let getCircleArea = (radius) => Math.PI * Math.pow(radius, 2);
+
+        let circleArea = Math.round(getCircleArea(radius), 2);
+        let circlePerimeter = Math.round(getCirclePerimeter(radius), 2);
+
+        alert(`Довжина кола ${circlePerimeter}, а його площа ${circleArea}`);
+      }
+
+      if (shape === "прямокутник") {
+        let heightRectangle = getNumericValue("Введіть довжину прямокутника");
+        let widthRectangle = getNumericValue("Введіть ширину прямокутника");
+
+        function getRectanglePerimeter(heightRectangle, widthRectangle) {
+          return 2 * (heightRectangle + widthRectangle);
+        }
+
+        let getRectangleArea = (heightRectangle, widthRectangle) =>
+          heightRectangle * widthRectangle;
+
+        let rectangleArea = getRectangleArea(heightRectangle, widthRectangle);
+        let rectanglePerimeter = getRectanglePerimeter(
+          heightRectangle,
+          widthRectangle
+        );
+
+        alert(
+          `Периметр прямокутника ${rectanglePerimeter}, а його площа ${rectangleArea}`
+        );
+      }
+
+      if (shape === "трикутник") {
+        let firstSideTriangle = getNumericValue(
+          "Введіть довжину першої сторони трикутника"
+        );
+        let secondSideTriangle = getNumericValue(
+          "Введіть довжину другої сторони трикутника"
+        );
+        let thirdSideTriangle = getNumericValue(
+          "Введіть довжину третьої сторони трикутника"
+        );
+
+        function getTrianglePerimeter(
+          firstSideTriangle,
+          secondSideTriangle,
+          thirdSideTriangle
+        ) {
+          return firstSideTriangle + secondSideTriangle + thirdSideTriangle;
+        }
+
+        let trianglePerimeter = getTrianglePerimeter(
+          firstSideTriangle,
+          secondSideTriangle,
+          thirdSideTriangle
+        );
+
+        let semiPerimeter = Math.round(trianglePerimeter / 2, 2);
+
+        let getTriangleArea = (
+          firstSideTriangle,
+          secondSideTriangle,
+          thirdSideTriangle
+        ) =>
+          Math.sqrt(
+            semiPerimeter *
+              (semiPerimeter - firstSideTriangle) *
+              (semiPerimeter - secondSideTriangle) *
+              (semiPerimeter - thirdSideTriangle)
+          );
+
+        let triangleArea = Math.round(
+          getTriangleArea(
+            firstSideTriangle,
+            secondSideTriangle,
+            thirdSideTriangle
+          ),
+          2
+        );
+
+        alert(
+          `Периметр трикутника ${trianglePerimeter}, а його площа ${triangleArea}`
+        );
+      }
+    </script>
+  </body>
+</html>
