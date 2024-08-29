@@ -23,7 +23,7 @@
             getLiteralValue: function (message) {
                 while (true) {
                     let value = prompt(message);
-                    if (value.search(/\d/) != 0) return value;
+                    if (value.search(/\d/) !== 0 && value !== "") return value;
                     alert("Введіть коректне значення");
                 }
             },
