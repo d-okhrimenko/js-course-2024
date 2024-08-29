@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Фабрична функція для створення об'єкта студента
+        function Student(name, lastname, age, id, averageGrade) {
+            return {
+                name: name,
+                lastname: lastname,
+                age: age,
+                id: id,
+                averageGrade: averageGrade
+            };
+        }
+
+        // Об'єкт для управління групою студентів
+        const studentGroup = {
+            students: [],
+
+            // Метод для додавання нового студента
+            addStudent: function (name, lastname, age, id, averageGrade) {
+                const newStudent = Student(name, lastname, age, id, averageGrade);
+                this.students.push(newStudent);
+                console.log(`Новий студент ${name} ${lastname} успішно доданий.`);
+            },
+
+            // Метод для видалення студента за його ідентифікаційним номером
+            removeStudent: function (id) {
+                const index = this.students.findIndex(student => student.id === id);
+                if (index !== -1) {
+                    const removedStudent = this.students.splice(index, 1)[0];
+                    console.log(`Студент ${removedStudent.name} ${removedStudent.lastname} успішно видалений.`);
+                } else {
+                    console.log(`Студент з ID ${id} не знайдений.`);
+                }
+            },
+
+            // Метод для виведення списку всіх студентів
+            listStudents: function () {
+                if (this.students.length === 0) {
+                    console.log("Список студентів порожній.");
+                } else {
+                    console.log("Список студентів:");
+                    this.students.forEach(student => {
+                        console.log(`Ім'я: ${student.name}, Прізвище: ${student.lastname}, Вік: ${student.age}, ID: ${student.id}, Середній бал: ${student.averageGrade}`);
+                    });
+                }
+            },
+
+            // Метод для пошуку студента за його ідентифікаційним номером
+            findStudentById: function (id) {
+                const student = this.students.find(student => student.id === id);
+                if (student) {
+                    console.log(`Інформація про студента з ID ${id}: Ім'я: ${student.name}, Прізвище: ${student.lastname}, Вік: ${student.age}, Середній бал: ${student.averageGrade}`);
+                } else {
+                    console.log(`Студент з ID ${id} не знайдений.`);
+                }
+            }
+        };
+
+        studentGroup.addStudent("Женя", "Іванов", 20, "001", 4.3);
+        studentGroup.addStudent("Ольга", "Іванова", 19, "002", 4.1);
+        studentGroup.addStudent("Юлія", "Сидоренко", 21, "003", 3.7);
+        studentGroup.listStudents();
+        studentGroup.findStudentById("001");
+        studentGroup.removeStudent("001");
+        studentGroup.listStudents();
+        studentGroup.findStudentById("001");
+    </script>
+</body>
+
+</html>
