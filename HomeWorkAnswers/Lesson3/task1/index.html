@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function evenNumber() {
+    let number;
+    
+    while (true) {
+        number = Number(prompt("Введіть число"));
+
+        if (!isNaN(number) && number % 2 === 0) {
+            alert("Число парне");
+        } else if (!isNaN(number)) {
+            alert("Число непарне");
+        } else {
+            alert("Введене значення не є числом");
+        }
+    }
+}
+
+evenNumber();
+    </script>
+</body>
+</html>
