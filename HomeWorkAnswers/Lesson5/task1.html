@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Індекс маси тіла</title>
+</head>
+<body>
+    <script>
+        function calculateІМТ(weight, height) {
+            return weight / (height * height);
+        }
+
+        function getІМТCategory(imt) {
+            if (imt < 18.5) {
+                return 'Недостатня вага';
+            } else if (imt >= 18.5 && imt < 24.9) {
+                return 'Нормальна вага';
+            } else if (imt >= 25 && imt < 29.9) {
+                return 'Надмірна вага';
+            } else {
+                return 'Ожиріння';
+            }
+        }
+
+        const weight = parseFloat(prompt('Введіть вашу вагу (кг):'));
+        const height = parseFloat(prompt('Введіть ваш зріст (м):'));
+
+        if (isNaN(weight) || weight <= 0 || isNaN(height) || height <= 0) {
+            alert('Будь ласка, введіть коректні дані для ваги і зросту.');
+        } else {
+            const imt = calculateІМТ(weight, height);
+
+            const category = getІМТCategory(imt);
+
+            alert(`Ваш ІМТ: ${imt.toFixed(2)}\nКатегорія: ${category}`);
+        }
+    </script>
+</body>
+</html>

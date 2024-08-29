@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+let userChoice = prompt('Виберіть: камінь, ножиці, папір').toLowerCase();
+
+if (!['камінь', 'ножиці', 'папір'].includes(userChoice)) {
+    alert('Невірний вибір! Будь ласка, виберіть камінь, ножиці або папір.');
+} else {
+ 
+    let choices = ['камінь', 'ножиці', 'папір'];
+    let randomIndex = Math.floor(Math.random() * choices.length);
+    let computerChoice = choices[randomIndex];
+    
+    var result;
+    if (userChoice === computerChoice) {
+        result = 'Нічия!';
+    } else if (
+        (userChoice === 'камінь' && computerChoice === 'ножиці') ||
+        (userChoice === 'ножиці' && computerChoice === 'папір') ||
+        (userChoice === 'папір' && computerChoice === 'камінь')
+    ) {
+        result = 'Ви виграли!';
+    } else {
+        result = 'Комп\'ютер виграв!';
+    }
+    
+    alert('Ви вибрали: ' + userChoice + '\nКомп\'ютер вибрав: ' + computerChoice + '\nРезультат: ' + result);
+}
+
+    </script>
+</body>
+</html>

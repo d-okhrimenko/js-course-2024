@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Камінь, ножиці, папір</title>
+</head>
+<body>
+    <script>
+        let userWins = 0;
+        let computerWins = 0;
+        let rounds = 0;
+
+        while (true) {
+            let userChoice = prompt('Виберіть: камінь, ножиці, папір або введіть "вихід" для завершення гри').toLowerCase();
+
+            if (userChoice === 'вихід') {
+                alert('Гра закінчена. Кількість раундів: ' + rounds + '. Перемоги користувача: ' + userWins + '. Перемоги комп\'ютера: ' + computerWins + '.');
+                break;
+            }
+
+            if (!['камінь', 'ножиці', 'папір'].includes(userChoice)) {
+                alert('Невірний вибір! Будь ласка, виберіть камінь, ножиці або папір.');
+                continue;
+            }
+
+            let choices = ['камінь', 'ножиці', 'папір'];
+            let randomIndex = Math.floor(Math.random() * choices.length);
+            let computerChoice = choices[randomIndex];
+            
+            let result;
+            if (userChoice === computerChoice) {
+                result = 'Нічия!';
+            } else if (
+                (userChoice === 'камінь' && computerChoice === 'ножиці') ||
+                (userChoice === 'ножиці' && computerChoice === 'папір') ||
+                (userChoice === 'папір' && computerChoice === 'камінь')
+            ) {
+                result = 'Ви виграли!';
+                userWins++;
+            } else {
+                result = 'Комп\'ютер виграв!';
+                computerWins++;
+            }
+            
+            rounds++;
+
+            alert('Ви вибрали: ' + userChoice + '\nКомп\'ютер вибрав: ' + computerChoice + '\nРезультат: ' + result);
+        }
+    </script>
+</body>
+</html>
