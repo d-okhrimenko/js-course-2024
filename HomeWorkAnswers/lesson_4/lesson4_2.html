@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        Завдання 2
+
+Гра: "Математичний квіз"
+
+Опис гри:
+Програма генерує випадкові математичні вирази (додавання, віднімання, множення, ділення) та запитує у користувача правильну відповідь. Користувач має обмежену кількість спроб, щоб дати правильну відповідь. Програма виводить кількість правильних та неправильних відповідей після завершення гри.
+
+Кроки для виконання завдання:
+
+1. Генерація математичних виразів:
+
+	- Використайте Math.random() для генерації двох випадкових чисел і оператора (+, -, *, /).
+
+2. Запит правильних відповідей:
+
+	- Використайте prompt для запиту відповідей у користувача.
+
+3 Перевірка відповідей:
+
+	- Використайте умовні конструкції для перевірки правильності відповідей.
+
+4 Підрахунок результатів:
+
+	- Підрахуйте кількість правильних та неправильних відповідей.
+
+5.Виведення результатів:
+
+	- Використайте alert для виведення підсумкових результатів.
+    </pre>
+    <script>
+let operant1 = Math.floor(Math.random() * 100);
+let operant2 = Math.floor(Math.random() * 100);
+let operator;
+function operation(min, max){
+ return Math.floor(Math.random ()*(max - min + 1) + min)
+}
+let forOreration = operation(1, 4);
+console.log(forOreration);
+
+if (forOreration == "1"){
+    operator = "+";
+}
+else if (forOreration == "2"){
+    operator = "-";
+}
+else if (forOreration == "3"){
+    operator = "*";
+}
+else if (forOreration == "4"){
+    operator = "/";
+}
+
+alert(`выполните расчет: ${operant1} ${operator} ${operant2}`);
+let result  = Number(operant1) + Number(operator) + Number(operant2);
+console.log(result);
+
+
+    </script>
+</body>
+
+</html>
