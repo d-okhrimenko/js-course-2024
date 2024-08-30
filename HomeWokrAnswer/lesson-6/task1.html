@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список покупок</title>
+</head>
+<body>
+<script>
+
+// Крок 1: Створити масив для зберігання списку покупок
+const shoppingList = [];
+
+// Додавання товарів до списку
+shoppingList.push("Молоко");
+shoppingList.push("Хліб");
+shoppingList.push("Яйця");
+
+// Виведення списку покупок
+console.log("Список покупок:");
+shoppingList.forEach((item, index) => {
+    console.log(`${index + 1}. ${item}`);
+});
+// Крок 2: Функція для додавання товару до списку
+function addProduct(product) {
+    shoppingList.push(product);
+}
+
+// Крок 3: Функція для видалення товару зі списку
+function removeProduct(product) {
+    const index = shoppingList.indexOf(product);
+    if (index !== -1) {
+        shoppingList.splice(index, 1);
+    }
+}
+
+// Крок 4: Функція для виведення поточного списку покупок
+function displayShoppingList() {
+    if (shoppingList.length === 0) {
+        console.log("Список покупок порожній.");
+    } else {
+        console.log("Список покупок:");
+        shoppingList.forEach((product, index) => {
+            console.log(`${index + 1}. ${product}`);
+        });
+    }
+}
+
+// Крок 5: Запропонувати користувачу вибрати дію
+while (true) {
+    const action = prompt("Виберіть дію: 1 - додати товар, 2 - видалити товар, 3 - вивести список, 0 - завершити");
+    switch (action) {
+        case "1":
+            const newProduct = prompt("Введіть назву товару:");
+            addProduct(newProduct);
+            break;
+        case "2":
+            const productToRemove = prompt("Введіть назву товару для видалення:");
+            removeProduct(productToRemove);
+            break;
+        case "3":
+            displayShoppingList();
+            break;
+        case "0":
+            alert("Дякую за використання програми!");
+           
+        default:
+            alert("Невірний вибір. Спробуйте ще раз.");
+    }
+}
+</script>
+</body>
+</html>

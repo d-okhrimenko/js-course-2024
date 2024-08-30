@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>оцінки</title>
+</head>
+<body>
+
+<script>
+ // Крок 1: Створити масив для зберігання оцінок студентів
+const studentGrades = [];
+
+// Крок 2: Функція для обчислення середнього балу
+function calculateAverage(grades) {
+    const total = grades.reduce((sum, grade) => sum + grade, 0);
+    return total / grades.length;
+}
+
+// Крок 3: Функція для знаходження найвищої оцінки
+function findHighest(grades) {
+    return Math.max(...grades);
+}
+
+// Крок 4: Функція для знаходження найнижчої оцінки
+function findLowest(grades) {
+    return Math.min(...grades);
+}
+
+// Крок 5: Запитати користувача ввести оцінки
+const numGrades = parseInt(prompt("Скільки оцінок ви хочете ввести?"), 10);
+for (let i = 0; i < numGrades; i++) {
+    const grade = parseInt(prompt(`Введіть оцінку ${i + 1}`), 10);
+    studentGrades.push(grade);
+}
+
+// Крок 6: Обчислити середній бал, найвищу та найнижчу оцінки
+const averageGrade = calculateAverage(studentGrades);
+const highestGrade = findHighest(studentGrades);
+const lowestGrade = findLowest(studentGrades);
+
+// Крок 7: Вивести результати
+alert(`Середній бал: ${averageGrade.toFixed(2)}, Найвища оцінка: ${highestGrade}, Найнижча оцінка: ${lowestGrade}`);
+
+
+
+</script>
+
+
+    
+</body>
+</html>
