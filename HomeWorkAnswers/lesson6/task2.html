@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список покупок</title>
+</head>
+<body>
+    <h1>Список покупок</h1>
+    <button onclick="manageShoppingList()">Управляти списком покупок</button>
+
+    <script>
+        // Початковий список покупок
+        let shoppingList = ["хліб", "молоко", "яйця"];
+
+        // Функція для додавання товару до списку
+        function addItem(item) {
+            shoppingList.push(item);
+            alert(`Товар "${item}" додано до списку.`);
+        }
+
+        // Функція для видалення товару зі списку
+        function removeItem(item) {
+            const index = shoppingList.indexOf(item);
+            if (index !== -1) {
+                shoppingList.splice(index, 1);
+                alert(`Товар "${item}" видалено зі списку.`);
+            } else {
+                alert(`Товар "${item}" не знайдено у списку.`);
+            }
+        }
+
+        // Функція для виведення поточного списку покупок
+        function displayList() {
+            if (shoppingList.length === 0) {
+                alert("Список покупок порожній.");
+            } else {
+                alert("Ваш список покупок:\n" + shoppingList.join(", "));
+            }
+        }
+
+        // Функція для управління списком покупок
+        function manageShoppingList() {
+            let action;
+            do {
+                action = prompt("Що ви хочете зробити? (додати, видалити, показати, завершити)").toLowerCase();
+                switch (action) {
+                    case "додати":
+                        let newItem = prompt("Введіть назву товару для додавання:");
+                        if (newItem) {
+                            addItem(newItem);
+                        } else {
+                            alert("Назва товару не може бути порожньою.");
+                        }
+                        break;
+                    case "видалити":
+                        let removeItemName = prompt("Введіть назву товару для видалення:");
+                        if (removeItemName) {
+                            removeItem(removeItemName);
+                        } else {
+                            alert("Назва товару не може бути порожньою.");
+                        }
+                        break;
+                    case "показати":
+                        displayList();
+                        break;
+                    case "завершити":
+                        alert("Завершення роботи зі списком покупок.");
+                        break;
+                    default:
+                        alert("Невідома команда. Спробуйте ще раз.");
+                }
+            } while (action !== "завершити");
+        }
+    </script>
+</body>
+</html>
