@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+#shoppingWindow {
+    display: none;
+    text-align: left;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.shopping-list ol {
+    padding-left: 20px;
+}
+
+.shopping-list ol li {
+    list-style-type: decimal;
+    padding: 5px 0;
+}
+
+#emptyMessage {
+    text-align: center;
+    color: #555;
+}
