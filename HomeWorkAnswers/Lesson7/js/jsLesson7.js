@@ -15,35 +15,37 @@ class Student {
     }
 }
 
-let studentsDatabase = {
-    studentsList: [],
+class StudentsDatabase {
+    #studentsList = [];
 
     addStudent(id, name, lastName, age, averageGrade) {
-        this.studentsList.push(
+        this.#studentsList.push(
             new Student(id, name, lastName, age, averageGrade)
         );
         console.log(`The new student with ID ${id} has been added`);
-    },
+    }
 
     removeStudentById(id) {
-        let index = this.studentsList.findIndex(student => student.id === id);
-        this.studentsList.splice(index, 1);
+        let index = this.#studentsList.findIndex(student => student.id === id);
+        this.#studentsList.splice(index, 1);
         console.log(`Student with ID ${id} was deleted`);
         console.log('----------------------');
-    },
+    }
 
     searchStudentById(id) {
-        let target = this.studentsList.find(student => student.id === id);
+        let target = this.#studentsList.find(student => student.id === id);
         console.log(`Student with ID ${id} found:`);
         target.showOnDisplay();
-    },
+    }
 
     showAllStudents() {
-        this.studentsList.forEach(student => student.showOnDisplay());
-    },
-};
+        this.#studentsList.forEach(student => student.showOnDisplay());
+    }
+}
 
 // tests
+let studentsDatabase = new StudentsDatabase();
+
 studentsDatabase.addStudent(1, 'Oleh ', 'Ivanenko', 23, 10.1);
 studentsDatabase.addStudent(2, 'Svitlana ', 'Petrenko', 22, 11.5);
 studentsDatabase.addStudent(3, 'Kateryna ', 'Mykhailova', 24, 10.9);
