@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Урок 8. Завдання 1</title>
     <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
-<!-- Завдання: Написати програму, яка виводить список книг у бібліотеці на веб-сторінку. Програма повинна брати інформацію з масиву об’єктів, де кожен об’єкт представляє книгу, і динамічно додавати її в HTML.
+    <!-- Завдання: Написати програму, яка виводить список книг у бібліотеці на веб-сторінку. Програма повинна брати інформацію з масиву об’єктів, де кожен об’єкт представляє книгу, і динамічно додавати її в HTML.
 
 Кроки для виконання завдання:
 
@@ -31,28 +33,27 @@ const books = [
 { title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
 ]; -->
 
-<!--2.Створити HTML-структуру для виведення списку книг:
+    <!--2.Створити HTML-структуру для виведення списку книг:
 	•	Додати контейнер (наприклад, <div id="bookList"></div>), в який буде додаватися інформація про книги.
     -->
-<template id="template">
-    <section class="books">
-        <div id="bookList">
+    <template id="template">
+        <div id="bookItem" class="bookItem">
             <h2>{{title}}</h2>
             <p>Автор: {{author}}</p>
             <p>Жанр: {{genre}}. Рік {{year}}</p>
         </div>
+    </template>
+
+    <section id="bookList" class="bookList">
+
     </section>
-</template>
 
-<section id="viewBooks" class="viewBooks">
-
-</section>
-
-<script src="js/mustache.min.js"></script>
-<script src="js/model.js"></script>
-<script src="js/view.js"></script>
-<script src="js/controller.js"></script>
+    <script src="js/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
 
 
 </body>
+
 </html>
