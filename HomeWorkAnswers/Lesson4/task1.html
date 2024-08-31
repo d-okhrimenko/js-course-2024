@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let game = ['Камінь', 'Ножниці', 'Бумага']
+      let userAnswer,
+        compRandom,
+        compAnswer,
+        result,
+        userCount = 0,
+        compCount = 0
+      for (let index = 0; index < 5; index++) {
+        userAnswer = prompt('Введіть Ваш варіант (Камінь, Ножниці, Бумага)')
+
+        compRandom = Math.floor(Math.random() * game.length)
+        compAnswer = game[compRandom]
+
+        if (userAnswer === 'Вихід') break
+        else if (userAnswer === 'Камінь' && compAnswer === 'Ножниці') {
+          // result = 'Виграв користувач'
+          userCount++
+        } else if (userAnswer === 'Ножниці' && compAnswer === 'Камінь') {
+          // result = 'Виграв компютер'
+          compCount++
+        } else if (userAnswer === 'Ножниці' && compAnswer === 'Бумага') {
+          // result = 'Виграв користувач'
+          userCount++
+        } else if (userAnswer === 'Бумага' && compAnswer === 'Ножниці') {
+          // result = 'Виграв компютер'
+          compCount++
+        } else if (userAnswer === 'Бумага' && compAnswer === 'Камінь') {
+          // result = 'Виграв користувач'
+          userCount++
+        } else if (userAnswer === 'Камінь' && compAnswer === 'Бумага') {
+          // result = 'Виграв компютер'
+          compCount++
+        }
+        // else if (userAnswer === compAnswer) {
+        //   result = 'Нічия'
+        // }
+      }
+
+      // console.log(userAnswer)
+      // console.log(compAnswer)
+      console.log(userCount)
+      console.log(compCount)
+
+      if (userCount > compCount) result = 'Виграв користувач'
+      else if (userCount < compCount) result = 'Виграв компютер'
+      else result = 'Нічия'
+      console.log(result)
+    </script>
+  </body>
+</html>
+<!-- Гра: "Камінь, ножиці, папір"
+
+Опис гри:
+Користувач грає проти комп'ютера в класичну гру "Камінь, ножиці, папір". Програма запитує вибір користувача, генерує випадковий вибір для комп'ютера, визначає переможця та виводить результат.
+
+Кроки для виконання завдання:
+
+1. Введення вибору користувача:
+   - Використайте `prompt` для запиту вибору користувача (камінь, ножиці, папір).
+
+2. Генерація вибору комп'ютера:
+   - Використайте `Math.random()` для випадкового вибору між каменем, ножицями і папером.
+
+3. Визначення переможця:
+   - Використайте умовні конструкції для визначення переможця за правилами гри:
+     - Камінь б'є ножиці.
+     - Ножиці б'ють папір.
+     - Папір б'є камінь.
+     - Однакові вибори - нічия.
+
+4. Виведення результату:
+   - Використайте `alert` для виведення вибору користувача, вибору комп'ютера та результату гри.
+
+Додаткові завдання:
+1. Додати можливість гри кілька раундів з підрахунком загального рахунку.
+2. Додати можливість користувачеві вийти з гри за допомогою спеціальної команди (наприклад, введення "вихід") -->
