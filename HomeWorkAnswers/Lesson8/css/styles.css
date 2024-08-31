@@ -1,0 +1,15 @@
+.books {
+    background-color: rosybrown;
+    color: white;
+    padding: 20px;
+    margin: 30px 10px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.viewBooks {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    background-color: bisque;
+}
