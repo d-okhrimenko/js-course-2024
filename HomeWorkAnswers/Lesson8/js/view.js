@@ -7,7 +7,7 @@ const renderBooks = {
         element.innerHTML = html;
     },
 
-    render(dataBooks, element, template) {
+    render(dataBooks, element) {
         let i = 1;
         dataBooks.forEach(book => {
             //<div id="bookItem" class="bookItem">
