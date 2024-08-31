@@ -1,0 +1,39 @@
+body {
+    background-color: #ccdbdc;
+}
+
+img {
+    margin: 5px 2px;
+    width: 150px;
+}
+
+.book {
+    background-color: #2e294e;
+    color: #c5d86d;
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius: 4px;
+}
+
+.container-book {
+    display: flex;
+}
+
+.left-column-container-book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-column-container-book {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
