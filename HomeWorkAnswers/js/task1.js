@@ -14,31 +14,34 @@ class Student {
 }
 
 class StudentsGroup {
+  // Приватне поле для масиву студентів
+  #students;
+
   constructor() {
-    this.students = [];
+    this.#students = [];
   }
 
   // Додаємо нового студента
   addStudent(firstName, lastName, age, id, averageGrade) {
     const newStudent = new Student(firstName, lastName, age, id, averageGrade);
-    this.students.push(newStudent);
+    this.#students.push(newStudent);
   }
 
   // Видаляємо студента з id
   removeStudent(id) {
-    this.students = this.students.filter((student) => student.id !== id);
+    this.#students = this.#students.filter((student) => student.id !== id);
   }
 
   // Виводимо інформацію про всіх студентів
   showAllStudents() {
-    this.students.forEach((student) => {
+    this.#students.forEach((student) => {
       console.log(student.getInfo());
     });
   }
 
   // Шукаємо студента по ID
   findStudentById(id) {
-    const student = this.students.find((student) => student.id === id);
+    const student = this.#students.find((student) => student.id === id);
 
     if (student) {
       console.log(student.getInfo());
