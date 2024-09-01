@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoneOrEven</title>
+  </head>
+  <body>
+    <p>Program to analyze the number if it even</p>
+    <script>
+      let input;
+      let message;
+
+      input = parseInt(prompt("Enter the value"));
+
+      if (!isNaN(input)) {
+        message =
+          input % 2 === 0
+            ? "The entered value is even!"
+            : "The entered value is not even!";
+        alert.log(message);
+      } else {
+        message = "The entered value is not a number!!!";
+        alert.log(message);
+      }
+    </script>
+  </body>
+</html>

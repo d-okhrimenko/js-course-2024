@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DayOfWeek</title>
+  </head>
+  <body>
+    <script>
+      let curDate = new Date();
+      let curDayOfWeek = curDate.getDay();
+
+      if (curDayOfWeek === 1) {
+        console("Monday");
+      } else if (curDayOfWeek === 2) {
+        console.log("Tuesday");
+      } else if (curDayOfWeek === 3) {
+        console.log("Wednesday");
+      } else if (curDayOfWeek === 4) {
+        console.log("Thursday");
+      } else if (curDayOfWeek === 5) {
+        console.log("Friday");
+      } else if (curDayOfWeek === 6) {
+        console.log("Saturday");
+      } else {
+        console.log("Sunday");
+      }
+    </script>
+  </body>
+</html>
