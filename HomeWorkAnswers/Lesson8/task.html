@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson8 hometask</title>
+    <style>
+        .book {
+            background-color: lightblue;
+            padding: 20px;
+            margin: 30px 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <template id="book-list-template">
+        <div class="book">
+            <h3>«{{title}}»</h3>
+            <p>автор: {{author}}</p>
+            <p>рік видання: {{year}}</p>
+            <p>жанр: {{genre}}</p>
+        </div>
+    </template>
+
+    <div id="book-list">
+    </div>
+
+    <script src="../../node_modules/mustache/mustache.min.js"></script>
+
+    <script>
+
+        const books = [
+            { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+            { title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
+            { title: "Гра престолів", author: "Джордж Р. Р. Мартін", year: 1996, genre: "Фентезі" },
+            { title: "Старий і море", author: "Ернест Хемінгуей", year: 1952, genre: "Пригодницький роман" },
+            { title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+        ];
+
+        class Book {
+            constructor(title, author, year, genre) {
+                this.title = title,
+                    this.author = author,
+                    this.year = year,
+                    this.genre = genre
+            };
+        };
+
+        class BookList {
+            #books = [];
+
+            addBook = function (book) {
+                this.#books.push(book);
+            };
+
+            getBooks() {
+                return this.#books;
+            }
+
+            renderWithTemplate(books, element, template) {
+                let html = "";
+                books.forEach(book => {
+                    html += Mustache.render(template, book);
+                });
+                element.innerHTML = html;
+            }
+        }
+
+        let bookList = new BookList();
+        books.forEach(book => {
+            let newBook = new Book(book.title, book.author, book.year, book.genre);
+            bookList.addBook(newBook);
+        });
+
+        let html = document.querySelector("#book-list");
+        let template = document.querySelector("#book-list-template").innerHTML;
+        bookList.renderWithTemplate(bookList.getBooks(), html, template);
+
+    </script>
+</body>
+
+</html>
