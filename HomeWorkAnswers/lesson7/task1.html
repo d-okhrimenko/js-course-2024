@@ -7,29 +7,40 @@
   </head>
   <body>
     <script>
-      function studentInfo(id, name, surname, age, averageScore) {
-        let student = {};
-        student.id = id;
-        student.name = name;
-        student.surname = surname;
-        student.age = age;
-        student.averageScore = averageScore;
-        return student;
+      // function studentInfo(id, name, surname, age, averageScore) {
+      //   let student = {};
+      //   student.id = id;
+      //   student.name = name;
+      //   student.surname = surname;
+      //   student.age = age;
+      //   student.averageScore = averageScore;
+      //   return student;
+      // }
+      class studentInfo {
+        constructor(id, name, surname, age, averageScore) {
+          this.id = id;
+          this.name = name;
+          this.surname = surname;
+          this.age = age;
+          this.averageScore = averageScore;
+        }
       }
 
       // let studentsList = [];
 
       let studentsDir = {
         studentsList: [],
+
         studentAdd: function (array) {
           const id = prompt("Введіть id студента.");
           const surname = prompt("Введіть призвіще.");
           const name = prompt("Введіть імя.");
           const age = prompt("Введіть вік.");
           const averageScore = prompt("Введіть середній бал.");
-          array.push(studentInfo(id, name, surname, age, averageScore));
+          array.push(new studentInfo(id, name, surname, age, averageScore));
           return array;
         },
+
         studentDell: function (array) {
           const studentId = prompt("Введіть id студента для видалення.");
           array.forEach((student) => {
@@ -39,6 +50,7 @@
             }
           });
         },
+
         studentsAllPrint: function (array) {
           array.forEach((student) => {
             console.log(
@@ -46,6 +58,7 @@
             );
           });
         },
+
         studentSearch: function (array) {
           const studentId = prompt("Введіть id студента для пошуку.");
           array.forEach((student) => {
@@ -57,6 +70,7 @@
           });
         },
       };
+
       while (true) {
         let value = +prompt(
           "1-додати студента, 2-видалити студента, 3-вивести весь список, 4-вивести студента за id, 0-завершити вибір."
