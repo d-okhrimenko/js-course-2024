@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Student {
+      constructor(firstName, lastName, age, studentId, averageGrade) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.studentId = studentId;
+        this.averageGrade = averageGrade;
+      }
+
+      toString() {
+        return `ID: ${this.studentId}, Ім'я: ${this.firstName}, Прізвище: ${this.lastName}, Вік: ${this.age}, Середній бал: ${this.averageGrade}`;
+      }
+    }
+
+    class StudentGroup {
+      // Приватне поле для масиву студентів
+      #students = [];
+
+      // Метод для додавання нового студента
+      addStudent(firstName, lastName, age, studentId, averageGrade) {
+        const newStudent = new Student(firstName, lastName, age, studentId, averageGrade);
+        this.#students.push(newStudent);
+      }
+
+      // Метод для видалення студента
+      removeStudent(studentId) {
+        this.#students = this.#students.filter(student => student.studentId !== studentId);
+      }
+
+      // Метод для виведення списку всіх студентів
+      displayStudents() {
+        if (this.#students.length === 0) {
+          console.log("Група студентів порожня.");
+        } else {
+          this.#students.forEach(student => console.log(student.toString()));
+        }
+      }
+
+      // Метод для пошуку студента за його ідентифікаційним номером
+      findStudentById(studentId) {
+        const student = this.#students.find(student => student.studentId === studentId);
+        if (student) {
+          console.log(student.toString());
+        } else {
+          console.log(`Студента з ID ${studentId} не знайдено.`);
+        }
+      }
+    }
+
+    // Приклад використання
+    const group = new StudentGroup();
+
+    group.addStudent("Олександр", "Іванов", 20, "001", 85.5);
+    group.addStudent("Марія", "Петренко", 19, "002", 91.0);
+    group.addStudent("Ігор", "Ковальчук", 21, "003", 78.0);
+
+    group.displayStudents();
+
+    group.removeStudent("002");
+
+    console.log("\nПісля видалення студента:");
+    group.displayStudents();
+
+    console.log("\nПошук студента за ID:");
+    group.findStudentById("001");
+
+    console.log("\nПошук студента за ID:");
+    group.findStudentById("002");
+
+
+  </script>
+</body>
+
+</html>
