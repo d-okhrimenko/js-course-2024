@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style2.css" />
+    <title>Lesson 6, Task 2 - Список покупок</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Список покупок</h1>
+      <div class="list-actions">
+        <button onclick="addElement()" class="list-actions__btn">
+          Додати як новий товар
+        </button>
+        <input
+          type="text"
+          id="input-element"
+          placeholder="Введіть назву товару"
+        />
+        <button onclick="deleteElement()" class="list-actions__btn">
+          Видалити товар зі списку
+        </button>
+      </div>
+      <h2>Твій список товарів</h2>
+      <ul id="your-list" class="your-list">
+        <!-- <li id="item0" class="your-list__item"></li> -->
+      </ul>
+    </div>
+    <script>
+      let purchaseList = [];
+
+      function addElement() {
+        let commodity = document.getElementById("input-element");
+        let nameCommodity = commodity.value;
+
+        if (nameCommodity) {
+          purchaseList.push(nameCommodity);
+          commodity.value = "";
+          showList();
+        }
+      }
+
+      function deleteElement() {
+        let commodity = document.getElementById("input-element");
+        let nameCommodity = commodity.value;
+
+        if (nameCommodity) {
+          let elementForDelete = purchaseList.indexOf(nameCommodity);
+          if (elementForDelete != -1) {
+            purchaseList.splice(elementForDelete, 1);
+            commodity.value = "";
+            showList();
+          } else {
+            alert("Товар у списку не знайдено");
+          }
+        }
+      }
+
+      function showList() {
+        let commodityList = document.getElementById("your-list");
+        commodityList.innerHTML = "";
+        purchaseList.forEach((element, index) => {
+          let li = document.createElement("li");
+          li.textContent = element;
+          commodityList.appendChild(li);
+        });
+      }
+    </script>
+  </body>
+</html>
