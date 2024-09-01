@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/styles/style.css">
+  <title>Book List</title>
+</head>
+
+<body>
+  <ul id="bookList" class="books__list"></ul>
+
+  <template id="bookTemplate">
+    <li class="books__item">
+      <h2 class="books__item-title">{{title}}</h2>
+      <p class="books__item-author">Автор: {{author}}</p>
+      <p class="books__item-year">Рік видання: {{year}}</p>
+      <p class="books__item-genre">Жанр: {{genre}}</p>
+    </li>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+  <script src="assets/js/app.js" type="module"></script>
+</body>
+
+</html>
