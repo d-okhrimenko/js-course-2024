@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>База даних студентів</title>
+</head>
+
+<body>
+    <script>
+        class Student {
+            constructor(firstName, lastName, age, averageScore, id) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+                this.score = averageScore;
+                this.id = id;
+            }
+        }
+
+        let dataEntry = {
+            getLiteralValue: function (message) {
+                while (true) {
+                    let value = prompt(message);
+                    if (value.search(/\d/) !== 0 && value !== "") return value;
+                    alert("Введіть коректне значення");
+                }
+            },
+
+            getDigitalValue: function (message) {
+                while (true) {
+                    let value = prompt(message);
+                    if (!isNaN(value) && value !== "" && value !== null && Number(value) > 0) return Number(value);
+                    alert("Введіть коректне значення");
+                }
+            },
+
+            getValueAndDuplicateCheck: function (array, key, message) {
+                while (true) {
+                    let value = this["getDigitalValue"](message);
+                    let duplicate = false;
+                    array.forEach((element) => duplicate = (value == element[key]));
+                    if (!duplicate) return value;
+                    alert("Таке значення вже є, введіть інше значення");
+                }
+            }
+        }
+
+        let studentsDatabase = {
+            properties: new Student("ім'я", "прізвище", "вік", "середній бал", "ідентифікаційний номер"),
+
+            studentDetails: function (object) {
+                return `${object["firstName"]} ${object["lastName"]}, вік: ${object["age"]}, середній бал: ${object["score"]}, id: ${object["id"]}`;
+            },
+
+            view: function (array) {
+                let message = "";
+                if (array.length == 0) {
+                    message = "Список студентів порожній";
+                } else {
+                    array.forEach((value, index) => message += `${index + 1}. ${this["studentDetails"](value)}\n`);
+                }
+                return message;
+            },
+
+            add: function (array) {
+                const object = new Student();
+
+                for (key in object) {
+                    let value = "";
+                    let message = `Введіть ${this["properties"][key]}:`;
+                    if (key == "firstName" || key == "lastName") {
+                        value = dataEntry["getLiteralValue"](message);
+                    } else if (key != "id") {
+                        value = dataEntry["getDigitalValue"](message);
+                    } else {
+                        value = dataEntry["getValueAndDuplicateCheck"](array, key, message);
+                    }
+                    object[key] = value;
+                }
+                array.push(object);
+                return `Студент ${object["firstName"]} ${object["lastName"]} доданий до групи`;
+            },
+
+            del: function (array) {
+                let message = "";
+                if (array.length == 0) {
+                    message = "Список студентів порожній, нічого видаляти";
+                } else {
+                    const id = dataEntry["getDigitalValue"](`Введіть ${this["properties"]["id"]} студента, якого треба видалити:`);
+                    let index = array.findIndex(value => value["id"] == id);
+                    if (index != -1) {
+                        const name = `${array[index]["firstName"]} ${array[index]["lastName"]}`;
+                        array.splice(index, 1);
+                        return `Студент ${name} видалений із групи`;
+                    }
+                    message = `Такого ${this["properties"]["id"]} немає у базі даних студентів`;
+                }
+                return message;
+            },
+
+            find: function (array) {
+                let message = "";
+                if (array.length == 0) {
+                    message = "Список студентів порожній";
+                } else {
+                    const id = dataEntry["getDigitalValue"](`Введіть ${this["properties"]["id"]} студента, якого треба знайти:`);
+                    message = array.find(value => value["id"] == id);
+                    if (message) return `${this["studentDetails"](message)}`;
+                    message = `Такого ${this["properties"]["id"]} немає у базі даних студентів`;
+                }
+                return message;
+            }
+        }
+
+        const students = [];
+
+        while (true) {
+            let option = prompt(`Введіть дію, яку ви бажаєте зробити зі списком студентів: \n"view" - Показати перелік всіх студентів; \n"add" - Додати студента до списку; \n"del" - Видалити сутдента зі списку; \n"find" - Знайти студента за id; \n"exit" - Вийти із програми`).toLowerCase();
+            if (option == "exit") break;
+            if (option == "view" || option == "add" || option == "del" || option == "find" || option == "exit") {
+                alert(studentsDatabase[option](students));
+            } else {
+                alert("Введіть коректне значення");
+            }
+        }
+    </script>
+</body>
+
+</html>
