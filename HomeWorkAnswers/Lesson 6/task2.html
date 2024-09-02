@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// ФУНКЦІЯ ПЕРЕВІРКИ КОРЕКТНОСТІ ВВОДУ
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = value !== "" && value !== null;
+                if (isValid) return value;
+            }
+        }  
+// ================================================================================
+// ДОДАВАННЯ ТОВАРУ ДО СПИСКУ   
+        function addingProduct(productList) {
+            let product = '';
+
+            while(product !== '-') {
+                product = getValue('Введіть назву товару, який хочете додати до списку, \nщоб закінчити - натисніть [-]');
+                
+                if (product === '-') {
+                    break;
+                }
+                productList.push(product);
+
+                outputProduct(productList);
+            }
+            return productList;
+        }
+// ================================================================================
+// ВИДАЛЕННЯ ТОВАРУ ЗІ СПИСКУ  
+        function deletingProduct(productList) {
+            let delProduct = '';
+            while(delProduct !== '-') {
+
+                if (productList.length === 0) {
+                    console.clear();
+                    console.log('Список порожній, немає шо видаляти');
+                    break;
+                }
+                delProduct = getValue('Введіть назву товару, який хочете видалити зі списку, \nщоб закінчити - натисніть [-]');           
+                
+                for (let i = 0; i < productList.length; i++) {
+                    if (productList[i] === delProduct) {
+                        productList.splice(i, 1);
+                    }
+                }
+                outputProduct(productList);
+            }
+        }
+// ================================================================================
+// ВИВЕДЕННЯ СПИСКУ ПОКУПОК
+        function outputProduct(productList) {
+            console.clear();
+
+            if (productList.length === 0) {
+                console.clear();
+                console.log('Список порожній');
+            }
+            for (const product in productList) {
+                console.log(productList[product]);
+            }
+        }
+// ================================================================================
+// ІНТЕРФЕЙС 
+        let resultProductList = ['хліб', 'молоко'];
+        let userChoise = '';
+
+        console.log('Вітаємо!');
+
+        while(true) {
+            let userChoise = prompt("Оберіть дію: \nдодати товар до списку - натисніть [1],\nвидалити товар зі списку - натисніть [2], \nвивести поточний список покупок - натисніть [3], \nприховати список - натисніть [4], \nочистити список - натисніть [5], \nзакінчити - натисніть [6]");
+
+            if (userChoise == 1) {
+                resultProductList = addingProduct(resultProductList);
+            } else if (userChoise == 2) {
+                deletingProduct(resultProductList);
+            } else if (userChoise == 3) {
+                outputProduct(resultProductList);
+            } else if (userChoise == 4) {
+                console.clear();
+            } else if (userChoise == 5) {
+                resultProductList = [];
+                console.clear();
+                console.log('Список порожній');
+            } else if (userChoise == 6) {
+                console.clear();
+                console.log('До побачення!');
+                break;
+            } 
+        }
+    </script>    
+</body>
+</html>
+
+
+<!-- =================================================================
+Завдання 2
+Написати програму, яка працює зі списком покупок: додає нові товари, видаляє наявні та виводить список товарів на екран.
+
+Кроки для виконання завдання:
+
+1. Створити масив для зберігання списку покупок:
+   - Початково масив може бути порожнім або містити кілька базових товарів.
+
+2. Створити функцію для додавання товару до списку:
+   - Функція приймає назву товару як аргумент і додає його до масиву.
+
+3. Створити функцію для видалення товару зі списку:
+   - Функція приймає назву товару як аргумент, знаходить його у масиві та видаляє.
+
+4. Створити функцію для виведення поточного списку покупок:
+   - Функція виводить всі елементи масиву у зручному для читання форматі.
+
+5. Запропонувати користувачу вибрати дію:
+   - Використати `prompt` для вибору дії: додавання товару, видалення товару або виведення списку.
+
+6. Реалізувати вибір користувача:
+   - Викликати відповідні функції на основі вибраної дії.
+
+7. Повторити процес, поки користувач не завершить роботу:
+   - Дати можливість користувачу виконувати дії у циклі. -->
