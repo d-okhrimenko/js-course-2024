@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+
+}
+
+#books {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.book {
+    background-color: rgb(255, 236, 162);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}

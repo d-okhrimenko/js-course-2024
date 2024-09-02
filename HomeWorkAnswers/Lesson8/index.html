@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <template id="template-book">
+        <article class="book">
+            <h2>{{title}}</h2>
+            <p>Автор: {{author}}</p>
+            <p>Рік видання: {{year}}</p>
+            <p>Жанр: {{genre}}</p>
+        </article>
+    </template>
+
+    <section id="books"></section>
+
+    <script src="node_modules/mustache/mustache.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
