@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let tempYear = prompt("Введіть рік");
+
+      tempYear = Number(tempYear);
+
+      if (isNaN(tempYear)) {
+        alert("Введене значення не є числом");
+      } else {
+        if (!Number.isInteger(tempYear)) {
+          alert("Введенне значення не є цілим числом");
+        } else {
+          let date = new Date(tempYear, 1, 29);
+
+          if (date.getDate() === 29) {
+            alert(tempYear + " pik є високосним");
+          } else {
+            alert(tempYear + " pik не є високосним");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
