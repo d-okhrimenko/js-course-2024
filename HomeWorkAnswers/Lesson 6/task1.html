@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let markArray = [];
+// ================================================================================
+// ГЕНЕРАЦІЯ МАСИВА З 10-ти ОЦІНОК У ДІАПАЗОНІ [0..100]
+        function generateArray(length, range) {
+            for (let i = 0; i < length; i++) {
+                markArray.push(Math.floor(Math.random() * (range + 1)));    
+            }
+            return markArray;
+        }
+// ================================================================================
+// ОБЧИСЛЕННЯ СЕРЕДНЬОГО БАЛУ
+        function averageMarkCalc(markArray) {
+            let markSum = 0;
+            for (const value of markArray) {
+                markSum += value;
+            }
+            return (markSum / markArray.length).toFixed(1);
+        }
+// ================================================================================
+// ПОШУК НАЙВИЩОЇ ОЦІНКИ
+        function maxMark(markArray) {
+            return Math.max(...markArray);
+        }
+// ================================================================================
+// ПОШУК НАЙНИЖЧОЇ ОЦІНКИ
+        function minMark(markArray) {
+            return Math.min(...markArray);
+        }
+// ================================================================================
+// ФУНКЦІЯ ПЕРЕВІРКИ КОРЕКТНОСТІ ВВОДУ
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) return Number(value);
+            }
+        }        
+// ================================================================================
+// ВВОД ОЦІНОК КОРИСТУВАЧЕМ
+        function enterMarks() {
+            let userArray = [];
+            let mark = 0;
+
+            while(mark != 999) {
+                mark = getValue('Введіть оцінки у диапазоні [0..100]; \nдля закінчення вводу введіть [999]');
+                userArray.push(Number(mark));
+            }
+            userArray.pop();
+            return userArray;
+        }
+// ================================================================================
+// ІНТЕРФЕЙС 
+        let userChoise = prompt("Згенерувати масив оцінок - натисніть [1],\nввести оцінки вручну - натисніть [2]");
+
+        if (userChoise == 1) {
+            length = prompt("Введіть необхідну кількість оцінок");
+            let resultArray = generateArray(length, 100);   
+            alert(`Згенерований масив оцінок: ${resultArray}\nСередній бал: ${averageMarkCalc(resultArray)}\nНайвища оцінка: ${maxMark(resultArray)}\nНайнижча оцінка: ${minMark(resultArray)}`);
+
+            // console.log(`Згенерований масив оцінок: ${resultArray}`);
+            // console.log(`Середній бал: ${averageMarkCalc(resultArray)}`);
+            // console.log(`Найвища оцінка: ${maxMark(resultArray)}`);
+            // console.log(`Найнижча оцінка: ${minMark(resultArray)}`);
+        } else if (userChoise == 2) {
+            let resultUserArray = enterMarks();
+            alert(`Масив введених оцінок: ${resultUserArray}\nСередній бал: ${averageMarkCalc(resultUserArray)}\nНайвища оцінка: ${maxMark(resultUserArray)}\nНайнижча оцінка: ${minMark(resultUserArray)}`);
+
+            // console.log(`Масив введених оцінок: ${resultUserArray}`);
+            // console.log(`Середній бал: ${averageMarkCalc(resultUserArray)}`);
+            // console.log(`Найвища оцінка: ${maxMark(resultUserArray)}`);
+            // console.log(`Найнижча оцінка: ${minMark(resultUserArray)}`);
+        }
+    </script>    
+</body>
+</html>
+ <!-- ================================================================================ -->
+ <!-- Завдання 1
+ Написати програму, яка аналізує список оцінок студентів і знаходить середній бал, найвищу та найнижчу оцінки.
+ 
+ Кроки для виконання завдання:
+ 
+ 1. Створити масив для зберігання оцінок студентів:
+    - Оцінки можуть бути представлені як цілі числа від 0 до 100.
+ 
+ 2. Створити функцію для обчислення середнього балу:
+    - Функція повинна приймати масив оцінок як аргумент і повертати середнє значення.
+ 
+ 3. Створити функцію для знаходження найвищої оцінки:
+    - Функція повинна приймати масив оцінок як аргумент і повертати найвищу оцінку.
+ 
+ 4. Створити функцію для знаходження найнижчої оцінки:
+    - Функція повинна приймати масив оцінок як аргумент і повертати найнижчу оцінку.
+ 
+ 5. Запросити користувача ввести кілька оцінок і зберегти їх у масив:
+    - Використайте `prompt` для запиту оцінок, можна також згенерувати їх автоматично.
+ 
+ 6. Обчислити середній бал, найвищу і найнижчу оцінки:
+    - Викликати відповідні функції для обчислень.
+ 
+ 7. Вивести результати:
+    - Використайте `alert` для виведення середнього балу, найвищої та найнижчої оцінок. -->
+ <!-- ================================================================================ -->
