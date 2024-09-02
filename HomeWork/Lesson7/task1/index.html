@@ -1,0 +1,68 @@
+<!--
+****************************************ПОЯСНЕННЯ ДО КОДУ******************************************************************
+При загрузке страницы студенты загружаются из localStorage и отображаются в таблице.
+Форма добавления студента обрабатывает событие submit и создает нового студента,
+добавляя его в массив студентов. Кнопки удаления обрабатываются через делегирование событий на таблицу.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Student Management System</h1>
+
+    <form id="student-form">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname" required>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" max="99" required>
+        </div>
+
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
+        </div>
+
+        <div class="form-group">
+            <label for="gpa">GPA:</label>
+            <input type="number" id="gpa" name="gpa" step="0.01" min="0" max="5" required>
+        </div>
+
+        <button type="submit">Add Student</button>
+    </form>
+
+    <div class="student-list">
+        <h2>Student List</h2>
+        <table id="student-table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+                <th>ID</th>
+                <th>GPA</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="./js/main.js" type="module" defer></script>
+</body>
+</html>
