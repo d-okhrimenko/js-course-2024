@@ -36,8 +36,8 @@
             },
             // Додати метод для видалення студента:
             // Метод повинен видаляти студента за його ідентифікаційним номером.
-            removeStudentByIdentificationNumber(identificationNumber) {
-                let index = this.FindStudentByIdentificationNumber(identificationNumber);
+            removeById(identificationNumber) {
+                let index = this.FindById(identificationNumber);
                 if ( index != null) {
                     this.students.splice(index, 1);
                 }
@@ -49,14 +49,14 @@
             },
             // Додати функціонал для пошуку студента за його ідентифікаційним номером:
             // Метод повинен шукати студента в масиві і повертати всю інформацію про нього.
-            FindAndPrintStudentByIdentificationNumber(identificationNumber) {
-                let index = this.FindStudentByIdentificationNumber(identificationNumber);
+            FindAndPrintById(identificationNumber) {
+                let index = this.FindById(identificationNumber);
                 if (index != null) {
                     uiController.display(this.students[index]);
                 }
             },
 
-            FindStudentByIdentificationNumber(identificationNumber) {
+            FindById(identificationNumber) {
                 const index = this.students.findIndex(student => student.identificationNumber === identificationNumber);
                 if (index !== -1) {
                     return index;
@@ -94,12 +94,12 @@
         console.log("=".repeat(100));
 
         //Видаляємо студента
-        ManagingGroupOfStudents.removeStudentByIdentificationNumber("ID004");
+        ManagingGroupOfStudents.removeById("ID004");
         ManagingGroupOfStudents.PrintStudentsList();
         console.log("=".repeat(100));
 
         //Знайдемо студента
-        ManagingGroupOfStudents.FindAndPrintStudentByIdentificationNumber("ID003");
+        ManagingGroupOfStudents.FindAndPrintById("ID003");
         console.log("=".repeat(100));
 
 
