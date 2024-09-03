@@ -1,0 +1,37 @@
+.head {
+    color: rgb(136, 17, 17);
+    text-align: center;
+}
+
+#bookList {
+    display: flex;
+    justify-content: space-around;
+}
+
+.book-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-color: rgb(20, 139, 78);
+    color: rgb(32, 120, 150);
+    display: block;
+    text-align: center;
+    background-color: rgb(243, 214, 223);
+}
+
+.title {
+    color: rgb(42, 143, 206);
+}
+
+.author {
+    color: rgb(204, 52, 110);
+}
+
+.year {
+    color: black;
+}
+
+.genre {
+    color: rgb(56, 118, 15);
+}
