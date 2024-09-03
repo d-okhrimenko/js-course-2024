@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Функція для обчислення площі та периметру кола
+      function circleAreaAndPerimeter(radius) {
+        const area = Math.PI * Math.pow(radius, 2);
+        const perimeter = 2 * Math.PI * radius;
+        return { area, perimeter };
+      }
+
+      // Функція для обчислення площі та периметру прямокутника
+      function rectangleAreaAndPerimeter(length, width) {
+        const area = length * width;
+        const perimeter = 2 * (length + width);
+        return { area, perimeter };
+      }
+
+      // Функція для обчислення площі та периметру трикутника
+      function triangleAreaAndPerimeter(a, b, c) {
+        const perimeter = a + b + c;
+        const semiPerimeter = perimeter / 2;
+        const area = Math.sqrt(
+          semiPerimeter *
+            (semiPerimeter - a) *
+            (semiPerimeter - b) *
+            (semiPerimeter - c)
+        );
+        return { area, perimeter };
+      }
+
+      // Запит типу фігури та відповідних параметрів
+      const shape = prompt(
+        "Виберіть фігуру (коло, прямокутник, трикутник):"
+      ).toLowerCase();
+
+      let result;
+
+      switch (shape) {
+        case "коло":
+          const radius = parseFloat(prompt("Введіть радіус кола:"));
+          result = circleAreaAndPerimeter(radius);
+          break;
+        case "прямокутник":
+          const length = parseFloat(prompt("Введіть довжину прямокутника:"));
+          const width = parseFloat(prompt("Введіть ширину прямокутника:"));
+          result = rectangleAreaAndPerimeter(length, width);
+          break;
+        case "трикутник":
+          const a = parseFloat(
+            prompt("Введіть довжину першої сторони трикутника:")
+          );
+          const b = parseFloat(
+            prompt("Введіть довжину другої сторони трикутника:")
+          );
+          const c = parseFloat(
+            prompt("Введіть довжину третьої сторони трикутника:")
+          );
+          result = triangleAreaAndPerimeter(a, b, c);
+          break;
+        default:
+          alert("Невідома фігура!");
+          break;
+      }
+
+      if (result) {
+        alert(
+          `Площа: ${result.area.toFixed(
+            2
+          )}, Периметр: ${result.perimeter.toFixed(2)}`
+        );
+      }
+    </script>
+  </body>
+</html>
