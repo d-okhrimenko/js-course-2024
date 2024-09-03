@@ -1,0 +1,18 @@
+h1 {
+    margin: 20px;
+}
+
+#bookList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    margin: 10px;
+
+    width: 300px;
+    padding: 20px;
+    
+    background-color: darkgrey;
+    border-radius: 20px;
+}
