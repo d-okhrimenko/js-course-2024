@@ -7,69 +7,75 @@
   </head>
   <body>
     <script>
-      // function studentInfo(id, name, surname, age, averageScore) {
-      //   let student = {};
-      //   student.id = id;
-      //   student.name = name;
-      //   student.surname = surname;
-      //   student.age = age;
-      //   student.averageScore = averageScore;
-      //   return student;
-      // }
-      class studentInfo {
-        constructor(id, name, surname, age, averageScore) {
-          this.id = id;
-          this.name = name;
-          this.surname = surname;
-          this.age = age;
-          this.averageScore = averageScore;
-        }
+      function studentInfo(id, name, surname, age, averageScore) {
+        let student = {};
+        student.id = id;
+        student.name = name;
+        student.surname = surname;
+        student.age = age;
+        student.averageScore = averageScore;
+        return student;
       }
+      // class studentInfo {
+      //   constructor(id, name, surname, age, averageScore) {
+      //     this.id = id;
+      //     this.name = name;
+      //     this.surname = surname;
+      //     this.age = age;
+      //     this.averageScore = averageScore;
+      //   }
+      // }
 
       // let studentsList = [];
 
-      let studentsDir = {
-        studentsList: [],
+      class Students {
+        #studentsList;
+        constructor() {
+          this.#studentsList = [];
+        }
 
-        studentAdd: function (array) {
+        studentAdd() {
           const id = prompt("Введіть id студента.");
           const surname = prompt("Введіть призвіще.");
           const name = prompt("Введіть імя.");
           const age = prompt("Введіть вік.");
           const averageScore = prompt("Введіть середній бал.");
-          array.push(new studentInfo(id, name, surname, age, averageScore));
-          return array;
-        },
+          const student = studentInfo(id, name, surname, age, averageScore);
+          console.log(student);
+          this.#studentsList.push(student);
+        }
 
-        studentDell: function (array) {
+        studentDell() {
           const studentId = prompt("Введіть id студента для видалення.");
-          array.forEach((student) => {
+          this.#studentsList.forEach((student) => {
             if (student.id == studentId) {
-              const index = array.indexOf(student);
-              array.splice(index, 1);
+              const index = this.#studentsList.indexOf(student);
+              this.#studentsList.splice(index, 1);
             }
           });
-        },
+        }
 
-        studentsAllPrint: function (array) {
-          array.forEach((student) => {
+        studentsAllPrint() {
+          this.#studentsList.forEach((student) => {
             console.log(
               `id - ${student.id} ; name - ${student.name} ${student.surname}; age - ${student.age}; average score - ${student.averageScore}`
             );
           });
-        },
+        }
 
-        studentSearch: function (array) {
+        studentSearch() {
           const studentId = prompt("Введіть id студента для пошуку.");
-          array.forEach((student) => {
+          this.#studentsList.forEach((student) => {
             if (student.id == studentId) {
               console.log(
                 `id - ${student.id} ; name - ${student.name} ${student.surname}; age - ${student.age}; average score - ${student.averageScore}`
               );
             }
           });
-        },
-      };
+        }
+      }
+
+      let studentsDir = new Students();
 
       while (true) {
         let value = +prompt(
@@ -79,13 +85,13 @@
           break;
         } else if (value >= 0 && value <= 4 && Number.isInteger(value)) {
           if (value == 1) {
-            studentsDir.studentAdd(studentsDir.studentsList);
+            studentsDir.studentAdd();
           } else if (value == 2) {
-            studentsDir.studentDell(studentsDir.studentsList);
+            studentsDir.studentDell();
           } else if (value == 3) {
-            studentsDir.studentsAllPrint(studentsDir.studentsList);
+            studentsDir.studentsAllPrint();
           } else if (value == 4) {
-            studentsDir.studentSearch(studentsDir.studentsList);
+            studentsDir.studentSearch();
           }
         } else {
           alert("Введіть свій вибір уважно!");
