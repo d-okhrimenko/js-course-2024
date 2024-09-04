@@ -1,0 +1,10 @@
+.book {
+  background-color: aquamarine;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 30px 10px;
+}
+
+.bookImage {
+  width: 60px;
+}
