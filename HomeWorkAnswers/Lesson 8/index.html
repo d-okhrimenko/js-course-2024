@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 8</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section> 
+        <h2>Rendering by means of js</h2>
+        <div class="book_list"> 
+            
+        </div>
+    </section>  
+    <h2>Rendering by means of Mustache</h2>
+    <template id="template">
+        
+        <div class="book_card">
+                <h3>Title: {{title}} </h3>
+                <h4>Author: {{author}}</h4>
+                <h4>Year: {{year}} </h4>
+                <h4>Genre: {{genre}} </h4>
+        </div>
+    </template>  
+
+    <section class="book_list-template">
+        
+    </section>
+   
+    <script  src="../../ClassWork/node_modules/mustache/mustache.min.js"></script>
+    
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+</body>
+</html>
