@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(192, 189, 189);
+}
+
+#white_form {
+    background-color: white;
+    height: 400px;
+    width: 60%;
+
+    margin: auto;
+    margin-top: 3%;
+}
+
+#heading_div {
+    display: flex;
+}
+
+#heading_div h1, #heading_div button {
+    margin-left: 20px;
+}
+
+#heading_div button {
+    width: 100px;
+    height: 50px;
+
+    margin-top: 2%;
+}
+
+thead td,
+tbody td {
+    text-transform: capitalize;
+    padding-right: 20px;
+    border: 1px solid;
+}
+
+#students_table {
+    margin-left: 50px;
+}
