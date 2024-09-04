@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lesson6task2</title>
+  </head>
+  <body>
+    <script>
+      let shoppingList = [];
+
+      function shoppingListInput(array) {
+        const item = prompt("Введіть назву товару, що додається.");
+        array.push(item);
+        return array;
+      }
+
+      function shoppingListDel(array) {
+        const value = prompt("Введіть назву товару, що видаляється.");
+        for (const thing of array) {
+          if (thing == value) {
+            const index = array.indexOf(thing);
+            array.splice(index, 1);
+          }
+        }
+        return array;
+      }
+
+      function shoppingListPrint(array) {
+        for (const item of array) {
+          console.log(item);
+        }
+      }
+
+      while (true) {
+        let value = +prompt(
+          "1-додати товар, 2-видалити товар, 3-вивести список, 0-завершити вибір."
+        );
+        if (value == 0) {
+          break;
+        } else if (value >= 0 && value <= 3 && Number.isInteger(value)) {
+          if (value == 1) {
+            shoppingList = shoppingListInput(shoppingList);
+          } else if (value == 2) {
+            shoppingList = shoppingListDel(shoppingList);
+          } else if (value == 3) {
+            shoppingListPrint(shoppingList);
+          }
+        } else {
+          alert("Введіть свій вибір уважно!");
+        }
+      }
+    </script>
+  </body>
+</html>

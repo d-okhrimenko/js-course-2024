@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson7Task1</title>
+  </head>
+  <body>
+    <script>
+      function studentInfo(id, name, surname, age, averageScore) {
+        let student = {};
+        student.id = id;
+        student.name = name;
+        student.surname = surname;
+        student.age = age;
+        student.averageScore = averageScore;
+        return student;
+      }
+      // class studentInfo {
+      //   constructor(id, name, surname, age, averageScore) {
+      //     this.id = id;
+      //     this.name = name;
+      //     this.surname = surname;
+      //     this.age = age;
+      //     this.averageScore = averageScore;
+      //   }
+      // }
+
+      // let studentsList = [];
+
+      class Students {
+        #studentsList;
+        constructor() {
+          this.#studentsList = [];
+        }
+
+        studentAdd() {
+          const id = prompt("Введіть id студента.");
+          const surname = prompt("Введіть призвіще.");
+          const name = prompt("Введіть імя.");
+          const age = prompt("Введіть вік.");
+          const averageScore = prompt("Введіть середній бал.");
+          const student = studentInfo(id, name, surname, age, averageScore);
+          console.log(student);
+          this.#studentsList.push(student);
+        }
+
+        studentDell() {
+          const studentId = prompt("Введіть id студента для видалення.");
+          this.#studentsList.forEach((student) => {
+            if (student.id == studentId) {
+              const index = this.#studentsList.indexOf(student);
+              this.#studentsList.splice(index, 1);
+            }
+          });
+        }
+
+        studentsAllPrint() {
+          this.#studentsList.forEach((student) => {
+            console.log(
+              `id - ${student.id} ; name - ${student.name} ${student.surname}; age - ${student.age}; average score - ${student.averageScore}`
+            );
+          });
+        }
+
+        studentSearch() {
+          const studentId = prompt("Введіть id студента для пошуку.");
+          this.#studentsList.forEach((student) => {
+            if (student.id == studentId) {
+              console.log(
+                `id - ${student.id} ; name - ${student.name} ${student.surname}; age - ${student.age}; average score - ${student.averageScore}`
+              );
+            }
+          });
+        }
+      }
+
+      let studentsDir = new Students();
+
+      while (true) {
+        let value = +prompt(
+          "1-додати студента, 2-видалити студента, 3-вивести весь список, 4-вивести студента за id, 0-завершити вибір."
+        );
+        if (value == 0) {
+          break;
+        } else if (value >= 0 && value <= 4 && Number.isInteger(value)) {
+          if (value == 1) {
+            studentsDir.studentAdd();
+          } else if (value == 2) {
+            studentsDir.studentDell();
+          } else if (value == 3) {
+            studentsDir.studentsAllPrint();
+          } else if (value == 4) {
+            studentsDir.studentSearch();
+          }
+        } else {
+          alert("Введіть свій вибір уважно!");
+        }
+      }
+    </script>
+  </body>
+</html>
