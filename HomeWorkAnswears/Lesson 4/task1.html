@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <h1>КАМІНЬ НОЖИЦІ ПАПІР</h1>
+    <button class="stone">КАМІНЬ</button>
+    <button class="scissors">НОЖИЦІ</button>
+    <button class="paper">ПАПІР</button>
+    <button class="exit">ЗАВЕРШИТИ ГРУ ЗАВЧАСНО!</button> -->
+
+    <script>
+        "use strict"
+
+        // alert("У вас є п'ять спроб");
+        alert("Треба виграти двічі");
+        let yourScore = 0;
+        let botScore = 0;
+        
+        //тут можна виставити кількість спроб
+        for(let i = 1; i <= 100; i++) {
+            
+            let bot = Math.floor(Math.random() * 3) + 1;
+            let gameBot = "";
+            console.log(bot);
+            
+            if(bot == 1) {
+                gameBot = "КАМІНЬ"
+            } else if (bot == 2) {
+                gameBot = "НОЖИЦІ"
+            } else if (bot == 3) {
+                gameBot = "ПАПІР"
+            }
+            console.log(gameBot);
+    
+            let player = prompt("Зробить свій вибір", "КАМІНЬ, НОЖИЦІ, ПАПІР");
+            console.log(player);
+                
+                // - Камінь б'є ножиці.
+                // - Ножиці б'ють папір.
+                // - Папір б'є камінь.
+                // - Однакові вибори - нічия.
+
+            if (player.toUpperCase() == "КАМІНЬ" && gameBot == "НОЖИЦІ" ||
+                player.toUpperCase() == "НОЖИЦІ" && gameBot == "ПАПІР" ||
+                player.toUpperCase() == "ПАПІР" && gameBot == "КАМІНЬ") {
+                    alert("ПЕРЕМОГА")
+                    yourScore++;
+            } else if (player.toUpperCase() == gameBot) {
+                alert("НІЧЬЯ")
+            } else {
+                alert("ПРОГРАШ");
+                botScore++;
+            }
+            //пізнише  додати перевірку на правильність введеня значення! поки не вийшло(
+
+            //це якщо гра до двох очьок
+            if (yourScore == 2 || botScore == 2) {
+                break;
+            }
+        }
+
+        if (yourScore > botScore) {
+            alert(`Рахунок ${yourScore} - ${botScore} ПЕРЕМОГА!!!`);
+        } else if (yourScore < botScore) {
+            alert(`Рахунок ${yourScore} - ${botScore} ПРОГРАШ!!!`);
+        } else if (yourScore == botScore) {
+            alert(`Рахунок ${yourScore} - ${botScore} ЦЕ НІЧЬЯ, СПРОБУЙ ЩЕ.`);
+        }
+
+    </script>
+</body>
+
+</html>
