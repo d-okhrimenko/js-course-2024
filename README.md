@@ -42,4 +42,5 @@ Fork – це копія репозиторію, яка дозволяє вам 
 [5. Функції](https://www.youtube.com/watch?v=F2m-A9RzsgU) <br>
 [6. Масиви](https://www.youtube.com/watch?v=8anASKTZDBo) <br>
 [7. Об'єкти](https://www.youtube.com/watch?v=qyjCjuWF9PU)<br />
+[8. Робота з DOM. Частина 1](https://www.youtube.com/watch?v=0I9T2XL4orM)<br />
 
