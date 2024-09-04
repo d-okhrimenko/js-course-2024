@@ -1,0 +1,16 @@
+body {
+  padding: 2rem;
+}
+h1,
+h2 {
+  text-align: center;
+}
+.book {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+  background-color: bisque;
+  border-radius: 1rem;
+  margin-bottom: 4rem;
+}
