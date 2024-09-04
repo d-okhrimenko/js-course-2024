@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Curriculum Vitae</title>
+    <style>
+        /* [attribute-name] selects elements that contain the specified attribute */
+        /* [data-test] - selects all emenets with attribubte data-test */
+        [data-test] {
+            color: green;
+        }
+
+        /* [data-test="C"] - selects all emenets with attribubte data-test with value C */
+        [data-test="C"] {
+            font-size: 25px;
+        }
+
+        /* 
+        [attr-name^="value"] - select elements with attribute starts with value 
+        [attr-name$="value"] - select elements with attribute ends with value
+        [attr-name*="value"] - select elements with attribute contains value
+        */
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="header">
+        <h1 id="name">John Doe</h1>
+        <p id="contact-info" data-test="A">
+            Email: john.doe@example.com | Phone: (123) 456-7890 | LinkedIn: linkedin.com/in/johndoe
+        </p>
+    </header>
+
+    <!-- Summary Section -->
+    <section id="summary">
+        <h2>Professional Summary</h2>
+        <p>
+            Experienced software engineer with over 10 years in the tech industry, specializing in full-stack web development. Strong background in JavaScript, Python, and cloud computing.
+        </p>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Work Experience</h2>
+
+        <article class="job">
+            <h3>Senior Software Engineer</h3>
+            <p class="company" data-test="A">TechCorp Inc. | Jan 2018 - Present</p>
+            <ul class="responsibilities">
+                <li>Lead a team of 8 developers in building scalable web applications.</li>
+                <li>Architect and implement microservices using Node.js and AWS.</li>
+                <li>Mentor junior developers and conduct code reviews.</li>
+            </ul>
+        </article>
+
+        <article class="job">
+            <h3>Software Engineer</h3>
+            <p class="company" data-test="B">Web Solutions Ltd. | Mar 2013 - Dec 2017</p>
+            <ul class="responsibilities">
+                <li>Developed and maintained e-commerce websites using JavaScript, HTML, and CSS.</li>
+                <li>Integrated third-party APIs to enhance functionality.</li>
+                <li>Collaborated with designers and project managers to meet client requirements.</li>
+            </ul>
+        </article>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+
+        <article class="education-item">
+            <h3>Bachelor of Science in Computer Science</h3>
+            <p class="institution" data-test="B">State University | Sep 2009 - May 2013</p>
+            <p class="details" data-test="A">Graduated with Honors, specialized in Software Development.</p>
+        </article>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li id="element">HTML/CSS</li>
+            <li>React.js</li>
+            <li>Node.js</li>
+            <li>AWS</li>
+        </ul>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <ul class="certifications-list">
+            <li data-test="C">AWS Certified Solutions Architect</li>
+            <li>Certified Scrum Master (CSM)</li>
+        </ul>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer">
+        <p>© 2024 John Doe. All rights reserved.</p>
+    </footer>
+</body>
+</html>
