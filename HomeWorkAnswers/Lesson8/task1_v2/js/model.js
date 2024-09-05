@@ -1,5 +1,5 @@
-let listBooks = () => {
-  const books = [
+const myBooks = {
+  books: [
     { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
     {
       title: "Гаррі Поттер і філософський камінь",
@@ -25,37 +25,7 @@ let listBooks = () => {
       year: 1967,
       genre: "Фантастика",
     },
-  ];
+  ],
 
-  const paragraphs = [];
-
-  return {
-    _add() {
-      for (let i = 0; i < books.length; i++) {
-        let p = document.createElement("p");
-
-        p.textContent = `${books[i].title} — ${books[i].author}, ${books[i].year}, ${books[i].genre}`;
-
-        paragraphs.push(p);
-        console.log(p);
-      }
-    },
-
-    _display() {
-      let div = document.querySelector("#bookList");
-
-      if (!div) {
-        console.error("Элемент с id 'bookList' не найден.");
-        return;
-      }
-
-      paragraphs.forEach((p) => {
-        div.appendChild(p);
-      });
-    },
-  };
+  paragraphs: [],
 };
-
-const bookList = listBooks();
-bookList._add();
-bookList._display();
