@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict"
+
+        //ЗРОБИТИ ПЕРЕВІРКУ ВВЕДЕНОЇ ВІДПОВІДІ, ЩОБ НЕ БУЛА ПУСТА СТРОКА, РЯДОК ТА ІНШЕ...
+        let guessed = 0;
+        let dNotGuessed = 0;
+
+
+        alert("Привіт, ти маеш 5 спроб у цій грі")
+        for(let i = 0; i < 5; i++) {
+
+            let firstValue = Math.floor(Math.random() * 100) + 1;
+            let secondValue = Math.floor(Math.random() * 100) + 1;
+            let expressions = Math.floor(Math.random() * 4) + 1;
+    
+            console.log(firstValue);
+            console.log(secondValue);
+            console.log(expressions);
+    
+            let yourAnswer;
+            let answer;
+    
+            if(expressions == 1) {
+                console.log(firstValue + secondValue);
+                answer = firstValue + secondValue;
+                yourAnswer = prompt(`Скільки буде ${firstValue} + ${secondValue} = `);
+            } else if(expressions == 2) {
+                console.log(firstValue - secondValue);
+                answer = firstValue - secondValue;
+                yourAnswer = prompt(`Скільки буде ${firstValue} - ${secondValue} = `);
+            } else if(expressions == 3) {
+                console.log(firstValue * secondValue);
+                answer = firstValue * secondValue;
+                yourAnswer = prompt(`Скільки буде ${firstValue} * ${secondValue} = `);
+            } else if(expressions == 4) {
+                console.log(firstValue / secondValue);
+                answer = Math.floor(firstValue / secondValue);
+                yourAnswer = Math.floor(prompt(`Скільки буде ${firstValue} / ${secondValue} = `));
+            }
+    
+            console.log(yourAnswer);
+
+            if(answer == yourAnswer) {
+                alert(`${yourAnswer} це правильна відповідь!`);
+                guessed++;
+            } else if(answer !== yourAnswer) {
+                alert(`${yourAnswer} не є правильно, правильний результат ${answer}`)
+                dNotGuessed++;
+            }
+        }
+
+        alert(`Ти мав 5 спроб. З них вірно ${guessed}, а не вірно ${dNotGuessed}`);
+
+    </script>
+</body>
+
+</html>
