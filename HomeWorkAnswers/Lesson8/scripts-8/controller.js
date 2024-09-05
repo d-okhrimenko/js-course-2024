@@ -16,8 +16,8 @@ const deleteBook = function (book) {
 function init() {
   controlBooks();
   allBooksView.addHandlerRemoveBook(deleteBook);
-  // addBookView._addHandlerShowWindow();
-  // addBookView._addHandlerHideWindow();
+  addBookView._addHandlerShowWindow();
+  addBookView._addHandlerHideWindow();
 }
 init();
 console.log(addBookView._btnClose);

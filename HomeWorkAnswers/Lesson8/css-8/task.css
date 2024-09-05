@@ -57,7 +57,7 @@ input::placeholder {
   right: 5rem;
 }
 
-.btn--close-modal {
+.btn-close-modal {
   font-family: inherit;
   color: red;
   position: absolute;
@@ -79,6 +79,11 @@ input::placeholder {
   border-radius: 9px;
   z-index: 100;
 }
+
+fieldset {
+  margin: 2rem;
+}
+
 .overlay {
   position: fixed;
   top: 0;
