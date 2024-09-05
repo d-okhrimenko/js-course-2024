@@ -26,7 +26,19 @@ class addBookView {
     this._overlay.addEventListener("click", this.toggleWindow.bind(this));
   }
 
-  addHandlerUpload(handler) {}
+  addHandlerUpload(handler) {
+    this._parentEl.addEventListener("submit", (e) => {
+      e.preventDefault();
+      console.log(e);
+      const dataArray = [...new FormData(e.target)];
+      console.log(dataArray);
+      const newBook = Object.fromEntries(dataArray);
+      console.log(newBook);
+      handler(newBook);
+      this.toggleWindow();
+      this._parentEl.querySelectorAll("input").forEach((field) => (field.value = ""));
+    });
+  }
 }
 
 export default new addBookView();
