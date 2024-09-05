@@ -1,0 +1,22 @@
+body{
+    color:blue;
+    font-weight: bold;;
+}
+div{
+    width: 30%;
+}
+form {
+display: none;
+flex-direction: column;
+}
+#send{
+    margin: 10px;
+    padding: 5px;
+    
+}
+input{
+    margin: 10px;
+}
+h1{
+    color: red;
+}

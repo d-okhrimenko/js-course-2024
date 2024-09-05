@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let S;
+      let P;
+      let A;
+      let B;
+      let C;
+      const Pi = 3.14;
+
+      function Circle(r) {
+        S = Pi * (r * r);
+        P = 2 * Pi * r;
+        alert(
+          "Площадь круга равна - " +
+            S.toFixed(1) +
+            " . Периметр равен - " +
+            P.toFixed(1)
+        );
+      }
+      function Rectangle(a, b) {
+        S = a * b;
+        P = 2 * (a + b);
+        alert(
+          "Площадь прямоугольника равна - " +
+            S.toFixed(1) +
+            " . Периметр равен - " +
+            P.toFixed(1)
+        );
+      }
+      function Triangle(a, b, c) {
+        P = a + b + c;
+        let Z = (a + b + c) / 2;
+        S = Math.sqrt(Z * (Z - a) * (Z - b) * (Z - c));
+        alert(
+          "Площадь треугольника равна - " +
+            S.toFixed(1) +
+            " . Периметр равен - " +
+            P.toFixed(1)
+        );
+      }
+      let userChoice = +prompt(
+        "Выберите фигуру - (0 - круг, 1 - прямоугольник, 2 - треугольник)"
+      );
+      switch (userChoice) {
+        case 0:
+          let R = +prompt("Введите гадиус круга (м)");
+          Circle(R);
+          break;
+        case 1:
+          A = +prompt("Введите длинну стороны А (м)");
+          B = +prompt("Введите длинну стороны B (м)");
+          Rectangle(A, B);
+          break;
+        case 2:
+          A = +prompt("Введите длинну стороны А (м)");
+          B = +prompt("Введите длинну стороны В (м)");
+          C = +prompt("Введите длинну стороны C (м)");
+          Triangle(A, B, C);
+          break;
+      }
+    </script>
+  </body>
+</html>
