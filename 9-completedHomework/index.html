@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список книг</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Список книг у бібліотеці</h1>
+    
+    <form id="bookForm">
+        <input type="hidden" id="bookIndex" value="">
+        <label>
+            Назва: <input type="text" id="bookTitle" required>
+        </label>
+        <label>
+            Автор: <input type="text" id="bookAuthor" required>
+        </label>
+        <label>
+            Рік видання: <input type="number" id="bookYear" required>
+        </label>
+        <label>
+            Жанр: <input type="text" id="bookGenre" required>
+        </label>
+        <button type="submit">Зберегти книгу</button>
+    </form>
+    
+    <div id="bookList"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
