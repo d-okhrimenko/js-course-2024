@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function imt(weight, height) {
+            if (height > 10) {
+                height = height / 100;
+            }
+            let index = weight / (height * height);
+            if (index < 18.5) {
+                return "Недостатня вага";
+            } else if (index >= 18.5 && index <= 24.9) {
+                return "Нормальна вага";
+            } else if (index >= 25 && index <= 29.9) {
+                return "Надмірна вага";
+            } else if (index >= 30) {
+                return "Ожиріння";
+            }
+        }
+
+        let userHeight = +prompt("Введіть ваш зріст в метрах: ");
+        let userWeight = +prompt("Введіть вашу вагу в кілограмах: ");
+
+        const result = imt(userWeight, userHeight);
+        alert(`Ваша категорія ІМТ: ${result}`);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //коло
+        function getCirclePerimeter(circleRadius) {
+            return 2 * Math.PI * circleRadius;
+        }
+        function getCircleArea(circleRadius) {
+            return Math.PI * Math.pow(circleRadius, 2);
+        }
+
+        //прямокутник
+        function getRectanglePerimeter(length, width) {
+            return 2 * (length + width);
+        }
+        function getRectangleArea(length, width) {
+            return length * width;
+        }
+
+        //трикутник
+        function getTrianglePerimeter(a, b, c) {
+            return a + b + c;
+        }
+        function getTriangleArea(a, b, c) {
+            let p = (a + b + c) / 2;
+            return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        }
+
+        let list = ["коло", "прямокутник", "трикутник"];
+        let item;
+        while (true) {
+            item = prompt("Введіть фігуру (коло, прямокутник чи трикутник): ");
+            item = item.toLowerCase();
+            if (list.includes(item)) {
+                break;
+            } else {
+                alert("Введіть один варіант зі списку: коло, прямокутник чи трикутник");
+            }
+        }
+
+        switch (item) {
+            case "коло":
+                let circleRadius = parseFloat(prompt("Введіть радіус кола: "));
+                if (!isNaN(circleRadius) && circleRadius > 0) {
+                    let perimeter = getCirclePerimeter(circleRadius);
+                    let area = getCircleArea(circleRadius);
+                    alert(`Периметр кола: ${perimeter}\nПлоща кола: ${area}`);
+                } else {
+                    alert("Невірне значення радіусу. Введіть вірні дані");
+                }
+                break;
+
+            case "прямокутник":
+                let rectangleLength = parseFloat(prompt("Введіть довжину прямокутника: "));
+                let rectangleWidth = parseFloat(prompt("Введіть ширину прямокутника: "));
+                if (!isNaN(rectangleLength) && rectangleLength > 0 && !isNaN(rectangleWidth) && rectangleWidth > 0) {
+                    let perimeter = getRectanglePerimeter(rectangleLength, rectangleWidth);
+                    let area = getRectangleArea(rectangleLength, rectangleWidth);
+                    alert(`Периметр прямокутника: ${perimeter}\nПлоща прямокутника: ${area}`);
+                } else {
+                    alert("Невірні значення довжини або ширини. Введіть вірні числа.");
+                }
+                break;
+
+            case "трикутник":
+                let triangle1 = parseFloat(prompt("Введіть першу сторону трикутника: "));
+                let triangle2 = parseFloat(prompt("Введіть другу сторону трикутника: "));
+                let triangle3 = parseFloat(prompt("Введіть третю сторону трикутника: "));
+                if (!isNaN(triangle1) && triangle1 > 0 && !isNaN(triangle2) && triangle2 > 0 && !isNaN(triangle3) && triangle3 > 0) {
+                    if (triangle1 + triangle2 > triangle3 && triangle1 + triangle3 > triangle2 && triangle2 + triangle3 > triangle1) {
+                        let perimeter = getTrianglePerimeter(triangle1, triangle2, triangle3);
+                        let area = getTriangleArea(triangle1, triangle2, triangle3);
+                        alert(`Периметр трикутника: ${perimeter}\nПлоща трикутника: ${area}`);
+                    } else {
+                        alert("Ці сторони не можуть утворити трикутник.");
+                    }
+                } else {
+                    alert("Невірні значення сторін трикутника.");
+                }
+                break;
+
+            default:
+                alert("Невірна фігура.");
+        }
+    </script>
+</body>
+
+</html>
