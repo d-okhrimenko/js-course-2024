@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const shape = prompt(
+        "Виберіть фігуру: коло, прямокутник або трикутник"
+      ).toLowerCase();
+      if (shape === "коло") {
+        const circleRadius = parseFloat(prompt("Введіть радіус кола:"));
+        let result1 = circleAreaPerimeter(circleRadius);
+        alert(
+          "Площа кола " +
+            result1.area +
+            " " +
+            "Периметр кола " +
+            result1.perimeter
+        );
+      } else if (shape === "прямокутник") {
+        const lengthRectangle = parseFloat(
+          prompt("Введіть довжину прямокутника:")
+        );
+        const widthRectangle = parseFloat(
+          prompt("Введіть ширину прямокутника:")
+        );
+        let result2 = rectangleAreaPerimeter(lengthRectangle, widthRectangle);
+        alert(
+          "Площа прямокутника " +
+            result2.area +
+            " " +
+            "Периметр прямокутника " +
+            result2.perimeter
+        );
+      } else if (shape === "трикутник") {
+        const a = parseFloat(prompt("Введіть довжину 1ї сторони трикутника:"));
+        const b = parseFloat(prompt("Введіть довжину 2ї сторони трикутника:"));
+        const c = parseFloat(prompt("Введіть довжину 3ї сторони трикутника:"));
+        let result3 = triangleAreaPerimeter(a, b, c);
+        alert(
+          "Площа трикутника " +
+            result3.area +
+            " " +
+            "Периметр трикутника" +
+            result3.perimeter
+        );
+      }
+
+      function circleAreaPerimeter(circleRadius) {
+        const area = Math.PI * circleRadius * circleRadius;
+        const perimeter = Math.PI * circleRadius;
+        return {
+          area: area,
+          perimeter: perimeter,
+        };
+      }
+
+      function rectangleAreaPerimeter(lengthRectangle, widthRectangle) {
+        const area = lengthRectangle * widthRectangle;
+        const perimeter = 2 * (lengthRectangle + widthRectangle);
+
+        return {
+          area: area,
+          perimeter: perimeter,
+        };
+      }
+
+      function triangleAreaPerimeter(a, b, c) {
+        const perimeter = a + b + c;
+        const p = (a + b + c) / 2;
+        const area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        return {
+          area: area,
+          perimeter: perimeter,
+        };
+      }
+    </script>
+    //
+  </body>
+  //
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let bodyWeight = Number(prompt("Введіть значення в кілограмах (49)"));
+      let bodyHeight = Number(prompt("Введіть значення в метрах (1.60)"));
+
+      function toFindIMT(bodyWeight, bodyHeight) {
+        return bodyWeight / (bodyHeight * bodyHeight);
+      }
+
+      let IMT = toFindIMT(bodyWeight, bodyHeight);
+
+      function categoryIMT(IMT) {
+        if (IMT < 18.5) {
+          return "Недостатня вага";
+        }
+        if (18.5 <= IMT && IMT < 24.9) {
+          return "Нормальна вага";
+        }
+        if (25 <= IMT && IMT < 29.9) {
+          return "Надмірна вага";
+        }
+        if (IMT >= 30) {
+          return "Ожиріння";
+        }
+      }
+
+      let result = categoryIMT(IMT);
+      alert(result);
+    </script>
+  </body>
+</html>
