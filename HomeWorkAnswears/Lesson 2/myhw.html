@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2 HomeWork</title>
+    <style>
+        p {
+            color: brown;
+            font-size: 25px;
+        }
+        #btn {
+            background-color: darkblue;
+            color: yellow;
+            border-radius: 8px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>Домашне завдання уроку №2</p>
+        <button id="btn">Тисни, щоб передати привіт!</button>
+    </div>
+
+    <script>
+        console.log(new Date());
+        let name = prompt("Як тебе звати?");
+        document.querySelector("#btn").onclick = function(){
+            alert("Привіт, " + name + ". Сьогодні чудовий день.");
+        }
+    </script> 
+</body>
+
+</html>
