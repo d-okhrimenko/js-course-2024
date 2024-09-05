@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.books__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  gap: 20px;
+}
+
+.books__item {
+  max-width: 300px;
+  padding: 20px;
+  list-style-type: none;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.6);
+}
+
+.books__item-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.books__item p:not(:last-of-type) {
+  margin-bottom: 10px;
+}
