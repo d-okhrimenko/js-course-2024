@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Task1-Lesson8</title>
+</head>
+
+<body>
+  <h1>Бібліотека українських книг</h1>
+  <template id="template">
+    <section class="book-item">
+      <h2>{{title}}</h2>
+      <p><strong>Автор:</strong> {{author}}</p>
+      <p><strong>Рік видання:</strong> {{year}}</p>
+      <p><strong>Жанр:</strong> {{genre}}</p>
+    </section>
+  </template>
+
+  <div id="bookList"></div>
+  <script src="/node_modules/mustache/mustache.min.js"></script>
+  <script src="./js/model.js"></script>
+  <script src="./js/view.js"></script>
+  <script src="./js/controller.js"></script>
+</body>
+
+</html>
