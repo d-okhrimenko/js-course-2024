@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Inter, "sans-serif";
+  color: #222;
+}
+.game {
+  background: #ddecff;
+  border-radius: 16px;
+  margin: 40px auto 0 auto;
+  padding: 48px 24px;
+  text-align: center;
+  width: 50%;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+h3 {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 12px;
+}
+#question {
+  font-size: 32px;
+}
+
+.inputs {
+  margin: 24px auto 0 auto;
+  width: 75%;
+}
+
+.inputs input {
+  border: none;
+  border-radius: 8px;
+  height: 48px;
+  margin-bottom: 16px;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+#input {
+  border: 2px solid #8cbfff;
+}
+#submit {
+  background: #0065e2;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+#submit:hover {
+  background: #0054bc;
+  cursor: pointer;
+}
