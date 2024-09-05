@@ -7,12 +7,22 @@ const View = {
             const bookItem = document.createElement('div');
             bookItem.className = 'book';
 
-            bookItem.innerHTML = `
-                <h2>${book.title}</h2>
-                <p><strong>Автор:</strong> ${book.author}</p>
-                <p><strong>Рік видання:</strong> ${book.year}</p>
-                <p><strong>Жанр:</strong> ${book.genre}</p>
-            `;
+            const title = document.createElement('h2');
+            title.textContent = book.title;
+
+            const author = document.createElement('p');
+            author.textContent = `Автор: ${book.author}`;
+
+            const year = document.createElement('p');
+            year.textContent = `Рік видання: ${book.year}`;
+
+            const genre = document.createElement('p');
+            genre.textContent = `Жанр: ${book.genre}`;
+
+            bookItem.appendChild(title);
+            bookItem.appendChild(author);
+            bookItem.appendChild(year);
+            bookItem.appendChild(genre);
 
             bookList.appendChild(bookItem);
         });
