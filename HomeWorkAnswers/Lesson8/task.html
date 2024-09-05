@@ -51,23 +51,21 @@
 
         class BookList {
             #books = [];
-
             addBook = function (book) {
                 this.#books.push(book);
             };
-
             getBooks() {
                 return this.#books;
-            }
-
-            renderWithTemplate(books, element, template) {
-                let html = "";
-                books.forEach(book => {
-                    html += Mustache.render(template, book);
-                });
-                element.innerHTML = html;
-            }
+            };
         }
+
+        function renderWithTemplate(books, element, template) {
+            let html = "";
+            books.forEach(book => {
+                html += Mustache.render(template, book);
+            });
+            element.innerHTML = html;
+        };
 
         let bookList = new BookList();
         books.forEach(book => {
@@ -77,7 +75,7 @@
 
         let html = document.querySelector("#book-list");
         let template = document.querySelector("#book-list-template").innerHTML;
-        bookList.renderWithTemplate(bookList.getBooks(), html, template);
+        renderWithTemplate(bookList.getBooks(), html, template);
 
     </script>
 </body>
