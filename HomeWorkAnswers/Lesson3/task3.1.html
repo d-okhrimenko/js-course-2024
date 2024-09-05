@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Парне \ Не парне</title>
+</head>
+
+<body>
+    <script>
+        let num = prompt("Введіть число:").replace(/^\s+|\s+$/g, '');
+        let result;
+        num = parseInt(num);
+        if (Number.isFinite(num)) {
+            if (num % 2 === 0) {
+                alert("число " + num + " парне");
+            }
+            else {
+                alert("число " + num + " не парне")
+            }
+        }
+        else {
+            alert("Не коректне значення!");
+        }
+    </script>
+</body>
+
+</html>
