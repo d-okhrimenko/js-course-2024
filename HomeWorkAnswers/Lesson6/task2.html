@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 6. Task 2. Add, remove, output elements of array.</title>
+</head>
+
+<body>
+  <script src="../CommonFolder/LizaLibrary.js"></script>
+  <script>
+    let letterPush = "p";
+    let letterDelete = "d";
+    let letterShow = "s";
+    let letterQuit = "q";
+    let letterValue;
+    let letterMsg = "Type: \nP - add goods \nD - delete goods \nS - show goods \nQ - quit";
+    let valueMsg = "Type name of a good"
+    let goods = [];
+
+    let addGoods = (array) => {
+      let value = getStringValue(valueMsg).trim();
+      array.push(value);
+      return array;
+    }
+
+    let removeGoods = (array) => {
+      let value = getStringValue(valueMsg).toLowerCase().trim();
+      let indexWord = array.findIndex(item => item.toLowerCase() === value);
+      if (indexWord !== -1) {
+        array.splice(indexWord, 1);
+      } else {
+        alert(`Element ${value} is not found`);
+      }
+      return array;
+    };
+
+    function showElements(array) {
+      if (array.length == 0) {
+        alert("No goods.");
+        return;
+      } else {
+        alert(`Goods array: ${array}`)
+        return array;
+      }
+    }
+
+    while (true) {
+      let getLetter = getStringValue(letterMsg).toLowerCase().trim();
+      if (getLetter == letterQuit) break;
+
+      else if (getLetter == letterPush) {
+        addGoods(goods);
+      }
+
+      else if (getLetter == letterDelete) {
+        removeGoods(goods);
+      }
+
+      else if (getLetter == letterShow) {
+        showElements(goods);
+      }
+      else {
+        alert(`Wrong letter: ${getLetter}`);
+      }
+    }
+  </script>
+</body>
+
+</html>
