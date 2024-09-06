@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Парні або непарні числа</title>
+</head>
+<body>
+  <script>
+    let value = '';
+    let valueNumber;
+
+    //
+    while(value != null && (!valueNumber || typeof valueNumber != "number" || valueNumber < Number(value))) {
+      value = prompt("Введіть ціле чісло");
+      valueNumber = Number.parseInt(value);
+    }
+
+    if(value != null){
+      let typeValue = 'не парне';
+      if(valueNumber % 2 == 0) typeValue = 'парне'
+      alert(`Число ${value} є ${typeValue}!`);
+    }
+</script> 
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ІМТ</title>
+</head>
+<body>
+  <script src="../common/my-library.js"></script>
+  <script>
+    function getBodyMassIndex(weight, height) {
+      return Math.round(100 * weight / ((height / 100) ** 2)) / 100;
+      
+    }
+
+    function getBMICategory(valueBMI) {
+      let category;
+      if(valueBMI < 18.5) category = 'Недостатня вага';
+      if(18.5 <= valueBMI && valueBMI < 24.9) category = 'Нормальна вага';
+      if(25 <= valueBMI && valueBMI < 29.9) category = 'Надмірна вага';
+      if(valueBMI >= 30) category = 'Ожиріння';
+ 
+      return category;
+    }
+
+    const weight = getNumericValue("Вкажіть свою вагу в кілограмах:");
+    const height = getNumericValue("Вкажіть свій ріст в сантиметрах:");
+    const bodyMassIndex = getBodyMassIndex(weight, height);
+    const category = getBMICategory(bodyMassIndex);
+
+    alert(`Визначення оптимальної ваги:
+    Вага: ${weight} кг
+    Ріст: ${height} см
+    Індекс маси тіла: ${bodyMassIndex} кг/м2
+    Ознака ІМТ: ${category}`);
+
+  </script>
+</body>
+</html>
