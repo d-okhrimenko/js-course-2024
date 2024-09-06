@@ -1,0 +1,36 @@
+body {
+  background-color: #000000d8;
+  color: #ffffff;
+  font-family: sans-serif;
+  padding: 20px;
+}
+.book-list {
+}
+
+.book-list__items {
+}
+
+.book-list__item {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-bottom: 20px;
+  background-color: #3b3b3b;
+  border-radius: 10px;
+}
+
+.book-list__item h2 {
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.book-list__author {
+}
+
+.book-list__year {
+}
+
+.book-list__genre {
+}
