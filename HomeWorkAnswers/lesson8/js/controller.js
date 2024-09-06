@@ -1,2 +1,3 @@
 let htmlElement = document.querySelector("#book-list");
-bookRender.render(bookList.bookItems, htmlElement);
+let htmlTemplate = document.querySelector("#template").innerHTML;
+bookRender.renderWithTemplate(bookList.bookItems, htmlElement, htmlTemplate);
