@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let grades = [];
+
+        let numberOfGrades = parseInt(prompt("Скільки оцінок ви хочете ввести?"));
+
+        for (let i = 0; i < numberOfGrades; i++) {
+            let grade;
+            do {
+                grade = parseInt(prompt(`Введіть оцінку ${i + 1} (від 0 до 100):`));
+                if (grade < 0 || grade > 100 || isNaN(grade)) {
+                    alert("Будь ласка, введіть коректну оцінку від 0 до 100.");
+                }
+            } while (grade < 0 || grade > 100 || isNaN(grade));
+            grades.push(grade);
+        }
+
+        function calculateAverage(grades) {
+            let sum = 0;
+            for (let i = 0; i < grades.length; i++) {
+                sum += grades[i];
+            }
+            return sum / grades.length;
+        }
+
+        function findMaxGrade(grades) {
+            let maxGrade = grades[0];
+            for (let i = 1; i < grades.length; i++) {
+                if (grades[i] > maxGrade) {
+                    maxGrade = grades[i];
+                }
+            }
+            return maxGrade;
+        }
+
+        function findMinGrade(grades) {
+            let minGrade = grades[0];
+            for (let i = 1; i < grades.length; i++) {
+                if (grades[i] < minGrade) {
+                    minGrade = grades[i];
+                }
+            }
+            return minGrade;
+        }
+
+        let average = calculateAverage(grades);
+        let maxGrade = findMaxGrade(grades);
+        let minGrade = findMinGrade(grades);
+
+        alert(`Середній бал: ${average.toFixed(2)}`);
+        alert(`Найвища оцінка: ${maxGrade}`);
+        alert(`Найнижча оцінка: ${minGrade}`);
+
+    </script>
+
+</body>
+
+</html>

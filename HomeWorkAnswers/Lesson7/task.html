@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function createStudent(firstName, lastName, age, id, averageGrade) {
+            return {
+                firstName: firstName,
+                lastName: lastName,
+                age: age,
+                id: id,
+                averageGrade: averageGrade
+            };
+        }
+
+        const studentGroup = {
+            students: [],
+
+            addStudent(firstName, lastName, age, id, averageGrade) {
+                const newStudent = createStudent(firstName, lastName, age, id, averageGrade);
+                this.students.push(newStudent);
+                console.log(`Студента ${firstName} ${lastName} додано до групи.`);
+            },
+
+            removeStudent(id) {
+                const index = this.students.findIndex(student => student.id === id);
+                if (index !== -1) {
+                    const removedStudent = this.students.splice(index, 1)[0];
+                    console.log(`Студента ${removedStudent.firstName} ${removedStudent.lastName} видалено з групи.`);
+                } else {
+                    console.log(`Студента з ідентифікаційним номером ${id} не знайдено.`);
+                }
+            },
+
+            displayStudents() {
+                if (this.students.length === 0) {
+                    console.log("Список студентів порожній.");
+                } else {
+                    console.log("Список студентів:");
+                    this.students.forEach(student => {
+                        console.log(`Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, Ідентифікаційний номер: ${student.id}, Середній бал: ${student.averageGrade}`);
+                    });
+                }
+            },
+
+            findStudent(id) {
+                const student = this.students.find(student => student.id === id);
+                if (student) {
+                    console.log(`Знайдено студента: Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, Ідентифікаційний номер: ${student.id}, Середній бал: ${student.averageGrade}`);
+                } else {
+                    console.log(`Студента з ідентифікаційним номером ${id} не знайдено.`);
+                }
+            }
+        };
+
+
+        studentGroup.addStudent("Олександр", "Іваненко", 20, 1, 85);
+        // studentGroup.addStudent("Марія", "Петренко", 22, 2, 92);
+
+    </script>
+</body>
+
+</html>
