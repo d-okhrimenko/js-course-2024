@@ -66,7 +66,7 @@ switch (shape) {
         let rectangleArea = rectangleLength * rectangleWidth;
         let rectanglePerimeter = 2 * (rectangleLength + rectangleWidth);
         
-        alert(`Area of the rectangle: ${rectangleArea.toFixed(2)}\nPerimeter of the circle rectangle: ${rectanglePerimeter.toFixed(2)}`);
+        alert(`Area of the rectangle: ${rectangleArea.toFixed(2)}\nPerimeter of the rectangle: ${rectanglePerimeter.toFixed(2)}`);
         break;
     
     case "triangle":
