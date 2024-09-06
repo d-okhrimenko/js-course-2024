@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li>Item 1</li>
+    </ul>
+
+    <script>
+        let element = document.querySelector("#list");
+        
+        let li = document.createElement("li"); // <li>
+        li.textContent = "Item 2";
+        element.appendChild(li);
+        
+        let li2 = document.createElement("li"); // <li>
+        li2.textContent = "Item 3";
+        element.appendChild(li2);
+
+        element.insertAdjacentElement("beforeend", li);
+        
+    </script>
+</body>
+</html>
