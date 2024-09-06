@@ -1,0 +1,12 @@
+#book-list {
+  padding: 0 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.book-item {
+  background-color: #cecece;
+  padding: 0 30px 10px 30px;
+  border-radius: 20px;
+}
