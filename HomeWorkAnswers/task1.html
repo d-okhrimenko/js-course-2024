@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // // Фабрична функція
+      // function createStudent(name, surname, years, id, averageScore) {
+      //   let student = {}
+      //   student.name = name
+      //   student.surname = surname
+      //   student.years = years
+      //   student.id = id
+      //   student.averageScore = averageScore
+
+      //   student.infoStudent = function () {
+      //     console.log(this.name)
+      //     console.log(this.surname)
+      //     console.log(this.years)
+      //     console.log(this.id)
+      //     console.log(this.surname)
+      //     console.log(this.averageScore)
+      //   }
+      //   return student
+      // }
+      // // Класс
+      // class Student {
+      //   constructor(name, surname, years, id, averageScore) {
+      //     this.name = name
+      //     this.surname = surname
+      //     this.years = years
+      //     this.id = id
+      //     this.averageScore = averageScore
+      //   }
+      //   studentInfo() {
+      //     console.log(this.name)
+      //     console.log(this.surname)
+      //     console.log(this.years)
+      //     console.log(this.id)
+      //     console.log(this.averageScore)
+      //   }
+      //   addStudent(name, surname, years, id, averageScore) {
+      //     this.name = prompt("Введіть ім'я студента")
+      //     this.surname = prompt('Введіть прізвище студента')
+      //     this.years = prompt('Введіть вік студента')
+      //     this.id = prompt('Введіть id студента')
+      //     this.averageScore = prompt('Введіть середній бал студента')
+      //   }
+      // }
+
+      // let student1 = createStudent('Viktor', 'Petsko', 35, 2, 10.8)
+      // console.log(student1)
+
+      // let student2 = createStudent('Yulia', 'Petsko', 34, 1, 11.6)
+      // console.log(student2)
+
+      // let student3 = new Student('Yulia', 'Petsko', 34, 1, 10.4)
+      // console.log(student3)
+
+      // let student4 = new Student()
+      // student4.addStudent()
+      // console.log(student4)
+      let studentsList = {
+        students: [
+          { name: 'Viktor', surname: 'Petsko', years: 35, id: 1, averageScore: 10.8 },
+          { name: 'Yulia', surname: 'Shvoruk', years: 34, id: 2, averageScore: 11.2 },
+          { name: 'Sergij', surname: 'Samaeuk', years: 34, id: 3, averageScore: 9.4 },
+        ],
+        add: function (name, surname, years, id, averageScore) {
+          this.students.push({ name: name, surname: surname, years: years, id: id, averageScore: averageScore })
+        },
+        remove: function (id) {
+          let removeStudent = this.students.filter((student) => student.id == id)[0]
+          let index = this.students.indexOf(removeStudent)
+          this.students.splice(index, 1)
+        },
+        showAllStudent: function () {
+          for (let i = 0; i < this.students.length; i++) {
+            console.log(this.students[i])
+          }
+        },
+        findStudent: function (id) {
+          let findStudent = this.students.find((student) => student.id == id)
+          console.log(findStudent)
+        },
+      }
+      studentsList.add('Valera', 'Pupkin', 32, 4, 8.8)
+      console.log(studentsList.students)
+
+      studentsList.remove(3)
+      console.log(studentsList.students)
+
+      studentsList.showAllStudent()
+
+      studentsList.findStudent(4)
+    </script>
+  </body>
+</html>
+<!-- Завдання: Написати програму для управління інформацією про студентів у групі. Програма повинна дозволяти додавати нових студентів, видаляти студентів і виводити інформацію про всіх студентів.
+
+Кроки для виконання завдання:
+
++Створити конструктор або фабричну функцію для створення об'єктів студентів:
+Кожен об'єкт студента повинен містити наступні властивості: ім'я, прізвище, вік, ідентифікаційний номер, середній бал.
+
++Створити об'єкт для управління групою студентів:
+Цей об'єкт повинен містити масив студентів та методи для додавання, видалення і виведення інформації про студентів.
+
++Додати метод для додавання нового студента:
+Метод повинен приймати параметри для створення нового об'єкта студента і додавати його до масиву.
+
++Додати метод для видалення студента:
+Метод повинен видаляти студента за його ідентифікаційним номером.
+
++Додати метод для виведення списку всіх студентів:
+Метод повинен виводити на екран список студентів із зазначенням всіх їхніх властивостей.
+
++Додати функціонал для пошуку студента за його ідентифікаційним номером:
+Метод повинен шукати студента в масиві і повертати всю інформацію про нього. -->
