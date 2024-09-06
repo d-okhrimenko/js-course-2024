@@ -1,0 +1,49 @@
+body {
+  background-color: lightgray;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#books-list {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.book {
+  background-color: lightgoldenrodyellow;
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.book h2 {
+  font-size: 1.5em;
+  margin: 0;
+  color: gray;
+}
+
+.book h3 {
+  font-size: 1.2em;
+  margin: 5px 0;
+  color: gray;
+}
+
+.book p {
+  font-size: 1em;
+  margin: 2px 0;
+  color: gray;
+}
+
+.book:hover {
+  background-color: whitesmoke;
+  border-color: yellow;
+}
