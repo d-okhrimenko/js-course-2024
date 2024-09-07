@@ -72,3 +72,8 @@ li {
     font-size: var(--font-size);
     margin: 0.5em 0 0;
 }
+.status {
+    color: var(--notice-color);
+    font-weight: bold;
+    font-size: 2em;
+}
