@@ -10,7 +10,7 @@ h1 {
 ul {
     margin: 10px;
 
-    width: 300px;
+    width: 45vh;
     padding: 20px;
     
     background-color: darkgrey;
@@ -20,10 +20,11 @@ ul {
 #form {
     display: grid;
     gap: 10px;
+    padding-bottom: 30px;
 }
 
 input, button {
-    width: 300px;
+    width: 45vh;
     margin-left: 20px;
 }
 

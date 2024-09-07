@@ -7,7 +7,7 @@ let books = [
 ];
 
 function showBooks() {
-    let container = document.querySelector("div")
+    let container = document.getElementById("bookList")
 
     for (let i = 0; i < books.length; i++) {
         let listOfInfo = document.createElement("ul")
