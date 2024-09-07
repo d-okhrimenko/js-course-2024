@@ -67,11 +67,4 @@ function result_games() {
   changeBlock.parentNode.replaceChild(finishGameText, changeBlock)
 }
 
-let userValue = buttonClick()
-function buttonClick() {
-  button.addEventListener('click', function() {
-    return document.querySelector("#input").value
-    })
-}
-
 runGame();
