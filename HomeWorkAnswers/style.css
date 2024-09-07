@@ -1,0 +1,33 @@
+h1 {
+    margin: 20px;
+}
+
+#bookList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    margin: 10px;
+
+    width: 300px;
+    padding: 20px;
+    
+    background-color: darkgrey;
+    border-radius: 20px;
+}
+
+#form {
+    display: grid;
+    gap: 10px;
+}
+
+input, button {
+    width: 300px;
+    margin-left: 20px;
+}
+
+.book_edit_button, .book_delete_button {
+    margin-left: 0;
+    margin-top: 5px;
+}
