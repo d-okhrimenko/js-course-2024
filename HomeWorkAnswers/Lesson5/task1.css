@@ -1,0 +1,44 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(250, 255, 239);
+
+}
+h1 {
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+.section-box {
+    width: 50vw;
+    border: 2px solid yellowgreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+    padding: 1em 0.5em;
+    text-align: center;
+}
+
+label {
+    margin-bottom: 1em;
+}
+
+.input {
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.btn-box {
+    width: 100%;
+}
+.btn {
+    width: 30%;
+    padding: 0.2em;
+    font-size: 0.8em;
+}
+.result {
+    font-weight: bold;
+}
