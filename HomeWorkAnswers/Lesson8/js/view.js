@@ -4,16 +4,28 @@ const bookList = {
 
         list.forEach(book => {
             let div = document.createElement("div")
-            div.innerHTML = `  
-            
-                <h2>${book.title}</h2>
-                <h3>Автор: ${book.author}</h3>    
-                <p>Рік: ${book.year}</p>
-                <p>Жанр: ${book.genre}</p>`
+    
+            const bookTitle = document.createElement('h2');
+            bookTitle.textContent = book.title;
+    
+            const bookAuthor = document.createElement('h3');
+            bookAuthor.textContent = `Автор: ${book.author}`;
+    
+            const bookYear = document.createElement('p');
+            bookYear.textContent = `Рік : ${book.year}`;
+    
+            const bookGenre = document.createElement('p');
+            bookGenre.textContent = `Жанр: ${book.genre}`;
 
+            div.appendChild(bookTitle);
+            div.appendChild(bookAuthor);
+            div.appendChild(bookYear);
+            div.appendChild(bookGenre)
+            
             div.classList.add("book")
             element.appendChild(div);
 
+            
         });
 
     }
