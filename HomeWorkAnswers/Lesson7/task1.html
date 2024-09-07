@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управління студентами</title>
+</head>
+<body>
+    <h1>Управління інформацією про студентів</h1>
+    <button onclick="manageStudentGroup()">Управляти студентами</button>
+
+    <script>
+        // Конструктор для створення об'єктів студентів
+        class Student {
+            constructor(firstName, lastName, age, id, gpa) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+                this.id = id;
+                this.gpa = gpa;
+            }
+
+            // Метод для виведення інформації про студента
+            getInfo() {
+                return `Ім'я: ${this.firstName}, Прізвище: ${this.lastName}, Вік: ${this.age}, ID: ${this.id}, Середній бал: ${this.gpa}`;
+            }
+        }
+
+        // Об'єкт для управління групою студентів
+        const studentGroup = {
+            students: [],
+
+            // Додавання нового студента
+            addStudent(firstName, lastName, age, id, gpa) {
+                const newStudent = new Student(firstName, lastName, age, id, gpa);
+                this.students.push(newStudent);
+                alert(`Студента ${firstName} ${lastName} додано до групи.`);
+            },
+
+            // Видалення студента за його ідентифікаційним номером
+            removeStudent(id) {
+                const index = this.students.findIndex(student => student.id === id);
+                if (index !== -1) {
+                    const removedStudent = this.students.splice(index, 1);
+                    alert(`Студента ${removedStudent[0].firstName} ${removedStudent[0].lastName} видалено з групи.`);
+                } else {
+                    alert(`Студента з ID ${id} не знайдено.`);
+                }
+            },
+
+            // Виведення інформації про всіх студентів
+            displayAllStudents() {
+                if (this.students.length === 0) {
+                    alert("Група порожня.");
+                } else {
+                    let info = "Список студентів:\n";
+                    this.students.forEach(student => {
+                        info += student.getInfo() + "\n";
+                    });
+                    alert(info);
+                }
+            },
+
+            // Пошук студента за його ідентифікаційним номером
+            findStudent(id) {
+                const student = this.students.find(student => student.id === id);
+                if (student) {
+                    alert(student.getInfo());
+                } else {
+                    alert(`Студента з ID ${id} не знайдено.`);
+                }
+            }
+        };
+
+        // Функція для управління студентською групою
+        function manageStudentGroup() {
+            let action;
+            do {
+                action = prompt("Що ви хочете зробити? (додати, видалити, показати, знайти, завершити)").toLowerCase();
+                switch (action) {
+                    case "додати":
+                        let firstName = prompt("Введіть ім'я студента:");
+                        let lastName = prompt("Введіть прізвище студента:");
+                        let age = prompt("Введіть вік студента:");
+                        let id = prompt("Введіть ID студента:");
+                        let gpa = prompt("Введіть середній бал студента:");
+                        if (firstName && lastName && age && id && gpa) {
+                            studentGroup.addStudent(firstName, lastName, age, id, gpa);
+                        } else {
+                            alert("Усі поля обов'язкові для заповнення.");
+                        }
+                        break;
+                    case "видалити":
+                        let removeId = prompt("Введіть ID студента для видалення:");
+                        if (removeId) {
+                            studentGroup.removeStudent(removeId);
+                        }
+                        break;
+                    case "показати":
+                        studentGroup.displayAllStudents();
+                        break;
+                    case "знайти":
+                        let findId = prompt("Введіть ID студента для пошуку:");
+                        if (findId) {
+                            studentGroup.findStudent(findId);
+                        }
+                        break;
+                    case "завершити":
+                        alert("Завершення роботи зі студентською групою.");
+                        break;
+                    default:
+                        alert("Невідома команда. Спробуйте ще раз.");
+                }
+            } while (action !== "завершити");
+        }
+    </script>
+</body>
+</html>
