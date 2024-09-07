@@ -3,7 +3,7 @@
 let inputNumber = prompt("Введить число:");
 inputNumber = Number(inputNumber);
 
-if (isNaN(inputNumber)) {
+if (isNaN(inputNumber)) {                              // Проверка введенных данных
   alert("Будь ласка, введіть коректне число.");
 }
 else{

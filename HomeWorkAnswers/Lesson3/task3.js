@@ -1,7 +1,7 @@
 let currentYear = prompt("Введить рік:");
 currentYear = Number(currentYear);
 
-if (isNaN(currentYear)) {
+if (isNaN(currentYear)) {                          // Проверка введенных данных
     alert("Будь ласка, введіть коректий рік");
   }
   else{
