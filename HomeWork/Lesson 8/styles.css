@@ -1,0 +1,12 @@
+.book {
+  background-color: lightblue;
+  height: 200px;
+  width: 25%;
+  padding: 20px;
+  margin: 30px 475px;
+  border-radius: 20px;
+}
+
+h2 {
+  color: rgb(50, 58, 182);
+}
