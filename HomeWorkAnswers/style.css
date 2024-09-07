@@ -6,11 +6,40 @@ body {
 }
 .book-list {
 }
-
+form {
+  margin-bottom: 30px;
+}
+form div {
+  margin-bottom: 10px;
+}
+form label {
+  display: inline-block;
+  width: 100px;
+}
+input {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 5px;
+}
+form button {
+  padding: 10px 15px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease 0s;
+}
+form button:hover {
+  background-color: #1616168e;
+}
 .book-list__items {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  gap: 20px;
 }
 
 .book-list__item {
+  /* flex: 1 1 auto; */
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -19,7 +48,21 @@ body {
   background-color: #3b3b3b;
   border-radius: 10px;
 }
-
+.buttons {
+  display: flex;
+  column-gap: 20px;
+}
+.book-list__item button {
+  display: inline-block;
+  width: 150px;
+  background-color: #616161;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease 0s;
+}
+.book-list__item button:hover {
+  background-color: #5f5454;
+}
 .book-list__item h2 {
   letter-spacing: 0.5px;
   font-weight: 700;
