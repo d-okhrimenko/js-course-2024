@@ -9,14 +9,24 @@
 </head>
 
 <body>
-    <template id="template">
+    <script id="template" type="text/template">
         <section class="book">
+            <button onclick="edit({{id}})">Edit</button>
+            <button onclick="remove({{id}})">Delete</button>
             <h2>{{title}}</h2>
             <h1>Author: {{author}}</h1>
             <p>Year: {{year}}</p>
             <p>Genre: {{genre}}</p>
         </section>
-    </template>
+    </script>
+
+    <form id="bookForm">
+        <div><label for="">Title</label><input type="text" id="titleInput"></div>
+        <div><label for="">Author</label><input type="text" id="authorInput"></div>
+        <div><label for="">Year</label><input type="text" id="yearInput"></div>
+        <div><label for="">Genre</label><input type="text" id="genreInput"></div>
+        <button type="submit">Save</button>
+    </form>
 
     <section id="book-list">
 
