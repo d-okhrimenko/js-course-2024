@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("https://zefirka.club/wallpapers/uploads/posts/2023-03/1680026025_zefirka-club-p-zadnii-fon-biblioteka-70.jpg");
+    background-size: cover;
+}
+
+.bookList {
+    margin: 0 auto;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.book {
+    border-radius: 20px;
+    border: 5px solid gray;
+    width: calc((100% - 40px) / 3);
+    background-color: beige;
+    text-align: center;
+}
+
+.bookForm {
+    text-align: center;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 20px;
+    border: 5px solid gray;
+    max-width: 50%;
+    background-color: beige;
+    text-align: center;
+}
+
+#bookForm label {
+    display: inline-block;
+    font-size: 20px;
+    color: rgb(74, 131, 57);
+    width: 60px;
+}
+#name-rename-book{
+    font-size: 18px;
+}
+#bookForm div {
+    margin-bottom: 10px;
+}
+
+input {
+    width: 80%;
+    border-radius: 10px;
+    border: 2px solid gray;
+
+    background-color: beige;
+    height: 35px;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+
+}
+
+#add-and-rename-button {
+    background-color: rgb(42, 165, 48);
+    color: #fff;
+
+    border: 3px solid rgba(29, 29, 29, 0.582);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px 15px;
+    transition-duration: 300ms;
+    margin-bottom: 10px;
+}
+
+#add-and-rename-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    font-size: 23px;
+}
+
+#add-and-rename-button:active {
+    background-color: rgb(138, 138, 138);
+    color: #000000;
+    font-size: 19px;
+}
+
+.buttons {
+    justify-content: center;
+    display: flex;
+    gap: 20px
+}
+
+.buttonRename {
+    background-color: rgb(165, 157, 42);
+    color: #fff;
+
+    border: 3px solid rgba(29, 29, 29, 0.582);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px 15px;
+    transition-duration: 300ms;
+    margin-bottom: 10px;
+}
+
+.buttonRename:hover {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    font-size: 23px;
+}
+
+.buttonRename:active {
+    background-color: rgb(138, 138, 138);
+    color: #000000;
+    font-size: 19px;
+}
+
+.buttonRemove {
+    background-color: rgb(165, 42, 42);
+    color: #fff;
+
+    border: 3px solid rgba(29, 29, 29, 0.582);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px 15px;
+    transition-duration: 300ms;
+    margin-bottom: 10px;
+}
+
+.buttonRemove:hover {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    font-size: 23px;
+}
+
+.buttonRemove:active {
+    background-color: rgb(138, 138, 138);
+    color: #000000;
+    font-size: 19px;
+}
