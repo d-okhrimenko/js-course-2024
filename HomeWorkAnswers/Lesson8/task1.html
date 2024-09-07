@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список книг</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .book {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .book h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .book p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Список книг у бібліотеці</h1>
+    <div id="bookList"></div>
+
+    <script>
+        // Масив об'єктів з інформацією про книги
+        const books = [
+            { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+            { title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
+            { title: "Гра престолів", author: "Джордж Р. Р. Мартін", year: 1996, genre: "Фентезі" },
+            { title: "Старий і море", author: "Ернест Хемінгуей", year: 1952, genre: "Пригодницький роман" },
+            { title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+        ];
+
+        // Функція для виведення списку книг на сторінку
+        function displayBooks() {
+            const bookList = document.querySelector('#bookList');
+            books.forEach(book => {
+                // Створення контейнера для книги
+                const bookItem = document.createElement('div');
+                bookItem.classList.add('book');
+                
+                // Створення елементів для назви, автора, року видання та жанру
+                const bookTitle = document.createElement('h3');
+                bookTitle.textContent = `Назва: ${book.title}`;
+                
+                const bookAuthor = document.createElement('p');
+                bookAuthor.textContent = `Автор: ${book.author}`;
+                
+                const bookYear = document.createElement('p');
+                bookYear.textContent = `Рік видання: ${book.year}`;
+                
+                const bookGenre = document.createElement('p');
+                bookGenre.textContent = `Жанр: ${book.genre}`;
+                
+                // Додавання елементів до контейнера книги
+                bookItem.appendChild(bookTitle);
+                bookItem.appendChild(bookAuthor);
+                bookItem.appendChild(bookYear);
+                bookItem.appendChild(bookGenre);
+                
+                // Додавання книги до списку
+                bookList.appendChild(bookItem);
+            });
+        }
+
+        // Виклик функції для виведення книг після завантаження сторінки
+        displayBooks();
+    </script>
+
+</body>
+</html>
