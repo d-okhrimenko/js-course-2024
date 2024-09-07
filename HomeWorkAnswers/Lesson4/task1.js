@@ -36,7 +36,7 @@ function startGame () {
         if(attemptCount === attempt) {
             button.removeEventListener('click', startGame);
             gameStatus.innerHTML = 'Гру завершено!';
-            gameStatus.style = 'color: var(--notice-color); font-weight: bold; font-size: 2em';
+            gameStatus.classList.add('status');
             if(playerScore > computerScore) {
                 result.innerHTML = 'Ви перемогли!'
             } else if (playerScore < computerScore) {
