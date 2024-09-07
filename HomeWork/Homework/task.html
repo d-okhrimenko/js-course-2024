@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бібліотека</title>
+</head>
+<body>
+
+<div id="bookList"></div>
+
+<script>
+    // Масив об'єктів, що представляють книги
+    const books = [
+        { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+        { title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
+        { title: "Гра престолів", author: "Джордж Р. Р. Мартін", year: 1996, genre: "Фентезі" },
+        { title: "Старий і море", author: "Ернест Хемінгуей", year: 1952, genre: "Пригодницький роман" },
+        { title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+    ];
+
+    // Функція для динамічного виведення книг
+    function displayBooks() {
+        const bookList = document.querySelector('#bookList'); // Отримуємо контейнер
+        books.forEach(book => {
+            // Створюємо HTML-елемент для кожної книги
+            const bookItem = document.createElement('div');
+            bookItem.innerHTML = `
+                <h3>${book.title}</h3>
+                <p><strong>Автор:</strong> ${book.author}</p>
+                <p><strong>Рік видання:</strong> ${book.year}</p>
+                <p><strong>Жанр:</strong> ${book.genre}</p>
+                <hr>
+            `;
+            // Додаємо елемент до контейнера
+            bookList.appendChild(bookItem);
+        });
+    }
+
+    // Викликаємо функцію для відображення списку книг
+    displayBooks();
+</script>
+
+</body>
+</html>
