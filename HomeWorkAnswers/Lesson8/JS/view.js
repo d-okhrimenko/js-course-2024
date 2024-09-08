@@ -1,20 +1,21 @@
 const bookList = {
   render(books, element) {
-    // <section class="book">
-    //   <h2>Whatever Happened to Harold Smith?</h2>
-    //   <p>Author: Jourdan Bowser</p>
-    //   <p>Year: 2006</p>
-    //   <p>Genre: Comedy</p>
-    // </section>
-
     books.forEach(book => {
       let section = document.createElement("section");
       section.classList.add("book");
-      section.insertAdjacentHTML("beforeend", `<h2>Whatever Happened to Harold Smith?</h2>`);
-      section.insertAdjacentHTML("beforeend", `<p>Author: Jourdan Bowser</p>`);
-      section.insertAdjacentHTML("beforeend", `<p>Year: 2006</p>`);
-      section.insertAdjacentHTML("beforeend", `<p>Genre: Comedy</p>`);
+      section.insertAdjacentHTML("beforeend", `<h2>${book.title}</h2>`);
+      section.insertAdjacentHTML("beforeend", `<p>Author: ${book.author}</p>`);
+      section.insertAdjacentHTML("beforeend", `<p>Year: ${book.year}</p>`);
+      section.insertAdjacentHTML("beforeend", `<p>Genre: ${book.genre}</p>`);
       element.appendChild(section);
     });
+  },
+
+  renderWithTemplate(books, element, template) {
+    let html = "";
+    books.forEach(book => {
+      html += Mustache.render(template, book);
+    });
+    element.innerHTML = html;
   }
-}
+};

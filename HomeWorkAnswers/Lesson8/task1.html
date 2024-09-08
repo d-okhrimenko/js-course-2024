@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,23 +8,27 @@
   <title>Books. Lesson 8, DOM.</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <h1>Books</h1>
+  <template id="template">
+    <section class="book">
+      <h2>{{title}}</h2>
+      <p>Author: {{author}}</p>
+      <p>Year: {{year}}</p>
+      <p>Genre: {{genre}}</p>
+    </section>
+  </template>
 
   <section id="book-list">
-    <section class="book">
-      <h2>Whatever Happened to Harold Smith?</h2>
-      <p>Author: Jourdan Bowser</p>
-      <p>Year: 2006</p>
-      <p>Genre: Comedy</p>
-    </section>
-
 
   </section>
+
   <script src="../../ClassWork/node_modules/mustache/mustache.min.js"></script>
   <script src="JS/models.js"></script>
   <script src="JS/view.js"></script>
   <script src="JS/controller.js"></script>
 
 </body>
+
 </html>
