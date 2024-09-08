@@ -1,0 +1,65 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  margin: 70px 0 0 250px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: lightblue;
+  color: #666;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#bookList {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: lightblue;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #666;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+h2,
+p {
+  padding-left: 10px;
+  border-left: 4px solid #3498db;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+}
