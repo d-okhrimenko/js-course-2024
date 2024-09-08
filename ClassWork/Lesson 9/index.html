@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myClass {
+            color: white;
+            background-color: orange;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myDiv">Hello world</div>
+    
+    <script>
+        let div = document.getElementById("myDiv");
+        //div.onclick = changeColor;
+        div.addEventListener("click", changeColor);
+
+        function changeColor() {
+            // div.style.color = "white";
+            // div.style.backgroundColor = "blue";
+            // div.style.padding = "10px";
+
+            div.classList.add("myClass");
+        }
+
+        
+    </script>
+</body>
+
+</html>
