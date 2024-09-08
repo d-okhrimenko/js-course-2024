@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function generateExpression() {
+            const num1 = getRandomNumber(1, 10);
+            const num2 = getRandomNumber(1, 10);
+            const operators = ['+', '-', '*', '/'];
+            const operator = operators[Math.floor(Math.random() * operators.length)];
+
+            let answer;
+            switch (operator) {
+                case '+':
+                    answer = num1 + num2;
+                    break;
+                case '-':
+                    answer = num1 - num2;
+                    break;
+                case '*':
+                    answer = num1 * num2;
+                    break;
+                case '/':
+                    answer = num1 / num2;
+                    answer = Math.round(answer * 100) / 100;
+                    break;
+            }
+
+            return {
+                expression: `${num1} ${operator} ${num2}`,
+                answer: answer
+            };
+        }
+
+        function playGame() {
+            const maxAttempts = 5;
+            let correctCount = 0;
+            let incorrectCount = 0;
+
+            for (let i = 0; i < maxAttempts; i++) {
+                const { expression, answer } = generateExpression();
+                const userAnswer = parseFloat(prompt(`Розв'яжіть: ${expression}`));
+
+                if (Math.abs(userAnswer - answer) < 0.01) {
+                    correctCount++;
+                    alert("Правильно!");
+                } else {
+                    incorrectCount++;
+                    alert(`Неправильно! Правильна відповідь: ${answer}`);
+                }
+            }
+
+            alert(`Гра завершена!\nПравильні відповіді: ${correctCount}\nНеправильні відповіді: ${incorrectCount}`);
+        }
+
+        playGame();
+
+    </script>
+</body>
+
+</html>

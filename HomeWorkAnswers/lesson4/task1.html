@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function getRandomChoice() {
+            const choices = ["камінь", "ножиці", "папір"];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
+
+        let userWins = 0, computerWins = 0, rounds = 0, draws = 0;
+
+        while (true) {
+            let userChoice = prompt("Введіть камінь, ножиці, папір чи вихід").toLowerCase().trim();
+
+            if (userChoice === null) {
+                alert("Гра завершена.");
+                break;
+            }
+
+            if (userChoice === "вихід") {
+                alert(`Гра завершена.\nВи зіграли ${rounds} раундів\nРахунок: \nВи: ${userWins}\nКомп'ютер: ${computerWins}\nНічиї: ${draws}`);
+                break;
+            }
+
+            if (!['камінь', 'ножиці', 'папір'].includes(userChoice)) {
+                alert('Невірний вибір, будь ласка, спробуйте ще раз.');
+                continue;
+            }
+
+            let computerChoice = getRandomChoice();
+            let resultMsg;
+
+            if (userChoice === computerChoice) {
+                resultMsg = `Нічия! Ви вибрали ${userChoice}, комп'ютер вибрав ${computerChoice}.`;
+                draws++;
+            } else if (
+                (userChoice === 'камінь' && computerChoice === 'ножиці') ||
+                (userChoice === 'ножиці' && computerChoice === 'папір') ||
+                (userChoice === 'папір' && computerChoice === 'камінь')
+            ) {
+                resultMsg = `Ви виграли! Ви ${userChoice} комп'ютер ${computerChoice}.`;
+                userWins++;
+            } else {
+                resultMsg = `Ви програли! комп'ютер ${computerChoice} Ви ${userChoice}.`;
+                computerWins++;
+            }
+
+            alert(resultMsg);
+            rounds++;
+            alert(`Ви зіграли ${rounds} раундів\nРахунок: \nВи: ${userWins}\nКомп'ютер: ${computerWins}\nНічиї: ${draws}`);
+        }
+
+    </script>
+</body>
+
+</html>
