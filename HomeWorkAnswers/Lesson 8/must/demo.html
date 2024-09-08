@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A Simple Mustache Demo</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="style.css" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<!-- <script type="text/javascript" src="mustache.js"></script> -->
+		<script type="text/javascript" src="../../../node_modules/mustache/mustache.js"></script>
+		<script type="text/javascript" src="mustache-demos.js"></script>
+	</head>
+
+	<body>
+		<h1>A Simple Mustache Demo</h1>
+
+		<div id="wrap">
+			<div class="template">
+				<h3>Mustache Template:</h3>
+
+				<textarea id="template">
+<h4>Product Info: {{name}}</h4>
+
+<ul>
+  <li>Product: {{name}}</li>
+  <li>Colour: {{colour}}</li>
+  <li>Price: ${{price}}</li>
+</ul>
+      </textarea
+				>
+			</div>
+
+			<div class="data">
+				<h3>Data Object:</h3>
+
+				<textarea id="data">
+				
+var data = {"name": "SuperWidget",  "colour": "Green",  "price": "19.99"};
+      </textarea
+				>
+			</div>
+
+			<div class="process"><button onclick="process()">Process Template</button></div>
+
+			<div class="html">
+				<h3>HTML Result:</h3>
+
+				<textarea id="html"></textarea>
+			</div>
+
+			<div class="result">
+				<h3>How It Looks:</h3>
+
+				<div id="result"></div>
+			</div>
+		</div>
+	</body>
+</html>

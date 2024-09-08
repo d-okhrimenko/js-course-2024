@@ -1,0 +1,46 @@
+body {
+    font-family: "Georgia", serif;
+    line-height: 1.8em;
+    color: #333;
+  }
+  
+  #wrap {
+    width: 57em;
+  }
+  
+  textarea, .result div {
+    font-size: .8em;
+    width: 29em;
+    height: 15em;
+    margin: 1em 2em 2em 2em;
+    padding: 1em;
+  }
+  
+  textarea {
+    font-family: Courier, fixed;
+  }
+  
+  .template, .html, .data, .result {
+    float: left;
+  }
+  
+  .result div {
+    border: 1px solid #333;
+  }
+  
+  h3 {
+    display block;
+    margin: 2em 0 0 1.5em;
+  }
+  
+  .process {
+    display: block;
+    clear: both;
+    margin: 1em 0;
+    width: 56em;
+    text-align: center;
+  }
+  
+  button {
+    font-size: 1.5em; margin-top: 1em;
+  }
