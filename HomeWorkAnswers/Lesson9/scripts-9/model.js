@@ -14,12 +14,8 @@ export const getAllBooks = function () {
 };
 
 export const removeBook = function (book) {
-  console.log(state.books);
-  const books = state.books;
-  const filteredBooks = books.filter((bookEl) => bookEl.title !== book.title && bookEl.author !== book.author);
-  state.books.splice(0, books.length);
-  state.books.push(...filteredBooks);
-  console.log(state.books);
+  const index = state.books.findIndex((bookEl) => bookEl.title === book.title && bookEl.author === book.author);
+  state.books.splice(index, 1);
 };
 
 export const addBook = function (book) {
