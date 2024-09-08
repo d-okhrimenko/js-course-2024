@@ -1,0 +1,224 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url(../Images/electronics_original.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav {
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li {
+    height: 50px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 30px;
+    text-decoration:  none;
+    display:  flex;
+    align-items:  center;
+    color: black;
+}
+
+nav dialog {
+    width: 400px;
+    padding: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 14px;
+    border-width: 0;
+    flex-direction: column;
+
+    z-index: 999;
+    background-color: rgba(38, 130, 130, 0.34);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 17px -7px rgba(34, 60, 80, 0.3);
+    
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.4s, visibility 0.4s;
+}
+
+nav dialog input:hover {
+    background-color: rgba(238, 247, 247, 0.533)
+}
+nav dialog button:hover {
+    background-color: rgba(193, 213, 188, 0.638);
+}
+
+nav a:hover {
+    background-color: rgba(101, 191, 189, 0.211);
+}
+
+nav li:first-child {
+    margin-right: auto;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.411);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.3);
+    display:  none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:  flex-start;
+}
+
+.sidebar li {
+    width: 100%;
+}
+
+.sidebar a {
+    width: 100%;
+}
+
+.menu-button {
+    display: none;
+}
+
+.input {
+    padding: 2px;
+    margin: 5px 0 5px;
+    font-size: large;
+    width: 100%;
+    border-radius: 8px;
+    border-width: 0;
+}
+
+.dlg-button {
+    width: 100%;
+    height: 30px;
+    margin: 0 0 5px 1px;
+    border-radius: 8px;
+    border-width: 0;
+    background-color: rgba(56, 103, 107, 0.506);
+    transform: translate(0%, 50%);
+}
+
+.popup__view {
+    position: fixed; 
+    left: 0;
+    top: 0;
+    min-width: 500px;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s, visibility 0.4s;
+}
+
+.popup__view__box {
+    position: relative;
+    max-width: 500px;
+    padding: 45px;
+    z-index: 1; 
+    margin: 30px 15px;
+    background-color: rgba(77, 154, 154, 0.501);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    box-shadow: 0px 0px 17px -7px rgba(34, 60, 80, 0.2);
+    transform: scale(0);
+    transition: transform .8s;
+}
+
+.popup__view__cancel__btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.popup__view__cancel__btn svg path {
+    transition: fill .4s;
+}
+
+.popup__view__cancel__btn:hover svg path {
+    fill: brown;
+}
+
+.popup__view__cancel__btn:active svg path {
+    fill: rgb(191, 133, 32);
+}
+
+.popup__view.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup__view.open .popup__view__box {
+    transform: scale(1);
+}
+
+.popup__view__box ul {
+    width: 100%;
+    display: list-item;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:  flex-start;
+}
+
+.popup__view__box li {
+        height: 50px;
+}
+
+.popup__view__box a {
+    height: 100%;
+    padding: 30px 30px;
+    text-decoration:  none;
+    display:  flex;
+    cursor: default;
+    color: black;
+}
+
+@media(max-width: 760px) {
+    .hideOnMobile {
+        display: none;
+    }
+    .menu-button {
+        display: block;
+    }
+}
+
+@media(max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+}
