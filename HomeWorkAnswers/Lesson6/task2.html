@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson6Task2</title>
+</head>
+
+<body>
+
+    <script>
+
+        let shoppingList = ["хліб", "молоко", "томати"];
+
+        function addItem(item) {
+            shoppingList.push(item);
+            alert(`${item} додано до списку покупок.`);
+        }
+
+        function removeItem(item) {
+            const index = shoppingList.indexOf(item);
+            if (index > -1) {
+                shoppingList.splice(index, 1);
+                alert(`${item} видалено зі списку покупок.`);
+            } else {
+                alert(`${item} не знайдено у списку покупок.`);
+            }
+        }
+
+        function displayList() {
+            if (shoppingList.length === 0) {
+                alert("Список покупок порожній.");
+            } else {
+                alert("Поточний список покупок:\n" + shoppingList.join(", "));
+            }
+        }
+
+        while (true) {
+            let action = prompt("Виберіть додати (add), видалити (remove), показати список (display) або завершити (exit):").toLowerCase();
+
+            if (action === "add") {
+                let newItem = prompt("Введіть назву товару для додавання:");
+                addItem(newItem);
+            } else if (action === "remove") {
+                let removeItemName = prompt("Введіть назву товару для видалення:");
+                removeItem(removeItemName);
+            } else if (action === "display") {
+                displayList();
+            } else if (action === "exit") {
+                break;
+            } else {
+                alert("error.");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
