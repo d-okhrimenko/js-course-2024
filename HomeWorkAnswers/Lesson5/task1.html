@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson3, task1</title>
+</head>
+
+<body>
+    <script>
+
+        const calculateImt = (weight, height) => weight / (height ** 2);
+
+        function getImtCategory(imt) {
+            if (imt < 18.5) {
+                return 'Недостатня вага';
+            } else if (imt >= 18.5 && imt < 24.9) {
+                return 'Нормальна вага';
+            } else if (imt >= 25 && imt < 29.9) {
+                return 'Лишня вага';
+            } else {
+                return 'Мега вага';
+            }
+        }
+
+        function getValidInput(promptMessage) {
+            let value;
+            do {
+                value = +prompt(promptMessage);
+            } while (isNaN(value) || value <= 0);
+            return value;
+        }
+
+        let weight = getValidInput('Введіть свою вагу:');
+        let height = getValidInput('Введіть свій ріст:');
+
+        let imt = calculateImt(weight, height);
+        let category = getImtCategory(imt);
+
+        alert(`Ваш IMT є - ${imt}, Ваша категорія - ${category}`);
+
+    </script>
+</body>
+
+</html>
