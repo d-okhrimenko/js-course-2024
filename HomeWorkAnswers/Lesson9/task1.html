@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 9. Завдання 1</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <!-- 
+        Розширте код завдання з уроку 8, додавши наступні можливості:
+
+        1. Створити функцію для додавання нової книги до масиву:
+
+        Функція повинна приймати параметри для створення нового об'єкта книги (назва, автор, рік видання, жанр) і додавати його до масиву books.
+        Після додавання нової книги, список книг на веб-сторінці повинен оновлюватися.
+
+        2. Створити функцію для редагування інформації про книгу:
+
+        Додайте можливість редагування існуючих книг за індексом або іншим унікальним ідентифікатором.
+        Вибрана книга повинна відображатися у формі, де користувач може змінити її дані.
+
+        3. Створити функцію для видалення книги з масиву:
+
+        Реалізуйте можливість видалення книги з масиву books.
+        Після видалення книги, список книг на веб-сторінці повинен оновлюватися.
+        Забезпечити динамічне оновлення списку книг на сторінці після кожної операції (додавання, редагування, видалення).
+    -->
+    <script id="templateBook" type="text/template">
+        <div class="bookList">
+            <div class="bookItem">
+                <h2>{{book.title}}</h2>
+                <p>Автор: {{book.author}}</p>
+                <p>Жанр: {{book.genre}}. Рік {{book.year}}</p>
+                <p>
+                    <button type="button" onclick="loadHead({{index}})">Редагувати</button> 
+                    <button  type="button" onclick="deleteBook({{index}})">Видалити</button>
+                </p>
+               
+            </div>
+        </div>
+    </script>
+
+    <section id="bookHead" class="bookHead">
+
+        <form id="formHead">
+            <div class="formItem">
+                <label for="title">Назва книги</label><input type="text" id="title" size="40">
+                <label for="author">Автор</label><input type="text" id="author" size="30">
+                <label for="genre">Жанр</label><input type="text" id="genre">
+                <label for="year">Рік</label><input type="text" id="year" size="4"  maxlength="4">
+                <input type="hidden" id="currentIndex" value="-1">
+                <button type="submit" id="addBook" name="action" value="addBook">Додати</button>
+                <button type="submit" id="saveBook" name="action" value="saveBook">Зберегти</button>
+                <button type="submit" id="cancel" name="action" value="cancelBook">Відміна</button>
+                <button type="submit" id="delBook" name="action" value="delBook">Видалити</button>
+            </div>
+        </form>
+    </section>
+
+    <section id="bookList" class="bookList">
+        <form id="formHead">
+            <div class="formItem">
+                <label for="title">Назва книги</label><input type="text" id="title" size="40">
+                <label for="author">Автор</label><input type="text" id="author" size="30">
+                <label for="genre">Жанр</label><input type="text" id="genre">
+                <label for="year">Рік</label><input type="text" id="year" size="4"  maxlength="4">
+                <button type="submit" id="addBook" name="action" value="addBook">Додати</button>
+                <button type="submit" id="saveBook" name="action" value="saveBook">Зберегти</button>
+                <button type="submit" id="cancel" name="action" value="cancelBook">Відміна</button>
+            </div>
+            
+    </section>
+
+
+
+    <script src="js/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+
+
+</body>
+
+</html>

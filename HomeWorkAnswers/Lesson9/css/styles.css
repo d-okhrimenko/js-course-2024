@@ -1,0 +1,40 @@
+.bookItem {
+    background-color: rosybrown;
+    color: white;
+    padding: 20px;
+    margin: 30px 10px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.bookList {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    background-color: bisque;
+}
+
+.bookHead {
+    background-color: rgb(245, 209, 165);
+    position: sticky;
+    top: 0;
+}
+
+.formItem {
+    label{
+        padding-right: 5px;
+    }
+
+}
+
+#addBook {
+    display: inline;
+}
+
+#saveBook {
+    display: none;
+}
+
+#delBook {
+    display: none;
+}
