@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1
+      let scores = [10, 35, 15, 69, 65, 43, 90, 87, 55, 37]
+
+      // 2
+      function getAverageScore(array) {
+        let sum = 0
+        for (let i = 0; i < array.length; i++) {
+          sum += array[i]
+        }
+        return sum / array.length
+      }
+      let averageScore = getAverageScore(scores)
+      console.log(averageScore)
+
+      // 3
+      function getMaxScore(array) {
+        let max = array[0]
+        for (let i = 1; i < array.length; i++) {
+          if (array[i] > max) max = array[i]
+        }
+        return max
+      }
+      let maxScore = getMaxScore(scores)
+      console.log(maxScore)
+
+      // 4
+      function getMinScore(array) {
+        return Math.min(...array)
+      }
+      let minScore = getMinScore(scores)
+      console.log(minScore)
+
+      // 5
+      function addToArray(array) {
+        for (let i = 0; i < 3; i++) {
+          let userScore = parseInt(prompt('Введіть Вашу оцінку від 0 до 100'))
+          array.push(userScore)
+        }
+        return array
+      }
+      let userScores = addToArray(scores)
+      console.log(userScores)
+
+      // 6
+      function getAllScore(array) {
+        console.log(getAverageScore(array)), console.log(getMaxScore(array)), console.log(getMinScore(array))
+      }
+      getAllScore(scores)
+    </script>
+  </body>
+</html>
+<!-- Завдання 1
+Написати програму, яка аналізує список оцінок студентів і знаходить середній бал, найвищу та найнижчу оцінки.
+
+Кроки для виконання завдання:
+
++1. Створити масив для зберігання оцінок студентів:
+   - Оцінки можуть бути представлені як цілі числа від 0 до 100.
+
++2. Створити функцію для обчислення середнього балу:
+   - Функція повинна приймати масив оцінок як аргумент і повертати середнє значення.
+
++3. Створити функцію для знаходження найвищої оцінки:
+   - Функція повинна приймати масив оцінок як аргумент і повертати найвищу оцінку.
+
++4. Створити функцію для знаходження найнижчої оцінки:
+   - Функція повинна приймати масив оцінок як аргумент і повертати найнижчу оцінку.
+
++5. Запросити користувача ввести кілька оцінок і зберегти їх у масив:
+   - Використайте `prompt` для запиту оцінок, можна також згенерувати їх автоматично.
+
+6. Обчислити середній бал, найвищу і найнижчу оцінки:
+   - Викликати відповідні функції для обчислень.
+
+7. Вивести результати:
+   - Використайте `alert` для виведення середнього балу, найвищої та найнижчої оцінок. -->
