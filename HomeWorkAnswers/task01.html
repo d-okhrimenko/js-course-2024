@@ -7,17 +7,28 @@
         <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
-        <template id="template">
+        <script id="template" type="text/template">
             <section class="book">
                 <h2>"{{title}}"</h2>
                 <h3>Автор: {{author}}</h3>
                 <p>Рік видання: {{year}}</p>
                 <p>Жанр: {{genre}}</p>
+                <button onclick="edit({{id}})">Редагувати</button>
+                <button onclick="remove({{id}})">Видалити</button>
             </section>
-        </template>
+        </script>
 
         <section id="library" class="container">
             <h1>Список книг домашньої бібліотеки</h1>
+            <form id="bookForm" class="bookForm" >
+                <div class="formContainer">
+                    <div class=""><label for="">Title:</label><input type="text" id="titleBook"></div>
+                    <div class=""><label for="">Author:</label><input type="text" id="authorBook"></div>
+                    <div class=""><label for="">Year:</label><input type="text" id="yearBook"></div>
+                    <div class=""><label for="">Ganre:</label><input type="text" id="ganreBook"></div>
+                    <div class=""><button type="submit"> Додати</button></div>
+                </div>
+            </form>
         </section>
         <script src="../ClassWork/node_modules/mustache/mustache.min.js"></script>
         <script src="./js/model.js"></script>
