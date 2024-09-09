@@ -1,10 +1,3 @@
-if (typeof Mustache !== 'undefined') {
-  console.log('Mustache доступний');
-  // Твій код
-} else {
-  console.error('Mustache не знайдений');
-}
-
 const bookList = {
   render(books, element) {
     books.forEach((book) => {
