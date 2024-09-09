@@ -38,3 +38,7 @@
 #delBook {
     display: none;
 }
+
+input[type='number']{
+    width: 60px;
+}
