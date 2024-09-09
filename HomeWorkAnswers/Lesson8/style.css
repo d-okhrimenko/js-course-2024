@@ -1,0 +1,11 @@
+#bookList {
+    margin: 0;
+    padding: 0;
+}
+
+.bookList__item {
+    background-color: lightgreen;
+    color: black;
+    margin-bottom: 20px;
+    padding: 10px;
+}
