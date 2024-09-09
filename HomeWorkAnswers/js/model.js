@@ -60,6 +60,26 @@ const library = {
     add(book) {
         book.id = this.lastId()++;
         this.books.push(book);
+    },
 
-    }
+    remove(id) {
+        let index = this.books.findIndex(book => book.id == id);
+        this.books.splice(index, 1);
+    },
+
+    find(id) {
+        let index = this.books.findIndex(book => book.id == id);
+        return this.books[index];
+
+    },
+
+    update(id, book) {
+        let index = this.books.findIndex(book => book.id == id);
+        this.books[index] = book;
+
+    },
+
+
+
+
 };
