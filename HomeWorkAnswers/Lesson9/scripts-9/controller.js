@@ -22,8 +22,6 @@ const controlAddBook = function (book) {
 function init() {
   controlBooks();
   allBooksView.addHandlerRemoveBook(deleteBook);
-  addBookView._addHandlerShowWindow();
-  addBookView._addHandlerHideWindow();
   addBookView.addHandlerUpload(controlAddBook);
 }
 init();

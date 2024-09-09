@@ -1,5 +1,4 @@
 import Mustache from "mustache";
-// import bookView from "./bookView.js";
 
 class AllBooksView {
   _parentEl = document.querySelector(".all-books");

@@ -8,7 +8,7 @@ class addBookView {
   _btnClose = document.querySelector(".btn-close-modal");
 
   constructor() {
-    this._addHandlerHideWindow();
+    this._addHandlerShowWindow();
     this._addHandlerHideWindow();
   }
 
