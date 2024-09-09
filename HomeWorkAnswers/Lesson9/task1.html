@@ -1,6 +1,20 @@
-<!-- Написати програму, яка виводить список книг у бібліотеці на веб-сторінку. 
-Програма повинна брати інформацію з масиву об’єктів, де кожен об’єкт представляє книгу,
-і динамічно додавати її в HTML. -->
+<!-- Розширте код завдання з уроку 8, додавши наступні можливості:
+
+1. Створити функцію для додавання нової книги до масиву:
+
+Функція повинна приймати параметри для створення нового об'єкта книги (назва, автор, рік видання, жанр) і додавати його до масиву books.
+Після додавання нової книги, список книг на веб-сторінці повинен оновлюватися.
+
+2. Створити функцію для редагування інформації про книгу:
+
+Додайте можливість редагування існуючих книг за індексом або іншим унікальним ідентифікатором.
+Вибрана книга повинна відображатися у формі, де користувач може змінити її дані.
+
+3. Створити функцію для видалення книги з масиву:
+
+Реалізуйте можливість видалення книги з масиву books.
+Після видалення книги, список книг на веб-сторінці повинен оновлюватися.
+Забезпечити динамічне оновлення списку книг на сторінці після кожної операції (додавання, редагування, видалення). -->
 
 <!-- Створити масив об’єктів, де кожен об’єкт представляє книгу
  масив об'єктів в файлі model.js -->
@@ -16,17 +30,47 @@
 </head>
 
 <body>
-    <!-- { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" }, -->
-    <template id="template">
-        <section class="book">
-            <p>{{author}}</p>
-            <h2>{{title}}</h2>
-            <p>{{year}}</p>
-            <p>{{genre}}</p>
+    <!-- { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" }, 
+    template book-->
+    <script id="template" type="text/template">
+        <section class="book" onclick="openForm({{id}})">
+            <p class="book-author">{{author}}</p>
+            <h2 class="book-title">{{title}}</h2>
+            <p class="book-year">{{year}}</p>
+            <p class="book-genre">{{genre}}</p>
         </section>
-    </template>
+    </script>
 
     <section id="book-list"></section>
+
+    <!-- Форма редагування (спочатку прихована) -->
+    <div id="form-modal" class="modal">
+
+        <form id="bookForm">
+            <div>
+                <label for="bookAuthor">Автор</label>
+                <input type="text" id="bookAuthorInput">
+            </div>
+            <div>
+                <label for="bookTitle">Назва</label>
+                <input type="text" id="bookTitleInput">
+            </div>
+            <div>
+                <label for="bookYear">Рік</label>
+                <input type="text" id="bookYearInput">
+            </div>
+            <div>
+                <label for="bookGenre">Жанр</label>
+                <input type="text" id="bookGenreInput">
+            </div>
+            <div class="buttons">
+                <button onclick="remove()">Видалити</button>
+                <button type="submit">Зберегти</button>
+                <button onclick="close()">Закрити</button>
+            </div>
+        </form>
+
+    </div>
 
     <script src="../../ClassWork/node_modules/mustache/mustache.min.js"></script>
     <script src="js/model.js"></script>
