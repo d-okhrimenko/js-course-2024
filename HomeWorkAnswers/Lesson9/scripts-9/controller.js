@@ -4,7 +4,9 @@ import addBookView from "./views/addBookView.js";
 
 const controlBooks = function () {
   const allBooks = model.getAllBooks();
-  allBooksView.renderAllBooks(allBooks, allBooksView._parentEl, allBooksView._template);
+  allBooksView.renderAllBooks(allBooks, allBooksView._parentEl);
+
+  // allBooksView.renderAllBooks(allBooks, allBooksView._parentEl, allBooksView._template);
 };
 
 const deleteBook = function (book) {

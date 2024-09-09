@@ -2,14 +2,31 @@ import Mustache from "mustache";
 
 class AllBooksView {
   _parentEl = document.querySelector(".all-books");
-  _template = document.getElementById("template").innerHTML;
+  // _template = document.getElementById("template").innerHTML;
 
-  renderAllBooks(books, _parentEl, _template) {
-    let html = "";
-    books.forEach((book) => {
-      html += Mustache.render(_template, book);
-    });
-    this._parentEl.insertAdjacentHTML("beforeend", html);
+  // renderAllBooks(books, _parentEl, _template) {
+  //   let html = "";
+  //   books.forEach((book) => {
+  //     html += Mustache.render(_template, book);
+  //   });
+  //   this._parentEl.insertAdjacentHTML("beforeend", html);
+  // }
+
+  // another way to work with template in Mustache:
+  renderAllBooks(books, _parentEl) {
+    const template = `
+    <section class="book">
+            <details>
+              <summary class="title">{{title}}</summary>
+              <p>Author: <span class="author" n>{{author}}</span></p>
+              <p>Year: <span class="year">{{year}}</span></p>
+              <p>Genre: <span class="genre">{{genre}}</span></p>
+            </details>
+            <button class="btn btn-remove">❌</button>
+          </section>
+    `;
+    const html = books.map((book) => Mustache.render(template, book));
+    _parentEl.insertAdjacentHTML("beforeend", html);
   }
 
   clearAllBooks() {
