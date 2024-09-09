@@ -104,7 +104,7 @@ fieldset {
 /* BOOKS STYLING */
 
 .container {
-  max-width: 70%;
+  max-width: 80%;
 }
 
 .all-books {
@@ -112,6 +112,9 @@ fieldset {
 }
 
 .book {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-content: space-between;
   background-color: aquamarine;
   padding: 2em 2em;
   margin: 1rem;
@@ -124,7 +127,6 @@ fieldset {
   font-style: italic;
   font-weight: bold;
   color: darkred;
-  text-wrap: wrap;
 }
 
 .book summary:hover {
@@ -137,10 +139,23 @@ fieldset {
   color: blue;
 }
 
-.btn-remove {
-  background-color: transparent;
-  border: none;
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.btn-remove {
+  margin-top: 0.5rem;
+  background-color: transparent;
+  border: none;
+}
+
+.btn-edit {
+  margin-top: 0.5rem;
+  background-color: transparent;
+  border: none;
 }
