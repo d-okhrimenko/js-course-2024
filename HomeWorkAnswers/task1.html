@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let studentsGrades = [
+        { name: "John", grade: 80 },
+        { name: "Tod", grade: 85 },
+        { name: "Alice", grade: 80 },
+        { name: "Josh", grade: 90 },
+        { name: "Suzi", grade: 88 },
+        { name: "July", grade: 95 },
+        { name: "Sara", grade: 92 },
+        { name: "Mary", grade: 87 },
+        { name: "Kate", grade: 76 },
+        { name: "Nate", grade: 93 },
+      ];
+
+      console.log(studentsGrades);
+
+      let grades = [];
+
+      for (let i = 0; i < studentsGrades.length; i++) {
+        grades.push(studentsGrades[i].grade); // масив лише чисел
+      }
+
+      console.log(grades);
+
+      function avarageGrade(array) {
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+          sum += array[i];
+        }
+        return sum / array.length;
+      }
+
+      function maxGrade(array) {
+        return Math.max(...array);
+      }
+
+      function minGrade(array) {
+        return Math.min(...array);
+      }
+
+      let newData = +prompt("Введіть нову оцінку");
+      grades.push(newData);
+
+      avarage = avarageGrade(grades);
+      max = maxGrade(grades);
+      min = minGrade(grades);
+
+      alert("Середній бал " + avarage);
+      alert("Найвищий бал " + max);
+      alert("Найнижчий бал " + min);
+    </script>
+  </body>
+</html>
