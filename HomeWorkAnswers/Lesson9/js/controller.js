@@ -7,6 +7,21 @@ function render() {
     renderBooks.renderWithTemplate(dataBooks.listBooks, html, template);
 }
 
+function isObjEmpty(obj) {
+    let a=0
+    let b=0
+    for (const val of Object.values(obj)) {
+        if (val) {
+            a+=1;
+        }
+    }
+   
+    if (a==b) {
+      return true;
+    } else {
+        return false;
+    }
+  }
 
 function currentStatus(status) {
     switch(status) {
@@ -21,7 +36,7 @@ function currentStatus(status) {
 }
 
 function loadHead(bookIndex) {
-    console.log('loadHead');
+    //console.log('loadHead');
     formHead.title.value = dataBooks.listBooks[bookIndex].title;
     formHead.author.value = dataBooks.listBooks[bookIndex].author;
     formHead.genre.value = dataBooks.listBooks[bookIndex].genre;
@@ -37,7 +52,7 @@ function deleteBook(bookIndex) {
 
 formHead.addEventListener("submit", (e)=>{
     e.preventDefault();
-    console.log(e.submitter.value);
+    //console.log(e.submitter.value);
     let bookItems = {
         title:formHead.title.value,
         author:formHead.author.value,
@@ -48,9 +63,13 @@ formHead.addEventListener("submit", (e)=>{
 
     switch (e.submitter.value ) {
         case 'addBook':
-            dataBooks.add(bookItems);
-            formHead.reset();
-            render();
+            if (!isObjEmpty(bookItems)) {
+                dataBooks.add(bookItems);
+                formHead.reset();
+                render();
+            } else {
+                alert('Помилка! Всі поля без значень.')
+            }
             break;
         case 'saveBook':
             dataBooks.update(bookIndex,bookItems);
