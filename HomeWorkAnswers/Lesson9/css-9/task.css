@@ -120,6 +120,12 @@ fieldset {
   margin: 1rem;
   border-radius: 2rem;
   position: relative;
+  transition: 0.5s;
+}
+
+.book:not(:has(details[open])):hover {
+  /* transform: scale(1.05); */
+  box-shadow: 0 0 15px gray;
 }
 
 .book summary {

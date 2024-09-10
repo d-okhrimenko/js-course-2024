@@ -1,5 +1,3 @@
-import allBooksView from "./allBooksView";
-
 class addBookView {
   _parentEl = document.querySelector(".add-book");
   _btnAdd = document.querySelector(".btn-add");
@@ -26,17 +24,21 @@ class addBookView {
     this._overlay.addEventListener("click", this.toggleWindow.bind(this));
   }
 
-  addHandlerUpload(handler) {
+  addHandlerUpload(handler1, handler2) {
     this._parentEl.addEventListener("submit", (e) => {
       e.preventDefault();
       console.log(e);
       const dataArray = [...new FormData(e.target)];
       console.log(dataArray);
       const newBook = Object.fromEntries(dataArray);
-      console.log(newBook);
-      handler(newBook);
-      this.toggleWindow();
+      newBook.id = Number(newBook.id);
+      // console.log(newBook);
+      // console.log(newBook.id);
+      const id = newBook.id;
+      if (!id) handler1(newBook);
+      handler2(id, newBook);
       this._parentEl.querySelectorAll("input").forEach((field) => (field.value = ""));
+      this.toggleWindow();
     });
   }
 }

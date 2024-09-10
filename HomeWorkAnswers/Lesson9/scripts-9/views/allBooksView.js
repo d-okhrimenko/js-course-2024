@@ -1,5 +1,5 @@
 import Mustache from "mustache";
-
+import addBookView from "./addBookView";
 class AllBooksView {
   _parentEl = document.querySelector(".all-books");
   // _template = document.getElementById("template").innerHTML;
@@ -22,6 +22,7 @@ class AllBooksView {
         <p>Author: <span class="author" n>{{author}}</span></p>
         <p>Year: <span class="year">{{year}}</span></p>
         <p>Genre: <span class="genre">{{genre}}</span></p>
+        <p>Id: <span class="id">{{id}}</span></p>
       </details>
     </div>
 
@@ -45,15 +46,42 @@ class AllBooksView {
       if (!btnRemove) return;
       console.log(btnRemove);
       const bookEl = btnRemove.closest(".book");
+      const id = Number(bookEl.querySelector(".id").textContent);
+      console.log(id);
+      const isSure = confirm("Are you sure you want to remove this book?");
+      if (!isSure) return;
+      handler(id);
+    });
+  }
+
+  addHandlerUpdateBook(handler) {
+    this._parentEl.addEventListener("click", function (e) {
+      const btnEdit = e.target.closest(".btn-edit");
+      if (!btnEdit) return;
+      console.log(btnEdit);
+      const bookEl = btnEdit.closest(".book");
       const title = bookEl.querySelector(".title").textContent;
       const author = bookEl.querySelector(".author").textContent;
       const year = bookEl.querySelector(".year").textContent;
       const genre = bookEl.querySelector(".genre").textContent;
-      const bookObj = { title, author, year, genre };
+      const id = Number(bookEl.querySelector(".id").textContent);
+
+      const bookObj = { title, author, year, genre, id };
       console.log(bookObj);
-      const isSure = confirm("Are you sure you want to remove this book?");
-      if (!isSure) return;
-      handler(bookObj);
+      addBookView.toggleWindow();
+      addBookView._parentEl.title.value = bookObj.title;
+      addBookView._parentEl.author.value = bookObj.author;
+      addBookView._parentEl.year.value = bookObj.year;
+      addBookView._parentEl.genre.value = bookObj.genre;
+      addBookView._parentEl.id.value = bookObj.id;
+      const newBook = {
+        title: addBookView._parentEl.title.value,
+        author: addBookView._parentEl.author.value,
+        year: addBookView._parentEl.year.value,
+        genre: addBookView._parentEl.genre.value,
+        id: Number(addBookView._parentEl.id.value),
+      };
+      handler(newBook.id, newBook);
     });
   }
 }
