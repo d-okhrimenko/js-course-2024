@@ -53,33 +53,31 @@ const library = {
     ],
 
     lastId() {
-        const allIds = this.books.map(book => book.id);
+        const allIds = this.books.map((book) => book.id);
+        console.log(allIds);
+
         return Math.max(...allIds);
     },
 
     add(book) {
-        book.id = this.lastId()++;
+        let newId = this.lastId() + 1;
+        console.log(newId);
+        book.id = newId;
         this.books.push(book);
     },
 
     remove(id) {
-        let index = this.books.findIndex(book => book.id == id);
+        let index = this.books.findIndex((book) => book.id == id);
         this.books.splice(index, 1);
     },
 
     find(id) {
-        let index = this.books.findIndex(book => book.id == id);
+        let index = this.books.findIndex((book) => book.id == id);
         return this.books[index];
-
     },
 
     update(id, book) {
-        let index = this.books.findIndex(book => book.id == id);
+        let index = this.books.findIndex((book) => book.id == id);
         this.books[index] = book;
-
     },
-
-
-
-
 };

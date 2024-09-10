@@ -4,6 +4,6 @@ const bookList = {
         books.forEach((book) => {
             html += Mustache.render(template, book);
         });
-        element.insertAdjacentHTML("beforeend", html);
+        element.innerHTML = html;
     },
 };
