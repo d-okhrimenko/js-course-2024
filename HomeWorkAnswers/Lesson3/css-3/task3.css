@@ -1,0 +1,27 @@
+@import url(style.css);
+
+.output__error {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 2rem 0;
+  color: red;
+}
+.hidden {
+  opacity: 0;
+}
+.output__text {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 2rem 0;
+}
+.output__year {
+  color: blue;
+  font-size: 4rem;
+}
+
+.output__result {
+  color: red;
+  font-size: 4rem;
+}
