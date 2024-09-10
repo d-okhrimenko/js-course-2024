@@ -9,5 +9,15 @@ const bookList = {
             li.insertAdjacentHTML('beforeend', `<p>${book.genre}</p>`);
             element.appendChild(li);
         });
+    },
+
+    renderWithTemplate(books, element, template) {
+        let html = '';
+        books.forEach(book => {
+            html += Mustache.render(template, book);
+        });
+
+        // element.classList.add('book-block');
+        element.innerHTML = html;
     }
 }

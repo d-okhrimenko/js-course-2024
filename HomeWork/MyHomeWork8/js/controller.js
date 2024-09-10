@@ -1,3 +1,6 @@
 let ul = document.querySelector('#book-list');
-bookList.render(bookItems.books, ul);
+let template = document.querySelector('#template').innerHTML;
 
+
+// bookList.render(bookItems.books, ul);
+bookList.renderWithTemplate(bookItems.books, ul, template);
