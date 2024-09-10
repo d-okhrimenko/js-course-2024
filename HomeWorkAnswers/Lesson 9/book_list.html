@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9, Book List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script id="template" type="text/template">
+        <section class="book">
+            <button onclick="edit({{id}})">Edit</button>
+            <button onclick="remove({{id}})">Remove</button>
+            <h2>{{title}}</h2>
+            <p>author: {{author}}</p>
+            <p>year: {{year}}</p>
+            <p>genre: {{genre}}</p>
+        </section>
+    </script>   
+
+     <form action="" id="bookForm">
+        <div><label for="title">Title</label><input type="text" id="titleInput"></div>
+        <div><label for="author">Author</label><input type="text" id="authorInput"></div>
+        <div><label for="year">Year</label><input type="text" id="yearInput"></div>
+        <div><label for="genre">Genre</label><input type="text" id="genreInput"></div>
+        <button type="submit">Save</button>
+     </form>
+
+    <section id="book-list">
+        
+    </section>
+    <script src="../../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+</html>
