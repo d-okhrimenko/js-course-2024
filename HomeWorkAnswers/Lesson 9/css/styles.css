@@ -1,0 +1,29 @@
+.book {
+    padding: 20px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.book:nth-child(even) {
+    background-color: #c0f4f9;
+}
+
+.book:nth-child(odd) {
+    background-color: #d2dbed;
+}
+
+
+#bookForm label {
+    display: inline-block;
+    width: 100px;
+}
+
+#bookForm div {
+    margin-bottom: 10px;
+}
+
+small{
+    font-size: small;
+    font-weight: 300;
+}
+
