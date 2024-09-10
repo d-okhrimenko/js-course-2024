@@ -1,0 +1,42 @@
+<!-- 3.	Створіть кнопку на сторінці з текстом "Скажи привіт", 
+ зробіть щоб при кліку по кнопці виводилося повідомлення 
+ "Привіт {name}" де замість {name} буде виводитися ваше ім'я. -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My page</title>
+ </head>
+ <body>
+    <div class="greeting-block">
+        <h1>Welcome to greeting page</h1>
+    </div>
+
+    <button id="btn">Say hi</button>
+    
+    <script>
+        'use strict'
+        const button = document.querySelector('#btn');
+        button.onclick = createGreetings;
+
+        function createGreetings () {
+            const greeting = document.querySelector('.greeting-block');
+            let message = 'Hello ' + prompt('Enter your name:');
+            alert(message);
+            console.log(message);
+
+            let sayHi = document.querySelector('#message')
+            if (!sayHi) {
+                sayHi = document.createElement('p');
+                sayHi.id = 'message';
+                sayHi.innerHTML = message;
+                greeting.appendChild(sayHi);
+            } else {
+                sayHi.innerHTML = message;
+            }
+        }
+    </script>
+ </body>
+ </html>
