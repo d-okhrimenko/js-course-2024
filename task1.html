@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+
+<body>
+    <script>
+        function Student(firstName, lastName, age, id, averageGrade) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.id = id;
+            this.averageGrade = averageGrade;
+        }
+        const studentGroup = {
+            students: [],
+
+            addNewStudent: function (firstName, lastName, age, id, averageGrade) {
+                let newStudent = new Student(firstName, lastName, age, id, averageGrade);
+                this.students.push(newStudent);
+            },
+
+            removeStudent: function (id) {
+                this.students = this.students.filter(student => student.id !== id);                
+            },
+
+            listStudents: function () {
+                this.students.forEach(student => {
+                    console.log(`Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, Ідент.номер: ${student.id}, Середній бал: ${student.averageGrade}`);
+                });
+            },
+
+            findStudentById: function (id) {
+                let student = this.students.find(student => student.id === id);
+                if (student) {
+                    console.log(`Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, Ідент.номер: ${student.id}, Середній бал: ${student.averageGrade}`);
+                } else {
+                    console.log(`Студента з ідент.номером ${id} не знайдено.`);
+                }
+            }
+        };
+
+        studentGroup.addNewStudent('Марина', 'Амрахова', 20, 5, 85);
+        studentGroup.addNewStudent('Олена', 'Шевченко', 32, 2, 70);
+        studentGroup.listStudents();
+        studentGroup.findStudentById(5);
+        studentGroup.removeStudent(2);
+        studentGroup.listStudents();
+
+    </script>
+</body>
+
+</html>
