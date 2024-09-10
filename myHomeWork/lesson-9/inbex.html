@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>список книг </title>
+</head>
+
+<body id="body">
+    <div class="wrapper">
+        <div class="btn__add">
+            <button id="btn-add" type="button">Додати книгу</button>
+        </div>
+        <section class="book-list">
+            <div class="book-list__container">
+                <div class="book-list__body">
+                    <!-- <section class="book-list__item">
+                        <h2>title: "1984"</h2>
+                        <p>author: "Джордж Орвелл"</p>
+                        <p>year: 1949</p>
+                        <p>genre: "Антиутопія"</p>
+                        <div class="book-list__button">
+                            <button type="button" class="book-list__btn">редагувати</button>
+                            <button type="button" class="book-list__btn">видалити</button>
+                        </div>
+                    </section> -->
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- popup форма для додавання книг -->
+    <div class="popup-forma hidden" id="popup-form">
+        <div class="popup-forma__body">
+            <div class="popup-forma__icon" id="popup-close-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon-cross">
+                    <path
+                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"
+                        fill="#6D7174" stroke-width="1" />
+                </svg>
+            
+            </div>
+            <div class="popup-forma__item">
+                <h2 class="popup-forma__title">Заповніть поля форми</h2>
+                    <form id="form" action="#" class="popup-forma__form form">
+                        <div class="form__line">
+                            <label class="form__label" for="title">Введіть назву книги:</label>
+                            <input class="form__input" id="title" name="title" type="text">
+                        </div>
+                        <div class="form__line">
+                            <label class="form__label" for="author">Введіть автора книги:</label>
+                            <input class="form__input" id="author" name="author" type="text">
+                        </div>
+                        <div class="form__line">
+                            <label class="form__label" for="year">Введіть рік видання книги:</label>
+                            <input class="form__input" id="year" name="year" type="text">
+                        </div>
+                        <div class="form__line">
+                            <label class="form__label" for="genre">Введіть жанр:</label>
+                            <input class="form__input" id="genre" name="genre" type="text">
+                        </div>
+                        <button type="submit" class="forma__btn">зберегти</button>
+                    </form>
+            </div>
+    
+    
+        </div>
+    
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
