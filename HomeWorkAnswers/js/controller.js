@@ -7,10 +7,12 @@ function render() {
 }
 
 
+let editId = null;
+
 const titleBook = document.querySelector("#titleBook");
 const authorBook = document.querySelector("#authorBook");
 const yearBook = document.querySelector("#yearBook");
-const ganreBook = document.querySelector("#ganreBook");
+const genreBook = document.querySelector("#genreBook");
 
 
 bookForm.addEventListener("submit", function(e) {
@@ -20,11 +22,44 @@ bookForm.addEventListener("submit", function(e) {
         title: titleBook.value,
         author: authorBook.value,
         year: yearBook.value,
-        ganre: ganreBook.value,
+        genre: genreBook.value,
     };
 
-    library.add(book);
+    if(editId === null) {
+        library.add(book);
+    } else {
+        library.update(editId, book);
+        editId = null;
+    }
+    clearForm();
     render();
 });
+
+function remove(id) {
+    library.remove(id);
+    render();
+}
+
+function edit(id) {
+
+    const book = library.find(id);
+    editId = book.id;
+    titleBook.value = book.title;
+    authorBook.value = book.author;
+    yearBook.value = book.year;
+    genreBook.value = book.genre;
+
+    
+    render();
+    titleBook.focus();
+}
+
+
+function clearForm () {
+    titleBook.value = "";
+    authorBook.value = "";
+    yearBook.value = "";
+    genreBook.value = "";
+}
 
 render();

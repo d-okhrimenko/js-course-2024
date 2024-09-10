@@ -54,15 +54,11 @@ const library = {
 
     lastId() {
         const allIds = this.books.map((book) => book.id);
-        console.log(allIds);
-
         return Math.max(...allIds);
     },
 
     add(book) {
-        let newId = this.lastId() + 1;
-        console.log(newId);
-        book.id = newId;
+        book.id = this.lastId() + 1;
         this.books.push(book);
     },
 
