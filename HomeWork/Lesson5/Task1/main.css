@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    font-family: Inter, 'sans-serif';
+    justify-content: center;
+}
+.content {
+    width: 40%;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+input {
+    border: 2px solid #bcbcbc;
+    border-radius: 12px;
+    height: 48px;
+    padding-left: 10px;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+#submit {
+    background: #0072bb;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+#submit:hover {
+    background: #0169a9;
+    cursor: pointer;
+}
