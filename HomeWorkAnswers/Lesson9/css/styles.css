@@ -1,0 +1,62 @@
+h1 {
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    text-align: center;
+}
+
+#bookList {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.book-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: hsl(136, 43%, 90%);
+}
+
+.book-title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+form {
+    margin-bottom: 10px;
+    padding: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: hsl(136, 43%, 90%);
+}
+
+form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    background-color: hsl(200, 50%, 50%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: hsl(200, 50%, 40%);
+}
+.edit-form {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: hsl(136, 43%, 95%);
+}
