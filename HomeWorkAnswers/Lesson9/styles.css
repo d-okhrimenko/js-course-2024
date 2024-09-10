@@ -52,10 +52,9 @@
     padding: 20px;
     border-radius: 5px;
     width: 300px;
-    height: 350px;
+    height: 200px;
     display: flex;    
     flex-direction:column; 
-    /* justify-content: space-between; */
 }
     
 
@@ -65,7 +64,11 @@
     margin-bottom: 15px;
 }
 
-
+.buttons{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
 
 
 
