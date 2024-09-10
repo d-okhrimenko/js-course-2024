@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+    <div class="bookForm">
+    <form id="bookForm" >
+        <h1 id="total-books">Всього книг: </h1>
+        <!-- <input type="hidden" id="bookIndex" value=""> -->
+        <div>
+            <label for="bookTitle">Назва:</label>
+            <input type="text" id="bookTitle" >
+        </div>
+        <div>
+            <label for="bookAuthor">Автор:</label>
+            <input type="text" id="bookAuthor">
+        </div>
+        <div>
+            <label for="bookYear">Рік:</label>
+            <input type="number" id="bookYear">
+        </div>
+        <div>
+            <label for="bookGenre">Жанр:</label>
+            <input type="text" id="bookGenre">
+        </div>
+        <button type="submit" id="add-and-rename-button">Додати книгу</button>
+        <p id="name-rename-book"></p>
+        
+    </form>
+</div>
+    
+    
+    <div id="bookList" class="bookList"></div>
+
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
