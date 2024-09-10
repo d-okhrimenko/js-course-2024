@@ -1,0 +1,61 @@
+:root {
+    --font-size: 1.5em;
+    --element-width: 50%;
+}
+.section {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    font-size: 1em;
+    text-align: center;
+    
+}
+select {
+    padding: 0.2em;
+    font-size: var(--font-size);
+    cursor: pointer;
+    margin-bottom: 1em;
+    width: var(--element-width);
+}
+button {
+    cursor: pointer;
+    font-size: var(--font-size);
+    padding: 0.2em 2em;
+    width: var(--element-width);
+}
+#next-part {
+    width: var(--element-width);
+}
+.next-part {
+    display: none;
+}
+
+.next-part-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.figure-box {
+    display: none;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+input {
+    margin-left: 2em;
+    padding: 0.2em;
+    box-sizing: border-box;
+    font-size: var(--font-size);
+}
+.calc-btn {
+    width: 100%;
+    margin-top: 1em;
+}
+
+#error, #result {
+    font-weight: bold;
+    font-size: var(--font-size);
+}
