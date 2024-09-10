@@ -1,0 +1,105 @@
+body {
+  background-color: lightgray;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#books-list,
+#bookForm {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: lightgoldenrodyellow;
+  border: 1px solid gray;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#bookForm div {
+  margin-bottom: 15px;
+}
+
+#bookForm label {
+  font-size: 1.2em;
+  color: gray;
+  margin-right: 10px;
+}
+
+#bookForm input {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid gray;
+  border-radius: 4px;
+  width: calc(100% - 40px);
+}
+
+#bookForm button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#bookForm button:hover {
+  background-color: yellow;
+  color: gray;
+}
+
+.book {
+  background-color: lightgoldenrodyellow;
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.book h2 {
+  font-size: 1.5em;
+  margin: 0;
+  color: gray;
+}
+
+.book h3 {
+  font-size: 1.2em;
+  margin: 5px 0;
+  color: gray;
+}
+
+.book p {
+  font-size: 1em;
+  margin: 2px 0;
+  color: gray;
+}
+
+.book button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book button:hover {
+  background-color: yellow;
+  color: gray;
+}
+
+.book:hover {
+  background-color: whitesmoke;
+  border-color: yellow;
+}
