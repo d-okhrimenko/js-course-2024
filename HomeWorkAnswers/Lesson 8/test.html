@@ -1,0 +1,31 @@
+<html></html>
+<head>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.3/mustache.js"></script>
+<!-- <script>
+$(document).ready(function(){
+    $('button').click(function(){
+        loadUser();
+    });
+});
+</script> -->
+</head>
+<body> 
+<!-- <button>Click Me!</button> -->
+<div id="target"></div>
+
+<script>
+
+//   var template = $('#template').html();
+  var template =  "<p>Hello {{name}}! with age {{age}}</p>";
+  var jdata2 = [{name: "Luke", age:"43"},{name:"Lara",age:"19"}];
+  var jdata ={name: "Luke", age:"43"};
+  var rendered = Mustache.render(template, jdata);
+//   $('#target').html(rendered);
+  document.getElementById('target').innerHTML = rendered;
+
+</script>
+
+
+</body>
+</html>

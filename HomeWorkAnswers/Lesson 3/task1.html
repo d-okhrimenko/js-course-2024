@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="output">Результат: невідомо</p>
+
+    <script>
+      let num = prompt("Введіть число");
+      let numN = Number(num);
+      let res;
+      if (isNaN(numN)) {
+        res = "Некоректне значення";
+        console.log("Некоректне значення");
+      } else if (numN == 0) {
+        res = "нуль";
+        console.log(" нуль");
+      } else if (numN % 2 == 0) {
+        res = "парне число ";
+        console.log("число парне");
+      } else {
+        res = "не парне число";
+        console.log("число непарне");
+      }
+
+      let output = document.querySelector("#output");
+      output.innerHTML = "Результат: введено " + res + " ( " + numN + " )";
+      alert("Введено " + res);
+    </script>
+  </body>
+</html>

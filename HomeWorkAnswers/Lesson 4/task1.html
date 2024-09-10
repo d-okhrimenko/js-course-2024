@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			table {
+				width: 25%;
+				border-collapse: collapse;
+			}
+
+			th,
+			td {
+				width: 25%;
+				border: 1px solid #ddd;
+				padding: 8px;
+				text-align: center;
+			}
+			th {
+				background-color: #f2f2f2;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Гра "Камінь, ножиці, папір"</h1>
+		<h2>Результат</h2>
+		<div>
+			<p>
+				Всього було вибрано раундів:
+				<span id="round"></span>
+			</p>
+		</div>
+
+		<table>
+			<tr>
+				<th>Зіграно раундів</th>
+				<th>Перемога Людини</th>
+				<th>Перемога Комп`ютера</th>
+				<th>Нічия</th>
+			</tr>
+			<tr>
+				<td id="play">0</td>
+				<td id="user">0</td>
+				<td id="comp">0</td>
+				<td id="none">0</td>
+			</tr>
+		</table>
+
+		<script src="task1.js"></script>
+	</body>
+</html>

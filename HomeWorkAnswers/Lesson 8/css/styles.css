@@ -1,0 +1,13 @@
+.book {
+    padding: 20px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.book:nth-child(even) {
+    background-color: #c0f4f9;
+}
+
+.book:nth-child(odd) {
+    background-color: #d2dbed;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//
+// MVC
+// Generated with CoPilot
+//
+class Student {
+    constructor(firstName, lastName, age, id, averageGrade) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.id = id;
+        this.averageGrade = averageGrade;
+    }
+}
+
+class StudentModel {
+    constructor() {
+        this.students = [];
+    }
+
+    addStudent(student) {
+        this.students.push(student);
+    }
+
+    removeStudent(id) {
+        const index = this.students.findIndex(student => student.id === id);
+        if (index !== -1) {
+            this.students.splice(index, 1);
+        } else {
+            console.log(`Студента з ID ${id} не знайдено.`);
+        }
+    }
+
+    getAllStudents() {
+        return this.students;
+    }
+
+    findStudent(id) {
+        return this.students.find(student => student.id === id);
+    }
+}
+
+
+class StudentView {
+    displayStudents(students) {
+        students.forEach(student => {
+            console.log(`Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, ID: ${student.id}, Середній бал: ${student.averageGrade}`);
+        });
+    }
+
+    displayStudent(student) {
+        if (student) {
+            console.log(`Ім'я: ${student.firstName}, Прізвище: ${student.lastName}, Вік: ${student.age}, ID: ${student.id}, Середній бал: ${student.averageGrade}`);
+        } else {
+            console.log(`Студента не знайдено.`);
+        }
+    }
+}
+
+
+
+class StudentController {
+    constructor(model, view) {
+        this.model = model;
+        this.view = view;
+    }
+
+    addStudent(firstName, lastName, age, id, averageGrade) {
+        const student = new Student(firstName, lastName, age, id, averageGrade);
+        this.model.addStudent(student);
+    }
+
+    removeStudent(id) {
+        this.model.removeStudent(id);
+    }
+
+    listStudents() {
+        const students = this.model.getAllStudents();
+        this.view.displayStudents(students);
+    }
+
+    findStudent(id) {
+        const student = this.model.findStudent(id);
+        this.view.displayStudent(student);
+    }
+}
+
+
+const model = new StudentModel();
+const view = new StudentView();
+const controller = new StudentController(model, view);
+
+controller.addStudent('Іван', 'Іванов', 20, 1, 4.5);
+controller.addStudent('Петро', 'Петров', 21, 2, 3.8);
+controller.listStudents();
+controller.findStudent(1);
+controller.removeStudent(1);
+controller.listStudents();
+
+    </script>
+</body>
+</html>
