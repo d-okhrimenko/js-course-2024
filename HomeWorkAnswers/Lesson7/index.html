@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Lesson7</title>
+  </head>
+  <body>
+    <section class="wrapper-sweets">
+      <div class="inner-sweets">
+        <h1 class="sweets-title">Чого душа бажає ?</h1>
+
+        <ul class="menu">
+          <li class="menu-item">
+            <img src="img/ice-cream.jpg" alt="Морозиво" />
+            <p class="product">Морозиво</p>
+            <p class="price">Ціна: <span>50 грн</span></p>
+            <div class="quantity">
+              <label for="quantityIceCream">Кількість</label>
+              <input
+                class="quantity-input"
+                type="number"
+                id="quantity-iceCream"
+                max="100"
+                min="0"
+                placeholder="0"
+              />
+            </div>
+            <p class="cost">Вартість, грн: <span id="cost-iceCream">0</span></p>
+          </li>
+
+          <li class="menu-item">
+            <img src="img/cupcake.jpg" alt="Тістечко" />
+            <p class="product">Тістечко</p>
+            <p class="price">Ціна: <span>80 грн</span></p>
+            <div class="quantity">
+              <label for="quantityCupcake">Кількість</label>
+              <input
+                class="quantity-input"
+                type="number"
+                id="quantity-cupcake"
+                max="100"
+                min="0"
+                placeholder="0"
+              />
+            </div>
+            <p class="cost">Вартість, грн: <span id="cost-cupcake">0</span></p>
+          </li>
+
+          <li class="menu-item">
+            <img src="img/cake.jpg" alt="Тортик" />
+            <p class="product">Тортик</p>
+            <p class="price">Ціна: <span>500 грн</span></p>
+            <div class="quantity">
+              <label for="quantityCake">Кількість</label>
+              <input
+                class="quantity-input"
+                type="number"
+                id="quantity-cake"
+                max="100"
+                min="0"
+                placeholder="0"
+              />
+            </div>
+            <p class="cost">Вартість, грн: <span id="cost-cake">0</span></p>
+          </li>
+
+          <li class="menu-item">
+            <img src="img/juice.jpg" alt="Сік" />
+            <p class="product">Сік</p>
+            <p class="price">Ціна: <span>70 грн</span></p>
+            <div class="quantity">
+              <label for="quantityJuice">Кількість</label>
+              <input
+                class="quantity-input"
+                type="number"
+                id="quantity-juice"
+                max="100"
+                min="0"
+                placeholder="0"
+              />
+            </div>
+            <p class="cost">Вартість, грн: <span id="cost-juice">0</span></p>
+          </li>
+
+          <li class="menu-item">
+            <img src="img/coffee.webp" alt="Кава" />
+            <p class="product">Кава</p>
+            <p class="price">Ціна: <span>60 грн</span></p>
+            <div class="quantity">
+              <label for="quantityCoffee">Кількість</label>
+              <input
+                class="quantity-input"
+                type="number"
+                id="quantity-coffee"
+                max="100"
+                min="0"
+                placeholder="0"
+              />
+            </div>
+            <p class="cost">Вартість, грн: <span id="cost-coffee">0</span></p>
+          </li>
+        </ul>
+
+        <button class="count-sweets" id="count-sweets">
+          <span>Порахувати</span>
+        </button>
+
+        <p class="result-sweets">До сплати <span>0</span><span> грн</span></p>
+      </div>
+    </section>
+
+    <section class="wrapper-students">
+      <div class="inner-students">
+        <h1 class="students-title">Список студентів</h1>
+
+        <form class="student-form" id="studentForm">
+          <input
+            class="students-input"
+            type="text"
+            id="firstName"
+            placeholder="Ім'я"
+            required
+          />
+          <input
+            class="students-input"
+            type="text"
+            id="lastName"
+            placeholder="Прізвище"
+            required
+          />
+          <input
+            class="students-input"
+            type="number"
+            id="age"
+            placeholder="Вік"
+            min="0"
+            required
+          />
+          <input
+            class="students-input"
+            type="number"
+            id="avgScore"
+            placeholder="Середній бал"
+            min="0"
+            required
+          />
+          <button class="add st-btn" type="submit">Додати</button>
+        </form>
+        <div class="buttons-actions">
+          <label class="label-id" for="input-id">ID</label>
+          <input class="input-id" type="text" id="input-id" />
+          <button class="find st-btn" id="find">Знайти</button>
+          <button class="remove st-btn" id="remove">Видалити</button>
+        </div>
+
+        <p class="message" id="message"></p>
+
+        <table class="students-table" id="studentTable">
+          <thead>
+            <tr>
+              <th class="th-tbl">ID</th>
+              <th class="th-tbl">Ім'я</th>
+              <th class="th-tbl">Прізвище</th>
+              <th class="th-tbl">Вік</th>
+              <th class="th-tbl">Середній бал</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
