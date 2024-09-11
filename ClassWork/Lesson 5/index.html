@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // printName("Dmytro");
+        // printName("Olena");
+        // printName();
+
+        // function hoisting
+        // function printName(name = "default") {
+
+        //     console.log("Hello");
+        //     console.log(`My name is ${name}`);
+
+        // }
+
+        let add = (x, y) => {
+            if (true) {
+                let sum = x + y;
+                return;
+            }
+            else {
+                console.log("123");
+                return -1;
+            }
+        }
+
+        // console.log(add(10, 20));
+
+        let myGlobal = "This is global value";
+
+        // if (true) {
+        //     let  a = "local value";
+        //     console.log("first if statement");
+        //     console.log(myGlobal);
+        //     console.log(a);
+
+        //     if (true) {
+        //         console.log("nested if statement");
+        //         console.log(myGlobal);
+        //         console.log(a);
+        //     }
+        // }
+
+        // if (true) {
+        //     console.log("second if statement");
+        //     console.log(myGlobal);
+        //     console.log(a);
+        // }
+
+        let result;
+
+        // функція-оголошення
+        function add(a, b) {
+            let temp = a + b;
+            return temp;
+        }
+        result = add(1, 2);
+
+        // іменована функція-вираз
+        let add1 = function add(a, b) {
+            return a + b;
+        }
+        result = add1(10, 20);
+
+        // функція-вираз або анонімна функція
+        let add2 = function (a, b) {
+            return a + b;
+        }
+        result = add2(100, 200);
+
+        // стрілочна функція (arrow fucntion)
+        
+        let add3 = (a, b) => {
+            return a + b;
+        }
+        result = add3(1000, 2000);
+
+        // стрілочна функція (arrow fucntion) без операторних дужок  
+        let add4 = (a, b) => a + b;
+
+        result = add4(10000, 20000);
+
+    </script>
+    <script>
+
+    </script>
+</body>
+
+</html>
