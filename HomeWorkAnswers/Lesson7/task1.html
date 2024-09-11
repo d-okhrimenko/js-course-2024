@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage student group information.</title>
+</head>
+
+<body>
+  <script src="../CommonFolder/LizaLibrary.js"></script>
+  <script src="../../ClassWork/common/my-library.js"></script>
+  <script>
+    
+    class Student {
+      constructor(id, firstName, lastName, age, avg) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.avg = avg;
+      }
+      displayInfo() {
+        alert(`
+        ID: ${this.id} 
+        First Name: ${this.firstName} 
+        Last Name: ${this.lastName} 
+        Age: ${this.age}
+        Average Grade:${this.avg}`);
+      }
+    }
+
+    let studentDataBase = {
+      students: [],
+
+      addStudent: function (id, firstName, lastName, age, avg) {
+        let newStudent = new Student(id, firstName, lastName, age, avg);
+        this.students.push(newStudent);
+      },
+
+      removeStudent: function () {
+        let msgRemove = "Enter student ID to remove"
+        let removeStudentID = getNumericValue(msgRemove);
+
+        let index = this.students.findIndex(st => st.id == removeStudentID);
+
+        if (index !== -1) {
+          this.students.splice(index, 1);
+          alert(`Student with ID ${removeStudentID} is removed`);
+        } else {
+          alert(`Student with ID ${removeStudentID} not found`);
+        }
+      },
+
+      showStudents: function () {
+        if (this.students.length === 0) {
+          alert("No students found!");
+        } else {
+          let studentInfo = this.students.map(student =>
+            `ID: ${student.id}, First Name: ${student.firstName}, Last Name: ${student.lastName}, Age: ${student.age}, Average Grade: ${student.avg}`
+          ).join('\n');
+          alert(studentInfo);
+        }
+      },
+
+      searchStudent: function () {
+        let msgSearch = "Enter student ID to find info";
+        let searchStudentID = getNumericValue(msgSearch);
+
+        let foundStudent = this.students.find(student => student.id == searchStudentID);
+        if (foundStudent) {
+          foundStudent.displayInfo();
+        } else {
+          alert("Student not found.");
+        }
+      },
+    };
+
+    let options = {
+
+      'a': function () {
+        let id = getNumericValue("Enter student ID:");
+        let firstName = getStringValue("Enter student first name:");
+        let lastName = getStringValue("Enter student last name:");
+        let age = getNumericValue("Enter student age:");
+        let avg = getNumericValue("Enter student average grade:");
+        studentDataBase.addStudent(id, firstName, lastName, age, avg);
+      },
+
+      'd': function () {
+        studentDataBase.showStudents();
+      },
+
+      'r': function () {
+        studentDataBase.removeStudent();
+      },
+
+      's': function () {
+        studentDataBase.searchStudent();
+      },
+    };
+
+    let msg = "Select an option: \nAdd a student — A \nRemove a student — R, \nDisplay all students info — D, \nSearch a student — S, \nQuit — Q";
+
+    while (true) {
+      let option = getStringValue(msg).toLowerCase().trim();
+      if (option === 'q') break;
+      if (options[option]) {
+        options[option]();
+      } else {
+        alert("Wrong option. Try again");
+      }
+    }
+
+    //-------console.log output-----------------------------
+    //displayInfo() {
+      // console.log("ID: " + this.id);
+      // console.log("First Name: " + this.firstName);
+      // console.log("Last Name: " + this.lastName);
+      // console.log("Age: " + this.age);
+      // console.log("Average Grade: " + this.avg);
+
+    // showStudents: function () {
+      //   if (this.students.length === 0) {
+      //     console.log("No students found!");
+      //   } else {
+      //     this.students.forEach(student => student.displayInfo());
+      //   }
+      // },
+
+  </script>
+</body>
+
+</html>

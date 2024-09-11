@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 6. Task 1. Students Grades.</title>
+</head>
+
+<body>
+  <script>
+    let arrayNumbers = () => {
+      let array = []
+      for (let i = 0; i < 30; i++) {
+        let num = Math.floor(Math.random() * 100) + 1;
+        array.push(num);
+      }
+      return array;
+    }
+
+    function min(array) {
+      return Math.min(...array);
+    }
+
+    function max(array) {
+      return Math.max(...array);
+    }
+
+    function sum(array) {
+      let sum = 0;
+      for (const value of array) {
+        sum = sum + value;
+      }
+
+      return sum;
+    }
+
+    let avg = (sum, array) => {
+      return sum / array.length
+    };
+
+    let grades = arrayNumbers();
+    let minGrade = min(grades);
+    let maxGrade = max(grades);
+    let sumGrades = sum(grades);
+    let avgGrade = avg(sumGrades, grades).toFixed(2);
+    console.log(grades);
+    console.log(minGrade);
+    console.log(maxGrade);
+    console.log(avgGrade);
+    console.log("Sum: " + sumGrades, "length: " + grades.length);
+    alert(`Average grade: ${avgGrade} \nLowest grade: ${minGrade} \nHighest grade : ${maxGrade}`);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+.book {
+  background-color: rgb(240, 240, 238);
+  font-size: 14px;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 25px 50px;
+  padding: 5px 15px;
+}
+
+h1 {
+  margin: 25px 50px;
+  color: rgb(119, 119, 119);
+}
