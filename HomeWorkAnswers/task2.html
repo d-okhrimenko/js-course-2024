@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getValue(message) {
+        while (true) {
+          let value = prompt(message).trim();
+          let isValid = !isNaN(value) && value !== "" && value !== null;
+          if (isValid) return Number(value);
+        }
+      }
+
+      function playRound() {
+        let firstNum = Math.floor(Math.random() * 100) + 1;
+        let secondNum = Math.floor(Math.random() * 100) + 1;
+        let operators = ["+", "-", "*", "/"];
+        let operator = operators[Math.floor(Math.random() * operators.length)];
+        let result;
+        switch (operator) {
+          case "+":
+            result = firstNum + secondNum;
+            break;
+          case "-":
+            result = firstNum - secondNum;
+            break;
+          case "*":
+            result = firstNum * secondNum;
+            break;
+          case "/":
+            result =
+              secondNum !== 0 ? firstNum / secondNum : "Ділення на нуль!";
+            break;
+        }
+
+        if (operator === "/") {
+          result = Math.round(result * 10) / 10;
+        }
+        let answer = getValue(
+          `${firstNum} ${operator} ${secondNum} = \nВведіть відповідь`
+        );
+        if (result === answer) {
+          alert("Молодець!");
+          return "right";
+        } else {
+          alert("Нажаль, ні!");
+          return "wrong";
+        }
+      }
+
+      let rightAnsw = 0;
+      let wrongAnsw = 0;
+
+      for (let i = 1; i <= 10; i++) {
+        let total = playRound();
+        if (total === "right") {
+          rightAnsw++;
+        } else if (total === "wrong") {
+          wrongAnsw++;
+        }
+      }
+      if (wrongAnsw === 0) {
+        alert("Вітаю! Всі відповіді вірні!");
+      } else {
+        alert(
+          `Тобі ще треба попрацювати! \nПравильних відповідей ${rightAnsw} з 10-ти завдань`
+        );
+      }
+    </script>
+  </body>
+</html>
