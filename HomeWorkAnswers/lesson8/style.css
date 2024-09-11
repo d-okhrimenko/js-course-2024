@@ -1,0 +1,10 @@
+#book-list > div {
+  background-color: rgb(224, 211, 211);
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+.list-header {
+  padding: 10px 40px;
+  margin: 10px;
+}
