@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Validation</title>
+
+    <style>
+        .form-group {
+            margin: 10px 4px;
+        }
+
+        .form-group label {
+            display: block;
+        }
+
+        .error {
+            color: red;
+            display: none;
+        }
+
+        .invalid {
+            border: red 1px solid;
+        }
+
+        .valid {
+            border: green 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="form-group">
+            <label>Логін</label>
+            <input type="text" name="login">
+            <span class="error" id="loginError">Вкажіть логін</span>
+        </div>
+        <div class="form-group">
+            <label>Пароль</label>
+            <input type="password" name="password">
+            <span class="error" id="passwordError">Вкажіть пароль</span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Увійти">
+        </div>
+    </form>
+
+    <script>
+        const form = document.forms[0];
+
+        form.login.addEventListener("change", function () {
+            validateElement(form.login, "#loginError");
+        });
+
+        form.password.addEventListener("change", function () {
+            validateElement(form.password, "#passwordError");
+        });
+
+        form.addEventListener("submit", function (e) {
+            validateElement(form.login, "#loginError");
+            validateElement(form.password, "#passwordError");
+
+            let invalidElements = document.querySelectorAll(".invalid");
+            if (invalidElements.length > 0) {
+                e.preventDefault();
+            }
+            else {
+                alert("Форма відправлена");
+            }
+        });
+
+        function validateElement(element, errorElementSelector) {
+            let errorElement = document.querySelector(errorElementSelector);
+
+            element.classList.remove("valid");
+            element.classList.remove("invalid");
+            errorElement.style.display = "none";
+
+            if (element.value.length > 0) {
+                element.classList.add("valid");
+            }
+            else {
+                element.classList.add("invalid");
+                errorElement.style.display = "inline";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
