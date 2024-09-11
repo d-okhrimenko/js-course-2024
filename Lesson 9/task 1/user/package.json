@@ -1,0 +1,25 @@
+{
+  "name": "books-library",
+  "version": "1.1.0",
+  "description": "A project to display, add, edit, and delete books on a web page.",
+  "main": "js/async.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Andrew Valoviy",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "keywords": [
+    "books",
+    "library",
+    "web",
+    "JavaScript",
+    "CRUD"
+  ]
+}
+
+  
+  

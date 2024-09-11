@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перелік книжок</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <form id="booksForm">
+        <div><label for="titleInput">Назва</label><input type="text" id="titleInput" required></div>
+        <div><label for="authorInput">Автор</label><input type="text" id="authorInput" required></div>
+        <div><label for="yearInput">Рік видання</label><input type="number" id="yearInput" required></div>
+        <div><label for="genreInput">Жанр твору</label><input type="text" id="genreInput" required></div>
+        <button class="button" type="submit">Зберегти</button>
+    </form>
+
+    <section id="books" class="books"></section>
+
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>

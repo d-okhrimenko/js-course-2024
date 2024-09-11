@@ -1,0 +1,37 @@
+.book {
+  background-color:  #fffacd;
+  padding: 10px;
+  margin: 20px 10px;
+  border-radius: 20px;
+}
+
+.button {
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px;
+  margin-right: 10px;
+  background-color: #a4cab1;
+}
+
+.button:active {
+  color: beige;
+  background-color: #577965;
+}
+
+#booksForm {
+  margin: 20px 10px;
+}
+
+#booksForm label {
+  display: inline-block;
+  width: 100px;
+}
+
+#booksForm div {
+  margin-bottom: 10px;
+}
+
+#booksForm div {
+  margin-bottom: 10px;
+}
