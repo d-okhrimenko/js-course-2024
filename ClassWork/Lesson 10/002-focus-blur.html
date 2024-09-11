@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Події focus и blur</title>
+
+    <style>
+        .form-group {
+            margin: 4px;
+        }
+
+        .form-group label {
+            width: 75px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div action="https://itvdn.com/ru/catalog" method="GET">
+            <label>Запит</label>
+            <input type="text" name="search">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Пошук">
+        </div>
+    </form>
+
+    <script>
+        const form = document.forms[0];
+        // focus - подія відбувається, коли елемент отримує фокус. Наприклад, натискання на елемент або при переході
+        // на елемент за допомогою клавіші Tab. Подія вказує на те, що користувач готується ввести дані.
+        // Може використовуватися для ініціалізації даних, необхідних під час введення.
+        form.search.addEventListener("focus", function () { console.log("focus") });
+
+        // blur - подія відбувається в момент втрати фокусу, коли клік виконується  за межами елемента керування,
+        // або фокус отримує інший лемента керування. Подія вказує на те, що користувач ввів дані.
+        // Найчастіше використовується для перевірки вхідних даних користувача
+        form.search.addEventListener("blur", function () { console.log("blur") });
+    </script>
+</body>
+
+</html>
