@@ -1,0 +1,138 @@
+body {
+    font-family: sans-serif;
+    background-color: rgba(10, 27, 137, 0.805);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(244, 101, 5);
+}
+
+hr {
+    border-width: thick;
+}
+
+#openFormBtn {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 7px;
+    border-width: thin;
+    border-top-width: thin;
+    border-right-width: thin;
+    border-bottom-width: thin;
+    border-left-width: thin;
+    box-shadow: 5px 5px 10px 2px rgb(244, 101, 5);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: rgb(149, 156, 204);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid;
+    border-color: rgb(244, 101, 5);
+    box-shadow: 5px 5px 10px 2px rgb(244, 101, 5);
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath fill='none' d='M0 0h24v24H0z'%3E%3C/path%3E%3Cpath d='M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z'%3E%3C/path%3E%3C/svg%3E");
+    padding: 17px;
+    border-style: none;
+    float: right;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
+}
+
+#bookForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 85px 50px 30px;
+    gap: 10px;
+}
+
+#bookForm label {
+    display: inline-block;
+    width: 100px;
+}
+
+#bookForm input {
+    font-size: 16px;
+}
+
+.submit {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 80px;
+    width: 250px;
+    padding-left: 99px;
+    color: #aaa;
+    float: right;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: rgb(244, 101, 5);
+}
+
+.submit:hover,
+.submit:focus {
+    color: black;
+    cursor: pointer;
+}
+
+#bookList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book {
+    width: 365px;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 15px;
+    background-color: rgba(149, 156, 204, 0.805);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(244, 101, 5);
+    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.313);
+}
+
+h2 {
+    color: white;
+}
+
+#btnEdit {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32' fill='currentColor'%3E%3Cpath d='M5 18.89H6.41421L15.7279 9.57627L14.3137 8.16206L5 17.4758V18.89ZM21 20.89H3V16.6473L16.435 3.21231C16.8256 2.82179 17.4587 2.82179 17.8492 3.21231L20.6777 6.04074C21.0682 6.43126 21.0682 7.06443 20.6777 7.45495L9.24264 18.89H21V20.89ZM15.7279 6.74785L17.1421 8.16206L18.5563 6.74785L17.1421 5.33363L15.7279 6.74785Z'%3E%3C/path%3E%3C/svg%3E");
+    padding: 17px;
+    border-style: none;
+    float: right;
+}
+
+#btnDelete {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32' fill='currentColor'%3E%3Cpath d='M7 4V2H17V4H22V6H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V6H2V4H7ZM6 6V20H18V6H6ZM9 9H11V17H9V9ZM13 9H15V17H13V9Z'%3E%3C/path%3E%3C/svg%3E");
+    padding: 17px;
+    margin-right: 10px;
+    border-style: none;
+    float: right;
+}

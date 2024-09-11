@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <script id="template" type="text/template">
+        <section class="book">
+            <button id="btnEdit" onclick="edit({{id}}); openForm()"></button>
+            <button id="btnDelete" onclick="remove({{id}})"></button>
+            <h2>Title: {{title}}</h2>
+            <p>Author: {{author}}</p>
+            <p>Year: {{year}}</p>
+            <p>Genre: {{genre}}</p>
+        </section>
+    </script>
+
+    <div class="header">
+        <h1>Libary</h1>
+        <button id="openFormBtn">Add new book</button>
+    </div>
+    <hr>
+    <div id="popupForm" class="modal">
+        <div class="modal-content">
+            <button class="close"></button>
+            <form id="bookForm">
+                <div><label for="titleInput">Title<input type="text" id="titleInput"></label></div>
+                <div><label for="authorInput">Author<input type="text" id="authorInput"></label></div>
+                <div><label for="yearInput">Year<input type="text" id="yearInput"></label></div>
+                <div><label for="genreInput">Genre<input type="text" id="genreInput"></label></div>
+                <div><button class="submit" type="submit">Submit</button></div>
+            </form>
+        </div>
+    </div>
+    <div id="bookList"></div>
+    <script src="../node_modules/mustache/mustache.min.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+</body>
+
+</html>
