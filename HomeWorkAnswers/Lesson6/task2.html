@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+
+	<body>
+		<script>
+			// 1. Створити масив для зберігання списку покупок:
+			// 2. Створити функцію для додавання товару до списку:
+			// 3. Створити функцію для видалення товару зі списку:
+			// 4. Створити функцію для виведення поточного списку покупок:
+			// 5. Запропонувати користувачу вибрати дію:
+			// 6. Реалізувати вибір користувача:
+			// 7. Повторити процес, поки користувач не завершить роботу:
+
+			let list = ["хліб", "м'ясо", "кефір", "цукор"];
+			let isNotExit = true;
+			const actionMessage = "Виберіть дію: 1-Додати, 2-Видалити, 3-Показати, інша клавіша - Вихід";
+			const choiceMessage = "Введіть назву товару, який ви хочете ";
+			const existsMessage = " вже існує у списку";
+			const noExistsMessage = " не існує у списку";
+
+			while (isNotExit) { //початок. цикл доки не натиснута інша клавіша, крім вказаних
+				let input = prompt(actionMessage).toLowerCase();
+				console.log(actionKey(list, input));
+			}
+
+			function actionKey(array, value) {
+				switch (value) {
+					case "1": {  //дія при виборі "1" (додати продукт)
+						// console.log(`1 pressed`);
+						addGood(array, getTheName("додати"));
+						break;
+					} //add
+
+					case "2": { //дія при виборі "2" (видалити продукт)
+						// console.log(`2 pressed`);
+						deleteGood(array, getTheName("видалити"));
+						break;
+					} //delete
+
+					case "3": { //дія при виборі "3" (показати список)
+						// console.log(`3 pressed`);
+						listOFGoods(array);
+						break;
+					} //list
+
+					default: { //дія по замовчуванню
+						// console.log(`pressed any key`);
+						isNotExit = false;
+						break;
+					} //exit
+				}
+			}
+
+			function getTheName(message) {
+				return prompt(choiceMessage + message).toLowerCase();
+			} //введення назви продукту
+
+			function isExists(array, nameOfGood) {
+				let exists = array.includes(nameOfGood);
+				return exists;
+			} //перевірка наявності продукту у списку
+
+			function addGood(array, value) {
+				if (isExists(array, value)) {
+					alert(value + existsMessage);
+				} else {
+					array.push(value);
+					console.log(array);
+				}
+			} //додавання продукту якщо відсутній у списку
+
+			function arrayPosition(array, item) {
+				return array.indexOf(item);
+			} //визначення позиції продукту у списку
+
+			function deleteGood(array, value) {
+				if (!isExists(array, value)) {
+					alert(value + noExistsMessage);
+				} else {
+					array.splice(arrayPosition(array, value), 1);
+					console.log(array);
+				}
+			} //видалення продукту якщо існує у списку
+
+			function listOFGoods(array) {
+				console.log(array);
+				alert(array);
+			} //виведення списку продуктів
+		</script>
+	</body>
+</html>

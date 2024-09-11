@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) return Number(value).toFixed(2);
+            }
+        }
+
+        function calculateIMT(weight, height) {
+            let valueIMT = weight /(height * height);
+            return valueIMT.toFixed(2);
+        }
+
+        function categoryIMT(valueIMT) {
+            if (valueIMT < 18.5) {
+                resWeight = "Недостатня вага";
+            }
+            else if (valueIMT < 24.9 && valueIMT >= 18.5) {
+                resWeight = "Нормальна вага";
+            }
+            else if (valueIMT < 29.9 && valueIMT >= 24.9) {
+                resWeight = "Надмірна вага";
+            }
+            else { //>=29.9  (>30)
+                resWeight = "Ожиріння";
+            }
+            return resWeight;
+        }
+
+
+        let inputWeight = getValue("Ведіть вагу в кілограмах");
+        let inputHeight = getValue("Ведіть зріст в метрах");
+
+        let valueIMT = calculateIMT(inputWeight, inputHeight);
+        let category = categoryIMT(valueIMT);
+
+        alert(`Для зросту ${inputHeight} метрів та ваги ${inputWeight} кг \n Індекс маси тіла= ${valueIMT}, Категорія= ${category}`);
+    </script>
+</body>
+
+</html>

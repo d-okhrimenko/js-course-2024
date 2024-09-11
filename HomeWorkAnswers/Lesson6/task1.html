@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// 	1. Створити масив для зберігання оцінок студентів:
+		// 2. Створити функцію для обчислення середнього балу:
+		// 3. Створити функцію для знаходження найвищої оцінки:
+		// 4. Створити функцію для знаходження найнижчої оцінки:
+		// 5. Запросити користувача ввести кілька оцінок і зберегти їх у масив:
+		// 6. Обчислити середній бал, найвищу і найнижчу оцінки:
+		// 7. Вивести результати:
+
+		let marks = [];
+		const min=1;
+		const max=100;
+		const message = "Вкажіть, скільки відміток ви хочете ввести";
+
+		const count = getNumericValue(message);
+		inputValues(count);
+
+		// marks.forEach((value, index) => { console.log(`index ${index} = ${value}`); });
+
+		alert(`Мін=${minFunct(marks)} Макс=${maxFunct(marks)} Середній=${avgFunct(marks).toFixed(2)}`);
+
+		function inputValues(count) {
+			for (let i = 0; i < count; i++) {
+				marks.push(checkRangeValues(`Введіть оцінку ${i + 1} з ${count}: від ${min} до ${max}`));
+			}
+		} // введення відміток 
+
+		function checkRangeValues(message) {
+			while (true) {
+				let value = parseInt(getNumericValue(message));
+				if (value >= min && value <= max) {
+					return value;
+				}
+			}
+		} // перевірка на потрапляння у допустимий діапазон значень 
+
+		function getNumericValue(message) {
+			while (true) {
+				let value = prompt(message);
+				let isValid = !isNaN(value) && value !== "" && value !== null && value > 0;
+				if (isValid) return Number(value);
+			}
+		} // отримання цифрових значень та перевірка на коректність введення
+
+		function minFunct(array) {
+			return Math.min(...array);
+		} // визначення мінімального значення
+
+		function maxFunct(array) {
+			return Math.max(...array);
+		} // визначення максимального значення
+
+		function sumFunct(array) {
+			let sum = 0;
+			for (const value of array) {
+				sum = sum + value;
+			}
+			return sum;
+		} // визначення суми значень
+
+		function avgFunct(array) {
+			return sumFunct(array) / array.length;
+		}// визначення середнього  значення
+
+	</script>
+</body>
+
+</html>
