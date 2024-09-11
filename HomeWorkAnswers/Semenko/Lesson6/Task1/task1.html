@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let Data = [];
+
+      function inputValues() {
+        for (var i = 0; i < 5; i++) {
+          let item = +prompt("Введите оценку студента от 0 до 100 баллов");
+          while (isNaN(item)) {
+            item = +prompt("Вы ввели некорректные данные. Введите оценку ");
+          }
+          Data.push(item);
+        }
+      }
+      function getAverangeValue(Array) {
+        let Summ = 0;
+        for (var i = 0; i < Array.length; i++) {
+          Summ = Summ + Array[i];
+        }
+        let Result = Summ / Array.length;
+        alert("Средний балл равен - " + Result);
+      }
+      function getMaxValue(Array) {
+        var Max = Array[0];
+        for (var i = 0; i < Array.length; i++) {
+          var temp = Array[i];
+          if (temp > Max) {
+            Max = Array[i];
+          }
+        }
+        alert("Максимальный балл равен - " + Max);
+      }
+
+      function getMinValue(Array) {
+        var Min = Array[0];
+        for (var i = 0; i < Array.length; i++) {
+          var temp = Array[i];
+          if (temp < Min) {
+            Min = Array[i];
+          }
+        }
+        alert("Минимальный балл равен - " + Min);
+      }
+      inputValues();
+      getAverangeValue(Data);
+      getMaxValue(Data);
+      getMinValue(Data);
+    </script>
+  </body>
+</html>

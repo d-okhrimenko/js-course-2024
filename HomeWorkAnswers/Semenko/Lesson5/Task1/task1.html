@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let M = +prompt("Введите ваш вес (кг)");
+      let L = +prompt("Введите ваш рост (cm)") / 100;
+
+      function getIMT(M, L) {
+        let result = M / (L * L);
+        return result.toFixed(1);
+      }
+      function getCategory(IMT) {
+        if (IMT < 18.5) {
+          alert(
+            "Ваше IMT составляет " +
+              IMT +
+              " что меньше 18,5. У Вас недостаточный вес"
+          );
+        } else if (18.5 < IMT < 24.9) {
+          alert(
+            "Ваше IMT составляет " +
+              IMT +
+              "  и попадает в диапазон 18,5 - 24,9. У Вас нормальный вес"
+          );
+        } else if (25 < IMT < 29.9) {
+          alert(
+            "Ваше IMT составляет " +
+              IMT +
+              "  и попадает в диапазон 25 - 29,9. У Вас избыточный вес"
+          );
+        } else if (IMT > 30) {
+          alert(
+            "Ваше IMT составляет " + IMT + "  что больше 30. У Вас ожирение"
+          );
+        }
+      }
+      let IMT = getIMT(M, L);
+
+      getCategory(IMT);
+    </script>
+  </body>
+</html>
