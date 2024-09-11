@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поточна дата</title>
+</head>
+<body>
+    <h1>Перевірте консоль для поточної дати</h1>
+	<p id="output" style="color:rgb(128, 100, 0)"></p>
+
+    <script>
+        // Отримання поточної дати
+        let currentDate = new Date();
+        // Вивід поточної дати в консоль
+        console.log("Поточна дата:", currentDate);
+		
+		let output = document.querySelector("#output");
+        let name = "Микола"
+        output.innerHTML = `${currentDate}`;
+		
+    </script>
+</body>
+</html>

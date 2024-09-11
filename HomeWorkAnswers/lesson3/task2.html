@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Отримання поточної дати
+        let today = new Date();
+
+        // Визначення дня тижня
+        let dayOfWeek = today.getDay();
+
+        // Виведення результату
+        let message;
+
+        if (dayOfWeek === 0) {
+            message = "Сьогодні неділя.";
+        } else if (dayOfWeek === 1) {
+            message = "Сьогодні понеділок.";
+        } else if (dayOfWeek === 2) {
+            message = "Сьогодні вівторок.";
+        } else if (dayOfWeek === 3) {
+            message = "Сьогодні середа.";
+        } else if (dayOfWeek === 4) {
+            message = "Сьогодні четвер.";
+        } else if (dayOfWeek === 5) {
+            message = "Сьогодні п'ятниця.";
+        } else if (dayOfWeek === 6) {
+            message = "Сьогодні субота.";
+        } else {
+            message = "Не вдалося визначити день тижня.";
+        }
+
+        alert(message);
+
+
+    </script>
+</body>
+
+</html>
