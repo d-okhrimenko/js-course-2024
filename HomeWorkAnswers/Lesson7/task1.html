@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson7</title>
+</head>
+
+<body>
+    <script>
+        class Student {
+            constructor(firstName, lastName, age, studentId, averageGrade) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+                this.studentId = studentId;
+                this.averageGrade = averageGrade;
+            }
+
+            toString() {
+                return `ID: ${this.studentId}, Ім'я: ${this.firstName}, Прізвище: ${this.lastName}, Вік: ${this.age}, Середній бал: ${this.averageGrade}`;
+            }
+        }
+
+        class StudentGroup {
+
+            #students = [];
+
+            // додавання нового студента
+            addStudent(firstName, lastName, age, studentId, averageGrade) {
+                const newStudent = new Student(firstName, lastName, age, studentId, averageGrade);
+                this.#students.push(newStudent);
+            }
+
+            // видалення студента
+            removeStudent(studentId) {
+                this.#students = this.#students.filter(student => student.studentId !== studentId);
+            }
+
+            // виведення списку всіх студентів
+            displayStudents() {
+                if (this.#students.length === 0) {
+                    console.log("Група студентів порожня.");
+                } else {
+                    this.#students.forEach(student => console.log(student.toString()));
+                }
+            }
+
+            // пошук студента за його ідентифікаційним номером
+            findStudentById(studentId) {
+                const student = this.#students.find(student => student.studentId === studentId);
+                if (student) {
+                    console.log(student.toString());
+                } else {
+                    console.log(`Студента з ID ${studentId} не знайдено.`);
+                }
+            }
+        }
+
+        const group = new StudentGroup();
+
+        //Додати        
+        group.addStudent("Олександр", "Олександров", 25, "001", 85.5);
+        //Вивести       
+        group.displayStudents();
+        //Видалити      
+        group.removeStudent("001");
+        //Пошук за ID   
+        group.findStudentById("001");
+
+    </script>
+</body>
+
+</html>
