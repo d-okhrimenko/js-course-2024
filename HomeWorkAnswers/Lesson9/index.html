@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бібліотека</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script id="template-book" type="text/template">
+        {{#books}}
+        <article class="book">
+            <button onclick="edit({{id}})">Редагувати</button>
+            <button onclick="remove({{id}})">Видалити</button>
+            <h2>{{title}}</h2>
+            <p>Автор: {{author}}</p>
+            <p>Рік видання: {{year}}</p>
+            <p>Жанр: {{genre}}</p>
+        </article>
+        {{/books}}
+    </script>
+
+    <form id="book-form">
+        <div>
+            <label for="name-input">Назва</label>
+            <input type="text" id="name-input">
+        </div>
+        <div>
+            <label for="author-input">Автор</label>
+            <input type="text" id="author-input">
+        </div>
+        <div>
+            <label for="year-input">Рік видання</label>
+            <input type="text" id="year-input">
+        </div>
+        <div>
+            <label for="genre-input">Жанр</label>
+            <input type="text" id="genre-input">
+        </div>
+        <button type="submit">Зберегти</button>
+    </form>
+
+    <br>
+
+    <section id="books"></section>
+
+    <script src="../node_modules/mustache/mustache.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
