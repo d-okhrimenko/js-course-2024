@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Площа та периметр фігур</title>
+</head>
+<body>
+    <h1>Обчисліть площу та периметр фігури</h1>
+    <button onclick="selectShape()">Обрати фігуру</button>
+
+    <script>
+        // Функція для вибору фігури
+        function selectShape() {
+            const shape = prompt("Виберіть фігуру: коло, прямокутник або трикутник").toLowerCase();
+
+            switch (shape) {
+                case "коло":
+                    let radius = parseFloat(prompt("Введіть радіус кола:"));
+                    if (!isNaN(radius) && radius > 0) {
+                        let circleArea = calculateCircleArea(radius);
+                        let circlePerimeter = calculateCirclePerimeter(radius);
+                        alert(`Площа кола: ${circleArea.toFixed(2)}\nПериметр кола: ${circlePerimeter.toFixed(2)}`);
+                    } else {
+                        alert("Будь ласка, введіть коректне значення радіусу.");
+                    }
+                    break;
+                case "прямокутник":
+                    let length = parseFloat(prompt("Введіть довжину прямокутника:"));
+                    let width = parseFloat(prompt("Введіть ширину прямокутника:"));
+                    if (!isNaN(length) && !isNaN(width) && length > 0 && width > 0) {
+                        let rectangleArea = calculateRectangleArea(length, width);
+                        let rectanglePerimeter = calculateRectanglePerimeter(length, width);
+                        alert(`Площа прямокутника: ${rectangleArea.toFixed(2)}\nПериметр прямокутника: ${rectanglePerimeter.toFixed(2)}`);
+                    } else {
+                        alert("Будь ласка, введіть коректні значення для довжини і ширини.");
+                    }
+                    break;
+                case "трикутник":
+                    let a = parseFloat(prompt("Введіть довжину сторони A:"));
+                    let b = parseFloat(prompt("Введіть довжину сторони B:"));
+                    let c = parseFloat(prompt("Введіть довжину сторони C:"));
+                    if (!isNaN(a) && !isNaN(b) && !isNaN(c) && a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a) {
+                        let triangleArea = calculateTriangleArea(a, b, c);
+                        let trianglePerimeter = calculateTrianglePerimeter(a, b, c);
+                        alert(`Площа трикутника: ${triangleArea.toFixed(2)}\nПериметр трикутника: ${trianglePerimeter.toFixed(2)}`);
+                    } else {
+                        alert("Будь ласка, введіть коректні значення для сторін трикутника.");
+                    }
+                    break;
+                default:
+                    alert("Фігуру не розпізнано. Спробуйте ще раз.");
+            }
+        }
+
+        // Функція для обчислення площі кола
+        function calculateCircleArea(radius) {
+            return Math.PI * Math.pow(radius, 2);
+        }
+
+        // Функція для обчислення периметру кола
+        function calculateCirclePerimeter(radius) {
+            return 2 * Math.PI * radius;
+        }
+
+        // Функція для обчислення площі прямокутника
+        function calculateRectangleArea(length, width) {
+            return length * width;
+        }
+
+        // Функція для обчислення периметру прямокутника
+        function calculateRectanglePerimeter(length, width) {
+            return 2 * (length + width);
+        }
+
+        // Функція для обчислення площі трикутника
+        function calculateTriangleArea(a, b, c) {
+            let p = (a + b + c) / 2;
+            return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        }
+
+        // Функція для обчислення периметру трикутника
+        function calculateTrianglePerimeter(a, b, c) {
+            return a + b + c;
+        }
+    </script>
+</body>
+</html>
