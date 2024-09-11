@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.bookList {
+    margin: 0 auto;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.book {
+    border-radius: 20px;
+    border: 5px solid gray;
+    width: calc((100% - 40px) / 3);
+    background-color: beige;
+    text-align: center;
+}
