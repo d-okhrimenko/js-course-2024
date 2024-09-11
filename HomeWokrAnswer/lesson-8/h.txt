@@ -1,0 +1,235 @@
+ авдання: Написати програму, яка виводить список книг у бібліотеці на веб-сторінку. Програма повинна брати інформацію з масиву об’єктів, де кожен об’єкт представляє книгу, і динамічно додавати її в HTML.
+
+Кроки для виконання завдання:
+
+	1.	Створити масив об’єктів, де кожен об’єкт представляє книгу:
+	•	Кожен об’єкт повинен містити наступні властивості: назва книги, автор, рік видання, жанр. (Приклад масиву наведено нижче)
+	2.	Створити HTML-структуру для виведення списку книг:
+	•	Додати контейнер (наприклад, <div id="bookList"></div>), в який буде додаватися інформація про книги.
+	3.	Написати функцію для динамічного виведення книг:
+	•	Функція повинна перебирати масив книг і для кожної книги створювати HTML-елемент (наприклад, <div>, <p>) із відповідною інформацією.
+	•	Виведені дані повинні включати назву книги, автора, рік видання та жанр.
+	4.	Додати функціонал для відображення списку книг на сторінці:
+	•	Використовувати document.querySelector для вибору контейнера на сторінці.
+	•	Додати згенеровані HTML-елементи до контейнера.
+
+
+const books = [
+    { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+    { title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
+    { title: "Гра престолів", author: "Джордж Р. Р. Мартін", year: 1996, genre: "Фентезі" },
+    { title: "Старий і море", author: "Ернест Хемінгуей", year: 1952, genre: "Пригодницький роман" },
+{ title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+];
+==============================================================
+
+1. Створення масиву об’єктів
+JavaScript
+
+const books = [
+    { title: "Війна і мир", author: "Лев Толстой", year: 1869, genre: "Роман" },
+    { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+    { title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+    { title: "До зустрічі з тобою", author: "Джоджо Мойєс", year: 2012, genre: "Роман" }
+]; 
+2. Створення HTML-структури
+HTML
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бібліотека</title>
+</head>
+<body>
+    <div id="bookList"></div>
+    <script src="script.js"></script>
+</body>
+</html>
+ 
+3. Написання функції для динамічного виведення книг
+JavaScript
+
+function displayBooks(books) {
+    const bookList = document.querySelector("#bookList");
+
+    books.forEach(book => {
+        const bookItem = document.createElement("div");
+        bookItem.innerHTML = `
+            <h3>${book.title}</h3>
+            <p><strong>Автор:</strong> ${book.author}</p>
+            <p><strong>Рік видання:</strong> ${book.year}</p>
+            <p><strong>Жанр:</strong> ${book.genre}</p>
+        `;
+        bookList.appendChild(bookItem);
+    });
+}
+
+displayBooks(books); //Додавання функціоналу для відображення списку книг
+ ----------------------------------------------------
+
+Збережіть HTML-код у файлі index.html, а JavaScript-код у файлі script.js. Відкрийте index.html у браузері, і ви побачите список книг, динамічно доданий на сторінку.
+
+
+=================================================================================================================================================
+===============================================\\
+ Давайте додамо форму для додавання нових книг до нашої бібліотеки. Ось як це можна зробити:
+
+1. Оновлення HTML-структури
+Додамо форму до нашого HTML-коду:
+
+HTML
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бібліотека</title>
+</head>
+<body>
+    <div id="bookList"></div>
+
+    <h2>Додати нову книгу</h2>
+    <form id="bookForm">
+        <label for="title">Назва книги:</label>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="author">Автор:</label>
+        <input type="text" id="author" name="author" required><br>
+
+        <label for="year">Рік видання:</label>
+        <input type="number" id="year" name="year" required><br>
+
+        <label for="genre">Жанр:</label>
+        <input type="text" id="genre" name="genre" required><br>
+
+        <button type="submit">Додати книгу</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
+ 
+2.  
+Додамо функціонал для обробки форми та додавання нових книг до списку:
+
+JavaScript
+
+const books = [
+    { title: "Війна і мир", author: "Лев Толстой", year: 1869, genre: "Роман" },
+    { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+    { title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+    { title: "До зустрічі з тобою", author: "Джоджо Мойєс", year: 2012, genre: "Роман" }
+];
+
+function displayBooks(books) {
+    const bookList = document.querySelector("#bookList");
+    bookList.innerHTML = ""; // Очищуємо список перед повторним додаванням
+
+    books.forEach(book => {
+        const bookItem = document.createElement("div");
+        bookItem.innerHTML = `
+            <h3>${book.title}</h3>
+            <p><strong>Автор:</strong> ${book.author}</p>
+            <p><strong>Рік видання:</strong> ${book.year}</p>
+            <p><strong>Жанр:</strong> ${book.genre}</p>
+        `;
+        bookList.appendChild(bookItem);
+    });
+}
+
+document.querySelector("#bookForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const year = document.querySelector("#year").value;
+    const genre = document.querySelector("#genre").value;
+
+    const newBook = { title, author, year, genre };
+    books.push(newBook);
+
+    displayBooks(books);
+
+    // Очищуємо форму після додавання книги
+    document.querySelector("#bookForm").reset();
+});
+
+displayBooks(books);
+Код, созданный ИИ. Внимательно просмотрите и используйте. Дополнительные сведения о часто задаваемых вопросах.
+Пояснення
+HTML-структура: Додали форму з полями для введення назви книги, автора, року видання та жанру. Також додали кнопку для відправки форми.
+JavaScript-код:
+Додали обробник події для форми, який перехоплює подію submit, запобігає стандартній поведінці (перезавантаження сторінки), зчитує значення з полів форми, створює новий об’єкт книги та додає його до масиву books.
+Після додавання нової книги викликається функція displayBooks, яка оновлює список книг на сторінці.
+Після додавання книги форма очищується для зручності користувача.
+
+
+
+вариант 3
+
+як додати нову книгу в постійнмй список
+
+ 
+Щоб зберігати нові книги в постійному списку, потрібно використовувати локальне 
+сховище браузера (localStorage). Це дозволить зберігати дані навіть після 
+перезавантаження сторінки. Ось як це можна зробити:
+
+Оновлення JavaScript-коду
+Завантаження книг з локального сховища при завантаженні сторінки.
+Збереження книг у локальне сховище після додавання нової книги.
+JavaScript
+
+// Завантаження книг з локального сховища або використання дефолтного масиву
+const storedBooks = JSON.parse(localStorage.getItem("books"));
+const books = storedBooks ? storedBooks : [
+    { title: "Війна і мир", author: "Лев Толстой", year: 1869, genre: "Роман" },
+    { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+    { title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+    { title: "До зустрічі з тобою", author: "Джоджо Мойєс", year: 2012, genre: "Роман" }
+];
+
+function displayBooks(books) {
+    const bookList = document.querySelector("#bookList");
+    bookList.innerHTML = ""; // Очищуємо список перед повторним додаванням
+
+    books.forEach(book => {
+        const bookItem = document.createElement("div");
+        bookItem.innerHTML = `
+            <h3>${book.title}</h3>
+            <p><strong>Автор:</strong> ${book.author}</p>
+            <p><strong>Рік видання:</strong> ${book.year}</p>
+            <p><strong>Жанр:</strong> ${book.genre}</p>
+        `;
+        bookList.appendChild(bookItem);
+    });
+}
+
+document.querySelector("#bookForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const year = document.querySelector("#year").value;
+    const genre = document.querySelector("#genre").value;
+
+    const newBook = { title, author, year, genre };
+    books.push(newBook);
+
+    // Збереження оновленого списку книг у локальне сховище
+    localStorage.setItem("books", JSON.stringify(books));
+
+    displayBooks(books);
+
+    // Очищуємо форму після додавання книги
+    document.querySelector("#bookForm").reset();
+});
+
+// Відображення книг при завантаженні сторінки
+displayBooks(books);
+Код, созданный ИИ. Внимательно просмотрите и используйте. Дополнительные сведения о часто задаваемых вопросах.
+Пояснення
+Завантаження книг з локального сховища: При завантаженні сторінки ми перевіряємо, чи є збережені книги в локальному сховищі. Якщо є, використовуємо їх, інакше використовуємо дефолтний масив.
+Збереження книг у локальне сховище: Після додавання нової книги ми зберігаємо оновлений список книг у локальне сховище за допомогою localStorage.setItem.

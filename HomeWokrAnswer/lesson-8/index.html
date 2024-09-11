@@ -1,0 +1,48 @@
+<!-- <!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бібліотека</title>
+</head>
+<body>
+    <div id="bookList"></div>
+   
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бібліотека</title>
+</head>
+<body>
+   
+
+    <h2>Додати нову книгу</h2>
+    <form id="bookForm">
+        <label for="title">Назва книги:</label>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="author">Автор:</label>
+        <input type="text" id="author" name="author" required><br>
+
+        <label for="year">Рік видання:</label>
+        <input type="number" id="year" name="year" required><br>
+
+        <label for="genre">Жанр:</label>
+        <input type="text" id="genre" name="genre" required><br>
+
+        <button type="submit">Додати книгу</button>
+    </form>
+
+
+    <h1>Список книг</h1>
+        <div id="bookList"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
