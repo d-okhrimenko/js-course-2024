@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script id="template" type="text/template">
+      <li class="book-list__item">
+        <div class="buttons">
+          <button onclick='edit({{id}})'>Редагувати</button>
+          <button id="remove" onclick="remove({{id}})">
+            Видалити
+          </button>
+        </div>
+        <h2 class="book-list__title">Назва: {{ title }}</h2>
+        <p class="book-list__author">Автор: {{ author }}</p>
+        <p class="book-list__year">Рік: {{ year }}</p>
+        <p class="book-list__genre">Жанр: {{ genre }}</p>
+        <p class="book-list__genre">Id: {{ id }}</p>
+      </li>
+    </script>
+    <form action="" id="bookForm">
+      <div><label for="">Title</label> <input type="text" id="title-input" /></div>
+      <div><label for="">Author</label> <input type="text" id="author-input" /></div>
+      <div><label for="">Year</label> <input type="text" id="year-input" /></div>
+      <div><label for="">Genre</label> <input type="text" id="genre-input" /></div>
+      <div><label for="">Id</label> <input type="text" id="id-input" /></div>
+      <button type="submit">Save</button>
+    </form>
+    <div class="book-list">
+      <ul class="book-list__items">
+        <!-- <li class="book-list__item">
+          <h2 class="book-list__title">Назва: 1984</h2>
+          <p class="book-list__author">Автор: Джордж Орвелл</p>
+          <p class="book-list__year">Рік: 1949</p>
+          <p class="book-list__genre">Жанр: Антиутопія</p>
+        </li> -->
+      </ul>
+    </div>
+    <script src="../node_modules/mustache/mustache.min.js"></script>
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="controller.js"></script>
+  </body>
+</html>
+<!-- Розширте код завдання з уроку 8, додавши наступні можливості:
+
+1. + Створити функцію для додавання нової книги до масиву:
+
+Функція повинна приймати параметри для створення нового об'єкта книги (назва, автор, рік видання, жанр) і додавати його до масиву books.
+Після додавання нової книги, список книг на веб-сторінці повинен оновлюватися.
+
+2. +Створити функцію для редагування інформації про книгу:
+
+Додайте можливість редагування існуючих книг за індексом або іншим унікальним ідентифікатором.
+Вибрана книга повинна відображатися у формі, де користувач може змінити її дані.
+
+3. +Створити функцію для видалення книги з масиву:
+
+Реалізуйте можливість видалення книги з масиву books.
+Після видалення книги, список книг на веб-сторінці повинен оновлюватися.
+Забезпечити динамічне оновлення списку книг на сторінці після кожної операції (додавання, редагування, видалення).
+
+	-->
