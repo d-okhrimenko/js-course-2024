@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let curDate = new Date();
+      let dayNum = curDate.getDay(curDate);
+      if (dayNum == 0) {
+        res = "Неділя";
+      } else if (dayNum == 1) {
+        res = "Понеділок";
+      } else if (dayNum == 2) {
+        res = "Вівторок";
+      } else if (dayNum == 3) {
+        res = "Середа";
+      } else if (dayNum == 4) {
+        res = "Четвер";
+      } else if (dayNum == 5) {
+        res = "П'ятниця";
+      } else if (dayNum == 6) {
+        res = "Субота";
+      }
+
+      alert("Сьогодні " + res);
+    </script>
+  </body>
+</html>
