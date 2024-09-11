@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students</title>
+</head>
+
+<body>
+  <h3>Група студентів</h3>
+  <div>
+    <button onclick="groupStudents.add()">Додати</button>
+    <button onclick="groupStudents.remove()">Видалити</button>
+    <button onclick="groupStudents.list()">Список</button>
+    <button onclick="groupStudents.find()">Знайти</button>
+  </div>
+  <script src="../common/my-library.js"></script>
+  <script>
+    const defaultParameters = new Map([
+      ['name', "ім'я"],
+      ['surname', 'прізвище'],
+      ['age', 'вік'], 
+      ['idNumber', 'ідентифікаційний номер'], 
+      ['averageScore', 'середній бал']
+    ]);
+      
+    class Student {
+      constructor(parameters) {
+        this.name = parameters.name;
+        this.surname = parameters.surname;
+        this.age = parameters.age;
+        this.idNumber = parameters.idNumber;
+        this.averageScore = parameters.averageScore;
+      };
+    };
+
+    const groupStudents = {
+      students:[],
+
+      add: function () {
+        const parameters = Object.fromEntries(defaultParameters);
+        defaultParameters.forEach((value, name) => {
+          parameters[name] = getValue(`Введіть ${value} студента:`)
+        })
+        this.students.push(new Student(parameters));
+        alert('Cтудент доданий в групу!');
+      },
+
+      find: function () {
+        if(this.students.length) {
+          const idNumber = getValue(`Введіть ідентифікаційний номер студента:`)
+          const student = this.students.find(item => item.idNumber == idNumber);
+          if(student) {
+            let listText = `Студент за номером "${idNumber}":`;
+            defaultParameters.forEach((value, name) => {
+                listText = `${listText}
+                ${value}: ${student[name]}`;
+              })
+              alert(`${listText}`);
+          } else alert(`Cтудент за номером "${idNumber}" відсутній!`);
+        } else alert('Cписок студентів порожній!');
+      },
+
+      remove: function() {
+        if(this.students.length) {
+          const idNumber = getValue(`Введіть ідентифікаційний номер студента:`)
+          const index = this.students.findIndex(item => item.idNumber == idNumber);
+          if(index >= 0) {
+            this.students.splice(index, 1);
+            alert(`Cтудент за номером "${idNumber}" видалений!`); 
+          } else alert(`Cтудент за номером "${idNumber}" відсутній!`);        
+        } else alert('Cписок студентів порожній!');
+      },
+
+      list: function() {
+        if(this.students.length) {
+          let listText = 'Cписок студентів в групі:';
+          this.students.forEach((student) => {
+            defaultParameters.forEach((value, name) => {
+              if(name === 'name') listText = `${listText}
+      Студент:`
+              listText = `${listText}
+              ${value}: ${student[name]}`;
+            })
+          })
+          alert(`${listText}`);    
+        }
+        else alert('Cписок студентів порожній!');
+      }
+    };
+
+  </script>
+</body>
+
+</html>

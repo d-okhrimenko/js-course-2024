@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обчислення площі та периметру</title>
+</head>
+<body>
+  <script src="../common/my-library.js"></script>
+  <script>
+    const figures = ['Коло', 'Прямокутник', 'Трикутник'];
+    const figureIndex = getNumericValue(`Для обчислення площі та периметру введіть номер фигури:
+    1. Коло
+    2. Прямокутник
+    3. Трикутник`);
+
+    let area, perimeter, parametersFigure;
+
+    switch (figureIndex) {
+      case 1:
+        const radius = getNumericValue("Введіть радіус в сантиметрах:");
+        area = getCircleArea(radius);
+        perimeter = getCirclePerimeter(radius);
+        parametersFigure = `Радіус: ${radius} см`;
+        break;
+      case 2:
+        const length = getNumericValue("Введіть довжину в сантиметрах:");
+        const width = getNumericValue("Введіть ширину в сантиметрах:");
+        area = getRectangleArea(length, width);
+        perimeter = getRectanglePerimeter(length, width);
+        parametersFigure = `Довжина: ${length} см 
+      Ширина: ${width} см`;
+        break;
+      case 3:
+        const length1 = getNumericValue("Введіть довжину першої сторони в сантиметрах:");
+        const length2 = getNumericValue("Введіть довжину другої сторони в сантиметрах:");
+        const length3 = getNumericValue("Введіть довжину третьої сторони в сантиметрах:");
+        area = getTriangleleArea(length1, length2, length3);
+        perimeter = getTrianglePerimeter(length1, length2, length3);
+        parametersFigure = `Довжина 1: ${length1} см 
+      Довжина 2: ${length2} см
+      Довжина 3: ${length3} см`;
+        break;
+      default:
+        alert("Помилка! Ви не обрали жодної фігури!");
+    }
+        
+    if(figureIndex > 0 && figureIndex < 4) {
+      const figure = figures[figureIndex - 1];
+      const textResult = `Обчислення площі та периметру
+      Фігура: ${figure}
+      ${parametersFigure}
+      Площя: ${area} см2
+      Периметр: ${perimeter} см`;
+      alert(textResult);
+    }
+        
+    function round10(value) {
+      return Math.round(100 * value) / 100;
+    }
+
+    function getCircleArea(radius) {
+      return round10(Math.PI * Math.pow(radius, 2));
+    }
+
+    function getCirclePerimeter(radius) {
+      return round10(2 * Math.PI * radius);
+    }
+
+    function getRectangleArea(length, width) {
+      return length * width;
+    }
+
+    function getRectanglePerimeter(length, width) {
+      return 2 * (length + width);
+    }
+
+    function getTriangleleArea(length1, length2, length3) {
+      const p = (length1 + length2 + length3) / 2;
+      const area  = Math.sqrt(p * (p - length1) * (p - length2) * (p - length3));
+      return round10(area);
+    }
+
+    function getTrianglePerimeter(length1, length2, length3) {
+      return length1 + length2 + length3;
+    }
+  </script>
+</body>
+</html>
