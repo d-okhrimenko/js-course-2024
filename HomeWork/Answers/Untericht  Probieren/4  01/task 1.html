@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4/ 1</title>
+</head>
+<body>
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) +1;/*формула, в якій рандомне 
+        число ( приблизно 0,33) множимо на "100", щоб отримати число більше "0"*/
+        
+        let gameIsOver = false;
+
+        while (!gameIsOver){/* while ми огортаємо, щоб був повтор гри, поки не знайде рандомне число*/
+
+            let value = Number(prompt("введіть значення")); /*вираз для того, щоб користувач ввів число*/
+
+            if(value == randomNumber) {/* якщо користувач ввів число те, що треба, то*/
+               alert(" Ви вгадали! Задане число: " + randomNumber); /* висвітиться вираз*/
+            }
+            if(value > randomNumber) { /* якщо користувач ввів число більше, ніж рандом*/
+               alert( "Я загадав значення менше, ніж " + value);
+            }
+            if(value < randomNumber) { /* якщо користувач ввів число менше, ніж рандом*/
+               alert( "Я загадав значення більше, ніж " + value);
+            }
+        }  
+    </script>
+</body>
+</html>

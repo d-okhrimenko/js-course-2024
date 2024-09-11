@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson 4 task 1</title>
+</head>
+<body>
+    <script>
+        while (true) {/* безкінечний цикл*/
+       
+                let choice = ["камінь, ножиці, бумага"];
+                let choiceSystem = choice[Math.floor(Math.random() * 3)];
+                let choiceUser = prompt("Обери: камінь. ножиці або папір");
+                if (choiceUser === choiceSystem){
+                    alert("Ніхто не виграв!");
+                } else if (
+                    (choiceUser === "камінь" && choiceSystem === "ножиці")||
+                    (choiceUser === "ножиці" && choiceSystem === "папір")||
+                    (choiceUser === "папір" && choiceSystem === "камінь")
+                ){
+                    alert("Вітаю, ти виграв!");
+                }   else {
+                    alert("Ти програв! Спробуй ще раз");
+                }
+        }
+    </script>
+</body>
+</html>

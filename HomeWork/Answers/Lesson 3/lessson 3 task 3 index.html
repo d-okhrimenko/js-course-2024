@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3 task 3 Chorna </title>
+</head>
+<body>
+    <script>// Чи є введений рік високосним - загальна задача
+   //нижче для введення року користувачем
+    let date = prompt("Введіть рік");
+    date = Number(date);
+        console.log("рік " + date);
+
+    //нижче для розуміння: користувач ввів число чи ні
+            let userInput = "1234.56";
+            let isNumder = /^\d+$/.test(userInput);
+            if (isNaN(date)){
+                alert("Це не число :( Спробуйте знову.");
+                inputSomeValue();
+            }else {
+                alert("Дякую :)")
+            }
+
+
+    // нижче на визначення високосний рік чи ні
+    function isLeapYear(d){
+        var y=d.getFullYear();
+        return (y%4==0 && y%100!=0) || y%400==0 ?true:false;
+    };
+    var Date=new Date();
+    if(isLeapYear(Date))
+       alert("цей рік високосний")
+    else
+    alert("цей рік НЕ високосний");
+
+   /* let a = 10;
+    let msg = (a == 10) ? "a = 10" : "a ! = 10";
+    alrt(msg);*/
+
+    </script>
+    <script src="./file.js"></script>
+</body>
+</html>
