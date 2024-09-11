@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomeWork 8</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="#" id="bookForm">
+      <label for="title">Назва</label>
+      <input type="text" id="title" />
+      <br />
+      <label for="author">Автор</label>
+      <input type="text" id="author" />
+      <br />
+      <label for="year">Рік видання</label>
+      <input type="number" id="year" />
+      <br />
+      <label for="title">Жанр</label>
+      <input type="text" id="genre" />
+      <br />
+      <button type="submit" id="addBtn">Додати книгу</button> <br />
+      <button type="button" id="updateBtn" style="display: none">
+        Оновити книгу
+      </button>
+    </form>
+    <h1>Список книг у бібліотеці</h1>
+
+    <div id="books"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<!-- 
+  <button type="button" id="updateBtn" style="display: none">
+    Оновити книгу
+  </button> -->
