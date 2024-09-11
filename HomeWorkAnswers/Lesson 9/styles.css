@@ -1,0 +1,30 @@
+.book-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: aqua;
+}
+
+#bookForm {
+  border: 1px solid #ccc;
+  padding-top: 20px;
+  padding-left: 10px;
+  background-color: gold;
+}
+
+#bookForm label {
+  display: inline-block;
+  width: 100px;
+}
+
+#bookForm input {
+  width: 300px;
+}
+
+#bookForm div {
+  margin-bottom: 10px;
+}
+
+#bookForm button {
+  margin: 10px 10px;
+}

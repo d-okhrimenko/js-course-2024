@@ -1,0 +1,13 @@
+.book {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.book button {
+  margin-left: 5px;
+}
+
+/* #bookForm {
+  display: none;
+} */
