@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="task2.css" />
+    <title>Shopping list</title>
+  </head>
+  <body>
+    <h1>Shopping list</h1>
+
+    <div>
+      <h2>List of products</h2>
+      <button onclick="showList()">Show list</button>
+      <p id="showList"></p>
+    </div>
+
+    <div>
+      <h2>Add to list</h2>
+      <label for="addProducts">Products:</label>
+      <input type="text" id="addProducts" placeholder="Add products" />
+      <button onclick="addToShoppingList()">Adding</button>
+    </div>
+
+    <div>
+      <h2>Remove from list</h2>
+      <label for="removeProducts">Products:</label>
+      <input type="text" id="removeProducts" placeholder="Remove products" />
+      <button onclick="removeFromShoppingList()">Removing</button>
+    </div>
+
+    <script src="task2.js"></script>
+  </body>
+</html>
