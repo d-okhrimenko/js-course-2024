@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математичний квіз</title>
+</head>
+
+<body>
+    <script>
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) return Number(value);
+            }
+        }
+
+        const attemptsCount = 3; //кількість спроб
+        let correctAnswersCount = 0;
+        let incorrectAnswersCount = 0;
+        let operators = ["+", "-", "*", "/"];
+        let answer = 0;
+
+        let roundsCount = getValue("Введіть кількість раундів");
+
+        for (let i = 0; i < roundsCount; i++) {
+            let randomNumber1 = Math.floor(Math.random() * 100) + 1;
+            let randomNumber2 = Math.floor(Math.random() * 100) + 1;
+            let operand = operators[Math.floor(Math.random() * operators.length)];
+            let result;
+
+            switch (operand) {
+                case "+":
+                    result = randomNumber1 + randomNumber2;
+                    break;
+                case "-":
+                    result = randomNumber1 - randomNumber2;
+                    break;
+                case "*":
+                    result = randomNumber1 * randomNumber2;
+                    break;
+                case "/":
+                    if (randomNumber2 !== 0) {
+                        result = randomNumber1 / randomNumber2;
+                    } else {
+                        result = "Ділення на нуль!";
+                    }
+                    break;
+            }
+
+            console.log(result);
+
+            for (let i = 0; i < attemptsCount; i++) {
+                answer = getValue(randomNumber1 + " " + operand + " " + randomNumber2 + " Дайте відповідь (спроба " + (i + 1) + ")");
+                if ((answer.toFixed(2) === result.toFixed(2)) || (answer === result)) {
+                    correctAnswersCount++;
+                    alert("Все вірно, Молодець!");
+                    break;
+                } else {
+                    incorrectAnswersCount++;
+                    if (i < attemptsCount - 1) {
+                        alert("Не вірно, спробуйте ще");
+                    } else {
+                        alert("Не вірно!");
+                    }
+                }
+            }
+        }
+
+        alert(`Результат математичного квізу: кількість раундів - ${roundsCount}, правильних відповідей - ${correctAnswersCount}, неправильних відповідей - ${incorrectAnswersCount}`);
+    </script>
+</body>
+
+</html>
