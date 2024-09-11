@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.books-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.book-info {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.label {
+  font-weight: bold;
+}
