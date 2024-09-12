@@ -9,12 +9,58 @@
 </head>
 
 <body>
+    <template id="template">
+        <div class="book">
+            <p class="author">{{author}}</p>
+            <h2 class="title">{{title}}</h2>
+            <div class="desc">
+                <p class="year">year: {{year}}</p>
+                <p class="genre">genre: {{genre}}</p>
+            </div>
+        </div>
+
+        <!-- An alternative implementation option -->
+
+        <!-- const bookItem = document.createElement("div");
+        bookItem.classList.add("book");
+
+        const author = document.createElement("p");
+        author.classList.add("author");
+        author.innerText = element.author;
+
+        const title = document.createElement("h2");
+        title.classList.add("title");
+        title.innerText = element.title;
+
+        const description = document.createElement("div");
+        description.classList.add("desc");
+
+        const year = document.createElement("p");
+        year.classList.add("year");
+        year.innerHTML = `year: ${element.year}`;
+
+        const genre = document.createElement("p");
+        genre.classList.add("year");
+        genre.innerText = `genre: ${element.genre}`;
+
+        description.append(year);
+        description.append(genre);
+
+        bookItem.append(author);
+        bookItem.append(title);
+        bookItem.append(description);
+
+        bookList.append(bookItem); -->
+    </template>
+
+
     <div class="header">
         <button class="toggleBtn">Show list</button>
     </div>
 
     <div class="bookList grid"></div>
 
+    <script src="../node_modules/mustache/mustache.min.js"></script>
     <script src="main.js"></script>
 </body>
 

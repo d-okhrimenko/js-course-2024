@@ -6,7 +6,7 @@ const books = [
         genre: "self-help book"
     },
     {
-        title: "Why We Eat (Too Much)",
+        title: "Why We Eat? (Too Much)",
         author: "Dr. Andrew Jenkinson",
         year: 2020,
         genre: "health and nutrition"
@@ -62,44 +62,55 @@ const books = [
 ];
 
 const bookList = document.querySelector(".bookList");
+const template = document.querySelector("#template").innerHTML;
 const btn = document.querySelector(".toggleBtn");
 
-function renderBooks(array) {
+//An alternative implementation option
 
+// function renderBooks(array) {
+
+//     array.forEach(element => {
+
+//         const bookItem = document.createElement("div");
+//         bookItem.classList.add("book");
+
+//         const author = document.createElement("p");
+//         author.classList.add("author");
+//         author.innerText = element.author;
+
+//         const title = document.createElement("h2");
+//         title.classList.add("title");
+//         title.innerText = element.title;
+
+//         const description = document.createElement("div");
+//         description.classList.add("desc");
+
+//         const year = document.createElement("p");
+//         year.classList.add("year");
+//         year.innerHTML = `year: ${element.year}`;
+
+//         const genre = document.createElement("p");
+//         genre.classList.add("genre");
+//         genre.innerText = `genre: ${element.genre}`;
+
+//         description.append(year);
+//         description.append(genre);
+
+//         bookItem.append(author);
+//         bookItem.append(title);
+//         bookItem.append(description);
+
+//         bookList.append(bookItem);
+//     });
+
+// }
+
+function renderBooksWithTemplate(array, template) {
+    let html = "";
     array.forEach(element => {
-
-        const bookItem = document.createElement("div");
-        bookItem.classList.add("book");
-
-        const author = document.createElement("p");
-        author.classList.add("author");
-        author.innerText = element.author;
-
-        const title = document.createElement("h2");
-        title.classList.add("title");
-        title.innerText = element.title;
-
-        const description = document.createElement("div");
-        description.classList.add("desc");
-
-        const year = document.createElement("p");
-        year.classList.add("year");
-        year.innerHTML = `year: ${element.year}`;
-
-        const genre = document.createElement("p");
-        genre.classList.add("year");
-        genre.innerText = `genre: ${element.genre}`;
-
-        description.append(year);
-        description.append(genre);
-
-        bookItem.append(author);
-        bookItem.append(title);
-        bookItem.append(description);
-
-        bookList.append(bookItem);
+        html += Mustache.render(template, element);
     });
-
+    bookList.innerHTML = html;
 }
 
 function renderBookList(array) {
@@ -128,9 +139,9 @@ btn.addEventListener("click", () => {
     } else {
         btn.innerText = "Show list";
         bookList.classList.add("grid");
-        renderBooks(books);
+        renderBooksWithTemplate(books, template);
     }
 
 })
 
-renderBooks(books);
+renderBooksWithTemplate(books, template);
