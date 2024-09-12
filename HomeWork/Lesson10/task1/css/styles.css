@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center; /* Центрируем заголовки */
+}
+
+.book-form {
+    margin: 0 auto; /* Центрируем форму */
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Увеличиваем тень */
+    max-width: 500px; /* Ограничиваем максимальную ширину формы */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #007BFF;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.edit-button {
+    background-color: #28a745; /* Зеленый цвет */
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: #218838; /* Темно-зеленый при наведении */
+}
+
+/* Анимация для кнопок */
+.submit-button:active, .delete-button:active {
+    transform: scale(0.95);
+}
+
+/* Мобильная верстка */
+@media (max-width: 600px) {
+    .book-form, .book-card {
+        padding: 15px;
+        max-width: 100%; /* Убираем ограничение по ширине для мобильных устройств */
+    }
+
+    input {
+        padding: 8px;
+    }
+
+    .submit-button, .delete-button {
+        padding: 8px;
+    }
+}
+
+.book-card {
+    background: #fff;
+    margin: 10px auto; /* Центрируем карточки книг */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Задаем ширину 100% для карточек */
+}
+
+.error-messages {
+    color: red;
+    margin-top: 10px;
+}

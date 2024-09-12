@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+<h1>Бібліотека книг</h1>
+
+<div class="book-form">
+    <h2>Добавити книгу</h2>
+    <form id="addBookForm">
+        <input type="text" id="titleInput" placeholder="Название книги" required>
+        <input type="text" id="authorInput" placeholder="Автор" required>
+       <!-- <input type="number" id="yearInput" placeholder="Год издания" required>-->
+        <input type="date" id="yearInput" placeholder="Год издания" required pattern="\d{4}" title="Введите год в формате YYYY">
+        <input type="text" id="genreInput" placeholder="Жанр" required>
+        <button type="submit">Добавить</button>
+    </form>
+    <div id="errorMessages" class="error-messages"></div>
+</div>
+
+<div id="bookList"></div>
+
+
+<script src="./js/main.js" type="module" defer></script>
+</body>
+</html>
