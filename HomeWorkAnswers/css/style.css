@@ -1,0 +1,14 @@
+.container h1 {
+    
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.book {
+    width: 600px;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    background-color: #607492;
+    text-align: left;
+}
