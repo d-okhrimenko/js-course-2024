@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список книг</title>
+    <style>
+        #bookForm {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .book {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .book-title {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .book-author,
+        .book-year,
+        .book-genre {
+            margin: 5px 0;
+        }
+
+        .btn {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Список книг у бібліотеці</h1>
+
+    <h2>Додати/Редагувати книгу</h2>
+    <form id="bookForm">
+        <input type="hidden" id="bookIndex" value="-1">
+        <label>Назва: <input type="text" id="title" required></label><br>
+        <label>Автор: <input type="text" id="author" required></label><br>
+        <label>Рік видання: <input type="number" id="year" required></label><br>
+        <label>Жанр: <input type="text" id="genre" required></label><br>
+        <button type="submit" class="btn">Зберегти книгу</button>
+    </form>
+
+    <div id="bookList"></div>
+
+    <script>
+        let books = [
+            { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+            { title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
+            { title: "Гра престолів", author: "Джордж Р. Р. Мартін", year: 1996, genre: "Фентезі" },
+            { title: "Старий і море", author: "Ернест Хемінгуей", year: 1952, genre: "Пригодницький роман" },
+            { title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+        ];
+
+        function displayBooks() {
+            const bookList = document.querySelector('#bookList');
+            bookList.innerHTML = '';
+
+            books.forEach((book, index) => {
+                const bookDiv = document.createElement('div');
+                bookDiv.classList.add('book');
+
+                const titleElement = document.createElement('p');
+                titleElement.classList.add('book-title');
+                titleElement.textContent = `Назва: ${book.title}`;
+
+                const authorElement = document.createElement('p');
+                authorElement.textContent = `Автор: ${book.author}`;
+
+                const yearElement = document.createElement('p');
+                yearElement.textContent = `Рік видання: ${book.year}`;
+
+                const genreElement = document.createElement('p');
+                genreElement.textContent = `Жанр: ${book.genre}`;
+
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Редагувати';
+                editButton.classList.add('btn');
+                editButton.onclick = () => editBook(index);
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Видалити';
+                deleteButton.classList.add('btn');
+                deleteButton.onclick = () => deleteBook(index);
+
+                bookDiv.appendChild(titleElement);
+                bookDiv.appendChild(authorElement);
+                bookDiv.appendChild(yearElement);
+                bookDiv.appendChild(genreElement);
+                bookDiv.appendChild(editButton);
+                bookDiv.appendChild(deleteButton);
+
+                bookList.appendChild(bookDiv);
+            });
+        }
+
+        document.querySelector('#bookForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const title = document.querySelector('#title').value;
+            const author = document.querySelector('#author').value;
+            const year = parseInt(document.querySelector('#year').value);
+            const genre = document.querySelector('#genre').value;
+            const index = document.querySelector('#bookIndex').value;
+
+            if (!validateForm(title, author, year, genre, index)) {
+                return;
+            }
+
+            const newBook = { title, author, year, genre };
+
+            if (index === '-1') {
+                books.push(newBook);
+            } else {
+                books[index] = newBook;
+            }
+
+            document.querySelector('#bookForm').reset();
+            document.querySelector('#bookIndex').value = '-1';
+
+            displayBooks();
+        });
+
+        function editBook(index) {
+            const book = books[index];
+
+            document.querySelector('#title').value = book.title;
+            document.querySelector('#author').value = book.author;
+            document.querySelector('#year').value = book.year;
+            document.querySelector('#genre').value = book.genre;
+            document.querySelector('#bookIndex').value = index;
+        }
+
+        function deleteBook(index) {
+            books.splice(index, 1);
+            displayBooks();
+        }
+
+        function validateForm(title, author, year, genre, index) {
+            const currentYear = new Date().getFullYear();
+
+            if (!title) {
+                alert("Назва книги не може бути порожньою!");
+                return false;
+            }
+
+            if (index === '-1' && books.some(book => book.title === title)) {
+                alert("Книга з такою назвою вже існує!");
+                return false;
+            }
+
+            if (!author) {
+                alert("Ім'я автора не може бути порожнім!");
+                return false;
+            }
+
+            if (!year) {
+                alert("Рік видання не може бути порожнім!");
+                return false;
+            }
+
+            if (isNaN(year)) {
+                alert("Рік видання має бути числом!");
+                return false;
+            }
+
+            if (year < 1450 || year > currentYear) {
+                alert(`Рік видання має бути між 1450 та ${currentYear}!`);
+                return false;
+            }
+
+            if (!genre) {
+                alert("Жанр не може бути порожнім!");
+                return false;
+            }
+
+            return true;
+        }
+
+        displayBooks();
+
+    </script>
+</body>
+
+</html>
