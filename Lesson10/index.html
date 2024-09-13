@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Books</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script id="template" type="text/template">
+    <section class="book">
+      <button onclick="edit({{id}})">Редагувати</button>
+      <button onclick="remove({{id}})">Видалити</button>
+      <h2>{{title}}</h2>
+      <h2>Author: {{author}}</h2>
+      <h3>Year: {{year}}</h3>
+      <p>Genre: {{genre}}</p>
+    </section>
+  </script>
+
+  <form id="bookForm">
+    <div>
+      <label>Title</label><input type="text" id="titleInput" data-val="true" data-required="Назва має буту!" data-unique="Така книга є в цьому каталозі!" data-error-label="titleErrorLabel">
+      <span class="error" id="titleErrorLabel">Помилка</span>
+    </div>
+    <div>
+      <label>Author</label><input type="text" id="authorInput" data-val="true" data-required="Назва має бути!" data-error-label="authorErrorLabel">
+      <span class="error" id="authorErrorLabel">Помилка</span>
+    </div>
+    <div>
+      <label>Year</label><input type="text" id="yearInput" data-val="true" data-required="Рік має бути!" data-pattern="\d+" data-error-label="yearErrorLabel">
+      <span class="error" id="yearErrorLabel">Помилка</span>
+    </div>
+    <div>
+      <label>Genre</label><input type="text" id="genreInput" data-val="true" data-required="Жанр має бути!" data-error-label="genreErrorLabel">
+      <span class="error" id="genreErrorLabel">Помилка</span>
+    </div>
+    <input type="submit" value="Зберегти">
+  </form> 
+
+    <div id="book-list">
+
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mustache@latest/mustache.min.js"></script>
+  <script src="js/model.js"></script>
+  <script src="js/view.js"></script>
+  <script src="js/controller.js"></script>
+</body>
+</html>
