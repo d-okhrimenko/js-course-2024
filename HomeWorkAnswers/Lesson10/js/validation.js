@@ -26,11 +26,14 @@ form.bookAuthor.addEventListener("input", function () {
 });
 
 // рік видання має бути числом в межах від 1450 до значення поточного року включно
-const minBookYear = 1450;
-form.bookYear.setAttribute("min", minBookYear);
-const currentYear = new Date().getFullYear();
-const maxBookYear = currentYear;
-form.bookYear.setAttribute("max", maxBookYear);
+form.bookYear.addEventListener("input", function () {
+    const minBookYear = 1450;
+    form.bookYear.setAttribute("min", minBookYear);
+    const currentYear = new Date().getFullYear();
+    const maxBookYear = currentYear;
+    form.bookYear.setAttribute("max", maxBookYear);
+});
+
 
 // поле жанру книги не повинно бути порожнім
 form.bookGenre.addEventListener("input", function () {
