@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		let correctAnswers = 0;
+		let incorrectAnswers = 0;
+		let attempts = 10;
+
+		while (attempts > 0) {
+			const number1 = Math.floor(Math.random() * 10);
+			const number2 = Math.floor(Math.random() * 10);
+			const operators = ['+', '-', '*', '/'];
+			const operator = operators[Math.floor(Math.random() * operators.length)];
+			let userAnswer = prompt(`Скільки буде ${number1} ${operator} ${number2}?`);
+			let correctAnswer;
+			switch (operator) {
+				case '+':
+					correctAnswer = number1 + number2;
+					break;
+				case '-':
+					correctAnswer = number1 - number2;
+					break;
+				case '*':
+					correctAnswer = number1 * number2;
+					break;
+				case '/':
+					correctAnswer = number1 / number2;
+					break;
+				default:
+					break;
+			}
+
+			if (parseInt(userAnswer) === correctAnswer) {
+				correctAnswers++;
+				alert("Вірна відповідь!");
+			} else {
+				incorrectAnswers++;
+				alert(`Відповідь не вірна! Вірна відповідь ${correctAnswer}`);
+			}
+			attempts--;
+		}
+		alert(`Гра закінчина. У вас ${correctAnswers} вірних відповідей і ${incorrectAnswers} не вірних відповідей.`);
+	</script>
+</body>
+
+</html>
