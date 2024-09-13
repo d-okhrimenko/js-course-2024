@@ -32,7 +32,7 @@ function showProductList() {
 }
 
 function getProductListText(products) {
-    let result = "List: \n";
+    let result = "You basket contains: \n";
     products.forEach((item, i) => {
         result += `${i + 1}. ${item} \n`;
     });
