@@ -68,7 +68,6 @@ function clearForm() {
 // видалення стилів підсвітки контурів для валідних полів форми
 function clearAllCssValidateClasses() {
     let validElements = document.querySelectorAll(".valid");
-    console.log(validElements);
     validElements.forEach(element => {
         element.classList.remove("valid");
     }); 
