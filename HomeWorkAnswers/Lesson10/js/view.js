@@ -108,4 +108,4 @@ const booksСatalogue = {
             wrapper.appendChild(section);
         });
     },
-}
+};

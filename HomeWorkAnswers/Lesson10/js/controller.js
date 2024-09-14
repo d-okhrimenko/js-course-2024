@@ -9,6 +9,7 @@ const formBookGenre = document.querySelector(".form-book-genre");
 const formBookCover = document.querySelector(".form-book-cover");
 
 function render() {
+    clearAllCssValidateClasses();
     booksСatalogue.render(booksList.books, element);
 }
 
@@ -63,5 +64,14 @@ function removeBook(id) {
 function clearForm() {
     bookForm.reset();
 }
+
+// видалення стилів підсвітки контурів для валідних полів форми
+function clearAllCssValidateClasses() {
+    let validElements = document.querySelectorAll(".valid");
+    console.log(validElements);
+    validElements.forEach(element => {
+        element.classList.remove("valid");
+    }); 
+};
 
 render();

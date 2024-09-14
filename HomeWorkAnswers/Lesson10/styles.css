@@ -1,3 +1,4 @@
+/* основні стилі */
 body {
     background-color: #ccdbdc;
 }
@@ -7,6 +8,7 @@ img {
     width: 150px;
 }
 
+/* секція книги */
 .book {
     background-color: #2e294e;
     color: #c5d86d;
@@ -45,6 +47,7 @@ img {
     align-items: left;
 }
 
+/* форма */
 #bookForm {
     background-color: rgb(238, 203, 233); 
     border-radius: 4px;
@@ -66,10 +69,12 @@ img {
     margin-left: 10px;   
 }
 
+/* кнопки редагування та видалення */
 .btn-edit, .btn-remove {
     margin-left: 5px;
 }
 
+/* валідація форми */
 .invalid {
     border: rgb(255, 2, 141) 2px solid;
 }

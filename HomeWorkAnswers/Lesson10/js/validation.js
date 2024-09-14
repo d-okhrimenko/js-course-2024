@@ -58,6 +58,7 @@ form.bookGenre.addEventListener("input", function () {
     }
 });
 
+// підсвічування контурів полів введення форми
 function cssValidateElement(element, addClass, removeClass) {
     element.classList.add(addClass);
     element.classList.remove(removeClass);
