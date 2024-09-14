@@ -77,8 +77,8 @@ validators.pattern = {
   isValid: function(element) {
     let message = 'Рік має бути числом та в розумних межах!';
     let regex = new RegExp(element.dataset.pattern);
-    let value = parseInt(element.value)
-    return validators.validate(element, message, () => regex.test(value) && value > 1450 && value < new Date().getFullYear())
+    let value = element.value
+    return validators.validate(element, message, () => regex.test(value) && parseInt(value) > 1450 && parseInt(value) < new Date().getFullYear())
   }
 }
 
