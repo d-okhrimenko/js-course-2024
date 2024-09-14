@@ -69,3 +69,11 @@ img {
 .btn-edit, .btn-remove {
     margin-left: 5px;
 }
+
+.invalid {
+    border: rgb(255, 2, 141) 2px solid;
+}
+
+.valid {
+    border: rgb(58, 228, 95) 2px solid;
+}
