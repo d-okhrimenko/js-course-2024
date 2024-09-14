@@ -4,6 +4,7 @@ const html = document.querySelector("#book-list");
 const template = document.querySelector("#template").innerHTML;
 const bookForm = document.querySelector('#bookForm');
 
+let idInput = document.querySelector('#idInput');
 let titleInput = document.querySelector('#titleInput');
 let authorInput = document.querySelector('#authorInput');
 let yearInput = document.querySelector('#yearInput');
@@ -20,7 +21,7 @@ function onSubmitHandler() {
     const element = elements[i];
     let valid = validateElement(element);
     if(!valid) {
-      countInvalid++
+      countInvalid++;
     }
   }
 
@@ -36,7 +37,7 @@ function validateElement(element) {
     if (Object.hasOwnProperty.call(validators, key) && typeof validators[key] === 'object') {
       if (element.dataset[key]) { 
         const validator = validators[key];
-        if(key == 'unique' && needForUniquenessValidation == false) { continue
+        if(key == 'unique' && needForUniquenessValidation == false) { continue;
         }
         if (!validator.isValid(element)) {
           return false; 
@@ -77,7 +78,7 @@ validators.pattern = {
   isValid: function(element) {
     let message = 'Рік має бути числом та в розумних межах!';
     let regex = new RegExp(element.dataset.pattern);
-    let value = element.value
+    let value = element.value;
     return validators.validate(element, message, () => regex.test(value) && parseInt(value) > 1450 && parseInt(value) < new Date().getFullYear())
   }
 }
@@ -91,6 +92,11 @@ validators.unique = {
   }
 }
 
+function cancel() {
+  clearForm();
+  render();
+}
+
 function render() {
   bookList.renderWithTemplate(allBooks.books, html, template);
 }
@@ -101,6 +107,7 @@ bookForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
   let book = {
+    id: idInput.value,
     title: titleInput.value,
     author: authorInput.value,
     year: yearInput.value,
@@ -139,15 +146,17 @@ function edit(id) {
 
   editId = book.id;
 
+  idInput.value = book.id;
   titleInput.value = book.title;
   authorInput.value = book.author;
   yearInput.value = book.year;
   genreInput.value = book.genre;
 
-  render();
+  // render();
 }
 
 function clearForm() {
+  idInput.value = '';
   titleInput.value = '';
   titleInput.classList.remove('valid');
   authorInput.value = '';

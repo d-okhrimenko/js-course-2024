@@ -19,6 +19,7 @@
   </script>
 
   <form id="bookForm">
+    <input type="hidden" id="idInput" value="">
     <div>
       <label>Title</label><input type="text" id="titleInput" data-val="true" data-required="Назва має буту!" data-unique="Така книга є в цьому каталозі!" data-error-label="titleErrorLabel">
       <span class="error" id="titleErrorLabel">Помилка</span>
@@ -36,6 +37,7 @@
       <span class="error" id="genreErrorLabel">Помилка</span>
     </div>
     <input type="submit" value="Зберегти">
+    <button type="button" onclick="cancel()">Cancel</button>
   </form> 
 
     <div id="book-list">
