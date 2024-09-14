@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список книг</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .book {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .book h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .book p {
+            margin: 5px 0;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Список книг у бібліотеці</h1>
+
+    <div id="bookList"></div>
+
+    <h2>Додати / Редагувати книгу</h2>
+    <form id="bookForm">
+        <input type="hidden" id="bookIndex" value="">
+        
+        <label for="title">Назва книги:</label>
+        <input type="text" id="title" placeholder="Назва книги">
+        <div id="titleError" class="error"></div>
+
+        <label for="author">Автор:</label>
+        <input type="text" id="author" placeholder="Автор">
+        <div id="authorError" class="error"></div>
+
+        <label for="year">Рік видання:</label>
+        <input type="number" id="year" placeholder="Рік видання">
+        <div id="yearError" class="error"></div>
+
+        <label for="genre">Жанр:</label>
+        <input type="text" id="genre" placeholder="Жанр">
+        <div id="genreError" class="error"></div>
+
+        <button type="submit">Зберегти</button>
+    </form>
+
+    <script>
+        // Масив об'єктів з інформацією про книги
+        let books = [
+            { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+            { title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
+            { title: "Гра престолів", author: "Джордж Р. Р. Мартін", year: 1996, genre: "Фентезі" },
+            { title: "Старий і море", author: "Ернест Хемінгуей", year: 1952, genre: "Пригодницький роман" },
+            { title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+        ];
+
+        // Функція для динамічного виведення книг на сторінку
+        function displayBooks() {
+            const bookList = document.querySelector('#bookList');
+            bookList.innerHTML = '';  // Очищення списку перед оновленням
+            books.forEach((book, index) => {
+                const bookItem = document.createElement('div');
+                bookItem.classList.add('book');
+
+                const bookTitle = document.createElement('h3');
+                bookTitle.textContent = `Назва: ${book.title}`;
+
+                const bookAuthor = document.createElement('p');
+                bookAuthor.textContent = `Автор: ${book.author}`;
+
+                const bookYear = document.createElement('p');
+                bookYear.textContent = `Рік видання: ${book.year}`;
+
+                const bookGenre = document.createElement('p');
+                bookGenre.textContent = `Жанр: ${book.genre}`;
+
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Редагувати';
+                editButton.onclick = () => editBook(index);
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Видалити';
+                deleteButton.onclick = () => deleteBook(index);
+
+                bookItem.appendChild(bookTitle);
+                bookItem.appendChild(bookAuthor);
+                bookItem.appendChild(bookYear);
+                bookItem.appendChild(bookGenre);
+                bookItem.appendChild(editButton);
+                bookItem.appendChild(deleteButton);
+
+                bookList.appendChild(bookItem);
+            });
+        }
+
+        // Валідація форми
+        function validateForm(title, author, year, genre, bookIndex) {
+            let isValid = true;
+
+            // Очищення попередніх помилок
+            document.getElementById('titleError').textContent = '';
+            document.getElementById('authorError').textContent = '';
+            document.getElementById('yearError').textContent = '';
+            document.getElementById('genreError').textContent = '';
+
+            // Перевірка назви книги
+            if (title === '') {
+                document.getElementById('titleError').textContent = 'Назва книги не може бути порожньою';
+                isValid = false;
+            } else if (bookIndex === '' && books.some(book => book.title.toLowerCase() === title.toLowerCase())) {
+                document.getElementById('titleError').textContent = 'Книга з такою назвою вже існує';
+                isValid = false;
+            }
+
+            // Перевірка автора
+            if (author === '') {
+                document.getElementById('authorError').textContent = 'Ім\'я автора не може бути порожнім';
+                isValid = false;
+            }
+
+            // Перевірка року видання
+            const currentYear = new Date().getFullYear();
+            if (year === '') {
+                document.getElementById('yearError').textContent = 'Рік видання не може бути порожнім';
+                isValid = false;
+            } else if (isNaN(year) || year < 1450 || year > currentYear) {
+                document.getElementById('yearError').textContent = `Рік повинен бути числом між 1450 і ${currentYear}`;
+                isValid = false;
+            }
+
+            // Перевірка жанру
+            if (genre === '') {
+                document.getElementById('genreError').textContent = 'Жанр не може бути порожнім';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Функція для додавання або редагування книги
+        function saveBook(event) {
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const year = document.getElementById('year').value;
+            const genre = document.getElementById('genre').value;
+            const bookIndex = document.getElementById('bookIndex').value;
+
+            // Валідація
+            if (!validateForm(title, author, year, genre, bookIndex)) {
+                return;
+            }
+
+            const newBook = { title, author, year, genre };
+
+            if (bookIndex === '') {
+                // Додавання нової книги
+                books.push(newBook);
+            } else {
+                // Редагування існуючої книги
+                books[bookIndex] = newBook;
+            }
+
+            // Очищення форми
+            document.getElementById('bookForm').reset();
+            document.getElementById('bookIndex').value = '';
+
+            // Оновлення списку книг
+            displayBooks();
+        }
+
+        // Функція для редагування книги
+        function editBook(index) {
+            const book = books[index];
+            document.getElementById('title').value = book.title;
+            document.getElementById('author').value = book.author;
+            document.getElementById('year').value = book.year;
+            document.getElementById('genre').value = book.genre;
+            document.getElementById('bookIndex').value = index;
+        }
+
+        // Функція для видалення книги
+        function deleteBook(index) {
+            books.splice(index, 1);
+            displayBooks();  // Оновлення списку книг після видалення
+        }
+
+        // Додавання обробника подій для форми
+        document.getElementById('bookForm').addEventListener('submit', saveBook);
+
+        // Виведення списку книг при завантаженні сторінки
+        displayBooks();
+    </script>
+
+</body>
+</html>
