@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перелік книжок</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <form id="booksForm">
+        <div>
+            <label for="titleInput">Назва</label>
+            <input type="text" id="titleInput" required>
+        </div>
+        <div>
+            <label for="authorInput">Автор</label>
+            <input type="text" id="authorInput" required>
+        </div>
+        <div>
+            <label for="yearInput">Рік видання</label>
+            <input type="number" id="yearInput" required>
+        </div>
+        <div>
+            <label for="genreInput">Жанр твору</label>
+            <input type="text" id="genreInput" required>
+        </div>
+        <button class="button" type="submit">Зберегти</button>
+    </form>
+
+    <section id="books" class="books"></section>
+
+    <!-- Підключення JavaScript файлів -->
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script>
+        // Додавання валідації форми
+        document.getElementById('booksForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Зупинити стандартну дію форми
+
+            const titleInput = document.getElementById('titleInput').value.trim();
+            const authorInput = document.getElementById('authorInput').value.trim();
+            const yearInput = document.getElementById('yearInput').value.trim();
+            const genreInput = document.getElementById('genreInput').value.trim();
+            const currentYear = new Date().getFullYear();
+
+            // Перевірка на порожні поля
+            if (!titleInput) {
+                alert('Назва книги не може бути порожньою');
+                return;
+            }
+
+            if (!authorInput) {
+                alert('Ім\'я автора не може бути порожнім');
+                return;
+            }
+
+            if (!yearInput || isNaN(yearInput) || yearInput < 1450 || yearInput > currentYear) {
+                alert('Будь ласка, введіть коректний рік (від 1450 до поточного)');
+                return;
+            }
+
+            if (!genreInput) {
+                alert('Жанр не може бути порожнім');
+                return;
+            }
+
+            // Перевірка на дублікати книг
+            const duplicate = books.find(book => book.title.toLowerCase() === titleInput.toLowerCase());
+            if (duplicate) {
+                alert('Книга з такою назвою вже існує');
+                return;
+            }
+
+            // Якщо всі перевірки пройдено, можна додавати книгу
+            addBook({ title: titleInput, author: authorInput, year: parseInt(yearInput), genre: genreInput });
+        });
+
+        function addBook(newBook) {
+            books.push(newBook);
+            updateBookList(); // Функція для оновлення списку книг на сторінці
+        }
+    </script>
+</body>
+
+</html>
+
+
