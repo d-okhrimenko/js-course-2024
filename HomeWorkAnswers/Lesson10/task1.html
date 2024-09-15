@@ -1,0 +1,78 @@
+<!--
+Додайте валідацію до форми з попереднього уроку яка додає та редагує книги.
+Виконайте наступні перевірки
+
+1. Поле "Назва книги" (title)
+Перевірка на порожнє значення: назва книги не повинна бути порожньою.
+Перевірка на дублікати: перевірити, чи вже є така книга в масиві books.
+
+2. Поле "Автор" (author)
+Перевірка на порожнє значення: ім'я автора не повинно бути порожнім.
+
+3. Поле "Рік видання" (year)
+Перевірка на порожнє значення: рік повинен бути вказаний.
+Перевірка на тип даних: це має бути число.
+Перевірка на діапазон значень: рік не може бути меншим за 
+1450 (перші друковані книги) і більшим за поточний рік.
+
+4. Поле "Жанр" (genre)
+Перевірка на порожнє значення: жанр не повинен бути порожнім.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список книг у бібліотеці</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <script id="template"  type="text/template">
+        <section class="book">
+            <button onclick="edit({{id}})">Редагувати</button>
+            <button onclick="remove({{id}})">Видалити</button>
+            <h2>Назва книги: {{title}}</h2>
+            <h3>Автор: {{author}}</h3>
+            <p>Рік видання: {{year}}</p>
+            <p>Жанр: {{genre}}</p>
+        </section>
+    </script>
+
+    <section class="book">
+        <form id="bookForm" class="bookForm">
+            <div class="form-group">
+                <label for="titleInput">Назва книги: </label>
+                <input type="text" id="titleInput" name="title" class="inputTxt">
+                <span class="error" id="titleError">Назва книги не повинна бути порожньою та не має бути в масиві.</span>
+            </div>
+            <div class="form-group">
+                <label for="authorInput">Автор: </label>
+                <input type="text" id="authorInput" name="author" class="inputTxt">
+                <span class="error" id="authorError">Ім'я автора не повинно бути порожнім.</span>
+            </div>
+            <div class="form-group">
+                <label for="yearInput">Рік видання: </label>
+                <input type="text" id="yearInput" name="year" class="inputTxt">
+                <span class="error" id="yearError">Рік видання не може бути меншим за 1450 (перші друковані книги) і більшим за поточний рік.</span>
+            </div>
+            <div class="form-group">
+                <label for="genreInput">Жанр: </label>
+                <input type="text" id="genreInput" name="genre" class="inputTxt">
+                <span class="error" id="genreError">Жанр книги не повинен бути порожнім.</span>
+            </div>
+            <button type="submit">Зберегти</button>
+        </form>
+    </section>
+
+    <section id="bookList"></section>
+
+    <script src="../../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    
+</body>
+
+</html>
