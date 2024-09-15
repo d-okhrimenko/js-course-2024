@@ -41,6 +41,13 @@ class addBookView {
       this.toggleWindow();
     });
   }
+
+  addHandlerValidateTile(handler) {
+    this._parentEl.title.addEventListener("input", function () {
+      const currTitle = this.value;
+      handler(currTitle);
+    });
+  }
 }
 
 export default new addBookView();

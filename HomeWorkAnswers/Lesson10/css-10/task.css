@@ -165,3 +165,11 @@ fieldset {
   background-color: transparent;
   border: none;
 }
+
+input:valid {
+  border: 1px solid green;
+}
+
+input:invalid {
+  border: 1px solid red;
+}

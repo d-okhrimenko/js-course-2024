@@ -29,10 +29,16 @@ const controlUpdateBook = function (id, newBook) {
   // console.log(`Updating book with id: ${id}`, newBook);
 };
 
+const controlValidateTile = function (title) {
+  if (model.isPresentTitle(title))
+    addBookView._parentEl.title.setCustomValidity("Book with the same title already exist");
+};
+
 function init() {
   controlBooks();
   allBooksView.addHandlerRemoveBook(deleteBook);
   addBookView.addHandlerUpload(controlAddBook, controlUpdateBook);
   allBooksView.addHandlerUpdateBook(controlUpdateBook);
+  addBookView.addHandlerValidateTile(controlValidateTile);
 }
 init();

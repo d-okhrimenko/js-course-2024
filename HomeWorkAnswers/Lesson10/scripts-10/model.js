@@ -34,3 +34,7 @@ export const addBook = function (book) {
   book.id = state.lastId;
   state.books.push(book);
 };
+
+export const isPresentTitle = function (title) {
+  return state.books.some((bookEl) => bookEl.title === title);
+};
