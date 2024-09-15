@@ -25,33 +25,30 @@
 </head>
 
 <body>
-    <template id="template">
-        <div class="book">
+    <script id="template"  type="text/template">
+        <section class="book">
+            <button onclick="edit({{id}})">Редагувати</button>
+            <button onclick="remove({{id}})">Видалити</button>
             <h2>Назва книги: {{title}}</h2>
             <h3>Автор: {{author}}</h3>
             <p>Рік видання: {{year}}</p>
             <p>Жанр: {{genre}}</p>
-        </div>
-        <!-- <table table style="width:100%">
-            <tr class="book">
-                <th>{{title}}</th>
-                <th>{{author}}</th>
-                <th>{{year}}</th>
-                <th>{{genre}}</th>
-            </tr>
-        </table> -->
-        <!-- <section class="book">
-            <h2>Назва книги: {{title}}</h2>
-            <h3>Автор: {{author}}</h3>
-            <p>Рік видання: {{year}}</p>
-            <p>Жанр: {{genre}}</p>
-        </section> -->
-    </template>
+        </section>
+    </script>
 
-    <!-- <section id="bookList"></section> -->
-    <div id="bookList"></div>
+    <section class="book">
+        <form id="bookForm" class="bookForm">
+            <div><label for="">Назва книги: </label><input type="text" id="titleInput" class="inputTxt"></div>
+            <div><label for="">Автор: </label><input type="text" id="authorInput" class="inputTxt"></div>
+            <div><label for="">Рік видання: </label><input type="text" id="yearInput" class="inputTxt"></div>
+            <div><label for="">Жанр: </label><input type="text" id="genreInput" class="inputTxt"></div>
+            <button type="submit">Зберегти</button>
+        </form>
+    </section>
 
-    <script src="../../node_modules/mustache/mustache.js"></script>
+    <section id="bookList"></section>
+    
+    <script src="../../node_modules/mustache/mustache.min.js"></script>
     <script src="js/model.js"></script>
     <script src="js/view.js"></script>
     <script src="js/controller.js"></script>

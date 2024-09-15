@@ -1,7 +1,7 @@
 const bookList = {
     render(books, element) {
         books.forEach(book => {
-            let tag = document.createElement("div");    // "section"
+            let tag = document.createElement("section");    // "div"
             tag.classList.add("book");
             tag.insertAdjacentHTML("beforeend", `<h2>Назва книги: ${book.title}</h2>`);
             tag.insertAdjacentHTML("beforeend", `<h3>Автор: ${book.author}</h3>`);
