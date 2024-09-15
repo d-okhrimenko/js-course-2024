@@ -17,9 +17,6 @@ function render() {
     bookList.renderWithTemplate(booksDb.books, html, template);
 }
 
-// const form = document.forms[0];
-// form.addEventListener("focus", function () { console.log("focus") });
-// form.addEventListener("blur", function () { console.log("blur") });
 bookForm.title.addEventListener("focus", function (e) {  // for test only
     e.preventDefault();
     console.log("focus");
@@ -30,17 +27,16 @@ bookForm.title.addEventListener("blur", function (e) {  // for test only
     console.log("blur");
 });
 
-bookForm.title.addEventListener("input", function () {
+// bookForm.title.addEventListener("input", function () {
     // setCustomValidity - додає налаштовуване повідомлення про помилку в елемент.
-    // якщо повідомлення встановлено - елемент не вважається валідним
-    // якщо повідомлення є порожнім рядком - елемент вважається валідним.
-    // if (booksDb.findByName(bookForm.titleInput.value) != undefined) {
-    //     bookForm.titleInput.setCustomValidity("Перевірка на дублікати: є така книга !");
-    // }
-    // else {
+    // якщо повідомлення встановлено - елемент не вважається валідним, "" - елемент вважається валідним.
+    // if (bookForm.titleInput.value.length <= 0)
+    //     bookForm.titleInput.setCustomValidity("Назва книги не повинна бути порожньою.");
+    // else if (booksDb.findByTitle(bookForm.titleInput.value) != undefined)
+    //     bookForm.titleInput.setCustomValidity("Назва книги не повинна бути в масиві.");
+    // else
     //     bookForm.titleInput.setCustomValidity(""); // прибираемо помилку
-    // }
-});
+// });
 
 bookForm.title.addEventListener("change", function () {
     validateElement(bookForm.titleInput, "#titleError");
@@ -56,19 +52,6 @@ bookForm.year.addEventListener("change", function () {
 
 bookForm.genre.addEventListener("change", function () {
     validateElement(bookForm.genreInput, "#genreError");
-});
-
-bookForm.addEventListener("submit", function (e) {
-    validateElement(bookForm.titleInput, "#titleError");
-    validateElement(bookForm.authorInput, "#authorError");
-    validateElement(bookForm.yearInput, "#yearError");
-    validateElement(bookForm.genreInput, "#genreError");
-
-    // let invalidElements = document.querySelectorAll(".invalid");
-    // if (invalidElements.length > 0)
-    //     e.preventDefault();
-    // else
-    //     alert("Форма відправлена");
 });
 
 function validateElement(element, errorElementSelector) {
@@ -104,6 +87,10 @@ function validateElement(element, errorElementSelector) {
 bookForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    validateElement(bookForm.titleInput, "#titleError");
+    validateElement(bookForm.authorInput, "#authorError");
+    validateElement(bookForm.yearInput, "#yearError");
+    validateElement(bookForm.genreInput, "#genreError");
     let invalidElements = document.querySelectorAll(".invalid");
     if (invalidElements.length > 0)
         exit;
