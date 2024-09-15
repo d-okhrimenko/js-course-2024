@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calculateBMI(weight, height) {
+            return (weight / (height * height)).toFixed(2);
+        }
+
+        function getBMICategory(bmi) {
+            if(bmi < 18.5) {
+                return "Недостатня вага";
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                return "Нормальна вага";
+            } else if (bmi >= 25 && bmi <=29.9) {
+                return "Надмірна вага";
+            } else {
+                return "Ожиріння";
+            }
+        }
+
+        function bmiCalculator() {
+            const weight = parseFloat(prompt("Введіть вагу в кг:"));
+            const height = parseFloat(prompt("Введіть зріст в метрах (наприклад, 1.63)"));
+
+            if(isNaN(weight) || weight === "" || weight === null
+        || isNaN(height) || height === "" || height === null) {
+            alert("Введені некоректні дані. Спробуйте ще раз");
+            return;
+        }
+
+        const bmi = calculateBMI(weight, height);
+
+        const bmiCategory = getBMICategory(bmi);
+
+        alert(`Ваш Показник ІМТ, кг/м2: ${bmi}\nКатегорія: ${bmiCategory}`);
+        }
+
+        bmiCalculator();
+    </script>
+</body>
+</html>
