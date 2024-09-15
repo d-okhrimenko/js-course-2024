@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Математична гра</title>
+  </head>
+  <body>
+    <script>
+      let correctAnswers = 0;
+      let incorrectAnswers = 0;
+      const attempts = 5;
+
+      function generateExpression() {
+        const num1 = Math.floor(Math.random() * 10) + 1;
+        const num2 = Math.floor(Math.random() * 10) + 1;
+
+        if (num1 < num2) {
+          [num1, num2] = [num2, num1];
+        }
+
+        const operators = ["+", "-", "*", "/"];
+        const index = Math.floor(Math.random() * operators.length);
+        const operator = operators[index];
+        let expression = `${num1} ${operator} ${num2}`;
+        let correctAnswer;
+
+        switch (operator) {
+          case "+":
+            correctAnswer = num1 + num2;
+            break;
+          case "-":
+            correctAnswer = num1 - num2;
+            break;
+          case "*":
+            correctAnswer = num1 * num2;
+            break;
+          case "/":
+            correctAnswer = parseFloat((num1 / num2).toFixed(1));
+            break;
+        }
+        return { expression, correctAnswer };
+      }
+
+      function askQuestion() {
+        const { expression, correctAnswer } = generateExpression();
+        let userAnswer = prompt(
+          `Який результат виразу: ${expression}? Введіть 'вихід' для завершення гри.`
+        );
+
+        if (userAnswer === null || userAnswer.toLowerCase() === "вихід") {
+          alert(
+            `Гра завершена. Вірних відповідей: ${correctAnswers} \n Невірних відповідей: ${incorrectAnswers}`
+          );
+          return false;
+        }
+
+        userAnswer = parseFloat(userAnswer);
+
+        if (isNaN(userAnswer)) {
+          alert("Будь ласка, введіть правильну відповідь або 'вихід'.");
+          return true;
+        }
+
+        if (userAnswer === correctAnswer) {
+          alert("Вірно, молодець!");
+          correctAnswers++;
+        } else {
+          alert(`Невірно! Правильна відповідь: ${correctAnswer}`);
+          incorrectAnswers++;
+        }
+        return true;
+      }
+
+      function startGame() {
+        for (let i = 0; i < attempts; i++) {
+          if (!askQuestion()) {
+            break;
+          }
+        }
+        return;
+      }
+
+      startGame();
+    </script>
+  </body>
+</html>
