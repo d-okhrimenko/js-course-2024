@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список книг</title>
+</head>
+<body>
+    <h1>Бібліотека</h1>
+
+    <h2>Додати книгу</h2>
+    <form id="addBookForm">
+        <label for="title">Назва:</label>
+        <input type="text" id="title" required><br>
+        <label for="author">Автор:</label>
+        <input type="text" id="author" required><br>
+        <label for="year">Рік видання:</label>
+        <input type="number" id="year" required><br>
+        <label for="genre">Жанр:</label>
+        <input type="text" id="genre" required><br>
+        <button type="submit">Додати</button>
+    </form>
+
+<h2>Редагувати книгу</h2>
+<form id="editBookForm">
+    <label for="editSelectTitle">Виберіть книгу для редагування:</label>
+    <select id="editSelectTitle" required></select><br>
+    <label for="editTitle">Назва:</label>
+    <input type="text" id="editTitle" required><br>
+    <label for="editAuthor">Автор:</label>
+    <input type="text" id="editAuthor" required><br>
+    <label for="editYear">Рік видання:</label>
+    <input type="number" id="editYear" required><br>
+    <label for="editGenre">Жанр:</label>
+    <input type="text" id="editGenre" required><br>
+    <button type="submit">Зберегти</button>
+</form>
+
+    <h2>Видалити книгу</h2>
+    <form id="deleteBookForm">
+        <label for="deleteTitle">Виберіть книгу для видалення:</label>
+        <select id="deleteTitle" required></select><br>
+        <button type="submit">Видалити</button>
+    </form>
+
+    <h2>Список книг</h2>
+    <div id="bookList"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
