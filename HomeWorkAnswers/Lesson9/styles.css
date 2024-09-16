@@ -4,4 +4,13 @@
     margin: 30px 10px;
     border-radius: 10px;
     box-shadow: 10px;
-    }
+}
+
+#bookForm label {
+    display: inline-block;
+    width: 100px;
+}
+
+#bookForm div {
+    margin-bottom: 10px;
+}

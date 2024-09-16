@@ -1,5 +1,5 @@
 let bookList = {
-   
+
     renderWithTemplate(books, element, template) {
         let content = "";
         books.forEach(book => {
