@@ -177,29 +177,30 @@ bookForm.addEventListener("submit", e => {
 
     books.forEach(element => {
         if ((book.title.toLowerCase() == element.title.toLowerCase()) && (book.author.toLowerCase() == element.author.toLowerCase())) {
-            console.log("Duplicate");
-            duplicateError.style.display = "inline-block";
             duplicate = true;
         }
     });
 
-    if (duplicate == false) {
-        if (editID == null) {
+    if (editID == null) {
+        if (duplicate == false) {
             addBook(book);
         } else {
-            updateBook(editID, book);
-            editID = null;
+            duplicateError.style.display = "inline-block";
         }
-
-        renderBooksWithTemplate(books, template);
-
-        authorInput.value = "";
-        titleInput.value = "";
-        yearInput.value = "";
-        genreInput.value = "";
-
-        bookForm.style.display = "none";
+    } else {
+        updateBook(editID, book);
+        editID = null;
     }
+
+    renderBooksWithTemplate(books, template);
+
+    authorInput.value = "";
+    titleInput.value = "";
+    yearInput.value = "";
+    genreInput.value = "";
+
+    bookForm.style.display = "none";
+
 });
 
 renderBooksWithTemplate(books, template);
