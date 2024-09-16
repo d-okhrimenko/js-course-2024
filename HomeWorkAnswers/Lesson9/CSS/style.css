@@ -1,0 +1,29 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.5em;
+  background-color: blanchedalmond;
+}
+a{
+  text-decoration: none;
+  font-weight: 700;
+}
+h1 ,h2 {text-align: center;}
+#bookList{
+  max-width: 1200px;
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  
+  gap: 20px;
+}
+.booc__box{
+  width: 550px;
+  border: 1px solid pink;
+  background-color: azure;
+}
+/* .booc__box:not(:last-child){
+  margin-bottom: 30px;
+} */
