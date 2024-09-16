@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 8 HOMEWORK</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <form id="bookForm">
+        <div><label for="">Title</label><input type="text" id="titleInput"></div>
+        <div><label for="">Author:</label><input type="text" id="authorInput"></div>
+        <div><label for="">Year</label><input type="text" id="yearInput"></div>
+        <div><label for="">Genre</label><input type="text" id="genreInput"></div>
+        <button type="submit">Save</button>
+    </form>
+
+    <section id="bookList"></section>
+
+    <script src="model.js"></script>
+    <script src="controller.js"></script>
+    <script src="view.js"></script>
+    <script>
+        displayBooks();
+    </script>
+</body>
+</html>
