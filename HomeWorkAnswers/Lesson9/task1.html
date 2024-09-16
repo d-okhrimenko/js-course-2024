@@ -5,21 +5,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Books. Lesson 8, DOM.</title>
+  <title>Books. Lesson 9. Events</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <h1>Books</h1>
-  <template id="template">
+  <script id="template" type="text/template">
     <section class="book">
       <h2>{{title}}</h2>
       <p>Author: {{author}}</p>
       <p>Year: {{year}}</p>
       <p>Genre: {{genre}}</p>
+      <button onclick="edit({{id}})">Edit</button>
+      <button onclick="remove({{id}})">Remove</button>
     </section>
-  </template>
+  </script>
 
+  <form action="" id="bookForm">
+    <div><label for="">Title</label><input type="text" id="titleInput"></div>
+    <div><label for="">Author</label><input type="text" id="authorInput"></div>
+    <div><label for="">Year</label><input type="text" id="yearInput"></div>
+    <div><label for="">Genre</label><input type="text" id="genreInput"></div>
+    <button type="submit">Save</button>
+  </form>
+  
   <section id="book-list">
 
   </section>
