@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+}
+
+.bookList {
+    margin-top: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.book {
+    border: dashed 1px lightgray;
+    width: 150px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 10px;
+}
+
+.title {
+    margin: 40px 0 40px 0;
+    text-align: center;
+}
+
+.desc {
+    align-self: self-start;
+}
+
+.desc p,
+.author {
+    font-size: small;
+    margin: 0;
+}
+
+.author {
+    text-align: center;
+}
+
+.header {
+    height: 100px;
+    background-color: lightcyan;
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    width: 150px;
+    height: 50px;
+    margin: 20px;
+    border-radius: 50px;
+    background-color: #1a7a92;
+    font-size: large;
+    border-color: gray;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+li {
+    margin: 15px;
+}
+
+#bookForm {
+    margin: 20px;
+    display: none;
+}
+
+#bookForm div {
+    margin-bottom: 10px;
+}
+
+#bookForm label {
+    display: inline-block;
+    width: 100px;
+}
+
+.saveBtn {
+    height: 25px;
+    width: 75px;
+    background-color: #339eb98c;
+}
+
+.addBtn {
+    background-color: #fdf089;
+}
+
+.editBtn {
+    margin-top: 5px;
+}

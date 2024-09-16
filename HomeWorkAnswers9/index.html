@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <script id="template" type="text/template">
+        <div class="book">
+            <p class="author">{{author}}</p>
+            <h2 class="title">{{title}}</h2>
+            <div class="desc">
+                <p class="year">year: {{year}}</p>
+                <p class="genre">genre: {{genre}}</p>
+                <button class="editBtn" onclick="updateBook({{id}})">Edit</button>
+                <button class="editBtn" onclick="removeBook({{id}})">Delete</button>
+            </div>
+            
+        </div>
+    </script>
+
+
+    <div class="header">
+        <button class="btn toggleBtn">Show list</button>
+        <button class="btn addBtn">Add new book</button>
+    </div>
+
+    <form action="" id="bookForm">
+        <div><label for="">Author</label><input type="text" id="authorInput"></div>
+        <div><label for="">Title</label><input type="text" id="titleInput"></div>
+        <div><label for="">Year</label><input type="text" id="yearInput"></div>
+        <div><label for="">Genre</label><input type="text" id="genreInput"></div>
+        <button type="submit" class="btn saveBtn">Save</button>
+    </form>
+
+    <div class="bookList grid"></div>
+
+    <script src="../node_modules/mustache/mustache.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
