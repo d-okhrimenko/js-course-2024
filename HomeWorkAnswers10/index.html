@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <script id="template" type="text/template">
+        <div class="book">
+            <p class="author">{{author}}</p>
+            <h2 class="title">{{title}}</h2>
+            <div class="desc">
+                <p class="year">year: {{year}}</p>
+                <p class="genre">genre: {{genre}}</p>
+                <button class="editBtn" onclick="updateBook({{id}})">Edit</button>
+                <button class="editBtn" onclick="removeBook({{id}})">Delete</button>
+            </div>
+            
+        </div>
+    </script>
+
+
+    <div class="header">
+        <button class="btn toggleBtn">Show list</button>
+        <button class="btn addBtn">Add new book</button>
+    </div>
+
+    <form action="" id="bookForm">
+        <div><label for="author">Author</label><input type="text" name="author" id="authorInput" required></div>
+        <div><label for="title">Title</label><input type="text" name="title" id="titleInput" required></div>
+        <div class="duplicate">This book already exists in our library</div>
+        <div><label for="year">Year</label><input type="number" name="year" id="yearInput" required min="1450" max="2024"></div>
+        <div><label for="genre">Genre</label><input type="text" name="genre" id="genreInput" required></div>
+        <button type="submit" class="btn saveBtn">Save</button>
+        <button type="reset" class="btn saveBtn" id="closeBtn">Close</button>
+    </form>
+
+    <div class="bookList grid"></div>
+
+    <script src="../node_modules/mustache/mustache.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
