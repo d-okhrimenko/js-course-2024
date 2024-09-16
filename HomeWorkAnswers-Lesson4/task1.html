@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task1</title>
+</head>
+
+<body>
+
+	<script>
+		let userChoice = prompt("Зробіть свій вибір: камінь, ножиці або папір");
+		let choices = ["камінь", "ножиці", "папір"];
+		let computerChoice = choices[Math.floor(Math.random() * 3)];
+		if (userChoice === computerChoice) {
+			alert("Нічия! Ви обрали: " + userChoice + ", комп'ютер обрав: " + computerChoice);
+		} else if (
+			(userChoice === 'камінь' && computerChoice === 'ножиці') ||
+			(userChoice === 'ножиці' && computerChoice === 'папір') ||
+			(userChoice === 'папір' && computerChoice === 'камінь')
+		) {
+			alert("Гравець переміг!");
+		} else {
+			alert("Комп'ютер переміг!");
+		}
+		alert(`Гравець обрав: ${userChoice}, Комп’ютер обрав: ${computerChoice}`);
+
+
+
+	</script>
+</body>
+
+</html>

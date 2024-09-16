@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task2</title>
+</head>
+
+<body>
+
+	<script>
+		// Функція для генерації випадкового математичного виразу
+		function generateRandomExpression() {
+			// Генеруємо два випадкових числа від 1 до 10
+			let num1 = Math.floor(Math.random() * 10) + 1;
+			let num2 = Math.floor(Math.random() * 10) + 1;
+			// Масив операторів: додавання, віднімання, множення, ділення
+			let operators = ['+', '-', '*', '/'];
+			// Вибираємо випадковий оператор із масиву
+			let randomIndex = Math.floor(Math.random() * operators.length);
+			let operator = operators[randomIndex];
+			// Змінні для математичного виразу і правильної відповіді
+			let expression;
+			let correctAnswer;
+			// Визначаємо правильну відповідь залежно від оператора
+			if (operator === '+') {
+				expression = `${num1} + ${num2}`;
+				correctAnswer = num1 + num2;
+			} else if (operator === '-') {
+				expression = `${num1} - ${num2}`;
+				correctAnswer = num1 - num2;
+			} else if (operator === '*') {
+				expression = `${num1} * ${num2}`;
+				correctAnswer = num1 * num2;
+			} else if (operator === '/') {
+				expression = `${num1} / ${num2}`;
+				correctAnswer = (num1 / num2).toFixed(2); 
+			}
+			// Повертаємо вираз і правильну відповідь
+			return { expression, correctAnswer };
+		}
+		// Основна функція, яка запускає гру
+		function startGame() {
+			let correctCount = 0; // Лічильник правильних відповідей
+			let wrongCount = 0;   // Лічильник неправильних відповідей
+			const attempts = 5;   // Кількість спроб (прикладів)
+			// Цикл для кожної спроби
+			for (let i = 0; i < attempts; i++) {
+				// Отримуємо випадковий вираз і правильну відповідь
+				let question = generateRandomExpression();
+				// Запитуємо відповідь користувача
+				let userAnswer = prompt(`Вирішіть: ${question.expression}`);
+				// Перевіряємо відповідь користувача
+				if (parseFloat(userAnswer) === parseFloat(question.correctAnswer)) {
+					alert("Правильно!"); // Якщо відповідь правильна
+					correctCount++;      // Збільшуємо лічильник правильних відповідей
+				} else {
+					alert(`Неправильно. Правильна відповідь: ${question.correctAnswer}`); // Якщо відповідь неправильна
+					wrongCount++;        // Збільшуємо лічильник неправильних відповідей
+				}
+			}
+			// Виводимо підсумкові результати після завершення гри
+			alert(`Гра завершена!\nПравильних відповідей: ${correctCount}\nНеправильних відповідей: ${wrongCount}`);
+		}
+		startGame();
+	</script>
+
+</body>
+
+</html>
