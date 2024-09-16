@@ -1,0 +1,205 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.date-display {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.greeting {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.greeting.show {
+    opacity: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn:active {
+    animation: pulse 0.3s ease-in-out;
+}
+
+.show {
+    transition: opacity 0.5s;
+    opacity: 1;
+}
+#greeting {
+    opacity: 0;
+}
+#popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+/* Анимация для кнопок */
+button {
+    transition: transform 0.1s ease;
+}
+
+button:active {
+    transform: scale(0.95); /* Уменьшаем размер кнопки при нажатии */
+}
+
+/* Анимация для приветствия */
+.show {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hide {
+    opacity: 0;
+}
+
+/*Data Animation*/
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+
+
+.show {
+    animation: showGreeting 1s ease-in;
+}
+
+@keyframes showGreeting {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+./* Стили для попапа */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000; /* Чтобы попап был над другими элементами */
+    text-align: center;
+    animation: fadeIn 0.5s ease; /* Анимация появления попапа */
+}
+
+/* Анимация появления попапа */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Стили для инпута */
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #28a745; /* Зеленая рамка */
+    border-radius: 5px;
+    transition: border-color 0.3s ease; /* Плавный переход цвета рамки */
+    font-size: 16px;
+}
+
+/* Эффект при фокусе на инпуте */
+input[type="text"]:focus {
+    border-color: #218838; /* Темно-зеленая рамка при фокусе */
+    outline: none; /* Убираем стандартный контур */
+}
+
+/* Стили для кнопки */
+button {
+    background-color: #28a745; /* Зеленый цвет */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Плавный переход для фона и анимация нажатия */
+}
+
+/* Эффект при наведении на кнопку */
+button:hover {
+    background-color: #218838; /* Темно-зеленый цвет при наведении */
+}
+
+/* Эффект при нажатии на кнопку */
+button:active {
+    transform: scale(0.95); /* Уменьшаем кнопку при нажатии */
+}
