@@ -43,13 +43,21 @@ const books = [
 let container = document.querySelector("#bookList");
 let btn = document.querySelector("#added");
 
-btn.addEventListener("click", () => {});
-books.forEach((book) => container.append(creatBookBloc(book)));
+btn.addEventListener("click", () => {
+  let book = getNewBook();
+  let block = creatBookBlock(book);
+  container.append(block);
+});
+books.forEach((book) => container.append(creatBookBlock(book)));
 
-function creatBookBloc(book = books[0]) {
+function creatBookBlock(book = books[0]) {
   let box = document.createElement("div");
-  box.classList.add("booc__box");
-  box.insertAdjacentHTML("beforeend", `<p>Title: <a href=${book.urlBook}>${book.title}</a></p>`);
+  box.classList.add("book__box");
+  if (book.urlBook) {
+    box.insertAdjacentHTML("beforeend", `<p>Title: <a href=${book.urlBook}>${book.title}</a></p>`);
+  } else {
+    box.insertAdjacentHTML("beforeend", `<p>Title : ${book.title}</p>`);
+  }
   box.insertAdjacentHTML("beforeend", `<p>Author: ${book.author}</p>`);
   box.insertAdjacentHTML("beforeend", `<p>Year ${book.year}</p>`);
   box.insertAdjacentHTML("beforeend", `<p>Genre : ${book.genre}</p>`);
@@ -58,10 +66,10 @@ function creatBookBloc(book = books[0]) {
 
 function getNewBook() {
   let newBook = document.querySelector("fieldset");
-  let title = newBook.querySelector("#title");
-  let author = newBook.querySelector("#author");
-  let year = newBook.querySelector("#year");
-  let genre = newBook.querySelector("#genre");
+  let title = newBook.querySelector("#title").value;
+  let author = newBook.querySelector("#author").value;
+  let year = newBook.querySelector("#year").value;
+  let genre = newBook.querySelector("#genre").value;
 
   let bock = {
     title,
@@ -70,5 +78,20 @@ function getNewBook() {
     genre,
     urlBook: undefined,
   };
+  let inputFilds = newBook.querySelectorAll("input");
+  for (const el of inputFilds) {
+    if(el.type === 'button'){
+      continue;
+    }
+    el.value = "";
+  }
   return bock;
 }
+
+window.addEventListener('click', (eve)=>{
+  console.log(eve.target);
+  if(eve.target === 'div'){
+    console.log("UUUUUU");
+    
+  }
+})
