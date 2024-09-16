@@ -13,24 +13,27 @@ function checkNumberForEven() {
         showMessage(`Incorrect input "${inputText}"`);
         resultText.style.color = 'rgba(255, 57, 84, 0.65)';
         numberInput.style.color = 'rgba(255, 57, 84, 0.65)';
-    } else if (Math.round(+inputText) !== +inputText) {
-        showMessage(`You did not enter an integer - ${inputText}`);
-        resultText.style.color = 'rgba(255, 57, 84, 0.65)';
-        numberInput.style.color = 'rgba(255, 57, 84, 0.65)';
     } else {
         let num = +inputText;
 
-        if (num % 2 == 0) {
-            showMessage(`You have entered an even number - ${num}`);
-            resultText.style.color = 'rgba(45, 221, 119, 0.65)';
-            numberInput.style.color = 'rgba(45, 221, 119, 0.65)';
+        if (Math.round(num) !== num) {
+            showMessage(`You did not enter an integer - ${inputText}`);
+            resultText.style.color = 'rgba(255, 57, 84, 0.65)';
+            numberInput.style.color = 'rgba(255, 57, 84, 0.65)';
         } else {
-            showMessage(`You have entered an odd number - ${num}`);
-            resultText.style.color = 'rgba(252, 196, 93, 0.65)';
-            numberInput.style.color = 'rgba(252, 196, 93, 0.65)';
+            if (num % 2 == 0) {
+                showMessage(`You have entered an even number - ${num}`);
+                resultText.style.color = 'rgba(45, 221, 119, 0.65)';
+                numberInput.style.color = 'rgba(45, 221, 119, 0.65)';
+            } else {
+                showMessage(`You have entered an odd number - ${num}`);
+                resultText.style.color = 'rgba(252, 196, 93, 0.65)';
+                numberInput.style.color = 'rgba(252, 196, 93, 0.65)';
+            }
         }
-    }
 
+
+    }
 }
 
 function clearResults() {
