@@ -1,0 +1,33 @@
+.book {
+    width: 300px;
+    display: block;
+    background: #caf6ca;
+    padding: 5px;
+    margin: 5px auto 5px auto;
+}
+
+* {
+    text-align: center;
+}
+
+#bookForm {
+    width: 300px;
+    display: block;
+    background: gainsboro;
+    padding: 5px;
+    margin: 5px auto 5px auto;
+}
+
+#bookForm label {
+    display: inline-block;
+    width: 100px;
+}
+
+#bookForm div {
+    margin-bottom: 5px;
+}
+
+button {
+    width: 70px;
+    padding: 5px 5px;
+}
