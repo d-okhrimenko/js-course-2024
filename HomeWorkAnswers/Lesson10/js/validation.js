@@ -1,20 +1,32 @@
 let form = document.querySelector("#bookForm");
 
 // назва книги не повинна бути порожньою і не повинна повторюватися у каталозі книг
-form.bookTitle.addEventListener("input", function () {
-    let fieldBookTitleValue = form.bookTitle.value.trim();
-    if (fieldBookTitleValue === "") {
-        cssValidateElement(form.bookTitle, "invalid", "valid");
-        form.bookTitle.setCustomValidity("Вкажіть назву книги."); 
-    } else {
-        let inBooksList = booksList.findBookByName(form.bookTitle.value.trim());
-        if (inBooksList) {
+form.bookTitle.addEventListener("input", function() {
+    let modeEdit = booksList.modeEdit;    
+    let fieldBookTitleValue = form.bookTitle.value.trim();   
+    let inBooksList = booksList.findBookByName(fieldBookTitleValue); 
+    
+    if (!modeEdit) {
+        if (fieldBookTitleValue === "") {
+            cssValidateElement(form.bookTitle, "invalid", "valid");
+            form.bookTitle.setCustomValidity("Вкажіть назву книги."); 
+        } else if (inBooksList) {
             cssValidateElement(form.bookTitle, "invalid", "valid");
             form.bookTitle.setCustomValidity("Книга з такою назвою вже існує.");
         } else {
             cssValidateElement(form.bookTitle, "valid", "invalid");
+            form.bookTitle.setCustomValidity("");           
+        }
+        console.log("у режимі додавання");
+    } else {
+        if (fieldBookTitleValue === "") {
+            cssValidateElement(form.bookTitle, "invalid", "valid");
+            form.bookTitle.setCustomValidity("Вкажіть назву книги."); 
+        } else {
+            cssValidateElement(form.bookTitle, "valid", "invalid");
             form.bookTitle.setCustomValidity("");
         }
+        console.log("режим редагування завершено, у режимі додавання");
     }
 });
 
@@ -44,7 +56,6 @@ form.bookYear.addEventListener("input", function () {
         cssValidateElement(form.bookYear, "valid", "invalid");
     }
 });
-
 
 // поле жанру книги не повинно бути порожнім
 form.bookGenre.addEventListener("input", function () {

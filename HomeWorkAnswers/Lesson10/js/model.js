@@ -9,7 +9,7 @@ const booksList = {
         },
         {
             id: 2,
-            title: "Хоббіт",
+            title: "Гобіт",
             author: "Джон Р. Р. Толкін",
             year: 1937,
             genre: "Фентезі",
@@ -41,6 +41,7 @@ const booksList = {
         },
     ],
     lastId: 5,
+    modeEdit: false,
     add(book) {
         this.lastId++;
         book.id = this.lastId;
@@ -62,6 +63,6 @@ const booksList = {
         return this.books.findIndex(item => item.id === id);
     },
     findBookByName(bookTitle){
-        return this.books.some((book) => book.title === bookTitle);
+        return this.books.some((book, index) => book.title == bookTitle && book.id !== index);
     }
 }

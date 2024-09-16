@@ -80,7 +80,7 @@ const booksСatalogue = {
             // редагування
             const buttonEdit = document.createElement("button");
             buttonEdit.textContent = "Редагувати";
-            buttonEdit.classList.add("btn-edit");
+            buttonEdit.classList.add("btn", `btn-${bookId}-edit`);
 
             buttonEdit.addEventListener("click", () => {
                 editBook(bookId);
@@ -91,7 +91,7 @@ const booksСatalogue = {
             // видалення
             const buttonRemove = document.createElement("button");
             buttonRemove.textContent = "Видалити";
-            buttonRemove.classList.add("btn-remove");
+            buttonRemove.classList.add("btn", `btn-${bookId}-remove`);
 
             buttonRemove.addEventListener("click", () => {
                 removeBook(bookId);

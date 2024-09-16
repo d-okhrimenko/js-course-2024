@@ -70,15 +70,20 @@ img {
 }
 
 /* кнопки редагування та видалення */
-.btn-edit, .btn-remove {
+button.btn {
     margin-left: 5px;
+}
+
+button.btn-active {
+    color: white;
+    background-color: rgb(235, 94, 38);
 }
 
 /* валідація форми */
 .invalid {
-    border: rgb(255, 2, 141) 2px solid;
+    border: 2px solid rgb(255, 2, 141);
 }
 
 .valid {
-    border: rgb(58, 228, 95) 2px solid;
+    border: 2px solid rgb(58, 228, 95);
 }
