@@ -17,7 +17,6 @@
                 if (isValid) return (value);
             }
         }
-
         //аксепшин введеного значення
         function startGame() {
             let playerChoice = getValue("Зробіть вибір ввівши літеру: 'к'(якщо камінь), 'н'(якщо ножиці), 'п'(якщо папір)");
@@ -30,7 +29,6 @@
             else if (playerChoice === 'п') {
                 alert("Ви обрали ПАПІР");
             }
-
             //генерація вибору комп'ютера та умовні конструкції  
             const choice = ["камінь", "ножиці", "папір"];
             let randomChoice = choice[Math.floor(Math.random() * 3)];
@@ -49,12 +47,10 @@
                 alert("Нажаль, ви програли...Камінь б'є ножиці");
                 return "computer";
             }
-
             else if (playerChoice == "н" && randomChoice == "папір") {
                 alert("Вітаю! Ви виграли!Ваші ножиці ріжуть папір!");
                 return "player";
             }
-
             //папір
             else if (playerChoice == "п" && randomChoice == "камінь") {
                 alert("Вітаю! Ви виграли!Ваш папір криє камінь!");
@@ -70,8 +66,6 @@
                 return "drawScore";
             }
         }
-
-        
         //створення лічильника раундів
         let playerWins = computerWins = 0;
         for (let i = 1; i <= 3; i++) {
@@ -79,23 +73,19 @@
             let result = startGame();
             if (result == "player") {
                 playerWins++;
-            }
-            else if (result == "computer") {
+            } else if (result == "computer") {
                 computerWins++;
             }
         }
-
         //виведення резудьтату гри
         if (playerWins > computerWins) {
             alert(`Вітаю! Ви перемогли із рахунком ${playerWins}:${computerWins}`);
         }
         else if (playerWins < computerWins) {
             alert(`Нажаль, Ви програли із рахунком ${playerWins}:${computerWins}`);
-        }
-        else {
+        } else {
             alert(`Нічия! Рахунок гри ${playerWins}:${computerWins}`);
         }
-
     </script>
 </body>
 
