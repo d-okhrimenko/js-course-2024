@@ -7,6 +7,7 @@ form.bookTitle.addEventListener("input", function() {
     let inBooksList = booksList.findBookByName(fieldBookTitleValue); 
     
     if (!modeEdit) {
+        console.log("у режимі додавання");
         if (fieldBookTitleValue === "") {
             cssValidateElement(form.bookTitle, "invalid", "valid");
             form.bookTitle.setCustomValidity("Вкажіть назву книги."); 
@@ -17,8 +18,8 @@ form.bookTitle.addEventListener("input", function() {
             cssValidateElement(form.bookTitle, "valid", "invalid");
             form.bookTitle.setCustomValidity("");           
         }
-        console.log("у режимі додавання");
     } else {
+        console.log("у режимі редагування");
         if (fieldBookTitleValue === "") {
             cssValidateElement(form.bookTitle, "invalid", "valid");
             form.bookTitle.setCustomValidity("Вкажіть назву книги."); 
@@ -26,7 +27,6 @@ form.bookTitle.addEventListener("input", function() {
             cssValidateElement(form.bookTitle, "valid", "invalid");
             form.bookTitle.setCustomValidity("");
         }
-        console.log("режим редагування завершено, у режимі додавання");
     }
 });
 

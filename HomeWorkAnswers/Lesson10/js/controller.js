@@ -47,7 +47,7 @@ bookForm.addEventListener("submit", function(event) {
 
     cleaner();
     render(); 
-    console.log("режим додавання завершено");
+    console.log("зміни збережено");
 });
 
 function editBook(id) {
@@ -67,7 +67,6 @@ function editBook(id) {
     
     render();  
     addStylesActiveBtnEdit(id);
-    console.log("у режимі редагування");  
 }
 
 function removeBook(id) {
