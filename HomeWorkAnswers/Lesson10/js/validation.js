@@ -29,7 +29,7 @@ form.year.addEventListener("change", function (event) {
   if (form.year.value < minYear) {
     form.year.setCustomValidity("Рік видання не може бути меншим за 1450 рік");
     event.preventDefault();
-  } else if (form.year.value >= currentYear + 1) {
+  } else if (form.year.value > currentYear) {
     form.year.setCustomValidity("Рік видання не може бути більшим за поточний рік");
     event.preventDefault();
   } else {
