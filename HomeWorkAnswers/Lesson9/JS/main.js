@@ -72,6 +72,7 @@ function drawListBook() {
   container.innerHTML = "";
   books.forEach((book) => container.append(creatBookBlock(book)));
   getEvent();
+  getEvent();
 }
 function creatBookBlock(book = books[0]) {
   let box = document.createElement("div");
@@ -111,6 +112,23 @@ function getNewBook() {
   return bock;
 }
 
+function getEvent() {
+  container.querySelectorAll(".book__box").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      let book = e.currentTarget.querySelector("a");
+      let titleFromBook = book.innerHTML;
+      for (const book of books) {
+        if (book.title === titleFromBook) {
+          let newBook = document.querySelector("fieldset");
+          newBook.querySelector("#title").value = book.title;
+          newBook.querySelector("#author").value = book.author;
+          newBook.querySelector("#year").value = book.year;
+          newBook.querySelector("#genre").value = book.genre;
+        }
+      }
+    });
+  });
+}
 function getEvent() {
   container.querySelectorAll(".book__box").forEach((el) => {
     el.addEventListener("click", (e) => {
