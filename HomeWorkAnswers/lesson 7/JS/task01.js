@@ -58,7 +58,7 @@ groupController.addStudent("Ingvar", "Jahnsson", 22, 182);
 groupController.showInfo();
 // демонстрація студея групи за його id
 groupController.showInfo(1);
-// вилучення стужея з групи за його id
+// вилучення студея з групи за його id
 groupController.deleteStudent(0);
 
 // демонстрація групи студеїв
