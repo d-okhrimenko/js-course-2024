@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lessons9&10 hometask</title>
+    <title>Lessons9 hometask</title>
     <style>
         .book {
             background-color: lightblue;
@@ -117,33 +117,11 @@
         const yearInput = document.querySelector("#year-input");
         const genreInput = document.querySelector("#genre-input");
 
-        let editId = null;
-
         function render() {
             renderWithTemplate(bookList.getBooks(), html, template);
         }
-  
-        bookForm.addEventListener("submit", function (e) {
-            e.preventDefault();
 
-            let book = {
-                title: titleInput.value,
-                author: authorInput.value,
-                year: yearInput.value,
-                genre: genreInput.value,
-            };
-
-            if (editId == null) {
-                bookList.addBook(book);
-            } 
-            else {
-                bookList.updateBook(editId, book);
-                editId = null;
-            };
-
-            render();
-        });
-
+        let editId = null;
 
         function remove(id) {
             bookList.removeBook(id);
@@ -162,6 +140,27 @@
 
             render();
         }
+  
+        bookForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let book = {
+                title: titleInput.value,
+                author: authorInput.value,
+                year: yearInput.value,
+                genre: genreInput.value,
+            };
+
+            if (editId == null) {
+                bookList.addBook(book);
+            } 
+            else {
+                bookList.updateBook(editId, book);
+                editId = null;
+            };
+
+            render();
+        });
 
         render();
 
