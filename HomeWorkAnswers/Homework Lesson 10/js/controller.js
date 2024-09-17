@@ -17,7 +17,7 @@ function render() {
 }
 
 titleInput.addEventListener("input", function () {
-  let title = titleInput.value.trim();
+  const title = titleInput.value.trim();
 
   if (bookInfo.books.some(book => book.title.toLowerCase() === title.toLowerCase() && book.id !== editId)) {
     titleInput.setCustomValidity("Duplicate!");
