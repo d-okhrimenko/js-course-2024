@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom validation</title>
+
+    <style>
+        .form-group {
+            margin: 10px 4px;
+        }
+
+        .form-group label {
+            display: block;
+        }
+
+        .error {
+            color: red;
+            display: none;
+        }
+
+        .invalid {
+            border: red 1px solid;
+        }
+
+        .valid {
+            border: green 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" name="email" data-val="true" data-required="Введіть Email"
+                   data-pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" data-error-label="emailErrorLabel">
+            <span class="error" id="emailErrorLabel">Помилка</span>
+        </div>
+        <div class="form-group">
+            <label>Пароль</label>
+            <input type="password" name="password" data-val="true" data-required="Введіть пароль" id="password"
+                   data-error-label="passwordErrorLabel">
+            <span class="error" id="passwordErrorLabel">Помилка</span>
+        </div>
+        <div class="form-group">
+            <label>Підтвердження пароля</label>
+            <input type="password" name="passwordConfirm" id="passwordConfirm" data-val="true"
+                   data-required="Введіть підтвердження пароля" data-confirm="password"
+                   data-error-label="passwordConfirmErrorLabel">
+            <span class="error" id="passwordConfirmErrorLabel">Помилка</span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Вхід">
+        </div>
+    </form>
+
+    <script>
+        const form = document.forms[0];
+
+        let elements = document.querySelectorAll("[data-val='true']");
+
+        elements.forEach(element => {
+            element.addEventListener("change", onChangeHandler);
+        });
+
+        form.addEventListener("submit", onSubmitHandler);
+
+        function onChangeHandler(e) {
+            const element = e.target;
+            if (element.tagName == "INPUT") {
+                validateElement(element);
+            }
+        }
+
+        function onSubmitHandler(e) {
+            for (let i = 0; i < form.elements.length; i++) {
+                const element = form.elements[i];
+                let valid = validateElement(element);
+                if (!valid) {
+                    e.preventDefault();
+                }
+            }
+        }
+
+        function validateElement(element) {
+            for (const key in validators) {
+                if (Object.hasOwnProperty.call(validators, key) && typeof validators[key] == "object") {
+
+                    if (element.dataset[key]) {
+                        const validator = validators[key];
+                        if (!validator.isValid(element))
+                            return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        let validators = {};
+
+        validators.validate = function (element, message, predicate) {
+            let errorLabel = document.querySelector("#" + element.dataset.errorLabel);
+            errorLabel.textContent = message;
+            errorLabel.style.display = "none";
+            element.classList.remove("valid");
+            element.classList.remove("invalid");
+
+            if (typeof predicate == "function" && predicate()) {
+                element.classList.add("valid");
+                return true;
+            }
+            else {
+                element.classList.add("invalid");
+                errorLabel.style.display = "block";
+                return false;
+            }
+        };
+
+        validators.required = {
+            isValid: function (element) {
+                let message = element.dataset.required;
+                return validators.validate(element, message, () => element.value.length > 0);
+            }
+        };
+
+        validators.pattern = {
+            isValid: function (element) {
+                let message = "Введене значення не відповідає шаблону";
+                let regex = new RegExp(element.dataset.pattern);
+                return validators.validate(element, message, () => regex.test(element.value));
+            }
+        };
+
+        validators.confirm = {
+            isValid: function (element) {
+                let message = "Значення не співпадають";
+                let confirmInput = document.querySelector("#" + element.dataset.confirm);
+                return validators.validate(element, message, () => element.value == confirmInput.value);
+            }
+        };
+    </script>
+</body>
+
+</html>
