@@ -43,6 +43,7 @@ const books = [
 let container = document.querySelector("#bookList");
 let btn = document.querySelector("#added");
 let flag = true;
+let flag = true;
 btn.addEventListener("click", () => {
   let bookNew = getNewBook();
   for (let i = 0; i < books.length; i++) {
