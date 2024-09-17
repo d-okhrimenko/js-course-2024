@@ -18,6 +18,7 @@ newBookBtn.addEventListener('click', () => {
   form.classList.remove('none');
   form.classList.add('view');
   newBookBtn.classList.add('none');
+  newBookBtn.classList.toggle;
 });
 
 let editId;
