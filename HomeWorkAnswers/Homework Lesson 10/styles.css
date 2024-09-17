@@ -103,15 +103,3 @@ body {
   background-color: whitesmoke;
   border-color: yellow;
 }
-
-input:invalid {
-  border: 1px solid red;
-}
-
-input:valid {
-  border: 1px solid green;
-}
-
-input:focus:invalid {
-  border: 1px solid red;
-}
