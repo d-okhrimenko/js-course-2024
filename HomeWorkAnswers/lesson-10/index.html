@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Lesson 10</title>
+		<link
+			rel="stylesheet"
+			href="./style.css" />
+	</head>
+	<body>
+		<form
+			action=""
+			id="book-form">
+			<div class="input-group">
+				<label for="">Title</label>
+				<input
+					type="text"
+					name="title"
+					id="titleInput"
+					pattern="^[0-9A-Za-zА-Яа-яЁёЇїІіЄєҐґ',.\-\s]+$"
+					minlength="2"
+					required />
+			</div>
+			<div class="input-group">
+				<label for="">Author</label>
+				<input
+					type="text"
+					name="author"
+					id="authorInput"
+					pattern="^[A-Za-zА-Яа-яЁёЇїІіЄєҐґ',.\-\s]+$"
+					minlength="2"
+					required />
+			</div>
+			<div class="input-group">
+				<label for="yearInput">Year</label>
+				<input
+					type="text"
+					name="year"
+					id="yearInput"
+					pattern="[0-9]{4}" />
+			</div>
+			<div class="input-group">
+				<label for="">Genre</label>
+				<input
+					type="text"
+					name="genre"
+					id="genreInput"
+					pattern="^[A-Za-zА-Яа-яЁёЇїІіЄєҐґ']+$"
+					required />
+			</div>
+			<button
+				type="submit"
+				class="add-btn">
+				Add/Save
+			</button>
+		</form>
+
+		<h2>Rendering by means of Mustache</h2>
+
+		<script id="template">
+			<div class='book_card'>
+				<div class='button-group'>
+					<button onclick='edit({{id}})'>Edit</button>
+					<button onclick='remove({{id}})'>Delete</button>
+				</div>
+				<h3>Title: {{ title }}</h3>
+				<h4>Author: {{ author }}</h4>
+				<h4>Year: {{ year }}</h4>
+				<h4>Genre: {{ genre }}</h4>
+			</div>;
+		</script>
+
+		<section class="book_list-template"></section>
+
+		<script src="../../ClassWork/node_modules/mustache/mustache.min.js"></script>
+
+		<script src="./js/model.js"></script>
+		<script src="./js/view.js"></script>
+		<script src="./js/validator.js"></script>
+		<script src="./js/controller.js"></script>
+	</body>
+</html>
