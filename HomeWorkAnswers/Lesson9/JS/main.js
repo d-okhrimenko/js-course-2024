@@ -42,11 +42,28 @@ const books = [
 
 let container = document.querySelector("#bookList");
 let btn = document.querySelector("#added");
-
+let flag = true;
 btn.addEventListener("click", () => {
   let bookNew = getNewBook();
-  books.push(bookNew);
-  drawListBook();
+  for (let i = 0; i < books.length; i++) {
+    const book = books[i];
+    if (book.title === bookNew.title) {
+      book.author = bookNew.author;
+      book.year = bookNew.year;
+      book.genre = bookNew.genre;
+      drawListBook();
+      alert(`Your update book ${book.title}`);
+      flag = false;
+      break;
+    }else{
+      flag = true;
+    }
+  }
+  if (flag) {
+    books.push(bookNew);
+    drawListBook();
+    flag = true;
+  }
 });
 
 drawListBook();
@@ -54,6 +71,7 @@ drawListBook();
 function drawListBook() {
   container.innerHTML = "";
   books.forEach((book) => container.append(creatBookBlock(book)));
+  getEvent();
 }
 function creatBookBlock(book = books[0]) {
   let box = document.createElement("div");
@@ -93,9 +111,20 @@ function getNewBook() {
   return bock;
 }
 
-window.addEventListener("click", (eve) => {
-  console.log(eve.target);
-  if (eve.target === "div") {
-    console.log("UUUUUU");
-  }
-});
+function getEvent() {
+  container.querySelectorAll(".book__box").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      let book = e.currentTarget.querySelector("a");
+      let titleFromBook = book.innerHTML;
+      for (const book of books) {
+        if (book.title === titleFromBook) {
+          let newBook = document.querySelector("fieldset");
+          newBook.querySelector("#title").value = book.title;
+          newBook.querySelector("#author").value = book.author;
+          newBook.querySelector("#year").value = book.year;
+          newBook.querySelector("#genre").value = book.genre;
+        }
+      }
+    });
+  });
+}
