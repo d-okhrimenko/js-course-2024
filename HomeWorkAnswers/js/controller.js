@@ -24,6 +24,7 @@ function handleSubmit(evt) {
   evt.preventDefault();
 
   const form = evt.target;
+  const { title, author, year, genre } = form.elements;
   const isFormValid = validateAddBookForm();
 
   if (!isFormValid) {
@@ -31,10 +32,10 @@ function handleSubmit(evt) {
   }
 
   const book = {
-    title: form.elements.title.value.trim(),
-    author: form.elements.author.value.trim(),
-    year: form.elements.year.value,
-    genre: form.elements.genre.value.trim(),
+    title: title.value.trim(),
+    author: author.value.trim(),
+    year: year.value,
+    genre: genre.value.trim(),
   };
 
   if (!editId) {
@@ -58,72 +59,77 @@ function validateAddBookForm() {
 }
 
 function validateTitle() {
-  const validateSelector = selectors.bookTitleInput;
+  const validateElement = selectors.bookTitleInput;
   const errorElement = selectors.errorTitleValidate;
-  const normalizedTitle = validateSelector.value.trim().toLowerCase();
 
-  validateSelector.classList.remove('valid');
-  validateSelector.classList.remove('invalid');
+  const normalizedTitle = validateElement.value.trim().toLowerCase();
+  const isBookExist = books.items.some(({ title }) => title.toLowerCase() === normalizedTitle);
+
+  validateElement.classList.remove('valid');
+  validateElement.classList.remove('invalid');
   errorElement.style.display = 'none';
   errorElement.textContent = '';
-  validateSelector.setCustomValidity('');
+  validateElement.setCustomValidity('');
 
-  if (books.items.some(({ title }) => title.toLowerCase() === normalizedTitle)) {
-    validateSelector.classList.add('invalid');
+  if (isBookExist) {
+    validateElement.classList.add('invalid');
     errorElement.style.display = 'inline';
     errorElement.textContent = 'Книга з такою назвою вже існує';
-    validateSelector.setCustomValidity('Дублювання назви книги');
+    validateElement.setCustomValidity('Дублювання назви книги');
   } else if (normalizedTitle === '') {
-    validateSelector.classList.add('invalid');
+    validateElement.classList.add('invalid');
     errorElement.style.display = 'inline';
     errorElement.textContent = 'Введіть назву книги';
-    validateSelector.setCustomValidity('Назва книги не може бути порожньою');
+    validateElement.setCustomValidity('Назва книги не може бути порожньою');
   }
 
-  selectors.bookTitleInput.reportValidity();
-  return selectors.bookTitleInput.checkValidity();
+  validateElement.reportValidity();
+  return validateElement.checkValidity();
 }
 
 function validateAuthor() {
-  const author = selectors.bookAuthorInput.value.trim();
-  selectors.bookAuthorInput.setCustomValidity('');
+  const validateElement = selectors.bookAuthorInput;
+  const author = validateElement.value.trim();
+  validateElement.setCustomValidity('');
 
   if (!author) {
-    selectors.bookAuthorInput.setCustomValidity("Ім'я автора не може бути порожнім");
+    validateElement.setCustomValidity("Ім'я автора не може бути порожнім");
   }
 
-  selectors.bookAuthorInput.reportValidity();
-  return selectors.bookAuthorInput.checkValidity();
+  validateElement.reportValidity();
+  return validateElement.checkValidity();
 }
 
 function validateYear() {
-  const year = Number(selectors.bookYearInput.value);
+  const validateElement = selectors.bookYearInput;
+  const year = Number(validateElement.value);
   const currentYear = new Date().getFullYear();
-  selectors.bookYearInput.setCustomValidity('');
+  validateElement.setCustomValidity('');
 
-  if (!selectors.bookYearInput.value) {
+  if (!validateElement.value) {
     // Більшість кастомних валідацій не мають особливого сенсу за рахунок HTML валідації форм. Тип імпуту намбер
-    selectors.bookYearInput.setCustomValidity('Рік видання не може бути порожнім');
+    validateElement.setCustomValidity('Рік видання не може бути порожнім');
     // } else if (isNaN(year)) {
-    //   selectors.bookYearInput.setCustomValidity('Рік видання має бути числом.');
+    //   validateElement.setCustomValidity('Рік видання має бути числом.');
   } else if (year < 1450 || year > currentYear) {
-    selectors.bookYearInput.setCustomValidity(`Рік видання має бути в діапазоні від 1450 до ${currentYear}`);
+    validateElement.setCustomValidity(`Рік видання має бути в діапазоні від 1450 до ${currentYear}`);
   }
 
-  selectors.bookYearInput.reportValidity();
-  return selectors.bookYearInput.checkValidity();
+  validateElement.reportValidity();
+  return validateElement.checkValidity();
 }
 
 function validateGenre() {
-  const genre = selectors.bookGenreInput.value.trim();
-  selectors.bookGenreInput.setCustomValidity('');
+  const validateElement = selectors.bookGenreInput;
+  const genre = validateElement.value.trim();
+  validateElement.setCustomValidity('');
 
   if (!genre) {
-    selectors.bookGenreInput.setCustomValidity('Жанр не може бути порожнім.');
+    validateElement.setCustomValidity('Жанр не може бути порожнім');
   }
 
-  selectors.bookGenreInput.reportValidity();
-  return selectors.bookGenreInput.checkValidity();
+  validateElement.reportValidity();
+  return validateElement.checkValidity();
 }
 
 function remove(id) {

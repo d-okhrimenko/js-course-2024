@@ -21,6 +21,9 @@
   width: 280px;
   align-items: end;
   gap: 4px;
+  background-color: blanchedalmond;
+  border-radius: 4px;
+  padding: 8px;
 }
 
 #addBookForm label {
