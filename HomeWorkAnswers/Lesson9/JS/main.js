@@ -44,12 +44,17 @@ let container = document.querySelector("#bookList");
 let btn = document.querySelector("#added");
 
 btn.addEventListener("click", () => {
-  let book = getNewBook();
-  let block = creatBookBlock(book);
-  container.append(block);
+  let bookNew = getNewBook();
+  books.push(bookNew);
+  drawListBook();
 });
-books.forEach((book) => container.append(creatBookBlock(book)));
 
+drawListBook();
+
+function drawListBook() {
+  container.innerHTML = "";
+  books.forEach((book) => container.append(creatBookBlock(book)));
+}
 function creatBookBlock(book = books[0]) {
   let box = document.createElement("div");
   box.classList.add("book__box");
@@ -80,7 +85,7 @@ function getNewBook() {
   };
   let inputFilds = newBook.querySelectorAll("input");
   for (const el of inputFilds) {
-    if(el.type === 'button'){
+    if (el.type === "button") {
       continue;
     }
     el.value = "";
@@ -88,10 +93,9 @@ function getNewBook() {
   return bock;
 }
 
-window.addEventListener('click', (eve)=>{
+window.addEventListener("click", (eve) => {
   console.log(eve.target);
-  if(eve.target === 'div'){
+  if (eve.target === "div") {
     console.log("UUUUUU");
-    
   }
-})
+});
