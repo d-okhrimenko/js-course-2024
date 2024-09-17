@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="task1">
+      <h2>Завдання 1</h2>
+
+      <form id="bookForm"></form>
+        <div><input type="hidden" id="bookId"></div>
+        <div><label for="titleInput">Назва</label><input type="text" id="titleInput"></div>
+        <div><label for="authorInput">Автор</label><input type="text" id="authorInput"></div>
+        <div><label for="yearInput">Рік</label><input type="text" id="yearInput"></div>
+        <div><label for="genreInput">Жанр</label><input type="text" id="genreInput"></div>
+        <button id="bookForm-new" type="submit">Створити</button>
+        <button id="bookForm-upd" type="submit" disabled="true">Оновити</button>
+        <button id="bookForm-del" type="submit">Очистити форму</button>
+      </form>
+
+      <div id="t1-books"></div>
+    </div>
+
+    <script src="Task1.js"></script>
+  </body>
+</html>
