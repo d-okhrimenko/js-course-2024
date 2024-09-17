@@ -16,14 +16,12 @@
                 if (isValid) return Number(value);
             }
         }
-
         function playGame() {
             let firstOperand = Math.floor(Math.random() * 100) + 1;
             let secondOperand = Math.floor(Math.random() * 100) + 1;
             let operators = ["+", "-", "*", "/"];
             let operatorChoice = operators[Math.floor(Math.random() * operators.length)];
             let result;
-
             switch (operatorChoice) {
                 case "+":
                     result = firstOperand + secondOperand;
@@ -39,42 +37,33 @@
                         secondOperand !== 0 ? firstOperand / secondOperand : "Ділення на нуль!";
                     break;
             }
-
-
             if (operatorChoice === "/") {
                 result = Math.round(result * 10) / 10;
             }
-
             let answer = getValue(
                 `${firstOperand} ${operatorChoice} ${secondOperand} = Введіть відповідь`);
-
-            
             if (result === answer) {
                 alert("Вірно!");
                 return "right";
-            } else {
+            }else { 
                 alert("Нажаль, ні!");
                 return "wrong";
             }
         }
-
         let rightAnswer = wrongAnswer = 0;
-
         for (let i = 1; i <= 10; i++) {
             alert(`Раунд ${i}`);
             let total = playGame();
             if (total === "right") {
                 rightAnswer++;
-            } else if (total === "wrong") {
+            }else if (total === "wrong") {
                 wrongAnswer++;
             }
         }
         if (wrongAnswer === 0) {
             alert("Ви дали вірні відповіді на всі питання!");
         } else {
-            alert(
-                `Ви дали ${rightAnswer} вірних відповідей з 10-и завдань`
-            );
+            alert(`Ви дали ${rightAnswer} вірних відповідей з 10-и завдань`);
         }
     </script>
 </body>
