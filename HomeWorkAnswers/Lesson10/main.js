@@ -39,8 +39,8 @@ const books = {
         let index = this.bookList.findIndex(x => x.id == id);
         return this.bookList[index];
     },
-    exist(title) {
-        return this.bookList.some(x => x.title == title);
+    exist(title, id) {
+        return this.bookList.some(x => x.title == title && x.id != id);
     }
 };
 
@@ -90,6 +90,8 @@ bookForm.addEventListener("submit", function (e) {
 
 function remove(id) {
     books.remove(id);
+
+    validateTitle();
     render();
 }
 
@@ -103,18 +105,19 @@ function edit(id) {
     yearInput.value = editBook.year;
     genreInput.value = editBook.genre;
 
+    validateTitle();
     render();
 }
 
-
-nameInput.addEventListener("input", function () {
-    if (books.exist(nameInput.value)) {
+function validateTitle() {
+    if (books.exist(nameInput.value, editId)) {
         nameInput.setCustomValidity("Книга вже є");
     }
     else {
         nameInput.setCustomValidity("");
     }
-});
+}
+nameInput.addEventListener("input", validateTitle);
 
 
 render();
