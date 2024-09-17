@@ -5,6 +5,7 @@ const selectors = {
   bookAuthorInput: document.querySelector('#bookAuthorInput'),
   bookYearInput: document.querySelector('#bookYearInput'),
   bookGenreInput: document.querySelector('#bookGenreInput'),
+  errorTitleValidate: document.querySelector('#js-titleError'),
 };
 
 let editId = null;
@@ -57,13 +58,26 @@ function validateAddBookForm() {
 }
 
 function validateTitle() {
-  const normalizedTitle = selectors.bookTitleInput.value.trim().toLowerCase();
-  selectors.bookTitleInput.setCustomValidity('');
+  const validateSelector = selectors.bookTitleInput;
+  const errorElement = selectors.errorTitleValidate;
+  const normalizedTitle = validateSelector.value.trim().toLowerCase();
+
+  validateSelector.classList.remove('valid');
+  validateSelector.classList.remove('invalid');
+  errorElement.style.display = 'none';
+  errorElement.textContent = '';
+  validateSelector.setCustomValidity('');
 
   if (books.items.some(({ title }) => title.toLowerCase() === normalizedTitle)) {
-    selectors.bookTitleInput.setCustomValidity('Книга з такою назвою вже існує');
+    validateSelector.classList.add('invalid');
+    errorElement.style.display = 'inline';
+    errorElement.textContent = 'Книга з такою назвою вже існує';
+    validateSelector.setCustomValidity('Дублювання назви книги');
   } else if (normalizedTitle === '') {
-    selectors.bookTitleInput.setCustomValidity('Назва книги не може бути порожньою');
+    validateSelector.classList.add('invalid');
+    errorElement.style.display = 'inline';
+    errorElement.textContent = 'Введіть назву книги';
+    validateSelector.setCustomValidity('Назва книги не може бути порожньою');
   }
 
   selectors.bookTitleInput.reportValidity();

@@ -17,21 +17,27 @@
 
 #addBookForm {
   display: flex;
+  flex-direction: column;
+  width: 280px;
   align-items: end;
-  gap: 10px;
+  gap: 4px;
 }
 
 #addBookForm label {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
 }
 
+.error {
+  display: none;
+  color: red;
+}
 
-input:valid {
+.valid {
   border: 1px solid lightgreen;
 }
 
-input:invalid {
+.invalid {
   border: 1px solid lightcoral;
 }
