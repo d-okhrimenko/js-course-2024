@@ -53,12 +53,12 @@ const library = {
     ],
 
     lastId() {
-        const allIds = this.books.map((book) => book.id);
+        let allIds = this.books.map((book) => book.id);
         return Math.max(...allIds);
     },
 
     add(book) {
-        book.id = this.lastId() + 1;
+        book.id = Number(this.lastId()) + 1;
         this.books.push(book);
     },
 
@@ -74,6 +74,9 @@ const library = {
 
     update(id, book) {
         let index = this.books.findIndex((book) => book.id == id);
-        this.books[index] = book;
+        if(index){
+            book.id = id;
+            this.books[index] = book;
+        }
     },
 };
