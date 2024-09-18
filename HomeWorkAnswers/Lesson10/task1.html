@@ -1,0 +1,83 @@
+<!-- Додайте валідацію до форми з попереднього уроку яка додає та редагує книги.
+
+Виконайте наступні перевірки
+
+1. Поле "Назва книги" (title)
+Перевірка на порожнє значення: назва книги не повинна бути порожньою.
+Перевірка на дублікати: перевірити, чи вже є така книга в масиві books.
+
+2. Поле "Автор" (author)
+Перевірка на порожнє значення: ім'я автора не повинно бути порожнім.
+
+3. Поле "Рік видання" (year)
+Перевірка на порожнє значення: рік повинен бути вказаний.
+Перевірка на тип даних: це має бути число.
+Перевірка на діапазон значень: рік не може бути меншим за 1450 (перші друковані книги) і більшим за поточний рік.
+
+4. Поле "Жанр" (genre)
+Перевірка на порожнє значення: жанр не повинен бути порожнім.s -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" }, 
+    template book-->
+    <script id="template" type="text/template">
+        <section class="book" onclick="openForm({{id}})">
+            <p class="book-author">{{author}}</p>
+            <h2 class="book-title">{{title}}</h2>
+            <p class="book-year">{{year}}</p>
+            <p class="book-genre">{{genre}}</p>
+        </section>
+    </script>
+
+    <section id="book-list"></section>
+
+    <!-- Форма редагування (спочатку прихована) -->
+    <div id="form-modal" class="modal">
+
+        <form id="bookForm">
+            <div>
+                <label for="bookAuthor">Автор</label>
+                <input type="text" id="bookAuthorInput">
+                <span class="error" id="bookAuthorError"></span>
+            </div>
+            <div>
+                <label for="bookTitle">Назва</label>
+                <input type="text" id="bookTitleInput">
+                <span class="error" id="bookTitleError"></span>
+            </div>
+            <div>
+                <label for="bookYear">Рік</label>
+                <input type="text" id="bookYearInput">
+                <span class="error" id="bookYearError"></span>
+            </div>
+            <div>
+                <label for="bookGenre">Жанр</label>
+                <input type="text" id="bookGenreInput">
+                <span class="error" id="bookGenreError"></span>
+            </div>
+            <div class="buttons">
+                <button onclick="remove()">Видалити</button>
+                <button type="submit">Зберегти</button>
+                <button onclick="closeForm()">Закрити</button>
+            </div>
+        </form>
+
+    </div>
+
+    <script src="../../ClassWork/node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>

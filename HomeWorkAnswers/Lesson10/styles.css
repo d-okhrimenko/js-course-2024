@@ -1,0 +1,85 @@
+#book-list {
+    display: flex;               
+    flex-direction: row;  
+    flex-wrap: wrap;             
+}
+
+.book {
+    background-color: lightblue;
+    padding: 20px;
+    margin: 10px;   
+    width: 250px; 
+    height: 300px;                 
+    box-sizing: border-box; 
+    display: flex;    
+    flex-direction:column;   
+    align-items: center;
+    justify-content: center; 
+    cursor: pointer;
+}
+
+.book:first-child {
+    background-color: rgb(194, 228, 101);
+}
+
+
+.book-author, .book-year, .book-genre,.book-title {
+    text-align: center;
+}
+
+.book-author, .book-year, .book-genre {
+    height: 20%;
+}
+
+.book-title {
+    height: 40%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#bookForm {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    min-height: 200px;
+    display: flex;    
+    flex-direction:column; 
+}
+    
+
+#bookForm label {
+    display: inline-block;
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.buttons{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.error{
+    display: none;
+    text-align: center; 
+    margin-bottom: 10px;
+    color: red;
+}
+
+.invalid {
+    border: red 1px solid;
+}
+
+
+
