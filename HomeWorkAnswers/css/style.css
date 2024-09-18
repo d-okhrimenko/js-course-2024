@@ -1,0 +1,73 @@
+html, 
+body {
+    box-sizing: border-box;
+}
+
+
+.container h1 {
+    text-transform: uppercase;
+    text-align: center;
+    /* width: 600px; */
+}
+
+.formContainer {
+    width: 600px;
+    padding: 20px;
+    background-color: #607492;
+}
+
+.bookForm {
+
+    div {
+        width: 600px;
+        margin-bottom: 10px;
+        margin: 10px auto;
+        border-radius: 10px;
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        input {
+            padding: 4px;
+        }
+
+    }
+}
+
+button {
+     border-radius: 10px;
+        outline: none;
+        border: 1px solid transparent;
+        color: #607492;
+
+        &:hover {
+                border: 1px solid #171718;
+                color: black;
+            }
+
+    }
+
+
+
+.book {
+    width: 600px;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    background-color: #607492;
+    text-align: left;
+/* 
+    button {
+        border-radius: 10px;
+        outline: none;
+        border: 1px solid transparent;
+        color: #607492;
+    }
+
+    button:hover {
+        border: 1px solid #171718;
+        color: black;
+    } */
+}
