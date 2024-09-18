@@ -41,6 +41,8 @@
         // або фокус отримує інший лемента керування. Подія вказує на те, що користувач ввів дані.
         // Найчастіше використовується для перевірки вхідних даних користувача
         form.search.addEventListener("blur", function () { console.log("blur") });
+        form.search.addEventListener("change", function () { console.log("change") });
+        form.search.addEventListener("input", function () { console.log("input") });
     </script>
 </body>
 

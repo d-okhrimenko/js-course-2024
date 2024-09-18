@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW for Lesson8 Task1</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <script id="template" type="text/template">
+        <section class="book">
+            <p>{{title}}</p>
+            <p>{{author}}</p>
+            <p>Year: {{year}}</p>
+            <p>Genre: {{genre}}</p>
+            <button onclick="edit({{id}})">Edit</button>
+            <button onclick="remove({{id}})">Remove</button>
+        </section>
+    </script>
+
+    <h1>Library</h1>
+
+    <form id="bookForm">
+        <h2>Add/Edit book</h1>
+            <div><label for="">Title:</label><input type="text" id="titleInput">
+                <span class="error" id="titleExistsError"></span>
+            </div>
+            <div><label for="">Author:</label><input type="text" id="authorInput"></div>
+            <div><label for="">Year:</label><input type="text" id="yearInput">
+                <span class="error" id="yearError"></span>
+            </div>
+            <div><label for="">Genre:</label><input type="text" id="genreInput"></div>
+            <span class="error" id="formError"></span>
+            <button type="submit" id="saveBtn">Save</button>
+            <button type="button" onclick="clearForm()" id="clearBtn">Clear</button>
+    </form>
+
+    <div id="booksList"></div>
+
+    <script src="../Library/node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+
+</body>
+
+</html>
