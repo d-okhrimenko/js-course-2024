@@ -15,8 +15,10 @@ legend {
   padding: 2rem 2rem;
 }
 .input {
-  display: flex;
-  justify-content: space-around;
+  height: 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 2fr;
+  text-align: left;
   font-size: 3rem;
   font-weight: bold;
   font-style: italic;
@@ -41,6 +43,7 @@ input::placeholder {
 .input label {
   display: block;
   width: 10rem;
+  margin-left: 5rem;
 }
 /* MODAL WINDOW AND ADD BOOK FORM */
 
@@ -74,7 +77,7 @@ input::placeholder {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100rem;
+  width: 90vw;
   background-color: white;
   border-radius: 9px;
   z-index: 100;
@@ -98,6 +101,11 @@ fieldset {
 
 .hidden {
   visibility: hidden;
+  opacity: 0;
+}
+
+.none {
+  display: none;
   opacity: 0;
 }
 
@@ -172,4 +180,18 @@ input:valid {
 
 input:invalid {
   border: 1px solid red;
+}
+
+.error {
+  display: inline-block;
+  margin: 0 auto;
+  width: fit-content;
+  height: fit-content;
+  font-size: 1.4rem;
+  color: red;
+  background-color: lightpink;
+  padding: 1rem 2rem;
+  border: 2px solid red;
+  border-radius: 5px;
+  transition: 0.5s;
 }

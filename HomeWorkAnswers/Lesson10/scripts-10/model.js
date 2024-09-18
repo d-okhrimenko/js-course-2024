@@ -38,3 +38,11 @@ export const addBook = function (book) {
 export const isPresentTitle = function (title) {
   return state.books.some((bookEl) => bookEl.title === title);
 };
+
+export const isNumber = function (num) {
+  return isNaN(num);
+};
+
+export const isValidYear = function (year) {
+  return year >= 1400 && year <= new Date().getFullYear();
+};

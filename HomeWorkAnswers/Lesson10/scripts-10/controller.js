@@ -34,11 +34,35 @@ const controlValidateTile = function (title) {
     addBookView._parentEl.title.setCustomValidity("Book with the same title already exist");
 };
 
+// const controlValidateYear = function (year) {
+//   if (model.isValidYear(year))
+//     addBookView._parentEl.year.setCustomValidity("⛔ Year should in the range 1450 - current year❗");
+// };
+
+const controlValidateYearIsNumber = function (year, errorField) {
+  errorField.classList.add("none");
+  if (model.isNumber(year)) {
+    errorField.classList.remove("none");
+  }
+  console.log(model.isNumber(year));
+};
+
+const controlValidateYearRange = function (year, errorField) {
+  errorField.classList.add("none");
+
+  if (!model.isValidYear(year)) {
+    errorField.classList.remove("none");
+  }
+  console.log(model.isValidYear(year));
+};
+
 function init() {
   controlBooks();
   allBooksView.addHandlerRemoveBook(deleteBook);
   addBookView.addHandlerUpload(controlAddBook, controlUpdateBook);
   allBooksView.addHandlerUpdateBook(controlUpdateBook);
   addBookView.addHandlerValidateTile(controlValidateTile);
+  addBookView.addHandlerValidateYearNumber(controlValidateYearIsNumber);
+  addBookView.addHandlerValidateYearRange(controlValidateYearRange);
 }
 init();

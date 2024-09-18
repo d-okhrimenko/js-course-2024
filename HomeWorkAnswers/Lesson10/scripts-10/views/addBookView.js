@@ -48,6 +48,26 @@ class addBookView {
       handler(currTitle);
     });
   }
+
+  addHandlerValidateYearRange(handler) {
+    this._parentEl.year.addEventListener("input", function () {
+      const inputYear = Number(this.value);
+      console.log(inputYear);
+      const errorField = this.closest(".input").querySelector("#err2");
+      console.log(errorField);
+      handler(inputYear, errorField);
+    });
+  }
+
+  addHandlerValidateYearNumber(handler) {
+    this._parentEl.year.addEventListener("input", function () {
+      const inputYear = Number(this.value);
+      console.log(inputYear);
+      const errorField = this.closest(".input").querySelector("#err1");
+      console.log(errorField);
+      handler(inputYear, errorField);
+    });
+  }
 }
 
 export default new addBookView();
