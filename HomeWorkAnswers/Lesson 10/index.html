@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book List</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button class="control-btn" onclick="showBtn()">Show book list</button>
+    <button class="control-btn" onclick="hideBtn()">Hide book list</button>
+
+    <form id="bookForm">
+      <div>
+        <label for="titleInput">Title</label
+        ><input type="text" id="titleInput" name="title" required />
+        <span class="error" id="titleError">This name already exists</span>
+      </div>
+      <div>
+        <label for="authorInput">Author</label
+        ><input type="text" id="authorInput" required />
+      </div>
+      <div>
+        <label for="yearInput">Year</label
+        ><input
+          type="number"
+          id="yearInput"
+          name="year"
+          aria-describedby="yearError"
+          required
+          min="1450"
+          max="2024"
+        />
+        <span class="error" id="yearError"
+          >The year must be from 1450 to 2024</span
+        >
+      </div>
+      <div>
+        <label for="genreInput">Genre</label
+        ><input type="text" id="genreInput" required />
+      </div>
+      <button type="submit">Save</button>
+    </form>
+
+    <section id="bookList" class="hide"></section>
+
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+  </body>
+</html>
