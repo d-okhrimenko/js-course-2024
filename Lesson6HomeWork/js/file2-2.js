@@ -1,4 +1,4 @@
-let shoppingList = ["Молоко", "Хліб", "Печиво"];
+let shoppingList = ["молоко", "хліб", "печиво"];
 
 function updateList() {
     const listElement = document.getElementById("shopping-list");

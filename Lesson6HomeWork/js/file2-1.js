@@ -63,4 +63,3 @@ function shoppingManager() {
 }
 
 document.getElementById("btn").addEventListener("click", shoppingManager);
-// shoppingManager();
