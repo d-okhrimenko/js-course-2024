@@ -8,6 +8,9 @@ on:
       - 'lesson-4_homework_task1'
       - 'lesson-4_homework_task-2'
       - 'lesson-5_homework'
+      - 'lesson-6_homework'
+      - 'lesson-7_homework'
+      - 'lesson-8_homework'
 
   workflow_dispatch:
 
@@ -41,6 +44,9 @@ jobs:
             lesson-4_homework_task1) echo "::set-output name=dir_name::Lesson4" ;;
             lesson-4_homework_task-2) echo "::set-output name=dir_name::Lesson4" ;;
             lesson-5_homework) echo "::set-output name=dir_name::Lesson5" ;;
+            lesson-6_homework) echo "::set-output name=dir_name::Lesson6" ;;
+            lesson-7_homework) echo "::set-output name=dir_name::Lesson7" ;;
+            lesson-8_homework) echo "::set-output name=dir_name::Lesson8" ;;
             *) echo "Unknown branch" && exit 1 ;;
           esac
 
