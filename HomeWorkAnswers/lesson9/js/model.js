@@ -43,11 +43,6 @@ const bookList = {
     this.lastId++;
     book.id = this.lastId;
     this.books.push(book);
-    this.books.forEach((x) => {
-      console.log(x.title);
-      console.log(x.id);
-    });
-    render();
   },
 
   removeBook(id) {
@@ -57,7 +52,7 @@ const bookList = {
 
   updateBook(book, id) {
     const index = this.books.findIndex((x) => x.id == id);
-    this.books[index] = book;
+    bookList.books[index] = book;
   },
 
   findBook(id) {
