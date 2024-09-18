@@ -9,12 +9,12 @@
     <div class="task1">
       <h2>Завдання 1</h2>
 
-      <form id="bookForm"></form>
+      <form id="bookForm">
         <div><input type="hidden" id="bookId"></div>
-        <div><label for="titleInput">Назва</label><input type="text" id="titleInput"></div>
-        <div><label for="authorInput">Автор</label><input type="text" id="authorInput"></div>
-        <div><label for="yearInput">Рік</label><input type="text" id="yearInput"></div>
-        <div><label for="genreInput">Жанр</label><input type="text" id="genreInput"></div>
+        <div><label for="titleInput">Назва</label><input type="text" id="titleInput" required></div>
+        <div><label for="authorInput">Автор</label><input type="text" id="authorInput" required></div>
+        <div><label for="yearInput">Рік</label><input type="text" id="yearInput" required min="1450" max="2024"></div>
+        <div><label for="genreInput">Жанр</label><input type="text" id="genreInput" required></div>
         <button id="bookForm-new" type="submit">Створити</button>
         <button id="bookForm-upd" type="submit" disabled="true">Оновити</button>
         <button id="bookForm-del" type="submit">Очистити форму</button>

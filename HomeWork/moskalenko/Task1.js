@@ -59,7 +59,7 @@ function render() {
 }
 
 
-const bookForm = document.querySelector("#bookForm");
+const bookForm = document.forms[0];//document.querySelector("#bookForm");
 
 const bookIdHidden = document.querySelector("#bookId");
 const titleInput = document.querySelector("#titleInput");
@@ -71,40 +71,48 @@ const bookFormCreateBtn = document.querySelector("#bookForm-new");
 const bookFormUpdateBtn = document.querySelector("#bookForm-upd");
 const bookFormClearBtn = document.querySelector("#bookForm-del");
 
-bookFormCreateBtn.onclick = function () {
-    let book = {
-        title: titleInput.value,
-        author: authorInput.value,
-        year: yearInput.value,
-        genre: genreInput.value,
-    };
-
-    library.add(book);
-
-    render();
-};
-
-bookFormUpdateBtn.onclick = function () {
-    let book = {
-        title: titleInput.value,
-        author: authorInput.value,
-        year: yearInput.value,
-        genre: genreInput.value,
-    };
-
-    library.update(bookIdHidden.value, book);
+bookForm.addEventListener("submit", function (e) {
+    e.preventDefault();
     
-    render();
-};
+    switch (e.submitter) {
+        case bookFormCreateBtn:
+            let book = {
+                title: titleInput.value,
+                author: authorInput.value,
+                year: yearInput.value,
+                genre: genreInput.value,
+            };
+        
+            library.add(book);
+        
+            render();
+            break;
 
-bookFormClearBtn.onclick = function () {
-    bookIdHidden.value = "";
-    titleInput.value = "";
-    authorInput.value = "";
-    yearInput.value = "";
-    genreInput.value = "";
-    bookFormUpdateBtn.setAttribute("disabled", "disabled");
-};
+        case bookFormUpdateBtn:
+            let book2 = {
+                title: titleInput.value,
+                author: authorInput.value,
+                year: yearInput.value,
+                genre: genreInput.value,
+            };
+        
+            library.update(bookIdHidden.value, book2);
+            
+            render();
+            break;
+
+        case bookFormClearBtn:
+            bookIdHidden.value = "";
+            titleInput.value = "";
+            authorInput.value = "";
+            yearInput.value = "";
+            genreInput.value = "";
+            bookFormUpdateBtn.setAttribute("disabled", "disabled");
+            break;
+    }ж
+
+    
+});
 
 function remove(id) {
     library.remove(id);
