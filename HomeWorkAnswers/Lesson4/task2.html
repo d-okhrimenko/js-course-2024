@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let numberOfAttempts = 0;
+        let gameCounter = 0;
+        let rightAnswerCounter = 0;
+        let wrongAnswerCounter = 0;
+
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 100) + 1;
+        }
+
+        function getRandomSign() {
+            let signArr = ['+', '-', '*', '/'];
+            return signArr[Math.floor(Math.random() * 3)];
+        }
+
+        function getAnswerFromPrompt(num1, num2, sign) {
+            let value = Number(prompt(`Вирахуйте вираз: ${num1} ${sign} ${num2} =`));
+            return value;
+        }
+
+        function tryCount() {
+            if (gameCounter === 3) return false;
+            let randomNumber1 = getRandomNumber();
+            let randomNumber2 = getRandomNumber();
+            let randomSign = getRandomSign();
+            checkAnswerFromPrompt(randomNumber1, randomNumber2, randomSign);
+            return true;
+        }
+
+        function checkAnswerFromPrompt(num1, num2, sign) {
+
+            let answerFromPrompt = getAnswerFromPrompt(num1, num2, sign);
+
+            if (sign == "+") {
+                let realAnswer = num1 + num2;
+                if (realAnswer == answerFromPrompt) {
+                    alert("Все правильно!");
+                    rightAnswerCounter++;
+                    gameCounter++;
+                    return true;
+                } else {
+                    alert("Неправильно! Спробуй ще");
+                    wrongAnswerCounter++;
+                    numberOfAttempts++;
+                    checkAnswerFromPrompt(num1, num2, sign);
+                }
+            } else if (sign == "-") {
+                let realAnswer = num1 - num2;
+                if (realAnswer == answerFromPrompt) {
+                    alert("Все правильно!");
+                    rightAnswerCounter++;
+                    gameCounter++;
+                    return true;
+                } else {
+                    alert("Неправильно! Спробуй ще");
+                    wrongAnswerCounter++;
+                    numberOfAttempts++;
+                    checkAnswerFromPrompt(num1, num2, sign);
+                }
+            } else if (sign == "*") {
+                let realAnswer = num1 * num2;
+                if (realAnswer == answerFromPrompt) {
+                    alert("Все правильно!");
+                    rightAnswerCounter++;
+                    gameCounter++;
+                    return true;
+                } else {
+                    alert("Неправильно! Спробуй ще");
+                    wrongAnswerCounter++;
+                    numberOfAttempts++;
+                    checkAnswerFromPrompt(num1, num2, sign);
+                }
+            } else if (sign == "/") {
+                let realAnswer = num1 / num2;
+                if (realAnswer == answerFromPrompt) {
+                    alert("Все правильно!");
+                    rightAnswerCounter++;
+                    gameCounter++;
+                    return true;
+                } else {
+                    alert("Неправильно! Спробуй ще");
+                    wrongAnswerCounter++;
+                    numberOfAttempts++;
+                    checkAnswerFromPrompt(num1, num2, sign);
+                }
+            }
+            return true;
+        }
+
+        function showResults() {
+            alert(`У Вас ${rightAnswerCounter} правильних відповідей та ${wrongAnswerCounter} неправильних`);
+        }
+
+        while (tryCount()) { };
+        showResults();
+    </script>
+</body>
+
+</html>
