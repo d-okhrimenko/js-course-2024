@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home work 3 task №3</title>
+        <link rel="stylesheet" href="task3.css">
+    </head>
+    <body>
+        <div class="calculator-container">
+            <div class="calculator-info">
+                <h1 class="calculator-header">Leap Year Calculator</h1>
+                <p class="question-text">Select an option and click the button
+                    to solve the problem.</p>
+            </div>
+
+            <div class="calculator-form-container">
+                <form action class="leap-year-form">
+                    <fieldset class="options-part">
+                        <ul class="options-list">
+                            <li class="option">
+                                <input type="radio" class="option-radio"
+                                    name="option"
+                                    id="first-option"
+                                    checked>
+                                <label for="first-option">Check a specific year
+                                    for
+                                    leap years.</label>
+                            </li>
+                            <li class="option">
+
+                                <input type="radio" class="option-radio"
+                                    name="option"
+                                    id="second-option">
+                                <label for="second-option">All leap years within
+                                    the
+                                    specified range.</label>
+                            </li>
+                            <li class="option">
+
+                                <input type="radio" class="option-radio"
+                                    name="option"
+                                    id="third-option">
+                                <label for="third-option">The next leap
+                                    year.</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <fieldset class="input-part">
+                        <div class="input-content-container">
+                            <div class="first-option-input option">
+                                <label for="first-input">Enter a specific
+                                    year:</label>
+                                <input type="number" name='first-input'
+                                    class="input"
+                                    id="first-input" autocomplete="off">
+                            </div>
+                            <div class="second-option-input option">
+                                <div class="second-option-min">
+                                    <label for="second-min-input">Start
+                                        year:</label>
+                                    <input type="number" name='second-min-input'
+                                        class="input"
+                                        id="second-min-input"
+                                        placeholder="e.g. 1600"
+                                        autocomplete="off">
+                                </div>
+                                <div class="second-option-max">
+                                    <label for="second-max-input">End
+                                        year:</label>
+                                    <input type="number" name='second-max-input'
+                                        class="input"
+                                        id="second-max-input"
+                                        autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="third-option-input option">
+                                <label for="third-input">The next leap year
+                                    is</label>
+                                <input type="number" name='third-input'
+                                    class="input"
+                                    id="third-input"
+                                    placeholder="press the button" disabled>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <button type="button" class='btn'>Check year</button>
+                </form>
+
+            </div>
+
+            <div class="result-container">
+                <h2 class="result-header"></h2>
+                <p class="result-text"></p>
+            </div>
+
+        </div>
+        <script src="task3.js"></script>
+    </body>
+</html>

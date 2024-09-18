@@ -1,0 +1,248 @@
+ /* reset everything */
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+
+ * {
+   margin: 0;
+   padding: 0;
+   border: 0 solid transparent;
+ }
+
+ /* reset body line-height */
+ body {
+   min-height: 100vh;
+   color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   line-height: 1;
+   text-rendering: optimizeSpeed;
+   background: linear-gradient(115deg, rgba(34, 129, 195, 1) 20%, rgba(253, 237, 45, 1) 100%);
+ }
+
+ .calculator-container {
+   min-width: 500px;
+   min-height: 350px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   row-gap: 10px;
+   padding: 10px;
+   border-radius: 15px;
+   border: 3px solid rgba(240, 255, 158, 0.466);
+   box-shadow: 0px 0px 20px 10px rgb(48, 149, 243);
+ }
+
+ .calculator-info {
+   width: 100%;
+   padding: 10px;
+   text-align: center;
+ }
+
+ .calculator-info::after {
+   content: '';
+   display: block;
+   width: 100%;
+   margin: 2px;
+   border-bottom: 2px solid rgb(83, 63, 102);
+ }
+
+ .calculator-header {
+   font-size: 37px;
+   font-weight: 600;
+   padding: 3px;
+   margin: 0 5px 5px;
+   color: rgb(83, 63, 102);
+ }
+
+ .question-text {
+   font-size: 20px;
+   font-weight: 400;
+   padding: 2px;
+   margin: 0 5px 2px;
+   color: rgb(83, 63, 102);
+ }
+
+ .calculator-form-container {
+   width: 100%;
+   padding: 5px;
+   margin-top: -10px;
+ }
+
+ .calculator-form-container::after {
+   content: '';
+   display: block;
+   width: 100%;
+   padding: 2px;
+   margin-top: 5px;
+   border-bottom: 2px solid rgb(83, 63, 102);
+ }
+
+ .leap-year-form {
+   display: flex;
+   flex-direction: column;
+   row-gap: 10px;
+   align-items: center;
+ }
+
+ .options-part {
+   padding: 10px;
+   border: 2px solid rgb(83, 63, 102);
+   border-radius: 15px;
+   margin-bottom: 5px;
+   display: flex;
+   justify-content: center;
+ }
+
+ .options-list {
+   list-style: none;
+   display: flex;
+   flex-direction: column;
+   row-gap: 10px;
+ }
+
+ .option {
+   display: flex;
+   justify-content: start;
+   flex-direction: row;
+   column-gap: 10px;
+   align-items: center;
+   font-size: 20px;
+   font-weight: 600;
+   color: rgb(83, 63, 102);
+   padding: 2px;
+ }
+
+ .option-radio {
+   appearance: none;
+   width: 20px;
+   height: 20px;
+   border: 2px solid rgba(240, 255, 158, 0.466);
+   border-radius: 50%;
+   outline: none;
+   box-shadow: 0px 0px 5px 3px rgb(48, 149, 243);
+ }
+
+ .option-radio::before {
+   content: '';
+   display: block;
+   width: 60%;
+   height: 60%;
+   margin: 20% auto;
+   border-radius: 50%;
+ }
+
+ .option-radio:checked::before {
+   background: rgba(111, 31, 185, 0.4);
+ }
+
+ .option-radio,
+ label {
+   cursor: pointer;
+ }
+
+ .input-part {
+   padding: 10px;
+   border: 2px solid rgb(83, 63, 102);
+   border-radius: 15px;
+   margin-bottom: 5px;
+   display: flex;
+   justify-content: center;
+ }
+
+ .input-content-container {
+   display: flex;
+   flex-direction: column;
+   row-gap: 10px;
+   align-items: center;
+ }
+
+ .second-option-input {
+   display: flex;
+   flex-direction: column;
+   row-gap: 10px;
+ }
+
+ .input {
+   height: 25px;
+   width: 200px;
+   font-size: 18px;
+   font-weight: 600;
+   color: rgb(83, 63, 102);
+   text-align: center;
+   background: rgba(10, 10, 10, 0.103);
+   padding: 5px;
+   outline: none;
+   border-radius: 10px;
+   border: 2px solid rgba(240, 255, 158, 0.466);
+   box-shadow: 0px 0px 5px 3px rgb(48, 149, 243);
+ }
+
+ .input::placeholder {
+   font-weight: 400;
+   font-family: cursive;
+ }
+
+ .input:focus::placeholder {
+   color: transparent;
+ }
+
+ #third-input {
+   background: rgba(190, 190, 190, 0.4);
+ }
+
+ .first-option-input,
+ .second-option-input,
+ .third-option-input {
+   display: none;
+ }
+
+ .btn {
+   height: 60px;
+   width: 120px;
+   font-size: 18px;
+   font-weight: 600;
+   color: rgb(83, 63, 102);
+   padding: 5px;
+   border-radius: 10px;
+   border: 2px solid rgba(240, 255, 158, 0.466);
+   box-shadow: 0px 0px 5px 3px rgb(48, 149, 243);
+   background: none;
+   position: relative;
+   transition: all 0.2s ease-in;
+ }
+
+ .btn:hover {
+   color: rgb(57, 46, 66);
+   background: rgba(10, 10, 10, 0.1);
+   border: 2px solid rgba(166, 192, 21, 0.6);
+   box-shadow: 0px 0px 5px 3px rgb(116, 184, 248);
+   top: 1px;
+ }
+
+ .result-container {
+   color: rgb(83, 63, 102);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   margin-top: -10px;
+   padding: 5px;
+ }
+
+ .result-header {
+   font-size: 33px;
+   font-weight: 600;
+   padding: 5px;
+ }
+
+ .result-text {
+   max-width: 400px;
+   font-size: 20px;
+   font-weight: 400;
+   padding: 2px;
+   margin-bottom: 5px;
+ }
