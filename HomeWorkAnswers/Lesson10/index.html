@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="../backgroundAnimation.js"></script>
+</head>
+
+<body>
+    <div id="gradient">
+        <div class="header">
+            <h1>Libary</h1>
+            <input id="openFormBtn" type="button" value="Add new book" />
+        </div>
+        
+        <div id="popupForm" class="modal">
+            <div class="modal-content"></div>
+        </div>
+        <div id="bookList"></div>
+
+        <script src="../node_modules/mustache/mustache.min.js"></script>
+        <script src="./js/controller.js" type="module"></script>
+    </div>
+</body>
+
+</html>
