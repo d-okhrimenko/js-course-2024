@@ -25,6 +25,7 @@ bookForm.addEventListener("submit", function (e) {
         author: authorInput.value,
         year: yearInput.value,
         genre: genreInput.value,
+        id: editId
     };
 
     if (editId == null) {
