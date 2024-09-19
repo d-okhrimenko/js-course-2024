@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#book-form {
+    margin-top: 30px;
+}
+
+#book-form label {
+    display: inline-block;
+    width: 100px;
+    padding-bottom: 5px;
+}
+
+#books {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.book {
+    background-color: rgb(255, 236, 162);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
