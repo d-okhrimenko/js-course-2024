@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson9</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <script id="template" type="text/template">
+      <section class="book">
+        <h3>Назва книги: {{title}}</h3>
+        <p>Автор: {{author}}</p>
+        <p>Рік видання: {{year}}</p>
+        <p>Жанр: {{genre}}</p>
+        <div class="buttons">
+          <button id="update" class="update" onclick="edit({{id}})">
+            Редагувати
+          </button>
+          <button class="delete" onclick="remove({{id}})">Видалити</button>
+        </div>
+      </section>
+    </script>
+    <h1>Книгарня</h1>
+    <h2>Список наявних книг</h2>
+    <div class="addBook">
+      <button id="open" class="add">Додати книгу</button>
+    </div>
+    <div id="book-list"></div>
+    <div class="backdrop is-hidden">
+      <div class="modal">
+        <img src="./images/close.svg" alt="close" id="close" class="close" />
+        <h3 class="modal-title">Форма додавання/редагування книги</h3>
+        <form id="form" class="add-form">
+          <input
+            type="text"
+            class="add-form__text"
+            name="title"
+            placeholder="Введіть назву книги"
+          />
+          <input
+            type="text"
+            class="add-form__text"
+            name="author"
+            placeholder="Введіть автора книги"
+          />
+          <input
+            type="text"
+            class="add-form__text"
+            name="year"
+            placeholder="Введіть рік видання книги"
+          />
+          <input
+            type="text"
+            class="add-form__text"
+            name="genre"
+            placeholder="Введіть жанр книги"
+          />
+          <button type="submit" class="submit">Додати</button>
+        </form>
+      </div>
+    </div>
+    <script src="node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+  </body>
+</html>
