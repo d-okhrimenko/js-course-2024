@@ -37,24 +37,30 @@
             class="add-form__text"
             name="title"
             placeholder="Введіть назву книги"
+            required
           />
           <input
             type="text"
             class="add-form__text"
             name="author"
             placeholder="Введіть автора книги"
+            required
           />
           <input
-            type="text"
+            type="number"
             class="add-form__text"
             name="year"
             placeholder="Введіть рік видання книги"
+            required
+            min="1450"
+            max="2024"
           />
           <input
             type="text"
             class="add-form__text"
             name="genre"
             placeholder="Введіть жанр книги"
+            required
           />
           <button type="submit" class="submit">Додати</button>
         </form>

@@ -54,4 +54,7 @@ const booksLibrary = {
   find(id) {
     return this.books.find((el) => el.id == id);
   },
+  findByName(name) {
+    return this.books.find((el) => el.title == name);
+  },
 };

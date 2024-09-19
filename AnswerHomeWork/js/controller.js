@@ -28,6 +28,11 @@ function submitForm(e) {
   book.id = booksLibrary.lastId + 1;
 
   if (updateId == null) {
+    if (booksLibrary.findByName(book.title)) {
+      toggleBackdrop();
+      render();
+      return;
+    }
     booksLibrary.add(book);
   } else {
     booksLibrary.update(updateId, book);
