@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lessons9 hometask</title>
+    <title>Lessons9&10 hometask</title>
     <style>
         .book {
             background-color: lightblue;
@@ -37,11 +37,12 @@
     </template>
 
     <form id="book-form">
-        <div><label for="">назва</label><input type="text" id="title-input"></div>
-        <div><label for="">автор</label><input type="text" id="author-inputnput"></div>
-        <div><label for="">рік видання</label><input type="text" id="year-input"></div>
-        <div><label for="">жанр</label><input type="text" id="genre-input"></div>
+        <div><label for="">назва</label><input type="text" id="title-input" required></div>
+        <div><label for="">автор</label><input type="text" id="author-inputnput" required></div>
+        <div><label for="">рік видання</label><input type="text" id="year-input" pattern="\d{4,4}" required></div>
+        <div><label for="">жанр</label><input type="text" id="genre-input" required></div>
         <button type="submit">Зберегти</button>
+        <button type="reset">Очистити</button>
     </form>
 
     <div id="book-list">
@@ -91,6 +92,10 @@
             findBook = function (id) {
                 let index = this.#books.findIndex(x => x.id == id);
                 return this.#books[index];
+            };
+            findDuplicate = function (book) {
+                let index = this.#books.findIndex(x => x.title == book.title && x.author == book.author && x.year == book.year && x.genre == book.genre );
+                return index;
             };
         }
 
@@ -151,15 +156,33 @@
                 genre: genreInput.value,
             };
 
-            if (editId == null) {
-                bookList.addBook(book);
-            } 
+            if (bookList.findDuplicate(book) != -1) {
+                alert("Така книга вже є!");
+            }
             else {
-                bookList.updateBook(editId, book);
-                editId = null;
-            };
+                if (editId == null) {
+                    bookList.addBook(book);
+                    alert("Книгу додано!");                    
+                } 
+                else {
+                    bookList.updateBook(editId, book);
+                    alert("Зміни збережено!");                                    
+                };
+            };    
+
+            editId = null;
 
             render();
+        });
+
+        yearInput.addEventListener("input", function () {
+            const date = new Date();
+            if (Number.parseInt(yearInput.value) < 1450 || Number.parseInt(yearInput.value) > date.getFullYear()) {
+                yearInput.setCustomValidity("Рік не може бути меншим за 1450 (перші друковані книги) і більшим за поточний рік.");
+            }
+            else {
+                yearInput.setCustomValidity("");
+            };
         });
 
         render();
