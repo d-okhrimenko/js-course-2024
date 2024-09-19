@@ -21,7 +21,7 @@
 
 <body>
     <form>
-        <div action="https://itvdn.com/ru/catalog" method="GET">
+        <div action="https://itvdn.com/ua/catalog" method="GET">
             <label>Запит</label>
             <input type="text" name="search">
         </div>
@@ -41,6 +41,9 @@
         // або фокус отримує інший лемента керування. Подія вказує на те, що користувач ввів дані.
         // Найчастіше використовується для перевірки вхідних даних користувача
         form.search.addEventListener("blur", function () { console.log("blur") });
+
+        form.search.addEventListener("change", function () { console.log("change") });
+        form.search.addEventListener("input", function () { console.log("input") });
     </script>
 </body>
 
