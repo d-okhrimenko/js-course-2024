@@ -1,0 +1,12 @@
+.error {
+    color: red;
+    display: none;
+}
+
+input:invalid {
+    border: coral 1px solid;
+}
+
+input:valid {
+    border: lightgreen 1px solid;
+}

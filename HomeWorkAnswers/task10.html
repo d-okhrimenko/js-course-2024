@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Task10/css/styles.css">
+</head>
+
+<body>
+    <form id="bookDetails" >
+        <h3>Enter book`s details</h3>
+        <p>
+            <input type="text" id="Author" required />
+            <label for="Author">Author</label>
+        </p>
+        <p>
+            <input type="text" id="BookName" name="bookName" required />
+            <label for="BookName">Book Name</label>
+        </p>
+        <p>
+            <input type="number" id="Year" min="1450" max="2024" required />
+            <label for="Year">Year</label>
+        </p>
+        <p>
+            <input type="text" id="Genre" required />
+            <label for="Genre">Genre</label>
+        </p>
+
+        <button type="submit">Send</button>
+    </form>
+    </br>
+    <div id="booksList">
+
+    </div>
+
+    <script src="./Task10/js/model.js"></script>
+    <script src="./Task10/js/view.js"></script>
+    <script src="./Task10/js/controler.js"></script>
+    <script src="./Task10/js/validation.js"></script>
+</body>
+
+</html>
