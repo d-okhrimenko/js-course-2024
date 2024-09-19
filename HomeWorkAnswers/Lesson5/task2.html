@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <link rel="stylesheet" href="./task2.css">
+    <script src="./task2.js" defer></script>
+</head>
+
+<body>
+    <section class="section">
+        <h1>Калькулятор для обчислення площі/периметру фігури</h1>
+        <select name="figure" id="figure">
+            <option value="" disabled selected>oберіть фігуру</option>
+            <option value="circle">коло</option>
+            <option value="rectangle">прямокутник</option>
+            <option value="triangle">трикутник</option>
+        </select>
+        <select name="sizeType" id="size">
+            <option value="" disabled selected>що обчислити</option>
+            <option value="area">площа</option>
+            <option value="perimeter">периметр</option>
+        </select>
+        <button id="next">Далі</button>
+        <div id="next-part" class="next-part">
+            <h3>Введіть параметри для розрахунку</h3>
+            <div class="figure-box ">
+                <label> Радіус кола (см)
+                    <input id="circle-radius">
+                </label>
+            </div>
+            <div class="figure-box">
+                <label> Довжина (см)
+                    <input id="rect-length">
+                </label>
+                <label> Ширина (см)
+                    <input id="rect-width">
+                </label>
+            </div>
+            <div class="figure-box">
+                <label> Сторона №1 (см)
+                    <input id="side1">
+                </label>
+                <label> Сторона №2 (см)
+                    <input id="side2">
+                </label>
+                <label> Сторона №3 (см)
+                    <input id="side3">
+                </label>
+            </div>
+            <button class="calc-btn">Oбчислити</button>
+        </div>
+        <p id="error"></p>
+        <p id="result"></p>
+    </section>
+</body>
+
+</html>
