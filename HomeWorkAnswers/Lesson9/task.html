@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 9 - Task</title>
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+<body>
+    <main>
+        <section>
+            <form id="bookForm">
+                <div>
+                    <label>Назва книги</label>
+                    <input type="text" class="form-book-title">
+                </div>
+                <div>
+                    <label>Автор книги</label>
+                    <input type="text" class="form-book-author">
+                </div>
+                <div>
+                    <label>Рік видання</label>
+                    <input type="text" class="form-book-year">
+                </div>
+                <div>
+                    <label>Жанр</label>
+                    <input type="text" class="form-book-genre">
+                </div>
+                <div>
+                    <label>Обкладинка</label>
+                    <input type="text" class="form-book-cover">
+                </div>
+                <button type="submit" class="btn-submit">Додати книгу</button>
+            </form>
+        </section>
+
+        <section id="books-catalogue"></section>
+    </main>
+
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+
+</body>
+
+</html>
