@@ -1,0 +1,20 @@
+
+
+.block-one{
+margin-bottom: 40px;
+}
+
+.block-one__date {
+	margin-bottom: 30px;
+}
+
+.block-one, .block-two {
+	max-width: 700px;
+	padding: 20px;
+	font-size: 18px;
+	background: silver;
+}
+
+button{
+padding: 10px 15px ;
+}
