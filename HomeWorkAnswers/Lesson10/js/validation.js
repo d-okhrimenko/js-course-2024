@@ -19,6 +19,15 @@ form.title.addEventListener("change", function (event) {
   } else {
     form.title.setCustomValidity("");
   }
+  // for (let i = 0; i < booksList.books.length; i++) {
+  //   if (booksList.books[i].title == form.title.value) {
+  //     form.title.setCustomValidity("Книга з такою назвою вже є у списку");
+  //     event.preventDefault();
+  //     break;
+  //   } else {
+  //     form.title.setCustomValidity("");
+  //   }
+  // }
 });
 
 const minYear = 1450;
