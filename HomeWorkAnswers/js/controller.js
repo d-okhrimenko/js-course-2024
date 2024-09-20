@@ -26,8 +26,9 @@ titleBook.addEventListener("input", function () {
 
 yearBook.addEventListener("input", function () {
     let maxYear = new Date().getFullYear();
+    console.log(maxYear);
     let minYear = 1450;
-    if (yearBook.value < minYear || yearBook > maxYear) {
+    if (yearBook.value < minYear || yearBook.value > maxYear) {
         yearBook.setCustomValidity(
             `"Введіть рік в діапазоні між ${minYear}" та "${maxYear}"`
         );
