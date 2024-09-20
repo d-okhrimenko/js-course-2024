@@ -7,7 +7,8 @@ const authorInput = document.querySelector("#authorInput");
 const yearInput = document.querySelector("#yearInput");
 const genreInput = document.querySelector("#genreInput");
 
-let editId = null;
+let editId = false;
+let elementId;
 
 function render() {
   booksView.render(booksList.books, element);
@@ -23,7 +24,10 @@ booksForm.addEventListener("submit", function (e) {
     genre: genreInput.value,
   };
 
-  if (editId == null) {
+  if (editId) {
+    booksList.update(elementId, book);
+    editId = false;
+  } else {
     booksList.add(book);
   }
 
@@ -38,7 +42,8 @@ function remove(id) {
 function edit(id) {
   const book = booksList.find(id);
 
-  editId = book.id;
+  editId = true;
+  elementId = book.id;
 
   titleInput.value = book.title;
   authorInput.value = book.author;
