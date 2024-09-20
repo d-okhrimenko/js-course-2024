@@ -13,6 +13,17 @@ const authorBook = document.querySelector("#authorBook");
 const yearBook = document.querySelector("#yearBook");
 const genreBook = document.querySelector("#genreBook");
 
+titleBook.addEventListener("input", function () {
+    let userInput = titleBook.value;
+    if (library.findByTitle(userInput)) {
+        titleBook.setCustomValidity(
+            "Книга з такою назвою вже існує в бібліотеці"
+        );
+    } else {
+        titleBook.setCustomValidity("");
+    }
+});
+
 yearBook.addEventListener("input", function () {
     let maxYear = new Date().getFullYear();
     let minYear = 1450;
@@ -24,8 +35,6 @@ yearBook.addEventListener("input", function () {
         yearBook.setCustomValidity("");
     }
 });
-
-
 
 bookForm.addEventListener("submit", function (e) {
     e.preventDefault();

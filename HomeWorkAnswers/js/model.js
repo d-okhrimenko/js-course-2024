@@ -72,6 +72,11 @@ const library = {
         return this.books[index];
     },
 
+    findByTitle(title) {
+        let index = this.books.findIndex((book) => book.title == title);
+        return index;
+    },
+
     update(id, book) {
         let index = this.books.findIndex((book) => book.id == id);
         if(index){
