@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Функція для отримання вибору комп'ютера
+      function getComputerChoice() {
+        const choices = ["камінь", "ножиці", "папір"];
+        const randomIndex = Math.floor(Math.random() * choices.length);
+        return choices[randomIndex];
+      }
+
+      // Функція для визначення переможця
+      function determineWinner(userChoice, computerChoice) {
+        if (userChoice === computerChoice) {
+          return "Нічия";
+        }
+        if (
+          (userChoice === "камінь" && computerChoice === "ножиці") ||
+          (userChoice === "ножиці" && computerChoice === "папір") ||
+          (userChoice === "папір" && computerChoice === "камінь")
+        ) {
+          return "Користувач";
+        } else {
+          return "Комп'ютер";
+        }
+      }
+
+      // Функція для отримання вибору користувача з перевіркою
+      function getUserChoice() {
+        let userChoice;
+        const validChoices = ["камінь", "ножиці", "папір", "вихід"];
+        do {
+          userChoice = prompt(
+            'Введіть ваш вибір (камінь, ножиці, папір) або "вихід" для завершення гри:'
+          ).toLowerCase();
+          if (!validChoices.includes(userChoice)) {
+            alert(
+              'Неправильний вибір. Будь ласка, введіть "камінь", "ножиці", "папір" або "вихід".'
+            );
+          }
+        } while (!validChoices.includes(userChoice));
+        return userChoice;
+      }
+
+      // Основна функція гри
+      function playGame() {
+        let userScore = 0;
+        let computerScore = 0;
+        const rounds = parseInt(
+          prompt("Скільки раундів ви хочете зіграти?"),
+          10
+        );
+
+        for (let i = 0; i < rounds; i++) {
+          const userChoice = getUserChoice();
+
+          if (userChoice === "вихід") {
+            break;
+          }
+          const computerChoice = getComputerChoice();
+          const winner = determineWinner(userChoice, computerChoice);
+
+          if (winner === "Користувач") {
+            userScore++;
+          } else if (winner === "Комп'ютер") {
+            computerScore++;
+          }
+
+          alert(
+            `Раунд ${
+              i + 1
+            }:\nВаш вибір: ${userChoice}\nВибір комп'ютера: ${computerChoice}\nРезультат: ${winner}`
+          );
+        }
+
+        alert(
+          `Гра завершена!\nЗагальний рахунок:\nКористувач: ${userScore}\nКомп'ютер: ${computerScore}`
+        );
+      }
+
+      // Запуск гри
+      playGame();
+    </script>
+  </body>
+</html>
