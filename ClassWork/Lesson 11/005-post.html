@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST запит</title>
+</head>
+
+<body>
+    <button>Створити завдання</button>
+    <script>
+        let button = document.querySelector("button");
+
+        button.addEventListener("click", function () {
+            let url = "https://jsonplaceholder.typicode.com/todos";
+            let task = {
+                userId: 123,
+                title: "Тестове завдання",
+                completed: false
+            };
+
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(task),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+        });
+
+    </script>
+</body>
+
+</html>
