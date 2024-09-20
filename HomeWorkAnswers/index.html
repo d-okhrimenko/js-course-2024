@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Book List</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Список книг у бібліотеці</h1>
+
+    <div id="bookForm">
+      <input type="text" id="title" placeholder="Назва книги" />
+      <input type="text" id="author" placeholder="Автор" />
+      <input type="number" id="year" placeholder="Рік видання" />
+      <input type="text" id="genre" placeholder="Жанр" />
+      <button id="addBookButton">Додати книгу</button>
+      <button id="editBookButton" style="display: none">Зберегти зміни</button>
+    </div>
+
+    <div id="bookList"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
