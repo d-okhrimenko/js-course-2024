@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Асинхронний код</title>
+</head>
+
+<body>
+    <button>Завантажити</button>
+    <br>
+    <script>
+        // Опис зображень
+        // https://images.nasa.gov/details-PIA16239
+        // https://images.nasa.gov/details-PIA22312
+
+        document.querySelector("button").addEventListener("click", function () {
+            // Функція downloadImage виконує завантаження зображень асинхронно.
+            // синхронний код - кожна операція очікує завершення попередньої
+            // асинхронний код - операція виконується в окремому потоці і дозволяє перейти до наступної дії
+            let image1 = downloadImage("https://images-assets.nasa.gov/image/PIA16239/PIA16239~orig.jpg");
+            let image2 = downloadImage("https://images-assets.nasa.gov/image/PIA22312/PIA22312~orig.jpg");
+
+            document.body.append(image1);
+            document.body.append(image2);
+        });
+
+        // завантажує зображення за вказаною адресою
+        function downloadImage(url) {
+            let image = new Image(500); // картинка шириною  500px
+            image.src = url; // Після встановлення значення, браузер починає скачування зображення
+            return image;
+        }
+    </script>
+</body>
+
+</html>
