@@ -25,9 +25,6 @@ booksForm.addEventListener("submit", function (e) {
 
   if (editId == null) {
     booksList.add(book);
-  } else {
-    booksList.update(editId, book);
-    editId = null;
   }
 
   render();
