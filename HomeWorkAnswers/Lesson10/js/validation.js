@@ -1,16 +1,5 @@
 const form = document.forms[0];
 
-// form.addEventListener("submit", function () {
-//   for (let i = 0; i < form.elements.length - 1; i++) {
-//     console.log(form.elements[i].className);
-//     console.log(form.elements[i].name);
-//     console.log(form.elements[i].id);
-//     console.log(form.elements[i].type);
-//     console.log(form.elements[i].tagName);
-//     console.log(form.elements[i].value);
-//   }
-// });
-
 form.title.addEventListener("change", function (event) {
   let titleCoincidence = booksList.books.some((el) => el.title == form.title.value);
   if (titleCoincidence) {
@@ -19,15 +8,6 @@ form.title.addEventListener("change", function (event) {
   } else {
     form.title.setCustomValidity("");
   }
-  // for (let i = 0; i < booksList.books.length; i++) {
-  //   if (booksList.books[i].title == form.title.value) {
-  //     form.title.setCustomValidity("Книга з такою назвою вже є у списку");
-  //     event.preventDefault();
-  //     break;
-  //   } else {
-  //     form.title.setCustomValidity("");
-  //   }
-  // }
 });
 
 const minYear = 1450;

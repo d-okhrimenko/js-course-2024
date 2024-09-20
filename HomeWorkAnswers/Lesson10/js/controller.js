@@ -32,6 +32,11 @@ booksForm.addEventListener("submit", function (e) {
   }
 
   render();
+
+  titleInput.value = "";
+  authorInput.value = "";
+  yearInput.value = "";
+  genreInput.value = "";
 });
 
 function remove(id) {
