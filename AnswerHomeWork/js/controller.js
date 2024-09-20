@@ -1,5 +1,5 @@
-const html = document.querySelector("#book-list");
-const template = document.querySelector("#template").innerHTML;
+const output = document.querySelector("#book-list");
+//const template = document.querySelector("#template").innerHTML;
 const openBtn = document.querySelector("#open");
 const backdrop = document.querySelector(".backdrop");
 const closeBtn = document.querySelector("#close");
@@ -44,7 +44,9 @@ function submitForm(e) {
 }
 
 function render() {
-  bookList.render(booksLibrary.books, html, template);
+  const html = Mustache.render(template, booksLibrary);
+  output.innerHTML = html;
+  /* bookList.render(booksLibrary.books, html, template); */
 }
 
 function remove(id) {
