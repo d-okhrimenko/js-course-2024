@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5 : Task 1</title>
+</head>
+
+<body>
+    <p>
+    <h3>Завдання 1</h3>
+    <p>Написати програму, яка обчислює індекс маси тіла (ІМТ) і дає рекомендації на основі отриманого значення.</p>
+
+    <script>
+
+        let bodyMass = getNumericValue("Введіть масу тіла (у кілограмах)");
+        let bodyHeight = getNumericValue("Введіть ріст (у метрах)");
+        let imtValue = calculateIMT(bodyMass, bodyHeight);
+        let category = getCategoryImt(imtValue);
+
+        alert(`Обчислений ІМТ = ${imtValue}. Це відповідає категорії: ${category}`);
+
+
+        function getNumericValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) return value;
+                if (!isValid) alert("Спробуйте ще раз і введіть число.");
+            }
+        }
+
+        function calculateIMT(mass, height) {
+            let imtValue = mass / Math.pow(height, 2);
+            return imtValue.toFixed(2);
+        }
+
+        function getCategoryImt(value) {
+            let category;
+            if (value < 18.5) {
+                category = "Недостатня вага: ІМТ < 18.5";
+            } else if (value < 24.9) {
+                category = "Нормальна вага: 18.5 ≤ ІМТ < 24.9";
+            } else if (value < 29.9) {
+                category = "Надмірна вага: 25 ≤ ІМТ < 29.9";
+            } else {
+                category = "Ожиріння: ІМТ ≥ 30";
+            }
+            return category;
+        }
+
+    </script>
+</body>
+
+</html>
