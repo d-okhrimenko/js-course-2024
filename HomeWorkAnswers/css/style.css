@@ -1,13 +1,11 @@
-html, 
+html,
 body {
     box-sizing: border-box;
 }
 
-
 .container h1 {
     text-transform: uppercase;
     text-align: center;
-    /* width: 600px; */
 }
 
 .formContainer {
@@ -17,7 +15,6 @@ body {
 }
 
 .bookForm {
-
     div {
         width: 600px;
         margin-bottom: 10px;
@@ -33,23 +30,27 @@ body {
             padding: 4px;
         }
 
+        input:valid {
+            border: 2px solid green;
+        }
+        
+        input:invalid {
+            border: 2px solid red;
+        }
     }
 }
 
 button {
-     border-radius: 10px;
-        outline: none;
-        border: 1px solid transparent;
-        color: #607492;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid transparent;
+    color: #607492;
 
-        &:hover {
-                border: 1px solid #171718;
-                color: black;
-            }
-
+    &:hover {
+        border: 1px solid #171718;
+        color: black;
     }
-
-
+}
 
 .book {
     width: 600px;
@@ -58,16 +59,4 @@ button {
     border-radius: 10px;
     background-color: #607492;
     text-align: left;
-/* 
-    button {
-        border-radius: 10px;
-        outline: none;
-        border: 1px solid transparent;
-        color: #607492;
-    }
-
-    button:hover {
-        border: 1px solid #171718;
-        color: black;
-    } */
 }
