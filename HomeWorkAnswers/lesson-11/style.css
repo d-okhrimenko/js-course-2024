@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --btn-bg: rgb(34, 100, 43);
+}
+
+.weather__container {
+    max-width: 1200px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;    
+}
+
+.container {
+    width: 100%;
+    padding-top: .2rem;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.weather-app-wrapper {
+     padding: 1rem;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#search-form {
+    background-color: #fff;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#search-form input {
+    padding: 0.1rem;
+    background-color: #fff;
+    outline: none;
+    max-width: 70%;
+}
+
+.search-city__input:active {
+    background-color: #fff;
+}
+
+.search-city__btn {
+    padding: 0.1rem 0.7rem;
+    background-color: var(--btn-bg);
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.current-weather__container {
+    border-bottom: 1px solid black;
+}
+
+.weather__current li {
+    font-size: 16px;
+}
+
+.view__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.overview li {
+    font-size: .8rem;
+}
+
+.weather__forecast  {
+    width: 100%;
+    margin: auto;
+    padding-top: 20px;
+    display: flex;     
+    justify-content: space-around;
+    align-items: center;
+}
+.forecast__window {   
+    width: 400px;        
+    overflow-x: hidden;     
+}
+
+.forecast__line {
+    width: 400%;
+    display: flex; 
+    transition: 0.5s all;   
+}
+
+
+.forecast__list {
+    display: flex;
+    flex-direction: column;
+    width: 400px; 
+    padding: 10px 0;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; 
+    background: var(--btn-bg);
+    color: #fff;
+    
+    
+}
+
+.forecast__list li {    
+    margin-top: 10px;
+}
+
+.arrow {
+    width: 30px;
+    height: 30px;
+    border: 1px solid green;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.icon-small {
+    width: 50px;
+    height: 50px;
+}
