@@ -34,11 +34,11 @@ const studentsData = [
   }
 ];
 
-const studentGroup = {
-  students: [],
+class StudentGroup {
+  #students = [];
 
-  addInitialStudents(students) {
-    students.forEach(student => {
+  addInitialStudents(studentsData) {
+    studentsData.forEach(student => {
       const newStudent = new Student(
         student.firstName,
         student.lastName,
@@ -46,12 +46,10 @@ const studentGroup = {
         student.identificationNumber,
         student.averageGrade
       );
-
-      this.students.push(newStudent);
+      this.#students.push(newStudent);
     });
-
     this.updateStudentTable();
-  },
+  }
 
   getPromptValue(message) {
     const value = prompt(message);
@@ -60,7 +58,7 @@ const studentGroup = {
       throw new Error('Operation cancelled by user');
     }
     return value.trim();
-  },
+  }
 
   getNumberPromptValue(message) {
     while (true) {
@@ -73,7 +71,7 @@ const studentGroup = {
       if (isValid) return Number(value);
       alert('Будь ласка, введіть позитивне ненульове число');
     }
-  },
+  }
 
   getFloatPromptValue(message) {
     while (true) {
@@ -83,12 +81,11 @@ const studentGroup = {
         throw new Error('Operation cancelled by user');
       }
       value = value.replace(',', '.');
-      let isValid =
-        !isNaN(value) && value.trim() !== '' && parseFloat(value) > 0;
+      let isValid = !isNaN(value) && value.trim() !== '' && parseFloat(value) > 0;
       if (isValid) return parseFloat(value).toFixed(1);
       alert('Будь ласка, введіть позитивне ненульове число');
     }
-  },
+  }
 
   addStudent() {
     try {
@@ -117,7 +114,7 @@ const studentGroup = {
           averageGrade
         );
 
-        this.students.push(newStudent);
+        this.#students.push(newStudent);
 
         alert(`Студента ${firstName} ${lastName} успішно додано`);
       } else {
@@ -126,7 +123,7 @@ const studentGroup = {
     } catch (error) {
       console.log(error.message);
     }
-  },
+  }
 
   removeStudent() {
     try {
@@ -137,11 +134,10 @@ const studentGroup = {
       const student = this.searchStudentById(id);
 
       if (student) {
-        const index = this.students.indexOf(student);
-        const removedStudent = this.students.splice(index, 1);
+        const index = this.#students.indexOf(student);
+        const removedStudent = this.#students.splice(index, 1);
         alert(
-          `Студента ${removedStudent[0].firstName} ${removedStudent[0]
-            .lastName} видалено`
+          `Студента ${removedStudent[0].firstName} ${removedStudent[0].lastName} видалено`
         );
       } else {
         alert(`Студента з ID ${id} не знайдено`);
@@ -149,15 +145,15 @@ const studentGroup = {
     } catch (error) {
       console.log(error.message);
     }
-  },
+  }
 
   showAllStudents() {
     this.updateStudentTable();
-  },
+  }
 
   searchStudentById(id) {
-    return this.students.find(student => student.identificationNumber === id);
-  },
+    return this.#students.find(student => student.identificationNumber === id);
+  }
 
   findStudentById() {
     try {
@@ -181,7 +177,7 @@ const studentGroup = {
     } catch (error) {
       console.log(error.message);
     }
-  },
+  }
 
   updateStudentTable() {
     const tableBody = document
@@ -190,7 +186,7 @@ const studentGroup = {
 
     tableBody.innerHTML = '';
 
-    this.students.forEach(student => {
+    this.#students.forEach(student => {
       const row = document.createElement('tr');
       row.innerHTML = `
         <td class="studentData__item added">${student.identificationNumber}</td>
@@ -203,8 +199,9 @@ const studentGroup = {
       tableBody.appendChild(row);
     });
   }
-};
+}
 
+const studentGroup = new StudentGroup();
 studentGroup.addInitialStudents(studentsData);
 
 /*
