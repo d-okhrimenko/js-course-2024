@@ -1,0 +1,24 @@
+p {
+  color:blue; 
+  font-weight: bold; 
+  font-size: 20px;
+}
+
+#current_day {
+  font-weight: bold; 
+  font-size: 20px;
+  color: cornflowerblue;
+}
+
+#task_number {
+  font-weight: bold; 
+  font-size: 25px;
+  color: rgb(7, 51, 133);
+}
+
+#year_input {
+  font-weight: normal; 
+  font-size: 20px;
+  color: rgb(7, 51, 133);
+}
+ 
