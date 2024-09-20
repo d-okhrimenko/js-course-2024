@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW#7</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Student Management System</h1>
+
+    <div class="controls">
+      <div class="control-group">
+        <input type="text" id="firstName" placeholder="First Name" />
+        <input type="text" id="lastName" placeholder="Last Name" />
+        <input type="number" id="age" placeholder="Age" />
+        <input type="text" id="studentId" placeholder="Student ID" />
+        <input type="number" id="gpa" placeholder="GPA" />
+        <button id="addStudentButton">Add Student</button>
+      </div>
+
+      <div class="control-group">
+        <input
+          type="text"
+          id="removeStudentId"
+          placeholder="Student ID to Remove"
+        />
+        <button id="removeStudentButton">Remove Student</button>
+      </div>
+
+      <div class="control-group">
+        <input
+          type="text"
+          id="searchStudentId"
+          placeholder="Student ID to Search"
+        />
+        <button id="searchStudentButton">Search Student</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
