@@ -6,7 +6,6 @@ function render() {
     bookList.renderWithTemplate(library.books, html, template);
 }
 
-
 let editId = null;
 
 const titleBook = document.querySelector("#titleBook");
@@ -14,8 +13,21 @@ const authorBook = document.querySelector("#authorBook");
 const yearBook = document.querySelector("#yearBook");
 const genreBook = document.querySelector("#genreBook");
 
+yearBook.addEventListener("input", function () {
+    let maxYear = new Date().getFullYear();
+    let minYear = 1450;
+    if (yearBook.value < minYear || yearBook > maxYear) {
+        yearBook.setCustomValidity(
+            `"Введіть рік в діапазоні між ${minYear}" та "${maxYear}"`
+        );
+    } else {
+        yearBook.setCustomValidity("");
+    }
+});
 
-bookForm.addEventListener("submit", function(e) {
+
+
+bookForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     let book = {
@@ -25,7 +37,7 @@ bookForm.addEventListener("submit", function(e) {
         genre: genreBook.value,
     };
 
-    if(editId === null) {
+    if (editId === null) {
         library.add(book);
     } else {
         library.update(editId, book);
@@ -41,7 +53,6 @@ function remove(id) {
 }
 
 function edit(id) {
-
     const book = library.find(id);
     editId = book.id;
     titleBook.value = book.title;
@@ -49,13 +60,11 @@ function edit(id) {
     yearBook.value = book.year;
     genreBook.value = book.genre;
 
-    
     render();
     titleBook.focus();
 }
 
-
-function clearForm () {
+function clearForm() {
     titleBook.value = "";
     authorBook.value = "";
     yearBook.value = "";
