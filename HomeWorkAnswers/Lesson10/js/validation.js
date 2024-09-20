@@ -12,14 +12,13 @@ const form = document.forms[0];
 // });
 
 form.title.addEventListener("change", function (event) {
-  booksList.books.forEach((el) => {
-    if (el.title == form.title.value) {
-      form.title.setCustomValidity("Книга з такою назвою вже є у списку");
-      event.preventDefault();
-    } else {
-      form.year.setCustomValidity("");
-    }
-  });
+  let titleCoincidence = booksList.books.some((el) => el.title == form.title.value);
+  if (titleCoincidence) {
+    form.title.setCustomValidity("Книга з такою назвою вже є у списку");
+    event.preventDefault();
+  } else {
+    form.title.setCustomValidity("");
+  }
 });
 
 const minYear = 1450;
