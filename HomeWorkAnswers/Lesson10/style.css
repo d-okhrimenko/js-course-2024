@@ -23,3 +23,17 @@
 #bookForm div {
     margin-bottom: 10px;
 }
+
+ /* :valid - псевдоклас знаходить елементи, які пройшли валідацію */
+input:valid {
+    border: 1px solid green;
+}
+
+/* :invalid - псевдоклас знаходить елементи, які не пройшли валідацію */
+input:invalid {
+    border: 1px solid red;
+}
+
+.error {
+    color: crimson;
+}

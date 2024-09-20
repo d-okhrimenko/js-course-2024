@@ -8,10 +8,23 @@
 </head>
 <body>
     <form id="bookForm">
-        <div><label for="">Title</label><input type="text" id="titleInput"></div>
-        <div><label for="">Author:</label><input type="text" id="authorInput"></div>
-        <div><label for="">Year</label><input type="text" id="yearInput"></div>
-        <div><label for="">Genre</label><input type="text" id="genreInput"></div>
+        <div><label for="">Title</label>
+            <input type="text" id="titleInput" 
+                data-val="true" required
+                data-required="Type the title"
+                data-uniquetitle = "Title already exists"
+                data-error-label="titleErrorLabel">
+            <span class="error" id="titleErrorLabel"></span>
+        </div>
+        <div><label for="">Author:</label><input type="text" id="authorInput" required></div>
+        <div><label for="">Year</label><input type="number" id="yearInput" required
+            data-val="true"
+            data-required="Type the year" 
+            data-correctyear="Year must be more then 1450 and less or equal of current year"
+            data-error-label="yearErrorLabel">
+            <span class="error" id="yearErrorLabel"></span>
+        </div>
+        <div><label for="">Genre</label><input type="text" id="genreInput" required></div>
         <button type="submit">Save</button>
     </form>
 
