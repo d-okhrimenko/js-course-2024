@@ -1,0 +1,175 @@
+:root {
+  --text-color: #333333;
+  --background-color: #f0f0f0;
+  --background-color-2: #2a2d35de;
+  --background-color-3: #c1c1c1;
+  --border-color: #87878752;
+  --color-white: #ffffff;
+  --color-red: #ff0000;
+  --color-royalblue: #4169e1;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  min-width: 665px;
+}
+
+.img-container {
+  position: relative;
+  display: inline-block;
+}
+
+.smartStop {
+  width: 665px;
+  height: auto;
+}
+
+.dataOutput {
+  position: absolute;
+  top: 95px;
+  left: 238px;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: var(--color-red);
+  background-color: var(--background-color-2);
+  border-radius: 7px;
+  transform: rotate(3deg);
+}
+
+.dataOutput .time {
+  color: var(--color-royalblue);
+}
+
+.helloSmartStop,
+.clock {
+  position: absolute;
+  padding: 5px;
+  font-size: 14px;
+  color: var(--color-royalblue);
+  background-color: var(--background-color);
+  border-color: var(--color-royalblue);
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+.clock {
+  top: 179px;
+  left: 421px;
+  transform: rotate(2deg);
+}
+
+.helloSmartStop {
+  top: 141px;
+  left: 367px;
+  transform: rotate(2deg);
+}
+
+.helloSmartStop:hover,
+.clock:hover {
+  background-color: var(--background-color-3);
+  cursor: pointer;
+}
+
+/* weather container */
+
+.weather-container {
+  position: absolute;
+  top: 178px;
+  left: 45%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  width: 118px;
+  text-align: center;
+  z-index: 10;
+}
+
+.cityInput {
+  width: 75%;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+
+.getWeatherBtn {
+  padding: 5px 10px;
+  font-size: 14px;
+  color: var(--color-royalblue);
+  background-color: var(--background-color);
+  border: 1px solid var(--color-royalblue);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.getWeatherBtn:hover {
+  background-color: var(--background-color-3);
+}
+
+.weatherResult {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+/* title-text-container */
+
+.title-text-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.title-text {
+  position: relative;
+  margin: 20px;
+  padding: 8px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: var(--color-white);
+  border-radius: 15px;
+  z-index: 1;
+}
+
+.title-text::before,
+.title-text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--border-color);
+  border-radius: 15px;
+  box-sizing: border-box;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.title-text::before {
+  transform: rotate(2deg);
+}
+
+.title-text::after {
+  transform: rotate(-2deg);
+}
+
+.title-text:hover::before,
+.title-text:hover::after {
+  transform: rotate(0);
+}
