@@ -1,0 +1,35 @@
+body {
+    font-family: Inter, sans-serif;
+}
+
+.book {
+    background: #cfe5ff;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 25px;
+    width: 45%;
+}
+
+h2 {
+    font-size: 20px;
+    line-height: .9;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+button {
+    margin-right: 5px;
+}
+
+label,
+#submit {
+    display: block;
+}
+
+input {
+    margin-bottom: 10px;
+    width: 240px;
+}
