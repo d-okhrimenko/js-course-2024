@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Написати програму, яка працює зі списком покупок: додає нові товари, видаляє наявні та виводить список товарів на екран. -->
+    <script>
+      let addProduct = product => shoppingList.push(product);
+
+      let removeProduct = product => {
+        for (const key in shoppingList) {
+          if (shoppingList[key] === product) {
+            return shoppingList.splice(key, 1);
+          }
+        }
+      };
+
+      let showBasket = arr => {
+        console.log("У вашій корзині знаходиться:");
+        for (const product of arr) {
+          console.log(product);
+        }
+      };
+
+      let shoppingList = [];
+
+      let purchases = true;
+
+      while (purchases) {
+        let userChoice = prompt(
+          "Що ви бажаєте виконати?\n1 - Добавити товар\n2 - Видалити товар\n3 - Показати корзину\n4 - Вийти"
+        );
+        if (userChoice == 1) {
+          addProduct(prompt("Введіть назву продукту"));
+        } else if (userChoice == 2) {
+          removeProduct(prompt(`Який продукт ви хочете видалити?`));
+        } else if (userChoice == 3) {
+          showBasket(shoppingList);
+        } else if (userChoice == 4) {
+          purchases = false;
+        }
+      }
+    </script>
+  </body>
+</html>
