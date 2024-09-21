@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch example</title>
+
+    <style>
+        .completed {
+            color: green;
+        }
+
+        .incomplete {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="loadButton">Завантажити список завдань</button> <span id="loader"
+        style="display: none;">Завантаження...</span>
+    <div id="todoList">
+    </div>
+
+    <script>
+        let url = "https://jsonplaceholder.typicode.com/todos11";
+        let loadButton = document.querySelector("#loadButton");
+        let loader = document.querySelector("#loader");
+        let todoList = document.querySelector("#todoList");
+
+        loadButton.addEventListener("click", async function () {
+            showLoader();
+
+            try {
+                let response = await fetch(url);
+                let json = await response.json();
+                renderList(json);
+            }
+            finally {
+                hideLoader();
+            }
+        });
+
+        function showLoader() {
+            loader.style.display = "inline";
+        }
+
+        function hideLoader() {
+            loader.style.display = "none";
+        }
+
+        function renderList(list) {
+            list.forEach(element => {
+                let div = document.createElement("div");
+                div.textContent = `${element.id} (${element.completed}) - ${element.title}`;
+
+                if (element.completed) {
+                    div.classList.add("completed");
+                }
+                else {
+                    div.classList.add("incomplete");
+                }
+
+                todoList.append(div);
+            });
+        }
+    </script>
+</body>
+
+</html>
