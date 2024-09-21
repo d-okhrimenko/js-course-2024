@@ -1,9 +1,9 @@
-#bookList {
+#book-list {
     margin: 0;
     padding: 0;
 }
 
-.bookList__item {
+.book-list__item {
     background-color: lightgreen;
     color: black;
     margin-bottom: 20px;

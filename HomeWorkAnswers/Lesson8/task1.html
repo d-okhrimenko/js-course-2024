@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div id="bookList"></div>
+    <!-- <div id="bookList"></div>
 
     <script>
         const books = [
@@ -35,7 +35,24 @@
         }
 
         getBooks();
-    </script>
+    </script> -->
+
+    <script id="template" type="text/template">
+    <section class="book-list__item">
+        <h2>{{title}} {{author}}</h2>
+        <h2>Рік видання: {{year}}</h2>
+        <p>Жанр: {{genre}}</p>
+    </section>
+</script>
+    <section id="book-list">
+
+    </section>
+
+    <script src="../../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+
 </body>
 
 </html>
