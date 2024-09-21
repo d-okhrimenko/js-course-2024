@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 6, Task 1</title>
+  </head>
+  <body>
+    <script>
+      let grades = [10, 90, 99, 45, 67, 88, 35, 78];
+
+      function getAverage(array) {
+        let sum = array.reduce((total, value) => Number(total) + value, 0);
+        let average = sum / array.length;
+        return average;
+      }
+
+      function max(array) {
+        return Math.max(...array);
+      }
+
+      function min(array) {
+        return Math.min(...array);
+      }
+
+      let continueAdding = true;
+      do {
+        let newValue = Number(prompt("Додати ще оцінку (0-100)"));
+        if (newValue) {
+          grades.push(newValue);
+        } else {
+          continueAdding = false;
+        }
+      } while (continueAdding);
+
+      let averageGrade = getAverage(grades);
+      let minGrade = min(grades);
+      let maxGrade = max(grades);
+
+      alert(
+        `Середня оцінка ${averageGrade.toFixed(
+          1
+        )}, найнижча - ${minGrade}, найвища - ${maxGrade}`
+      );
+    </script>
+  </body>
+</html>
