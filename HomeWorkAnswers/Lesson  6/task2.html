@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<p>
+			Написати програму, яка працює зі списком покупок: додає нові товари,
+			видаляє наявні та виводить список товарів на екран.
+		</p>
+
+		<script>
+			let shoppingList = [];
+
+			function addItem(item) {
+				shoppingList.push(item);
+				alert(`${item} added to the list`);
+			}
+
+			function removeItem(item) {
+				let index = shoppingList.indexOf(item);
+				if (index !== -1) {
+					shoppingList.splice(index, 1);
+					alert(`${item} removed from the list`);
+				} else {
+					alert(`${item} is not in the list`);
+				}
+			}
+
+			function displayList() {
+				if (shoppingList.length > 0) {
+					alert('Your shopping list:\n' + shoppingList.join('\n'));
+				} else {
+					alert('Your shopping list is empty.');
+				}
+			}
+
+			function userChoice() {
+				let action = prompt(
+					"Choose action: add, remove, display. Enter 'stop' to complete:"
+				);
+				return action.toLowerCase();
+			}
+
+			while (true) {
+				let action = userChoice();
+				if (action === 'add') {
+					let newItem = prompt('Enter item name to add to the list:');
+					addItem(newItem);
+				} else if (action === 'remove') {
+					let itemToRemove = prompt(
+						'Enter item name to remove from the list:'
+					);
+					removeItem(itemToRemove);
+				} else if (action === 'display') {
+					displayList();
+				} else if (action === 'stop') {
+					break;
+				} else {
+					alert('Unknown action, try once more.');
+				}
+			}
+		</script>
+	</body>
+</html>
