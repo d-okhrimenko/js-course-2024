@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Створення масиву для зберігання списку покупок
+    let shoppingList = [];
+
+    // Створення функції для додавання товару до списку
+    function addItem(item) {
+      if (item && !shoppingList.includes(item)) {
+        shoppingList.push(item);
+        console.log(`Товар "${item}" додано до списку.`);
+      } else if (shoppingList.includes(item)) {
+        console.log(`Товар "${item}" вже є у списку.`);
+      } else {
+        console.log("Неможливо додати порожній товар.");
+      }
+    }
+
+    // Створення функції для видалення товару зі списку
+    function removeItem(item) {
+      let index = shoppingList.indexOf(item);
+      if (index !== -1) {
+        shoppingList.splice(index, 1);
+        console.log(`Товар "${item}" видалено зі списку.`);
+      } else {
+        console.log(`Товар "${item}" не знайдено у списку.`);
+      }
+    }
+
+    // Створення функціїю для виведення поточного списку покупок
+    function showList() {
+      if (shoppingList.length > 0) {
+        console.log("Поточний список покупок:");
+        shoppingList.forEach((item, index) => {
+          console.log(`${index + 1}. ${item}`);
+        });
+      } else {
+        console.log("Список покупок порожній.");
+      }
+    }
+
+    // Вибір користувачем необхідної дії
+    function promptUser() {
+      while (true) {
+        let action = prompt("Оберіть дію: додати (add), видалити (remove), показати (show), завершити (exit):").toLowerCase();
+
+        if (action === "add") {
+          let item = prompt("Введіть назву товару для додавання:");
+          addItem(item);
+        } else if (action === "remove") {
+          let item = prompt("Введіть назву товару для видалення:");
+          removeItem(item);
+        } else if (action === "show") {
+          showList();
+        } else if (action === "exit") {
+          console.log("Дякуємо за користування програмою!");
+          break;
+        } else {
+          console.log("Невідома команда, спробуйте ще раз.");
+        }
+      }
+    }
+
+    // Запуск програми
+    promptUser();
+  </script>
+</body>
+
+</html>

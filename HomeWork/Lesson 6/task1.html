@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="../common/my-library.js"></script>
+  <script>
+    // Створeння масиву для зберігання оцінок студентів
+    let grades = [];
+
+    // Створення функції для обчислення середнього балу
+    function averageGrade(array) {
+      let sum = array.reduce((acc, grade) => acc + grade, 0);
+      let avg = sum / array.length;
+      return avg;
+    }
+
+    // Створення функції для знаходження найвищої оцінки
+    function highestGrade(array) {
+      return Math.max(...array);
+    }
+
+    // Cтворення функції для знаходження найнижчої оцінки
+    function lowestGrade(array) {
+      return Math.min(...array);
+    }
+
+    // Створення функції для автоматичної генерації оцінок
+    function generateGrades(count) {
+      let generatedGrades = [];
+      for (let i = 0; i < count; i++) {
+        // Генеруємо випадкову оцінку від 0 до 100
+        generatedGrades.push(Math.floor(Math.random() * 101));
+      }
+      return generatedGrades;
+    }
+
+    let numberGrades = getNumericValue("Введіть кількість оцінок для генерації:");
+    grades = generateGrades(numberGrades);
+
+    // Обчислення середнього балу, найвищої і найнижчої оцінок
+    let average = averageGrade(grades);
+    let highest = highestGrade(grades);
+    let lowest = lowestGrade(grades);
+
+    // Виведення результатів
+    alert(`Згенеровані оцінки: ${grades.join(", ")}`);
+    alert(`Середній бал: ${average.toFixed(2)}`);
+    alert(`Найвища оцінка: ${highest}`);
+    alert(`Найнижча оцінка: ${lowest}`);
+
+  </script>
+</body>
+
+</html>
