@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>task1 Lesson6</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>task1 Lesson6</h1>
+    <script>
+      function averageMark(marks) {
+        let sum = 0;
+        for (const value of marks) {
+          sum = sum + value;
+        }
+
+        return sum / marks.length;
+      }
+      
+      function highestMark(marks) {
+        return Math.max(...marks);
+      }
+      
+      function lowestMark(marks) {
+        return Math.min(...marks);
+      }
+      
+      let usersMarks = prompt(
+        "Для підрахунку середнього, найвищого та найнижчого балу введіть оцінки студента через кому"
+      );
+      let userMakrsArray = usersMarks.split(",").map(Number);
+      
+      alert(
+        `Отже, \n середній бал студента: ${averageMark(userMakrsArray).toFixed(
+          2
+        )}; \n найвищий бал студента: ${highestMark(
+          userMakrsArray
+        )}; \n найнижчий бал студента: ${lowestMark(userMakrsArray)}`
+      );
+    </script>
+  </body>
+</html>
+

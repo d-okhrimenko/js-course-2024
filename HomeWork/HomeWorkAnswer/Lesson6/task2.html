@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>task2 Lesson 6</title>
+    <style>
+      .shopping {
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+        background-color: #8ed1b7;
+        border-radius: 5px;
+        color: #0d1f51;
+        font-size: 56px;
+        width: 600px;
+      }
+      .shopping ul {
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>task2 Lesson 6</h1>
+    <div class="shopping">
+      ShoppingList:
+      <ul class="shoppingList"></ul>
+    </div>
+    <script>
+      let shoppingList = [
+        "milk",
+        "bread",
+        "butter",
+        "fish",
+        "meat",
+        "tomatoes",
+        "apples",
+        "oranges",
+        "juice",
+      ];
+
+      function addGoods(goods) {
+        shoppingList.push(goods);
+      }
+
+      function removeGoods(goods) {
+        let index = shoppingList.indexOf(goods);
+
+        if (index !== -1) {
+          shoppingList.splice(index, 1);
+          index = shoppingList.indexOf(goods);
+        }
+      }
+      function showShoppingList() {
+        let currentShoppongList = document.querySelector(".shoppingList");
+        currentShoppongList.innerHTML = shoppingList.join("<br>");
+      }
+      showShoppingList();
+
+      while (true) {
+        let choice = Number(
+          prompt(
+            `Обери за номером дію, яку ти хочеш виконати зі списком: \n 1. Додати товар у список; \n 2. Видалити товар із списку; \n 3. Видалити весь список \n 4.Збереження списку і вихід`
+          )
+        );
+
+        if (choice === 1) {
+          let addedItem = prompt("Який товар ти хочеш додати?");
+          addGoods(addedItem);
+          showShoppingList();
+        } else if (choice === 2) {
+          let removedItem = prompt("Який товар ти хочеш видалити?");
+          removeGoods(removedItem);
+          showShoppingList();
+        } else if (choice === 3) {
+          shoppingList.length = 0;
+          showShoppingList();
+        } else if (choice === 4) {
+          showShoppingList();
+          break;
+        } else {
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>
+
