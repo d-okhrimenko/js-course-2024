@@ -61,7 +61,7 @@ The current weather information will be displayed on the screen.
 ### Example
 ~~~~javascript
 // Example usage of fetchWeather function
-import { fetchWeather } from './weather.js';
+import { fetchWeather } from './api.js';
 
 const city = 'Одесса';
 fetchWeather(city)
