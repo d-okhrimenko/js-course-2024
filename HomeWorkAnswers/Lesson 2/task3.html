@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2, Task 3</title>
+</head>
+<body>
+    <p id="greeting"></p>
+    <button id="btn">Скажи привіт</button>
+    <script>
+        document.querySelector("#btn").onclick = function() {
+            let greeting = document.querySelector("#greeting");
+            greeting.innerHTML = "Привіт, Оксана!";
+        }
+    </script>
+</body>
+</html>

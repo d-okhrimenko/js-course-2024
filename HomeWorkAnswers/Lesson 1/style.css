@@ -1,0 +1,13 @@
+h1, p {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    color: orangered;
+}
+
+p {
+    color: green;
+}
