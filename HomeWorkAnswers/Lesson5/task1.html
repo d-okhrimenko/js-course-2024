@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../Lesson5/common.js/my-library.js"></script>
+</head>
+
+<body>
+    <script>
+        let getValueIMT = (m, h) => m / Math.pow(h / 100, 2);
+
+        function getCategoryIMT(imt) {
+            let result = `Індекс маси тіла: ${imt.toFixed(1)}`;
+            if (imt < 18.5) {
+                result = `${imt}`;
+            } else if (imt >= 18.5 && imt < 25) {
+                result = `${imt} - нормальна маса тіла`;
+            } else {
+                result = `${imt} - ознака ожиріння`;
+            }
+            return result;
+        }
+        function showResults(result) {
+            alert(result);
+            console.log(result);
+        }
+
+        let mas = getNumericValue("Bведіть Вашу вагу у кг:");
+        let height = getNumericValue("Введіть Ваш ріст у см:");
+        let imt = getValueIMT(mas, height);
+        let result = getCategoryIMT(imt);
+
+        showResults(result);
+    </script>
+</body>
+
+</html>
