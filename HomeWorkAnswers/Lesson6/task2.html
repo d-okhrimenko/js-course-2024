@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список покупок</title>
+</head>
+
+<body>
+    <script>
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null && Number(value) >= 0 && Number(value) < 4;
+                if (isValid) {
+                    return Number(value);
+                }
+                alert("Введіть коректне значення");
+            }
+        }
+
+        function addToList(array, item) {
+            return array.push(item);
+        }
+
+        function delFromList(array, index) {
+            return array.splice(index, 1);
+        }
+
+        function showList(array) {
+            let list = "";
+            for (const index in array) {
+                list += `${Number(index) + 1}. ${array[index].charAt(0).toUpperCase() + array[index].slice(1)}\n`;
+            }
+            return list;
+        }
+
+        function findInList(array, value) {
+            for (const index in array) {
+                if (array[index] == value) return index;
+            }
+            return null;
+        }
+
+        let productList = [];
+
+        while (true) {
+            let actionNumber = getValue(`Введіть дію, яку ви бажаєте зробити: \n"1" - Показати перелік товарів; \n"2" - Додати товар до списку; \n"3" - Видалити товар зі списку; \n"0" - Вийти із програми`)
+            let product;
+
+            if (actionNumber == 0) break;
+
+            if (actionNumber == 1) {
+                if (productList.length > 0) {
+                    alert(`Список покупок:\n${showList(productList)}`);
+                } else {
+                    alert("Список покупок порожній");
+                }
+            }
+
+            if (actionNumber == 2) {
+                product = prompt(`Введіть назву товару, який бажаєте додати до списку:`).toLowerCase();
+                addToList(productList, product);
+                alert(`Новий список покупок:\n${showList(productList)}`);
+            }
+
+            if (actionNumber == 3) {
+                if (productList.length == 0) {
+                    alert("Список покупок порожній, нічого видаляти");
+                } else {
+                    product = prompt(`Введіть назву товару, який бажаєте видалити зі списку: \n${showList(productList)}`).toLowerCase();
+                    let indexOfPoduct = findInList(productList, product);
+                    if (indexOfPoduct == null) {
+                        alert("Такого продукту немає у списку");
+                    } else {
+                        delFromList(productList, indexOfPoduct);
+                        alert(`Новий список покупок:\n${showList(productList)}`);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

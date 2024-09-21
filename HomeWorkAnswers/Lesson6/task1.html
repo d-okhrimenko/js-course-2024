@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика успішності студента</title>
+</head>
+
+<body>
+    <script>
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null && Number(value) >= 0 && Number(value) <= 100;
+                if (isValid) {
+                    return Number(value);
+                }
+                alert("Введіть коректне значення");
+            }
+        }
+
+        function min(array) {
+            return Math.min(...array);
+        }
+
+        function max(array) {
+            return Math.max(...array);
+        }
+
+        function average(array) {
+            let sum = 0;
+            array.forEach(value => sum += value);
+            return (sum / array.length).toFixed(2);
+        }
+
+        const assessments = [];
+        const quantityOfAssessments = getValue("Введіть кількість оцінок, які отримав студент");
+
+        while (true) {
+            let assessment = getValue("Введіть оцінку студенту, від 0 до 100");
+
+            assessments.push(assessment);
+
+            if (assessments.length >= quantityOfAssessments) {
+                alert(`Середня оцінка ${average(assessments)} \nМінимальна оцінка ${min(assessments)} \nМаксимальна оцінка ${max(assessments)}`);
+                break;
+            }
+            alert(`Введено ${assessments.length} оцінок, введіть ще`)
+        }
+
+    </script>
+</body>
+
+</html>
