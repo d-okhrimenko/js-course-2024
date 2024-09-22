@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Погода</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Прогноз погоди</h1>
+
+    <div>
+      <input type="text" id="cityInput" placeholder="Введіть місто" />
+      <button id="getWeatherBtn">Отримати погоду</button>
+    </div>
+
+    <div id="weatherResult"></div>
+
+    <script>
+      const cityInput = document.getElementById("cityInput");
+      const getWeatherBtn = document.getElementById("getWeatherBtn");
+      const weatherResult = document.getElementById("weatherResult");
+
+      getWeatherBtn.addEventListener("click", () => {
+        const city = cityInput.value.trim();
+        if (city === "") {
+          weatherResult.innerHTML = "<p>Будь ласка, введіть місто.</p>";
+          return;
+        }
+
+        const apiKey = "2a1d79425c46c922a3f15375c030cff0";
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=uk`;
+
+        fetch(apiUrl)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Місто не знайдено або проблема з сервером");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const weatherInfo = `
+            <h2>Погода у місті: ${data.name}</h2>
+            <p>Температура: ${data.main.temp} °C</p>
+            <p>Опис: ${data.weather[0].description}</p>
+          `;
+            weatherResult.innerHTML = weatherInfo;
+          })
+          .catch((error) => {
+            weatherResult.innerHTML = `<p>${error.message}</p>`;
+          });
+      });
+    </script>
+  </body>
+</html>
