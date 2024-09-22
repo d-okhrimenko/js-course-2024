@@ -1,0 +1,42 @@
+.cover {
+    /*background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(51, 102, 156, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    */
+    display: 10px;
+    overflow: hidden;
+}
+
+.headDoc { 
+    margin-bottom: 15px;
+}
+
+.weatherCurrent {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(51, 102, 156, 1) 0%, rgba(0, 212, 255, 1) 100%);
+   
+}
+
+
+.Outlook {
+    width: 500px;
+    height: 300px;
+    margin: 20px;
+}
+
+.Information {
+    width: 500px;
+    height: 300px;
+    margin: 20px;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}
+
+.queryResult {
+    color: yellow;
+}
