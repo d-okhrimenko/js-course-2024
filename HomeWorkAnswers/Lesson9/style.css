@@ -1,0 +1,182 @@
+:root {
+  --background-color: #f4f4f4;
+  --card-bg-color: #ffffff;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --box-shadow-hover-color: rgba(0, 0, 0, 0.2);
+  --text-color: #333333;
+  --author-color: #e70808;
+  --meta-color: #777777;
+  --button-bg-color: #bdc3c7;
+  --button-bg-hover-color: #95a5a6;
+  --button-text-color: white;
+  --success-bg-color: #72d268c9;
+  --success-text-color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+}
+
+.bookList {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 2000px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.bookCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bookCard:hover {
+  box-shadow: 0 0 15px var(--box-shadow-hover-color);
+  transform: translateY(-5px);
+}
+
+.bookCard p {
+  margin-bottom: 1rem;
+}
+
+.bookCard p strong {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.bookTitle {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--author-color);
+}
+
+.bookYear,
+.bookGenre {
+  font-style: italic;
+  color: var(--meta-color);
+}
+
+/* Button Styles */
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 0.5rem;
+}
+
+button:hover {
+  background-color: var(--button-bg-hover-color);
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+/* Form Styles */
+
+#bookForm {
+  background-color: var(--card-bg-color);
+  padding: 1.5rem;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  display: flex;
+  flex-direction: column;
+}
+
+#bookForm div {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#bookForm label {
+  font-weight: 500;
+  color: var(--text-color);
+  width: 100px;
+}
+
+#bookForm input[type='text'] {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--meta-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+#bookForm button {
+  margin-top: 0.3rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* Notification Styles */
+
+#notification {
+  display: none;
+
+  position: fixed;
+  padding: 0.7rem;
+  text-align: center;
+  color: var(--success-text-color);
+  background-color: var(--success-bg-color);
+
+  bottom: -100px;
+
+  width: 90%;
+  max-width: 500px;
+  left: 50%;
+  border-radius: 5px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  transition: bottom 0.5s ease-in-out;
+}
+
+#notification.show {
+  display: block;
+
+  bottom: 20px;
+}
+
+@keyframes slideIn {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 20px;
+    opacity: 1;
+  }
+}
+
+#notification.added {
+  animation: slideIn 0.5s ease forwards;
+}
