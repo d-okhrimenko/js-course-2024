@@ -13,6 +13,8 @@ function render() {
   bookRender.renderWithTemplate(bookList.books, htmlElement, htmlTemplate);
 }
 
+bookList.checkTitleBook(); //перевірка на співпадіння
+
 bookForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -22,7 +24,6 @@ bookForm.addEventListener("submit", function (e) {
     year: yearInput.value,
     genre: genreInput.value,
   };
-
   if (editId == null) {
     bookList.addBook(book);
   } else {
