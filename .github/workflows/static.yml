@@ -11,6 +11,7 @@ on:
       - 'lesson-6_homework'
       - 'lesson-7_homework'
       - 'lesson-8_homework'
+      - 'lesson-9_homework'
       - 'lesson-11_homework'
 
 
@@ -49,6 +50,7 @@ jobs:
             lesson-6_homework) echo "::set-output name=dir_name::Lesson6" ;;
             lesson-7_homework) echo "::set-output name=dir_name::Lesson7" ;;
             lesson-8_homework) echo "::set-output name=dir_name::Lesson8" ;;
+            lesson-9_homework) echo "::set-output name=dir_name::Lesson9" ;;
             lesson-11_homework) echo "::set-output name=dir_name::Lesson11" ;;
             *) echo "Unknown branch" && exit 1 ;;
           esac
