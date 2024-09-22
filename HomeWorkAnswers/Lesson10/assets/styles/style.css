@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.books__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.books__item {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  list-style-type: none;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.6);
+}
+
+.books__item-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.books__item p:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.books__item p:last-of-type {
+  margin-bottom: 20px;
+}
+
+.books__item-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.books__item-btn {
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.books__item-btn:hover {
+  box-shadow: 1px 1px 3px 3px gray;
+}
+
+.books__item-btn[data-action="edit"] {
+  background-color: green;
+}
+
+.books__item-btn[data-action="delete"] {
+  background-color: red;
+}
+
+.dialog {
+  margin: auto;
+  border: none;
+  width: 95%;
+  max-width: 320px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 1em black;
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dialog__heading {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.books__btn {
+  padding: 20px;
+  place-self: center;
+}
+
+.dialog__item {
+  margin-bottom: 15px;
+}
+
+.dialog__label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.dialog__input {
+  width: 100%;
+  padding: 10px;
+}
+
+.dialog__actions {
+  display: flex;
+  justify-content: center;
+}
+
+.dialog__btn {
+  padding: 10px;
+}
+
+.dialog__error {
+  color: red;
+  font-size: 14px;
+}

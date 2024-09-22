@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/styles/style.css">
+  <title>Book List</title>
+</head>
+
+<body>
+  <dialog class="dialog">
+    <h2 class="dialog__heading"></h2>
+    <form id="dialog-form" method="dialog">
+      <p class="dialog__item">
+        <label class="dialog__label">Назва книги:</label>
+        <input class="dialog__input" type="text" id="title" name="title" value="" required>
+        <span class="dialog__error" hidden></span>
+      </p>
+      <p class="dialog__item">
+        <label class="dialog__label">Автор книги:</label>
+        <input class="dialog__input" type="text" id="author" name="author" value="" required>
+        <span class="dialog__error" hidden></span>
+      </p>
+      <p class="dialog__item">
+        <label class="dialog__label">Рік видавництва</label>
+        <input class="dialog__input" type="number" id="year" name="year" value="" min="1450" max="2024" required>
+        <span class="dialog__error" hidden></span>
+      </p>
+      <p class="dialog__item">
+        <label class="dialog__label">Жанр</label>
+        <input class="dialog__input" type="text" id="genre" name="genre" value="" required>
+        <span class="dialog__error" hidden></span>
+      </p>
+      <div class="dialog__actions">
+        <button type="submit" class="dialog__btn">Зберегти</button>
+      </div>
+    </form>
+  </dialog>
+
+  <ul id="bookList" class="books__list"></ul>
+
+
+  <template id="bookTemplate" type="text/x-handlebars-template">
+    {{#each books}}
+    <li class="books__item" data-id="{{id}}">
+      <h2 class="books__item-title">{{title}}</h2>
+      <p class="books__item-author">Автор: {{author}}</p>
+      <p class="books__item-year">Рік видання: {{year}}</p>
+      <p class="books__item-genre">Жанр: {{genre}}</p>
+      <div class="books__item-actions">
+        <button class="books__item-btn" type="button" data-action="edit">Редагувати</button>
+        <button class="books__item-btn" type="button" data-action="delete">Видалити</button>
+      </div>
+    </li>
+    {{/each}}
+    <button class="books__btn" data-action="add">Додати книгу</button>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+  <script src="assets/js/app.js" type="module"></script>
+</body>
+
+</html>
