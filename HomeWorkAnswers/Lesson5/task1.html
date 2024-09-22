@@ -8,10 +8,11 @@
 </head>
 
 <body>
-    <p>
+    
     <h3>Завдання 1</h3>
     <p>Написати програму, яка обчислює індекс маси тіла (ІМТ) і дає рекомендації на основі отриманого значення.</p>
 
+    <script src="common/my-js-library.js"></script>
     <script>
 
         let bodyMass = getNumericValue("Введіть масу тіла (у кілограмах)");
@@ -20,16 +21,6 @@
         let category = getCategoryImt(imtValue);
 
         alert(`Обчислений ІМТ = ${imtValue}. Це відповідає категорії: ${category}`);
-
-
-        function getNumericValue(message) {
-            while (true) {
-                let value = prompt(message);
-                let isValid = !isNaN(value) && value !== "" && value !== null;
-                if (isValid) return value;
-                if (!isValid) alert("Спробуйте ще раз і введіть число.");
-            }
-        }
 
         function calculateIMT(mass, height) {
             let imtValue = mass / Math.pow(height, 2);
