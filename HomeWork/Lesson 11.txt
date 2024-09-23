@@ -1,0 +1,44 @@
+1.	Отримати API ключ для сервісу погоди (наприклад, OpenWeatherMap):
+	•	Зареєструватися на сайті OpenWeatherMap (або іншому погодному API) та отримати API ключ.
+
+2.	Створити HTML-структуру:
+	•	Поле для введення назви міста.
+	•	Кнопку для отримання погоди.
+	•	Контейнер для відображення результату.
+
+3.	Використати fetch для запиту даних про погоду:
+	•	При натисканні кнопки зробіть запит до API погоди, використовуючи fetch.
+	•	Запит має бути асинхронним і використовувати Promise для обробки результату.
+
+4.	Вивести погоду для введеного міста:
+	•	Обробіть відповідь і виведіть дані на екран: назву міста, температуру, опис погоди.
+
+5.	Обробка помилок:
+	•	Додайте обробку помилок у разі неправильного запиту (наприклад, місто не знайдено або проблема з мережею).
+
+
+Приклад коду який відображає погоду
+
+const city = document.getElementById('cityInput').value;
+    const apiKey = 'YOUR_API_KEY';  // Замість YOUR_API_KEY вставте свій API ключ
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=uk`;
+
+    // Використання fetch для запиту до API
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Місто не знайдено або проблема з сервером');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const weatherInfo = `
+                <h2>Погода у місті: ${data.name}</h2>
+                <p>Температура: ${data.main.temp} °C</p>
+                <p>Опис: ${data.weather[0].description}</p>
+            `;
+            document.getElementById('weatherResult').innerHTML = weatherInfo;
+        })
+        .catch(error => {
+            document.getElementById('weatherResult').innerHTML = `<p>${error.message}</p>`;
+        });

@@ -48,7 +48,7 @@
         <div class="form-group">
             <label>Підтвердження пароля</label>
             <input type="password" name="passwordConfirm" id="passwordConfirm" data-val="true"
-                   data-required="Введіть підтвердження пароля" data-confirm="password"
+                   data-required="Введіть підтвердження пароля" data-card="asdasd" data-confirm="password"
                    data-error-label="passwordConfirmErrorLabel">
             <span class="error" id="passwordConfirmErrorLabel">Помилка</span>
         </div>
@@ -130,7 +130,7 @@
         validators.pattern = {
             isValid: function (element) {
                 let message = "Введене значення не відповідає шаблону";
-                let regex = new RegExp(element.dataset.pattern);
+                let regex = new RegExp(element.dataset.pattern); // data-pattern
                 return validators.validate(element, message, () => regex.test(element.value));
             }
         };
@@ -138,6 +138,14 @@
         validators.confirm = {
             isValid: function (element) {
                 let message = "Значення не співпадають";
+                let confirmInput = document.querySelector("#" + element.dataset.confirm);
+                return validators.validate(element, message, () => element.value == confirmInput.value);
+            }
+        };
+
+        validators.card = {
+            isValid: function (element) {
+                let message = "dasjkl";
                 let confirmInput = document.querySelector("#" + element.dataset.confirm);
                 return validators.validate(element, message, () => element.value == confirmInput.value);
             }
