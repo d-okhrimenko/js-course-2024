@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <form id="cityForm">
+        <label for="city">City:</label><br>
+        <input type="text" id="city" required><br>
+        <input type="submit" id="searchBtn" value="Get Weather" onclick="clearResult()"><br>
+    </form>
+
+    <div name="result" id="result"></div><br>
+
+    <script src="weather.js"></script>
+</body>
+
+</html>
