@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 11 - Get Weather</title>
+</head>
+<body>
+    <h1>What is the Weather?</h1>
+    
+    <label for="citySelect">Select your location:</label>
+    <select id="citySelect">
+        <option value="703448">Kyiv</option>
+        <option value="706483">Kharkiv</option>
+        <option value="3196359" selected>Ljubljana</option>
+        <option value="686967">Zhytomyr</option>
+    </select>
+
+    <button id="getWeatherButton">Get Weather</button>
+
+    <div id="weatherResult" style="margin-top: 20px;">
+        <p><i>Place for result</i></p>
+    </div>
+
+    <script>
+        const apiKey = "4df9e9a2cc7a24fa610e98b1d3156fc1";
+        function kelvinToCelsius(value) {
+            return (value - 273.15).toFixed(1);
+        }
+
+        document.getElementById('getWeatherButton').addEventListener('click', function() {
+            const el = document.getElementById('citySelect');
+            const cityId = el.value;
+            const cityName = el.selectedOptions[0].innerText;
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${apiKey}`;
+
+            const elResult = document.getElementById('weatherResult');
+            elResult.innerHTML = `<p>Loading weather for ${cityName}...</p>`;
+
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('City not found, sorry');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const weatherInfo = `
+                        <h2>The weather in ${data.name}:</h2>
+                        <p>Descripthion: ${data.weather[0].description}</p>
+                        <p>Min temparature: ${kelvinToCelsius(data.main.temp_min)} °C</p>
+                        <p><b>Current temperature: ${kelvinToCelsius(data.main.temp)} °C</b></p>
+                        <p>Max temparature: ${kelvinToCelsius(data.main.temp_max)} °C</p>                       
+                    `;
+                    elResult.innerHTML = weatherInfo;
+                })
+                .catch(error => {
+                    elResult.innerHTML = `<p>${error.message}</p>`;
+                });
+            });
+
+    </script>
+</body>
+</html>
