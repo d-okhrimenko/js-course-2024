@@ -40,11 +40,7 @@ let groupController = {
     },
 
     deleteStudent: function(id) {
-        let findIndex = (id) => {
-            let foundStudent = this.findById(id);
-            return this.group.indexOf(foundStudent[0]);
-        }
-        let foundIndex = findIndex(id);
+        let foundIndex = this.group.findIndex( x => x.id == id);
         if (foundIndex != -1) this.group.splice(foundIndex, 1);
     },
 };
