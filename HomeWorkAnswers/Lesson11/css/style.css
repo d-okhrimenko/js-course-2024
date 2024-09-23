@@ -1,0 +1,27 @@
+.btn {
+    border: none;
+    border-radius: 20px;
+    background-color: green;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.btn:hover {
+  background-color: lightgreen;
+  color: white;
+  transition: 0.5s;
+}
+
+.weather__top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.weather__input {
+    margin-right: 30px;
+}
+
+.weather__input label {
+    margin-right: 15px;
+}
