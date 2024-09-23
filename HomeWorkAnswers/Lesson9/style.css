@@ -1,0 +1,32 @@
+.book {
+    width: 600px;
+    font-size: 20px;
+    color: aquamarine;
+    background-color: darkblue;
+    padding: 20px;
+    margin: 30px 10px;
+    border: 5px solid aquamarine;
+    border-radius: 10px;
+ }
+
+ .header {
+    color: darkblue;
+    padding-left: 20px;
+ }
+
+ .bookForm label {
+   display: inline-block;
+   width: 100px;
+   color: darkblue;
+ }
+
+ .bookForm div {
+   margin-bottom: 20px;
+   padding-left: 20px;
+ }
+
+ .bookForm input {
+  width: 400px;
+ }
+
+ 
