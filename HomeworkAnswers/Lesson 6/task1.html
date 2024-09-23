@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../common/my-library.js"></script>
+    <script>
+        function min(array) {
+            return Math.min(...array);
+        }
+
+        function max(array) {
+            return Math.max(...array);
+        }
+
+        function avg(array) {
+            let sum = 0;
+            for (const value of array) {
+                sum += value;
+            }
+            return sum / array.length;
+        }
+
+        let marks = [];
+        number = getNumericPositiveValue("Введіть кількість оцінок");
+
+        for (let index = 0; index < number; index++) {
+            marks[index] = getNumericRangeValue(`Введіть ${index + 1} оцінку`, 0, 100);
+        }
+
+        let list = "";
+        marks.forEach((value, index) => {
+            list += `${index + 1} оцінка = ${value}\n`;
+        });
+
+        alert(` Оцінки: \n${list}\nРезультати:\nНайнища оцінка - ${min(marks)}. \nНайвища оцінка - ${max(marks)}. \nСередня оцінка - ${avg(marks).toFixed(1)}`);
+
+    </script>
+</body>
+
+</html>

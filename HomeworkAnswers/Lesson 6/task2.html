@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script src="../common/my-library.js"></script>
+	<script>
+		function addProduct(product, array) {
+			array.push(product)
+		}
+
+		function delProduct(product, array) {
+			let position = array.indexOf(product);
+			if (position == -1) {
+				alert("Вибраний товар відсутній у списку")
+			}
+			else {
+				array.splice(position, 1);
+				alert(`${product} видалено зі списку`);
+			}
+		}
+
+		function showArray(array) {
+			let list = "";
+			products.forEach((value) => list += `${value}\n`);
+			alert(`Товари у списку: \n${list}`);
+		}
+
+		let products = [];
+		let choice = 1;
+		while (choice) {
+			choice = getNumericRangeValue("Зробіть вибір: 1 - додавання товару, 2 - видалення товару, 3 - виведення списку, 0 - вихід", 0, 3);
+			switch (choice) {
+				case 1:
+					addProduct(getValue("Назва товару?"), products)
+					break;
+				case 2:
+					delProduct(getValue("Назва товару?"), products);
+					break;
+				case 3:
+					showArray(products);
+					break;
+				case 0:
+					break;
+			}
+		}
+
+	</script>
+</body>
+
+</html>
