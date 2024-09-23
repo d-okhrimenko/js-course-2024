@@ -12,6 +12,6 @@ function requestWeather(apiKey, city) {
       render(data, element);
     })
     .catch((error) => {
-      document.getElementById("weatherResult").innerHTML = `<p class="error">${error.message}</p>`;
+      document.getElementById(element.id).innerHTML = `<p class="error">${error.message}</p>`;
     });
 }
