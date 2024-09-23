@@ -19,13 +19,13 @@
 </head>
 
 <body>
-    <form action="https://itvdn.com/ru/catalog" method="GET">
+    <form action="https://itvdn.com/ua/catalog" method="POST">
         <div class="form-group">
             <label>Запит</label>
-            <input type="text" name="search">
+            <input type="text" name="search" />
         </div>
         <div class="form-group">
-            <input type="submit" value="Пошук">
+            <input type="submit" value="Пошук" />
         </div>
     </form>
 
@@ -34,7 +34,7 @@
         // submit - подія відбувається при натисканні на кнопку submit і відправка даних форми на сервер.
         form.addEventListener("submit", function (event) { 
             alert("Подія submit");
-
+            
             // якщо поле введення порожнє - не надсилаем форму
             if(form.search.value.length == 0) {
                 event.preventDefault(); // скасування надсилання форми
