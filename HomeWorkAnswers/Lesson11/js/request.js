@@ -4,7 +4,7 @@ function requestWeather(apiKey, city) {
   fetch(apiUrl)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Місто не знайдено або проблема з сервером");
+        throw new Error(`Населений пункт ${city} не знайдено або проблема з сервером`);
       }
       return response.json();
     })
