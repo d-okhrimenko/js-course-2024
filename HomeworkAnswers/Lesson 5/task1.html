@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script src="../common/my-library.js"></script>
+	<script>
+		function getIndexMass(height, weight) {
+			return weight / Math.pow(height, 2);
+
+		}
+
+		function getIndexMassCategory(indexMass) {
+			if (indexMass < 18.5) {
+				return "Недостатня вага";
+			}
+			else if (indexMass < 24.9) {
+				return "Нормальна вага";
+			}
+			else if (indexMass < 29.9) {
+				return "Надмірна вага";
+			}
+			else {
+				return "Ожиріння";
+			};
+		}
+
+		height = getNumericValue("Введіть зріст");
+		weight = getNumericValue("Введіть вагу");
+		let indexMass = getIndexMass(height, weight);
+		let IndexMassCategory = getIndexMassCategory(indexMass);
+		alert(`Ваш індекс маси тіла - ${indexMass.toFixed(1)}. Це ${IndexMassCategory}`);
+	</script>
+</body>
+
+</html>
