@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <h1 class="title">Погода у вашому місті</h1>
+    <form id="requestForm" class="requestForm">
+        <div class="requestCity"><label class="label" for="">Введіть місто</label><input type="text" id="cityInput"
+                name="city" pattern="^[A-Za-zА-Яа-яЁёЇїІіЄєҐґ'.\-\s]+$" minlength="3" required></div>
+        <button class="button" type="submit">Запит погоди</button>
+    </form>
+    <section id="weatherResult" class="weatherResult"></section>
+    <script src="./js/controller.js"></script>
+    <script src="./js/request.js"></script>
+    <script src="./js/view.js"></script>
+</body>
+
+</html>

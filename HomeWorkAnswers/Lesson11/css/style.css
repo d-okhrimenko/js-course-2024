@@ -1,0 +1,40 @@
+h1 {
+  font-size: 24px;
+  margin: 20px 20px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.requestForm {
+  margin: 20px 20px;
+}
+
+.label {
+  margin-right: 20px;
+}
+
+.button {
+  margin-top: 20px;
+  width: 150px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px;
+  background-color: #a4cab1;
+}
+
+.button:active {
+  color: beige;
+  background-color: #577965;
+}
+
+.weatherResult {
+  margin: 20px 20px;
+}
+
+.error {
+  font-size: 20px;
+  color: red;
+  font-weight: bold;
+}
