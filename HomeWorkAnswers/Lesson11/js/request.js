@@ -1,4 +1,4 @@
-function requestWeather(apiKey, city) {
+function requestWeather(apiKey, city, htmlElement) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=uk`;
 
   fetch(apiUrl)
@@ -9,9 +9,9 @@ function requestWeather(apiKey, city) {
       return response.json();
     })
     .then((data) => {
-      render(data, element);
+      render(data, htmlElement);
     })
     .catch((error) => {
-      document.getElementById(element.id).innerHTML = `<p class="error">${error.message}</p>`;
+      document.getElementById(htmlElement.id).innerHTML = `<p class="error">${error.message}</p>`;
     });
 }

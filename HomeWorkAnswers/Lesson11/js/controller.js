@@ -9,8 +9,7 @@ const apiKey = "43b774d7f1c923a8a68778fe39b177c6";
 requestForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  city = cityInput.value;
-  requestWeather(apiKey, city);
+  requestWeather(apiKey, cityInput.value, element);
 
   cityInput.value = "";
 });
