@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ланцюжок об'єктів promise</title>
+</head>
+
+<body>
+    <button>Завантажити</button>
+    <br>
+    <br>
+    <script>
+        document.querySelector("button").addEventListener("click", function () {
+            let url1 = "https://images-assets.nasa.gov/image/PIA16239/PIA16239~orig.jpg";
+            let url2 = "https://images-assets.nasa.gov/image/PIA22312/PIA22312~orig.jpg";
+            let url3 = "https://images-assets.nasa.gov/image/PIA04591/PIA04591~orig.jpg";
+
+            // Ланцюжок промісів, результат роботи першого промісу передається в обробник then, де створюється другий
+            // Проміс і його результат передається в наступний обробник і так далі по ланцюжку.
+            // Це дозволяє уникнути вкладеності коду, коли одна асинхронна операція має запуститися після іншої.
+            downloadImage(url1)                                 // отримуємо проміс
+                .then(image => {                                // вказуємо що робити коли promise перейде в стан resoved
+                    document.body.append(image);
+                    return downloadImage(url2);                 // виконуємо метод, який повертає promise
+                })
+                .then(image => {                                // результат роботи попереднього промісу передається як значення
+                    document.body.append(image);
+                    return downloadImage(url3);
+                })
+                .then(image => {
+                    document.body.append(image);
+                });
+
+        });
+
+        function downloadImage(url) {
+            let promise = new Promise(function (resolve, reject) {
+                let image = new Image(500);
+                image.src = url;
+
+                image.onload = function () {
+                    resolve(image);
+                };
+
+                image.onerror = function (e) {
+                    reject(new Error("Не вдалося завантажити зображення" + this.src));
+                }
+            });
+
+            return promise;
+        }
+    </script>
+</body>
+
+</html>
