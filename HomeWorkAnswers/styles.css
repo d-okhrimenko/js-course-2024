@@ -1,0 +1,8 @@
+.book {
+    background-color: rgb(194, 239, 226);
+    padding: 20px;
+    margin: 30px 10px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(8, 47, 36);
+}
