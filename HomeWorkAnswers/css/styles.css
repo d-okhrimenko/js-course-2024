@@ -1,0 +1,16 @@
+.js-weatherList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.js-weatherList>li {
+  padding: 8px;
+  text-align: center;
+
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+
+  box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.16), 0px 4px 4px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+}
