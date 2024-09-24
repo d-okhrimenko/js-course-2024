@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let figure = prompt("Оберіть геометрічну фигуру: коло, прямокутник, трикутник").toLowerCase();
+        if (figure == "коло") {
+            let radius = parseFloat(prompt("Введіть радіус"));
+            alertResult(getCircleArea(radius), getCirclePerimeter(radius));
+        } else if (figure == "прямокутник") {
+            let a = parseFloat(prompt("Введіть довжину"));
+            let b = parseFloat(prompt("Введіть висоту"));
+            alertResult(getRectangleArea(a, b), getRectanglePerimeter(a, b));
+        } else if (figure == "трикутник") {
+            let a = parseFloat(prompt("Введіть сторону a"));
+            let b = parseFloat(prompt("Введіть сторону b "));
+            let c = parseFloat(prompt("Введіть сторону c"));
+            if ((a + b) <= c || (a + c) <= b || (c + b) <= a) {
+                alert("Такий трикутник не може існувати")
+            } else {alertResult(getTriangleleArea(a, b, c), getTrianglePerimeter(a, b, c))}
+        }
+
+        function getCircleArea (radius) {
+            return Math.PI * Math.pow(radius, 2);
+        }
+        function getCirclePerimeter(radius) {
+            return 2 * Math.PI * radius;
+        }
+
+        function getRectangleArea (a, b) {
+            return a * b
+        }
+        function getRectanglePerimeter (a, b) {
+            return 2 * (a + b);
+        }
+
+        function getTriangleleArea (a, b, c) {
+            let p = (a + b + c) / 2;
+            return Math.pow(p * (p - a) * (p - b) * (p - c), 0.5);
+        }
+        function getTrianglePerimeter (a, b, c) {
+            return a + b + c;
+        }
+
+        function alertResult(area, perimeter) {
+            alert("Площа фігури = " + area + "\nПеріметер фігури = " + perimeter);
+        }
+
+    </script>
+</body>
+</html>
