@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function alertLeapYear(leap) {
+            if (leap) alert("Введений рік є високосним");
+            else alert("Введений рік НЕ є високосним");
+        }
+
+        let year = prompt("Введіть рік");
+        let leap;
+        year = Number(year);
+        if(!Number.isInteger(year)) {
+            alert("Введене некорректне значення")
+        }
+        else {
+            if (year % 400 == 0)
+            leap = true;
+            else if (year % 100 == 0)
+            leap = false;
+            else if (year % 4 == 0)
+            leap = true;
+            else
+            leap = false;
+        }
+        alertLeapYear(leap);
+    </script>
+</body>
+</html>
