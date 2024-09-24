@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getComputerChoise() {
+            let random = Math.random() * 3;
+            let computerChoise;
+            if (random < 1) computerChoise = "камінь";
+            else if (random < 2) computerChoise = "ножиці";
+            else computerChoise = "папір";
+            return computerChoise;
+        }
+        function alertResult(userChoise, computerChoise) {
+            let userWin = false;
+            let computerWin = false;
+            if (userChoise == "камінь") {
+                if (computerChoise == "папір") {computerWin = true;}
+                else if (computerChoise == "ножиці") {userWin = true;}
+            }
+            if (userChoise == "ножиці") {
+                if (computerChoise == "камінь") {computerWin = true;}
+                else if (computerChoise == "папір") {userWin = true;}
+            }
+            if (userChoise == "папір") {
+                if (computerChoise == "ножиці") {computerWin = true;}
+                else if (computerChoise == "камінь") {userWin = true;}
+            }
+            resultText = "Користувач обрав " + userChoise + "\nКомп\'ютер обрав " + computerChoise + "\n"
+            if (!computerWin && !userWin) {resultText += "Нічия";}
+            else if (userWin) {resultText += "Ви виграли!";}
+            else {resultText += "Комп'ютер виграв";}
+            alert(resultText);
+        }
+
+        let userChoise = prompt("Введіть Ваш вибір (камінь, ножиці, папір)");
+        if (userChoise != "камінь" && userChoise != "ножиці" && userChoise != "папір") {
+            console.log(userChoise);
+            alert("Ви ввели некоректне значення спробуйте ще раз");
+        } else {
+            let computerChoise = getComputerChoise();
+            alertResult(userChoise, computerChoise);
+
+        }
+
+    </script>
+</body>
+
+</html>

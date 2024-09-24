@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function generateExpression() {
+            let randomNumber1 = Math.floor(Math.random() * 10) + 1;
+            let randomNumber2 = Math.floor(Math.random() * 10) + 1;
+            let randomOperator = Math.floor(Math.random() * 4);
+            return [randomNumber1, randomOperator, randomNumber2];
+        }
+        function calculateAnswer(expression) {
+            if (expression[1] < 1) return (expression[0] + expression[2]);
+            else if (expression[1] < 2) return (expression[0] - expression[2]);
+            else if (expression[1] < 3) return (expression[0] * expression[2]);
+            else return (expression[0] / expression[2]);
+        }
+        let rightAnswers = 0;
+        let attempts = 3;
+        
+        while (attempts > 0) {
+            let expression = generateExpression();
+            let operator;
+            if (expression[1] < 1) operator = "+";
+            else if (expression[1] < 2) operator = "-";
+            else if (expression[1] < 3) operator = "*";
+            else operator = "/";
+            let userAnswer = Number(prompt(expression[0] + operator + expression[2]+ "=\nСпроб залишилось - " + attempts));
+            let correctAnswer = calculateAnswer(expression);
+            if (correctAnswer == userAnswer) rightAnswers++;
+            else attempts--;
+        }
+        alert("Гру завершено.\nВи " + rightAnswers + " разів порахували правильно!")
+    </script>
+</body>
+
+</html>
