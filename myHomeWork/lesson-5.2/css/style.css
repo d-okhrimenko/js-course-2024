@@ -1,0 +1,254 @@
+/*----------------------------------------  hero  ------------------------------------------ */
+.hero {}
+
+.hero__container {}
+
+.hero__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.hero__title {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 50px;
+
+    line-height: 1.02;
+}
+
+.hero__block {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hero__item {
+    cursor: pointer;
+    border: 5px solid #f1ab0a;
+    padding: 10px;
+   
+  
+}
+
+.triangle {
+   
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    background-color: #136d9d;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #2eb816;
+}
+/*----------------------------------------  popup ------------------------------------------ */
+.popup {
+    background: #f8f1f9d4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.hidden {
+    display: none;
+}
+
+.popup__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    padding: 0px 15px;
+}
+
+.popup__items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    border-radius: 8px;
+    border: 2px solid #bcbaba;
+    padding: 10px;
+    background-color: white;
+}
+.popup__form {}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form__line {
+    display: flex;
+    gap: 15px;
+    align-items: end;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+@media (max-width: 450px) {
+    .form__line {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+    
+        }
+}
+
+.form__label {
+    
+}
+
+.form__input {
+    height: 25px;
+    border: 2px solid #bcbaba;
+    font-size: 18px;
+    border-radius: 6px;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    width: 100px;
+}
+.form__input:focus {
+  
+    border: 2px solid #8c8a8a;
+
+}
+
+
+
+.popup-btn {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 16px;
+    background-color: #e1e0e0;
+    transition: background-color 0.3s ease 0s;
+    text-transform: uppercase;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    border: 2px solid white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.popup-btn:hover {
+    background-color: #cccaca;
+}
+.popup-btn:focus {
+    outline: none;
+    /* Убирает стандартное обводка браузера */
+    border: 2px solid #bcbaba;
+    /* Цвет бордера при фокусе */
+    background-color: #d0d0d0;
+    /* Можете изменить цвет фона, если хотите */
+}
+.popup__icon {
+    position: absolute;
+        top: 20%;
+        right: 10%;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: #ebe5e5;
+    border: 1px solid #4b4a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease 0s;
+}
+.popup__icon:hover {
+    background-color: #d5d0d0;
+  
+}
+.icon-cross {
+   transform: rotate(45deg);
+    width: 25px;
+    height: 25px;
+
+}
+
+.hero__elem img {
+    width: 50px;
+    height: 50px;
+}
+/*----------------------------- блокирую скрол -------------------------*/
+.no-scroll {
+    overflow: hidden;
+}
+/*------------------------------ popup result -------------------------*/
+ .popup-result {
+    background: #f8f1f9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.popup-result__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.popup-result__item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    border-radius: 8px;
+    border: 2px solid #bcbaba;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+
+}
+@media (max-width: 530px) {
+    .popup-result__item {
+
+            max-width: 350px;
+        }
+}
+
+.popup-result__block {}
+
+
+.popup-result__res {
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-weight: 800;
+}
+.popup-result__text {
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.popup-result__btn {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 16px;
+    background-color: #e1e0e0;
+    transition: background-color 0.3s ease 0s;
+    text-transform: uppercase;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    border-radius: 8px;
+} 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<title>індекс маси тіла</title>
+</head>
+    <body id="body">
+        <div class="wrapper">
+           
+            <main class="block-form">
+                <div class="block-form__container">
+                    <h1 class="title">Визначити індекс маси тіла ІМТ</h1>
+                    <form action="#" class="form">
+                        <div class="row">
+                            <div class="form-row">
+                                <label for="form-weight" class="label">Введіть свою вагу у кг</label>
+                                <input id="form-weight" type="text" class="input">
+                            </div>
+                            <div class="form-row">
+                                <label for="form-height" class="label">Введіть свій зріст у сантіметрах</label>
+                                <input id="form-height" type="text" class="input">
+                            </div>
+                        </div>
+                      
+                    <div class="btn-block">
+                        <button type="button" class="button">розрахувати</button>
+                    </div>
+                        
+                    </form>
+                
+                </div>
+            
+             
+         
+            </main>
+          
+          
+        </div>
+        <!-- popup hidden -->
+        <div class="popup hidden" id="popup">
+            <div class="popup__body">
+                <div class="popup__item">
+                    <h2 class="popup__title">Увага!</h2>
+                    <div class="popup__row-text">
+                        
+                    </div>
+                    <button type="button" class="popup__btn"> ok </button>
+                </div>
+           
+       
+            </div>
+            
+        </div>
+        <!-- popup result -->
+        <div class="popup-result hidden" id="popup-result">
+            <div class="popup-result__body">
+                <div class="popup-result__item">
+                
+                    <div class="popup-result__block">
+                        <img class="popup-result__img" src="img/images.jpg" alt="images">
+                        <p class="popup-result__res"></p>
+                        <p class="popup-result__text"></p>
+                    </div>
+                    <button type="button" class="popup-result__btn"> ok </button>
+                </div>
+            </div>
+        
+        </div>
+
+
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<title> </title>
+</head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <div class="header__container">
+                    <div class="header__body">
+                        <form action="#" class="header__form form-header">
+                            <div class="form-header__line">
+                                <div class="form-header__search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                                        <g clip-path="url(#clip0_15_152)">
+                                           
+                                            <circle cx="10.5" cy="10.5" r="6.5" stroke="#000000" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.6464 20.3536C19.8417 20.5488 20.1583 20.5488 20.3536 20.3536C20.5488 20.1583 20.5488 19.8417 20.3536 19.6464L19.6464 20.3536ZM20.3536 19.6464L15.3536 14.6464L14.6464 15.3536L19.6464 20.3536L20.3536 19.6464Z"
+                                                fill="#000000" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_15_152">
+                                                <rect width="24" height="24" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                         
+                                <input id="search" placeholder="введіть іден код студента ..." type="text" name="search" class="form-header__input">
+                            </div>
+
+                                                     
+                            <button id="btn-dell" type="button" class="header__btn">видалити</button>
+                        </form>
+                    </div>
+                </div>
+            </header>
+            <main class="page">
+                <!-- кнопка додати студента -->
+                 <div class="btn-add">
+                    <button id="btn-btn" class="btn-btn" type="button">додати студента</button>
+                 </div>
+                <!-- кнопка показати всіх -->
+                <div class="show-all">
+                    <button id="btn-show-all" class="btn-show-all" type="button">показати всіх</button>
+                </div>
+                <!-- кнопка сховати всіх -->
+                <div class="show-hide-everyone">
+                    <button id="btn-show-hide-everyone" class="btn-show-hide-everyone" type="button">сховати всіх</button>
+                </div>
+                 <!-- cписок студентів -->
+                <div class="page__block-list block-list">
+                    <div class="block-list__container">
+                        <div class="block-list__body hidden">
+                            <ul class="block-list__ul">
+                                                         
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+        <!-- popup додавання студентів   -->
+        <div class="popup hidden" id="popup-addStudent">
+            <div class="popup__body">
+                <div class="popup__icon" id="popup-close-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon-cross">
+                        <path
+                            d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"
+                            fill="black" stroke-width="1" />
+                    </svg>
+                
+                </div>
+                <div class="popup__item">
+                    <div class="popup__body">
+                        <form action="#" class="popup__form form">
+                            <div class="form__line">
+                                <label for="name" class="form__label">Введіть ім'я</label>
+                                <input id="name" type="text" name="name" class="form__input">
+                            </div>
+                            <div class="form__line">
+                                <label for="last-name" class="form__label">Введіть прізвище</label>
+                                <input id="last-name"  type="text" name="last-name" class="form__input">
+                            </div>
+                            <div class="form__line">
+                                <label for="age" class="form__label">Введіть вік</label>
+                                <input id="age" type="text" name="age" class="form__input">
+                            </div>
+                            <div class="form__line">
+                                <label for="number-id" class="form__label">Введіть ідентифікаційний номер</label>
+                                <input id="number-id" type="text" name="number-id" class="form__input">
+                            </div>
+                            <div class="form__line">
+                                <label for="average-score" class="form__label">Введіть середній бал</label>
+                                <input id="average-score" type="text" name="average-score" class="form__input">
+                            </div>
+                            <button id="btn-add" type="button" class="popup__btn">додати</button>
+                        </form>
+                    </div>
+                </div>
+        
+        
+            </div>
+        
+        </div>
+        <!-- попап попередження, помилки при заповненні форми додавання студентів -->
+        <div class="popup-warn hidden">
+            <div class="popup-warn__body">
+                <div class="popup-warn__item">
+                    <div class="popup-warn__content">
+                        <h2 class="popup-warn__title">Увага !!!</h2>
+                        <p class="popup-warn__text"></p>
+                        <button type="button" class="popup-warn__btn"> ok </button>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+       
+        <script type="module" src="js/main.js"></script>
+    </body>
+</html>

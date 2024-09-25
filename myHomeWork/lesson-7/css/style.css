@@ -1,0 +1,302 @@
+/*---------------------- header ---------------------------- */
+.header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.header__container {}
+
+.header__body {
+   background-color: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.header__form {}
+
+.form-header {
+    display: flex;
+}
+
+.form-header__line {
+    display: flex;
+    flex: 1 1 auto;
+    position: relative;
+}
+
+.form-header__search {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(0, -50%);
+}
+
+.form-header__input {
+    height: 40px;
+    width: 100%;
+    border-top: #cccaca 2px solid;
+    border-left: #cccaca 2px solid;
+    border-bottom: #cccaca 2px solid;
+    border-radius: 6px 0 0 6px;
+
+    font-size: 25px;
+    padding-left: 40px;
+    
+}
+.form-header__input::placeholder{
+    font-size: 16px;
+    color: #e1e0e0;
+}
+.form-header__input:focus {
+
+    border-top: #e1d4d4 4px solid;
+    border-left: #e1d4d4 4px solid;
+    border-bottom: #e1d4d4 4px solid;
+}
+
+.header__btn {
+    padding: 2px 15px 2px;
+    line-height: 1.05;
+    font-size: 18px;
+    border-radius: 0px 6px 6px 0px;
+    background-color: #eee;
+    transition: background-color 0.3s ease 0s;
+}
+.header__btn:hover {
+    background-color: #d7d3d3;
+}
+/*-------------------- кнопка додати студента --------------*/
+.btn-add {
+    position: fixed;
+    top: 65%;
+    right: 15%;
+    z-index: 80;
+}
+
+.btn-btn {
+    color: black;
+    font-size: 16px;
+    padding: 5px 12px 4px;
+    background-color: #eee;
+    border-radius: 6px;
+    transition: background-color 0.3s ease 0s;
+}
+.btn-btn:hover {
+    background-color: #d7d3d3;
+}
+/*------------------- кнопка показати всех ------------------ */
+.show-all {
+    position: fixed;
+    top: 75%;
+    right: 15%;
+    z-index: 80;
+}
+
+.btn-show-all {
+    color: black;
+    font-size: 16px;
+    padding: 5px 12px 4px;
+    background-color: #eee;
+    border-radius: 6px;
+    transition: background-color 0.3s ease 0s;
+}
+.btn-show-all:hover {
+    background-color: #d7d3d3;
+}
+/*------------------- кнопка сховати всіх -------------------*/
+.show-hide-everyone {
+    position: fixed;
+    top: 85%;
+    right: 15%;
+    z-index: 80;
+}
+
+.btn-show-hide-everyone {
+    color: black;
+    font-size: 16px;
+    padding: 5px 12px 4px;
+    background-color: #eee;
+    border-radius: 6px;
+    transition: background-color 0.3s ease 0s;
+}
+.btn-show-hide-everyone:hover {
+    background-color: #d7d3d3;
+}
+/*------------------- block-list ----------------------------*/
+
+.page__block-list {}
+
+.block-list__body {
+    margin-top: 90px;
+    padding: 20px;
+    background-color: #fbf8f8;
+    border-radius: 8px;
+    /* height: 400px;
+    overflow: auto; */
+}
+
+.block-list__ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.block-list__item {
+    font-size: 18px;
+}
+
+/*----------------------------------------  popup ------------------------------------------ */
+.popup {
+    background: #f8f1f9d4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+.hidden {
+    display: none;
+}
+
+.popup__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.popup__icon{
+    cursor: pointer;
+    position: fixed;
+    top: 20%;
+    right: 15%;
+   
+}
+.icon-cross {
+    transform: rotate(45deg);
+    width: 25px;
+    height: 25px;
+}
+
+.popup__item {
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    border-radius: 8px;
+    border: 2px solid #bcbaba;
+    padding: 25px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.form__line {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form__label {
+    font-size: 15px;
+    line-height: 1.05;
+}
+
+.form__input {
+    height: 35px;
+    border-radius: 8px;
+    border: #8e8d8d 2px solid;
+    padding-left: 10px;
+    padding-right: 5px;
+    font-size: 20px;
+}
+.form__input:focus {
+    border: #e1d4d4 2px solid;
+}
+
+.popup__btn {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 16px;
+    background-color: #e1e0e0;
+    transition: background-color 0.3s ease 0s;
+    text-transform: uppercase;
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+.popup__btn:hover {
+    background-color: #cccaca;
+}
+
+
+/*----------------------------- блокирую скрол -------------------------*/
+.no-scroll {
+    overflow: hidden;
+}
+
+/*----------------------------- popup-warn --------------------------- */
+.popup-warn {
+    background: #f8f1f9d4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.popup-warn__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.popup-warn__item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    border-radius: 8px;
+    border: 2px solid #bcbaba;
+    padding: 25px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.popup-warn__content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+}
+
+.popup-warn__title {
+    font-size: 16px;
+}
+
+.popup-warn__text {
+    font-size: 20px;
+    max-width: 400px;
+}
+
+.popup-warn__btn {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 16px;
+    background-color: #e1e0e0;
+    transition: background-color 0.3s ease 0s;
+    text-transform: uppercase;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.popup-warn__btn:hover {
+    background-color: #cccaca;
+}

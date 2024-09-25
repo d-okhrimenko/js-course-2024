@@ -1,0 +1,102 @@
+ <!DOCTYPE html>
+ <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/null.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title> масивы </title>
+    </head>
+    <body>
+        <div class="wrapper">
+           
+                <header class="header">
+                       
+                </header>
+                <main class="page">
+                    <div class="page__item item">
+                        <div class="item__container">
+                            <div class="item__body">
+                                <div class="item__elem">
+                                    <div class="item__name">Студентов С.С.</div>
+                                    <ul class="item__points">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page__action action">
+                        <div class="action__container">
+                            <div class="action__body">
+                                <div class="action__row">
+                                    <button id="add-btn" class="action__btn" type="button">додати бал</button>
+                                    <button id="average-score" class="action__btn" type="button">середній бал</button>
+                                    <button id="max-score" class="action__btn" type="button">найвищий бал</button>
+                                    <button id="min-score" class="action__btn" type="button">найнижчий бал</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+              
+    
+                
+
+        </div>
+        <!-- popup ввести бал  -->
+        <div class="popup hidden" id="popup-add-points">
+            <div class="popup__icon" id="popup-close-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon-cross">
+                    <path
+                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"
+                        fill="#fa8a52" stroke-width="1" />
+                </svg>
+            
+            </div>
+            <div class="popup__body">
+                <div class="popup__item">
+                    <form action="#" class="popup__form">
+                        <div class="popup__line">
+                            <label for="points" class="popup__label">Введіть бал</label>
+                            <input id="points"  type="text" name="points" class="popup__input">
+                        </div>
+                        <button type="button" class="popup__btn"> ok </button>
+                    </form>
+                </div>
+            </div>
+        
+        </div>
+        <!-- popup показати  середний бал найвищий бал найнижчий бал -->
+        <div class="popup-result hidden" id="popup-template" type="x-tmpl-mustache">
+            <div class="popup-result__body">
+                <div class="popup-result__item">
+                    <div class="popup-result__content">
+                        <h2 class="popup-result__title">{{title}}</h2>
+                        <p class="popup-result__text">{{message}}</p>
+                        <button type="button" class="popup-result__btn"> ok </button>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    
+
+     <!-- Ваш середній бал -->
+      <!-- склав: -->
+
+    <!-- Ваш найвищій бал -->
+    <!-- склав: -->
+        
+    <!-- Ваш найнижчій бал -->
+    <!-- склав: -->
+                  
+
+        
+        <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
+        <script type="module" src="js/main.js"></script>
+   
+        
+    
+    </body>
+ </html>
