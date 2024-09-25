@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Wether App</title>
+    <link href="https://fonts.googleapis.com/css?family=Fontdiner Swanky" rel="stylesheet" />
+    <link rel="stylesheet" href="css-11/task.css" />
+    <script type="module" src="scripts-11/script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>The Wether App</h1>
+      <div class="app">
+        <div class="interface">
+          <div class="input">
+            <label for="city">Enter city name </label>
+            <input type="text" id="city" name="city" maxlength="40" />
+          </div>
+          <div class="input">
+            <label for="lat">Latitude</label>
+            <input type="text" id="lat" name="lat" maxlength="10" />
+          </div>
+          <div class="input">
+            <label for="lat">Longitude</label>
+            <input type="text" id="lon" name="lon" maxlength="10" />
+          </div>
+          <div class="buttons">
+            <button class="btn" id="use-city">Use City Name</button>
+            <button class="btn" id="use-coords">Use Coords</button>
+            <button class="btn" id="use-current">Use Current Location</button>
+          </div>
+        </div>
+        <div class="output" id="output">
+          <!-- <template id="template">
+            <section class="weather">
+              <p>City: <span class="city">{{city}}</span></p>
+              <p>Temperature: <span class="temp">{{temperature}}</span></p>
+              <p>Description: <span class="description">{{description}}</span></p>
+            </section>
+          </template> -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
