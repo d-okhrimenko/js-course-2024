@@ -18,7 +18,7 @@ function handleClick(e) {
     })
     .then((data) => {
       const weatherInfo = `
-                <h2>Погода у місті: ${data.name}</h2>
+                <h2>Погода у місті: ${city}</h2>
                 <p class="temp">Температура: ${data.main.temp} °C</p>
                 <p class="feels_like">Відчувається як: ${data.main.feels_like} °C</p>
                 <p class="pressure">Атмосферний тиск: ${data.main.pressure} гПа</p>
