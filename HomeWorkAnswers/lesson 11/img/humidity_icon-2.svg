@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+style="fill: #ffffff"
+   height="32"
+   id="icon"
+   viewBox="0 0 32 32"
+   width="32"
+   version="1.1"
+   sodipodi:docname="humidity_icon-2.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="22.46875"
+     inkscape:cx="16"
+     inkscape:cy="16"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="icon" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <title
+     id="title6" />
+  <g
+     id="g833"
+     transform="matrix(1.279995,0,0,1.279995,-4.47992,-3.839859)"
+     style="stroke-width:0.781253">
+    <path
+       d="m 16,24 v -2 a 3.2965,3.2965 0 0 0 3,-3 h 2 a 5.2668,5.2668 0 0 1 -5,5 z"
+       id="path8"
+       style="stroke-width:0.781253" />
+    <path
+       d="M 16,28 A 9.0114,9.0114 0 0 1 7,19 9.9843,9.9843 0 0 1 8.4941,14.0446 L 15.1528,3.4367 a 1.04,1.04 0 0 1 1.6944,0 l 6.6289,10.5564 A 10.0633,10.0633 0 0 1 25,19 9.0114,9.0114 0 0 1 16,28 Z M 16,5.8483 10.2183,15.0562 A 7.9771,7.9771 0 0 0 9,19 7,7 0 0 0 23,19 8.0615,8.0615 0 0 0 21.752,15.0047 Z"
+       id="path10"
+       style="stroke-width:0.781253" />
+  </g>
+  <rect
+     class="cls-1"
+     data-name="&lt;Transparent Rectangle&gt;"
+     height="32"
+     id="_Transparent_Rectangle_"
+     width="32" />
+</svg>

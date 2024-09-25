@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather app</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="weather-app">
+      <form action="" class="weather-form">
+        <div>
+          <img
+            src="img/geo_icon.svg"
+            alt="location-icon"
+            class="location-icon"
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            name="city-name"
+            id="city-name"
+            class="weather-form-input"
+            placeholder="Enter Your city..."
+            size="15"
+          />
+        </div>
+        <div>
+          <button type="submit" id="weather-btn" class="weather-btn">
+            <img src="img/search_icon.svg" alt="search" />
+          </button>
+        </div>
+      </form>
+      <div class="error none">Error</div>
+      <div class="weather-info-wrap none">
+        <section class="weather-info">
+          <div class="weather-icon">
+            <img
+              src="https://openweathermap.org/img/wn/10d@4x.png"
+              alt="weather icon"
+            />
+            <div class="test"></div>
+          </div>
+          <div class="weather-temp">25°<span>C</span></div>
+          <div class="weather-descr">Rainy</div>
+          <div class="weather-time">10 Sep 2024</div>
+          <div class="weather-city">Kyiv<span>UA</span></div>
+        </section>
+
+        <section class="weather-detail">
+          <div class="weather-detail-item">
+            <img src="img/humidity_icon-2.svg" alt="humidity icon" />
+            <div>
+              <div class="weather-detail-item-value" id="humidity">0</div>
+              <div class="weather-detail-item-title">Humidity</div>
+            </div>
+          </div>
+          <div class="weather-detail-item">
+            <img src="img/wind_icon.svg" alt="wind-icon" />
+            <div>
+              <div class="weather-detail-item-value" id="wind">0</div>
+              <div class="weather-detail-item-title">Wind speed</div>
+            </div>
+          </div>
+        </section>
+        <section class="weather-detail footer">
+          <div class="weather-detail-item">
+            <div class="weather-detail-item-title">Sunrise</div>
+            <div class="weather-detail-item-value" id="sunrise">0</div>
+          </div>
+          <div class="weather-detail-item">
+            <div class="weather-detail-item-title">Sunset</div>
+            <div class="weather-detail-item-value" id="sunset">0</div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>
