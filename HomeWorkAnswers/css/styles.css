@@ -1,0 +1,46 @@
+.bookItem {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  background-color: bisque;
+}
+
+#bookList div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+
+#addBookForm {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  align-items: end;
+  gap: 4px;
+  background-color: blanchedalmond;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+#addBookForm label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.error {
+  display: none;
+  color: red;
+}
+
+.valid {
+  border: 1px solid lightgreen;
+}
+
+.invalid {
+  border: 1px solid lightcoral;
+}

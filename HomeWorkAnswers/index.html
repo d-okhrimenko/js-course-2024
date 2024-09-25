@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITVDN. HomeWork-10</title>
+    <link href="./css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h2>Додати нову книгу</h2>
+    <form id="addBookForm">
+      <label for="bookTitleInput">
+        <span>Назва книги:</span>
+        <input type="text" name="title" id="bookTitleInput" placeholder="Портрет Доріана Грея" required />
+        <span id="js-titleError" class="error"></span>
+      </label>
+      <label for="bookAuthorInput">
+        <span>Автор:</span>
+        <input type="text" name="author" id="bookAuthorInput" placeholder="Оскар Уайльд" required />
+      </label>
+      <label for="bookYearInput">
+        <span>Рік видання:</span>
+        <input type="number" name="year" id="bookYearInput" placeholder="1890" min="1450" required />
+      </label>
+      <label for="bookGenreInput">
+        <span>Жанр:</span>
+        <input type="text" name="genre" id="bookGenreInput" placeholder="Готичний роман" required />
+      </label>
+      <button type="submit">Зберегти</button>
+    </form>
+
+    <h2>Список книг у бібліотеці</h2>
+    <div id="bookList"></div>
+
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+  </body>
+</html>
