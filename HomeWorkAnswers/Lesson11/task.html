@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <form id="weatherForm">
+    <div>
+      <label for="">Назва міста</label>
+      <p>
+        <input type="text" id="cityInput">
+        <span class="error" id="cityError">Вкажіть назву міста</span>
+      </p>
+    </div>
+    <button type="button" onclick="weatherRequest()">Погода</button>
+  </form>
+
+  <div id="weatherResult"></div>
+  </div>
+
+  <script>
+    const cityInput = document.getElementById('cityInput');
+    const weatherResult = document.getElementById('weatherResult')
+    const apiKey = 'ebe8a3d67e9135d40f8e71b6a34597ee';
+    
+    function weatherRequest(e) {
+      validateElement(cityInput, "#cityError")
+
+      let invalidElements = document.querySelectorAll(".invalid");
+      if (invalidElements.length > 0) {
+          return;
+      }
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=metric&lang=ua`;
+      requestAPI(apiUrl);
+    };
+
+    function validateElement(element, errorElementSelector) {    
+      let errorElement = document.querySelector(errorElementSelector);
+
+      element.classList.remove("valid");
+      element.classList.remove("invalid");
+      errorElement.style.display = "none";
+
+      if (element.value.length > 0) {
+        element.classList.add("valid");
+      }
+      else {
+        element.classList.add("invalid");
+        errorElement.style.display = "inline";
+      }
+    }
+
+    // Використання fetch для запиту до API
+    function requestAPI(apiUrl) {
+      fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Місто не знайдено або проблема з сервером');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const weatherInfo = `
+                <h2>Погода у місті: ${data.name}</h2>
+                <p>Температура: ${data.main.temp} °C</p>
+                <p>Опис: ${data.weather[0].description}</p>
+            `;
+            weatherResult.innerHTML = weatherInfo;
+        })
+        .catch(error => {
+          weatherResult.innerHTML = `<p>${error.message}</p>`;
+        });
+    }  
+  </script>
+</body>
+</html>
