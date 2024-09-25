@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+    <script>
+        let marks = []; //creating an empty array
+        // asking user to enter marks
+         let numOfMarks = parseInt(prompt('Please enter the number of marks you want to add'));
+         for (let m = 0; m < numOfMarks; m++){
+            let mark = parseInt(prompt('Enter mark(s)' + (m + 1)));
+            marks.push(mark);
+                     }
+    //calculating average mark
+    function calculateAverage (marks){
+        let sum = marks.reduce((acc, mark) => acc + mark,0);
+        return sum /marks.length;
+    }
+    // finding highest mark
+    function findHighestMark (marks){
+        return Math.max (...marks);
+    }
+    // finding lowest mark
+    function findLowestMark (marks){
+        return Math.min (...marks);
+    }
+    //assigning avarage, max and min
+    let avgMark = calculateAverage(marks);
+    let maxMark = findHighestMark (marks);
+    let minMark = findLowestMark (marks);
+
+    alert('Average mark is' + '' + avgMark );
+    alert('The lowest mark is' + '' + minMark );
+    alert('The highest mark is' + '' + maxMark );
+
+    </script>
+    </body>
+</html>
