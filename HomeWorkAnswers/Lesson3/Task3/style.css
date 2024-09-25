@@ -1,0 +1,21 @@
+body{
+  background-color: antiquewhite;
+}
+.wrapper {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px 20px;
+  background-color: aquamarine;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px 5px rgba(233, 72, 118, 0.5);
+}
+#btn{
+  padding: 10px;
+  font-weight: 700;
+  border-radius: 25px;
+  background-color: rgb(11, 47, 77);
+  color: #f0b6f0;
+}
+.block {
+  font-size: 24px;
+}

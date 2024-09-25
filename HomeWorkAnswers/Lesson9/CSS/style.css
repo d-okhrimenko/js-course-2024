@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.5em;
+  background-color: blanchedalmond;
+}
+a {
+  text-decoration: none;
+  font-weight: 700;
+}
+h1,
+h2 {
+  text-align: center;
+}
+fieldset {
+  max-width: 1200px;
+  margin: 10px auto;
+}
+#added{
+  padding: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: grey;
+  color: aliceblue;
+  font-size: 0.75em;
+}
+#added:hover{
+background-color: blue;
+color: yellow;
+}
+#bookList {
+  max-width: 1200px;
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 20px;
+}
+.book__box {
+  width: 550px;
+  border: 1px solid pink;
+  background-color: azure;
+  border-radius: 15px;
+}
+/* .booc__box:not(:last-child){
+  margin-bottom: 30px;
+} */

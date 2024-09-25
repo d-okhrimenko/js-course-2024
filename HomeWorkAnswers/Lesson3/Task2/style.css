@@ -1,0 +1,17 @@
+
+.wrapper {
+  max-width: 600px;
+  height: 300px;
+  margin: 50px auto;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+.block {
+  font-size: 25px;
+}
+.block span{
+  font-weight: 700;
+  color: rgb(9, 217, 224);
+}

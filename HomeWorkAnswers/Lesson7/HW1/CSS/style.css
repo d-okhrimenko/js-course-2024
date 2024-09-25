@@ -1,0 +1,13 @@
+body {
+  background-color: rgb(80, 237, 237);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1 {
+  text-align: center;
+}
+p {
+  max-width: 800px;
+  margin: 20px auto;
+}
