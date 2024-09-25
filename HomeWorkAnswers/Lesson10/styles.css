@@ -1,0 +1,89 @@
+/* основні стилі */
+body {
+    background-color: #ccdbdc;
+}
+
+img {
+    margin: 5px 2px;
+    width: 150px;
+}
+
+/* секція книги */
+.book {
+    background-color: #2e294e;
+    color: #c5d86d;
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius: 4px;
+}
+
+.container-book {
+    display: flex;
+}
+
+.left-column-container-book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-column-container-book {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+.right-column-container-book {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-left: auto;
+}
+
+.row {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+
+/* форма */
+#bookForm {
+    background-color: rgb(238, 203, 233); 
+    border-radius: 4px;
+    margin: 2px;
+}
+
+#bookForm label {
+    display: inline-block;
+    width: 100px;
+    padding: 10px;
+}
+
+#bookForm input {
+    width: 240px;
+}
+
+.btn-submit {
+    margin-bottom: 10px;
+    margin-left: 10px;   
+}
+
+/* кнопки редагування та видалення */
+button.btn {
+    margin-left: 5px;
+}
+
+button.btn-active {
+    color: white;
+    background-color: rgb(235, 94, 38);
+}
+
+/* валідація форми */
+.invalid {
+    border: 2px solid rgb(255, 2, 141);
+}
+
+.valid {
+    border: 2px solid rgb(58, 228, 95);
+}
