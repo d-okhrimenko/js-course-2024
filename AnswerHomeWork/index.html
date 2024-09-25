@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Homework-11</title>
+  </head>
+  <body>
+    <main>
+      <section class="container">
+        <h1 class="title">Отримай погоду зараз</h1>
+        <form class="form" id="getWeather">
+          <div class="mb-3">
+            <label for="cityInput" class="form-label"
+              >Вкажіть назву міста</label
+            >
+            <input type="text" class="form-control" id="cityInput" />
+          </div>
+          <button type="submit" class="btn btn-primary">Отримати погоду</button>
+        </form>
+        <div id="weatherResult" class="weatherContainer"></div>
+      </section>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>
