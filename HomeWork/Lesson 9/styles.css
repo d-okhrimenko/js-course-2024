@@ -1,0 +1,28 @@
+.book {
+  background-color: lightblue;
+  height: 200px;
+  width: 25%;
+  padding: 20px;
+  margin: 30px 475px;
+  border-radius: 20px;
+}
+
+h2 {
+  color: rgb(50, 58, 182);
+}
+
+#bookForm {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+}
+
+#bookForm label {
+  display: inline-block;
+  width: 100px;
+}
+
+#bookForm div {
+  color: rgb(50, 58, 182);
+  margin-bottom: 10px;
+}
