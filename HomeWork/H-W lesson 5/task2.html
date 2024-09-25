@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		function calculateCircle(radius) {
+			const pi = Math.PI;
+			const area = pi * Math.pow(radius, 2);
+			const perimeter = 2 * pi * radius;
+			return { area, perimeter };
+		}
+
+		function calculateRectangle(length, width) {
+			const area = length * width;
+			const perimeter = 2 * (length + width);
+			return { area, perimeter };
+		}
+
+		function calculateTriangle(a, b, c) {
+			const p = (a + b + c) / 2;
+			const area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+			const perimeter = a + b + c;
+			return { area, perimeter };
+		}
+
+		const shape = prompt("Введіть тип фігури (коло, прямокутник, трикутник):").toLowerCase();
+
+		let result;
+
+		switch (shape) {
+			case 'коло':
+				const radius = parseFloat(prompt("Введіть радіус кола:"));
+				if (!isNaN(radius) && radius > 0) {
+					result = calculateCircle(radius);
+					alert(`Площа кола: ${result.area.toFixed(2)}\nПериметр кола: ${result.perimeter.toFixed(2)}`);
+				} else {
+					alert("Невірний радіус.");
+				}
+				break;
+
+			case 'прямокутник':
+				const length = parseFloat(prompt("Введіть довжину прямокутника:"));
+				const width = parseFloat(prompt("Введіть ширину прямокутника:"));
+				if (!isNaN(length) && length > 0 && !isNaN(width) && width > 0) {
+					result = calculateRectangle(length, width);
+					alert(`Площа прямокутника: ${result.area.toFixed(2)}\nПериметр прямокутника: ${result.perimeter.toFixed(2)}`);
+				} else {
+					alert("Невірні довжина або ширина.");
+				}
+				break;
+
+			case 'трикутник':
+				const sideA = parseFloat(prompt("Введіть довжину першої сторони трикутника:"));
+				const sideB = parseFloat(prompt("Введіть довжину другої сторони трикутника:"));
+				const sideC = parseFloat(prompt("Введіть довжину третьої сторони трикутника:"));
+				if (!isNaN(sideA) && sideA > 0 && !isNaN(sideB) && sideB > 0 && !isNaN(sideC) && sideC > 0) {
+					result = calculateTriangle(sideA, sideB, sideC);
+					if (isNaN(result.area) || result.area <= 0) {
+						alert("Неможливо утворити трикутник з такими сторонами.");
+					} else {
+						alert(`Площа трикутника: ${result.area.toFixed(2)}\nПериметр трикутника: ${result.perimeter.toFixed(2)}`);
+					}
+				} else {
+					alert("Невірні довжини сторін.");
+				}
+				break;
+
+			default:
+				alert("Невірний тип фігури.");
+				break;
+		}
+
+	</script>
+</body>
+
+</html>
