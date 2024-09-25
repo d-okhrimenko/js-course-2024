@@ -70,6 +70,7 @@
       },
       update(id, book) {
           let index = this.findIndex(id);
+          book.id = id;
           this.books[index] = book;
       },
       find(id) {
