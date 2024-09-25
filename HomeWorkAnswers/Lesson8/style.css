@@ -9,7 +9,8 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: rgb(250, 181, 153)
+    background-color: rgb(250, 181, 153);
+    padding: 1em;
 }
 .book {
     background-color: lightgoldenrodyellow;
