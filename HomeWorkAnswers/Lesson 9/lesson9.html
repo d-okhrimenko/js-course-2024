@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./lesson9.css" />
+    <title>Homework 9</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Books</h1>
+
+      <button class="add-book-button">Додати Книгу</button>
+
+      <ul id="books-list" class="books-list"></ul>
+
+      <div id="add-book-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h2>Додати Книгу</h2>
+          <form id="add-book-form">
+            <div class="form-content">
+              <input type="text" id="title" required />
+              <input type="text" id="author" required />
+              <input type="number" id="year" required />
+              <input type="text" id="genre" required />
+              <button type="submit" class="confirm-add-button">Додати</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="edit-book-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h2>Редагувати Книгу</h2>
+          <form id="edit-book-form">
+            <div class="form-content">
+              <input type="text" id="edit-title" required />
+              <input type="text" id="edit-author" required />
+              <input type="number" id="edit-year" required />
+              <input type="text" id="edit-genre" required />
+              <button type="submit" class="confirm-edit-button">
+                Зберегти
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="delete-confirm-modal" class="modal">
+        <div class="modal-content">
+          <h2>Підтвердіть видалення</h2>
+          <div class="delete-modal-buttons">
+            <button class="confirm-deletion-button">Підтвердити</button>
+            <button class="abort-deletion-button">Скасувати</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./lesson9.js"></script>
+  </body>
+</html>
