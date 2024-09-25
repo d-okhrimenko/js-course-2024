@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бібліотека</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <form id="bookForm">
+    <div>
+      <label for="">Назва</label>
+      <p>
+        <input type="text" id="titleInput">
+        <span class="error" id="titleError">Вкажіть назву</span>
+      </p>
+    </div>
+    <div>
+      <label for="">Автор</label>
+      <p>
+        <input type="text" id="authorInput">
+        <span class="error" id="authorError">Вкажіть автора</span>
+      </p>
+    </div>
+    <div>
+      <label for="">Рік видання</label>
+      <p>
+        <input type="number" min="1450" id="yearInput">
+        <span class="error" id="yearError">Вкажіть рік</span>
+      </p>
+    </div>
+    <div>
+      <label for="">Жанр</label>
+      <p>
+        <input type="text" id="genreInput">
+        <span class="error" id="genreError">Вкажіть жанр</span>
+      </p>
+    </div>
+    <button type="submit">Зберегти</button>
+  </form>
+
+  <div id="books-list">
+  </div>
+
+  <script>
+    const parametersBook = new Map([
+      ['title', "Назва"],
+      ['author', 'Автор'],
+      ['year', 'Рік видання'], 
+      ['genre', 'Жанр']
+    ]);
+
+    const library = {
+      books: [
+        { id: 1, title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+        { id: 2, title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
+        { id: 3, title: "Гра престолів", author: "Джордж Р. Р. Мартін", year: 1996, genre: "Фентезі" },
+        { id: 4, title: "Старий і море", author: "Ернест Хемінгуей", year: 1952, genre: "Пригодницький роман" },
+        { id: 5, title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+      ],
+      lastId: 5,
+      add(book) {
+          this.lastId++;
+          book.id = this.lastId;
+          this.books.push(book);
+      },
+      remove(id) {
+          let index = this.findIndex(id);
+          this.books.splice(index, 1);
+      },
+      update(id, book) {
+          let index = this.findIndex(id);
+          this.books[index] = book;
+      },
+      find(id) {
+          let index = this.findIndex(id);
+          return this.books[index];
+      },
+      findIndex(id) {
+        return this.books.findIndex(x => x.id == id);
+      }
+    }
+    
+    const bookForm = document.querySelector("#bookForm");
+    const bookList = document.querySelector('#books-list');
+
+    // inputs
+    const titleInput = document.querySelector("#titleInput");
+    titleInput.addEventListener("change", function() {
+      validateElement(titleInput, "#titleError")
+    });
+
+    const authorInput = document.querySelector("#authorInput");
+    authorInput.addEventListener("change", function() {
+      validateElement(authorInput, "#authorError")
+    });
+
+    const yearInput = document.querySelector("#yearInput");
+    yearInput.addEventListener("change", function() {
+      validateElement(yearInput, "#yearError")
+    });
+    yearInput.setAttribute("max", new Date().getFullYear());
+
+    const genreInput = document.querySelector("#genreInput");
+    genreInput.addEventListener("change", function() {
+      validateElement(genreInput, "#genreError")
+    });
+
+    let editId = null;
+     
+    function validateElement(element, errorElementSelector) {
+      
+      let errorElement = document.querySelector(errorElementSelector);
+
+      element.classList.remove("valid");
+      element.classList.remove("invalid");
+      errorElement.style.display = "none";
+
+      if (element.value.length > 0) {
+        if(element.id === 'titleInput') {
+          let findBook = library.books.find((book) => {
+            return book.title === element.value;
+          })
+          if(findBook) {
+            element.classList.add("invalid");
+            errorElement.style.display = "inline";
+            errorElement.innerHTML = 'Tака книга вже є!';
+            return;
+          }
+        }
+        element.classList.add("valid");
+      }
+      else {
+        element.classList.add("invalid");
+        errorElement.style.display = "inline";
+        if(element.id === 'titleInput') {
+          errorElement.innerHTML = 'Вкажіть назву';  
+        }
+      }
+    }
+
+    bookForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      validateElement(titleInput, "#titleError")
+      validateElement(authorInput, "#authorError")
+      validateElement(yearInput, "#yearError")
+      validateElement(genreInput, "#genreError")
+
+      let invalidElements = document.querySelectorAll(".invalid");
+      if (invalidElements.length > 0) {
+          return;
+      }
+
+      let book = {
+        title: titleInput.value,
+        author: authorInput.value,
+        year: yearInput.value,
+        genre: genreInput.value
+      };
+
+      if (editId == null) {
+        library.add(book);
+      } else {
+        library.update(editId, book);
+          editId = null;
+      };
+      
+      titleInput.value = '';
+      authorInput.value = '';
+      yearInput.value = '';
+      genreInput.value = '';
+
+      displayBookList();
+    });
+
+    function displayBookList() {
+      if (bookList.hasChildNodes()) {
+        while (bookList.firstChild) {
+          bookList.removeChild(bookList.firstChild);
+        }
+      };
+      library.books.forEach((book) => {
+        let div = document.createElement("div");
+        div.classList.add('book');
+        parametersBook.forEach((value, name) => {
+          let p = document.createElement("p");
+          p.textContent = `${value}: ${book[name]}`;
+          div.appendChild(p);
+        });
+        div.insertAdjacentHTML("beforeend", `<button onclick="edit(${book.id})">Редагувати</button><button onclick="remove(${book.id})">Видалити</button>`);
+        bookList.insertAdjacentElement("beforeend", div);
+      })
+    };
+
+    function remove(id) {
+      library.remove(id);
+      displayBookList();
+    }
+
+    function edit(id) {
+      const boook = library.find(id);
+      editId = boook.id;
+      titleInput.value = boook.title;
+      authorInput.value = boook.author;
+      yearInput.value = boook.year;
+      genreInput.value = boook.genre;
+    }
+
+    displayBookList();
+  </script>
+</body>
+</html>
