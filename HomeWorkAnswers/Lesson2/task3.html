@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="output">Hello</p>
+    <button id="btn">Скажи привіт</button>
+    <script>
+      document.querySelector("#btn").onclick = function () {
+        // alert("hello");
+        // document.querySelector("#output").innerHTML = "Привіт, Наталія!";
+        // document.querySelector("#output").style.color = "red";
+
+        let output = document.querySelector("#output");
+        output.innerHTML = "Привіт, Наталія!";
+        output.style.color = "red";
+      };
+    </script>
+  </body>
+</html>

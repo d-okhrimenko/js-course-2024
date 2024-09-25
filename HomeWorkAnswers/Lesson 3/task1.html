@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let value1 = prompt("Введіть число");
+
+      value1 = Number(value1);
+
+      if (isNaN(value1)) {
+        alert("Введене значення не є числом");
+      } else {
+        if (!Number.isInteger(value1)) {
+          alert("Введене значення не є цілим числом");
+        } else {
+          if (value1 % 2 === 0) {
+            alert("Число є парним");
+          } else {
+            alert("Число є непарним");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
