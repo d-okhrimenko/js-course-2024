@@ -1,5 +1,10 @@
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
 h1 {
-  font-size: 24px;
+  font-size: 22px;
   margin: 20px 20px;
 }
 
@@ -16,12 +21,17 @@ h2 {
 }
 
 .button {
+  font-size: 14px;
   margin-top: 20px;
   width: 150px;
   border: none;
   border-radius: 10px;
   padding: 10px 10px;
   background-color: #a4cab1;
+}
+
+.button:hover {
+  background-color: #77a589;
 }
 
 .button:active {
