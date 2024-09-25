@@ -1,0 +1,75 @@
+body {
+    background-color: #f4f4f4;
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 20px;
+    margin: 20px;
+    border: solid 2px;
+    border-radius: 15px;
+}
+
+h2 {
+    margin-top: 0px;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.nav div:first-child {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+#city {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+#serchBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: solid 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#serchBtn:hover {
+    background-color: #9b9b9ba7;
+}
+
+#forecast {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+#forecast:empty {
+    display: none;
+}
+
+#forecast h3,
+#forecast p {
+    margin: 10px 0;
+}
