@@ -1,5 +1,5 @@
 let library = {
-    bookIsCounter:  5,
+    bookIsCounter: 5,
     books: [
         { id: 0, title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
         { id: 1, title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
@@ -14,19 +14,27 @@ let library = {
     },
 
     remove(bookId) {
-        let index = this.books.findIndex(x => x.id == bookId);
+        let index = this.books.findIndex(book => book.id == bookId);
         this.books.splice(index, 1);
     },
 
     update(bookId, book) {
-        let index = this.books.findIndex(x => x.id == bookId);
+        let index = this.books.findIndex(book => book.id == bookId);
         this.books[index] = book;
     },
 
     find(bookId) {
-        let index = this.books.findIndex(x => x.id == bookId);
+        let index = this.books.findIndex(book => book.id == bookId);
         return this.books[index];
     },
+
+    checkTitleUnique(title) {
+        let index = this.books.findIndex(book => book.title == title);
+        if (index > -1)
+            return false
+        else
+            return true
+    }
 }
 
 let libraryUI = {
@@ -73,31 +81,27 @@ const bookFormClearBtn = document.querySelector("#bookForm-del");
 
 bookForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    
+
+    let book = {
+        title: titleInput.value,
+        author: authorInput.value,
+        year: yearInput.value,
+        genre: genreInput.value,
+    };
+
     switch (e.submitter) {
         case bookFormCreateBtn:
-            let book = {
-                title: titleInput.value,
-                author: authorInput.value,
-                year: yearInput.value,
-                genre: genreInput.value,
-            };
-        
+            if (!validateFormForNew())
+                break;
+
             library.add(book);
-        
+
             render();
             break;
 
         case bookFormUpdateBtn:
-            let book2 = {
-                title: titleInput.value,
-                author: authorInput.value,
-                year: yearInput.value,
-                genre: genreInput.value,
-            };
-        
-            library.update(bookIdHidden.value, book2);
-            
+            library.update(bookIdHidden.value, book);
+
             render();
             break;
 
@@ -109,9 +113,7 @@ bookForm.addEventListener("submit", function (e) {
             genreInput.value = "";
             bookFormUpdateBtn.setAttribute("disabled", "disabled");
             break;
-    }ж
-
-    
+    };
 });
 
 function remove(id) {
@@ -129,6 +131,18 @@ function edit(id) {
     genreInput.value = book.genre;
 
     bookFormUpdateBtn.removeAttribute("disabled");
+}
+
+
+function validateFormForNew() {
+    console.log(titleInput.value);
+    if (library.checkTitleUnique(titleInput.value)) {
+        return true;
+    }
+    else {
+        alert("Книга з такою назвою вже є!");
+        return false;
+    }
 }
 
 render();
