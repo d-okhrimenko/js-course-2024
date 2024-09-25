@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson8</title>
+    <title>Lesson10</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -21,10 +21,10 @@
     </script>   
 
      <form action="" id="bookForm">
-        <div><label for="title">Title</label><input type="text" id="titleInput"></div>
-        <div><label for="author">Author</label><input type="text" id="authorInput"></div>
-        <div><label for="year">Year</label><input type="text" id="yearInput"></div>
-        <div><label for="genre">Genre</label><input type="text" id="genreInput"></div>
+        <div><label for="title">Title</label><input type="text" id="titleInput" required></div>
+        <div><label for="author">Author</label><input type="text" id="authorInput" required></div>
+        <div><label for="year">Year</label><input type="number" id="yearInput" required></div>
+        <div><label for="genre">Genre</label><input type="text" id="genreInput" required></div>
         <button type="submit">Save</button>
      </form>
 
