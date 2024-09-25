@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== NaN;
+                if (isValid) return Number(value);
+            }
+        } 
+        let getBMI = (pearsonMass, pearsonHeight) =>
+            ((pearsonMass / (Math.pow(pearsonHeight, 2) / 100)) * 100).toFixed(1);
+
+        function categoriesBMI(bmi) {
+            if (bmi < 18.5) {
+                return ("недостатня вага");
+
+            } else if (18.5 <= bmi && bmi <= 24.9) {
+                return ("нормальна вага");
+
+            } else if (25 <= bmi && bmi <= 29.9) {
+                return ("надмірна вага");
+
+            } else {
+                return ("ожиріння");
+            }
+        }
+        let pearsonMass = getValue("Введіть вагу тіла (кг)");
+        let pearsonHeight = getValue("Введіть зріст (cм)");
+
+        let bmi = getBMI(pearsonMass, pearsonHeight);
+        let categoryBMI = categoriesBMI(bmi);
+
+        alert(`Ваш індекс маси тіла складає: ${bmi}\nУ вас ${categoryBMI}.`);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>            
+        function circleCalc(radius) {
+            const area = Math.PI * Math.pow(radius, 2);
+            const perimeter = 2 * Math.PI  * radius;
+            return {area, perimeter};
+        }
+        function rectangleCalc(length, width) {
+            const area = length * width;
+            const perimeter = 2 * (length + width);
+            return  {area, perimeter};
+        }
+        function triangleCalc(a, b, c) {
+            const perimeter = a + b + c;
+            const p = perimeter / 2;
+            const area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+            return  {area, perimeter};
+        }    
+        function figureChoice () {
+            const figureType = prompt("Оберіть фігуру ввівши літеру: \n'к' (якщо КОЛО) \n'п' (якщо ПРЯМОКУТНИК), \n'т' (якщо ТРИКУТНИК) ").toLocaleLowerCase();
+            let result;
+            switch (figureType) {
+                case "к":{
+                    let radius = Number(prompt("Введіть радіус кола:"));
+                    result = circleCalc(radius);
+                    alert (`Ви обрали КОЛО з радіусом ${radius}`);                                      
+                    break;
+                }
+                case "п": {
+                    const length = Number(prompt("Введіть довжину прямокутника:"));
+                    const width = Number(prompt("Введіть ширину прямокутника:"));
+                    result = rectangleCalc(length, width);
+                    alert (`Ви обрали ПРЯМОКУТНИК ${length} х ${width}`);
+                    break;                    
+                }
+                case "т": {
+                    const a = Number(prompt("Введіть сторону А трикутника:"));
+                    const b = Number(prompt("Введіть сторону B трикутника:"));
+                    const c = Number(prompt("Введіть сторону C трикутника:"));
+                    alert (`Ви обрали ТРИКУТНИК ${a} х ${b} х ${c}`);
+                    result = triangleCalc(a, b, c);
+                    break;
+                }                
+            }
+        alert (`Периметр фігури: ${result.perimeter} \nПлоща фігури: ` + result.area.toFixed(2));
+        }
+        figureChoice ();
+    </script>
+</body>
+
+</html>
