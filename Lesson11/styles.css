@@ -1,0 +1,10 @@
+form label {
+  display: inline-block;
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+#submit {
+  margin-left: 85px;
+  margin-bottom: 10px;
+}
