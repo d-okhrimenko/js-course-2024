@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #weatherForm {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #weatherResult {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <form id="weatherForm">
+        <input type="text" id="cityInput" placeholder="Enter name of the city">
+        <button type="button" onclick="getWeather()">See the weather</button>
+    </form>
+    <div id="weatherResult"></div>
+
+    <script>
+        async function getWeather() {
+            const city = document.getElementById('cityInput').value;
+            const apiKey = '8fd05c263dfd29e8b9f5b016d52f3e7a';
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=uk`;
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Місто не знайдено або проблема з сервером');
+                }
+                const data = await response.json();
+                const weatherInfo = `
+                    <h2>Погода у місті: ${data.name}</h2>
+                    <p>Температура: ${data.main.temp} °C</p>
+                    <p>Опис: ${data.weather[0].description}</p>
+                `;
+                document.getElementById('weatherResult').innerHTML = weatherInfo;
+            } catch (error) {
+                document.getElementById('weatherResult').innerHTML = `<p>${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+
+</html>
