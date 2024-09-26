@@ -1,0 +1,57 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+p {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#cityInput,
+#getForecast,
+#weatherResult {
+  width: 280px;
+  margin-bottom: 10px;
+  padding: 8px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+#cityInput {
+  border: 1px solid gray;
+  font-size: 14px;
+}
+
+#getForecast {
+  background-color: gray;
+  color: white;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#getForecast:hover {
+  background-color: lightgrey;
+}
+
+#weatherResult {
+  font-size: 16px;
+  color: gray;
+  padding: 10px;
+  border-radius: 3px;
+}
