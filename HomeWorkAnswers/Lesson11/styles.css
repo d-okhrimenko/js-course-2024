@@ -1,0 +1,13 @@
+.error {
+    color: #f5853f;
+}
+
+.untitled {
+    color: #ed4d6e;
+}
+
+.point-destination {
+    background-color: #43aa8b;
+    padding: 2px;
+    color: white;
+}
