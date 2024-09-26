@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class Students {
+            constructor(name, surname, age, ITN, averageScore) {
+                this.name = name;
+                this.surname = surname;
+                this.age = age;
+                this.ITN = ITN;
+                this.averageScore = averageScore;
+            }
+        }
+
+        class StudentGroup {
+            constructor() {
+                this.students = [];
+            }
+
+
+            addStudent(name, surname, age, ITN, averageScore) {
+                const newStudent = new Student(name, surname, age, ITN, averageScore);
+                this.students.push(newStudent);
+            }
+
+            deleteStudent(ITN) {
+                const index = this.students.findIndex(student => student.ITN === ITN)
+                if (index !== -1) {
+                    this.students.splice(index, 1);
+                } else {
+                    alert("Not find! Try again!");
+                }
+            }
+
+            listStudents() {
+                if (this.students.length === 0) {
+                    console.log("Список студентів порожній.");
+                    return;
+                }
+                this.students.forEach(student => {
+                    console.log(`Ім'я: ${student.name}, Прізвище: ${student.surname}, Вік: ${student.age}, ID: ${student.ITN}, Середній бал: ${student.averageScore}`);
+                });
+            }
+
+            findStudent(ITN) {
+                const student = this.students.find(student => student.ITN === ITN);
+                if (student) {
+                    return student;
+                } else {
+                    console.log(`Студента з ITN ${ITN} не знайдено.`);
+                    return null;
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
