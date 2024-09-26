@@ -1,0 +1,109 @@
+<!-- Завдання: Написати програму для управління інформацією про студентів у групі. 
+Програма повинна дозволяти додавати нових студентів, 
+видаляти студентів і виводити інформацію про всіх студентів. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Створити конструктор або фабричну функцію для створення об'єктів студентів
+        //Кожен об'єкт студента повинен містити наступні властивості: ім'я, прізвище, вік, ідентифікаційний номер, середній бал.
+        class Student {
+            constructor(name, lastName, age, identificationNumber, averageScore) {
+                this.name = name;
+                this.lastName = lastName;
+                this.age = age;
+                this.identificationNumber = identificationNumber;
+                this.averageScore = averageScore;
+            }
+        }
+
+        //Створити об'єкт для управління групою студентів:
+        //Цей об'єкт повинен містити масив студентів та методи для додавання, видалення і виведення інформації про студентів.
+        let ManagingGroupOfStudents = {
+            students: [],
+            // Додати метод для додавання нового студента:
+            // Метод повинен приймати параметри для створення нового об'єкта студента і додавати його до масиву.
+            addStudent(name, lastName, age, identificationNumber, averageScore) {
+                this.students.push(new Student(name, lastName, age, identificationNumber, averageScore));
+            },
+            // Додати метод для видалення студента:
+            // Метод повинен видаляти студента за його ідентифікаційним номером.
+            removeById(identificationNumber) {
+                let index = this.FindById(identificationNumber);
+                if ( index != null) {
+                    this.students.splice(index, 1);
+                }
+            },
+            // Додати метод для виведення списку всіх студентів:
+            // Метод повинен виводити на екран список студентів із зазначенням всіх їхніх властивостей.
+            PrintStudentsList() {
+                uiController.displayList(this.students);
+            },
+            // Додати функціонал для пошуку студента за його ідентифікаційним номером:
+            // Метод повинен шукати студента в масиві і повертати всю інформацію про нього.
+            FindAndPrintById(identificationNumber) {
+                let index = this.FindById(identificationNumber);
+                if (index != null) {
+                    uiController.display(this.students[index]);
+                }
+            },
+
+            FindById(identificationNumber) {
+                const index = this.students.findIndex(student => student.identificationNumber === identificationNumber);
+                if (index !== -1) {
+                    return index;
+                }else{
+                    return null;
+                }
+            }
+
+        }
+        let uiController = {
+            display: function (student) {
+                console.log(`Ім'я: ${student.name},
+                    прізвище: ${student.lastName},
+                    вік: ${student.age},
+                    ідентифікаційний номер: ${student.identificationNumber},
+                    середній бал: ${student.averageScore}`);
+            },
+            displayList: function (studentsList) {
+                studentsList.forEach(student => this.display(student))
+            }
+        };
+
+        //Додамо декілька студентів
+        ManagingGroupOfStudents.addStudent("Olena", "Shevchenko", 20, "ID001", 89);
+        ManagingGroupOfStudents.addStudent("Ivan", "Petrenko", 21, "ID002", 92);
+        ManagingGroupOfStudents.addStudent("Kateryna", "Koval", 22, "ID003", 87);
+
+        //Виводимо список студентів
+        ManagingGroupOfStudents.PrintStudentsList();
+        console.log("=".repeat(100));
+
+        //Додаємо студента
+        ManagingGroupOfStudents.addStudent("Petro", "Volin", 23, "ID004", 78);
+        ManagingGroupOfStudents.PrintStudentsList();
+        console.log("=".repeat(100));
+
+        //Видаляємо студента
+        ManagingGroupOfStudents.removeById("ID004");
+        ManagingGroupOfStudents.PrintStudentsList();
+        console.log("=".repeat(100));
+
+        //Знайдемо студента
+        ManagingGroupOfStudents.FindAndPrintById("ID003");
+        console.log("=".repeat(100));
+
+
+    </script>
+</body>
+
+</html>

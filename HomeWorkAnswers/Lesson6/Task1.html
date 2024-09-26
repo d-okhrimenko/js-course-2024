@@ -1,0 +1,70 @@
+<!-- Завдання 1
+Написати програму, яка аналізує список оцінок студентів і знаходить середній бал, найвищу та найнижчу оцінки. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Запросити користувача ввести кілька оцінок і зберегти їх у масив:
+        // - Використайте `prompt` для запиту оцінок, можна також згенерувати їх автоматично.
+        function SetRundomScores(numbers, minScore, maxScore) {
+            let array = [];
+            for (let i = 0; i < numbers; i++) {
+                const randomScore = Math.floor(Math.random() * (maxScore - minScore + 1)) + minScore;
+                array.push(randomScore);
+            }
+            return array;
+        }
+
+        // 2. Створити функцію для обчислення середнього балу:
+        // - Функція повинна приймати масив оцінок як аргумент і повертати середнє значення.
+        function GetAverageScore(scoresArray) {
+            if (scoresArray.length === 0) {
+                return 0;
+            }
+            sum = 0;
+            for (let score of scoresArray) {
+                sum += score;
+            }
+            return sum / scoresArray.length;
+
+        }
+
+        //Створити функцію для знаходження найвищої оцінки:
+        //- Функція повинна приймати масив оцінок як аргумент і повертати найвищу оцінку.
+        function GetMaxScore(scoresArray) {
+            return Math.max(...scoresArray);
+        }
+
+        //Створити функцію для знаходження найнижчої оцінки:
+        //Функція повинна приймати масив оцінок як аргумент і повертати найнижчу оцінку.
+        function GetMinScore(scoresArray) {
+            return Math.min(...scoresArray);
+        }
+
+        // 1. Створити масив для зберігання оцінок студентів:
+        // - Оцінки можуть бути представлені як цілі числа від 0 до 100.
+        let studentsScores = SetRundomScores(200, 5, 95);
+
+        //Обчислити середній бал, найвищу і найнижчу оцінки:
+        //Викликати відповідні функції для обчислень.
+
+        // 7. Вивести результати:
+        //Використайте `alert` для виведення середнього балу, найвищої та найнижчої оцінок.
+
+        alert(`Середній бал ${GetAverageScore(studentsScores)}, найвища оцінка ${GetMaxScore(studentsScores)},
+         найнижча оцінка ${GetMinScore(studentsScores)}`);
+
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!-- Написати програму, яка виводить список книг у бібліотеці на веб-сторінку. 
+Програма повинна брати інформацію з масиву об’єктів, де кожен об’єкт представляє книгу,
+і динамічно додавати її в HTML. -->
+
+<!-- масив об'єктів в файлі model.js -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" }, -->
+    <template id="template">
+        <section class="book">
+            <p>{{author}}</p>
+            <h2>{{title}}</h2>
+            <p>{{year}}</p>
+            <p>{{genre}}</p>
+        </section>
+    </template>
+
+    <section id="book-list"></section>
+
+    <script src="../../ClassWork/node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>

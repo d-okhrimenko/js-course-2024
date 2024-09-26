@@ -1,0 +1,90 @@
+<!-- Завдання 2
+Написати програму, яка працює зі списком покупок: додає нові товари, видаляє наявні та виводить список товарів на екран. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 7. Повторити процес, поки користувач не завершить роботу:
+        Дати можливість користувачу виконувати дії у циклі. 
+        Цікл не потрібен бо використовуються кнопки-->
+    <button id="addItemButton">Додати</button>
+    <button id="removeItemButton">Видалити</button>
+
+    <ol id="shopping-list"></ol>
+    <script>
+        // 1. Створити масив для зберігання списку покупок:
+        // - Початково масив може бути порожнім або містити кілька базових товарів.
+        let shoppingList = [
+            { name: "Яблука", quantity: 2 },
+            { name: "Хліб", quantity: 1 },
+            { name: "Картопля", quantity: 1 }
+        ];
+
+        // 2. Створити функцію для додавання товару до списку:
+        //- Функція приймає назву товару як аргумент і додає його до масиву.
+        function addItemToShoppingList(itemList, itemName, quantity = 1) {
+            const newItem = {
+                name: itemName,
+                quantity: quantity
+            };
+
+            itemList.push(newItem);
+        }
+
+        //3. Створити функцію для видалення товару зі списку:
+        // Функція приймає назву товару як аргумент, знаходить його у масиві та видаляє.
+        function removeItemFromShoppingList(itemList, itemName) {
+            const index = itemList.findIndex(item => item.name === itemName);
+
+            if (index !== -1) {
+                itemList.splice(index, 1);
+            }
+            else {
+                alert("Tовар не знайдено");
+            }
+        }
+
+        // 4. Створити функцію для виведення поточного списку покупок:
+        // - Функція виводить всі елементи масиву у зручному для читання форматі.
+        function printShoppingList(itemList) {
+            const shoppingListElement = document.getElementById("shopping-list");
+            shoppingListElement.innerHTML = "";
+
+            if (itemList.length === 0) {
+                shoppingListElement.innerHTML = "<li>Список покупок порожній.</li>";
+                return;
+            }
+
+            itemList.forEach((item, index) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${item.name} : ${item.quantity}`;
+                shoppingListElement.appendChild(listItem);
+            });
+        }
+        //5. Запропонувати користувачу вибрати дію:
+        //Використати `prompt` для вибору дії: додавання товару, видалення товару або виведення списку.
+        // 6. Реалізувати вибір користувача:
+        //Викликати відповідні функції на основі вибраної дії.
+        document.getElementById("addItemButton").addEventListener("click", () => {
+            let name = prompt("Введіть назву товара");
+            let quantity = prompt("Введіть кількість товара");
+            addItemToShoppingList(shoppingList, name, quantity);
+            printShoppingList(shoppingList);
+        });
+        document.getElementById("removeItemButton").addEventListener("click", () => {
+            let name = prompt("Введіть назву товара для видалення");
+            removeItemFromShoppingList(shoppingList, name);
+            printShoppingList(shoppingList);
+        });
+
+        printShoppingList(shoppingList);
+    </script>
+</body>
+
+</html>
