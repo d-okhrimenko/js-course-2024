@@ -4,6 +4,6 @@ const bookCatalog = {
         books.forEach(book => {
             html += Mustache.render(template, book);
         });
-        element.innerHTML += html;
+        element.innerHTML = html;
     },
 }
