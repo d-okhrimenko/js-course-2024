@@ -1,0 +1,72 @@
+/* Загальні стилі для сторінки */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  /* Стиль заголовку */
+  h1 {
+    color: #004d99;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Стиль для контейнера з формою */
+  label {
+    font-size: 1rem;
+    color: #004d99;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 200px;
+    border: 2px solid #004d99;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  /* Стиль для кнопки */
+  button {
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #005c99;
+  }
+  
+  /* Стиль для відображення результату погоди */
+  #weatherResult {
+    margin-top: 20px;
+    background-color: #e6f7ff;
+    border: 2px solid #004d99;
+    border-radius: 10px;
+    padding: 20px;
+    display: inline-block;
+    text-align: left;
+    width: 300px;
+  }
+  
+  /* Стиль для відображення погоди */
+  #weatherResult h2 {
+    color: #004d99;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  #weatherResult p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
