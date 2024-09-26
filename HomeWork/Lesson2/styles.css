@@ -1,0 +1,19 @@
+#btn {
+  padding: 8px 16px;
+
+  font-family: "Arial, Helvetica, sans-serif";
+  font-size: 16px;
+  letter-spacing: 1.5;
+
+  color: #fff;
+  background-color: cadetblue;
+  border: 1px solid blue;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color linear 250ms;
+}
+
+#btn:focus,
+#btn:hover {
+  background-color: blue;
+}
