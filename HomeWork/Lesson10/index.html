@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 8 - Task 1</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <script id="template" type="text/template">
+      <section class="book">
+        <button onclick="edit({{id}})">Редагувати</button>
+        <button onclick="remove({{id}})">Видалити</button>
+        <h2>{{title}}</h2>
+        <h3>{{author}}</h3>
+        <p>{{year}}</p>
+        <p>{{genre}}</p>
+      </section>
+    </script>
+
+    <form id="contactForm">
+      <label for="">Book Title</label>
+      <input type="text" id="title" required>
+
+      <label for="">Book Author</label>
+      <input type="text" id="author" required>
+
+      <label for="">Year</label>
+      <input type="text" id="year" required>
+
+      <label for="">Book Genre</label>
+      <input type="text" id="genre" required>
+
+      <button type="submit">Save</button>
+    </form>
+
+    <section id="book-list">
+
+    </section>
+    <script src="node_modules/mustache/mustache.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

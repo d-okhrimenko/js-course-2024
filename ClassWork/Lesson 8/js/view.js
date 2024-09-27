@@ -9,9 +9,7 @@ const contactList = {
             section.insertAdjacentHTML("beforeend", `<p>${contact.description}</p>`);
             element.appendChild(section);
         });
-
     },
-
     renderWithTemplate(contacts, element, template) {
         let html = "";
         contacts.forEach(contact => {
