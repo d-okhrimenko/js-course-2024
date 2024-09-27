@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">Скажи привіт</button>
+    <script>
+        document.querySelector("#btn").onclick = function(){
+            const name = 'Xenia';
+            const fullName = 'Привіт {name}';
+            // alert(fullName);
+            alert("Привіт " + name);
+        }
+        
+    </script>
+</body>
+</html>
+
