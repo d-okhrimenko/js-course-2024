@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson3Task1</title>
+  </head>
+  <body>
+    <button id="btn">Привіт, це перше завдання.</button>
+
+    <script>
+      document.querySelector("#btn").onclick = function () {
+        let numb = parseInt(prompt("Введіть число"));
+        // console.log(typeof numb);
+        if (isNaN(numb)) {
+          alert("Спробуйте знов.");
+        } else {
+          if (numb % 2) {
+            alert("Введене число не є парним.");
+            console.log(typeof numb);
+          } else {
+            alert("Введене число є парним.");
+            // console.log(typeof numb);
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

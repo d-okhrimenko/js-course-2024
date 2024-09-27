@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson7Task1</title>
+  </head>
+  <body>
+    <script>
+      // function studentInfo(id, name, surname, age, averageScore) {
+      //   let student = {};
+      //   student.id = id;
+      //   student.name = name;
+      //   student.surname = surname;
+      //   student.age = age;
+      //   student.averageScore = averageScore;
+      //   return student;
+      // }
+      class studentInfo {
+        constructor(id, name, surname, age, averageScore) {
+          this.id = id;
+          this.name = name;
+          this.surname = surname;
+          this.age = age;
+          this.averageScore = averageScore;
+        }
+      }
+
+      // let studentsList = [];
+
+      let studentsDir = {
+        studentsList: [],
+
+        studentAdd: function (array) {
+          const id = prompt("Введіть id студента.");
+          const surname = prompt("Введіть призвіще.");
+          const name = prompt("Введіть імя.");
+          const age = prompt("Введіть вік.");
+          const averageScore = prompt("Введіть середній бал.");
+          array.push(new studentInfo(id, name, surname, age, averageScore));
+          return array;
+        },
+
+        studentDell: function (array) {
+          const studentId = prompt("Введіть id студента для видалення.");
+          array.forEach((student) => {
+            if (student.id == studentId) {
+              const index = array.indexOf(student);
+              array.splice(index, 1);
+            }
+          });
+        },
+
+        studentsAllPrint: function (array) {
+          array.forEach((student) => {
+            console.log(
+              `id - ${student.id} ; name - ${student.name} ${student.surname}; age - ${student.age}; average score - ${student.averageScore}`
+            );
+          });
+        },
+
+        studentSearch: function (array) {
+          const studentId = prompt("Введіть id студента для пошуку.");
+          array.forEach((student) => {
+            if (student.id == studentId) {
+              console.log(
+                `id - ${student.id} ; name - ${student.name} ${student.surname}; age - ${student.age}; average score - ${student.averageScore}`
+              );
+            }
+          });
+        },
+      };
+
+      while (true) {
+        let value = +prompt(
+          "1-додати студента, 2-видалити студента, 3-вивести весь список, 4-вивести студента за id, 0-завершити вибір."
+        );
+        if (value == 0) {
+          break;
+        } else if (value >= 0 && value <= 4 && Number.isInteger(value)) {
+          if (value == 1) {
+            studentsDir.studentAdd(studentsDir.studentsList);
+          } else if (value == 2) {
+            studentsDir.studentDell(studentsDir.studentsList);
+          } else if (value == 3) {
+            studentsDir.studentsAllPrint(studentsDir.studentsList);
+          } else if (value == 4) {
+            studentsDir.studentSearch(studentsDir.studentsList);
+          }
+        } else {
+          alert("Введіть свій вибір уважно!");
+        }
+      }
+    </script>
+  </body>
+</html>

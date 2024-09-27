@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>lesson9task1</title>
+  </head>
+  <body>
+    <script id="template" type="text/template">
+      <section class="book">
+        <button onclick="update({{id}})">update</button>
+        <button onclick="remove({{id}})">remove</button>
+        <h3>"{{ title }}"</h3>
+        <p>автор - {{ author }}</p>
+        <p>рік - {{ year }}</p>
+        <p>жанр - {{ genre }}</p>
+        <p>id - {{ id }}</p>
+      </section>;
+    </script>
+
+    <h3 class="list-header">Додати книгу:</h3>
+
+    <form id="bookForm">
+      <div>
+        <label for="">title</label><input type="text" id="titleInput" />
+      </div>
+      <div>
+        <label for="">author</label><input type="text" id="authorInput" />
+      </div>
+      <div><label for="">year</label><input type="text" id="yearInput" /></div>
+      <div>
+        <label for="">genre</label><input type="text" id="genreInput" />
+      </div>
+      <button type="submit">Зберегти</button>
+    </form>
+
+    <h3 class="list-header">Список наявних книг:</h3>
+
+    <section id="bookList"></section>
+
+    <script src="../../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+  </body>
+</html>
