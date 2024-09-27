@@ -1,0 +1,94 @@
+.book {
+    background-color: rgb(194, 239, 226);
+    padding: 20px;
+    margin: 30px 10px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(8, 47, 36);
+}
+#bookForm label{
+    display: inline-block;
+    width: 100px;
+}
+#bookForm div{
+    margin-bottom: 10px;
+}
+form {
+    background-color: #f4f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#bookForm div {
+    margin-bottom: 15px;
+}
+
+#bookForm label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #083827;
+}
+
+#bookForm input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #083827;
+    background-color: #e6f7f5;
+}
+
+#bookForm button {
+    background-color: #08a15c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#bookForm button:hover {
+    background-color: #0b442c;
+}
+
+.book {
+    background-color: rgb(194, 239, 226);
+    padding: 20px;
+    margin: 30px 10px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(8, 47, 36);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book button {
+    background-color: #4fd9a9;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.book button:hover {
+    background-color: #18503c;
+}
+
+.book h2 {
+    margin: 10px 0;
+}
+
+.book p {
+    margin: 5px 0;
+}
