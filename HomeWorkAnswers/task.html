@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>Введіть місто</label>
+    <input type="text" name="city" id="cityInput" />
+    <button id="getWeather">Отримати погоду</button>
+    <div id="weatherResult"></div>
+    <script>
+      const DEFAULT_CITY = "Rome";
+      const API_KEY = "c5734fcce24f49dd09f6e984e670771e";
+      document
+        .querySelector("#getWeather")
+        .addEventListener("click", function () {
+          const city =
+            document.getElementById("cityInput").value || DEFAULT_CITY;
+          const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=uk`;
+          // Використання fetch для запиту до API
+          fetch(apiUrl)
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Місто не знайдено або проблема з сервером");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              const weatherInfo = `
+                    <h2>Погода у місті: ${data.name}</h2>
+                    <p>Температура: ${data.main.temp} °C</p>
+                    <p>Опис: ${data.weather[0].description}</p>
+                `;
+              document.getElementById("weatherResult").innerHTML = weatherInfo;
+            })
+            .catch((error) => {
+              document.getElementById(
+                "weatherResult"
+              ).innerHTML = `<p>${error.message}</p>`;
+            });
+        });
+    </script>
+  </body>
+</html>
