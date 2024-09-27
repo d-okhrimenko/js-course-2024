@@ -1,0 +1,16 @@
+.book {
+    width: 400px;
+    font-size: 20px;
+    color: aquamarine;
+    background-color: darkblue;
+    padding: 20px;
+    margin: 30px 10px;
+    border: 5px solid aquamarine;
+    border-radius: 10px;
+ }
+
+ .header {
+    color: darkblue;
+    padding-left: 20px;
+
+ }

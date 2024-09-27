@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <h2 class="header">Список книг у бібліотеці:</h2>
+    <script id="template" type="text/template">
+        <section class="book">
+            <button onclick="edit({{id}})">Редагувати</button>
+            <button onclick="remove({{id}})">Видалити</button>
+            <p>Назва книги: {{title}}</p>
+            <p>Автор: {{author}}</p>
+            <p>Рік видання: {{year}}</p>
+            <p>Жанр: {{genre}}</p>
+        </section>
+    </script>
+
+    <form id="bookForm" class="bookForm">
+        <div><label for="">Назва книги</label><input type="text" id="titleInput" name="bookName" required></div>
+        <div><label for="">Автор</label><input type="text" id="authorInput" name="bookAuthor" required></div>
+        <div><label for="">Рік видання</label><input type="number" id="yearInput" name="bookYear" required min="1450"
+                max="2024"></div>
+        <div><label for="">Жанр</label><input type="text" id="genreInput" name="bookGenre" required></div>
+        <button type="submit">Зберегти</button>
+    </form>
+
+    <div id="book-list"></div>
+
+    <script>
+        const form = document.forms[0];
+        form.bookName.addEventListener("input", function () {
+            let inputName = form.bookName.value;
+            if (Library.findNameOfBook(inputName) !== undefined) {
+                form.bookName.setCustomValidity("Книга з такою назвою вже є у списку");
+            }
+            else {
+                form.bookName.setCustomValidity("");
+            }
+        })
+    </script>
+
+    <script src="../../node_modules/mustache/mustache.min.js"></script>
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="controller.js"></script>
+
+</body>
+
+</html>
