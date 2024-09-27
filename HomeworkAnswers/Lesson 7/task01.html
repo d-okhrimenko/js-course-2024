@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <script src="../common/my-library.js"></script>
+    <p>
+    <p>Дані про студента:</p>
+    <p><label for="">Ім'я</label><input type="text" id="name"></p>
+    <p><label for="">Прізвище</label><input type="text" id="surname"></p>
+    <p><label for="">Вік</label><input type="text" id="age"></p>
+    <p><label for="">Середня оцінка</label><input type="text" id="mark"></p>
+    </p>
+    <p></p>
+    <div>
+        <button id="btnAdd">Додати студента</button>
+        <button id="btnRemove">Видалити студента</button>
+        <button id="btnFind">Знайти студента</button>
+        <button id="btnShowList">Вивести список студентів на консоль</button>
+    </div>
+    <div>
+        <b id="output"></b>
+    </div>
+    <script>
+
+        let lastID = 0;
+        class Student {
+            constructor(name, surname, age, mark) {
+                lastID++;
+                this.id = lastID;
+                this.name = name;
+                this.surname = surname;
+                this.age = age;
+                this.mark = mark;
+            }
+            info() {
+                return [this.id, this.name, this.surname, this.age, this.mark];
+            }
+        }
+
+        let studentController = {
+
+            students: [],
+
+            add: function (name, surname, age, mark) {
+                student = new Student(name, surname, age, mark);
+                this.students.push(student);
+            },
+
+            remove: function (id) {
+                let index = this.students.findIndex(x => x.id == id);
+                if (index >= 0) {
+                    this.students.splice(index, 1);
+                }
+                return index;
+            },
+
+            find: function (id) {
+                let index = this.students.findIndex(x => x.id == id);
+                return index;
+            },
+        };
+
+        let uiController = {
+            display: function (message) {
+                console.log(message);
+            },
+
+            displayStudent: function (student, messageTemplateFn) {
+                this.display(messageTemplateFn(student))
+            },
+
+            displayList: function (list, messageTemplateFn) {
+                list.forEach(x => this.display(messageTemplateFn(x)))
+            },
+        };
+
+        document.querySelector("#btnAdd").onclick = function () {
+            studentController.add(document.getElementById("name").value, document.getElementById("surname").value,
+                document.getElementById("age").value, document.getElementById("mark").value);
+        }
+
+        document.querySelector("#btnRemove").onclick = function () {
+            let id = getNumericPositiveValue('Введіть ІD студента:');
+            index = studentController.remove(id);
+            if (index == -1) {
+                alert(`Студент № ${id} не знайдений`)
+            }
+            else {
+                alert(`Студент № ${id}  видалено зі списку`);
+            }
+        }
+
+        document.querySelector("#btnFind").onclick = function () {
+            let id = getNumericPositiveValue('Введіть ІD студента:');
+            index = studentController.find(id);
+            if (index == -1) {
+                alert(`Студент № ${id} не знайдений`)
+            }
+            else {
+                uiController.displayStudent(studentController.students[index], x => `Студент ${x.id}:  ${x.surname} ${x.name}. Вік ${x.age}. Середня оцінка ${x.mark}`);
+            }
+        }
+
+        document.querySelector("#btnShowList").onclick = function () {
+            uiController.displayList(studentController.students, x => `Студент ${x.id}:  ${x.surname} ${x.name}. Вік ${x.age}. Середня оцінка ${x.mark}`);
+        }
+
+    </script>
+</body>
+
+</html>
