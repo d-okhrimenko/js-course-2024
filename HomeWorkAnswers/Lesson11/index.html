@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Oxygen+Mono&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style/style.css">
+</head>
+
+<body>
+  <form class="form" id="search-form">
+    <input class="control" type="text" id="search-input" placeholder="Search city..." name="city" autocomplete="off" />
+    <button class="btn" type="submit">Search</button>
+  </form>
+  <section class="info" id="info"></section>
+
+  <template id="weatherTemplate" type="text/x-handlebars-template">
+    <h1 class="city" id="searched-city">{{city}}</h1>
+    <div class="info__main">
+      <div class="temp" id="current-temperature">{{temp}}</div>
+      <div class="todays-info">
+        <p id="weather-type">{{description}}</p>
+        <p>Humidity: <span id="humidity">{{humidity}}</span></p>
+        <p>Wind: <span id="wind">{{wind}}</span></p>
+      </div>
+    </div>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+  <script src="assets/sctipt/app.js" type="module"></script>
+</body>
+
+</html>

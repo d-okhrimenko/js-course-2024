@@ -1,0 +1,84 @@
+body {
+  max-width: 900px;
+  width: 95%;
+  margin: 30px auto;
+  font-family: "Inter", sans-serif;
+  background-color: #eae6e2;
+  color: #444e54;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.control {
+  padding: 5px 10px;
+  margin-right: 25px;
+  width: 300px;
+  border-radius: 5px;
+  border: 2px solid #332b1d;
+  font-family: "Oxygen Mono", monospace;
+  font-size: 12px;
+}
+
+.btn {
+  display: inline-block;
+  border: 2px solid #332b1d;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-family: "Oxygen Mono", monospace;
+  font-size: 12px;
+  background-color: #d0cd8f;
+}
+
+.btn:hover {
+  background-color: #b9b559;
+}
+
+.city {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.info__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.temp {
+  font-size: 140px;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+
+  &::after {
+    content: '\00B0';
+  }
+}
+
+.todays-info {
+  margin: 15px 0;
+}
+
+p {
+  font-family: "Oxygen Mono", monospace;
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+#humidity::after {
+  content: ' %';
+}
+
+#wind::after {
+  content: ' m/s';
+}
+
+span {
+  font-size: 20px;
+}
