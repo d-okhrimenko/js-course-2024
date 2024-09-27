@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./lesson10.css" />
+    <title>Homework 10</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Books</h1>
+      
+      <button class="add-book-button">Додати Книгу</button>
+      
+      <ul id="books-list" class="books-list"></ul>
+      
+      <div id="book-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h2 id="modal-title">Додати Книгу</h2>
+          <form id="book-form" novalidate>
+            <div class="form-content">
+              <input type="text" id="title" name="title" />
+              <input type="text" id="author" name="author" />
+              <input type="number" id="year" name="year" />
+              <input type="text" id="genre" name="genre" />
+              <div id="error-message" class="error-message"></div>
+              <button type="submit" id="submit-button" class="confirm-button">Додати</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div id="delete-confirm-modal" class="modal">
+        <div class="modal-content">
+          <h2>Підтвердіть видалення</h2>
+          <div class="delete-modal-buttons">
+            <button class="confirm-deletion-button">Підтвердити</button>
+            <button class="abort-deletion-button">Скасувати</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="./lesson10.js"></script>
+  </body>
+</html>
