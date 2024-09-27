@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 50px;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input,
+button {
+  padding: 10px;
+  margin: 10px 0;
+  width: 400px;
+}
+
+#weatherResult {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.error {
+  color: red;
+}
