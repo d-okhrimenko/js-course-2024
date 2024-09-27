@@ -1,0 +1,193 @@
+:root {
+  --bg-color: #f0f0f0;
+  --container-bg-color: #ffffff;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --border-color: #ddd;
+  --header-bg-color: #6d6d6d;
+  --header-text-color: #ffffff;
+  --row-bg-color-even: #e8e8e8;
+  --button-bg-color: #6d6d6d;
+  --button-bg-hover-color: #5e5e5e;
+  --button-text-color: #ffffff;
+  --text-color: #333333;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  max-width: 1240px;
+  margin: 50px auto;
+  background-color: var(--container-bg-color);
+  padding: 20px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: var(--text-color);
+}
+
+table {
+  width: 100%;
+  max-width: 1240px;
+  min-width: 240px;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid var(--border-color);
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: var(--row-bg-color-even);
+}
+
+/* Buttons */
+
+.student-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  max-width: 1240px;
+  box-sizing: border-box;
+}
+
+.student-actions button {
+  flex: 1 1 auto;
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  min-width: 100px;
+  max-width: 240px;
+  box-sizing: border-box;
+}
+
+.student-actions button:hover {
+  background-color: var(--button-bg-hover-color);
+}
+
+/* Анімація для появи елементів */
+
+.studentData__item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.studentData__item.added {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Адаптивний стиль */
+
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  table {
+    overflow-x: auto;
+  }
+
+  th,
+  td {
+    text-align: center;
+    padding: 8px;
+  }
+}
+
+/* "Stacked" таблиця для дуже маленьких екранів */
+
+@media (max-width: 480px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  th {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    margin-bottom: 20px;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+
+  td:before {
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  /* Наповнення "label" для кожного стовпця */
+
+  td:nth-of-type(1):before {
+    content: "ID";
+  }
+  td:nth-of-type(2):before {
+    content: "Ім'я";
+  }
+  td:nth-of-type(3):before {
+    content: "Прізвище";
+  }
+  td:nth-of-type(4):before {
+    content: "Вік";
+  }
+  td:nth-of-type(5):before {
+    content: "Середній бал";
+  }
+}
