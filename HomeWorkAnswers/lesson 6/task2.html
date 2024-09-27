@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <nav>
+        <ul class="sidebar">
+            <li id="showOnMobile"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#a82f2f"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li id="showOnMobile-add"><a href="#">Додати</a></li>
+            <li id="showOnMobile-rem"><a href="#">Видалити</a></li>
+            <li id="showOnMobile-view"><a href="#">Переглянути</a></li>
+            <li id="showOnMobile-info"><a href="#">Довідка</a></li>
+            <li id="showOnMobile-log-in"><a href="#">Вхід</a></li> 
+        </ul>
+        <ul id="main-sidebar">
+            <li><a href="#"><img src="Images/logo.png" alt=""></a></li>
+            <li class="hideOnMobile" id="add"><a href="#">Додати</a></li>
+            <li class="hideOnMobile" id="rem"><a href="#">Видалити</a></li>
+            <li class="hideOnMobile" id="view"><a href="#">Переглянути</a></li>
+            <li class="hideOnMobile" id="info"><a href="#">Довідка</a></li>
+            <li class="hideOnMobile" id="log-in"><a href="#">Вхід</a></li>
+            <li class="menu-button" id="showSidebar"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#77787a"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+        <dialog id="login" title="Login">
+            <h2 id="login-header"> Авторизація</h2>
+            <form>
+                <section>
+                    <input id="login-input-email" class="input" type="email">
+                </section>
+                <section>
+                    <input id="login-input-password" class="input" type="password">
+                </section>
+                <section>
+                    <button id="login-submit" class="dlg-button">Вхід</button>
+                </section>
+                <section>
+                    <button id="login-cancel" class="dlg-button">Скасувати</button>
+                </section>
+            </form>
+        </dialog>
+        <dialog id="addiction" title="">
+            <h2 id="addiction-header">Додавання</h2>
+            <form>
+                <section>
+                    <input id="addiction-input" class="input" type="text">
+                </section>
+                <section>
+                    <button id="addiction-submit" class="dlg-button">Додати</button>
+                </section>
+                <section>
+                    <button id="addiction-cancel" class="dlg-button">Скасувати</button>
+                </section>
+            </form>
+        </dialog>
+        <dialog id="removal" title="">
+            <h2 id="removal-header">Видалення</h2>
+            <form>
+                <section>
+                    <input id="removal-input" class="input" type="text">
+                </section>
+                <section>
+                    <button id="removal-submit" class="dlg-button">Видалити</button>
+                </section>
+                <section>
+                    <button id="removal-cancel" class="dlg-button">Скасувати</button>
+                </section>
+            </form>
+        </dialog>
+    </nav>
+    <div id="popup-view" class="popup__view">
+        <div class="popup__view__box">
+            <button id="popup-view-cancel" class="popup__view__cancel__btn">
+                <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg fill="#000000" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.004 23.087l7.08-7.081-7.07-7.071L8.929 7.02l7.067 7.069L23.084 7l1.912 1.913-7.089 7.093 7.075 7.077-1.912 1.913-7.074-7.073L8.917 25z"/></svg>
+            </button>
+            <h2 id="popup-view-header">Кошик</h2>
+            <ul id="popup-view-list"></ul>            
+        </div>
+    </div>
+    <script src="JS/common.js"></script>
+    <script src="JS/task2.js"></script>
+</body>
+</html>
