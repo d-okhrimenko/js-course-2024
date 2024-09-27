@@ -1,0 +1,23 @@
+.book {
+  background-color: rgb(224, 211, 211);
+  padding: 10px;
+  margin: 20px 10px;
+  border-radius: 15px;
+}
+.list-header {
+  padding: 10px 40px;
+  margin: 10px;
+}
+#bookForm label {
+  display: inline-block;
+  width: 100px;
+}
+#bookForm div {
+  margin-bottom: 10px;
+}
+input:valid {
+  border: 2px solid green;
+}
+input:invalid {
+  border: 2px solid red;
+}

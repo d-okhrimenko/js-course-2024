@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson6Task1</title>
+  </head>
+  <body>
+    <script>
+      function assessmentMax(array) {
+        return Math.max(...array);
+      }
+
+      function assessmentMin(array) {
+        return Math.min(...array);
+      }
+
+      function assessmentAverage(array) {
+        let sum = 0;
+        for (const value of array) {
+          sum += value;
+        }
+        const average = sum / array.length;
+        return average.toFixed(2);
+      }
+
+      function assessmentInput() {
+        let array = [];
+        while (true) {
+          let value = +prompt(
+            "Введіть оцінку від 0 до 100 або '111' для підрахунку."
+          );
+          if (value == 111) {
+            break;
+          } else if (value >= 0 && value <= 100 && Number.isInteger(value)) {
+            array.push(value);
+          } else {
+            alert("Введіть ціле число від 0 до 100 включно!");
+          }
+        }
+        return array;
+      }
+
+      function resultOutput(max, min, average) {
+        alert(`Максимальна оцінка ${max}  .`);
+        alert(`Мінімальна оцінка ${min}  .`);
+        alert(`Середня оцінка ${average}  .`);
+      }
+
+      let assessments = assessmentInput();
+
+      let max = assessmentMax(assessments);
+      let min = assessmentMin(assessments);
+      let average = assessmentAverage(assessments);
+
+      resultOutput(max, min, average);
+
+      console.log(assessmentMax(assessments));
+      console.log(assessmentMin(assessments));
+      console.log(assessmentAverage(assessments));
+    </script>
+  </body>
+</html>
