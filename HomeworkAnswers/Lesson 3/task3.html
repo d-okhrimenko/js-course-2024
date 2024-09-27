@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		let year = prompt("Введіть число");
+		year = Number(year);
+		leapYear = false;
+		if (Number.isInteger(year)) {
+			if (year % 4 === 0) {
+				if (year % 100 === 0) {
+					if (year % 400 === 0) { leapYear = true; }
+				}
+				else {
+					leapYear = true;
+				}
+			}
+
+			if (leapYear) {
+				alert("Високосний рік");
+			}
+			else {
+				alert("Невисокосний рік");
+			}
+		}
+		else {
+			alert("Введене число не є роком");
+		}
+	</script>
+</body>
+
+</html>
