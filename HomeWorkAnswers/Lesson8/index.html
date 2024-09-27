@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="../node_modules/mustache/mustache.min.js" defer></script>
+    <script src="./js/model.js" defer></script>
+    <script src="./js/view.js" defer></script>
+    <script src="./js/controller.js" defer></script>
+</head>
+
+<body>
+    <template id="template">
+        <article class="book">
+            <h2>{{title}}</h2>
+            <p>Автор: {{author}}</p>
+            <p>Рік видання: {{year}}</p>
+            <p>Жанр: {{genre}}</p>
+        </article>
+    </template>
+
+    <section id="book-list">
+
+    </section>
+
+</body>
+
+</html>
