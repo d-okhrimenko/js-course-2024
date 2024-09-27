@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons9&10 hometask</title>
+    <style>
+        .book {
+            background-color: lightblue;
+            padding: 20px;
+            margin: 30px 10px;
+            border-radius: 10px;
+        }
+
+        #book-form label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        #book-form div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <template id="book-list-template">
+        <div class="book">
+            <button onclick="edit({{id}})">Редагувати</button>
+            <button onclick="remove({{id}})">Видалити</button>
+            <h3>«{{title}}»</h3>
+            <p>автор: {{author}}</p>
+            <p>рік видання: {{year}}</p>
+            <p>жанр: {{genre}}</p>
+        </div>
+    </template>
+
+    <form id="book-form">
+        <div><label for="">назва</label><input type="text" id="title-input" required></div>
+        <div><label for="">автор</label><input type="text" id="author-inputnput" required></div>
+        <div><label for="">рік видання</label><input type="text" id="year-input" pattern="\d{4,4}" required></div>
+        <div><label for="">жанр</label><input type="text" id="genre-input" required></div>
+        <button type="submit">Зберегти</button>
+        <button type="reset">Очистити</button>
+    </form>
+
+    <div id="book-list">
+    </div>
+
+    <script src="../../node_modules/mustache/mustache.min.js"></script>
+
+    <script>
+
+        const books = [
+            { id: 0, title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+            { id: 1, title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
+            { id: 2, title: "Гра престолів", author: "Джордж Р. Р. Мартін", year: 1996, genre: "Фентезі" },
+            { id: 3, title: "Старий і море", author: "Ернест Хемінгуей", year: 1952, genre: "Пригодницький роман" },
+            { id: 4, title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+        ];
+
+        class Book {
+            constructor(id, title, author, year, genre) {
+                this.id = id,
+                this.title = title,
+                this.author = author,
+                this.year = year,
+                this.genre = genre
+            };
+        };
+
+        class BookList {
+            #books = [];
+            #lastId = books.length;
+            getBooks() {
+                return this.#books;
+            };
+            addBook = function (book) {
+                this.#lastId++;
+                book.id = this.#lastId;
+                this.#books.push(book);
+            };
+            updateBook = function (id, book) {
+                let index = this.#books.findIndex(x => x.id == id);
+                this.#books[index] = book;
+            };
+            removeBook = function (id) {
+                let index = this.#books.findIndex(x => x.id == id);
+                this.#books.splice(index, 1);
+            };
+            findBook = function (id) {
+                let index = this.#books.findIndex(x => x.id == id);
+                return this.#books[index];
+            };
+            findDuplicate = function (book) {
+                let index = this.#books.findIndex(x => x.title == book.title && x.author == book.author && x.year == book.year && x.genre == book.genre );
+                return index;
+            };
+        }
+
+        function renderWithTemplate(books, element, template) {
+            let html = "";
+            books.forEach(book => {
+                html += Mustache.render(template, book);
+            });
+            element.innerHTML = html;
+        };
+
+        let bookList = new BookList();
+        books.forEach(book => {
+            let newBook = new Book(book.id, book.title, book.author, book.year, book.genre);
+            bookList.addBook(newBook);
+        });
+
+        const html = document.querySelector("#book-list");
+        const template = document.querySelector("#book-list-template").innerHTML;
+        const bookForm = document.querySelector("#book-form");
+
+        const titleInput = document.querySelector("#title-input");
+        const authorInput = document.querySelector("#author-inputnput");
+        const yearInput = document.querySelector("#year-input");
+        const genreInput = document.querySelector("#genre-input");
+
+        function render() {
+            renderWithTemplate(bookList.getBooks(), html, template);
+        }
+
+        let editId = null;
+
+        function remove(id) {
+            bookList.removeBook(id);
+            render();
+        }
+
+        function edit(id) {
+            const book = bookList.findBook(id);
+
+            editId = book.id;
+
+            titleInput.value = book.title;
+            authorInput.value = book.author;
+            yearInput.value = book.year;
+            genreInput.value = book.genre;
+
+            render();
+        }
+  
+        bookForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let book = {
+                title: titleInput.value,
+                author: authorInput.value,
+                year: yearInput.value,
+                genre: genreInput.value,
+            };
+
+            if (bookList.findDuplicate(book) != -1) {
+                alert("Така книга вже є!");
+            }
+            else {
+                if (editId == null) {
+                    bookList.addBook(book);
+                    alert("Книгу додано!");                    
+                } 
+                else {
+                    bookList.updateBook(editId, book);
+                    alert("Зміни збережено!");                                    
+                };
+            };    
+
+            editId = null;
+
+            render();
+        });
+
+        yearInput.addEventListener("input", function () {
+            const date = new Date();
+            if (Number.parseInt(yearInput.value) < 1450 || Number.parseInt(yearInput.value) > date.getFullYear()) {
+                yearInput.setCustomValidity("Рік не може бути меншим за 1450 (перші друковані книги) і більшим за поточний рік.");
+            }
+            else {
+                yearInput.setCustomValidity("");
+            };
+        });
+
+        render();
+
+    </script>
+</body>
+
+</html>

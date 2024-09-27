@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson5 task1</title>
+</head>
+
+<body>
+    <script>
+        const maxWeight = 650; //https://en.wikipedia.org/wiki/List_of_heaviest_people
+        const maxHeight = 2.72; //https://en.wikipedia.org/wiki/List_of_tallest_people
+        let weightMessage = "Введіть Вашу вагу (в кілограмах)";
+        let heightMessage = "Введіть Ваш ріст (в метрах)";
+        let weight = getData(weightMessage);
+        let height = getData(heightMessage);
+        let bmi = countBMI(weight, height);
+        alert(`Ваш ІМТ: ${bmi} - у Вас ${countBMICategory(bmi)}.`);
+
+        function getData(message) {
+            let promptString = ``;
+            while (true) {
+                promptString = prompt(`${message}: `);
+                promptValue = parseFloat(promptString)
+                if (/^\d+(\.?\d+)?$/.test(promptString)) {
+                    if (promptValue == 0) {
+                        alert(`${promptString} - не допустиме значення!`);
+                    }
+                    else if (message == weightMessage && promptValue > maxWeight) {
+                        alert(`${promptString} - вага надто велика!`);
+                    }
+                    else if (message == heightMessage && promptValue > maxHeight) {
+                        alert(`${promptString} - ріст надто високий!`);
+                    }
+                    else {
+                        return promptValue;
+                        break;
+                    }
+                }
+                else {
+                    alert(`${promptString} - ввід не коректний!`);
+                }
+            }
+        }
+
+        function countBMI(weight, height) {
+            return parseFloat(weight / Math.pow(height, 2)).toFixed(1);
+        }
+
+        function countBMICategory(bmi) {
+            if (bmi < 18.5) {
+                return "недостатня вага";
+            }
+            else if (bmi >= 18.5 && bmi < 24.9) {
+                return "нормальна вага";
+            }
+            else if (bmi >= 25 && bmi < 29.9) {
+                return "надмірна вага";
+            }
+            else {
+                return "ожиріння";
+            }
+        }
+    </script>
+</body>
+
+</html>

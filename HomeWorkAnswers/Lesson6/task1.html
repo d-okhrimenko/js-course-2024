@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson6 task1</title>
+</head>
+
+<body>
+    <script>
+        //генерація масиву оцінок
+        let marks = [];
+        let marksQuantity = Math.floor(Math.random() * 10) + 1;
+        for (let i = 0; i < marksQuantity; i++) {
+            marks.push(Math.floor(Math.random() * 100) + 1);
+        }
+
+        const getMarks = (marks) => {
+            let str = "";
+            for (let i = 0; i < marks.length; i++) {
+                str= str + marks[i] + " ";
+            }
+            return str; 
+        };
+
+        const averageMark = (marks) => {
+            let sum = 0;
+            for (let i = 0; i < marks.length; i++) {
+                sum += marks[i];
+            }
+            return parseFloat(sum / marks.length).toFixed(0);
+        };
+
+        const maxMark = (marks) => Math.max(...marks);
+
+        const minMark = (marks) => Math.min(...marks);
+
+        alert(`Згенеровано масив із ${marksQuantity} оцінок:\n${getMarks(marks)}\nСередній бал: ${averageMark(marks)}\nМаксимальний бал: ${maxMark(marks)}\nМінімальний бал: ${minMark(marks)}`);
+    </script>
+</body>
+
+</html>

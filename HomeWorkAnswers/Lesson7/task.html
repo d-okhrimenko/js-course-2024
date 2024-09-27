@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson7 hometask</title>
+</head>
+
+<body>
+    <script>
+
+        class Student {
+            constructor(id, name, surname, age, averageMark) {
+                this.id = id,
+                this.name = name,
+                this.surname = surname,
+                this.age = age,
+                this.averageMark = averageMark
+            };
+        };
+
+        class StudentGroup {
+            #students = [];
+            addStudent = function (student) {
+                this.#students.push(student);
+            };
+            removeStudent = function (id) {
+                let index = -1;
+                if (this.#students.length > 0) {
+                    let student = this.#students.filter(x => x.id == id)[0];
+                    index = this.#students.indexOf(student);
+                    if (index != -1) {
+                        this.#students.splice(index, 1);
+                    };
+                };
+                return index;
+            };
+            getStudents = function () {
+                let list = "";
+                for (let i = 0; i < this.#students.length; i++) {
+                    list = `${list}${this.#students[i].id}. ${this.#students[i].name} ${this.#students[i].surname} ${this.#students[i].age} років, ср.бал: ${this.#students[i].averageMark}\n`;
+                }
+                return list;
+            };
+        };
+
+        function addNewStudent() {
+            let promptId = prompt("Введіть ідентифікаційний номер студента: ");
+            let promptName = prompt("Введіть ім'я: ");
+            let promptSurname = prompt("Введіть прізвище: ");
+            let promptAge = prompt("Введіть вік: ");
+            let promptAverageMark = prompt("Введіть середній бал: ");
+            let newStudent = new Student(promptId, promptName, promptSurname, promptAge, promptAverageMark);
+            studentGroup.addStudent(newStudent);
+            alert(`Студент ${newStudent.name} ${newStudent.surname} доданий в групу`);
+        };
+
+        function removeStudentById() {
+            let promptId = prompt("Введіть ідентифікаційний номер студента, що видаляється з групи: ");
+            let result = studentGroup.removeStudent(promptId);
+            if (result == -1) {
+                alert(`Не знайдено студента з ідентифікаційним номером ${promptId}`);
+            }
+            else {
+                alert(`З групи видалено студента з ідентифікаційним номером ${promptId}`);
+            };
+        };
+
+        let studentGroup = new StudentGroup();
+        let userChoice = -1;
+        while (userChoice != 0) {
+            let list = studentGroup.getStudents();
+            userChoiceStr = prompt(`Зробіть Ваш вибір:\n0 - вихід\n1 - додавання студента в групу\n${list == "" ? "" : "2 - видалення сртудента з групи\n"}3 - список студентів в групі`);
+            if (/^[0-3]{1}$/.test(userChoiceStr) && !(list == "" && parseInt(userChoiceStr) === 2)) {
+                userChoice = parseInt(userChoiceStr);
+                switch (userChoice) {
+                    case 0:
+                        break;
+                    case 1:
+                        addNewStudent();
+                        break;
+                    case 2:
+                        removeStudentById();
+                        break;
+                    case 3:
+                        alert(`Список студентів в групі${list != "" ? (":\n" + list) : " порожній!"}`);
+                        break;
+                };
+            }
+            else {
+                alert(`${userChoiceStr} - вибір не коректний!`);
+            };
+        };
+
+    </script>
+</body>
+
+</html>
