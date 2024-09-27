@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    
+    <script id="template" type="text/template">
+        <section class="book-list__item">
+            <button onclick="edit({{id}})">Редагувати</button>
+            <button onclick="remove({{id}})">Видалити</button>
+            <h2>{{title}} {{author}}</h2>
+            <h2>Рік видання: {{year}}</h2>
+            <p>Жанр: {{genre}}</p>
+        </section>
+    </script>
+
+    <form id="contactForm">
+        <div>
+            <label for="titleInput">Назва книги</label>
+            <input type="text" id="titleInput" name="name">
+            <span class="error" id="nameError">Вкажіть назву книги</span>
+        </div>
+        <div>
+            <label for="authorInput">Автор книги</label>
+            <input type="text" id="authorInput" name="autor">
+            <span class="error" id="autorError">Вкажіть автора книги</span>
+        </div>
+        <div>
+            <label for="yearInput">Рік видання</label>
+            <input type="text" id="yearInput" name="year">
+            <span class="error" id="yearError">Вкажіть рік видання книги</span>
+        </div>
+        <div>
+            <label for="genreInput">Жанр</label>
+            <input type="text" id="genreInput" name="genre">
+            <span class="error" id="genreError">Вкажіть жанр книги</span>
+        </div>
+        <button type="submit">Зберегти</button>
+    </form>
+
+    <section id="book-list">
+
+    </section>
+
+    <script src="../../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
