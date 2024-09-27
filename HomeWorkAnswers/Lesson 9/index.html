@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 8</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <script id="template" type="text/template">
+        <section class="item">
+            <button class="btn" onclick="edit({{id}})">Редагувати</button>
+            <button class="btn" onclick="remove({{id}})">Видалити{{ id }}</button>
+            <h1>{{ title }}</h1>
+            <h4>{{ author }}</h4>
+            <p>{{ year }}</p>
+            <p>{{ genre }}</p>
+        </section>
+    </script>
+
+    <form action="" id="bookForm">
+        <div><label for="titleInput">Title</label><input type="text" id="titleInput"></div>
+        <div><label for="authorInput">Author</label><input type="text" id="authorInput"></div>
+        <div><label for="yearInput">Year</label><input type="text" id="yearInput"></div>
+        <div><label for="genreInput">Genre</label><input type="text" id="genreInput"></div>
+        <button type="submit" class="btn">Зберегти</button>
+    </form>
+
+    <section id="bookList">
+
+    </section>
+    <script src="../../node_modules/mustache/mustache.min.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+</body>
+
+</html>

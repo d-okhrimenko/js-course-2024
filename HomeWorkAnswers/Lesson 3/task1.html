@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let isValid;
+        // let value;
+
+        // do {
+        //     value = +prompt("Введіть число");
+        //     isValid = !isNaN(value) && value !== "" && value !== null;
+
+        //     if (!isValid) {
+        //         alert("Введіть коректно число");
+        //     }
+        // } while (!isValid);
+
+        // if (value % 2 === 0) {
+        //     alert("Це число парне!");
+        // } else {
+        //     alert("Це число НЕ парне!");
+        // }
+
+
+
+        let value = +prompt("Введіть число");
+        let isValid = !isNaN(value) && value !== "" && value !== null;
+
+        if (isValid) {
+            if (value % 2 === 0) {
+                alert("Це число парне!");
+            } else {
+                alert("Це число НЕ парне!");
+            }
+        } else {
+            alert("Введіть коректно число");
+        }
+    </script>
+</body>
+
+</html>

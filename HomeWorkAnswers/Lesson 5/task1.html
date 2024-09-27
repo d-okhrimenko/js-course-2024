@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../../ClassWork/common/my-library.js"></script>
+    <script>
+        let mass = getNumericValue("Введіть вашу вагу в кілограмах");
+        let growth = getNumericValue("Введіть ваш ріст в сантиметрах") / 100;
+
+        function calculateBMI(mass, growth) {
+            let BMI = mass / Math.pow(growth, 2);
+            return BMI;
+        }
+
+        function IMT(BMI) {
+            if (BMI < 18.5) {
+                alert("Недостатня вага");
+            } else if (18.5 <= BMI < 24.9) {
+                alert("Нормальна вага");
+            } else if (25 <= BMI < 29.9) {
+                alert("Надмірна вага");
+            } else if (BMI >= 30) {
+                alert("Ожиріння");
+            }
+        }
+
+        let BMI = calculateBMI(mass, growth);
+        IMT(BMI);
+    </script>
+</body>
+
+</html>

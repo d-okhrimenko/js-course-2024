@@ -1,0 +1,16 @@
+.score {
+  display: flex;
+  justify-content: center;
+
+  /* box-sizing: border-box; */
+  font-size: 550px;
+  color: crimson;
+}
+
+.gamers {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 100px;
+  color: blue;
+}

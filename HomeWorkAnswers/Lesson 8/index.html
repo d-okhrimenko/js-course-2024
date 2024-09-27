@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 8</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <ul id="bookList"></ul>
+
+    <script>
+        const books = [
+            { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+            { title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
+            { title: "Гра престолів", author: "Джордж Р. Р. Мартін", year: 1996, genre: "Фентезі" },
+            { title: "Старий і море", author: "Ернест Хемінгуей", year: 1952, genre: "Пригодницький роман" },
+            { title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+        ];
+
+
+        let listEl = document.querySelector("#bookList");
+        let li = document.createElement("li");
+
+        function createList(books) {
+            return books.map(({ title, author, year, genre }) => {
+                return `<li class = "item"><h1>${title}</h1><h3>${author}</h3><p>${year} рік</p><p>Жанр: ${genre}</p></li>`;
+            }).join('')
+        }
+
+        listEl.insertAdjacentHTML('beforeend', createList(books));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <p class="gamers">user : pc</p>
+    <div class="score">
+        <div class="usercount">0</div>
+        <span>:</span>
+        <div class="pccount">0</div>
+    </div>
+    <div class="usercount"></div>
+    <div class="pccount"></div>
+    <script>
+        const usercount = document.querySelector(".usercount");
+        const pccount = document.querySelector(".pccount");
+
+        const choices = ["камінь", "ножиці", "папір", "вихід"];
+
+        let userCounter = 0;
+        let pcCounter = 0;
+
+        while (true) {
+            let user = prompt("Виберіть: камінь, ножиці, папір").toLowerCase();
+
+            if (!choices.includes(user)) {
+                alert("Зробіть правильний вибір!")
+            } else {
+                const randomIndex = Math.floor(Math.random() * 3);
+                const pc = choices[randomIndex];
+
+                if (user === pc) {
+                    alert("Нічия!");
+                } else if (
+                    user === "камінь" && pc === "ножиці" ||
+                    user === "ножиці" && pc === "папір" ||
+                    user === "папір" && pc === "камінь"
+                ) {
+                    alert("Ви переможець!");
+                    userCounter += 1;
+                    usercount.textContent = userCounter;
+
+                } else if (user === "вихід") {
+                    alert("Гру закінчено!");
+                    break;
+                }
+                else {
+                    alert("Комп'ютер вас переміг!");
+                    pcCounter += 1;
+                    pccount.textContent = pcCounter;
+                }
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
