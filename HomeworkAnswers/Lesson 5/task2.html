@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script src="../common/my-library.js"></script>
+	<script>
+
+		function getCircleAreaPerimeter(radius) {
+			let square = Math.PI * Math.pow(radius, 2);
+			let perimeter = 2 * Math.PI * radius;
+			return [square, perimeter];
+		}
+
+		function getRectangleAreaPerimeter(length, width) {
+			let square = length * width;
+			let perimeter = 2 * (length + width);
+			return [square, perimeter];
+		}
+
+		function getTriangleAreaPerimeter(a, b, c) {
+			let p = (a + b + c) / 2;
+			let square = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+			let perimeter = 2 * p;
+			return [square, perimeter];
+		}
+
+		function showFigureParameters(parameters) {
+			let area = parameters[0];
+			let perimeter = parameters[1];
+			alert(`Площа - ${area.toFixed(1)}. Периметр - ${perimeter.toFixed(1)}`);
+
+		}
+
+		let figure = getChoice("Зробіть вибір: 1 - коло; 2 - прямокутник; 3 - трикутник");
+
+		switch (figure) {
+			case 1:
+				const radius = getNumericPositiveValue("Введіть радіус кола");
+				showFigureParameters(getCircleAreaPerimeter(radius));
+				break;
+			case 2:
+				const length = getNumericPositiveValue("Введіть довжину прямокутника");
+				const width = getNumericPositiveValue("Введіть ширину прямокутника");
+				showFigureParameters(getRectangleAreaPerimeter(length, width));
+				break;
+			case 3:
+				const a = getNumericPositiveValue("Введіть 1-шу сторону трикутника");
+				const b = getNumericPositiveValue("Введіть 2-гу сторону трикутника");
+				const c = getNumericPositiveValue("Введіть 3-тю сторону трикутника");
+				showFigureParameters(getTriangleAreaPerimeter(a, b, c));
+				break;
+		}
+	</script>
+</body>
+
+</html>
