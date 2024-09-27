@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function alertDay(day) {
+            let msg = "Сьогодні "
+            if (day == 0) msg += "неділя";
+            else if (day == 1) msg += "понеділок";
+            else if (day == 2) msg += "вівторок";
+            else if (day == 3) msg += "середа";
+            else if (day == 4) msg += "четвер";
+            else if (day == 5) msg += "п'ятниці";
+            else if (day == 6) msg += "субота";
+            alert(msg);
+        }
+        let date = new Date();
+        let day = date.getDay();
+        alertDay(day);
+    </script>
+</body>
+</html>
