@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+    <h2>Завдання</h2>
+    </p>
+    <p>3. Створіть кнопку на сторінці з текстом "Скажи привіт", зробіть щоб при кліку по кнопці виводилося повідомлення
+        "Привіт {name}" де замість {name} буде виводитися ваше ім'я.
+    </p>
+    <p id="my-name"></p>
+    <button id="btn-name">Скажи привіт</button>
+    <script>
+        function sayName(p_el,p_name) {
+            if (p_name) {
+               p_el.innerHTML = "Привіт "+p_name+"!";
+            } else { p_el.innerHTML = "";}
+            }
+        document.getElementById("btn-name").onclick = function () {
+            let myname = document.getElementById("my-name");
+            sayName(myname,"Петро")
+            setTimeout(sayName, 2000, myname,"");
+        }
+    </script>
+</body>
+
+</html>

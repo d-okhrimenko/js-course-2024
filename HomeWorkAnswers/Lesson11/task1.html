@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 11. Завдання1</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <!--
+    + 1.	Отримати API ключ для сервісу погоди (наприклад, OpenWeatherMap):
+	•	Зареєструватися на сайті OpenWeatherMap (або іншому погодному API) та отримати API ключ.
+
+    2.	Створити HTML-структуру:
+	•	Поле для введення назви міста.
+	•	Кнопку для отримання погоди.
+	•	Контейнер для відображення результату.
+
+3.	Використати fetch для запиту даних про погоду:
+	•	При натисканні кнопки зробіть запит до API погоди, використовуючи fetch.
+	•	Запит має бути асинхронним і використовувати Promise для обробки результату.
+
+4.	Вивести погоду для введеного міста:
+	•	Обробіть відповідь і виведіть дані на екран: назву міста, температуру, опис погоди.
+
+5.	Обробка помилок:
+	•	Додайте обробку помилок у разі неправильного запиту (наприклад, місто не знайдено або проблема з мережею).
+
+
+    -->
+
+
+    <script id="templateOutlook" type="text/template">
+        <div class="cover row">
+            <div class="column">
+            <img src="{{{conditionIcon}}}" alt="Погода  {{conditionText}}" title="Погода {{conditonText}}" width="100" height="100">
+            <div class="row">
+                <h3 style="color:white;">{{conditionText}}</h3>
+            </div>
+            </div>
+            <div class="column">
+                <p>Температура: {{temp_c}} °C</p>
+                <p>Вітер: {{wind_kph }} км/г</p>
+                <p>Тиск: {{pressure_mb}} мілібар</p>
+            </div>
+        </div>
+    </script>
+
+    <script id="templateInformation" type="text/template">
+        <div>
+            <p>Назва {{name}}</p>
+            <p>Область {{region}}</p>
+            <p>Країна {{country}}</p>
+            <p>Широта {{lat}}</p>
+            <p>Довгота {{lon}}</p>
+            <p>Часовий пояс {{tz_id}}</p>
+            <p>Поточний час {{localtime}}<p>
+        </div>
+    </script>
+
+    <section id="headDoc" class="headDoc">
+        <div>
+            <input name="cityName" type="text" id="cityName" placeholder="Введіть назву міста" autocomplete="on"
+                spellcheck="true" required>
+            <button id="btWeather">Яка погода</button>
+        </div>
+    </section>
+
+    <section id="weatherCurrent" class="weatherCurrent">
+
+        <div class="row">
+            <div class="column">
+                <h2>Погода</h2>
+            </div>
+            <div class="column">
+                <h2 class="row">Інформація</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="Outlook" class="Outlook column">
+            </div>
+            <div id="Information" class="Information column">
+            </div>
+        </div>
+
+        <div id="queryResult" class="row queryResult">
+
+        </div>
+    </section>
+
+
+    <script src="js/mustache.min.js"></script>
+    <script src="js/wheater.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+
+</html>
