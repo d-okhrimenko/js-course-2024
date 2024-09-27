@@ -8,13 +8,20 @@ class Student {
     }
 }
 
-let groupOfStudents = {
-    students: [],
+class GroupOfStudents {
+
+    constructor () {
+        this._students = [];
+    }
+
+    get students () {
+        return this._students;
+    }
 
     add (firstName,  lastName, age, id, averageGrade) {
         let student = new Student(firstName,  lastName, age, id, averageGrade);
-        this.students.push(student);
-    },
+        this._students.push(student);
+    }
 
     remove (id) {
         let removed = this.students.find(student => student.id === id);
@@ -23,9 +30,9 @@ let groupOfStudents = {
         } else {
             let removedIndex = this.students.indexOf(removed);
             this.students.splice(removedIndex, 1);
+            }
         }
-    },
-
+                
     displayList () {
         if(this.students.length === 0) {
             console.log('Список порожній')
@@ -34,8 +41,8 @@ let groupOfStudents = {
             console.log(`Ім'я: ${student.firstName}; Прізвище: ${student.lastName}; Вік: ${student.age}; ID: ${student.id}; Середній бал: ${student.averageGrade}`);
             })
         }
-    },
-
+    }
+                
     displayOne (id) {
         const student = this.students.find(student => student.id === id);
         if (!student) {
@@ -46,17 +53,15 @@ let groupOfStudents = {
             console.log(`Ім'я: ${studentObj.firstName}; Прізвище: ${studentObj.lastName}; Вік: ${studentObj.age}; ID: ${studentObj.id}; Середній бал: ${studentObj.averageGrade}`)
         }
     }
-}
+} 
+const group = new GroupOfStudents();
+group.add('Олександр', 'Прокопенко', 21, 1, 9);
+group.add('Катерина', 'Богуш', 19, 2, 10);
+group.add('Олег', 'Кравченко', 20, 3, 8);
 
-groupOfStudents.add('Олександр', 'Прокопенко', 21, 1, 9);
-groupOfStudents.add('Катерина', 'Богуш', 19, 2, 10);
-groupOfStudents.add('Олег', 'Кравченко', 20, 3, 8);
-
-groupOfStudents.displayList();
+group.displayList();
 
 console.log('One student:')
-groupOfStudents.displayOne(2)
-
-
+group.displayOne(2)
 
 
