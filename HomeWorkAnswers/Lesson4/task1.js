@@ -21,7 +21,7 @@ function playRound(userChoice) {
     result = "Комп'ютер виграв!";
   }
 
-  // Виведення результату
+  // Виведення результату 
   document.getElementById(
     "result"
   ).innerText = `Ви вибрали: ${userChoice}, Комп'ютер вибрав: ${computerChoice}. ${result}`;
