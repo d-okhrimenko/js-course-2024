@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href=" style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div id="bookList"></div>
+
+    <script>
+        const books = [
+            { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+            { title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
+            { title: "Гра престолів", author: "Джордж Р. Р. Мартін", year: 1996, genre: "Фентезі" },
+            { title: "Старий і море", author: "Ернест Хемінгуей", year: 1952, genre: "Пригодницький роман" },
+            { title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+        ];
+
+        function getBooks() {
+            const bookList = document.querySelector('#bookList');
+            books.forEach(book => {
+
+                const bookItem = document.createElement('div');
+                bookItem.classList.add('bookList__item');
+                bookItem.innerHTML = `<h3>${book.title}</h3>
+                                      <p><strong>Автор:</strong> ${book.author}</p>
+                                      <p><strong>Рік видання:</strong> ${book.year}</p>
+                                      <p><strong>Жанр:</strong> ${book.genre}</p>`;
+                bookList.appendChild(bookItem);
+            });
+        }
+
+        getBooks();
+    </script> -->
+
+    <script id="template" type="text/template">
+    <section class="book-list__item">
+        <h2>{{title}} {{author}}</h2>
+        <h2>Рік видання: {{year}}</h2>
+        <p>Жанр: {{genre}}</p>
+    </section>
+</script>
+    <section id="book-list">
+
+    </section>
+
+    <script src="../../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+
+</body>
+
+</html>
