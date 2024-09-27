@@ -1,0 +1,9 @@
+.input {
+  align-content: center;
+  height: 50px;
+  background-color: aqua;
+}
+
+.result {
+  background-color: lightyellow;
+}
