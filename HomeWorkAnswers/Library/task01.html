@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script id="template" type="text/template">
+        <div class="book">
+            <h2>{{title}}</h2>
+            <p>author: {{author}}</p>
+            <p>  year: {{year}}</p>
+            <p> genre: {{genre}}</p>
+            <button onclick="edit({{id}})">Редагувати</button>
+            <button onclick="remove({{id}})">Видалити</button>
+        </div>
+    </script>
+    <form action="" id="bookForm">
+        <div class="form-group">
+            <label for="">Назва книги:</label>
+            <input type="text" id="titleInput" data-val="true" data-required="Введіть назву книги" data-double="Дана книга вже наявна в бібліотеці" data-error-label="titleErrorLabel">
+            <span class="error" id="titleErrorLabel">Помилка</span>
+        </div>
+        <div class="form-group">
+            <label for="">      Автор:</label>
+            <input type="text" id="authorInput" data-val="true" data-required="Введіть назву автора" data-error-label="authorErrorLabel">
+            <span class="error" id="authorErrorLabel">Помилка</span>
+        </div>
+        <div class="form-group">
+            <label for="">Рік видання:</label>
+            <input type="text" id="yearInput" data-val="true" data-required="Вкажіть рік випуску книги" data-pattern="^[1450-9999]{4}$" data-range="Невірно задано рік випуску книги" data-error-label="yearErrorLabel">
+            <span class="error" id="yearErrorLabel">Помилка</span>
+        </div>
+        <div class="form-group">
+            <label for="">       Жанр:</label>
+            <input type="text" id="genreInput" data-val="true" data-required="Вкажіть жанр книги" data-error-label="genreErrorLabel">
+            <span class="error" id="genreErrorLabel">Помилка</span>
+        </div>
+        <button type = "submit">Зберегти</button>
+    </form>
+    <div id="bookList">
+
+    </div>
+    <script src="node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/form-custom-validation.js"></script>
+    <script src="js/controller.js"></script>
+ 
+</body>
+</html>
