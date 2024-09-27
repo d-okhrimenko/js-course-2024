@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Програма погоди</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        .weather-container {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .weather-container input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .weather-container button {
+            padding: 10px 20px;
+            border: none;
+            background: #28a745;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .weather-container button:hover {
+            background: #218838;
+        }
+        .weather-result {
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .loading {
+            color: #555;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Перевірте погоду</h1>
+
+    <div class="weather-container">
+        <input type="text" id="cityInput" placeholder="Введіть назву міста">
+        <button id="getWeatherBtn">Отримати погоду</button>
+        <div id="weatherResult" class="weather-result"></div>
+        <div id="errorMessage" class="error"></div>
+        <div id="loadingMessage" class="loading"></div>
+    </div>
+
+    <script>
+        // Ваш API ключ від OpenWeatherMap
+        const apiKey = 'YOUR_API_KEY';  // Замініть 'YOUR_API_KEY' на фактичний API ключ
+
+        // Вибір елементів DOM
+        const cityInput = document.getElementById('cityInput');
+        const getWeatherBtn = document.getElementById('getWeatherBtn');
+        const weatherResult = document.getElementById('weatherResult');
+        const errorMessage = document.getElementById('errorMessage');
+        const loadingMessage = document.getElementById('loadingMessage');
+
+        // Функція для отримання та відображення погоди
+        async function getWeather() {
+            const city = cityInput.value.trim();
+            
+            // Очищення попередніх повідомлень
+            weatherResult.innerHTML = '';
+            errorMessage.textContent = '';
+            loadingMessage.textContent = '';
+
+            if (city === '') {
+                errorMessage.textContent = 'Будь ласка, введіть назву міста.';
+                return;
+            }
+
+            // Показуємо повідомлення про завантаження
+            loadingMessage.textContent = 'Завантаження погоди...';
+
+            // Формування URL запиту
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric&lang=uk`;
+
+            try {
+                const response = await fetch(apiUrl);
+                
+                // Перевірка статусу відповіді
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        throw new Error('Місто не знайдено. Будь ласка, перевірте назву міста.');
+                    } else {
+                        throw new Error('Виникла помилка при отриманні даних про погоду.');
+                    }
+                }
+
+                const data = await response.json();
+
+                // Формування HTML для відображення погоди
+                const weatherInfo = `
+                    <h2>Погода у місті: ${data.name}</h2>
+                    <p>Температура: ${data.main.temp} °C</p>
+                    <p>Відчувається як: ${data.main.feels_like} °C</p>
+                    <p>Опис: ${data.weather[0].description}</p>
+                    <p>Вологість: ${data.main.humidity}%</p>
+                    <p>Швидкість вітру: ${data.wind.speed} м/с</p>
+                `;
+                weatherResult.innerHTML = weatherInfo;
+            } catch (error) {
+                errorMessage.textContent = error.message;
+            } finally {
+                // Приховуємо повідомлення про завантаження
+                loadingMessage.textContent = '';
+            }
+        }
+
+        // Додавання обробника події до кнопки
+        getWeatherBtn.addEventListener('click', getWeather);
+
+        // Додавання можливості натискання Enter для запуску запиту
+        cityInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                getWeather();
+            }
+        });
+    </script>
+
+</body>
+</html>
