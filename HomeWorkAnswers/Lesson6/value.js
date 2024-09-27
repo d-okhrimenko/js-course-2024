@@ -1,0 +1,7 @@
+let getValue=message=> {
+    while (true) {
+        let value = prompt(message);
+        let isValid = !isNaN(value) && value !== "" && value !== null && value>0 && value<=100;
+        if (isValid) return Number(value);
+    }
+}

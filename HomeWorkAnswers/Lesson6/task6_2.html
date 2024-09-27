@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let spysok = ["ручка", "тетрадка", "зошит", "карандаш"];
+
+      let getValue = (message) => {   //Отримання назви товару
+        while (true) {
+          let value = prompt(message);
+          let isValid = value !== "" && value !== null;
+          if (isValid) 
+            return value;
+        }
+      };
+
+      let getMode = (message) => { //Визначення режиму роботи додатку 
+        while (true) {
+          let value = prompt(message);
+          let isValid =
+            !isNaN(value) &&
+            value !== "" &&
+            value !== null &&
+            value > 0 &&
+            value <= 4;
+          if (isValid) 
+            return Number(value);
+        }
+      };
+
+      let showSpysok = () => { //Показати список товарів
+        let checkSpysok = ""; 
+        for (const value of spysok) {
+                checkSpysok = checkSpysok + value +"\n";
+        }
+        return checkSpysok;
+      };
+
+      let addSpysok = (params) => { // Додаток товар ,якого не має у списку
+        let idx = spysok.indexOf(params);
+        if (idx == -1) 
+           spysok.push(params);
+        else 
+           alert("Такий товар вже є у списку");
+        return spysok;
+      };
+
+      let delSpysok = (params) => { // Видалити товар, який є у списку
+        let idx = spysok.indexOf(params);
+        if (idx != -1) 
+          spysok.splice(idx, 1);
+        else 
+          alert("Такого товару немає у списку");
+        return spysok;
+      };
+
+      while (true) {    // Основна частина роботи
+        let mode = getMode(
+          "Для перегляду списку товарів - виберіть 1\n" +
+            "Для додавання товару до списку - виберіть 2\n" +
+            "Для видалення товару зі списку - виберіть 3\n" +
+            "Для завершення роботи - натисніть 4"
+        );
+        if (mode == 4)
+          break;
+        if (mode ==3) {
+            let newThing = getValue("Видаліть товар");
+            delSpysok(newThing);
+        }
+        if (mode ==2) {
+            let newThing = getValue("Додайте товар");
+            addSpysok(newThing);
+        }
+        if (mode ==1) {
+            alert(showSpysok());
+        }
+      }
+    </script>
+  </body>
+</html>
