@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Lesson 11</title>
+		<link
+			rel="stylesheet"
+			href="./style.css" />
+	</head>
+	<body>
+		<section class="weather__container">
+			<div class="weather-app-wrapper">
+				<form
+					id="search-form"
+					class="search-form">
+					<input
+						type="search"
+						placeholder="Type a city..."
+						class="search-city__input"
+						value="Odesa"
+						id="city-input" />
+
+					<button
+						type="submit"
+						class="search-city__btn">
+						Search
+					</button>
+				</form>
+
+				<div class="container current-weather__container"></div>
+				<div class="weather__forecast">
+					<div class="arrow arrow-prev">&larr;</div>
+					<div class="forecast__window">
+						<div class="forecast__line"></div>
+					</div>
+					<div class="arrow arrow-forward">&#8594;</div>
+				</div>
+			</div>
+		</section>
+		<script src="./app.js"></script>
+	</body>
+</html>
