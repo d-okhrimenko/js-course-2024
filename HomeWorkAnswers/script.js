@@ -1,0 +1,110 @@
+let books = [
+    { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+    { title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
+    { title: "Гра престолів", author: "Джордж Р. Р. Мартін", year: 1996, genre: "Фентезі" },
+    { title: "Старий і море", author: "Ернест Хемінгуей", year: 1952, genre: "Пригодницький роман" },
+	{ title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+];
+
+function showBooks() {
+    let container = document.getElementById("bookList")
+
+    for (let i = 0; i < books.length; i++) {
+        let listOfInfo = document.createElement("ul")
+
+        let title = document.createElement("p")
+        title.textContent = books[i]["title"]
+        
+        let author = document.createElement("p")
+        author.textContent = books[i]["author"]
+
+        let year = document.createElement("p")
+        year.textContent = books[i]["year"]
+
+        let genre = document.createElement("p")
+        genre.textContent = books[i]["genre"]
+
+        let editButton = document.createElement("button")
+        editButton.textContent = "Редагувати"
+        editButton.classList.add("book_edit_button")
+        editButton.onclick = function () {
+            const currentList = this.parentNode;
+            const info = currentList.querySelectorAll("p")
+            
+            document.getElementById("titleInput").value = info[0].textContent
+            document.getElementById("authorInput").value = info[1].textContent
+            document.getElementById("yearInput").value = info[2].textContent
+            document.getElementById("genreInput").value = info[3].textContent
+
+            currentList.remove()
+            for (let i = 0; i < books.length; i++) {
+                if (books[i].title === info[0].textContent) {
+                    books.splice(i, 1)
+                }
+            }
+        }
+
+        let deleteButton = document.createElement("button")
+        deleteButton.textContent = "Видалити"
+        deleteButton.classList.add("book_delete_button")
+        deleteButton.onclick = function () {
+            const currentList = this.parentNode;
+            const info = currentList.querySelectorAll("p")
+            
+            currentList.remove()
+            for (let i = 0; i < books.length; i++) {
+                if (books[i].title === info[0].textContent) {
+                    books.splice(i, 1)
+                }
+            }
+        }
+
+        listOfInfo.appendChild(title)
+        listOfInfo.appendChild(author)
+        listOfInfo.appendChild(year)
+        listOfInfo.appendChild(genre)
+        listOfInfo.appendChild(editButton)
+        listOfInfo.appendChild(deleteButton)
+
+        container.appendChild(listOfInfo)
+    }
+}
+showBooks()
+
+function clearInputs() {
+    const title = document.getElementById("titleInput")
+    const author = document.getElementById("authorInput")
+    const year = document.getElementById("yearInput")
+    const genre = document.getElementById("genreInput")
+
+    title.value = ""
+    author.value = ""
+    year.value = ""
+    genre.value = ""
+}
+
+function deleteOldBooks() {
+    let books = document.querySelectorAll("ul")
+    for (const book of books) {
+        book.remove()
+    }    
+}
+
+function getNewBookInfo() {
+    const title = document.getElementById("titleInput").value
+    const author = document.getElementById("authorInput").value
+    const year = document.getElementById("yearInput").value
+    const genre = document.getElementById("genreInput").value
+    
+    let book = {
+        title: title,
+        author: author,
+        year: year,
+        genre: genre
+    };
+
+    clearInputs()
+    deleteOldBooks()
+    books.push(book)
+    showBooks()
+}
