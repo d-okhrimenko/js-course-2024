@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .form-group {
+          margin: 12px 4px;
+      }
+
+      .form-group label {
+          display: block;
+      }
+
+      .form-group label.inline {
+          display: inline-block;
+      }
+
+      /* :valid - псевдоклас знаходить елементи, котрі прйошли валидацию */
+      input:valid {
+          border: 1px solid green;
+      }
+
+      /* :invalid - псевдоклас знаходить елементи, котрі не прйошли валидацию */
+      input:invalid {
+          border: 1px solid red;
+      }
+  </style>
+  </head>
+  <body>
+    <div class="task1">
+      <h2>Завдання 1</h2>
+
+      <form id="bookForm">
+        <div><input type="hidden" id="bookId"></div>
+        <div><label for="titleInput">Назва</label><input type="text" id="titleInput" required></div>
+        <div><label for="authorInput">Автор</label><input type="text" id="authorInput" required></div>
+        <div><label for="yearInput">Рік</label><input type="number" id="yearInput" required min="1450" max="2024"></div>
+        <div><label for="genreInput">Жанр</label><input type="text" id="genreInput" required></div>
+        <button id="bookForm-new" type="submit">Створити</button>
+        <button id="bookForm-upd" type="submit" disabled="true">Оновити</button>
+        <button id="bookForm-del" type="submit">Очистити форму</button>
+      </form>
+
+      <div id="t1-books"></div>
+    </div>
+
+    <script src="Task1.js"></script>
+  </body>
+</html>
