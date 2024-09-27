@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		function getNumber(maxNumber) {
+			return Math.floor(Math.random() * maxNumber) + 1;
+		}
+
+		let maxTasks = 3;
+		let maxAttempts = 2;
+		let totalCorrect = 0;
+		let totalWrong = 0;
+
+		let task = 0;
+		while (task < maxTasks) {
+			task++;
+			let firstNumber = getNumber(10);
+			let secondNumber = getNumber(10);
+			let action = getNumber(4);
+			attempts = 0;
+			while (attempts <= maxAttempts) {
+				let value;
+				let correctAnswer;
+				switch (action) {
+					case 1:
+						expression = `${firstNumber} + ${secondNumber} `;
+						value = Number(prompt(`Завдання ${task}/${maxTasks}. ${expression} = ?`));
+						correctAnswer = firstNumber + secondNumber;
+						break;
+					case 2:
+						expression = `${firstNumber} * ${secondNumber} `;
+						value = Number(prompt(`Завдання ${task}/${maxTasks}. ${expression}  = ?`));
+						correctAnswer = firstNumber * secondNumber;
+						break;
+					case 3:
+						expression = `${firstNumber} - ${secondNumber} `;
+						value = Number(prompt(`Завдання ${task}/${maxTasks}. ${expression}  = ?`));
+
+						correctAnswer = firstNumber - secondNumber;
+						break;
+					case 4:
+						expression = `${firstNumber} / ${secondNumber} `;
+						value = Number(prompt(`Завдання ${task}/${maxTasks}. ${expression}  = ? (округліть до другого знаку дробову відповідь)`));
+						correctAnswer = firstNumber / secondNumber;
+						correctAnswer = correctAnswer.toFixed(2)
+						break;
+				}
+
+				attempts++;
+
+				if (value == correctAnswer) {
+					alert(`Ви відповіли правильно. Відповідь: ${expression} = ${correctAnswer}`);
+					totalCorrect = totalCorrect + 1;
+					break;
+				}
+				else if (attempts < maxAttempts) {
+					alert(`Ви відповіли неправильно. Спробуйте ще раз`);
+				}
+				else {
+					alert(`Ви відповіли неправильно. Правильна відповідь: ${expression} = ${correctAnswer}`);
+					totalWrong = totalWrong + 1;
+					break;
+
+				}
+			}
+		}
+
+		alert(`Ви розв'язали ${totalCorrect} завдань правильно та ${totalWrong} завдань неправильно`);
+
+
+	</script>
+</body>
+
+</html>
