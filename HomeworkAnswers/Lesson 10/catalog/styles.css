@@ -1,0 +1,35 @@
+.book {
+    background-color: lightblue;
+    padding: 10px; 
+    margin: 10px 10px;
+    border-radius: 10px;
+}
+
+#bookForm label {
+    display: inline-block;
+    width: 100px;
+}
+
+#bookForm div {
+    margin-bottom: 10px;
+}
+
+.form {
+    margin: 12px 4px;
+}
+
+.form label {
+    display: block;
+}
+
+.form label.inline {
+    display: inline-block;
+}
+
+input:valid {
+    border: 1px solid green;
+}
+
+input:invalid {
+    border: 1px solid red;
+}
