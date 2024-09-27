@@ -1,0 +1,6 @@
+{
+  "apiKey": "75ba45fab8542ba9db678c22cf77fda2",
+  "apiUrl": "https://api.openweathermap.org/data/2.5/weather",
+  "units": "metric",
+  "lang": "ru"
+}

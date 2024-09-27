@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center; /* Центрируем заголовки */
+}
+
+.book-form {
+    margin: 0 auto; /* Центрируем форму */
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Увеличиваем тень */
+    max-width: 500px; /* Ограничиваем максимальную ширину формы */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../../../Lesson11/task1/img/weather-background..jpeg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #00796b;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.reset {
+    background-color: red;
+}
+
+.reset:hover {
+    background-color: darkred;
+}
+
+#weatherResult {
+    margin-top: 20px;
+    color: white;
+}
+
+.title {
+    animation: fadeIn 1s ease-in-out;
+    color: white;
+}
+.h2{
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px; /* Уменьшение отступов на мобильных устройствах */
+    }
+
+    input[type="text"] {
+        width: calc(100% - 20px); /* Ширина инпута на мобильных устройствах */
+        padding: 8px; /* Уменьшение внутреннего отступа */
+        font-size: 16px; /* Увеличение размера шрифта для удобства ввода */
+    }
+
+    .btn, .reset {
+        width: calc(100% - 20px); /* Кнопки занимают всю ширину */
+        padding: 12px; /* Увеличение внутреннего отступа кнопок */
+        font-size: 16px; /* Увеличение размера шрифта для кнопок */
+        margin-top: 10px; /* Отступ между кнопками */
+    }
+
+    #weatherResult {
+        font-size: 18px; /* Увеличение размера шрифта результата погоды */
+        margin-top: 15px; /* Увеличение отступа сверху */
+    }
+}
+
+@media (max-width: 480px) {
+    input[type="text"] {
+        font-size: 14px; /* Уменьшение размера шрифта на маленьких экранах */
+        padding: 6px; /* Уменьшение внутреннего отступа */
+    }
+
+    .btn, .reset {
+        font-size: 14px; /* Уменьшение размера шрифта для кнопок */
+        padding: 10px; /* Уменьшение внутреннего отступа кнопок */
+    }
+
+    #weatherResult {
+        font-size: 16px; /* Уменьшение размера шрифта результата погоды */
+        margin-top: 10px; /* Уменьшение отступа сверху */
+    }
+}

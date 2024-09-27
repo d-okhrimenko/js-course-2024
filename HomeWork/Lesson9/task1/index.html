@@ -1,0 +1,34 @@
+<!--
+****************************************ПОЯСНЕННЯ ДО КОДУ******************************************************************
+При загрузке страницы студенты загружаются из localStorage и отображаются в таблице.
+Форма добавления студента обрабатывает событие submit и создает нового студента,
+добавляя его в массив студентов. Кнопки удаления обрабатываются через делегирование событий на таблицу.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+<h1>Библиотека книг</h1>
+
+<div class="book-form">
+    <h2>Добавить книгу</h2>
+    <form id="addBookForm">
+        <input type="text" id="titleInput" placeholder="Название книги" required>
+        <input type="text" id="authorInput" placeholder="Автор" required>
+        <input type="number" id="yearInput" placeholder="Год издания" required>
+        <input type="text" id="genreInput" placeholder="Жанр" required>
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+
+<div id="bookList"></div>
+
+<script src="./js/main.js" type="module" defer></script>
+</body>
+</html>
