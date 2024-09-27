@@ -1,0 +1,19 @@
+@import url(style.css);
+
+.current {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 2rem 0;
+}
+.current-date {
+  font-weight: normal;
+  font-style: normal;
+  color: red;
+}
+
+.current-time {
+  font-weight: normal;
+  font-style: normal;
+  color: brown;
+}

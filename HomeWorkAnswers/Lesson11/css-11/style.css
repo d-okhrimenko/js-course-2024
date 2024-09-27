@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: antiquewhite;
+  margin-left: 2rem;
+}
+
+h1 {
+  font-family: "Fontdiner Swanky";
+  font-size: 5rem;
+  color: orange;
+  text-align: center;
+  margin: 5rem;
+}
+
+.btn {
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: aquamarine;
+  margin-top: 1rem;
+  padding: 1.5rem 2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: translate(0, -1rem) scale(1.1);
+}
