@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5 : Task 2</title>
+</head>
+
+<body>
+    <h3>Завдання 2</h3>
+
+    <p>Написати програму, яка обчислює площу та периметр різних геометричних фігур (коло, прямокутник, трикутник). Кожна
+        геометрична фігура повинна мати свою окрему функцію для обчислення площі та периметру.</p>
+
+    <script src="common/my-js-library.js"></script>
+    <script>
+
+        while (true) {
+            let typeOfFigure = getNumericValue("Виберіть фігуру: 1=коло, 2=прямокутник, 3=трикутник");
+
+            if (typeOfFigure == 1) {
+                let rad = getNumericValue("Введіть радіус кола у см:");
+                calculateCicle(rad);
+                break;
+            } else if (typeOfFigure == 2) {
+                let wht = getNumericValue("Введіть ширину прямокутника у см:");
+                let hgt = getNumericValue("Введіть висоту прямокутника у см:");
+                calculateQuadrat(wht, hgt);
+                break;
+            } else if (typeOfFigure == 3) {
+                let firstSide = getNumericValue("Введіть першу сторону трикутника у см:");
+                let secondSide = getNumericValue("Введіть другу сторону трикутника у см:");
+                let thirdSide = getNumericValue("Введіть третю сторону трикутника у см:");
+                calculateTriangle(firstSide, secondSide, thirdSide);
+                break;
+            } else {
+                alert("Ви ввели: " + typeOfFigure + " . Такої фігури немає у списку. Спробуйте ще раз.")
+            }
+        }
+
+        function calculateCicle(radius) {
+            let sqr = Math.PI * (radius ** 2);
+            let prm = 2 * Math.PI * radius;
+            console.log(`Площа кола дорівнює: ${sqr.toFixed(2)} см^2.`);
+            console.log(`Периметр кола дорівнює: ${prm.toFixed(2)} см.`);
+            return;
+        }
+
+        function calculateQuadrat(width, height) {
+            let sqr = width * height;
+            let prm = (width + height) * 2;
+            console.log(`Площа прямокутника дорівнює: ${sqr.toFixed(2)} см^2.`);
+            console.log(`Периметр прямокутника дорівнює: ${prm.toFixed(2)} см.`);
+            return;
+        }
+
+        function calculateTriangle(a, b, c) {
+            let p = (a + b + c) / 2;
+            let sqr = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+            let prm = a + b + c;
+            console.log(`Площа трикутника дорівнює: ${sqr.toFixed(2)} см^2.`);
+            console.log(`Периметр трикутника дорівнює: ${prm.toFixed(2)} см.`);
+            return;
+        }
+
+    </script>
+
+</body>
+
+</html>
