@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container weather">
+        <div class="weather__top">
+            <div class="weather__input">
+                <label for="cityInput">Введіть місто</label>
+                <input type="text" name="city" id="cityInput" placeholder="Введіть місто">
+            </div>
+            <div class="weather__btn">
+                <button class="btn" id="getWeather">Отримати погоду</button>
+            </div>
+        </div>
+        <div class="weather__bottom">
+            <div id="weatherResult"></div>
+        </div>
+        
+    </div>
+
+    <script>
+        const weather = document.querySelector("#getWeather");
+        weather.addEventListener("click", function () {
+            console.log("hello");
+            const city = document.getElementById("cityInput").value;
+            console.log(city);
+            const API_KEY = "dbef28e6ed09eba0d9358c31219e2060";
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=uk`;
+            // Використання fetch для запиту до API
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Місто не знайдено або проблема з сервером");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const weatherInfo = `
+                        <h2>Погода у місті: ${data.name}</h2>
+                        <p>Температура: ${data.main.temp} °C</p>
+                        <p>Опис: ${data.weather[0].description}</p>
+                    `;
+                    document.getElementById("weatherResult").innerHTML = weatherInfo;
+                })
+                .catch(error => {
+                    document.getElementById("weatherResult").innerHTML = `<p>${error.message}</p>`;
+                });
+        });
+    </script>
+</body>
+
+</html>
