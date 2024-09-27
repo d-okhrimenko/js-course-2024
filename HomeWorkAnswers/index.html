@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITVDN HomeWork 11</title>
+    <link href="./css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Погода. WeatherAPI</h1>
+
+    <form class="js-weatherForm">
+      <label for="inputCityName">
+        <span>Назва міста:</span>
+        <input type="text" name="cityName" id="inputCityName" placeholder="Your city" />
+      </label>
+      <select name="days" id="selectDays">
+        <option value="1">1</option>
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="7">7</option>
+      </select>
+      <button type="submit">Отримати</button>
+    </form>
+
+    <ul class="js-weatherList"></ul>
+
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>
