@@ -1,0 +1,52 @@
+.book {
+    background-color: rgb(194, 205, 206);
+    padding: 10px;
+    margin: 30px 10px;
+    border-radius: 20px;
+    /* position: relative; */
+}
+
+.bookForm label {
+    display: inline-block;
+    width: 100px;
+    margin-bottom: 8px;
+}
+
+.inputTxt {
+    width: 300px;
+}
+
+.form-group {
+    margin: 12px 4px;
+}
+
+/* .form-group label {
+    display: block;
+} */
+
+.form-group label.inline {
+    display: inline-block;
+}
+
+.error {
+    color: red;
+    display: none;
+}
+
+.invalid {
+    border: red 1px solid;
+}
+
+.valid {
+    border: green 1px solid;
+}
+
+/* :valid - псевдоклас знаходить елементи, які пройшли валідацію */
+/* input:valid {
+    border: 1px solid green;
+} */
+
+/* :invalid - псевдоклас знаходить елементи, які не пройшли валідацію */
+/* input:invalid {
+    border: 2px solid red;
+} */

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Lesson 7. Task 1.</h3>
+    <h5>
+        Програма управління інформацією про студентів у групі. Програма дозволяє додавати нових студентів, видаляти студентів і виводити інформацію про всіх студентів.
+        <br>
+    </h5>
+    <!-- Кроки для виконання завдання:
+    1. Створити конструктор або фабричну функцію для створення об'єктів студентів:
+    Кожен об'єкт студента повинен містити наступні властивості: ім'я, прізвище, вік, ідентифікаційний номер, середній бал.
+    2. Створити об'єкт для управління групою студентів:
+    Цей об'єкт повинен містити масив студентів та методи для додавання, видалення і виведення інформації про студентів.
+    3. Додати метод для додавання нового студента:
+    Метод повинен приймати параметри для створення нового об'єкта студента і додавати його до масиву.
+    4. Додати метод для видалення студента:
+    Метод повинен видаляти студента за його ідентифікаційним номером.
+    5. Додати метод для виведення списку всіх студентів:
+    Метод повинен виводити на екран список студентів із зазначенням всіх їхніх властивостей.
+    6. Додати функціонал для пошуку студента за його ідентифікаційним номером:
+    Метод повинен шукати студента в масиві і повертати всю інформацію про нього. -->
+    <div>
+        <h4 id="result" style="color:none"></h4>
+    </div>
+
+    <script>
+        class Student {
+    
+            constructor(firstName, lastName, age, inn, gradeAverage) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+                this.inn = inn;
+                this.gradeAverage = gradeAverage;
+            }
+    
+            displayInfo() {
+                console.log(this.toString());
+            }
+
+            toString() {
+                let s = `Student: firstName = ${this.firstName}; lastName = ${this.lastName}; age = ${this.age}; inn = ${this.inn}; gradeAverage = ${this.gradeAverage};`;
+                return s;
+            }
+        }
+
+        //class StudentsDb {
+        let db = {
+    
+            students: [],
+
+            add (firstName, lastName, age, inn, gradeAverage) {
+                this.students.push({firstName: firstName, lastName: lastName, age: age, inn: inn, gradeAverage: gradeAverage});
+            },
+
+            remove (inn) {
+                let student = this.find(inn);
+                let index = this.students.indexOf(student);
+                this.students.splice(index,1);
+            },
+
+            find (inn) {
+                let student = this.students.filter(x => x.inn === inn)[0];
+                return student;
+            },
+
+            displayList: function() {
+                this.students.forEach((st, index) => {
+                    // st.displayInfo();
+                    let s = `Student[${index}]: firstName = ${st.firstName}; lastName = ${st.lastName}; age = ${st.age}; inn = ${st.inn}; gradeAverage = ${st.gradeAverage};`;
+                    console.log(s);
+                })
+            }
+
+            // displayList1: function() {
+            //     this.students.forEach(x => console.log(x.toString()));
+            // },
+
+            // toString() {
+            //     let s = `Student: firstName = ${firstName}; lastName = ${this.lastName}; age = ${this.age}; inn = ${this.inn}; gradeAverage = ${this.gradeAverage};`;
+            //     return s;
+            // }
+        }
+
+        let s = [];
+        s[0] = new Student("Максим", "Павлюк",  20, 123456789123, 65);
+        s[0].displayInfo();
+        s[1] = new Student("Павло", "Максимюк", 19, 456789123456, 45);
+        s[1].displayInfo();
+        s[2] = new Student("Олена", "Гаврилюк", 18, 789012345678, 85);
+        s[2].displayInfo();
+
+        //let db = new StudentsDb;
+        db.add("Максим", "Павлюк",  20, 1, 65);
+        db.add("Павло", "Максимюк", 19, 2, 45);
+        db.add("Олена", "Гаврилюк", 18, 3, 85);
+        db.displayList();
+        console.log("Создано 3 студента");
+
+        db.remove(1);
+        db.displayList();
+        console.log("Удалил студента с кодом 1");
+
+        db.add("Максим", "Павлюк",  20, 1, 65);
+        db.displayList();
+        console.log("Добавил студента с кодом 1");
+
+        let st = db.find(1);
+        // st.displayInfo();
+        showResult("Нашел студента с кодом 1: " + `Student: firstName = ${st.firstName}; lastName = ${st.lastName}; age = ${st.age}; inn = ${st.inn}; gradeAverage = ${st.gradeAverage};`);
+
+        function showResult(str) {
+            let res = document.querySelector("#result");
+            res.style.color = "blue";
+            res.innerHTML = str;
+            console.log(str);
+        }
+    </script>
+    
+</body>
+</html>

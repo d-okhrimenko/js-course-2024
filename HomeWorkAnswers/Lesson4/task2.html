@@ -1,0 +1,175 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	   <meta charset="UTF-8">
+	   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	   <title>Document</title>
+	</head>
+	<div>
+	   <h3>Lesson 4. Task 2.</h3>
+	   <h5>Гра: "Математичний квіз"<br>
+<!-- 	Опис гри:
+		Програма генерує випадкові математичні вирази (додавання, віднімання, множення, ділення) 
+		та запитує у користувача правильну відповідь. 
+		Користувач має обмежену кількість спроб, щоб дати правильну відповідь. 
+		Програма виводить кількість правильних та неправильних відповідей після завершення гри.
+
+		Кроки для виконання завдання:
+
+		1. Генерація математичних виразів:
+			- Використайте Math.random() для генерації двох випадкових чисел і оператора (+, -, *, /).
+		2. Запит правильних відповідей:
+			- Використайте prompt для запиту відповідей у користувача.
+		3 Перевірка відповідей:
+			- Використайте умовні конструкції для перевірки правильності відповідей.
+		4 Підрахунок результатів:
+			- Підрахуйте кількість правильних та неправильних відповідей.
+		5.Виведення результатів:
+			- Використайте alert для виведення підсумкових результатів. -->
+	   	</h5>
+	
+	   	<div>
+			<br><button id="btnGenerate">Почати гру</button>
+	   	</div>
+		<div>
+			<b id="operResult" style="color:none"></b>
+		</div>
+	   	<div>
+			Введіть відповідь: (+)Додавання, (-)Віднімання, (*)Множення, (/)Ділення або (9)Вихід
+		</div>
+		<div>
+			<input type="text" id="inputNum"/>
+	   	</div>
+	   	<div>
+			<br><button id="btnStart">Вгадати операцію</button>
+	   	</div>
+	   	<div>
+			<br>
+			<div><b id="input"></b></div><br>
+		  	<div></div><b id="output"></b></div><br>
+			<div></div><b id="result" style="color:none"></b>
+		  	<div></div><b id="score" style="color:none"></b></div>
+	   	</div>
+	
+	   	<script>
+			let cntOk = 0;
+			let cntEr = 0;
+			let opSymbol = doGenerate();
+			document.querySelector("#btnGenerate").onclick = function() {
+				cntOk = 0;
+				cntEr = 0;
+				opSymbol = doGenerate();
+			}
+			document.querySelector("#btnStart").onclick = function() {
+				let inStr = document.querySelector("#inputNum").value;
+				console.log("inStr = " + inStr);
+				if (inStr === '9') {
+					showResult("", "", "Кінець гри");
+					cntOk = 0;
+					cntEr = 0;
+					return;
+				} else if (inStr != "+" && inStr != "-" && inStr != "*" && inStr != "/") {
+					showResult(inStr, "", "Помилка вводу");
+					return;
+				}
+				let result = doBattle(inStr, opSymbol)
+				console.log("result = " + result);
+				showResult("", "", result);
+				// opSymbol = doGenerate();
+			}
+			
+			function doGenerate() {
+				let op1 = Math.floor(Math.random() * 100) + 1;
+				console.log("op1 = " + op1);
+				let op2 = Math.floor(Math.random() * 100) + 1;
+				console.log("op2 = " + op2);
+				let op3 = Math.floor(Math.random() * 4) + 1;
+				console.log("op3 = " + op3);
+				let opSymbol = numToSymbol(op3);
+				console.log("opSymbol = " + opSymbol);
+				let res = executeOper(op1, opSymbol, op2); 
+				console.log("result = " + op1 + " " + opSymbol + " " + op2 + " = " + res);
+				document.querySelector("#operResult").innerHTML = "Результат виконання: " + res;
+				return opSymbol;
+			}
+
+			function numToSymbol(i) {
+				switch (i) {
+				case 1:
+					s = "+";
+					break;
+				case 2:
+					s = "-";
+					break;
+				case 3:
+					s = "*";
+					break;
+				case 4:
+					s = "/";
+					break;
+				default:
+					s = "Помилка!!!";
+				}
+				return s;
+			}
+		
+			function executeOper(op1, opSymbol, op2) {
+				let res;
+				switch (opSymbol) {
+				case "+":
+					res = op1 + op2;
+					break;
+				case "-":
+					res = op1 - op2;
+					break;
+				case "*":
+					res = op1 * op2;
+					break;
+				case "/":
+					res = op1 / op2;
+					break;
+				default:
+					res = "Error";
+				}
+				return res;
+			}
+
+			function doBattle(inStr, opSymbol) {
+				if (inStr===opSymbol) {
+					cntOk += 1;   
+					return "Переміг користувач";
+				} else {
+					cntEr += 1;   
+					return "Перемогла програма";
+				}
+			}
+		
+			function showResult(inNum, pcNum, result) {
+				document.querySelector("#input").innerHTML = "Користувач: " + inNum + " [" + cntOk + "]";
+				document.querySelector("#output").innerHTML = "Програма: " + pcNum + " [" + cntEr + "]";
+				let res = document.querySelector("#result");
+				res.innerHTML = "Результат операціі: " + result;
+				let scr = document.querySelector("#score");
+				scr.innerHTML = "Загальний рахунок: [Користувач/Програма] = " + "[" + cntOk + ":" + cntEr + "]";
+				if (cntOk > cntEr) {
+					scr.style.color = "green";
+				} else if (cntOk < cntEr) {
+					scr.style.color = "red";
+				} else {
+					scr.style.color = "blue";
+				}
+				switch (result) {
+					case "Переміг користувач":
+						res.style.color = "green";
+						break;
+					case "Нічия":
+						res.style.color = "blue";
+						break;
+					default:
+						res.style.color = "red";
+				}
+			}
+	   	</script>
+	   
+	</body>
+	</html>

@@ -1,0 +1,58 @@
+<!-- Розширте код завдання з уроку 8, додавши наступні можливості:
+1. Створити функцію для додавання нової книги до масиву:
+Функція повинна приймати параметри для створення нового об'єкта книги (назва, автор, рік видання, жанр) 
+і додавати його до масиву books.
+Після додавання нової книги, список книг на веб-сторінці повинен оновлюватися.
+
+2. Створити функцію для редагування інформації про книгу:
+Додайте можливість редагування існуючих книг за індексом або іншим унікальним ідентифікатором.
+Вибрана книга повинна відображатися у формі, де користувач може змінити її дані.
+
+3. Створити функцію для видалення книги з масиву:
+Реалізуйте можливість видалення книги з масиву books.
+Після видалення книги, список книг на веб-сторінці повинен оновлюватися.
+
+Забезпечити динамічне оновлення списку книг на сторінці після кожної операції (додавання, редагування, видалення). 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список книг у бібліотеці</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <script id="template"  type="text/template">
+        <section class="book">
+            <button onclick="edit({{id}})">Редагувати</button>
+            <button onclick="remove({{id}})">Видалити</button>
+            <h2>Назва книги: {{title}}</h2>
+            <h3>Автор: {{author}}</h3>
+            <p>Рік видання: {{year}}</p>
+            <p>Жанр: {{genre}}</p>
+        </section>
+    </script>
+
+    <section class="book">
+        <form id="bookForm" class="bookForm">
+            <div><label for="">Назва книги: </label><input type="text" id="titleInput" class="inputTxt"></div>
+            <div><label for="">Автор: </label><input type="text" id="authorInput" class="inputTxt"></div>
+            <div><label for="">Рік видання: </label><input type="text" id="yearInput" class="inputTxt"></div>
+            <div><label for="">Жанр: </label><input type="text" id="genreInput" class="inputTxt"></div>
+            <button type="submit">Зберегти</button>
+        </form>
+    </section>
+
+    <section id="bookList"></section>
+    
+    <script src="../../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    
+</body>
+
+</html>
