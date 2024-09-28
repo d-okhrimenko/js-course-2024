@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <script id="template" type="text/template">
+      <section class="bookCard">
+        <p class="bookTitle"><strong>Title:</strong> {{title}}</p>
+        <p class="bookAuthor"><strong>Author:</strong> {{author}}</p>
+        <p class="bookYear"><strong>Year:</strong> {{year}}</p>
+        <p class="bookGenre"><strong>Genre:</strong> {{genre}}</p>
+
+      <div class="buttonContainer">
+        <button onclick="edit({{id}})">Редагувати</button>
+        <button onclick="remove({{id}})">Видалити</button>
+      </div>
+      </section>
+    </script>
+
+    <form id="bookForm" class="bookForm">
+      <div>
+        <label for="titleInput">Title</label>
+        <input
+          type="text"
+          id="titleInput"
+          name="title"
+          required
+          minlength="1"
+        />
+      </div>
+
+      <div>
+        <label for="authorInput">Author</label>
+        <input
+          type="text"
+          id="authorInput"
+          name="author"
+          required
+          minlength="1"
+        />
+      </div>
+
+      <div>
+        <label for="yearInput">Year</label>
+        <input
+          type="number"
+          id="yearInput"
+          name="year"
+          required
+          min="1450"
+          max="2024"
+        />
+      </div>
+
+      <div>
+        <label for="genreInput">Genre</label>
+        <input
+          type="text"
+          id="genreInput"
+          name="genre"
+          required
+          minlength="1"
+        />
+      </div>
+
+      <button type="submit">Зберегти</button>
+    </form>
+
+    <section id="bookList" class="bookList"></section>
+
+    <div id="notification" class="notification">Книга успішно збережена</div>
+
+    <script src="../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
