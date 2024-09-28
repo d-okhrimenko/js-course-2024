@@ -1,0 +1,18 @@
+.book-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#addBookForm label {
+  display: inline-block;
+  width: 100px;
+}
+
+/* #addBookForm input {
+  width: 200px;
+} */
+
+/* #addBookForm div {
+    margin-bottom: 10px;
+} */

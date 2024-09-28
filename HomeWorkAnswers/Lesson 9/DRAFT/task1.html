@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Бібліотека</title>
+  </head>
+  <body>
+    <!-- Цей код створює масив об'єктів, де кожен об'єкт представляє книгу, 
+    і динамічно додає інформацію про книги до HTML-елемента з id bookList. 
+    Кожна книга відображається у вигляді окремого блоку з назвою, автором, роком видання та жанром. -->
+    <h1>Список книг</h1>
+    <div id="bookList"></div>
+
+    <script>
+      // 1. Створити масив об’єктів, де кожен об’єкт представляє книгу
+      const books = [
+        {
+          title: "1984",
+          author: "Джордж Орвелл",
+          year: 1949,
+          genre: "Антиутопія",
+        },
+        {
+          title: "Гаррі Поттер і філософський камінь",
+          author: "Дж. К. Роулінг",
+          year: 1997,
+          genre: "Фентезі",
+        },
+        {
+          title: "Гра престолів",
+          author: "Джордж Р. Р. Мартін",
+          year: 1996,
+          genre: "Фентезі",
+        },
+        {
+          title: "Старий і море",
+          author: "Ернест Хемінгуей",
+          year: 1952,
+          genre: "Пригодницький роман",
+        },
+        {
+          title: "Майстер і Маргарита",
+          author: "Михайло Булгаков",
+          year: 1967,
+          genre: "Фантастика",
+        },
+      ];
+
+      const bookList = document.querySelector("#bookList");
+
+      // 3. Написати функцію для динамічного виведення книг
+      function displayBooks(books) {
+        books.forEach((book) => {
+          const bookItem = document.createElement("div");
+          bookItem.innerHTML = `<h3>${book.title}</h3>
+            <p>Автор: ${book.author}</p>
+            <p>Рік видання: ${book.year}</p>
+            <p>Жанр: ${book.genre}</p>`;
+          bookList.appendChild(bookItem);
+        });
+      }
+
+      // 4. Додати функціонал для відображення списку книг на сторінці
+      displayBooks(books);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Бібліотека</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Список книг</h1>
+    <div id="bookList"></div>
+
+    <form id="bookForm">
+      <label for="title">Назва:</label>
+      <input type="text" id="title" name="title" />
+      <label for="author">Автор:</label>
+      <input type="text" id="author" name="author" />
+      <label for="year">Рік:</label>
+      <input type="number" id="year" name="year" />
+      <label for="genre">Жанр:</label>
+      <input type="text" id="genre" name="genre" />
+      <button type="submit">Зберегти</button>
+    </form>
+
+    <script id="bookTemplate" type="text/template">
+      <div class="book">
+          <p><strong>Назва:</strong> <span class="title"></span></p>
+          <p><strong>Автор:</strong> <span class="author"></span></p>
+          <p><strong>Рік:</strong> <span class="year"></span></p>
+          <p><strong>Жанр:</strong> <span class="genre"></span></p>
+          <button class="edit">Редагувати</button>
+          <button class="delete">Видалити</button>
+      </div>
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
