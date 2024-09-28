@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Student {
+            constructor(firstName, lastName, age, idenKod, averageRating) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+                this.idenKod = idenKod;
+                this.averageRating = averageRating;
+            }
+                displayInfo () {
+                console.log(this.firstName+" "+this.lastName);
+            };
+        }
+        let studentsGroupController  = {
+             
+            students: [],
+
+            add: function (firstName, lastName, age, idenKod, averageRating) {
+                this.students.push(new Student( firstName, lastName, age, idenKod, averageRating ));
+            },
+
+            remove: function(idenKod) {
+                let student = this.students.find(x => x.idenKod == idenKod);
+                let index = this.students.indexOf(student);
+                this.students.splice(index, 1);
+            },
+
+            find: function(idenKod){
+                student = this.students.find(x => x.idenKod == idenKod);
+                return "Прізвище: "+student.firstName+" Ім'я: "+student.lastName+" Вік: "+student.age+" Ідентифікаційний код: "+student.idenKod+" Середній бал: "+student.averageRating 
+            }, 
+            
+            getStudentsList: function(){
+                console.log("Загальний список студентів:")
+                this.students.forEach((student) => console.log("Прізвище: "+student.firstName+" Ім'я: "+student.lastName+" Вік: "+student.age+" Ідентифікаційний код: "+student.idenKod+" Середній бал: "+student.averageRating));          
+            }
+
+        }
+        studentsGroupController.add("Ташак", "Андрій", 24, 1234567890, 5.5);
+        studentsGroupController.add("Король", "Артем", 22, 1234567891, 6.5);
+        studentsGroupController.add("Лесько", "Роман", 23, 1234567892, 3.5);
+        studentsGroupController.add("Барна", "Олена", 26, 1234567893, 4.0);
+        studentsGroupController.add("Калічак", "Анна", 26, 1234567893, 4.2);
+
+        console.log("Шукаємо в групі студента по ідентифікаційному коду - 1234567891")
+        console.log(studentsGroupController.find(1234567891));
+    
+        studentsGroupController.getStudentsList();
+
+        console.log("Видаляєм зі списку - Леська Романа");
+        studentsGroupController.remove(1234567892);
+
+        studentsGroupController.getStudentsList();
+   
+
+    </script>
+</body>
+</html>
