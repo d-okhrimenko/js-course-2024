@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 6. Завдання 1</title>
+</head>
+<body>
+    <script>
+        //  1. Створити масив для зберігання оцінок студентів:
+        const student_score = [];
+
+       // 2. Створити функцію для обчислення середнього балу:
+       function score_average(p_student_score) {
+        if (p_student_score.length === 0) return 0;
+        let sum_score = p_student_score.reduce((acc, score) => acc + score, 0);
+        //console.log(sum_score);
+        return (sum_score / p_student_score.length).toFixed(2);
+       }
+
+       //3. Створити функцію для знаходження найвищої оцінки
+       function score_max(p_student_score) {
+        if (p_student_score.length === 0) return 0;
+        return Math.max(...p_student_score);
+       }
+
+       //4. Створити функцію для знаходження найнижчої оцінки:
+       function score_min(p_student_score) {
+        if (p_student_score.length === 0) return 0;
+        return Math.min(...p_student_score);
+       }       
+
+       function getValueNum(message) {
+            let l_first = 1;
+            let value;
+            while (true) {
+                if (l_first === 1)
+                    value = prompt(message);
+                else
+                    value = prompt("Необхідно ввести число! " + message);
+
+                let l_num_value = Number(value);
+                if (!isNaN(l_num_value) && value !== "" && value !== null) {
+                    return l_num_value;
+                } else {
+                    l_first += 1;
+                }
+            }
+        }
+
+       //5. Запросити користувача ввести кілька оцінок і зберегти їх у масив:
+       while (true) {
+        let score = getValueNum("Введіть оцінку студента (0-завершити)");
+        if (score != 0) {
+            student_score.push(score);
+        } else {
+            break;
+        }
+       }
+
+       //6. Обчислити середній бал, найвищу і найнижчу оцінки:
+       const result_score_average=score_average(student_score);
+       const result_score_max=score_max(student_score);
+       const result_score_min=score_min(student_score);
+
+       //7. Вивести результати:
+       alert(`Середній бал - ${result_score_average}, максимальна оцінка - ${result_score_max}, мінімальна оцінка - ${result_score_min}.`);
+    </script>
+</body>
+</html>

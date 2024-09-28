@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 5. Завдання 2</title>
+</head>
+
+<body>
+    <!-- Завдання 2
+
+    Написати програму, яка обчислює площу та периметр різних геометричних фігур (коло, прямокутник, трикутник). Кожна геометрична фігура повинна мати свою окрему функцію для обчислення площі та периметру.
+    
+    Кроки для виконання завдання:
+    1. Створити функцію для обчислення площі та периметру кола:
+       - Функція повинна приймати радіус кола.
+       - Використайте формули: площа = π * r², периметр = 2 * π * r.
+    
+    2. Створити функцію для обчислення площі та периметру прямокутника:
+       - Функція повинна приймати довжину і ширину прямокутника.
+       - Використайте формули: площа = довжина * ширина, периметр = 2 * (довжина + ширина).
+    
+    3. Створити функцію для обчислення площі та периметру трикутника:
+       - Функція повинна приймати довжини трьох сторін трикутника.
+       - Використайте формули: площа = √(p * (p - a) * (p - b) * (p - c)), де p = (a + b + c) / 2, периметр = a + b + c.
+    
+    4. Запросити користувача вибрати фігуру і ввести відповідні параметри:
+       - Використайте `prompt` для запиту типу фігури та відповідних параметрів.
+    
+    5. Обчислити площу та периметр вибраної фігури:
+       - Викликати відповідні функції для обчислення площі та периметру.
+    
+    6. Вивести результати:
+       - Використайте `alert` для виведення результатів обчислень.    -->
+    <script>
+
+
+        function getValueNum(message) {
+            let l_first = 1;
+            let value;
+            while (true) {
+                if (l_first === 1)
+                    value = prompt(message);
+                else
+                    value = prompt("Необхідно ввести число! " + message);
+
+                let l_num_value = Number(value);
+                if (!isNaN(l_num_value) && value !== "" && value !== null) {
+                    return l_num_value;
+                } else {
+                    l_first += 1;
+                }
+            }
+        }
+
+        function calcCircle(p_radius) {
+            l_areaCircle = Math.PI * Math.pow(p_radius, 2);
+            l_lenghtCircle = 2 * Math.PI * p_radius;
+            return {
+                area: l_areaCircle.toFixed(2),
+                length: l_lenghtCircle.toFixed(2)
+            };
+
+        }
+
+
+        function calcRectangle(p_x, p_y) {
+            l_areaRectangle = p_x * p_y;
+            l_lenghtRectangle = 2 * (p_x + p_y);
+            return {
+                area: l_areaRectangle.toFixed(2),
+                length: l_lenghtRectangle.toFixed(2)
+            };
+        }
+
+        function calcTriangle(p_a, p_b, p_c) {
+            l_p = (p_a + p_b + p_c) / 2;
+
+            l_areaTriangl = Math.sqrt((l_p * (l_p - p_a) * (l_p - p_b) * (l_p - p_c)));
+            l_lenghtTriangl = p_a + p_b + p_c;
+            return {
+                area: l_areaTriangl.toFixed(2),
+                length: l_lenghtTriangl.toFixed(2)
+            };
+        }
+        let l_figure = getValueNum("Виберіть геометричну фігуру: коло(1), прямокутник(2), трикутник(3)")
+        switch (l_figure) {
+            case 1:
+                let l_radius = getValueNum("Введіть радіус кола");
+                alert("Площа кола =" + calcCircle(l_radius).area + ", довжина кола =" + calcCircle(l_radius).length);
+                break;
+            case 2:
+                let l_x = getValueNum("Введіть ширину");
+                let l_y = getValueNum("Введіть довжину");
+                alert("Площа прямокутника =" + calcRectangle(l_x,l_y).area + ", довжина сторін прямокутника =" + calcRectangle(l_x,l_y).length);
+                break;
+            case 3:
+                let l_a = getValueNum("Введіть довжину 1 сторони");
+                let l_b = getValueNum("Введіть довжину 2 сторони");
+                let l_c = getValueNum("Введіть довжину 3 сторони");
+                alert("Площа трикутника =" + calcTriangle(l_a,l_b,l_c).area + ", довжина сторін трикутника =" + calcTriangle(l_a,l_b,l_c).length);
+                break;
+        }
+
+
+    </script>
+</body>
+
+</html>
