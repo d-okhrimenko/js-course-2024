@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Yeseva One", serif;
+  overflow-x: hidden;
+}
+
+.wrapper-score {
+  width: 100vw;
+  height: 100vh;
+  padding: 30px;
+  background: url(./images/bgr_score.jpg) no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-score {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10%;
+}
+
+.output-score {
+  width: 40%;
+  flex-shrink: 0;
+  color: #343636;
+  font-family: "Pattaya", sans-serif;
+  font-size: 22px;
+  text-align: right;
+}
+
+.output-score p {
+  margin-bottom: 15px;
+}
+
+.output-score:first-child {
+  width: 350px;
+}
+
+.input-score {
+  width: 60%;
+  flex-shrink: 0;
+  color: #fefdf7;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #fefdf7;
+}
+
+.descr {
+  font-size: 20px;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 30%;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  border: 2px solid gray;
+}
+
+input:focus {
+  border: 2px solid #d98939;
+  outline: #d98939;
+}
+
+.buttons {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.btn-score {
+  width: 35%;
+  padding: 7px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  font-family: inherit;
+  color: inherit;
+  background-color: #d98939;
+  border: none;
+}
+
+.btn-score:hover {
+  color: #d98939;
+  background-color: #fefdf7;
+  box-shadow: 2px 2px 5px #d98939;
+}
+
+.error {
+  height: 20px;
+  font-size: 20px;
+  color: rgb(245, 84, 84);
+}
+
+.wrapper-shopping {
+  width: 100vw;
+  height: 100vh;
+  padding: 30px;
+  background-image: url(./images/bgr_shopping.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-color: rgba(32, 22, 1, 0.5);
+  background-blend-mode: overlay;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title-shopping {
+  margin: 0 auto 20px;
+}
+
+.inner-shopping {
+  max-width: 1200px;
+  color: #fefdf7;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-item {
+  margin-left: 320px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  gap: 20px;
+  font-size: 18px;
+  z-index: 5;
+}
+
+.shopping-input {
+  width: 200px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  border: 2px solid #6d4f31;
+  color: #2d4322;
+}
+
+.shopping-input:focus {
+  border: 2px solid #2d4322;
+  outline: #2d4322;
+}
+
+.btn-shopping {
+  background-color: #2d4322;
+  width: 160px;
+  padding: 7px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+}
+
+.btn-shopping:hover {
+  color: #2d4322;
+  background-color: #fefdf7;
+  box-shadow: 2px 2px 5px #2d4322;
+}
+
+.clear-btn {
+  background-color: #4c0509;
+}
+
+.clear-btn:hover {
+  color: #7e080e;
+  background-color: #fefdf7;
+  box-shadow: 2px 2px 5px #4c0509;
+}
+
+.shopping-box {
+  transform: rotate(-8deg);
+  position: relative;
+}
+
+img {
+  position: absolute;
+  top: -15px;
+  left: 75px;
+  width: 1000px;
+  z-index: -1;
+}
+
+.shopping-list {
+  transform: rotate(16deg);
+  position: absolute;
+  top: 160px;
+  left: 450px;
+  width: 380px;
+  z-index: 2;
+  color: #341406;
+  font-family: "Pattaya", sans-serif;
+}
+
+.shopping-item {
+  max-width: 350px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-item {
+  width: 15px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.delete-item svg {
+  fill: #341406;
+  transition: fill 0.5s ease;
+}
+
+.delete-item svg:hover {
+  fill: #456833;
+}
+
+.crossed-out {
+  text-decoration: line-through;
+  color: #341406;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <template id="template">
+      <article class="book">
+        <img src="./img/{{imgBook}}.jpg" alt="{{title}}" />
+        <div class="inner">
+          <h2 class="book-title">{{title}}</h2>
+          <p>{{author}}</p>
+          <p class="year">{{year}}</p>
+          <p>{{genre}}</p>
+        </div>
+      </article>
+    </template>
+
+    <section class="wrapper">
+      <h1 class="title">Бібліотека - класика</h1>
+      <section class="bookList" id="bookList"></section>
+    </section>
+
+    <script src="../../node_modules/mustache/mustache.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+  </body>
+</html>
