@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 50px;
+      }
+      form {
+        display: grid;
+        row-gap: 20px;
+      }
+      .form__line {
+        display: flex;
+        align-items: center;
+      }
+      .form__label {
+        font-size: 18px;
+        font-weight: bold;
+        display: inline-block;
+        width: 150px;
+      }
+      .form__input {
+        width: 300px;
+        padding: 5px 10px;
+      }
+      .form__button {
+        cursor: pointer;
+        padding: 5px 10px;
+        margin-top: 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        border: 1px solid grey;
+        transition: all 0.3s ease 0s;
+      }
+      .form__button:hover {
+        background-color: #c0bebe;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="GET">
+      <div class="form__line">
+        <label for="book-name" class="form__label">Назва книги:</label>
+        <input type="text" required name="book-name" id="book-name" class="form__input" />
+      </div>
+      <div class="form__line">
+        <label for="author-name" class="form__label">Автор:</label>
+        <input type="text" required name="author-name" id="author-name" class="form__input" />
+      </div>
+      <div class="form__line">
+        <label for="book-year" class="form__label">Рік видання:</label>
+        <input type="number" required name="book-year" id="book-year" min="1450" class="form__input" />
+      </div>
+      <div class="form__line">
+        <label for="book-genre" class="form__label">Жанр:</label>
+        <input type="text" required name="book-genre" id="book-genre" class="form__input" />
+      </div>
+      <div class="form__line">
+        <button type="submit" class="form__button">Submit</button>
+      </div>
+    </form>
+    <script>
+      const books = [
+        { title: '1984', author: 'Джордж Орвелл', year: 1949, genre: 'Антиутопія' },
+        { title: 'Гаррі Поттер і філософський камінь', author: 'Дж. К. Роулінг', year: 1997, genre: 'Фентезі' },
+        { title: 'Гра престолів', author: 'Джордж Р. Р. Мартін', year: 1996, genre: 'Фентезі' },
+        { title: 'Старий і море', author: 'Ернест Хемінгуей', year: 1952, genre: 'Пригодницький роман' },
+        { title: 'Майстер і Маргарита', author: 'Михайло Булгаков', year: 1967, genre: 'Фантастика' },
+      ]
+
+      let form = document.querySelector('form')
+      form.addEventListener('submit', function (e) {
+        let userBookName = document.querySelector('#book-name').value
+        for (let i = 0; i < books.length; i++) {
+          if (books[i].title == userBookName) alert('Така книга вже існує')
+        }
+      })
+    </script>
+  </body>
+</html>
+<!-- Додайте валідацію до форми з попереднього уроку яка додає та редагує книги.
+
+Виконайте наступні перевірки
+
+1. Поле "Назва книги" (title)
++Перевірка на порожнє значення: назва книги не повинна бути порожньою.
++Перевірка на дублікати: перевірити, чи вже є така книга в масиві books.
+
+2. Поле "Автор" (author)
++Перевірка на порожнє значення: ім'я автора не повинно бути порожнім.
+
+3. Поле "Рік видання" (year)
++Перевірка на порожнє значення: рік повинен бути вказаний.
++Перевірка на тип даних: це має бути число.
++Перевірка на діапазон значень: рік не може бути меншим за 1450 (перші друковані книги) і більшим за поточний рік.
+
+4. Поле "Жанр" (genre)
++Перевірка на порожнє значення: жанр не повинен бути порожнім.
+ 
+const books = [
+    { title: "1984", author: "Джордж Орвелл", year: 1949, genre: "Антиутопія" },
+    { title: "Гаррі Поттер і філософський камінь", author: "Дж. К. Роулінг", year: 1997, genre: "Фентезі" },
+    { title: "Гра престолів", author: "Джордж Р. Р. Мартін", year: 1996, genre: "Фентезі" },
+    { title: "Старий і море", author: "Ернест Хемінгуей", year: 1952, genre: "Пригодницький роман" },
+{ title: "Майстер і Маргарита", author: "Михайло Булгаков", year: 1967, genre: "Фантастика" },
+];
+
+-->
