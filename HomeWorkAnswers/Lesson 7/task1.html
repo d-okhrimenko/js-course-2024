@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+
+	<body>
+		<script>
+			class Student {
+				constructor(id, firstName, lastName, age, avgMark) {
+					this.id = id;
+					this.firstName = firstName;
+					this.lastName = lastName;
+					this.age = age;
+					this.avgMark = avgMark;
+				}
+				displayInfo() {
+					console.log(
+						`${this.id}  ${this.firstName.padEnd(10)} ${this.lastName.padEnd(15)}  ${this.age}   ${this.avgMark}`,
+					);
+				}
+			}
+
+			class StudentsDatabase {
+				#students = [];
+				// метод додавання
+				add(id, firstName, lastName, age, avgMark) {
+					this.#students.push(new Student(id, firstName, lastName, age, avgMark));
+				}
+				// метод видалення
+				remove(id) {
+					let student = this.#students.filter(x => x.id === id)[0];
+					let index = this.#students.indexOf(student);
+					this.#students.splice(index, 1);
+					console.log(`Видалено запис з ID=${student.id}`);
+					console.log(`---------- Видалення завершено---------- `);
+				}
+				// метод пошуку
+				find(id) {
+					let student = this.#students.find(student => student.id === id);
+					console.log(`Знайдено  запис з ID=${student.id}`);
+					student.displayInfo();
+					console.log(`---------- Пошук завершено---------- `);
+				}
+				// метод відображення списку
+				list() {
+					console.log("    ІНН       Ім'я       Прізвище       Вік  Сер.бал");
+					this.#students.forEach(student => student.displayInfo());
+					console.log(`--------- Відображення списку студентів завершено--------- `);
+				}
+			}
+
+			// Початок
+			let db = new StudentsDatabase();
+
+			// Додавання записів у базу
+			db.add(1234567890, "Олександр", "Коваленко", 20, 85);
+			db.add(2345678901, "Марія", "Шевченко", 21, 90);
+			db.add(3456789012, "Дмитро", "Бондаренко", 22, 78);
+			db.add(4567890123, "Олена", "Гончарук", 19, 88);
+			db.add(5678901234, "Андрій", "Лисенко", 23, 92);
+			db.add(6789012345, "Наталія", "Мельник", 20, 75);
+			db.add(7890123456, "Сергій", "Ткаченко", 21, 80);
+			db.add(8901234567, "Ірина", "Кравченко", 22, 83);
+			db.add(9012345678, "Володимир", "Сидоренко", 19, 77);
+			db.add(5123456789, "Ганна", "Пономаренко", 23, 89);
+
+			// Відображення списку всіх студентів
+			db.list();
+
+			// видалення студента з ID = 9012345678
+			db.remove(9012345678);
+
+			// пошук студента з ID=1234567890
+			db.find(1234567890);
+
+			// Відображення списку всіх студентів
+			db.list();
+		</script>
+	</body>
+</html>

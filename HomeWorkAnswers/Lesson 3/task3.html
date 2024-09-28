@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="output">Введено рік: невідомо</p>
+    <script>
+      let year = prompt("Введіть рік");
+      let yearN = Number(year);
+      let res;
+      if (isNaN(yearN)) {
+        res = "Некоректне значення";
+        console.log("Некоректне значення");
+      } else if (yearN == 0) {
+        res = "нульовий";
+      } else if (yearN % 4 == 0 && (yearN % 400 == 0 || yearN % 100 !== 0)) {
+        res = "високосний";
+      } else {
+        res = "не високосний";
+      }
+
+      let output = document.querySelector("#output");
+      output.innerHTML = "Введено рік: " + yearN + ". Даний рік - " + res;
+      alert(yearN + " - " + res + " рік");
+    </script>
+  </body>
+</html>
