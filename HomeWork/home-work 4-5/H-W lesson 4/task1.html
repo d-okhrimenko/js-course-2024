@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		"use strict"
+		let userScore = 0;
+		let computerScore = 0;
+
+		while (true) {
+			const userSelection = prompt('Введіть свій вибір: камінь, ножиці, або папір').toLowerCase();
+			const computerSelection = ['камінь', 'ножиці', 'папір'][Math.floor(Math.random() * 3)];
+
+			alert(`Ви обрали: ${userSelection}. Комп'ютер обрав: ${computerSelection}.`);
+
+			if (userSelection === computerSelection) {
+				alert('Нічія!')
+			} else if (
+				(userSelection === 'камінь' && computerSelection === 'ножиці') ||
+				(userSelection === 'ножиці' && computerSelection === 'папір') ||
+				(userSelection === 'папір' && computerSelection === 'камінь')
+			) {
+				alert('Ви виграли!');
+				userScore++;
+			} else {
+				alert("Комп'ютер виграв!");
+				computerScore++;
+			}
+
+			const playAgain = prompt('Бажаєте продовжити гру? (так/ні)');
+			if (playAgain.toLowerCase() !== "так") {
+				alert(`Гра завершена. Ваш рахунок: ${userScore}, Рахунок комп'ютера: ${computerScore}`);
+				break;
+			}
+		}
+	</script>
+</body>
+
+</html>
