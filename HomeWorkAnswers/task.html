@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 7 HOMEWORK</title>
+</head>
+<body>
+    <script src="script.js"></script>
+    <script>
+        group.add(1, "Jane", "Doris", 20, 75);
+        group.add(2, "Max", "Madson", 23, 70);
+        group.add(3, "Ann", "McMurfy", 19, 85);
+        console.log("Base group list:");
+        group.displayGroup();
+
+        console.log("Let's add Andy Adams");
+        group.add(4, "Andy", "Adams", 22, 80);
+        group.displayGroup();
+
+        console.log("Let's find student by ID = 2");
+        group.displayStudent(2);
+
+        console.log("Let's remove student by ID = 3");
+        group.remove(3);
+        group.displayGroup();
+
+    </script>
+</body>
+</html>
