@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+
+		let velue1 = prompt("веедіть число 1");
+		let velue2 = prompt("веедіть число 2");
+
+		velue1 = Number(velue1);
+		velue2 = Number(velue2);
+		let sum = velue1 + velue2;
+1
+		if (isNaN(sum)) {
+			alert("введіть число");
+		}
+		else {
+			// Перевірка на парність залишку від ділення
+			if (sum % 2 === 0) {
+				alert("парне число");
+			}
+			else {
+				alert("число не парне");
+			}
+		}
+	</script>
+
+
+
+
+</body>
+
+</html>
