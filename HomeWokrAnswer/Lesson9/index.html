@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бібліотека</title>
+</head>
+<body>
+    <h1>Список книг у бібліотеці</h1>
+    <div>
+        <h2>Додати нову книгу</h2>
+        <input type="text" id="title" placeholder="Назва книги">
+        <input type="text" id="author" placeholder="Автор">
+        <input type="number" id="year" placeholder="Рік видання">
+        <input type="text" id="genre" placeholder="Жанр">
+        <button onclick="addBook()">Додати книгу</button>
+    </div>
+
+    <h2>Книги</h2>
+    <ul id="bookList"></ul>
+
+    <div id="editForm" style="display:none;">
+        <h2>Редагувати книгу</h2>
+        <input type="text" id="editTitle" placeholder="Назва книги">
+        <input type="text" id="editAuthor" placeholder="Автор">
+        <input type="number" id="editYear" placeholder="Рік видання">
+        <input type="text" id="editGenre" placeholder="Жанр">
+        <button onclick="saveBook()">Зберегти зміни</button>
+        <button onclick="cancelEdit()">Скасувати</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
