@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2. Area and Perimeter.</title>
+</head>
+
+<body>
+  <script src="../../ClassWork/common/my-library.js"></script>
+  <script src="../CommonFolder/LizaLibrary.js"></script>
+  <script>
+    let circle = "c";
+    let rectangle = "r";
+    let triangle = "t";
+    let messageFigure = "Enter: C(en) - circle, R - rectangle, T - triangle"
+
+    let getCircleArea = radius => Math.PI * Math.pow(radius, 2);
+    let getCirclePerimeter = radius => 2 * Math.PI * radius;
+
+    let getRectangleArea = (length, width) => length * width;
+    let getRectanglePerimeter = (length, width) => 2 * (length + width);
+
+    let getTrianglePerimeter = (catet1, catet2, hypotenuza) => catet1 + catet2 + hypotenuza;
+    let getTriangleArea = (catet1, catet2, hypotenuza) => {
+      let halfPerim = getTrianglePerimeter(catet1, catet2, hypotenuza) / 2;
+      let area = Math.sqrt(halfPerim * ((halfPerim - catet1) * (halfPerim - catet2) * (halfPerim - hypotenuza)));
+      return area;
+    }
+
+    function calculationCircle(inputFigure) {
+      let radiusMsg = "Enter Radius of Circle";
+
+      let radius = getNumericValue(radiusMsg);
+
+      let areaCircle = getCircleArea(radius);
+      let perimeterCircle = getCirclePerimeter(radius);
+
+      let outputCalcCircle = alert(`Circle: \nArea: ${areaCircle.toFixed(2)}; \nPerimeter: ${perimeterCircle.toFixed(2)}`);
+      return outputCalcCircle;
+    }
+
+    function calculationRectangle(inputFigure) {
+      let lengthMsg = "Enter Length of Recrangle";
+      let widthMsg = "Enter Width of Recrangle";
+
+      let length = getNumericValue(lengthMsg);
+      let width = getNumericValue(widthMsg);
+
+      let areaRectangle = getRectangleArea(length, width);
+      let perimeterRectangle = getRectanglePerimeter(length, width);
+
+      let outputCalcRectangle = alert(`Rectangle: \nArea: ${areaRectangle.toFixed(2)}; \nPerimeter: ${perimeterRectangle.toFixed(2)}`);
+      return outputCalcRectangle;
+    }
+
+    function calculationTriangle(inputFigure) {
+      let catet1Msg = "Enter 1st Catet Lenght";
+      let catet2Msg = "Enter 2d Catet Lenght";
+      let hypotenuzaMsg = "Enter Hypotenuza Lenght";
+
+      let catet1 = getNumericValue(catet1Msg);
+      let catet2 = getNumericValue(catet2Msg);
+      let hypotenuza = getNumericValue(hypotenuzaMsg);
+
+      let perimeterTriangle = getTrianglePerimeter(catet1, catet2, hypotenuza);
+      let areaTriangle = getTriangleArea(catet1, catet2, hypotenuza);
+
+      let outputCalcTriangle = alert(`Triangle: \nArea: ${areaTriangle.toFixed(2)}; \nPerimeter: ${perimeterTriangle.toFixed(2)}`);
+      return outputCalcTriangle;
+    }
+
+    function getFigureCalculationValues(inputFigure) {
+      if (inputFigure == circle) {
+        let outputCalcCircle = calculationCircle(inputFigure);
+        return outputCalcCircle;
+      }
+      else if (inputFigure == rectangle) {
+        let outputCalcRectangle = calculationRectangle(inputFigure);
+        return outputCalcRectangle;
+      }
+      else if (inputFigure == triangle) {
+        let outputCalcTriangle = calculationTriangle(inputFigure)
+        return outputCalcTriangle;
+      }
+    }
+
+    let inputFigure = getStringValue(messageFigure).toLowerCase();
+    getFigureCalculationValues(inputFigure);   
+  </script>
+</body>
+
+</html>
