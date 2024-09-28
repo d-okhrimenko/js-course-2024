@@ -1,0 +1,19 @@
+.book-block {
+    background-color: lightblue;
+    padding: 20px;
+    margin: 30px 10px;
+    border-radius: 10px;
+    list-style: none;
+    text-align: center;
+}
+
+.form-lable {
+    display: inline-block;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 5px 15px;
+    margin: 0 10px;
+}
