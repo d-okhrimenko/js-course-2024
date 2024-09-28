@@ -1,0 +1,25 @@
+h1 {
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    text-align: center;
+
+}
+
+#bookList {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+
+}
+
+.book-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: hsl(136, 43%, 90%)
+}
+
+.book-title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
