@@ -1,0 +1,15 @@
+.library {
+  background-color: rgba(172, 255, 47, 0.248);
+  padding: 20px;
+  margin: 30px 10px;
+  border-radius: 10px;
+}
+
+#bookForm label {
+  display: inline-block;
+  width: 100px;
+}
+
+#bookForm div {
+  margin-bottom: 10px;
+}
