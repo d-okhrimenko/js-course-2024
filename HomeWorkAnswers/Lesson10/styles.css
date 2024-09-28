@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Yeseva One", serif;
+  background: url(./img/bgr.jpg) no-repeat;
+  background-size: cover;
+  color: #fefdf7;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #fefdf7;
+}
+
+#bookForm {
+  display: flex;
+  max-width: 720px;
+  width: 70%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#bookForm label {
+  display: inline-block;
+  width: 120px;
+}
+
+#bookForm input {
+  width: 350px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  border: 2px solid #fefdf7;
+  background-color: rgba(254, 253, 247, 0.5);
+  color: #0d0d44;
+  padding: 2px 5px;
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+}
+
+#bookForm input:focus {
+  outline: 1px solid #0d0d42;
+  border: 2px solid #0d0d42;
+}
+
+#bookForm button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 55px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  font-family: inherit;
+  letter-spacing: 1px;
+  color: #fefdf7;
+  background-color: #0d0d44;
+  box-shadow: 5px 7px 10px #fefdf7;
+  transition: all 0.3s ease;
+}
+
+#bookForm button:hover {
+  box-shadow: 5px 7px 10px #6ac6ee;
+  color: #6ac6ee;
+}
+
+.bookList {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.book {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 40px;
+  background-color: #6ac6eeb3;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 5px 7px 10px #fefdf7;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+.book:hover {
+  transform: scale(1.01);
+}
+
+.book img {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.book p {
+  margin: 5px;
+}
+
+.book-title {
+  color: #0d0d44;
+}
+
+.year {
+  color: #4f1047;
+  font-weight: 700;
+}
+
+.butoons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.butoons button {
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.butoons i {
+  font-size: 20px;
+  color: #0d0d44;
+  transition: all 0.3s ease;
+}
+
+.butoons i:hover {
+  color: #821a74;
+}
+
+#bookForm input.valid {
+  background-color: rgba(176, 243, 176, 0.6);
+}
+
+#bookForm input.invalid {
+  background-color: rgba(213, 125, 125, 0.6);
+}

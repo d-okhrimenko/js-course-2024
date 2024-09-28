@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 8-9</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <script id="template" type="text/template">
+      <article class="book">
+       <img src="{{imgBook}}" alt="{{title}}" />
+        <div class="inner">
+          <h2 class="book-title">{{title}}</h2>
+          <p>Автор: {{author}}</p>
+          <p class="year">Рік видання: {{year}}</p>
+          <p>Жанр: {{genre}}</p>
+        </div>
+        <div class="butoons">
+          <button onclick= "edit({{id}})"><i class="fa-solid fa-pencil"></i></button>
+          <button onclick= "remove({{id}})"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      </article>
+    </script>
+
+    <section class="wrapper">
+      <h1 class="title">Бібліотека класичної літератури</h1>
+      <form action="" id="bookForm">
+        <div class="inputs">
+          <div>
+            <label for="titleInput">Назва</label
+            ><input type="text" id="titleInput" />
+          </div>
+          <div>
+            <label for="authorInput">Автор</label
+            ><input type="text" id="authorInput" />
+          </div>
+          <div>
+            <label for="yearInput">Рік</label
+            ><input type="text" id="yearInput" />
+          </div>
+          <div>
+            <label for="genreInput">Жанр</label
+            ><input type="text" id="genreInput" />
+          </div>
+          <div>
+            <label for="imgInput">Зображення</label
+            ><input type="file" id="imgInput" accept="image/*" />
+          </div>
+        </div>
+
+        <button type="submit">Зберегти</button>
+      </form>
+
+      <section class="bookList" id="bookList"></section>
+    </section>
+
+    <script src="./js/mustache.min.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+  </body>
+</html>
