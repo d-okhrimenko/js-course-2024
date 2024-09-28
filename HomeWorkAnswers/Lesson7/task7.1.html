@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управління інформацією про студентів у групі</title>
+</head>
+
+<body>
+    <script src="../common/my-library.js"></script>
+    <script src="Student.js"></script>
+
+    <p>Зробіть вибір</p>
+    <button id="btnStudent">Додати студента</button>
+    <button id="btnDelStudent">Видалити студента за id</button>
+    <button id="btnDisplayInfoByIndex">Вивести інформацію про студента за id</button>
+    <button id="btnDisplayAllStudents">Вивести список студентів</button>
+
+    <script>
+        const studentGroup = new StudentGroup();
+
+        const addStudent = () => {
+            const id = getNumericValue(`Введіть ідентифікаційний номер`);
+            const firstName = getValue(`Введіть ім'я`);
+            const lastName = getValue(`Введіть прізвище`);
+            const age = getNumericValue(`Введіть вік`);
+            const averageGrade = getNumericValue(`Введіть середній бал`);
+
+            studentGroup.add(id, firstName, lastName, age, averageGrade);
+            alert(`Студент: ${lastName} успішно доданий`);
+        }
+
+        const delStudent = () => {
+            const id = getNumericValue(`Введіть ідентифікаційний номер студента для видалення з бази`);
+            studentGroup.remove(id);
+        }
+
+        const displayStudent = () => {
+            const id = getNumericValue(`Введіть ідентифікаційний номер студента для виводу інформації`);
+            studentGroup.displayStudent(id);
+        }
+
+        const displayAllStudents = () => {
+            studentGroup.displayStudents();
+        }
+
+        studentGroup.add(1, "Шевченко", "Тарас", 23, 97);
+        studentGroup.add(2, "Сірко", "Іван", 35, 98);
+        studentGroup.add(3, "Хмельницкий", "Богдан", 39, 95);
+
+        document.querySelector("#btnStudent").onclick = addStudent;
+        document.querySelector("#btnDelStudent").onclick = delStudent;
+        document.querySelector("#btnDisplayInfoByIndex").onclick = displayStudent;
+        document.querySelector("#btnDisplayAllStudents").onclick = displayAllStudents;
+    </script>
+
+</body>
+
+</html>

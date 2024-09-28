@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    font-family: 'Heebo', sans-serif;
+    color: #21243D;
+
+}
+
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 44px;
+    padding-left: 25px;
+}
+
+.book {
+    background-color: rgb(221, 236, 242);
+    padding: 20px;
+    margin: 30px 10px;
+    border-radius: 10px;
+}
+
+.label {
+    font-size: 20px;
+    color: #7d8792;
+}
+
+.details {
+    font-size: 20px;
+    color: #21243D;
+    ;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бібліотека</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Список книг у бібліотеці</h1>
+        <template id="template">
+            <section class="book">
+                <p>
+                    <span class="label">Назва книги:</span>
+                    <span class="details">{{title}}</span>
+                </p>
+                <p>
+                    <span class="label">Автор: </span>
+                    <span class="details">{{author}}</span>
+                </p>
+                <p><span class="label">Рік видання: </span>
+                    <span class="details">{{year}}</span>
+                </p>
+                <p>
+                    <span class="label">Жанр: </span>
+                    <span class="details">{{genre}}</span>
+                </p>
+            </section>
+        </template>
+
+        <section id="book-list">
+        </section>
+    </div>
+    <script src="../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>

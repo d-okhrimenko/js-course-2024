@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cписок покупок</title>
+</head>
+
+<body>
+    <p>Зробіть вибір</p>
+    <button id="btnAddGoods">Додати товар</button>
+    <button id="btnDelGoodsByName">Видалити товар за іменем</button>
+    <button id="btnDelGoodsByIndex">Видалити товар за індексом</button>
+    <button id="btnDisplayGoods">Вивід списку покупок</button>
+
+
+    <script src="../common/my-library.js"></script>
+
+    <script>
+
+        const addGoods = () => {
+            goods.push(getValue(`Введіть товар`));
+        }
+
+        const delGoodsByName = () => {
+            let productSearch = getValue('Введіть назву товару для видалення зі списку');
+            let index = goods.indexOf(productSearch);
+
+            if (index !== -1) {
+                goods.splice(index, 1);
+                alert(`Товар ${productSearch} видалено зі списку покупок`);
+            } else {
+                alert(`Товар ${productSearch} відсутній в списку покупок`);
+            }
+        }
+
+        const delGoodsByIndex = () => {
+            let index = getValue('Введіть індекс товару для видалення зі списку');
+
+            if (index > -1 && index < goods.length) {
+                alert(`Товар ${goods[index]} видалено зі списку покупок`);
+                goods.splice(index, 1);
+            } else {
+                alert(`Індекс ${index} не коректний`);
+            }
+        }
+
+        const displayGoods = () => {
+            alert(`Список покупок: ${goods.toString()}`);
+        }
+
+        let goods = ["огірки", "помідори", "цукор", "масло", "сіль", "ананас", "авокадо"];
+
+        document.querySelector("#btnAddGoods").onclick = addGoods;
+        document.querySelector("#btnDelGoodsByName").onclick = delGoodsByName;
+        document.querySelector("#btnDelGoodsByIndex").onclick = delGoodsByIndex;
+        document.querySelector("#btnDisplayGoods").onclick = displayGoods;
+
+    </script>
+</body>
+
+</html>
