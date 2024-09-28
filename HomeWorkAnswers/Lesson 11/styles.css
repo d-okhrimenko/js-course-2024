@@ -1,0 +1,102 @@
+body {
+    color: #FAA21A;
+    margin: 0;
+    height: 100vh;
+    background-image: url('images/background_OpenWeather.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a {
+    color: #FAA21A;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+a:vizited {
+    color: #FAA21A;
+}
+
+a:hover {
+    color: blue;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, .3);
+    transition: all 0.3s ease;
+    transform: translate(-3px, -3px);
+}
+
+a:active {
+    color: #080;
+}
+
+#weather {
+    margin: 10px;
+}
+
+#weather div {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+#weather input {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, .3);
+    padding: 5px;
+    margin-left: 10px;
+}
+
+#weather input:hover {
+    background-color: lightgoldenrodyellow;
+    color: blue;
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, .3);
+    transition: all 0.3s ease;
+    transform: translate(-1px, -1px);
+}
+
+button {
+    background-image: url('images/logo_32x32.png');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 10px;
+    width: 130px;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, .3);
+}
+
+button:hover {
+    background-color: lightgoldenrodyellow;
+    color: blue;
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, .3);
+    transition: all 0.3s ease;
+    transform: translate(-1px, -1px);
+}
+
+button:active {
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, .3);
+    transition: all 0.3s ease;
+    transform: translate(-3px, -3px);
+}
+
+#loader {
+    margin-left: 10px;
+}
+
+#weatherResult {
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    /* background-image: url('images/logo_OpenWeather.png');
+    background-size: auto 100%;
+    background-repeat: no-repeat; */
+    height: 184px;
+}
+
+#weatherResult:hover {
+    background-color: rgba(250, 250, 210, 0.3);
+    color: blue;
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, .3);
+    transition: all 0.3s ease;
+    transform: translate(-1px, -1px);
+}
