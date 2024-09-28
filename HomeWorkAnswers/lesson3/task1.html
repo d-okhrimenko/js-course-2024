@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Введення числа
+        let input = prompt("Введіть число:");
+
+        // Перетворення введеного значення на число
+        let number = Number(input);
+
+        // Перевірка введених даних
+        if (isNaN(number)) {
+            alert("Будь ласка, введіть коректне число.");
+        } else {
+            // Перевірка на парність
+            if (number % 2 === 0) {
+                alert("Число парне.");
+            } else {
+                alert("Число непарне.");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
