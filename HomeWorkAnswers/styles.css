@@ -1,0 +1,37 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+#weatherForm input {
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+}
+
+#weatherForm button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#weatherForm button:hover {
+  background-color: #45a049;
+}
+
+#weatherResult {
+  margin-top: 20px;
+}
+
+#weatherResult h2 {
+  color: #333;
+}
