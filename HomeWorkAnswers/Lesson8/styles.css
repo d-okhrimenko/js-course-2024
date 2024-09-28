@@ -1,0 +1,7 @@
+.book {
+    background-color: rgb(194, 205, 206);
+    padding: 10px;
+    margin: 30px 10px;
+    border-radius: 20px;
+    /* position: relative; */
+}
