@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <script id="template" type="text/template">
+      {{#books}}
+      <div class="book-item">
+        <h2>{{ title }}</h2>
+        <p>Author: {{ author }}</p>
+        <p>Year: {{ year }}</p>
+        <p>Genre: {{ genre }}</p>
+        <button onclick = "edit({{id}})">Edit</button>
+        <button onclick = "remove({{id}})">Remove</button>
+      </div>
+      {{/books}}
+    </script>
+
+    <section id="form" class="none">
+      <form id="bookForm">
+        <div>
+          <label>Title</label>
+          <input type="text" id="titleInput" name="title" />
+          <span class="error none" id="titleError"></span>
+        </div>
+        <div>
+          <label>Author</label>
+          <input type="text" id="authorInput" name="author" />
+          <span class="error none" id="authorError"></span>
+        </div>
+        <div>
+          <label>Year</label>
+          <input type="text" id="yearInput" name="year" />
+          <span class="error none" id="yearError"></span>
+        </div>
+        <div>
+          <label>Genre</label>
+          <input type="text" id="genreInput" name="genre" />
+          <span class="error none" id="genreError"></span>
+        </div>
+        <button type="submit" class="btn-form">Save</button>
+        <div class="btn-wrap">
+          <button type="reset" class="btn-form mini">Clear form</button>
+          <button type="button" id="hide" class="btn-form mini">
+            Hide form
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section id="new-book">
+      <button id="new-book-btn" class="btn-form new-book">[+] New book</button>
+    </section>
+
+    <section id="book-list"></section>
+
+    <script src="/node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controler.js"></script>
+  </body>
+</html>
