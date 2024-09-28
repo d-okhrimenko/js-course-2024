@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getComputerChoise() {
+        const choises = ["камінь", "ножиці", "папір"];
+        const randomIndex = Math.floor(Math.random() * choises.length);
+        return choises[randomIndex];
+      }
+
+      function checkWinner(userChoise, computerChoise) {
+        if (userChoise === computerChoise) {
+          return "нічия";
+        }
+
+        if (
+          (userChoise === "камінь" && computerChoise === "ножиці") ||
+          (userChoise === "ножиці" && computerChoise === "папір") ||
+          (userChoise === "папір" && computerChoise === "камінь")
+        ) {
+          return "Користувач";
+        } else {
+          return "Комп'ютер!";
+        }
+      }
+
+      function playGame() {
+        let userScore = 0;
+        let computerScore = 0;
+
+        while (true) {
+          const userChoise = prompt(
+            'Введіть свій вибір (камінь, ножиці, папір) або  "вихід" для завершення гри:'
+          ).toLowerCase();
+          const validChoices = ["камінь", "ножиці", "папір"];
+
+          if (userChoise === "вихід") {
+            alert(
+              `Гру завершено. Остаточний рахунок - Користувач: ${userScore}, Комп'ютер: ${computerScore}`
+            );
+            break;
+          }
+
+          if (!validChoices.includes(userChoise)) {
+            alert("Неправильний вибір. Спробуйте ще раз.");
+            return;
+          }
+
+          const computerChoise = getComputerChoise();
+          alert(`Ви вибрали: ${userChoise}`);
+          alert(`Комп'ютер вибрав: ${computerChoise}`);
+
+          const winner = checkWinner(userChoise, computerChoise);
+
+          if (winner === "Користувач") {
+            userScore++;
+            alert("Користувач переміг у раунді!");
+          } else if (winner === "Комп'ютер!") {
+            computerScore++;
+            alert("Комютер переміг у раунді!");
+          } else {
+            alert("Раунд завершився нічиєю!");
+          }
+
+          alert(
+            `Рахунок - Користувач: ${userScore}, Комп'ютер: ${computerScore}`
+          );
+        }
+      }
+
+      playGame();
+      //console.log(getComputerChoise());
+    </script>
+  </body>
+</html>

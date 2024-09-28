@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function formatResult(value) {
+        return Number.isInteger(value) ? value : value.toFixed(2);
+      }
+
+      function calculateCircle(radius) {
+        const area = Math.PI * radius * radius;
+        const perimeter = 2 * Math.PI * radius;
+        return [formatResult(area), formatResult(perimeter)];
+      }
+
+      function calculateRectangle(length, width) {
+        const area = length * width;
+        const perimeter = 2 * (length + width);
+        return [formatResult(area), formatResult(perimeter)];
+      }
+
+      function calculateTriangle(a, b, c) {
+        const perimeter = a + b + c;
+        const semiPerimeter = perimeter / 2;
+        const area = Math.sqrt(
+          semiPerimeter *
+            (semiPerimeter - a) *
+            (semiPerimeter - b) *
+            (semiPerimeter - c)
+        );
+        return [formatResult(area), formatResult(perimeter)];
+      }
+
+      function isValidTriangle(a, b, c) {
+        return a + b > c && a + c > b && b + c > a;
+      }
+
+      function geometryCalculator() {
+        const shape = prompt(
+          "Введіть фігуру для обчислення (коло, прямокутник, трикутник):"
+        ).toLowerCase();
+
+        switch (shape) {
+          case "коло":
+            const radius = parseFloat(prompt("Введіть радіус кола:"));
+            if (
+              isNaN(radius) ||
+              radius === "" ||
+              radius === null ||
+              radius <= 0
+            ) {
+              alert("Введені некоректні дані. Спробуйте ще раз");
+              return;
+            }
+            const circleResult = calculateCircle(radius);
+            alert(
+              `Площа кола: ${circleResult[0]}\nПериметр кола: ${circleResult[1]}`
+            );
+            break;
+
+          case "прямокутник":
+            const length = parseFloat(prompt("Введіть довжину прямокутника:"));
+            const width = parseFloat(prompt("Введіть ширину прямокутника:"));
+            if (
+              isNaN(length) ||
+              length === "" ||
+              length === null ||
+              length <= 0 ||
+              isNaN(width) ||
+              width === "" ||
+              width === null ||
+              width <= 0
+            ) {
+              alert("Введені некоректні дані. Спробуйте ще раз");
+              return;
+            }
+            const rectangleResult = calculateRectangle(length, width);
+            alert(
+              `Площа прямокутника: ${rectangleResult[0]}\nПериметр прямокутника: ${rectangleResult[1]}`
+            );
+            break;
+
+          case "трикутник":
+            const a = parseFloat(
+              prompt("Введіть довжину сторони a трикутника:")
+            );
+            const b = parseFloat(
+              prompt("Введіть довжину сторони b трикутника:")
+            );
+            const c = parseFloat(
+              prompt("Введіть довжину сторони c трикутника:")
+            );
+            if (
+              isNaN(a) ||
+              a === "" ||
+              a === null ||
+              a <= 0 ||
+              isNaN(b) ||
+              b === "" ||
+              b === null ||
+              b <= 0 ||
+              isNaN(c) ||
+              c === "" ||
+              c === null ||
+              c <= 0
+            ) {
+              alert("Введені некоректні дані. Спробуйте ще раз");
+              return;
+            }
+
+            if (!isValidTriangle(a, b, c)) {
+              alert("Сторони не утворюють трикутник");
+              return;
+            }
+
+            const triangleResult = calculateTriangle(a, b, c);
+            alert(
+              `Площа трикутника: ${triangleResult[0]}\nПериметр трикутника: ${triangleResult[1]}`
+            );
+            break;
+
+          default:
+            alert("Некоректний вибір фігури");
+        }
+      }
+      geometryCalculator();
+    </script>
+  </body>
+</html>

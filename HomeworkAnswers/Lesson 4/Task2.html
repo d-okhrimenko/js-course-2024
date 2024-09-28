@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getMathOperator() {
+        const num1 = Math.floor(Math.random() * 100) + 1;
+        const num2 = Math.floor(Math.random() * 100) + 1;
+        const operators = ["+", "-", "*", "/"];
+        const operator =
+          operators[Math.floor(Math.random() * operators.length)];
+
+        let expectedResult;
+
+        switch (operator) {
+          case "+":
+            expectedResult = num1 + num2;
+            break;
+          case "-":
+            expectedResult = num1 - num2;
+            break;
+          case "*":
+            expectedResult = num1 * num2;
+            break;
+          case "/":
+            expectedResult = (num1 / num2).toFixed(2);
+            break;
+        }
+
+        let expression = `${num1} ${operator} ${num2}`;
+
+        return [expression, expectedResult];
+      }
+
+      // Функція для гри
+      function playGame() {
+        const totalRounds = 5;
+        const maxWrongAnswers = 3;
+        let correctAnswers = 0;
+        let wrongAnswers = 0;
+
+        for (let i = 0; i < totalRounds; i++) {
+          if (wrongAnswers >= maxWrongAnswers) {
+            break;
+          }
+
+          let isCorrect = false;
+          const result = getMathOperator();
+
+          while (!isCorrect) {
+            const userAnswer = prompt(`Результат операції: ${result[0]}`);
+
+            if (userAnswer === null) {
+              alert("Гру скасовано.");
+              return;
+            }
+
+            if (parseFloat(userAnswer) === parseFloat(result[1])) {
+              alert("Відповідь вірна!");
+              correctAnswers++;
+              isCorrect = true;
+            } else {
+              wrongAnswers++;
+              if (wrongAnswers >= maxWrongAnswers) {
+                alert(
+                  `Гру завершено! Правильних відповідей: ${correctAnswers}, неправильних відповідей: ${wrongAnswers}`
+                );
+                return;
+              } else {
+                alert(
+                  `Відповідь не вірна. Спробуйте ще раз. Неправильних відповідей: ${wrongAnswers}`
+                );
+              }
+            }
+          }
+        }
+
+        alert(
+          `Гру завершено! Правильних відповідей: ${correctAnswers}, неправильних відповідей: ${wrongAnswers}`
+        );
+      }
+
+      playGame();
+    </script>
+  </body>
+</html>
