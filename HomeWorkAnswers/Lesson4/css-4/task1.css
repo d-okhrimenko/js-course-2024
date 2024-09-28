@@ -1,0 +1,66 @@
+@import url(style.css);
+
+.info {
+  font-size: 2rem;
+}
+
+.info span {
+  font-style: italic;
+  font-weight: 700;
+  color: blueviolet;
+}
+.buttons {
+  width: fit-content;
+  margin: 5rem auto;
+}
+.game-new {
+  background-color: lightgreen;
+  margin: 1rem 1rem;
+}
+.game-continue {
+  background-color: orange;
+  margin: 1rem 1rem;
+}
+.game-quit {
+  background-color: orangered;
+  margin: 1rem 1rem;
+}
+.output {
+  font-size: 2.5rem;
+  font-style: italic;
+  font-weight: bold;
+}
+.option-your {
+  display: inline-block;
+  width: 40%;
+  color: limegreen;
+}
+.option-your span {
+  font-size: 4rem;
+}
+.option-pc {
+  display: inline-block;
+  width: 40%;
+  color: aqua;
+}
+.option-pc span {
+  font-size: 4rem;
+}
+.result {
+  color: orangered;
+}
+.result span {
+  font-size: 4rem;
+  color: blue;
+}
+.total {
+  color: brown;
+}
+.score-pc {
+  font-size: 4rem;
+  color: aqua;
+}
+.score-you {
+  font-size: 4rem;
+  color: limegreen;
+}

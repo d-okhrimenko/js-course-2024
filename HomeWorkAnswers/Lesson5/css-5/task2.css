@@ -1,0 +1,55 @@
+@import url(style.css);
+
+fieldset {
+  border: 3px solid lightgreen;
+  border-radius: 10px;
+  padding-bottom: 3rem;
+}
+
+legend {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  color: blue;
+  text-align: center;
+  padding: 2rem 2rem;
+}
+
+.input {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 1rem 0;
+  color: blue;
+}
+p {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 1rem 0;
+  margin: 0;
+}
+.output {
+  color: brown;
+}
+.perimeter,
+.area {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.perimeter {
+  color: orangered;
+}
+
+.area {
+  color: green;
+}
+.note {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: green;
+}

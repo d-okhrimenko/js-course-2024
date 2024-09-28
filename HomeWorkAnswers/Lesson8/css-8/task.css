@@ -1,0 +1,146 @@
+@import url("style.css");
+
+fieldset {
+  border: 3px solid lightgreen;
+  border-radius: 10px;
+  padding-bottom: 3rem;
+}
+
+legend {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  color: blue;
+  text-align: center;
+  padding: 2rem 2rem;
+}
+.input {
+  display: flex;
+  justify-content: space-around;
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 1rem 0;
+  color: blue;
+}
+.input input {
+  display: block;
+  height: 3rem;
+  font-size: 2rem;
+  font-style: italic;
+  text-align: center;
+  color: brown;
+  border: none;
+  border-radius: 5px;
+  width: fit-content;
+}
+input::placeholder {
+  color: lightslategray;
+  text-align: center;
+}
+.input label {
+  display: block;
+  width: 10rem;
+}
+/* MODAL WINDOW AND ADD BOOK FORM */
+
+.btn-submit {
+  display: block;
+  margin: 1.5rem auto;
+  background-color: lightsteelblue;
+  color: white;
+}
+
+.btn-add {
+  position: fixed;
+  top: 5rem;
+  right: 5rem;
+}
+
+.btn-close-modal {
+  font-family: inherit;
+  color: red;
+  position: absolute;
+  top: 0.5rem;
+  right: 1.6rem;
+  font-size: 3.5rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.add-book-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100rem;
+  background-color: white;
+  border-radius: 9px;
+  z-index: 100;
+}
+
+fieldset {
+  margin: 2rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  transition: all 0.5s;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* BOOKS STYLING */
+
+.container {
+  max-width: 70%;
+}
+
+.all-books {
+  margin: 5rem 1rem;
+}
+
+.book {
+  background-color: aquamarine;
+  padding: 2em 2em;
+  margin: 1rem;
+  border-radius: 2rem;
+  position: relative;
+}
+
+.book summary {
+  font-size: 2.5rem;
+  font-style: italic;
+  font-weight: bold;
+  color: darkred;
+  text-wrap: wrap;
+}
+
+.book summary:hover {
+  cursor: pointer;
+}
+
+.book p {
+  font-size: 2rem;
+  font-style: italic;
+  color: blue;
+}
+
+.btn-remove {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

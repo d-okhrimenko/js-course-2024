@@ -1,0 +1,71 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: antiquewhite;
+  margin-left: 5rem;
+}
+h1 {
+  font-size: 4rem;
+  text-align: center;
+
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-style: italic;
+}
+
+form {
+  width: 80%;
+}
+
+input {
+  height: 3rem;
+  font-size: 2rem;
+  font-style: italic;
+  text-align: center;
+  color: brown;
+  border: none;
+  border-radius: 5px;
+}
+
+input::placeholder {
+  color: lightslategray;
+  text-align: center;
+}
+
+.btn {
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: aquamarine;
+  margin-top: 1rem;
+  padding: 1.5rem 2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translate(0, -1rem) scale(1.1);
+}
+
+.btn-center {
+  display: block;
+  width: fit-content;
+  margin: 5rem auto;
+}
+
+.error {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 2rem 0;
+  color: red;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+}
