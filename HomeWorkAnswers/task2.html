@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let cart = [];
+      while (true) {
+        function addProduct(product) {
+          cart.push(product);
+        }
+
+        function deleteProduct(product) {
+          for (let i = 0; i < cart.length; i++) {
+            if (cart[i] === product) {
+              cart.splice(i, 1); // 1 - видалити 1 елемент
+              break;
+            }
+          }
+        }
+
+        function shopingList(array) {
+          alert(array);
+        }
+
+        let action = prompt(
+          "Виберіть дію \n 1 - додавання товару \n 2 - видалення товару \n 3 - виведення списку \n 4 - закінчити"
+        );
+        if (action === "1") {
+          let nameAdd = prompt("Введіть назву товару котрий бажаєте додати");
+          addProduct(nameAdd);
+        }
+
+        if (action === "2") {
+          let nameDell = prompt("Введіть назву товару котрий бажаєте видалити");
+          deleteProduct(nameDell);
+        }
+        if (action === "3") {
+          shopingList(cart);
+        }
+        if (action === "4") {
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>
