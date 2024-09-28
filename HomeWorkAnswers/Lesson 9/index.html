@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book List</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button class="control-btn" onclick="showBtn()">Show book list</button>
+    <button class="control-btn" onclick="hideBtn()">Hide book list</button>
+
+    <form id="bookForm">
+      <div>
+        <label for="titleInput">Title</label
+        ><input type="text" id="titleInput" />
+      </div>
+      <div>
+        <label for="authorInput">Author</label
+        ><input type="text" id="authorInput" />
+      </div>
+      <div>
+        <label for="yearInput">Year</label><input type="text" id="yearInput" />
+      </div>
+      <div>
+        <label for="genreInput">Genre</label
+        ><input type="text" id="genreInput" />
+      </div>
+      <button type="submit">Save</button>
+    </form>
+
+    <section id="bookList" class="hide"></section>
+
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+  </body>
+</html>
