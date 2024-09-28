@@ -3,7 +3,9 @@ document.getElementById('weather').addEventListener('submit', function (event) {
     const city = document.getElementById('cityInput').value;
     const apiKey = '03928dd2e8a860bc3f39e7999a11487a';
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=uk`;
-
+    const loader = document.getElementById('loader');
+    loader.style.display = 'inline-block';
+    
     // Використання fetch для запиту до API
     fetch(apiUrl)
         .then(response => {
@@ -24,5 +26,8 @@ document.getElementById('weather').addEventListener('submit', function (event) {
         })
         .catch(error => {
             document.getElementById('weatherResult').innerHTML = `<p>${error.message}</p>`;
-        });
+        })
+        .finally(() => {
+        loader.style.display = 'none';
+        })
 });

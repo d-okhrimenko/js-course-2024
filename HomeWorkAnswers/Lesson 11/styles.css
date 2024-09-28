@@ -60,7 +60,7 @@ button {
     border: none;
     border-radius: 5px;
     padding: 5px;
-    margin-left: 10px;
+    margin-right: 10px;
     width: 130px;
     box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, .3);
 }
@@ -77,6 +77,10 @@ button:active {
     box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, .3);
     transition: all 0.3s ease;
     transform: translate(-3px, -3px);
+}
+
+#loader {
+    margin-left: 10px;
 }
 
 #weatherResult {
