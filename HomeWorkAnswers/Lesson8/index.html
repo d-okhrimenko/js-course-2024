@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="uk">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <script src="script.js"></script>
+    <script id="template" type="text/template">
+      <section class="bookCard">
+        <p class="bookTitle"><strong>Title:</strong> {{title}}</p>
+        <p class="bookAuthor"><strong>Author:</strong> {{author}}</p>
+        <p class="bookYear"><strong>Year:</strong> {{year}}</p>
+        <p class="bookGenre"><strong>Genre:</strong> {{genre}}</p>
+      </section>
+    </script>
+
+    <section id="bookList" class="bookList"></section>
+
+    <script src="../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

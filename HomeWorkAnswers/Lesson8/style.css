@@ -6,6 +6,11 @@
   --text-color: #333333;
   --author-color: #e70808;
   --meta-color: #777777;
+  --button-bg-color: #bdc3c7;
+  --button-bg-hover-color: #95a5a6;
+  --button-text-color: white;
+  --success-bg-color: #72d268c9;
+  --success-text-color: white;
 }
 
 * {
@@ -31,10 +36,14 @@ body {
 }
 
 .bookCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 1.5rem;
   background-color: var(--card-bg-color);
   border-radius: 8px;
   box-shadow: 0 0 10px var(--box-shadow-color);
+  transition: opacity 0.5s ease, transform 0.5s ease;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -58,7 +67,8 @@ body {
   color: var(--author-color);
 }
 
-.bookYear, .bookGenre {
+.bookYear,
+.bookGenre {
   font-style: italic;
   color: var(--meta-color);
 }
