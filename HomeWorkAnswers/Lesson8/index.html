@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= device-width, initial-scale=1.0" />
+    <title>My Library</title>
+    <link rel="stylesheet" href="css-8/task.css" />
+    <script type="module" src="scripts-8/controller.js" defer></script>
+  </head>
+  <body>
+    <h1>My Library</h1>
+    <div class="container">
+      <div class="all-books">
+        <template id="template">
+          <section class="book">
+            <details>
+              <summary class="title">{{title}}</summary>
+              <p>Author: <span class="author" n>{{author}}</span></p>
+              <p>Year: <span class="year">{{year}}</span></p>
+              <p>Genre: <span class="genre">{{genre}}</span></p>
+            </details>
+            <button class="btn btn-remove">❌</button>
+          </section>
+        </template>
+      </div>
+      <button class="btn btn-add">Add book</button>
+    </div>
+
+    <div class="overlay hidden"></div>
+    <div class="add-book-window hidden">
+      <button class="btn-close-modal">&times;</button>
+      <form action="" class="add-book">
+        <fieldset>
+          <legend>Add new book</legend>
+          <div class="input">
+            <label for="title">Title</label>
+            <input type="text" name="title" size="30" id="title" placeholder="type book title here" required />
+          </div>
+          <div class="input">
+            <label for="author">Author</label>
+            <input type="text" name="author" size="30" id="author" placeholder="type author's name here" required />
+          </div>
+          <div class="input">
+            <label for="year">Year</label>
+            <input type="text" name="year" size="30" id="year" placeholder="type year here (2001)" required />
+          </div>
+          <div class="input">
+            <label for="genre">Genre</label>
+            <input type="text" name="genre" size="30" id="genre" placeholder="type genre ot the book here" required />
+          </div>
+          <button class="btn btn-submit" type="submit">Submit book</button>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
