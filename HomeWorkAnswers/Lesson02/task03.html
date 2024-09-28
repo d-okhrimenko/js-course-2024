@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <p id="output" style="color:green">Hello</p>
-    <button id="btn">Click me!</button>
 
+<body>
+    <button id="btn">Скажи ПРИВІТ!</button>
+    <p id="output"></p>
     <script>
-        document.querySelector("#btn").onclick = function() {
+        document.querySelector("#btn").onclick = function () {
             let output = document.querySelector("#output");
-            let name = "Dm";
-            output.innerHTML = "Hello, my name is ${name}";
-            output.style.color = "red";
+            let name = "dfgu";
+            output.innerHTML = 'Привіт ${name}';
+            output.style.color = "green";
         }
     </script>
 </body>
+
 </html>
