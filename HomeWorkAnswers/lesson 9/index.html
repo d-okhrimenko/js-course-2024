@@ -15,14 +15,15 @@
 </head>
 
 <body>
-    <script id="template" type="text/babel">
+    <template id="template">
+        {{#bookRecords}}
         <section class="bookRecord">
             <section class="recordControl">
                 <section class="row">
-                    <button id="editRecord" class="edit__record__btn" onclick="edit({{id}})">
+                    <button id="editRecord" class="edit__record__btn" recordId={{id}}>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#48752C"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
                     </button>
-                    <button id="deleteRecord" class="delete__record__btn" onclick="remove({{id}})">
+                    <button id="deleteRecord" class="delete__record__btn" recordId={{id}}>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#48752C"><path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"/></svg>
                     </button>
                 </section>
@@ -49,7 +50,8 @@
                 </section>
             </section>
         </section>
-    </script>
+        {{/bookRecords}}
+    </template>
     <section>
         <span class="title">Книжкова полиця </span>
     </section>
@@ -57,10 +59,10 @@
         
         <section class="panel">
             <form action="" id="bookRecordForm">
-                <section><label for="" class="inputLabel">Назва</label><input type="text" id="titleInput" required/></section>
-                <section><label for="">Автор</label><input type="text" id="authorInput" required/></section>
-                <section><label for="">Рік</label><input type="text" id="yearInput" required/></section>
-                <section><label for="">Жанр</label><input type="text" id="genreInput" required/></section>
+                <section><label for="titleInput" class="inputLabel">Назва</label><input type="text" name="titleInput" id="titleInput" required/></section>
+                <section><label for="authorInput">Автор</label><input type="text" name="authorInput" id="authorInput" required/></section>
+                <section><label for="yearInput">Рік</label><input type="text" name="yearInput" id="yearInput" required/></section>
+                <section><label for="genreInput">Жанр</label><input type="text" name="genreInput" id="genreInput" required/></section>
                 <button id="formControl" type="submit">Додати</button>
             </form>
             <section id="image">

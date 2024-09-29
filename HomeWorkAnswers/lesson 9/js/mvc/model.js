@@ -26,7 +26,7 @@ const bookList = {
             title: "Старий і море",
             author: "Ернест Хемінгуей",
             year: 1952,
-            genre: "Пригодницький роман"
+            genre: "Пригоди"
         },
         {
             id: 5,
@@ -52,6 +52,7 @@ const bookList = {
         record.id = this.getActualId() + 1;
         this.bookRecords.push(record);
     },
+
     find(id) {
         let result = null;
         let foundIndex = this.bookRecords.findIndex(x => x.id == id);
@@ -59,10 +60,12 @@ const bookList = {
 
         return result;
     },
+
     remove(id) {
         let foundIndex = this.bookRecords.findIndex(x => x.id == id);
         if (foundIndex != -1) this.bookRecords.splice(foundIndex, 1);
     },
+    
     update(id, record) {
         let foundIndex = this.bookRecords.findIndex(x => x.id == id);
         if (foundIndex != -1) {
