@@ -1,0 +1,422 @@
+{
+  "questions": [
+    {
+      "question": "Як оголошується асинхронна функція в JavaScript?",
+      "options": [
+        "async function myFunc() {...}",
+        "function async {...}",
+        "await function myFunc() {...}",
+        "function async() {...}"
+      ],
+      "correctAnswer": "async function myFunc() {...}",
+      "explanation": "Асинхронна функція оголошується за допомогою ключового слова 'async' перед функцією."
+    },
+    {
+      "question": "Як можна оголосити стандартну функцію в JavaScript?",
+      "options": [
+        "function myFunc() {...}",
+        "let func = function;",
+        "const function;",
+        "var function() {...}"
+      ],
+      "correctAnswer": "function myFunc() {...}",
+      "explanation": "Стандартна функція оголошується за допомогою ключового слова 'function' перед її ім'ям."
+    },
+    {
+      "question": "Який тип даних представляє логічне значення у JavaScript?",
+      "options": [
+        "Undefined",
+        "Number",
+        "String",
+        "Boolean"
+      ],
+      "correctAnswer": "Boolean",
+      "explanation": "Тип даних Boolean представляє значення true або false."
+    },
+    {
+      "question": "Що таке валідація даних у формі?",
+      "options": [
+        "Додавання елементів до форми",
+        "Перевірка правильності введених даних",
+        "Надсилання форми на сервер",
+        "Створення нових полів"
+      ],
+      "correctAnswer": "Перевірка правильності введених даних",
+      "explanation": "Валідація перевіряє правильність введених даних перед надсиланням форми."
+    },
+    {
+      "question": "Який оператор використовується для очікування завершення Promise?",
+      "options": [
+        "wait",
+        "async",
+        "resolve",
+        "await"
+      ],
+      "correctAnswer": "await",
+      "explanation": "Оператор 'await' використовується для очікування завершення асинхронної операції у функції з 'async'."
+    },
+    {
+      "question": "Яку властивість потрібно використовувати для зміни тексту всередині DOM-елемента?",
+      "options": [
+        "textNode",
+        "className",
+        "value",
+        "innerHTML"
+      ],
+      "correctAnswer": "innerHTML",
+      "explanation": "Властивість 'innerHTML' дозволяє змінювати вміст HTML елемента."
+    },
+    {
+      "question": "Яка команда використовується для створення нового репозиторію?",
+      "options": [
+        "git init",
+        "git start",
+        "git new",
+        "git create"
+      ],
+      "correctAnswer": "git init",
+      "explanation": "Команда 'git init' створює новий Git репозиторій у поточній директорії."
+    },
+    {
+      "question": "Як можна оголосити об'єкт у JavaScript?",
+      "options": [
+        "const obj = {};",
+        "var obj = function() {};",
+        "let obj = new Object[];",
+        "let obj = [];"
+      ],
+      "correctAnswer": "const obj = {};",
+      "explanation": "Об'єкт у JavaScript оголошується за допомогою фігурних дужок {}."
+    },
+    {
+      "question": "Як видалити властивість з об'єкта?",
+      "options": [
+        "remove obj.property;",
+        "delete obj.property;",
+        "obj.property = null;",
+        "clear obj.property;"
+      ],
+      "correctAnswer": "delete obj.property;",
+      "explanation": "Оператор 'delete' використовується для видалення властивості об'єкта."
+    },
+    {
+      "question": "Оберіть визначення, яке найбільш повно описує функції JavaScript?",
+      "options": [
+        "Конструкція для визначення розгалуження в алгоритмі",
+        "Фрагмент програмного коду, описуючий значення, що належать змінній",
+        "Синтаксичний цукор для визначення алгоритмів",
+        "Фрагмент програмного коду, до якого можна звернутись з іншої частини програми за іменем"
+      ],
+      "correctAnswer": "Фрагмент програмного коду, до якого можна звернутись з іншої частини програми за іменем",
+      "explanation": "Функція є фрагментом коду, який можна викликати за іменем."
+    },
+    {
+      "question": "Що робить метод fetch()?",
+      "options": [
+        "Виконує запит на сервер і повертає Promise",
+        "Оновлює сторінку",
+        "Створює новий об'єкт",
+        "Відправляє дані у форму"
+      ],
+      "correctAnswer": "Виконує запит на сервер і повертає Promise",
+      "explanation": "Метод 'fetch()' виконує HTTP-запит і повертає Promise з результатами."
+    },
+    {
+      "question": "Яка подія викликається при натисканні на елемент?",
+      "options": [
+        "click",
+        "mouseover",
+        "hover",
+        "focus"
+      ],
+      "correctAnswer": "click",
+      "explanation": "Подія 'click' викликається при натисканні на елемент мишею."
+    },
+    {
+      "question": "Хто створив JavaScript і для чого?",
+      "options": [
+        "Марк Цукерберг для розробки соціальних мереж",
+        "Ларрі Пейдж для оптимізації пошукових систем",
+        "Білл Гейтс для створення програм для Windows",
+        "Брендан Айк для додавання інтерактивності на веб-сторінки"
+      ],
+      "correctAnswer": "Брендан Айк для додавання інтерактивності на веб-сторінки",
+      "explanation": "JavaScript був створений Бренданом Айком для додавання динаміки та інтерактивності на веб-сторінки."
+    },
+    {
+      "question": "Яка команда використовується для пошуку елемента за його класом у DOM?",
+      "options": [
+        "document.getElementsByClassName()",
+        "document.findClass()",
+        "document.getElementById()",
+        "document.querySelectorByClass()"
+      ],
+      "correctAnswer": "document.getElementsByClassName()",
+      "explanation": "Метод 'getElementsByClassName()' повертає всі елементи з певним класом."
+    },
+    {
+      "question": "Що не може зробити JavaScript?",
+      "options": [
+        "Взаємодіяти з HTML та CSS",
+        "Виконувати асинхронні запити до серверу",
+        "Створювати та обробляти події на сторінці",
+        "Отримувати доступ до файлової системи користувача без його дозволу"
+      ],
+      "correctAnswer": "Отримувати доступ до файлової системи користувача без його дозволу",
+      "explanation": "JavaScript не може отримувати доступ до файлової системи без дозволу користувача."
+    },
+    {
+      "question": "Який метод використовується для додавання обробника подій до елемента?",
+      "options": [
+        "onEvent()",
+        "createEvent()",
+        "setEventHandler()",
+        "addEventListener()"
+      ],
+      "correctAnswer": "addEventListener()",
+      "explanation": "Метод 'addEventListener()' додає обробник подій до елемента."
+    },
+    {
+      "question": "Як правильно підключити JavaScript файл до HTML-документа?",
+      "options": [
+        "<script href='script.js'></script>",
+        "<script src='script.js'></script>",
+        "<link rel='script' href='script.js'>",
+        "<js src='script.js'></js>"
+      ],
+      "correctAnswer": "<script src='script.js'></script>",
+      "explanation": "JavaScript файл підключається до HTML за допомогою тега 'script' з атрибутом 'src'."
+    },
+    {
+      "question": "Яка команда дозволяє завантажити зміни з віддаленого репозиторію?",
+      "options": [
+        "git update",
+        "git pull",
+        "git push",
+        "git fetch"
+      ],
+      "correctAnswer": "git pull",
+      "explanation": "Команда 'git pull' завантажує зміни з віддаленого репозиторію і об'єднує їх з локальною гілкою."
+    },
+    {
+      "question": "Який з наведених типів даних є змінним у JavaScript?",
+      "options": [
+        "let",
+        "const",
+        "var",
+        "immutable"
+      ],
+      "correctAnswer": "let",
+      "explanation": "'let' оголошує змінну, значення якої можна змінювати, на відміну від 'const'."
+    },
+    {
+      "question": "Який метод дозволяє зупинити передачу події у DOM?",
+      "options": [
+        "stopPropagation()",
+        "preventDefault()",
+        "cancelEvent()",
+        "blockEvent()"
+      ],
+      "correctAnswer": "stopPropagation()",
+      "explanation": "'stopPropagation()' зупиняє поширення події на наступні елементи DOM."
+    },
+    {
+      "question": "Як перевірити тип даних змінної в JavaScript?",
+      "options": [
+        "typeof variable",
+        "type variable",
+        "typeof()",
+        "varType()"
+      ],
+      "correctAnswer": "typeof variable",
+      "explanation": "Оператор 'typeof' використовується для перевірки типу змінної."
+    },
+    {
+      "question": "Яке ключове слово використовується для завершення виконання функції і повернення значення?",
+      "options": [
+        "break",
+        "exit",
+        "return",
+        "end"
+      ],
+      "correctAnswer": "return",
+      "explanation": "'return' завершує виконання функції та повертає значення."
+    },
+    {
+      "question": "Яка команда дозволяє створити нову гілку в Git?",
+      "options": [
+        "git branch newBranch",
+        "git create newBranch",
+        "git branch create newBranch",
+        "git checkout -b newBranch"
+      ],
+      "correctAnswer": "git checkout -b newBranch",
+      "explanation": "'git checkout -b' створює нову гілку та переключається на неї."
+    },
+    {
+      "question": "Який метод дозволяє видалити останній елемент з масиву?",
+      "options": [
+        "pop()",
+        "remove()",
+        "splice()",
+        "shift()"
+      ],
+      "correctAnswer": "pop()",
+      "explanation": "'pop()' видаляє останній елемент масиву та повертає його."
+    },
+    {
+      "question": "Як оголошується функція-вираз у JavaScript?",
+      "options": [
+        "const myFunc = function() {...}",
+        "function myFunc() {...}",
+        "let myFunc() {...}",
+        "function() {...}"
+      ],
+      "correctAnswer": "const myFunc = function() {...}",
+      "explanation": "Функція-вираз оголошується за допомогою змінної та анонімної функції."
+    },
+    {
+      "question": "Яка подія викликається при наведенні миші на елемент?",
+      "options": [
+        "mouseover",
+        "mouseenter",
+        "hover",
+        "focus"
+      ],
+      "correctAnswer": "mouseover",
+      "explanation": "'mouseover' викликається, коли миша наводиться на елемент."
+    },
+    {
+      "question": "Що таке кукі в контексті веб-браузера?",
+      "options": [
+        "Тимчасові файли для кешування сторінок",
+        "Файли для збереження даних між сесіями",
+        "Веб-трекери для аналізу поведінки користувачів",
+        "Скрипти для завантаження сторінок"
+      ],
+      "correctAnswer": "Файли для збереження даних між сесіями",
+      "explanation": "Кукі використовуються для збереження даних між сесіями браузера."
+    },
+    {
+      "question": "Як оголосити стрілкову функцію у JavaScript?",
+      "options": [
+        "let myFunc = () => {...}",
+        "let myFunc() => {...}",
+        "function myFunc => {...}",
+        "const myFunc = () {...}"
+      ],
+      "correctAnswer": "let myFunc = () => {...}",
+      "explanation": "Стрілкові функції оголошуються за допомогою '=>' після списку аргументів."
+    },
+    {
+      "question": "Що таке стрілкова функція (arrow function) в JavaScript?",
+      "options": [
+        "Функція, яка використовує коротший синтаксис",
+        "Функція, що повертає завжди true",
+        "Функція без параметрів",
+        "Функція, яка викликається автоматично"
+      ],
+      "correctAnswer": "Функція, яка використовує коротший синтаксис",
+      "explanation": "Стрілкова функція (arrow function) в JavaScript має коротший синтаксис і не має свого власного контексту this."
+    },
+    {
+      "question": "Яка функція використовується для додавання елемента в кінець масиву?",
+      "options": [
+        "pop()",
+        "push()",
+        "unshift()",
+        "shift()"
+      ],
+      "correctAnswer": "push()",
+      "explanation": "Функція push() використовується для додавання елемента в кінець масиву."
+    },
+    {
+      "question": "Що таке Promise у JavaScript?",
+      "options": [
+        "Метод для відкладеного виконання функції",
+        "Спосіб звернення до API",
+        "Функція для надсилання запиту на сервер",
+        "Об'єкт, який представляє завершення або невдачу асинхронної операції"
+      ],
+      "correctAnswer": "Об'єкт, який представляє завершення або невдачу асинхронної операції",
+      "explanation": "Promise у JavaScript є об'єктом, який використовується для роботи з асинхронними операціями, представляючи їх стан (завершення або невдачу)."
+    },
+    {
+      "question": "Який цикл виконує блок коду хоча б один раз, навіть якщо умова є хибною?",
+      "options": [
+        "for",
+        "foreach",
+        "do...while",
+        "while"
+      ],
+      "correctAnswer": "do...while",
+      "explanation": "Цей цикл виконує блок коду хоча б один раз, навіть якщо умова є хибною."
+    },
+    {
+      "question": "Що таке змінна у JavaScript?",
+      "options": [
+        "Спеціальна функція для обробки даних",
+        "Інструмент для відправки запитів на сервер",
+        "Місце для зберігання даних, які можуть змінюватися",
+        "Стала величина, яка не змінюється"
+      ],
+      "correctAnswer": "Місце для зберігання даних, які можуть змінюватися",
+      "explanation": "Змінна у JavaScript використовується для зберігання даних, які можуть змінюватися протягом виконання програми."
+    },
+    {
+      "question": "Який оператор використовується для присвоєння значення змінній?",
+      "options": [
+        "<=",
+        "===",
+        "==",
+        "="
+      ],
+      "correctAnswer": "=",
+      "explanation": "Оператор = використовується для присвоєння значення змінній."
+    },
+    {
+      "question": "Що означає поняття \"область видимості\" у функціях?",
+      "options": [
+        "Тип поверненого значення функції",
+        "Частина коду, де доступна змінна або функція",
+        "Тип функції",
+        "Спосіб оголошення змінних"
+      ],
+      "correctAnswer": "Частина коду, де доступна змінна або функція",
+      "explanation": "\"Область видимості\" у функціях визначає, де змінні або функції доступні для використання в коді."
+    },
+    {
+      "question": "Який метод об'єднує два або більше масивів?",
+      "options": [
+        "slice()",
+        "concat()",
+        "merge()",
+        "join()"
+      ],
+      "correctAnswer": "concat()",
+      "explanation": "Метод concat() об'єднує два або більше масивів."
+    },
+    {
+      "question": "Як звернутися до властивості об'єкта person.name іншим способом?",
+      "options": [
+        "person.getName",
+        "person(name)",
+        "person[\"name\"]",
+        "person->name"
+      ],
+      "correctAnswer": "person[\"name\"]",
+      "explanation": "Цей спосіб дозволяє звернутися до властивості об'єкта за допомогою квадратних дужок."
+    },
+    {
+      "question": "Як називається операція, що зливає зміни з однієї гілки в іншу?",
+      "options": [
+        "Clone",
+        "Merge",
+        "Fork",
+        "Push"
+      ],
+      "correctAnswer": "Merge",
+      "explanation": "Операція, що зливає зміни з однієї гілки в іншу, називається Merge."
+    }
+  ]
+}
