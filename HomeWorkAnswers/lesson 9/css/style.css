@@ -1,0 +1,165 @@
+:root {
+    --clr-dark: #5b3505;
+    --clr-light: #f1eee7;
+    --clr-contrast: rgb(168, 171, 249);
+    --clr-accent: #467505;
+    --clr-full: #8ecee4;
+    --clr-book: #eef7b665;
+    --clr-record: rgba(237, 223, 201, 0.826);
+
+    --clr-light: #f1eee7;
+    --clr-green-light: #dbe4cc;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    padding: 0;
+    line-height: 1.6;
+    word-spacing: 1.4px;
+    font-family: 'Roboto', sans-serif;
+    color: var(--clr-dark);
+    background-image: url(../img/bookshelves3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--clr-light);
+    height: 94vh;
+  }
+
+  .bookStoreContainer {
+    height: 92%;
+    display: flex;
+    
+  }
+  .panel {
+   /*width: 30%;*/
+   max-width: 300px;
+   min-width: 300px;
+  }
+  .title {
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  #bookRecordForm section {
+    margin-bottom: 10px;
+  }
+  
+  #bookRecordForm label, input {
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid var(--clr-dark);
+  }
+  
+  #bookRecordForm input {
+    width: 55%;
+    border-radius: 0 3px 3px 0;
+    background-color: var(--clr-record);
+  }
+  /*#contactForm input:invalid {
+    background: pink;
+  }*/
+  #bookRecordForm input:focus {
+    background: #faeee0;
+  }
+  #bookRecordForm input:valid {
+    background: var(--clr-record);
+  }
+
+  #bookRecordForm label {
+    display: inline-block;
+    width: 110px;
+    border-radius: 3px 0 0 3px; 
+    vertical-align: middle;
+    background-color: var(--clr-dark);
+    margin: 1px;
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--clr-light);
+  }
+  #bookRecordForm button {
+    width: 93%;
+    height: 40px;
+    padding: 7px;
+    margin-top: 1em;
+    border-radius: 3px;
+    background: var(--clr-dark);
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--clr-light);
+  }
+  #bookRecordForm button:hover {
+    background: linear-gradient(to right, var(--clr-dark), #b07839);
+    cursor: pointer;
+  }
+  #bookRecordForm button:active {
+    background: var(--clr-title);
+    font-stretch: condensed;
+  }
+
+  #image {
+    height: 60%;
+    margin: 1em auto;
+    background-image: url(../img/celtic-pattern-1.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+  }
+
+.bookRecordsContainer {
+  border: 1px solid var(--clr-dark);
+  padding: 0 5px;
+  border-radius: 3px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  width: 90%;
+  min-width: 300px;
+}
+.recordControl {
+  position: relative;
+}
+.edit__record__btn,
+.delete__record__btn {
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.bookRecord {
+  display: flex;
+  background-color: var(--clr-record);
+  /*background-color: var(--clr-green-light);*/
+  padding: 1px 15px;
+  border: 1px solid var(--clr-dark);
+  border-radius: 3px;
+  margin: 5px 0;
+  flex-direction: row;
+}
+
+.row {
+  display: flex;;
+  padding: .5em;
+  flex-direction: row;
+}
+.param{
+  width: 70px;
+  color: var(--clr-accent);
+}
+.value {
+  font-weight: bold;
+}
+.position, .recordId {
+  font-weight: normal;
+  font-style: italic;
+}
+.recordId {
+  font-size: 14px;
+}

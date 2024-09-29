@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <template id="template">
+        {{#bookRecords}}
+        <section class="bookRecord">
+            <section class="recordControl">
+                <section class="row">
+                    <button id="editRecord" class="edit__record__btn" recordId={{id}}>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#48752C"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
+                    </button>
+                    <button id="deleteRecord" class="delete__record__btn" recordId={{id}}>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#48752C"><path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z"/></svg>
+                    </button>
+                </section>
+                <section class="row">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#48752C"><path d="M290-80q-54 0-92-38t-38-92v-540q0-53.86 38-91.93Q236-880 290-880h510v600q-26 0-43 21t-17 49q0 28 17 49t43 21v60H290Zm-.46-60H699q-9-15-14-33t-5-37q0-20 5-37.5t15-32.5H289.61q-28.61 0-49.11 20.42Q220-239.17 220-210q0 29 20.5 49.5t49.04 20.5ZM220-320q15-10 32.34-15 17.33-5 37.66-5h450v-480H290q-29 0-49.5 20.42Q220-779.17 220-750v430Zm129-120h49l25-71h113l25 71h49L504-720h-50L349-440Zm88-112 41-116h3l41 116h-85ZM220-320v-500 500Z"/></svg>
+                </section>
+            </section>
+            <section class="recordData">
+                <section class="row">
+                    <section class="param">Назва: </section>
+                    <section class="value">{{title}} <span class="recordId">(record id: {{id}})</span></section>
+                </section>
+                <section class="row">
+                    <section class="param">Автор: </section>
+                    <section class="value">{{author}}</section>
+                </section>
+                <section class="row">
+                    <section class="param">Рік: </section>
+                    <section class="value">{{year}}</section>
+                </section>
+                <section class="row">
+                    <section class="param">Жанр: </section>
+                    <section class="value position">{{genre}}</section>
+                </section>
+            </section>
+        </section>
+        {{/bookRecords}}
+    </template>
+    <section>
+        <span class="title">Книжкова полиця </span>
+    </section>
+    <section class="bookStoreContainer">
+        
+        <section class="panel">
+            <form action="" id="bookRecordForm">
+                <section><label for="titleInput" class="inputLabel">Назва</label><input type="text" name="titleInput" id="titleInput" required/></section>
+                <section><label for="authorInput">Автор</label><input type="text" name="authorInput" id="authorInput" required/></section>
+                <section><label for="yearInput">Рік</label><input type="text" name="yearInput" id="yearInput" required/></section>
+                <section><label for="genreInput">Жанр</label><input type="text" name="genreInput" id="genreInput" required/></section>
+                <button id="formControl" type="submit">Додати</button>
+            </form>
+            <section id="image">
+                <!--<img src="./img/celtic-pattern-1.png" alt="" id="celticLogo">-->
+            </section>
+        </section>
+        <section id="bookRecordsList" class="bookRecordsContainer">
+        </section>
+    </section>
+    <script src="../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/mvc/model.js"></script>
+    <script src="js/mvc/view.js"></script>
+    <script src="js/mvc/controller.js"></script>
+</body>
+
+</html>
