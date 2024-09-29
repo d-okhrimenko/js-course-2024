@@ -1,5 +1,5 @@
 const html = document.querySelector('#bookRecordsList');
-const template = document.querySelector('#template').innerHTML;
+//const template = document.querySelector('#template').innerHTML;
 const bookRecordForm = document.querySelector('#bookRecordForm');
 
 // inputs
@@ -11,12 +11,25 @@ const bookRecordFormControl = document.querySelector('#formControl');
 
 let editId = null;
 
-let render = () => bookCatalog.renderMustache(bookList.bookRecords, html, template);
+let setEventListener = (selector,  type, func, attribute) => {
+    let elementRecords = document.querySelectorAll(selector);
+    elementRecords.forEach(function (record) {
+        record.addEventListener(type, () => func(record.getAttribute(attribute)));
+    });
+}
+
+/*let render = () => bookCatalog.renderTemplateNew(template, bookList, html);*/
+let render = () => {
+    bookCatalog.renderTemplateBySelectors("#template", bookList, "#bookRecordsList");
+    setEventListener('#editRecord', 'click', edit, 'recordId');
+    setEventListener('#deleteRecord', 'click', remove, 'recordId');
+}
 
 bookRecordForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     let record = {
+        id: -1,
         title: titleInput.value,
         author: authorInput.value,
         year: yearInput.value,
@@ -29,25 +42,40 @@ bookRecordForm.addEventListener('submit', (e) => {
         editId = null;
         bookRecordFormControl.textContent = "Додати";    
     }
+    inputsUpdate();
 
     render();
 });
+
+function inputsUpdate(record = null) {
+    if (record == null) {
+        titleInput.value = "";
+        authorInput.value = "";
+        yearInput.value = "";
+        genreInput.value = "";
+    } else {
+        titleInput.value = record.title;
+        authorInput.value = record.author;
+        yearInput.value = record.year;
+        genreInput.value = record.genre;
+    }
+}
 
 function edit(id) {
     const record = bookList.find(id);
 
     editId = record.id;
     bookRecordFormControl.textContent = "Оновити";
-    titleInput.value = record.title;
-    authorInput.value = record.author;
-    yearInput.value = record.year;
-    genreInput.value = record.genre;
-
-    render();
+    inputsUpdate(record);
 }
 
 function remove(id) {
+    if (editId != null) {
+        editId = null;
+        bookRecordFormControl.textContent = "Додати";
+    }
     bookList.remove(id);
+    inputsUpdate();
     render();
 }
 

@@ -5,6 +5,7 @@
     --clr-accent: #467505;
     --clr-full: #8ecee4;
     --clr-book: #eef7b665;
+    --clr-record: rgba(237, 223, 201, 0.826);
 
     --clr-light: #f1eee7;
     --clr-green-light: #dbe4cc;
@@ -22,8 +23,12 @@
     word-spacing: 1.4px;
     font-family: 'Roboto', sans-serif;
     color: var(--clr-dark);
+    background-image: url(../img/bookshelves3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: var(--clr-light);
-    height: 98vh;
+    height: 94vh;
   }
 
   .bookStoreContainer {
@@ -33,8 +38,8 @@
   }
   .panel {
    /*width: 30%;*/
-   max-width: 270px;
-   min-width: 270px;
+   max-width: 300px;
+   min-width: 300px;
   }
   .title {
     font-size: 48px;
@@ -53,8 +58,8 @@
   
   #bookRecordForm input {
     width: 55%;
-    border-radius: 0 0px 0px 0;
-    background-color: rgba(80, 152, 9, 0.141);
+    border-radius: 0 3px 3px 0;
+    background-color: var(--clr-record);
   }
   /*#contactForm input:invalid {
     background: pink;
@@ -63,13 +68,13 @@
     background: #faeee0;
   }
   #bookRecordForm input:valid {
-    background: rgba(80, 152, 9, 0.141);
+    background: var(--clr-record);
   }
 
   #bookRecordForm label {
     display: inline-block;
     width: 110px;
-    border-radius: 0px 0 0 0px; 
+    border-radius: 3px 0 0 3px; 
     vertical-align: middle;
     background-color: var(--clr-dark);
     margin: 1px;
@@ -79,11 +84,11 @@
     color: var(--clr-light);
   }
   #bookRecordForm button {
-    width: 97%;
+    width: 93%;
     height: 40px;
     padding: 7px;
     margin-top: 1em;
-    border-radius: 0px;
+    border-radius: 3px;
     background: var(--clr-dark);
     border: none;
     font-size: 14px;
@@ -111,7 +116,7 @@
 .bookRecordsContainer {
   border: 1px solid var(--clr-dark);
   padding: 0 5px;
-  border-radius: 0px;
+  border-radius: 3px;
   overflow-x: auto;
   scrollbar-width: none;
   width: 90%;
@@ -130,10 +135,11 @@
 
 .bookRecord {
   display: flex;
-  background-color: var(--clr-green-light);
+  background-color: var(--clr-record);
+  /*background-color: var(--clr-green-light);*/
   padding: 1px 15px;
   border: 1px solid var(--clr-dark);
-  border-radius: 0px;
+  border-radius: 3px;
   margin: 5px 0;
   flex-direction: row;
 }
