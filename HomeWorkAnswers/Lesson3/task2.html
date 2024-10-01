@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let today = new Date().getDay();
+            switch (today) {
+                case 0: today = "Sunday";
+                    break;
+                case 1: today = "Monday";
+                    break;
+                case 2: today = "Tuesday";
+                    break;
+                case 3: today = "Wednesday";
+                    break;
+                case 4: today = "Thursday";
+                    break;
+                case 5: today = "Friday";
+                    break;
+                case 6: today = "Saturday";
+                    break;
+                default: today = "Wrong day";
+                    break;
+            }
+            alert(today);
+        </script>
+    </body>
+</html>
