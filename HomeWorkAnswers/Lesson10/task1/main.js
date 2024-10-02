@@ -111,30 +111,70 @@ let listBooks = () => {
     _addNewBook() {
       const { id, title, author, year, genre } = formAddEdit();
 
-      addBookForm.addEventListener("submit", (e) => {
+      const handleSubmit = (e) => {
         e.preventDefault();
 
-        const idValue = id.value.trim();
+        const idValue = parseInt(id.value.trim(), 10);
         const titleValue = title.value.trim();
         const authorValue = author.value.trim();
-        const yearValue = year.value.trim();
+        const yearValue = parseInt(year.value.trim(), 10);
         const genreValue = genre.value.trim();
 
-        if (idValue && titleValue && authorValue && yearValue && genreValue) {
-          let newBook = {
-            id: idValue,
-            title: titleValue,
-            author: authorValue,
-            year: parseInt(yearValue),
-            genre: genreValue,
-          };
-          books.push(newBook);
-          this._display();
-          addBookForm.innerHTML = "";
-        } else {
-          console.error("Усі поля мають бути заповнені");
+        // Валидация
+        let errors = [];
+
+        // Проверка названия книги
+        if (!titleValue) {
+          errors.push("Назва книги не може бути порожньою");
         }
-      });
+        if (
+          books.some(
+            (book) => book.title.toLowerCase() === titleValue.toLowerCase()
+          )
+        ) {
+          errors.push("Книга з такою назвою вже існує");
+        }
+
+        // Проверка автора
+        if (!authorValue) {
+          errors.push("Ім'я автора не може бути порожнім");
+        }
+
+        // Проверка года
+        if (isNaN(yearValue)) {
+          errors.push("Рік повинен бути числом");
+        } else {
+          const currentYear = new Date().getFullYear();
+          if (yearValue < 1450 || yearValue > currentYear) {
+            errors.push(`Рік повинен бути між 1450 та ${currentYear}`);
+          }
+        }
+
+        // Проверка жанра
+        if (!genreValue) {
+          errors.push("Жанр не може бути порожнім");
+        }
+
+        if (errors.length > 0) {
+          console.error(errors.join("\n"));
+          return;
+        }
+
+        // Если валидация прошла успешно, добавляем книгу
+        const newBook = {
+          id: idValue,
+          title: titleValue,
+          author: authorValue,
+          year: yearValue,
+          genre: genreValue,
+        };
+
+        books.push(newBook);
+        this._display();
+        addBookForm.innerHTML = "";
+      };
+      addBookForm.removeEventListener("submit", handleSubmit);
+      addBookForm.addEventListener("submit", handleSubmit);
     },
 
     _deleteBook() {
