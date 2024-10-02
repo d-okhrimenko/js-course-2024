@@ -44,4 +44,7 @@ Fork – це копія репозиторію, яка дозволяє вам 
 [7. Об'єкти](https://www.youtube.com/watch?v=qyjCjuWF9PU)<br />
 [8. Робота з DOM. Частина 1](https://www.youtube.com/watch?v=0I9T2XL4orM)<br />
 [9. Робота з DOM. Частина 2](https://www.youtube.com/watch?v=D_lVXYrk8X8)<br />
+[10. Форми та валідація даних форм](https://www.youtube.com/watch?v=RYOVlHdYAdI) <br />
+[11. Асинхронний JavaScript та робота з сервером](https://www.youtube.com/watch?v=cvR1EQ1R0EQ) <br />
+[12. Публікація веб застосунку. Використання GitHub Pages та Microsoft Azure](https://www.youtube.com/watch?v=VCDVBnIhS9s)
 
