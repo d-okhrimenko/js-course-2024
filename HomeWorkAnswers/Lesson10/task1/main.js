@@ -225,8 +225,8 @@ let listBooks = () => {
 
       searchButton.addEventListener("click", () => {
         let id = parseInt(idInput.value.trim(), 10);
-        let book = books.find((x) => x.id === id);
-        if (book) {
+        let bookIndex = books.findIndex((x) => x.id === id);
+        if (bookIndex !== -1) {
           addBookForm.innerHTML = "";
           let {
             id: id,
@@ -237,25 +237,75 @@ let listBooks = () => {
             submitButton,
           } = formAddEdit();
 
-          id.value = book.id;
-          title.value = book.title;
-          author.value = book.author;
-          year.value = book.year;
-          genre.value = book.genre;
+          id.value = books[bookIndex].id;
+          title.value = books[bookIndex].title;
+          author.value = books[bookIndex].author;
+          year.value = books[bookIndex].year;
+          genre.value = books[bookIndex].genre;
 
           submitButton.textContent = "Оновити книгу";
 
-          addBookForm.addEventListener("submit", (e) => {
+          const handleSubmit = (e) => {
             e.preventDefault();
 
-            book.title = title.value.trim();
-            book.author = author.value.trim();
-            book.year = parseInt(year.value.trim(), 10);
-            book.genre = genre.value.trim();
+            const idValue = parseInt(id.value.trim(), 10);
+            const titleValue = title.value.trim();
+            const authorValue = author.value.trim();
+            const yearValue = parseInt(year.value.trim(), 10);
+            const genreValue = genre.value.trim();
+
+            let errors = [];
+
+            if (!titleValue) {
+              errors.push("Назва книги не може бути порожньою");
+            }
+            if (
+              books.some(
+                (book, index) =>
+                  index !== bookIndex &&
+                  book.title.toLowerCase() === titleValue.toLowerCase()
+              )
+            ) {
+              errors.push("Книга з такою назвою вже існує");
+            }
+
+            if (!authorValue) {
+              errors.push("Ім'я автора не може бути порожнім");
+            }
+
+            if (isNaN(yearValue)) {
+              errors.push("Рік повинен бути числом");
+            } else {
+              const currentYear = new Date().getFullYear();
+              if (yearValue < 1450 || yearValue > currentYear) {
+                errors.push(`Рік повинен бути між 1450 та ${currentYear}`);
+              }
+            }
+
+            if (!genreValue) {
+              errors.push("Жанр не може бути порожнім");
+            }
+
+            if (errors.length > 0) {
+              console.error(errors.join("\n"));
+              return;
+            }
+
+            books[bookIndex] = {
+              id: idValue,
+              title: titleValue,
+              author: authorValue,
+              year: yearValue,
+              genre: genreValue,
+            };
 
             this._display();
             addBookForm.innerHTML = "";
-          });
+          };
+          addBookForm.removeEventListener("submit", handleSubmit);
+          addBookForm.addEventListener("submit", handleSubmit);
+        } else {
+          alert("Книга з вказаним ID не знайдена");
         }
       });
     },
