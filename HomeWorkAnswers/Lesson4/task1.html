@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let userCounter = 0, compCounter = 0, counter = 0;
+            while (true) {
+                let userAnswer = prompt("Введіть 'камінь', 'ножиці' або 'папір'\nВведіть 'вихід' для закінчення гри").toLocaleLowerCase();
+                let compAnswer = Math.floor(Math.random() * 3) + 1;
+                let result;
+
+                if (userAnswer != "камінь" && userAnswer != "ножиці" && userAnswer != "папір" && userAnswer != "вихід") {
+                    alert("Error");
+                    continue;
+                }
+
+                if (userAnswer == "вихід") {
+                    break;
+                }
+
+                switch (compAnswer) {
+                    case 1:
+                        compAnswer = "камінь";
+                        break;
+                    case 2:
+                        compAnswer = "ножиці";
+                        break;
+                    case 3:
+                        compAnswer = "папір";
+                        break;
+                }
+
+                if (userAnswer == compAnswer) {
+                    result = "Нічия!";
+                    counter++;
+                } else if ((userAnswer == "камінь" && compAnswer == "ножиці") ||
+                    (userAnswer == "ножиці" && compAnswer == "папір") ||
+                    (userAnswer == "папір" && compAnswer == "камінь")) {
+                    result = "Ви перемогли!";
+                    userCounter++;
+                } else {
+                    result = "Комп'ютер переміг!";
+                    compCounter++;
+                }
+
+                alert(`Ваш вибір: ${userAnswer}\nВибір комп'ютера: ${compAnswer}\nРезультат гри: ${result}`)
+            }
+
+            alert(`Рахунок гри:\nВи: ${userCounter}\nКомп'ютер: ${compCounter}\nНічия: ${counter}`);
+        </script>
+    </body>
+</html>
