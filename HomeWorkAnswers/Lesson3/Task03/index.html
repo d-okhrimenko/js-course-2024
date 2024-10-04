@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-03</title>
+</head>
+
+<body>
+    <p>
+        Введіть рік:
+        <input type="text" id="year" />
+    <div>
+        <button id="btnCheckYear">Перевірити чи рік є високосним</button>
+    </div>
+    <div>
+        <b id="output"></b>
+    </div>
+    </p>
+    <script>
+        document.getElementById("btnCheckYear").onclick = function () {
+            let year = +document.getElementById("year").value;
+
+            // Припустимо, що користувач має ввести число від 1 до 9999 включно
+            if (isNaN(year) || year < 1 || year > 9999) {
+                showResult("Некоректне введення данних. Рік має бути числом між 1 та 9999.");
+            }
+            // Згідно з григоріанським календарем рік є високосним, якщо він ділиться на 4
+            // і при цьому не ділиться на 100, або якщо ділиться на 400.
+            else if(year%4==0 && (year%100!=0 || year%400==0)){
+                showResult("Рік є високосним.")
+            }
+            else{
+                showResult("Рік не є високосним.")
+            }
+
+            console.log(year);
+        }
+
+        function showResult(result) {
+            let output = document.getElementById("output");
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>
