@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function imt(mass, height) {
+                let index = mass / (height * height) * 10000;
+                console.log(index);
+                return index;
+            }
+
+            function imtCategory(index) {
+                if (index < 18.5) {
+                    alert("Недостатня вага");
+                } else if (index < 24.9 && index >= 18.5) {
+                    alert("Нормальна вага");
+                } else if (index < 29.9 && index >= 24.9) {
+                    alert("Надмірна вага");
+                } else if (index >= 30) {
+                    alert("Ожиріння");
+                }
+            }
+
+            let massIndicator = +prompt("Введіть вагу");
+            let heightIndicator = +prompt("Введіть зріст");
+
+            imtResult = imt(massIndicator, heightIndicator);
+            imtCategory(imtResult);
+        </script>
+    </body>
+</html>
