@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-02</title>
+</head>
+
+<body>
+    <script src="../common/library.js"></script>
+    <script>
+
+        const figures = ["коло", "прямокутник", "трикутник"];
+
+        let getCircleParams = () => [getNumericValue("Введіть радіус кола...")];
+        let getCircleArea = radius => Math.PI * Math.pow(radius, 2);
+        let getCirclePerimeter = radius => 2 * Math.PI * radius;
+
+        let getRectangleparams = () => {
+            var height = getNumericValue("Введіть довжину прямокутника у см ...");
+            var width = getNumericValue("Введіть ширину прямокутника у см ...");
+            return [height, width];
+        }
+
+        let getRectangleArea = (a, b) => a * b;
+        let getRectanglePerimeter = (a, b) => 2 * (a + b);
+
+        let getTriangleParams = () => {
+            var a = getNumericValue("Введіть 1-шу сторону трикутника у см ...");
+            var b = getNumericValue("Введіть 2-гу сторону трикутника у см ...");
+            var c = getNumericValue("Введіть 3-тю сторону трикутника у см ...");
+            return [a, b, c];
+        }
+
+        // https://www.omnicalculator.com/math/triangle-area
+        let getTriangleArea = (a, b, c) => Math.sqrt((a + b + c) * (-a + b + c) * (a - b + c) * (a + b - c)) / 4;
+        let getTrianglePerimeter = (a, b, c) => a + b + b;
+
+        let getFigure = () => {
+            while (true) {
+                var figure = getNumericValue("Оберіть фігуру: коло(1), прямокутник(2), трикутник(3)...");
+                if ([1, 2, 3].includes(figure))
+                    return figure;
+            }
+        }
+
+        let calc = (figure, getParams, getArea, getPerimeter) => {
+            return () => {
+                var params = getParams();
+                var area = getArea(...params);
+                var perimeter = getPerimeter(...params);
+                showResult(figure, area, perimeter);
+            }
+        }
+
+        let showResult = (figure, area, parimeter) => {
+            var message = `Обчислено ${figures[figure - 1]}:\n\nПлоща дорівнює ${Number(area).toFixed(2)} см^2 \nПериметр дорівнює ${Number(parimeter).toFixed(2)} см`;
+            alert(message);
+            console.log(message);
+        }
+
+        let calcCircle = calc(1, getCircleParams, getCircleArea, getCirclePerimeter);
+        let calcRectangle = calc(2, getRectangleparams, getRectangleArea, getRectanglePerimeter);
+        let calcTriangle = calc(3, getTriangleParams, getTriangleArea, getTrianglePerimeter);
+
+        let figure = getFigure();
+        switch (figure) {
+            case 1:
+                calcCircle();
+                break;
+            case 2:
+                calcRectangle();
+                break;
+            case 3:
+                calcTriangle();
+                break;
+            default:
+                break;
+        }
+
+    </script>
+</body>
+
+</html>

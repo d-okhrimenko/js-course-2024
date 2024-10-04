@@ -1,0 +1,89 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-01</title>
+</head>
+
+<body>
+    <script>
+
+        class Student {
+            constructor(id, firstname, lastname, avgNote) {
+                this.id = id;
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.avgNote = avgNote;
+            }
+            display() {
+                console.log(`Id=${this.id} | ${this.firstname} ${this.lastname}, AVGNote: ${this.avgNote}`);
+            }
+        }
+
+        class StudentDatabase {
+            #students = [];
+
+            // Визначення наступного id через пошук максимального
+            #nextId = function () {
+                let number = Math.max(...this.#students.map(item => item.id));
+                number = isNaN(number) || Math.abs(number) === Infinity ? 0 : number + 1;
+                return number;
+            }
+
+            add = function (firstname, lastname, avgNote) {
+                let newId = this.#nextId(this.#students);
+                this.#students.push(new Student(newId, firstname, lastname, avgNote));
+            }
+
+            remove = function (id) {
+                let index = this.#students.findIndex(x => x.id == id);
+                if (index != -1)
+                    this.#students.splice(index, 1);
+            }
+
+            populate = function (firstname, lastname, avgNote) {
+                this.add("Robb", "Stark", 99.99);
+                this.add("Ned", "Stark", 95.00);
+                this.add("Aria", "Stark", 92.80);
+            }
+
+            displayAll = function () {
+                this.#students.forEach(element => { element.display() });
+            }
+
+            findById = function (id) {
+                let index = this.#students.findIndex(x => x.id == id);
+                if (index != -1)
+                    return this.#students[index];
+            }
+        }
+
+        // Проблема 3 - можно створити скількі завгодно об'єктів класу StudentDatabase
+        let db = new StudentDatabase();
+
+        console.log("Test add...");
+        db.populate();
+        db.displayAll();
+        console.log("Test add comleted");
+
+        console.log("Test remove...");
+        db.remove(0);
+        db.displayAll();
+        console.log("Test remove comleted");
+
+        console.log("Test find...");
+        db.findById(2)?.display();
+        db.findById(100)?.display();
+        console.log("Test find comleted");
+
+
+        // let newId = db.nextId(db.students); //TypeError: db.nextId is not a function
+
+        // db.students.forEach(item => item.display()); // TypeError: Cannot read properties of undefined (reading 'forEach')
+
+
+    </script>
+</body>
+
+</html>

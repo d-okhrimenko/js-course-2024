@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-02</title>
+</head>
+
+<body>
+    <script>
+
+        let products = [];
+
+        // додати продукт до списку
+        let addProduct = (productName) => {
+            var index = products.indexOf(productName);
+            if(index==-1)
+                products.push(productName)
+        };
+
+        // видалити продукт зі списку
+        let delProduct = (productName) => {
+            var index = products.indexOf(productName);
+            if (index >= 0)
+                products.splice(index, 1)
+        };
+
+        // вивести у консоль список покупок
+        let printProducts = () => {
+            var listOfProducts = "Cписок покупок: \n"
+            products.forEach(element => { listOfProducts += element + "\n"; });
+            console.log(listOfProducts);
+        }
+
+        // отримати команди від користувача
+        function getCommandInput(message) {
+            while (true) {
+                let commandIsValid = false;
+                let inputValue = prompt(message);
+
+                let command = inputValue[0].toLowerCase();
+                if (command == '+' || command == '-' || command == 'l' || command == 'q')
+                    commandIsValid = true;
+
+                let arg = inputValue.slice(1);
+                let isValid = ((command == '+' || command == '-') && arg != "" && arg != null) || ((command == 'l' || command == 'q') && (arg == '' || arg == null));
+
+                if (isValid)
+                    return command + arg;
+            }
+        }
+
+        // запустити команду з агрументами
+        let action = (command, args) => {
+            eval(`${command} ("${args}")`);
+        }
+
+        // отримати команду
+        let getCommand = (cmdValue) => {
+
+            switch (cmdValue) {
+                case '+':
+                    return "addProduct";
+                    break;
+                case '-':
+                    return "delProduct";
+                    break;
+                case 'l':
+                    return "printProducts";
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        // виконати дію
+        let DoAction = (commandMessage) => {
+            var command = getCommand(commandMessage[0]);
+            var arg = commandMessage.slice(1);
+            action(command, arg);
+            //console.log(`${command} - ${arg}`);
+        }
+
+        // згенерувати список покупок
+        let populateProducts = () => {
+            addProduct("Kiwi");
+            addProduct("Potato");
+            addProduct("Strawberry");
+        }
+
+        populateProducts();
+
+        let commandPrompt = `Введіть будь ласка:\n+[Назва товару] - для додавання товару у список покупок\n-[Назва товару] - для видалення товару зі списку покупок\nl(=list) - для виведення списку покупок\nq(=quit) - для виходу`;
+
+        while (true) {
+            let inputCommandAndArgs = getCommandInput(commandPrompt);
+            if (inputCommandAndArgs == 'q')
+                break;
+            else
+                DoAction(inputCommandAndArgs);
+        }
+
+    </script>
+</body>
+
+</html>

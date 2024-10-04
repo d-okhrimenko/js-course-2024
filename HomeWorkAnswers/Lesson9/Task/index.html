@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-01</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <section id="page-titel">
+        <h2>Моя Книгарня</h2>
+    </section>
+
+    <template id="template">
+        <section class="book">
+            <button onclick="edit('{{id}}')">Редагувати</button>
+            <button onclick="remove('{{id}}')">Видалити</button>
+            <h2>{{title}}</h2>
+            <p>Рік: {{year}}</p>
+            <p>Автор: {{author}}</p>
+            <p>Жанр: {{genre}}</p>
+        </section>
+    </template>
+
+    <section id="book-input">
+        <form action="" id="bookForm">
+            <div><label for="">Title</label><input type="text" id="titleInput"> </div>
+            <div><label for="">Author</label><input type="text" id="authorInput"> </div>
+            <div><label for="">Year</label><input type="text" id="yearInput"> </div>
+            <div><label for="">Genre</label><input type="text" id="genreInput"> </div>
+            <div><button type="submit">Зберегти</button></div>
+        </form>
+    </section>
+
+
+    <section id="book-list">
+    </section>
+    
+    <script src="js/main.js"></script>
+</body>
+
+</html>
