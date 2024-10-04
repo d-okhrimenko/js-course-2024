@@ -1,0 +1,27 @@
+body{
+    background-color: rgb(243, 243, 231);
+}
+
+#page-titel {
+    text-align-last: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    h2 {
+        background-color: rgb(151, 183, 215);
+        padding: 20px;
+        margin: 30px 10px;
+        border-radius: 10px;
+    }
+}
+
+.book {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: lightsteelblue;
+    padding: 20px;
+    margin: 30px 10px;
+    border-radius: 10px;
+
+    h2 {
+        color: blue;
+    }
+}
