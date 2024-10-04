@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../common/library.js"></script>
+    <script>
+        let BMI = (weight, height) => (weight / Math.pow(height / 100, 2)).toFixed(1);
+
+        function BMICat(bmi) {
+            let result = "";
+            switch (true) {
+                case bmi < 18.5:
+                    return "недостатня вага";
+                case bmi >= 18.5 && bmi < 25:
+                    return "нормальна вага";
+                case bmi >= 25 && bmi < 30:
+                    return "надмірна вага";
+                case bmi >= 30:
+                    return "ожиріння";
+                default:
+                    return "категорію не визначено";
+            }
+
+        }
+
+        let weight = getNumericValue("Введіть свою вагу в кілограмах (кг)...");
+        let height = getNumericValue("Введіть свій зріст у сантіметрах (см)...");
+
+        let bmi = BMI(weight, height);
+        console.log(bmi);
+
+        let bmiCat = BMICat(bmi);
+        console.log(bmiCat);
+
+        let message = `Ваш ІМТ становить ${bmi} (${bmiCat}).`;
+        alert(message);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-02</title>
+</head>
+
+<body>
+    <script src="../common/library.js"></script>
+    <script>
+
+        const figures = ["коло", "прямокутник", "трикутник"]
+
+        let getCircleArea = radius => Math.PI * Math.pow(radius, 2);
+        let getCirclePerimeter = radius => 2 * Math.PI * radius;
+
+        let getRectangleArea = (height, width) => height * width;
+        let getRectanglePerimeter = (height, width) => 2 * (height + width);
+
+        // let getTriangleArea = (a, b, c) => {
+        //     var p = (a + b + c) / 2;
+        //     return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        // }
+        let getTriangleArea = (a, b, c) => Math.sqrt((a + b + c) * (-a + b + c) * (a - b + c) * (a + b - c)) / 4;
+        let getTrianglePerimeter = (a, b, c) => a + b + c;
+
+        let getFigure = () => {
+            while (true) {
+                var figure = getNumericValue("Оберіть фігуру: коло(1), прямокутник(2), трикутник(3)...");
+                if ([1, 2, 3].includes(figure))
+                    return figure;
+            }
+        }
+
+        let showResult = (figure, area, parimeter) => {
+            var message = `Обчислено ${figures[figure - 1]}:\n\nПлоща дорівнює ${Number(area).toFixed(2)} см2 \nПериметр дорівнює ${Number(parimeter).toFixed(2)} см`;
+            alert(message);
+            console.log(message);
+        }
+
+        let area;
+        let perimeter;
+
+        let figure = getFigure();
+
+        switch (figure) {
+            case 1:
+                var radius = getNumericValue("Введіть радіус кола...");
+
+                area = getCircleArea(radius);
+                perimeter = getCirclePerimeter(radius);
+                break;
+            case 2:
+                var height = getNumericValue("Введіть довжину прямокутника у см ...");
+                var width = getNumericValue("Введіть ширину прямокутника у см ...");
+
+                area = getRectangleArea(height, width);
+                perimeter = getRectanglePerimeter(height, width);
+                break;
+            case 3:
+                var a = getNumericValue("Введіть 1-шу сторону трикутника у см ...");
+                var b = getNumericValue("Введіть 2-гу сторону трикутника у см ...");
+                var c = getNumericValue("Введіть 3-тю сторону трикутника у см ...");
+
+                area = getTriangleArea(a, b, c);
+                perimeter = getTrianglePerimeter(a, b, c);
+                break;
+            default:
+                break;
+        }
+
+        showResult(figure, area, perimeter);
+
+    </script>
+</body>
+
+</html>
