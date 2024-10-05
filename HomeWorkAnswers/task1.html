@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+       function getNumericValue(message) {
+         while (true) {
+           let value = prompt(message);
+           let isValid = !isNaN(value) && value !== "" && value !== null;
+           if (isValid) return Number(value);
+         }
+       }
+
+       function getIMT(weight, height){
+          return weight / Math.pow(height / 100, 2);
+       }
+
+       function getCategoryIMT(IMT){
+            if (IMT < 18.5){
+                return "недостатня вага";
+            }else if (IMT >= 18.5 && IMT < 24.9){
+                return "нормальна вага";
+            }else if (IMT >= 25 && IMT < 29.9){
+                return "надмірна вага";    
+            }else {
+                return "ожиріння";
+            } 
+       }
+
+       let weight = getNumericValue("Введіть масу тіла: ");
+       let height = getNumericValue("Введіть зріст у сантиметрах: ");
+       let IMT = getIMT(weight, height);
+       let categoryIMT = getCategoryIMT(IMT);
+       alert(`IMT = ${IMT}. У Вас ${categoryIMT}`);
+       
+    </script>
+</body>
+</html>
