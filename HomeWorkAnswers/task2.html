@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getNumericValue(message) {
+           while (true) {
+             let value = prompt(message);
+             let isValid = !isNaN(value) && value !== "" && value !== null && (value == 1 || value == 2 || value == 3 || value == 4);
+             if (isValid) return Number(value);
+           }
+        }
+
+        let addPurchase = (purchase) => purchases.push(purchase);
+
+        function deletePurchase(purchase){
+            if (purchases.indexOf(purchase) != -1){
+                purchases.splice(purchases.indexOf(purchase),1);
+            } else {
+                alert("такого товару немає в списку покупок");
+            }
+        }
+
+        let printPurchase = (array) => alert(`${array} `);
+
+        let purchases = [];
+        let loop = true;
+        while(loop){
+           let choice = getNumericValue("Виберіть яку дію потрібно виконати зі списком покупок (товарів):  1 - додавання, 2 - видалення, 3 - виведення списку, 4 - вихід");
+           if (choice == 1){
+              addPurchase(prompt("Введіть назву товару: "));
+           } else if(choice == 2) {
+              deletePurchase(prompt("Введіть назву товару: "));
+           } else if(choice == 3) {
+              printPurchase(purchases);
+           } else {
+              loop = false;
+           }
+        }
+        
+    </script>
+</body>
+</html>
