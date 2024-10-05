@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function getChoise(message) {
+        while (true) {
+            let value = prompt(message);
+            let isValid = !isNaN(value) && value !== "" && value !== null && Number(value) > 0 && Number(value) < 4;
+            if (isValid) return Number(value);
+        }
+    }
+    function getStatus(message) {
+        while (true) {
+            let value = prompt(message);
+            let isValid = !isNaN(value) && value !== "" && value !== null && (Number(value) == 1 || Number(value) == 2);
+            if (isValid && value == 1) {
+                return true
+            }
+            return false;
+        }
+    }
+
+    function getName(key) {
+        switch (key) {
+            case 1: return "камінь";
+                break;
+            case 2: return "ножиці";
+                break;
+            case 3: return "папір";
+            default:
+                break;
+        }
+
+    }
+
+    let gameStatus = true;
+    let userPoints = 0;
+    let pcPoints = 0;
+
+    do {
+        alert("Починаєм гру!!!");
+        let endGame = false;
+
+        let userChoise = getChoise("Зробіть будь-ласка вибір. Введіть число що відповідає варіанту вибору (1 - камінь, 2 - ножиці, 3 - папір)");
+        let pcChoise = Math.floor(Math.random() * 3 + 1);
+
+        if ((userChoise - pcChoise == -1) || (userChoise - pcChoise == 2)) {
+            alert(getName(userChoise) + " б'є " + getName(pcChoise));
+            userPoints += 1;
+        } else if (userChoise == pcChoise) {
+            alert("Нічия");
+        } else {
+            alert(getName(pcChoise) + " б'є " + getName(userChoise));
+            pcPoints += 1;
+        }
+        //stringScore = `Загальний рахунок : `;
+        alert(`Загальний рахунок: Ви - ${userPoints}, ПК - ${pcPoints}`);
+        if (!getStatus("Спробувати ще раз?(1 - \"Так\", 2 - \"Ні\")\n ")) {
+            break;
+        }
+
+    } while (gameStatus);
+    if (userPoints > pcPoints) {
+        alert("Вітаємо!! Ви виграли");
+    } else {
+        alert("Нажаль, Ви програли");
+    }
+
+</script>
+</body>
+</html>
