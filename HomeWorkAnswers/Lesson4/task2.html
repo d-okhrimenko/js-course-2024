@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let correctAnswer = 0;
+            let incorrectAnswer = 0;
+
+            for (let i = 0; i < 5; i++) {
+                let firstNumber = Math.floor(Math.random() * 10) + 1;
+                let secondNumber = Math.floor(Math.random() * 10) + 1;
+                let mathSymbol = Math.floor(Math.random() * 4) + 1;
+                let rightResult;
+
+                switch (mathSymbol) {
+                    case 1:
+                        mathSymbol = "+";
+                        rightResult = firstNumber + secondNumber;
+                        break;
+                    case 2:
+                        mathSymbol = "-";
+                        rightResult = firstNumber - secondNumber;
+                        break;
+                    case 3:
+                        mathSymbol = "*";
+                        rightResult = firstNumber * secondNumber;
+                        break;
+                    case 4:
+                        mathSymbol = "/";
+                        rightResult = Math.floor(firstNumber / secondNumber);
+                        break;
+                }
+
+                for (let j = 0; j < 3; j++) {
+                    let result = +prompt(firstNumber + ' ' + mathSymbol + ' ' + secondNumber + ' =');
+
+                    if (result == rightResult) {
+                        alert("You are right!");
+                        correctAnswer++;
+                        break;
+                    } else {
+                        alert("Try again!");
+                        incorrectAnswer++;
+                    }
+                }
+            }
+
+            alert(`Правильні відповіді: ${correctAnswer}\nНеправильні відповіді: ${incorrectAnswer}`);
+
+        </script>
+    </body>
+</html>

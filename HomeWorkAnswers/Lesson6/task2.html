@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let toBuy = [];
+            let thing;
+
+            function addThing(array, name) {
+                array.push(name);
+            }
+
+            function deleteThing(array, name) {
+                array.splice(array.indexOf(name), 1);
+            }
+
+            function showList(array) {
+                array.forEach(element => {
+                    console.log(element);
+                });
+            }
+
+            while (true) {
+                let answer = +prompt(`Оберіть дію:\nвийти - 0\nдодати товар - 1\nвидалити товар - 2\nвивести список - 3`);
+
+                if (answer == 0) {
+                    break;
+                }
+
+                switch (answer) {
+                    case 1:
+                        thing = prompt("Що ви хочете додати?");
+                        addThing(toBuy, thing);
+                        break;
+                    case 2:
+                        thing = prompt("Що ви хочете видалити?");
+                        deleteThing(toBuy, thing);
+                        break;
+                    case 3:
+                        showList(toBuy);
+                        break;
+                    default:
+                        alert("Try again");
+                }
+            }
+        </script>
+    </body>
+</html>
