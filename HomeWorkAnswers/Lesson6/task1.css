@@ -1,0 +1,19 @@
+:root {
+    --font-color: rgb(117, 116, 116);
+}
+.section {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    background-color: aquamarine;
+    color: var(--font-color);
+    text-align: center;
+    width: 50vw;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+.grade:first-child {
+    font-weight: bold;
+    color: var(--font-color);
+}

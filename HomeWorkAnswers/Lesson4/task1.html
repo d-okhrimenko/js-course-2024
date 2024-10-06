@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="./task1.css">
+    <script src="./task1.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <h1>Гра "Камінь, ножиці, папір"</h1>
+        <ul><span class="rules">Правила гри:</span>
+            <li>Камінь б'є ножиці.</li>
+            <li>Ножиці б'ють папір.</li>
+            <li>Папір б'є камінь.</li>
+            <li>Однакові вибори - нічия.</li>
+        </ul>
+        <article id="choice">
+            <div class="row-box">
+                <p>Зробіть свій вибір</p>
+                <input id="player-choice" class="choice-value">
+            </div>
+            <div id="error"></div>
+            <div class="row-box">
+                <p>Вибір суперника</p>
+                <div id="computer-choice" class="choice-value"></div>
+            </div>
+            <div class="row-box"><button id="btn">Грати</button></div>
+
+        </article>
+        <article id="result-box">
+            <p id="score"></p>
+            <p id="status"></p>
+            <p id="result"></p>
+        </article>
+    </main>
+</body>
+
+</html>

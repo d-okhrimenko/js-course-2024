@@ -1,0 +1,79 @@
+:root {
+    --text-color: rgb(45, 61, 131);
+    --font-size: 1.5em;
+    --light-color: rgba(224, 228, 246, 0.625);
+    --border-thickness: 3px;
+    --notice-color: rgb(175, 63, 63);
+  }
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(79, 97, 176, 0.625);
+}
+main {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+    font-size: var(--font-size);
+}
+h1 {
+    border: var(--border-thickness) solid var(--light-color);
+    padding: 0.5em;
+}
+.rules {
+    font-weight: 800;
+  
+}
+li {
+    margin-top: 0.3em;
+}
+#choice {
+    width: 40%;
+}
+.row-box {
+   display: flex; 
+   flex-direction: row;
+   width: 100%;
+   align-items: center;
+   justify-content: space-around;
+}
+.row-box p {
+    width: 50%;
+}
+
+.choice-value {
+    width: 30%;
+    height: 1.5em;
+    background-color: rgba(224, 228, 246, 0.625);
+    padding: 10px;
+    border: var(--border-thickness) solid var(--text-color);
+    color: var(--text-color);
+    font-size: var(--font-size) *0.8;
+}
+#error {
+    color: var(--notice-color);
+    font-size: var(--font-size) * 1.5;
+    font-weight: bold;
+    text-align: center;
+}
+
+#btn {
+    padding: 0.5em 5em;
+    font-size: var(--font-size)/1.5;
+    color: var(--text-color);
+    background-color: var(--light-color);
+    border: var(--border-thickness) solid var(--text-color);
+    margin-top: 2em;
+}
+#result-box p {
+    text-align: center;
+    font-size: var(--font-size);
+    margin: 0.5em 0 0;
+}
+.status {
+    color: var(--notice-color);
+    font-weight: bold;
+    font-size: 2em;
+}
