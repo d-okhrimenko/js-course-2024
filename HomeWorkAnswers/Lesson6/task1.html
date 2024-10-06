@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function medium(array) {
+                let sum = 0;
+                for (const value of array) {
+                    sum += value;
+                }
+
+                return (sum / array.length).toFixed(2);
+            }
+
+            function max(array) {
+                return Math.max(...array);
+            }
+
+            function min(array) {
+                return Math.min(...array);
+            }
+
+            let rating = [];
+            while (true) {
+                let mark = +prompt("Введіть оцінку від 0 до 100. Введіть -1, якщо закінчили");
+                if (mark == -1) {
+                    break;
+                } else {
+                    rating.push(mark);
+                }
+            }
+
+            alert(`Середній бал: ${medium(rating)}\nНайвища оцінка: ${max(rating)}\nНайнижча оцінка: ${min(rating)}`)
+        </script>
+    </body>
+</html>

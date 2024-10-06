@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function circle(r) {
+                let p = 2 * 3.14 * r;
+                let s = 3.14 * r * r;
+                return alert(`Периметр: ${p}\nПлоща: ${s}`);
+            }
+
+            function rectangle(x, y) {
+                let p = 2 * (x + y);
+                let s = x * y;
+                return alert(`Периметр: ${p}\nПлоща: ${s}`);
+            }
+
+            function triangle(a, b, c) {
+                let p = a + b + c;
+                let s = Math.sqrt(p / 2 * (p / 2 - a) * (p / 2 - b) * (p / 2 - c));
+                return alert(`Периметр: ${p}\nПлоща: ${s}`);
+            }
+
+            let figure = prompt("Оберіть фігуру: коло, прямокутник, трикутник").toLowerCase();
+            switch (figure) {
+                case "коло":
+                    let r = +prompt("Введіть радіус");
+                    circle(r);
+                    break;
+                case "прямокутник":
+                    let x = +prompt("Введіть довжину");
+                    let y = +prompt("Введіть ширину");
+                    rectangle(x, y);
+                    break;
+                case "трикутник":
+                    let a = +prompt("Введіть першу сторону");
+                    let b = +prompt("Введіть другу сторону");
+                    let c = +prompt("Введіть третю сторону");
+                    triangle(a, b, c);
+                    break;
+                default:
+                    alert("Error");
+            }
+
+        </script>
+    </body>
+</html>
