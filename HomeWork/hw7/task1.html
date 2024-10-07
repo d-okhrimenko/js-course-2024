@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Student {
+        constructor(name, surname, id, averageScore) {
+          this.name = name;
+          this.surname = surname;
+          this.id = id;
+          this.averageScore = averageScore;
+        }
+      }
+      let groupOfStudents = {
+        students: [],
+        addStudent: function (name, surname, id, averageScore) {
+          let student = new Student(name, surname, id, averageScore);
+          this.students.push(student);
+          console.log(student);
+        },
+        removeStudent: function (id) {
+          let student = this.students.filter((person) => person.id == id)[0];
+          let index = this.students.indexOf(student);
+          this.students.splice(index, 1);
+        },
+        showListOfStudents: function () {
+          this.students.forEach((student) => {
+            console.log(
+              `Name: ${student.name}, Surname: ${student.surname}, ID: ${student.id}, Average Score: ${student.averageScore}`
+            );
+          });
+        },
+        findStudentById: function (id) {
+          let student = this.students.find((person) => person.id == id);
+          if (student) {
+            console.log(
+              `Name: ${student.name}, Surname: ${student.surname}, ID: ${student.id}, Average Score: ${student.averageScore}`
+            );
+          } else {
+            console.log(`Student with ID ${id} not found.`);
+          }
+        },
+      };
+      // Приклад використання:
+      groupOfStudents.addStudent("John", "Doe", 1, 85);
+      groupOfStudents.addStudent("Jane", "Smith", 2, 90);
+      groupOfStudents.addStudent("OOpp", "OIU", 4, 60);
+
+      groupOfStudents.showListOfStudents();
+      groupOfStudents.findStudentById(1);
+      groupOfStudents.findStudentById(3);
+      groupOfStudents.findStudentById(4);
+      groupOfStudents.removeStudent(4);
+      groupOfStudents.findStudentById(4);
+    </script>
+  </body>
+</html>
