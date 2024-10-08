@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let currentDate = new Date();
+      let dayOfWeek = currentDate.getDay();
+      let dayName;
+      if (dayOfWeek === 0) {
+        dayName = "Сьогодні неділя";
+      } else if (dayOfWeek === 1) {
+        dayName = "Сьогодні понеділок";
+      } else if (dayOfWeek === 2) {
+        dayName = "Сьогодні вівторок";
+      } else if (dayOfWeek === 3) {
+        dayName = "Сьогодні середа";
+      } else if (dayOfWeek === 4) {
+        dayName = "Сьогодні четвер";
+      } else if (dayOfWeek === 5) {
+        dayName = "Сьогодні п'ятниця";
+      } else if (dayOfWeek === 6) {
+        dayName = "Сьогодні субота";
+      }
+      alert(dayName);
+    </script>
+  </body>
+</html>
