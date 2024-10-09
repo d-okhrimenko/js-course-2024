@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let userScore = 0;
+      let computerScore = 0;
+      let rounds = 0;
+
+      function playGame() {
+        while (true) {
+          let computerChoice = Math.floor(Math.random() * 3) + 1;
+
+          function getValue(message) {
+            while (true) {
+              let value = prompt(message);
+              let isValid =
+                !isNaN(value) &&
+                value !== "" &&
+                value !== null &&
+                value >= 1 &&
+                value <= 4;
+              if (isValid) return Number(value);
+            }
+          }
+
+          let userChoice = getValue(
+            "Напишіть ваш вибір у вигляді цифр. Камінь - це 1. Папір - це 2. І ножниці - це 3. Або введіть цифру 4 для завершення гри"
+          );
+
+          if (userChoice === 4) {
+            alert(
+              `Гра завершена. Ви зіграли ${rounds} раундів. Рахунок: Ви - ${userScore}, Штучний інтелект - ${computerScore}`
+            );
+            break;
+          }
+
+          function getChoiceText(choice) {
+            switch (choice) {
+              case 1:
+                return "Камінь";
+              case 2:
+                return "Папір";
+              case 3:
+                return "Ножниці";
+            }
+          }
+          let userChoiceText = getChoiceText(userChoice);
+          let computerChoiceText = getChoiceText(computerChoice);
+
+          alert(
+            `Ви: ${userChoiceText}, Штучний інтелект: ${computerChoiceText}`
+          );
+
+          function determineWinner(userChoice, computerChoice) {
+            if (userChoice === computerChoice) {
+              alert("Це нічия!");
+              return "draw";
+            } else if (
+              (userChoice === 1 && computerChoice === 3) ||
+              (userChoice === 3 && computerChoice === 2) ||
+              (userChoice === 2 && computerChoice === 1)
+            ) {
+              alert("Ви перемогли!");
+              return "user";
+            } else {
+              alert("Виграв штучний інтелект!");
+              return "computer";
+            }
+          }
+          let result = determineWinner(userChoice, computerChoice);
+          rounds++;
+
+          if (result === "user") {
+            userScore++;
+          } else if (result === "computer") {
+            computerScore++;
+          }
+
+          alert(
+            `Поточний рахунок: Ви - ${userScore}, Штучний інтелект - ${computerScore}`
+          );
+        }
+      }
+
+      playGame();
+    </script>
+  </body>
+</html>
