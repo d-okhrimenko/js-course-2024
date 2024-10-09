@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <script id="template" type="text/template">
+        <section class="book">
+            <button onclick="edit({{id}})">Редагувати</button>
+            <button onclick="remove({{id}})">Видалити</button>
+            <h3>{{title}}</h3>
+            <p><strong>Author:</strong> {{author}}</p>
+            <p><strong>Year of publication:</strong> {{year}}</p>
+            <p><strong>Genre:</strong> {{genre}}</p>
+        </section>
+    </script>
+
+    <h1>Додати книгу</h1>
+    <form id="bookForm">
+        <div><label for="">Title</label><input type="text" id="title"></div>
+        <div><label for="">Author</label><input type="text" id="author"></div>
+        <div><label for="">Year Of Publication</label><input type="text" id="yearOfPublication"></div>
+        <div><label for="">Genre</label><input type="text" id="genre"></div>
+        <button type="submit">Зберегти</button>
+    </form>
+
+    <h1>Список книг у бібліотеці</h1>
+    <div id="bookList"></div>
+
+    <script src="../../../../node_modules/mustache/mustache.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+
+</body>
+
+</html>
+
+
+<!-- TODO
+Розширте код завдання з уроку 8, додавши наступні можливості:
+
+1. Створити функцію для додавання нової книги до масиву:
+
+Функція повинна приймати параметри для створення нового об'єкта книги (назва, автор, рік видання, жанр) і додавати його до масиву books.
+Після додавання нової книги, список книг на веб-сторінці повинен оновлюватися.
+
+2. Створити функцію для редагування інформації про книгу:
+
+Додайте можливість редагування існуючих книг за індексом або іншим унікальним ідентифікатором.
+Вибрана книга повинна відображатися у формі, де користувач може змінити її дані.
+
+3. Створити функцію для видалення книги з масиву:
+
+Реалізуйте можливість видалення книги з масиву books.
+Після видалення книги, список книг на веб-сторінці повинен оновлюватися.
+Забезпечити динамічне оновлення списку книг на сторінці після кожної операції (додавання, редагування, видалення). -->

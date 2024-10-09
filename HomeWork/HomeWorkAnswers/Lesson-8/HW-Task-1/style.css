@@ -1,0 +1,9 @@
+.book {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+.book h3 {
+    margin: 0 0 5px 0;
+}

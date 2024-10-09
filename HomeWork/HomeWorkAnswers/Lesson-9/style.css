@@ -1,0 +1,27 @@
+.book {
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background-color: lightgray;
+    padding: 20px;
+    margin: 30px 10px;
+}
+
+.book button {
+    margin-bottom: 10px;
+}
+.book h3 {
+    margin: 0 0 5px 0;
+}
+
+#bookForm label {
+    display: inline-block;
+    width: 140px;
+}
+
+#bookForm div {
+    margin: 10px;
+}
+
+#bookForm {
+    padding-left: 10px;
+}
