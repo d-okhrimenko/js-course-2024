@@ -5,11 +5,11 @@ const baseUrl = "https://api.openweathermap.org/data/2.5/weather?";
 
 getWeatherForm.addEventListener("submit", handleClick);
 
-function handleClick(e) {
+async function handleClick(e) {
   e.preventDefault();
   const city = cityInput.value;
   const apiUrl = baseUrl + `q=${city}&appid=${apiKey}&units=metric&lang=uk`;
-  fetch(apiUrl)
+  await fetch(apiUrl)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Місто не знайдено або проблема з сервером");
