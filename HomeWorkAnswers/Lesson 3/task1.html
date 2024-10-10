@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let input = prompt("Введіть число:");
+      number = Number(input);
+      if (isNaN(number)) {
+        alert("Введене значення не є числом. Спробуйте ще раз.");
+      } else {
+        if (number % 2 === 0) {
+          alert("Число " + number + " є парним.");
+        } else {
+          alert("Число " + number + " є непарним.");
+        }
+      }
+    </script>
+  </body>
+</html>

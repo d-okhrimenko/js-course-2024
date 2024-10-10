@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let input = prompt("Введіть рік:");
+      year = Number(input);
+      if (isNaN(year) && year >= 0) {
+        alert("Введене значення не є роком. Спробуйте ще раз.");
+      } else {
+        if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+          alert(year + " є високосним роком.");
+        } else {
+          alert(year + " не є високосним роком.");
+        }
+      }
+    </script>
+  </body>
+</html>
