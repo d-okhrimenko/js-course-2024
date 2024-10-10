@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const height = getValue("Введіть вашу висоту в см:");
+      const weight = getValue("Введіть вашу вагу в кг:");
+
+      let calculationBMI = (weight, height) =>
+        Math.round((weight / Math.pow(height / 100, 2)) * 100) / 100;
+
+      let checkingBMI = (bmi) => {
+        alert(
+          `Ваш ІМТ ${bmi}. У вас ${
+            bmi < 18.5
+              ? "недостатня вага"
+              : bmi < 24.9
+              ? "нормальна вага"
+              : bmi < 29.9
+              ? "надмірна вага"
+              : "ожиріння"
+          }.`
+        );
+      };
+
+      checkingBMI(calculationBMI(weight, height));
+
+      function getValue(message) {
+        while (true) {
+          let value = prompt(message);
+          if (!isNaN(value) && value > 0) return Number(value);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function playGame() {
+        let correctCount = 0;
+        let incorrectCount = 0;
+        for (let i = 0; i < 5; i++) {
+          let operators = ["+", "-", "*", "/"];
+          let randomOperator =
+            operators[Math.floor(Math.random() * operators.length)];
+
+          let num1, num2;
+          if (randomOperator === "/") {
+            num2 = Math.floor(Math.random() * 9 + 1);
+            num1 = num2 * Math.floor(Math.random() * 10 + 1);
+          } else {
+            num1 = Math.floor(Math.random() * 100 + 1);
+            num2 = Math.floor(Math.random() * 100 + 1);
+          }
+
+          function getValue(message) {
+            while (true) {
+              let value = prompt(message);
+              let isValid = !isNaN(value) && value !== "";
+              if (isValid) return Number(value);
+            }
+          }
+
+          let correctAnswer;
+
+          switch (randomOperator) {
+            case "+":
+              correctAnswer = num1 + num2;
+              break;
+            case "-":
+              correctAnswer = num1 - num2;
+              break;
+            case "*":
+              correctAnswer = num1 * num2;
+              break;
+            case "/":
+              correctAnswer = num1 / num2;
+              break;
+          }
+
+          let attempts = 3;
+          let userAnswer;
+
+          while (attempts > 0) {
+            userAnswer = getValue(
+              `Напишіть цифрами правильну відповідь для математичного виразу: ${num1} ${randomOperator} ${num2}`
+            );
+
+            if (userAnswer === correctAnswer) {
+              alert("Правильна відповідь! Наступне завдання.");
+              correctCount++;
+              break;
+            } else {
+              attempts--;
+              incorrectCount++;
+              if (attempts > 0) {
+                alert(
+                  `Неправильна відповідь! У вас залишилося ${attempts} спроби.`
+                );
+              } else {
+                alert(
+                  `Неправильна відповідь! Правильна відповідь: ${correctAnswer}. Переходимо до наступного завдання.`
+                );
+              }
+            }
+          }
+        }
+        alert(
+          `Математичний квіз завершено! Правильні відповіді: ${correctCount}, Неправильні відповіді: ${incorrectCount}`
+        );
+      }
+
+      playGame();
+    </script>
+  </body>
+</html>
