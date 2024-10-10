@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let getCircleArea = (radius) => Math.PI * Math.pow(radius, 2);
+      let getCirclePerimeter = (radius) => 2 * Math.PI * radius;
+
+      let getRectangleArea = (length, width) => length * width;
+      let getRectanglePerimeter = (length, width) => 2 * (length + width);
+
+      let getTriangleArea = (a, b, c) => {
+        const s = (a + b + c) / 2;
+        return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+      };
+      let getTrianglePerimeter = (a, b, c) => a + b + c;
+
+      const checkFigure = getValue1(
+        "Виберіть фігуру для розрахунку площі та периметру. 1 - коло. 2 - прямокутник. 3 - трикутник."
+      );
+
+      let radius = checkFigure === 1 ? getValue2("Введіть радіус") : null;
+
+      let length, width;
+      if (checkFigure === 2) {
+        length = getValue2("Введіть довжину");
+        width = getValue2("Введіть ширину");
+      }
+
+      let a, b, c;
+      if (checkFigure === 3) {
+        a = getValue2("Введіть сторону a");
+        b = getValue2("Введіть сторону b");
+        c = getValue2("Введіть сторону c");
+      }
+
+      if (checkFigure === 1) {
+        alert(
+          `Площа кола: ${getCircleArea(radius).toFixed(
+            2
+          )}. Периметр кола: ${getCirclePerimeter(radius).toFixed(2)}.`
+        );
+      } else if (checkFigure === 2) {
+        alert(
+          `Площа прямокутника: ${getRectangleArea(length, width).toFixed(
+            2
+          )}. Периметр прямокутника: ${getRectanglePerimeter(
+            length,
+            width
+          ).toFixed(2)}.`
+        );
+      } else if (checkFigure === 3) {
+        alert(
+          `Площа трикутника: ${getTriangleArea(a, b, c).toFixed(
+            2
+          )}. Периметр трикутника: ${getTrianglePerimeter(a, b, c)}.`
+        );
+      } else {
+        alert("Неправильний вибір. Будь ласка, виберіть 1, 2 або 3.");
+      }
+
+      function getValue1(message) {
+        while (true) {
+          let value = prompt(message);
+          if (value === "1" || value === "2" || value === "3") {
+            return Number(value);
+          } else {
+            alert("Будь ласка, введіть 1, 2 або 3.");
+          }
+        }
+      }
+
+      function getValue2(message) {
+        while (true) {
+          let value = prompt(message);
+          if (!isNaN(value) && value > 0) return Number(value);
+        }
+      }
+    </script>
+  </body>
+</html>
