@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2</title>
+</head>
+<body>
+    <h1>Current Date</h1>
+    <p id="date"></p>
+    <p id="text"></p>
+    <button id="but">Say hello</button>
+    <script>
+        const date = new Date();
+        const name = 'Serhii'; 
+        document.getElementById('date').innerText = date;
+        console.log(date);
+        document.getElementById('but').onclick = function() {
+            document.getElementById('text').innerText = `Hello, ${name}`;
+            console.log('Hello, ' + name);       
+        }
+    </script>
+</body>
+</html>
