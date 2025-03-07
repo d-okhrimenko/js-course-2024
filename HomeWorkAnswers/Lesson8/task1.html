@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 8 Task 1</title>
+    <style>
+        .book {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lesson 8 Task 1</h1>
+    <p>This is the content for Lesson 8 Task 1.</p>
+
+    <template id="template">
+        <section class="book">
+            <h2>{{title}}</h2>
+            <h3>Author: {{author}}</h3>
+            <p>Year: {{year}}</p>
+            <p>Genre: {{genre}}</p>
+        </section>
+    </template>
+
+    <div id="bookList">
+
+    </div>
+
+    <script src="/node_modules/mustache/mustache.min.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+</body>
+
+</html>
+
+</html>

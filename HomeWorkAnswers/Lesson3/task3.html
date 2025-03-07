@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3 Task 3</title>
+</head>
+<body>
+    <h1>Lesson 3 Task 3</h1>
+    <p>This is the content for Lesson 3 Task 3.</p>
+    <button onclick="myFunction()">Is it a leap year?</button>
+
+    <script>
+
+        myFunction = () => {
+            let yearUser = prompt("Enter a year", 0);
+            let year = parseInt(yearUser);
+            if (isNaN(year)) {
+                alert("Please enter a number");
+                return;
+            }
+            if (year % 4 == 0) {
+                if (year % 100 == 0) {
+                    if (year % 400 == 0) {
+                        alert("It is a leap year");
+                    } else {
+                        alert("It is not a leap year");
+                    }
+                } else {
+                    alert("It is a leap year");
+                }
+            } else {
+                alert("It is not a leap year");
+            }
+
+        }
+    </script>
+</body>
+</html>

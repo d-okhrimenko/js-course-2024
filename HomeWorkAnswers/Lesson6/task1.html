@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 6 Task 1</title>
+</head>
+<body>
+    <h1>Lesson 6 Task 1</h1>
+    <p>This is the content for Lesson 6 Task 1.</p>
+    <script>
+        
+        let grades = [];
+
+        function averageGrade(grades) {
+            let sum = 0;
+            for (let i = 0; i < grades.length; i++) {
+                sum += grades[i];
+            }
+            return sum / grades.length;
+        }
+        function highestGrade(grades) {
+            let highest = grades[0];
+            for (let i = 1; i < grades.length; i++) {
+                if (grades[i] > highest) {
+                    highest = grades[i];
+                }
+            }
+            return highest;
+        }
+        function lowestGrade(grades) {
+            let lowest = grades[0];
+            for (let i = 1; i < grades.length; i++) {
+                if (grades[i] < lowest) {
+                    lowest = grades[i];
+                }
+            }
+            return lowest;
+        }
+
+        for (let index = 0; index < 15; index++) {
+            grades.push(Math.floor(Math.random() * 10) + 1);
+            
+        }
+        console.log(grades);
+        console.log("Average Grade: " + averageGrade(grades));
+        console.log("Highest Grade: " + highestGrade(grades));
+        console.log("Lowest Grade: " + lowestGrade(grades));
+    </script>
+</body>
+</html>

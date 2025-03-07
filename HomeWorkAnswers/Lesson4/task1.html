@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гра: Камінь, Ножиці, Папір</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        select, button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        #resultGame {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .win {
+            color: green;
+        }
+
+        .lose {
+            color: red;
+        }
+
+        .draw {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Виберіть опцію</h1>
+    <select id="dropdown">
+        <option value="Камінь">Камінь</option>
+        <option value="Ножиці">Ножиці</option>
+        <option value="Папір">Папір</option>
+    </select>
+    <button onclick="showResult()">Почати</button>
+    <button onclick="finish()">Закінчити</button>
+    <p id="result"></p>
+    <p id="resultGame"></p>
+
+    <script>
+        const raund = [];
+        
+        function showResult() {
+            const dropdown = document.getElementById('dropdown');
+            const result = document.getElementById('result');
+            const resultGame = document.getElementById('resultGame');
+            const selectedOption = dropdown.value;
+
+            const options = ["Камінь", "Ножиці", "Папір"];
+            const resultRandom = Math.floor(Math.random() * options.length);
+            const randomOption = options[resultRandom];
+
+            result.textContent = `Комп'ютер обрав: ${randomOption}`;
+            console.log(`Випадковий вибір: ${randomOption}`);
+
+            if (randomOption === selectedOption) {
+                resultGame.textContent = "Нічия!";
+                resultGame.className = "draw";
+            } else if (
+                (randomOption === "Камінь" && selectedOption === "Ножиці") ||
+                (randomOption === "Ножиці" && selectedOption === "Папір") ||
+                (randomOption === "Папір" && selectedOption === "Камінь")
+            ) {
+                resultGame.textContent = "Ви програли!";
+                resultGame.className = "lose";
+            } else {
+                resultGame.textContent = "Ви виграли!";
+                resultGame.className = "win";
+            }
+            raund.push({
+                user: selectedOption,
+                computer: randomOption,
+                result: resultGame.textContent
+            });
+            
+             const previousRounds = document.querySelector('ul');
+            if (previousRounds) {
+                previousRounds.remove();
+            }
+            
+            const roundsList = document.createElement('ul');
+            raund.forEach((round, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Раунд ${index + 1}: Ви обрали ${round.user}, Комп'ютер обрав ${round.computer} - ${round.result}`;
+                roundsList.appendChild(listItem);
+            });
+            document.body.appendChild(roundsList);
+           
+
+            const totalWins = raund.filter(round => round.result === "Ви виграли!").length;
+            const totalLosses = raund.filter(round => round.result === "Ви програли!").length;
+            const totalDraws = raund.filter(round => round.result === "Нічия!").length;
+
+            const previousSummary = document.querySelector('pq');
+            if (previousSummary) {
+                previousSummary.remove();
+            }
+
+            const summary = document.createElement('pq');
+            summary.textContent = `Загальні результати: Виграшів: ${totalWins}, Програшів: ${totalLosses}, Нічиїх: ${totalDraws}`;
+            document.body.appendChild(summary);
+            };
+
+        function finish() {
+            raund.length = 0;
+            const previousRounds = document.querySelector('ul');
+            if (previousRounds) {
+                previousRounds.remove();
+            }
+            const previousSummary = document.querySelector('pq');
+            if (previousSummary) {
+                previousSummary.remove();
+            }
+
+            document.querySelector('#result').textContent = '';
+            document.querySelector('#resultGame').textContent = '';
+
+        
+        }
+    </script>
+</body>
+
+</html>

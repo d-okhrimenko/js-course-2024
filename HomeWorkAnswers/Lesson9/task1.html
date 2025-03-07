@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9 Task 1</title>
+    <style>
+        .book {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+            background-color: aquamarine;
+        }
+
+        #bookForm label {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lesson 9 Task 1</h1>
+    <p>This is the content for Lesson 9 Task 1.</p>
+
+    <form id="bookForm">
+        <div><label for="">Title</label><input type="text" id="titleInput"></div>
+        <div><label for="">Author</label><input type="text" id="authorInput"></div>
+        <div><label for="">Year</label><input type="text" id="yearInput"></div>
+        <div><label for="">Genre</label><input type="text" id="genreInput"></div>
+        <button type="submit">Save</button>
+    </form>
+
+    <script id="template" type="text/template">
+        <section class="book">
+            <button onclick="edit({{id}})">Edit</button>
+            <button onclick="remove({{id}})">Remove</button>
+            <h2>{{title}}</h2>
+            <h3>Author: {{author}}</h3>
+            <p>Year: {{year}}</p>
+            <p>Genre: {{genre}}</p>
+        </section>
+    </script>
+
+    <section id="bookList">
+
+    </section>
+
+    <script src="/node_modules/mustache/mustache.min.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+</body>
+
+</html>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 6 - Task 2</title>
+</head>
+<body>
+    <h1>Lesson 6 - Task 2</h1>
+    <p>This is the content for Task 2 of Lesson 6.</p>
+    <script>
+        let shoppingList = [];
+
+        function addProduct(productName) {
+            shoppingList.push(productName);
+        }
+
+        function removeProduct(productName) {
+            let index = shoppingList.indexOf(productName);
+            if (index > -1) {
+                shoppingList.splice(index, 1);
+            }
+        }
+
+        function showShoppingList() {
+            console.log(shoppingList);
+        }
+
+        while (true) {
+            let action = prompt('Enter action: add, remove, show, exit');
+            if (action === 'add') {
+            let productName = prompt('Enter product name');
+            addProduct(productName);
+            } else if (action === 'remove') {
+            let productName = prompt('Enter product name');
+            removeProduct(productName);
+            } else if (action === 'show') {
+            showShoppingList();
+            } else if (action === 'exit') {
+            break;
+            }
+        }
+
+    </script>
+</body>
+</html></html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 7 Task 1</title>
+</head>
+
+<body>
+    <h1>Lesson 7 Task 1</h1>
+    <p>This is the content for Lesson 7 Task 1.</p>
+
+    <Script>
+        class Student {
+            constructor(id, name, age, averageScore) {
+                this.id = id;
+                this.name = name;
+                this.age = age;
+                this.averageScore = averageScore;
+            }
+
+            getStudentInfo() {
+                return `ID: ${this.id}, Name: ${this.name}, Age: ${this.age}, Average Score: ${this.averageScore}`;
+            }
+
+        }
+
+        class StudentManagement {
+            #students = [];
+            
+            constructor() {
+                this.#students = [];
+            }
+
+            addStudent(Student) {
+                this.#students.push(Student);
+            }
+
+            removeStudent(id) {
+                this.#students = this.#students.filter(student => student.id !== id);
+            }
+
+            getStudentById(id) {
+                return this.#students.find(student => student.id === id).getStudentInfo();
+            }
+
+            getStudents() {
+                return this.#students;
+            }
+
+            showAllStudents() {
+                this.#students.forEach(student => console.log(student.getStudentInfo()));
+            }
+
+        }
+        //console.log(new Student(1, 'John', 20, 90).getStudentInfo());
+        sm = new StudentManagement();
+        sm.addStudent(new Student(1, 'John', 20, 90));
+        sm.addStudent(new Student(2, 'Jane', 21, 95));
+        sm.addStudent(new Student(3, 'Doe', 22, 85));
+
+        sm.showAllStudents();
+        //sm.removeStudent(2);
+        //console.log('After removing student with ID 2');
+        sm.showAllStudents();
+        console.log(sm.getStudentById(1));
+        console.log(sm.getStudentById(2));
+        console.log(sm.getStudents());
+        console.log(sm.students.push(new Student(4, 'Doe', 22, 85)));
+    </Script>
+</body>
+
+</html>

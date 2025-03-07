@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3 Task 1</title>
+</head>
+
+<body>
+    <h1>Lesson 3 Task 1</h1>
+    <p>This is the content for Lesson 3 Task 1.</p>
+    <button onclick="myFunction()">find out the number</button>
+    <script>
+
+        // let namberUser = prompt("anter a number", 0);
+        // let namber = parseInt(namberUser);
+        // if (namber % 2 == 0) {
+        //     alert("The number is even");
+        // } else {
+        //     alert("The number is odd");
+        // }
+
+        myFunction = () => {
+            let namberUser = prompt("anter a number", 0);
+            let namber = parseInt(namberUser);
+            if (isNaN(namber)) {
+                alert("Please enter a number");
+                return;
+            }
+            if (namber % 2 == 0) {
+                alert("The number is even");
+            } else {
+                alert("The number is odd");
+            }
+        }
+    </script>
+</body>
+
+</html>

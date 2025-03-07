@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lesson 5 / task2</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script src="../common/userInteraction.js"></script>
+    <script>
+        //Circle
+        const circleAreaCalculator = (radius) => Math.PI * 2 * radius;
+        const cirklePerimeterCalculator = (radius) => 2 * Math.PI * radius;
+
+        //Rectangle
+        const rectangleAreaCalculator = (width, height) => width * height;
+        const rectanglePerimeterCalculator = (width, height) => 2 * (width + height);
+
+        //Square
+        const squareAreaCalculator = (side) => side * side;
+        const squarePerimeterCalculator = (side) => 4 * side;
+
+        //Triangle
+        const triangleAreaCalculator = (base, height) => 0.5 * base * height;
+        const trianglePerimeterCalculator = (side1, side2, side3) => side1 + side2 + side3;
+
+        //User input
+
+        while (true) {
+            let figure = prompt('Enter figure name: circle, rectangle, square, triangle');
+            if (figure === 'circle') {
+                let radius = inputNumberUser('Enter radius');
+                console.log(`Circle area: ${circleAreaCalculator(radius)}`);
+                console.log(`Circle perimeter: ${cirklePerimeterCalculator(radius)}`);
+                alert(`Circle area: ${circleAreaCalculator(radius)}\nCircle perimeter: ${cirklePerimeterCalculator(radius)}`);
+                break;
+            } else if (figure === 'rectangle') {
+                let width = inputNumberUser('Enter width');
+                let height = inputNumberUser('Enter height');
+                console.log(`Rectangle area: ${rectangleAreaCalculator(width, height)}`);
+                console.log(`Rectangle perimeter: ${rectanglePerimeterCalculator(width, height)}`);
+                break;
+            } else if (figure === 'square') {
+                let side = inputNumberUser('Enter side');
+                console.log(`Square area: ${squareAreaCalculator(side)}`);
+                console.log(`Square perimeter: ${squarePerimeterCalculator(side)}`);
+                alert(`Square area: ${squareAreaCalculator(side)}\nSquare perimeter: ${squarePerimeterCalculator(side)}`);
+                break;
+            } else if (figure === 'triangle') {
+                let base = inputNumberUser('Enter base');
+                let height = inputNumberUser('Enter height');
+                let side1 = inputNumberUser('Enter side1');
+                let side2 = inputNumberUser('Enter side2');
+                console.log(`Triangle area: ${triangleAreaCalculator(base, height)}`);
+                console.log(`Triangle perimeter: ${trianglePerimeterCalculator(side1, side2, base)}`);
+                alert(`Triangle area: ${triangleAreaCalculator(base, height)}\nTriangle perimeter: ${trianglePerimeterCalculator(side1, side2, base)}`);
+                break;
+            } else {
+                alert('Invalid figure name');
+            }
+        }
+        
+    </script>
+</body>
+
+</html>

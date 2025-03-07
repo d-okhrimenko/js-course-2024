@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3 - Task 2</title>
+</head>
+<body>
+    <h1>Lesson 3 - Task 2</h1>
+    <p>This is the content for task 2 of Lesson 3.</p>
+
+    <button onclick="myFunction()">What day of the week is it?</button>
+
+    <script>
+        myFunction = () => {
+            let day = new Date().getDay();
+            let dayName = "";
+            switch (day) {
+                case 0:
+                    dayName = "Sunday";
+                    break;
+                case 1:
+                    dayName = "Monday";
+                    break;
+                case 2:
+                    dayName = "Tuesday";
+                    break;
+                case 3:
+                    dayName = "Wednesday";
+                    break;
+                case 4:
+                    dayName = "Thursday";
+                    break;
+                case 5:
+                    dayName = "Friday";
+                    break;
+                case 6:
+                    dayName = "Saturday";
+                    break;
+                default:
+                    dayName = "Invalid day";
+                    break;
+            }
+            alert(`Today is ${dayName}`);
+        }
+
+    </script>
+
+</body>
+</html>
