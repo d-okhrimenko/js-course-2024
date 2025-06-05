@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="task2.css">
+</head>
+
+<body>
+    <button id="daybtn">What is the day today?</button>
+    <script>
+        let currentDate = new Date().getDay();
+        console.log(currentDate);
+
+        document.querySelector("#daybtn").onclick = function () {
+            let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+            if (currentDate == 0) { alert("Today is " + weekDays[0]); }
+            else
+                if (currentDate == 1) { alert("Today is " + weekDays[1]); }
+                else
+                    if (currentDate == 2) { alert("Today is " + weekDays[2]); }
+                    else
+                        if (currentDate == 3) { alert("Today is " + weekDays[3]); }
+                        else
+                            if (currentDate == 4) { alert("Today is " + weekDays[4]); }
+                            else
+                                if (currentDate == 5) { alert("Today is " + weekDays[5]); }
+                                else { alert(weekDays[6]); }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
