@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Щоб отримати випадкове число в межах конкретного діапазону, наприклад від 5 до 15
+        // const min = 5;
+        // const max = 15;
+        // const randomInRange = Math.floor(Math.random() * (max - min + 1)) + min;
+
+
+        //         for(let i = 0; i < 10; i++) {
+        //     console.log(Math.random());
+        // }
+        // const operatorArr = ['+', '-', '*', '/']; //створює мазив операторів
+
+
+
+
+        // Можна перевірку переможця замінити на таку функцію, буде прсотіше читатися. Якщо будуть питання, можете задати в комментарях, але не обіцяю що швидко відповім
+        // function getResult(userChoice, computerChoice) {
+        //     if (userChoice === computerChoice) {
+        //         return 'draw';
+        //     }
+
+        //     const winConditions = {
+        //         rock: 'scissors',
+        //         paper: 'rock',
+        //         scissors: 'paper'
+        //     };
+
+        //     return winConditions[userChoice] === computerChoice ? 'user' : 'computer';
+        // }
+
+        let correctAnswer = 0;
+        let incorrectAnswer = 0;
+        let operatorArr = ["+", "-", "*", "/"];
+        let operand1;
+        let operand2;
+
+        let operatorIndex;
+
+        let operator;
+        // alert(operator);
+
+        let rightResult;
+
+
+
+        for (let j = 1; j <= 3; j++) {
+            operand1 = Math.floor(Math.random() * 10) + 1;
+            operand2 = Math.floor(Math.random() * 10) + 1;
+
+            operatorIndex = Math.floor(Math.random() * operatorArr.length);
+
+            operator = operatorArr[operatorIndex];
+            switch (operator) {
+                case "+":
+                    operator = operatorArr[0];
+                    rightResult = operand1 + operand2;
+                    break;
+                case "-":
+                    operator = operatorArr[1];
+                    rightResult = operand1 - operand2;
+                    break;
+                case "*":
+                    operator = operatorArr[2]
+                    rightResult = operand1 * operand2;
+                    break;
+                case "/":
+                    operator = operatorArr[3]
+                    rightResult = Math.round(operand1 / operand2 * 100) / 100;
+                    break;
+            }
+
+            let result = +prompt(`Вгадайте результат виразу: ${operand1}${operator}${operand2}=`);
+
+            if (result == rightResult) {
+                alert("Вірно!");
+                correctAnswer++;
+
+            } else {
+                alert("Спробуй ще!");
+                incorrectAnswer++;
+            }
+        }
+        alert(`Вірних відповідей: ${correctAnswer}, а невірних: ${incorrectAnswer}.`);
+
+    </script>
+</body>
+
+</html>

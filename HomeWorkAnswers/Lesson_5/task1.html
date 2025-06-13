@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getNumericValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) return Number(value);
+            }
+        }
+
+        function bodyMassIndex(mass, height) {
+            return mass / (height * height);
+        }
+
+        let mass = getNumericValue("Введіть масу тіла у кілограмах");
+        let height = getNumericValue("Введіть зріст у метрах");
+
+        let bmi = bodyMassIndex(mass, height).toFixed(1);
+
+        console.log(bmi);
+
+        let underweight = "Недостатня вага";
+        let normalWeight = "Нормальна вага";
+        let overweight = "Надмірна вага";
+        let obesity = "Ожиріння";
+
+        function categoryBMI(bmi) {
+            if (bmi < 18.5) {
+                return underweight;
+            } else if (bmi < 24.9) {
+                return normalWeight;
+            } else if (bmi < 29.9) {
+                return overweight;
+            } else if (bmi >= 30) {
+                return obesity;
+            }
+        }
+
+        let result = categoryBMI(bmi);
+
+        console.log(result);
+        alert(`Ваш індекс маси тіла: ${bmi} ${result}`);
+    </script>
+</body>
+
+</html>

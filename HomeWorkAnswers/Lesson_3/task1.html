@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let enterNumber;
+
+        enterNumber = prompt("Введіть ціле число");
+        enterNumber = parseInt(enterNumber);
+        console.log(enterNumber);
+        function checkIntegerInput() {
+            if (Number.isInteger(enterNumber)) {
+                alert("Введене число ціле");
+                let result = enterNumber % 2;
+                console.log(result);
+                if (result !== 0) {
+                    alert("Введене число непарне");
+                } else {
+                    alert("Введене число парне")
+                };
+            } else {
+                alert("Введене не ціле число! Оновіть сторінку і спробуйте знову");
+
+            }
+        };
+        checkIntegerInput(enterNumber);
+
+        /*let enterNumber = prompt("Введіть ціле число (навіть дуже велике)");
+
+        try {
+            let bigIntNumber = BigInt(enterNumber); // перетворення в BigInt
+
+            alert("Введене число ціле");
+
+            let result = bigIntNumber % 2n;
+            if (result !== 0n) {
+                alert("Введене число непарне");
+            } else {
+                alert("Введене число парне");
+            }
+
+            console.log("Введене число:", bigIntNumber.toString());
+            console.log("Залишок від ділення на 2:", result.toString());
+
+        } catch (e) {
+            alert("Помилка: Введене не ціле число або занадто велике/некоректне значення.");
+            console.error(e);
+        }*/
+
+
+        // Number.isInteger() - визначає, чи є передане значення цілим числом. Повертає true якщо ціле число, в іншому випадку повертає false.
+
+
+    </script>
+</body>
+
+</html>
