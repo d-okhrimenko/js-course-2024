@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getNumericValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) return Number(value);
+            }
+        }
+
+        function getRectangleArea(lenght, width) {
+            return (lenght * width);
+        }
+
+        function getRectanglePerimeter(lenght, width) {
+            return 2 * (lenght + width);
+        }
+
+        console.log(getRectangleArea(2, 3));
+        console.log(getRectanglePerimeter(2, 3));
+
+        const lenght = getNumericValue("Введіть довжину прямокутника");
+        const width = getNumericValue("Введіть ширину прямокутника");
+        let area = getRectangleArea(lenght, width);
+        let perimeter = getRectanglePerimeter(lenght, width);
+
+        console.log(area);
+        console.log(perimeter);
+
+    </script>
+</body>
+
+</html>

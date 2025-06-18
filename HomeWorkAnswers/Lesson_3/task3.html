@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let enterYear;
+        enterYear = prompt("Введіть рік");
+        enterYear = parseInt(enterYear);
+        console.log(enterYear);
+        function checkIntegerInput() {
+            if (Number.isInteger(enterYear)) {
+                alert("Введене число ціле");
+
+                let result1 = enterYear % 4;
+                console.log(result1);
+                let result2 = enterYear % 100;
+                console.log(result2);
+                let result3 = enterYear % 400;
+                console.log(result3);
+
+                if (result1 !== 0) {
+                    alert("Рік не високосний");
+                } else if (result2 == 0 && result3!==0) {
+                    alert("Рік не високосний");
+                } else {
+                    alert("Рік високосний");
+                }
+
+
+            } else {
+                alert("Введене не ціле число! Оновіть сторінку і спробуйте знову");
+
+            }
+        };
+        checkIntegerInput(enterYear);
+
+    </script>
+</body>
+
+</html>

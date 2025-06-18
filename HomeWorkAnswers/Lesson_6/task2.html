@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let items = ["Картопля", "Молоко", "Хліб"];
+        let length = items.length;
+
+
+
+        // function addItem(array) {
+        //     let item = prompt("Додайте товар");
+        //     array.push(item);
+        //     return array;
+        // }
+
+        function addItem(array) {
+            array.push(prompt("Додайте товар"));
+            return array;
+        }
+
+
+        addItem(items);
+        alert("Товар додано");
+        console.log(items);
+
+        function deleteItem(array) {
+
+            let del = prompt(`Введіть товар з переліку ${array} який потрібно видалити`);
+            let indexDel = array.indexOf(del);// буде дорівнювати -1 якщо елемент масиву відсутній
+
+
+            if (indexDel !== -1) {
+                array.splice(indexDel, 1);
+                alert(`Товар ${del} видалено`);
+            } else {
+                alert("Такий товар відсутній. Спробуйте ввести іншу назву.");
+                deleteItem(array);
+            }
+
+
+            return array;
+        }
+
+        deleteItem(items);
+        console.log("Після відалення:", items);
+
+    </script>
+</body>
+
+</html>

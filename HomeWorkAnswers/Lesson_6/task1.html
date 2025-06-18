@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let marks = [];
+        let userMarks = [];
+
+        // масив з випадкових чисел
+        for (let index = 0; index < 3; index++) {
+            let randomNumber = Math.floor(Math.random() * 100) + 1;
+            let mark = randomNumber;
+            // marks[index++] = mark;
+            marks.push(mark);
+        }
+
+        console.log(marks);
+
+        // середнє значення для масиву випадкових чисел;
+        function averageMark(array) {
+            sumMark = array.reduce(function (previousValue, item, index, array) {
+
+                return item + previousValue;
+
+            }, 0);
+
+            let averageMark = sumMark / array.length;
+
+            return +averageMark.toFixed(2);
+        }
+
+        const averege=averageMark(marks);
+        console.log(averege);
+
+        // мінімальне значення для масиву випадкових чисел;
+        function min(marks) {
+            let min = Number.MAX_VALUE;
+            for (const value of marks) {
+                if (value < min) {
+                    min = value;
+                }
+            }
+            return min;
+        }
+        
+        const minMark = min(marks);
+        console.log(minMark);
+
+        // максимальне значення для масиву випадкових чисел;
+        function max(marks) {
+            let max = Number.MIN_VALUE;
+            for (const value of marks) {
+                if (value > max) {
+                    max = value;
+                }
+            }
+            return max;
+        }
+
+        const maxMark = max(marks);
+        console.log(maxMark);
+
+        function getNumericValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) return Number(value);
+            }
+        }
+
+        // масив значень введених користувачем;
+        for (let i = 0; i < 3; i++) {
+            const element = userMarks[i];
+            userMarks[i] = getNumericValue('Введіть оцінку від 0 до 100');
+        }
+        console.log(userMarks);
+
+        let userMinMark = min(userMarks);
+        console.log(userMinMark);
+
+        let userMaxMark = max(userMarks);
+        console.log(userMaxMark);
+
+        let userAverageMark=averageMark(userMarks);
+        console.log(userAverageMark);
+
+        alert(`Середній бал ${userAverageMark}, мінімальний бал ${userMinMark}, максимальний бал ${userMaxMark}`);
+
+
+    </script>
+</body>
+
+</html>
